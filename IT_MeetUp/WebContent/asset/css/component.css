@@ -1,0 +1,15 @@
+/* 컴포넌트 페이지용 클래스 */
+.comp_box:first-child{padding-top:0;}
+.comp_box{padding:30px 0;}
+.comp_box + .comp_box{border-top:1px solid #ddd;}
+.comp_tit{position:relative; padding-left:20px; font-size:20px; line-height:1.5; font-weight:bold; margin-bottom:5px;}
+.comp_tit::before{content:''; display:block; position:absolute; top:10px; left:0; width:10px; height:10px; background:black; border-radius:100%;}
+.comp_tit02{position:relative; padding-left:10px; font-size:15px; line-height:1.5; font-weight:bold; margin-bottom:5px; font-weight:bold; margin:10px 0 5px;}
+.comp_tit02::before{content:'*'; display:block; position:absolute; top:0; left:0; }
+.comp_txt{margin-top:10px; font-size:16px; line-height:1.5;}
+.comp_cf{margin-top:10px; font-size:14px; color:#666;}
+.comp_flexbox{display: flex;}
+.comp_flexbox > * + *{margin-left: 8px;}
+.comp_flexbox.thir > li{width: 33.3333%;}
+
+.wrapper a[target="_blank"]{text-decoration: underline;}

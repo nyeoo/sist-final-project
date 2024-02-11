@@ -1,0 +1,13 @@
+@charset "utf-8";
+
+/*스타트 부트스트랩*/
+/* @import "../../asset/css/startbootstrap/sb-admin-2.min.css";  */
+@import "../../asset/css/bootstrap/bootstrap.min.css";    /* 부트스트랩 */
+@import "../../asset/css/bootstrap/bootstrap-icons.css";  /* 부트스트랩아이콘 */
+@import "../../asset/css/swiper/swiper-bundle.min.css";  /* 스와이퍼 */
+/* 폰트어썸 */
+/* @import "../../asset/css/fontawesome-free/css/all.min.css"; */
+@import "../../asset/css/jquery-ui/jquery-ui.css";  /* 제이쿼리 ui */
+
+@import "../../asset/css/common.css";           /* 공통 */
+@import "../../asset/css/layout.css";           /* 레이아웃 */
