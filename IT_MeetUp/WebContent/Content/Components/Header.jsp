@@ -4,7 +4,7 @@
 	request.setCharacterEncoding("UTF-8");
 	String cp = request.getContextPath();
 %>
-<nav class="navbar navbar-expand-md navbar-dark bg-dark m-header-area" aria-label="Fifth navbar example">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark m-header-area sticky-top" aria-label="Fifth navbar example">
   <div class="container-xl">
     <!-- 로고 -->
     <a class="navbar-brand" href="#">Meet Up</a>

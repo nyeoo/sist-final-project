@@ -26,7 +26,7 @@
   <div class="wrapper">
 
     <!-- 헤더영역 -->
-    <div role="header" data-include="../Components/Header.jsp" class="sticky-top"></div>
+    <c:import url="../Components/Header.jsp"></c:import>
     <!-- //헤더영역 -->
 
     <!-- 바디영역 -->
@@ -36,14 +36,13 @@
         <div class="content_tit">
           <p class="h3">Heading 3</p>
           <!-- 브레드크럼블 -->
-          <div role="breadcrumb" data-include="../Components/Breadcrumb.jsp"></div>
+          <c:import url="../Components/Breadcrumb.jsp"></c:import>
           <!-- //브레드크럼블 -->
         </div>
 
         <!-- 리스트 -->
         <div class="board_list">
           <table class="table table-hover">
-            <caption> 목록 : 번호, 구분, 제목, 작성일, 조회수, 파일 정보 제공</caption>
             <colgroup>
               <col class="num" style="width: 70px">
               <col class="category">
@@ -158,7 +157,7 @@
     <!-- //바디영역 -->
 
     <!-- 푸터영역 -->
-    <div role="footer" data-include="../Components/Footer.jsp" class="mt-auto"></div>
+    <c:import url="../Components/Footer.jsp" ></c:import>
     <!-- //푸터영역 -->
 
   </div>

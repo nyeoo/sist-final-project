@@ -10,7 +10,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GroupHome</title>
+  <title>PortfolioDetail</title>
   <meta name="description" content="IT 프로젝트 모집·진행 웹 어플리케이션">
   <meta name="subject" content="IT 프로젝트 모집·진행 웹 어플리케이션">
   <meta name="title" content="IT MeetUp">
@@ -33,29 +33,24 @@
     <section class="m-body-area">
       <div class="container-xl">
 
-        <!-- 사이드 영역 -->
-        <c:import url="../Components/Side.jsp"></c:import>
-        <!-- //사이드 영역 -->
-
-        <!-- 콘텐츠 -->
-        <div class="content">
-
-          <div class="content_tit">
-            <p class="h3">Heading 3</p>
-            <!-- 브레드크럼블 -->
-            <c:import url="../Components/Breadcrumb.jsp"></c:import>
-            <!-- //브레드크럼블 -->
-          </div>
-          
+        <div class="content_tit">
+          <p class="h3">포트폴리오 상세</p>
+          <!-- 브레드크럼블 -->
+          <c:import url="../Components/Breadcrumb.jsp"></c:import>
+          <!-- //브레드크럼블 -->
         </div>
-        <!-- //콘텐츠 -->
-
+        
+        <!-- 포트폴리오 상세 -->
+        
+        
+        <!-- //포트폴리오 상세 -->
+        
       </div>
     </section>
     <!-- //바디영역 -->
 
     <!-- 푸터영역 -->
-    <!-- <c:import url="../Components/Footer.jsp" ></c:import> -->
+    <c:import url="../Components/Footer.jsp" ></c:import>
     <!-- //푸터영역 -->
 
   </div>

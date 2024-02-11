@@ -26,7 +26,7 @@
   <div class="wrapper">
 
     <!-- 헤더영역 -->
-    <div role="header" data-include="../Components/Header.jsp" class="sticky-top"></div>
+    <c:import url="../Components/Header.jsp"></c:import>
     <!-- //헤더영역 -->
 
     <!-- 바디영역 -->
@@ -34,7 +34,7 @@
       <div class="container-xl">
 
         <!-- 사이드 영역 -->
-        <div role="side" data-include="../Components/Side.jsp"></div>
+        <c:import url="../Components/Side.jsp"></c:import>
         <!-- //사이드 영역 -->
 
         <!-- 콘텐츠 -->
@@ -43,7 +43,7 @@
           <div class="content_tit">
             <p class="h3">Heading 3</p>
             <!-- 브레드크럼블 -->
-            <div role="breadcrumb" data-include="../Components/Breadcrumb.jsp"></div>
+            <c:import url="../Components/Breadcrumb.jsp"></c:import>
             <!-- //브레드크럼블 -->
           </div>
 
@@ -339,7 +339,7 @@
     <!-- //바디영역 -->
 
     <!-- 푸터영역 -->
-    <!-- <div role="footer" data-include="../Components/Footer.jsp" class="mt-auto"></div> -->
+    <!-- <c:import url="../Components/Footer.jsp" ></c:import> -->
     <!-- //푸터영역 -->
 
   </div>
