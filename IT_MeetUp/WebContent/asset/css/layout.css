@@ -126,7 +126,7 @@ html .ui-button.ui-state-disabled:active { color: #666 !important; background: #
 
 /* 달력 대형 */
 .calendar-datepicker{}
-.calendar-datepicker .ui-widget.ui-widget-content{width: 100%;}
+.calendar-datepicker .ui-widget.ui-widget-content{width: 80%; float: right;}
 .calendar-datepicker .ui-state-default,.calendar-datepicker .ui-widget-content .ui-state-default{/*aspect-ratio: 1/1;*/height: 7rem;}
 .calendar-datepicker .ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current{height: auto;}
 
