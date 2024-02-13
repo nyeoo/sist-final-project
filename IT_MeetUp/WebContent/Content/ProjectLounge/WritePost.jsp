@@ -9,7 +9,7 @@
 <head>
  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>모집공고 폼</title>
+  <title>모집공고 폼 </title>
   <meta name="description" content="IT 프로젝트 모집·진행 웹 어플리케이션">
   <meta name="subject" content="IT 프로젝트 모집·진행 웹 어플리케이션">
   <meta name="title" content="IT MeetUp">
@@ -277,14 +277,7 @@
 				 <label class="btn btn-light" for="allline">온 / 오프라인</label>
 			</div>
 		</div>
-		<!-- <div class="comp_tit d-flex">
-			역할 <select class="form-select" style="width: 150px;" required="required">
-				<option selected="selected">선택하세요</option>
-				<option>프론트</option>
-				<option>백엔드</option>
-				<option>디자인</option>
-			</select>
-		</div> -->
+		
 		<div id="#item-4" class="d-flex comp_tit">
 			선호지역
 			<div class="m-select">
