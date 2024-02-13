@@ -55,6 +55,16 @@ String cp = request.getContextPath();
 	text-align: right;
 	margin-top: 10px;
 }
+
+.col-md-4 .thumbnail {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.thumbnail {background-color: #f0f0f0; height: 100%}
+
 </style>
 
 </head>
@@ -99,117 +109,95 @@ String cp = request.getContextPath();
 						<div class="tab-pane fade show active" id="nav-tab01"
 							role="tabpanel" aria-labelledby="nav-tab01-tab">
 
-							<div class="card tbl-card">
+							<div class="row">
 								<h5 class="card-header">그룹 설정</h5>
-								<!-- <div class="table-responsive text-nowrap">
-                  <table class="table">
-                    <thead>
-                      <tr>
-                        <th>제목</th>
-                        <th>내용</th>
-                        <th>사용언어</th>
-                        <th>이미지</th>
-                        <th>각 역할별 인원수</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> 자바 프로젝트</td>
-                        <td>자바를 이용한 프로젝트</td>
-                        <td>자바 오라클 c++ 등등
-                        </td>
-                        <td>이미지</td>
-                        <td>
-                          각 역할별 인원수
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div> -->
 
 								<div class="col-md-8">
-									<!-- 네임카드 -->
-									<!-- <div class="card"> -->
-										<div class="card-body pt-3">
-											<form>
+									<div class="card-body pt-3">
+										<form>
 
-												<div class="row mb-3">
-													<label for="myId" class="col-md-3 col-lg-2 col-form-label">제목</label>
-													<div class="col-md-9 col-lg-10">자바 프로젝트</div>
+											<div class="row mb-3">
+												<label for="title" class="col-md-3 col-lg-2 col-form-label">제목</label>
+												<div class="col-md-9 col-lg-10">자바 프로젝트</div>
+											</div>
+
+											<div class="row mb-3">
+												<label for="content"
+													class="col-md-3 col-lg-2 col-form-label">내용</label>
+												<div class="col-md-9 col-lg-10">
+													<textarea name="content" class="form-control" id="content"
+														style="height: 100px">Sunt est soluta temporibus accusantium neque nam maiores cumque temporibus. Tempora libero non est unde veniam est qui dolor. Ut sunt iure rerum quae quisquam autem eveniet perspiciatis odit. Fuga sequi sed ea saepe at unde.</textarea>
 												</div>
+											</div>
 
-												<div class="row mb-3">
-													<label for="about" class="col-md-3 col-lg-2 col-form-label">내용</label>
-													<div class="col-md-9 col-lg-10">
-														<textarea name="about" class="form-control" id="about"
-															style="height: 100px">Sunt est soluta temporibus accusantium neque nam maiores cumque temporibus. Tempora libero non est unde veniam est qui dolor. Ut sunt iure rerum quae quisquam autem eveniet perspiciatis odit. Fuga sequi sed ea saepe at unde.</textarea>
+											<div class="row mb-3">
+												<label for="useSkill"
+													class="col-md-3 col-lg-2 col-form-label">사용기술</label>
+												<div class="col-md-9 col-lg-10">
+													<ul class="skill-check">
+														<li>
+															<div class="form-check skill-item">
+																<label class="form-check-label"> <input
+																	class="form-check-input" type="checkbox" value="" id="">
+																	Default checkbox
+																</label>
+															</div>
+														</li>
+														<li>
+															<div class="form-check skill-item">
+																<label class="form-check-label"> <input
+																	class="form-check-input" type="checkbox" value="" id="">
+																	Default checkbox
+																</label>
+															</div>
+														</li>
+														<li>
+															<div class="form-check skill-item">
+																<label class="form-check-label"> <input
+																	class="form-check-input" type="checkbox" value="" id="">
+																	Default checkbox
+																</label>
+															</div>
+														</li>
+														<li>
+															<div class="form-check skill-item">
+																<label class="form-check-label"> <input
+																	class="form-check-input" type="checkbox" value="" id="">
+																	Default checkbox
+																</label>
+															</div>
+														</li>
+														<li>
+															<div class="form-check skill-item">
+																<label class="form-check-label"> <input
+																	class="form-check-input" type="checkbox" value="" id="">
+																	Default checkbox
+																</label>
+															</div>
+														</li>
+													</ul>
+												</div>
+											</div>
+
+											<div class="row mb-3">
+												<label for="partPerson"
+													class="col-md-3 col-lg-2 col-form-label">역할별 인원수</label>
+												<div class="col-md-9 col-lg-10 m-select">
+													<div class="row">
+														<div class="col-6 m-select">???</div>
 													</div>
 												</div>
-
-												<div class="row mb-3">
-													<label for="myId" class="col-md-3 col-lg-2 col-form-label">사용기술</label>
-													<div class="col-md-9 col-lg-10">
-														<ul class="skill-check">
-															<li>
-																<div class="form-check skill-item">
-																	<label class="form-check-label"> <input
-																		class="form-check-input" type="checkbox" value=""
-																		id=""> Default checkbox
-																	</label>
-																</div>
-															</li>
-															<li>
-																<div class="form-check skill-item">
-																	<label class="form-check-label"> <input
-																		class="form-check-input" type="checkbox" value=""
-																		id=""> Default checkbox
-																	</label>
-																</div>
-															</li>
-															<li>
-																<div class="form-check skill-item">
-																	<label class="form-check-label"> <input
-																		class="form-check-input" type="checkbox" value=""
-																		id=""> Default checkbox
-																	</label>
-																</div>
-															</li>
-															<li>
-																<div class="form-check skill-item">
-																	<label class="form-check-label"> <input
-																		class="form-check-input" type="checkbox" value=""
-																		id=""> Default checkbox
-																	</label>
-																</div>
-															</li>
-															<li>
-																<div class="form-check skill-item">
-																	<label class="form-check-label"> <input
-																		class="form-check-input" type="checkbox" value=""
-																		id=""> Default checkbox
-																	</label>
-																</div>
-															</li>
-														</ul>
-													</div>
-												</div>
-
-												<div class="row mb-3">
-													<label for="myId" class="col-md-3 col-lg-2 col-form-label">역할별
-														인원수</label>
-													<div class="col-md-9 col-lg-10 m-select">
-														<div class="row">
-															<div class="col-6 m-select">???</div>
-														</div>
-													</div>
-												</div>
+											</div>
 
 
-											</form>
-										</div>
-									<!-- </div> -->
-									<!-- //네임카드 -->
+										</form>
+									</div>
 
+								</div>
+								<div class="col-md-4">
+									<div class="thumbnail rounded">
+										<img src="../asset/images/ico_language_python.png">
+									</div>
 								</div>
 							</div>
 							<div class="button-right">
