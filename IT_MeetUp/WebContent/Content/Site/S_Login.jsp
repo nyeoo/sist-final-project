@@ -26,7 +26,7 @@
   <div class="wrapper">
 
     <!-- 헤더영역 -->
-    <!-- <c:import url="../Components/Header.jsp"></c:import> -->
+    <%-- <c:import url="../Components/Header.jsp"></c:import> --%>
     <!-- //헤더영역 -->
 
     <!-- 바디영역 -->
@@ -103,7 +103,7 @@
     <!-- //바디영역 -->
 
     <!-- 푸터영역 -->
-    <!-- <c:import url="../Components/Footer.jsp" ></c:import> -->
+    <%-- <c:import url="../Components/Footer.jsp" ></c:import> --%>
     <!-- //푸터영역 -->
 
   </div>
