@@ -303,37 +303,6 @@ String cp = request.getContextPath();
 					</div>
 				</div>
 			</div>
-			<!-- 					<div class="col-4 level-con level-team">
-						<div class="card">
-							<div class="card-body">
-								<div class="row no-gutters align-items-center">
-									<div class="col mr-2">
-										<div
-											class="text-xs font-weight-bold text-success text-uppercase mb-1">
-											<span data-bs-toggle="tooltip" data-bs-placement="top"
-												data-bs-title="프로젝트 후 평가">팀원평가점수 <i
-												class="bi bi-question-circle"></i></span>
-										</div>
-										<div class="row no-gutters align-items-center">
-											<div class="col-auto">
-												<div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">80점</div>
-											</div>
-											<div class="col">
-												<div class="progress progress-sm mr-2">
-													<div class="progress-bar bg-success" role="progressbar"
-														style="width: 80%" aria-valuenow="80" aria-valuemin="0"
-														aria-valuemax="100"></div>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="col-auto bi-icon">
-										<i class="bi bi-wechat text-gray-300"></i>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div> -->
 			<!-- //팀원평가점수 -->
 		</div>
 	</div>
@@ -344,136 +313,103 @@ String cp = request.getContextPath();
 	<ul class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 card-list">
 		<li class="col-12 col-sm-6 col-md-4 col-lg-4">
 			<div class="card p-4 d-flex flex-column">
-				<!-- 고정하기 -->
-				<div class="form-check zzim fixed">
-					<label class="form-check-label"> <input
-						class="form-check-input" type="checkbox" value="" id=""
-						title="고정하기"> <span class="icon-box"><i
-							class="bi bi-pin-angle"></i><i class="bi bi-pin-angle-fill"></i></span>
-					</label>
-				</div>
-				<!-- 데드라인/ 시작예정일 - 예상기간 -->
-				<div class="mb-1 text-body-secondary">
-					<span class="deadline">(D-100)</span>2.4 - 3.19
-				</div>
-				<!-- 직무 -->
-				<div class="d-flex job-box mb-3">
-					<span class="badge rounded-pill bg-primary">프론트</span> <span
-						class="badge rounded-pill bg-secondary">백</span> <span
-						class="badge rounded-pill bg-success">기획</span> <span
-						class="badge rounded-pill bg-danger">디자인</span>
-				</div>
-				<!-- 작성자 -->
-				<strong class="mt-5 mb-2 text-primary-emphasis writer"><span
-					class="leader-level"></span>작성자닉네임</strong>
-				<!-- 제목 -->
-				<a href="javascript:;" class="card-tit mb-3">
-					<h3>
-						제목입니다.제목입니다.<br>제목입니다.제목입니다.
-					</h3>
-				</a>
-				<!-- 상세내용 -->
-				<p class="card-text text-truncate mb-3">내용입니다. 내용입니다. 내용입니다.
-					내용입니다. 내용입니다.</p>
-				<div class="d-flex justify-content-between align-items-center">
-					<!-- 사용언어 -->
-					<div class="language-box">
-						<span class="badge-language"><span class="blind">파이썬</span></span>
-						<span class="badge-language"><span class="blind">파이썬</span></span>
-						<span class="badge-language"><span class="blind">파이썬</span></span>
+				<div class="card-top">
+					<div class="img-box">
+					
 					</div>
-					<!-- 조회수 -->
-					<small class="text-body-secondary">view 10</small>
+				</div>
+				<div class="card-bottom">
+					<!-- 작성자 -->
+					<strong class="mb-2 text-primary-emphasis writer"><span
+						class="leader-level"></span>작성자닉네임</strong>
+					<!-- 제목 -->
+					<a href="javascript:;" class="card-tit mb-3">
+						<h3>
+							제목입니다.제목입니다.<br>제목입니다.제목입니다.
+						</h3>
+					</a>
+					<!-- 상세내용 -->
+					<p class="card-text text-truncate mb-3">내용입니다. 내용입니다. 내용입니다.
+						내용입니다. 내용입니다.</p>
 				</div>
 			</div>
 		</li>
 		<li class="col-12 col-sm-6 col-md-4 col-lg-4">
 			<div class="card p-4 d-flex flex-column">
-				<!-- 고정하기 -->
-				<div class="form-check zzim fixed">
-					<label class="form-check-label"> <input
-						class="form-check-input" type="checkbox" value="" id=""
-						title="고정하기"> <span class="icon-box"><i
-							class="bi bi-pin-angle"></i><i class="bi bi-pin-angle-fill"></i></span>
-					</label>
-				</div>
-				<!-- 데드라인/ 시작예정일 - 예상기간 -->
-				<div class="mb-1 text-body-secondary">
-					<span class="deadline">(D-100)</span>2.4 - 3.19
-				</div>
-				<!-- 직무 -->
-				<div class="d-flex job-box mb-3">
-					<span class="badge rounded-pill bg-primary">프론트</span> <span
-						class="badge rounded-pill bg-secondary">백</span> <span
-						class="badge rounded-pill bg-success">기획</span> <span
-						class="badge rounded-pill bg-danger">디자인</span>
-				</div>
-				<!-- 작성자 -->
-				<strong class="mt-5 mb-2 text-primary-emphasis writer"><span
-					class="leader-level"></span>작성자닉네임</strong>
-				<!-- 제목 -->
-				<a href="javascript:;" class="card-tit mb-3">
-					<h3>
-						제목입니다.제목입니다.<br>제목입니다.제목입니다.
-					</h3>
-				</a>
-				<!-- 상세내용 -->
-				<p class="card-text text-truncate mb-3">내용입니다. 내용입니다. 내용입니다.
-					내용입니다. 내용입니다.</p>
-				<div class="d-flex justify-content-between align-items-center">
-					<!-- 사용언어 -->
-					<div class="language-box">
-						<span class="badge-language"><span class="blind">파이썬</span></span>
-						<span class="badge-language"><span class="blind">파이썬</span></span>
-						<span class="badge-language"><span class="blind">파이썬</span></span>
+
+				<div class="card-top">
+					<!-- 고정하기 -->
+					<div class="form-check zzim fixed">
+						<label class="form-check-label"> <input
+							class="form-check-input" type="checkbox" value="" id=""
+							title="고정하기"> <span class="icon-box"><i
+								class="bi bi-pin-angle"></i><i class="bi bi-pin-angle-fill"></i></span>
+						</label>
 					</div>
-					<!-- 조회수 -->
-					<small class="text-body-secondary">view 10</small>
+					<!-- 데드라인/ 시작예정일 - 예상기간 -->
+					<div class="mb-1 text-body-secondary">
+						<span class="deadline">(D-100)</span>2.4 - 3.19
+					</div>
+					<!-- 직무 -->
+					<div class="d-flex job-box">
+						<span class="badge rounded-pill bg-primary">프론트</span> <span
+							class="badge rounded-pill bg-secondary">백</span> <span
+							class="badge rounded-pill bg-success">기획</span> <span
+							class="badge rounded-pill bg-danger">디자인</span>
+					</div>
+				</div>
+				<div class="card-bottom">
+					<!-- 작성자 -->
+					<strong class="mb-2 text-primary-emphasis writer"><span
+						class="leader-level"></span>작성자닉네임</strong>
+					<!-- 제목 -->
+					<a href="javascript:;" class="card-tit mb-3">
+						<h3>
+							제목입니다.제목입니다.<br>제목입니다.제목입니다.
+						</h3>
+					</a>
+					<!-- 상세내용 -->
+					<p class="card-text text-truncate mb-3">내용입니다. 내용입니다. 내용입니다.
+						내용입니다. 내용입니다.</p>
 				</div>
 			</div>
 		</li>
 		<li class="col-12 col-sm-6 col-md-4 col-lg-4">
 			<div class="card p-4 d-flex flex-column">
-				<!-- 고정하기 -->
-				<div class="form-check zzim fixed">
-					<label class="form-check-label"> <input
-						class="form-check-input" type="checkbox" value="" id=""
-						title="고정하기"> <span class="icon-box"><i
-							class="bi bi-pin-angle"></i><i class="bi bi-pin-angle-fill"></i></span>
-					</label>
-				</div>
-				<!-- 데드라인/ 시작예정일 - 예상기간 -->
-				<div class="mb-1 text-body-secondary">
-					<span class="deadline">(D-100)</span>2.4 - 3.19
-				</div>
-				<!-- 직무 -->
-				<div class="d-flex job-box mb-3">
-					<span class="badge rounded-pill bg-primary">프론트</span> <span
-						class="badge rounded-pill bg-secondary">백</span> <span
-						class="badge rounded-pill bg-success">기획</span> <span
-						class="badge rounded-pill bg-danger">디자인</span>
-				</div>
-				<!-- 작성자 -->
-				<strong class="mt-5 mb-2 text-primary-emphasis writer"><span
-					class="leader-level"></span>작성자닉네임</strong>
-				<!-- 제목 -->
-				<a href="javascript:;" class="card-tit mb-3">
-					<h3>
-						제목입니다.제목입니다.<br>제목입니다.제목입니다.
-					</h3>
-				</a>
-				<!-- 상세내용 -->
-				<p class="card-text text-truncate mb-3">내용입니다. 내용입니다. 내용입니다.
-					내용입니다. 내용입니다.</p>
-				<div class="d-flex justify-content-between align-items-center">
-					<!-- 사용언어 -->
-					<div class="language-box">
-						<span class="badge-language"><span class="blind">파이썬</span></span>
-						<span class="badge-language"><span class="blind">파이썬</span></span>
-						<span class="badge-language"><span class="blind">파이썬</span></span>
+				<div class="card-top">
+					<!-- 고정하기 -->
+					<div class="form-check zzim fixed">
+						<label class="form-check-label"> <input
+							class="form-check-input" type="checkbox" value="" id=""
+							title="고정하기"> <span class="icon-box"><i
+								class="bi bi-pin-angle"></i><i class="bi bi-pin-angle-fill"></i></span>
+						</label>
 					</div>
-					<!-- 조회수 -->
-					<small class="text-body-secondary">view 10</small>
+					<!-- 데드라인/ 시작예정일 - 예상기간 -->
+					<div class="mb-1 text-body-secondary">
+						<span class="deadline">(D-100)</span>2.4 - 3.19
+					</div>
+					<!-- 직무 -->
+					<div class="d-flex job-box">
+						<span class="badge rounded-pill bg-primary">프론트</span> <span
+							class="badge rounded-pill bg-secondary">백</span> <span
+							class="badge rounded-pill bg-success">기획</span> <span
+							class="badge rounded-pill bg-danger">디자인</span>
+					</div>
+				</div>
+				<div class="card-bottom">
+					<!-- 작성자 -->
+					<strong class="mb-2 text-primary-emphasis writer"><span
+						class="leader-level"></span>작성자닉네임</strong>
+					<!-- 제목 -->
+					<a href="javascript:;" class="card-tit mb-3">
+						<h3>
+							제목입니다.제목입니다.<br>제목입니다.제목입니다.
+						</h3>
+					</a>
+					<!-- 상세내용 -->
+					<p class="card-text text-truncate mb-3">내용입니다. 내용입니다. 내용입니다.
+						내용입니다. 내용입니다.</p>
 				</div>
 			</div>
 		</li>
@@ -482,9 +418,11 @@ String cp = request.getContextPath();
 	<!-- 더보기 -->
 	<div class="col-12 btn-box">
 		<div class="btn-center">
-			<button type="button" class="btn btn-primary"><i class="bi bi-plus-lg"></i> 더보기</button>
+			<button type="button" class="btn btn-primary">
+				<i class="bi bi-plus-lg"></i> 더보기
+			</button>
 		</div>
 	</div>
 	<!-- //더보기 -->
-	
+
 </div>
