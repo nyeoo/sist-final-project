@@ -10,7 +10,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WorkManage</title>
+  <title>ScheduleManage</title>
   <meta name="description" content="IT 프로젝트 모집·진행 웹 어플리케이션">
   <meta name="subject" content="IT 프로젝트 모집·진행 웹 어플리케이션">
   <meta name="title" content="IT MeetUp">
@@ -41,14 +41,14 @@
         <div class="content">
 
           <div class="content_tit">
-            <p class="h3">업무관리</p>
+            <p class="h3">일정관리</p>
             <!-- 브레드크럼블 -->
             <div role="breadcrumb" data-include="../Components/Breadcrumb.jsp"></div>
             <!-- //브레드크럼블 -->
           </div>
 
           <div class="card tbl-card">
-            <h5 class="card-header">업무할당표</h5>
+            <h5 class="card-header">일정</h5>
             <div class="table-responsive text-nowrap tbl-border">
               <table class="table">
                 <colgroup>
@@ -63,7 +63,6 @@
                 </colgroup>
                 <thead>
                   <tr>
-                    <th class="dep0"><span class="blind">1 dep</span></th>
                     <th>주제</th>
                     <th>시작일</th>
                     <th>종료일</th>
@@ -71,13 +70,10 @@
                     <th>실제시작일</th>
                     <th>실제종료일</th>
                     <th>업무상태</th>
-                    <th>작성하기</th>
-                    <th>추가/조회</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr class="range-datepicker">
-                    <td class="dep0"><i class="bi bi-folder2-open"></i></td>
                     <td><strong>분석</strong></td>
                     <td>
                       <div class="m-input-cal">
@@ -119,132 +115,8 @@
                         </select>
                       </div>
                     </td>
-                    <td>                      
-                    </td>
-                    <td>
-                    	<button type="button" class="btn btn-primary btn-plus"><i class="bi bi-plus-circle-dotted"></i></button>
-                    </td>
                   </tr>
                   <tr class="range-datepicker">
-                    <td class="dep0">└</td>
-                    <td><input type="button" class="form-control form-control-plaintext" id="validationCustom01" value="요구사항분석"></td>
-                    <td>
-                      <div class="m-input-cal">
-                        <input type="text" class="form-control date-from">
-                      </div>
-                    </td>
-                    <td>
-                      <div class="m-input-cal">
-                        <input type="text" class="form-control date-to">
-                      </div>
-                    </td>
-                    <td>
-                      <div class="m-select">
-                        <select class="form-select" aria-label="Default select example" title="selectTitle00">
-                          <option selected="">담당자명</option>
-                          <option value="1">방장</option>
-                          <option value="2">팀원1</option>
-                          <option value="3">팀원2</option>
-                        </select>
-                      </div>                      
-                    </td>
-                    <td>
-                      <div class="m-input-cal">
-                        <input type="text" class="form-control date-from">
-                      </div>
-                    </td>
-                    <td>
-                      <div class="m-input-cal">
-                        <input type="text" class="form-control date-to">
-                      </div>
-                    </td>
-                    <td>
-                      <div class="m-select">
-                        <select class="form-select" aria-label="Default select example" title="selectTitle01">
-                          <option selected="">업무상태를 선택하세요.</option>
-                          <option value="1">시작예정</option>
-                          <option value="2">진행중</option>
-                          <option value="3">완료</option>
-                        </select>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="dropdown">
-                        <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                          <i class="bi bi-three-dots-vertical"></i>
-                        </button>
-                        <div class="dropdown-menu">
-                          <a class="dropdown-item" href="javascript:void(0);"><i class="bi bi-pencil-square"></i>
-                            	업무보고</a>
-                          <a class="dropdown-item" href="javascript:void(0);"><i class="bi bi-trash3"></i>업무삭제</a>
-                        </div>
-                      </div>
-                    </td>
-                    <td>
-                    	<button type="button" class="btn btn-primary btn-plus" style="background-color: green;"><i class="bi bi-list-task"></i></button>
-                    </td>
-                  </tr>
-                  <tr class="range-datepicker">
-                    <td class="dep0">└</td>
-                    <td><input type="text" class="form-control" id="validationCustom01"></td>
-                    <td>
-                      <div class="m-input-cal">
-                        <input type="text" class="form-control date-from">
-                      </div>
-                    </td>
-                    <td>
-                      <div class="m-input-cal">
-                        <input type="text" class="form-control date-to">
-                      </div>
-                    </td>
-                    <td>
-                      <div class="m-select">
-                        <select class="form-select" aria-label="Default select example" title="selectTitle00">
-                          <option selected="">담당자명</option>
-                          <option value="1">방장</option>
-                          <option value="2">팀원1</option>
-                          <option value="3">팀원2</option>
-                        </select>
-                      </div>                      
-                    </td>
-                    <td>
-                      <div class="m-input-cal">
-                        <input type="text" class="form-control date-from">
-                      </div>
-                    </td>
-                    <td>
-                      <div class="m-input-cal">
-                        <input type="text" class="form-control date-to">
-                      </div>
-                    </td>
-                    <td>
-                      <div class="m-select">
-                        <select class="form-select" aria-label="Default select example" title="selectTitle01">
-                          <option selected="">업무상태를 선택하세요.</option>
-                          <option value="1">시작예정</option>
-                          <option value="2">진행중</option>
-                          <option value="3">완료</option>
-                        </select>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="dropdown">
-                        <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                          <i class="bi bi-three-dots-vertical"></i>
-                        </button>
-                        <div class="dropdown-menu">
-                          <a class="dropdown-item" href="javascript:void(0);"><i class="bi bi-pencil-square"></i>
-                            	업무보고</a>
-                          <a class="dropdown-item" href="javascript:void(0);"><i class="bi bi-trash3"></i> 업무삭제</a>
-                        </div>
-                      </div>
-                    </td>
-                    <td>
-                    	<button type="button" class="btn btn-primary btn-plus" style="background-color: green;"><i class="bi bi-list-task"></i></button>
-                    </td>
-                  </tr>
-                  <tr class="range-datepicker">
-                    <td class="dep0"><i class="bi bi-folder"></i></td>
                     <td><strong>설계</strong></td>
                     <td>
                       <div class="m-input-cal">
@@ -286,14 +158,8 @@
                         </select>
                       </div>
                     </td>
-                    <td>                      
-                    </td>
-                    <td>
-                    	<button type="button" class="btn btn-primary btn-plus"><i class="bi bi-plus-circle-dotted"></i></button>                    	
-                    </td>
                   </tr>
                   <tr class="range-datepicker">
-                    <td class="dep0"><i class="bi bi-folder"></i></td>
                     <td><strong>디자인</strong></td>
                     <td>
                       <div class="m-input-cal">
@@ -335,14 +201,8 @@
                         </select>
                       </div>
                     </td>
-                    <td>
-                    </td>
-                    <td>
-                    	<button type="button" class="btn btn-primary btn-plus"><i class="bi bi-plus-circle-dotted"></i></button>                      
-                    </td>
                   </tr>
                   <tr class="range-datepicker">
-                    <td class="dep0"><i class="bi bi-folder"></i></td>
                     <td><strong>구현</strong></td>
                     <td>
                       <div class="m-input-cal">
@@ -384,14 +244,8 @@
                         </select>
                       </div>
                     </td>
-                    <td>
-                    </td>
-                    <td>
-                    	<button type="button" class="btn btn-primary btn-plus"><i class="bi bi-plus-circle-dotted"></i></button>                      
-                    </td>
                   </tr>
                   <tr class="range-datepicker">
-                    <td class="dep0"><i class="bi bi-folder"></i></td>
                     <td><strong>테스트</strong></td>
                     <td>
                       <div class="m-input-cal">
@@ -432,11 +286,6 @@
                           <option value="3">완료</option>
                         </select>
                       </div>
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                   		<button type="button" class="btn btn-primary btn-plus"><i class="bi bi-plus-circle-dotted"></i></button>                      
                     </td>
                   </tr>
                 </tbody>
