@@ -196,7 +196,7 @@ String cp = request.getContextPath();
 								</div>
 								<div class="col-md-4">
 									<div class="thumbnail rounded">
-										<img src="../asset/images/ico_language_python.png">
+										<img src="../../asset/images/ico_language_python.png">
 									</div>
 								</div>
 							</div>
