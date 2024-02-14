@@ -79,15 +79,3 @@
       </ul>
     </div>
   </aside>
-
-<script>
-    $(function(){
-        // MeetGroup 사이드 토글
-        if ($('.toggle-sidebar-btn')) {
-            $('.toggle-sidebar-btn').on('click', function(e) {
-            $('body').toggleClass('toggle-sidebar')
-            })
-        }
-    })
-
-</script>

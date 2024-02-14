@@ -1,7 +1,7 @@
 $(function () {
 
   /* ====================== 공통 ====================== */
-  //html include
+  // html include
   function includeHtml() {
     if ($('[data-include]').length) {
       $.each($('[data-include]'), function () {
@@ -15,7 +15,7 @@ $(function () {
     };
   }
 
-  //self.css("background", "yellow");
+  // self.css("background", "yellow");
 
   /* ====================== 서브 ====================== */
   // PostList - 마감 스와이퍼
@@ -51,7 +51,7 @@ $(function () {
     });
   };
 
-  //찜하기
+  // 찜하기
   if ($('.form-check.zzim').length) {
     $.each($('.form-check.zzim'), function () {
       var self = $(this).find("input");
@@ -67,7 +67,7 @@ $(function () {
     });
   };
 
-  //스킬
+  // 스킬
   if ($('.skill-check .skill-item .form-check-input').length) {
     $.each($('.skill-check .skill-item .form-check-input'), function () {
       var self = $(this);
@@ -155,9 +155,16 @@ $(function () {
     });
   }
   
+  // MeetGroup 사이드 토글
+  if ($('.toggle-sidebar-btn')) {
+      $('.toggle-sidebar-btn').on('click', function(e) {
+      $('body').toggleClass('toggle-sidebar')
+      })
+  }
+  
 
 
-  //html include
+  // html include
   includeHtml();
 
 
