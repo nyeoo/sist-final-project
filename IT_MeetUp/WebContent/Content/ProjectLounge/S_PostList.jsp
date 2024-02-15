@@ -76,13 +76,13 @@ String cp = request.getContextPath();
 											<strong class="mb-2 text-primary-emphasis writer"><span
 												class="leader-level"><img src="" alt="" /></span>작성자닉네임</strong>
 											<!-- 제목 -->
-											<a href="javascript:;" class="card-tit mb-3">
-												<h3>
+											<a href="javascript:;" class="card-tit mb-2">
+												<span class="h3">
 													제목입니다.제목입니다.<br>제목입니다.제목입니다.
-												</h3>
+												</span>
 											</a>
 											<!-- 상세내용 -->
-											<p class="card-text text-truncate mb-3">내용입니다. 내용입니다.
+											<p class="card-text text-truncate mb-2">내용입니다. 내용입니다.
 												내용입니다. 내용입니다. 내용입니다.</p>
 											<div
 												class="d-flex justify-content-between align-items-center">
@@ -126,13 +126,13 @@ String cp = request.getContextPath();
 											<strong class="mb-2 text-primary-emphasis writer"><span
 												class="leader-level"></span>작성자닉네임</strong>
 											<!-- 제목 -->
-											<a href="javascript:;" class="card-tit mb-3">
-												<h3>
+											<a href="javascript:;" class="card-tit mb-2">
+												<span class="h3">
 													제목입니다.제목입니다.<br>제목입니다.제목입니다.
-												</h3>
+												</span>
 											</a>
 											<!-- 상세내용 -->
-											<p class="card-text text-truncate mb-3">내용입니다. 내용입니다.
+											<p class="card-text text-truncate mb-2">내용입니다. 내용입니다.
 												내용입니다. 내용입니다. 내용입니다.</p>
 											<div
 												class="d-flex justify-content-between align-items-center">
@@ -176,13 +176,13 @@ String cp = request.getContextPath();
 											<strong class="mb-2 text-primary-emphasis writer"><span
 												class="leader-level"></span>작성자닉네임</strong>
 											<!-- 제목 -->
-											<a href="javascript:;" class="card-tit mb-3">
-												<h3>
+											<a href="javascript:;" class="card-tit mb-2">
+												<span class="h3">
 													제목입니다.제목입니다.<br>제목입니다.제목입니다.
-												</h3>
+												</span>
 											</a>
 											<!-- 상세내용 -->
-											<p class="card-text text-truncate mb-3">내용입니다. 내용입니다.
+											<p class="card-text text-truncate mb-2">내용입니다. 내용입니다.
 												내용입니다. 내용입니다. 내용입니다.</p>
 											<div
 												class="d-flex justify-content-between align-items-center">
@@ -226,13 +226,13 @@ String cp = request.getContextPath();
 											<strong class="mb-2 text-primary-emphasis writer"><span
 												class="leader-level"></span>작성자닉네임</strong>
 											<!-- 제목 -->
-											<a href="javascript:;" class="card-tit mb-3">
-												<h3>
+											<a href="javascript:;" class="card-tit mb-2">
+												<span class="h3">
 													제목입니다.제목입니다.<br>제목입니다.제목입니다.
-												</h3>
+												</span>
 											</a>
 											<!-- 상세내용 -->
-											<p class="card-text text-truncate mb-3">내용입니다. 내용입니다.
+											<p class="card-text text-truncate mb-2">내용입니다. 내용입니다.
 												내용입니다. 내용입니다. 내용입니다.</p>
 											<div
 												class="d-flex justify-content-between align-items-center">
@@ -276,13 +276,13 @@ String cp = request.getContextPath();
 											<strong class="mb-2 text-primary-emphasis writer"><span
 												class="leader-level"></span>작성자닉네임</strong>
 											<!-- 제목 -->
-											<a href="javascript:;" class="card-tit mb-3">
-												<h3>
+											<a href="javascript:;" class="card-tit mb-2">
+												<span class="h3">
 													제목입니다.제목입니다.<br>제목입니다.제목입니다.
-												</h3>
+												</span>
 											</a>
 											<!-- 상세내용 -->
-											<p class="card-text text-truncate mb-3">내용입니다. 내용입니다.
+											<p class="card-text text-truncate mb-2">내용입니다. 내용입니다.
 												내용입니다. 내용입니다. 내용입니다.</p>
 											<div
 												class="d-flex justify-content-between align-items-center">
@@ -326,13 +326,13 @@ String cp = request.getContextPath();
 											<strong class="mb-2 text-primary-emphasis writer"><span
 												class="leader-level"></span>작성자닉네임</strong>
 											<!-- 제목 -->
-											<a href="javascript:;" class="card-tit mb-3">
-												<h3>
+											<a href="javascript:;" class="card-tit mb-2">
+												<span class="h3">
 													제목입니다.제목입니다.<br>제목입니다.제목입니다.
-												</h3>
+												</span>
 											</a>
 											<!-- 상세내용 -->
-											<p class="card-text text-truncate mb-3">내용입니다. 내용입니다.
+											<p class="card-text text-truncate mb-2">내용입니다. 내용입니다.
 												내용입니다. 내용입니다. 내용입니다.</p>
 											<div
 												class="d-flex justify-content-between align-items-center">
@@ -376,13 +376,13 @@ String cp = request.getContextPath();
 											<strong class="mb-2 text-primary-emphasis writer"><span
 												class="leader-level"></span>작성자닉네임</strong>
 											<!-- 제목 -->
-											<a href="javascript:;" class="card-tit mb-3">
-												<h3>
+											<a href="javascript:;" class="card-tit mb-2">
+												<span class="h3">
 													제목입니다.제목입니다.<br>제목입니다.제목입니다.
-												</h3>
+												</span>
 											</a>
 											<!-- 상세내용 -->
-											<p class="card-text text-truncate mb-3">내용입니다. 내용입니다.
+											<p class="card-text text-truncate mb-2">내용입니다. 내용입니다.
 												내용입니다. 내용입니다. 내용입니다.</p>
 											<div
 												class="d-flex justify-content-between align-items-center">
@@ -660,13 +660,13 @@ String cp = request.getContextPath();
 									<strong class="mb-2 text-primary-emphasis writer"><span
 										class="leader-level"></span>작성자닉네임</strong>
 									<!-- 제목 -->
-									<a href="javascript:;" class="card-tit mb-3">
-										<h3>
+									<a href="javascript:;" class="card-tit mb-2">
+										<span class="h3">
 											제목입니다.제목입니다.<br>제목입니다.제목입니다.
-										</h3>
+										</span>
 									</a>
 									<!-- 상세내용 -->
-									<p class="card-text text-truncate mb-3">내용입니다. 내용입니다.
+									<p class="card-text text-truncate mb-2">내용입니다. 내용입니다.
 										내용입니다. 내용입니다. 내용입니다.</p>
 									<div class="d-flex justify-content-between align-items-center">
 										<!-- 사용언어 -->
@@ -708,13 +708,13 @@ String cp = request.getContextPath();
 									<strong class="mb-2 text-primary-emphasis writer"><span
 										class="leader-level"></span>작성자닉네임</strong>
 									<!-- 제목 -->
-									<a href="javascript:;" class="card-tit mb-3">
-										<h3>
+									<a href="javascript:;" class="card-tit mb-2">
+										<span class="h3">
 											제목입니다.제목입니다.<br>제목입니다.제목입니다.
-										</h3>
+										</span>
 									</a>
 									<!-- 상세내용 -->
-									<p class="card-text text-truncate mb-3">내용입니다. 내용입니다.
+									<p class="card-text text-truncate mb-2">내용입니다. 내용입니다.
 										내용입니다. 내용입니다. 내용입니다.</p>
 									<div class="d-flex justify-content-between align-items-center">
 										<!-- 사용언어 -->
@@ -756,13 +756,13 @@ String cp = request.getContextPath();
 									<strong class="mb-2 text-primary-emphasis writer"><span
 										class="leader-level"></span>작성자닉네임</strong>
 									<!-- 제목 -->
-									<a href="javascript:;" class="card-tit mb-3">
-										<h3>
+									<a href="javascript:;" class="card-tit mb-2">
+										<span class="h3">
 											제목입니다.제목입니다.<br>제목입니다.제목입니다.
-										</h3>
+										</span>
 									</a>
 									<!-- 상세내용 -->
-									<p class="card-text text-truncate mb-3">내용입니다. 내용입니다.
+									<p class="card-text text-truncate mb-2">내용입니다. 내용입니다.
 										내용입니다. 내용입니다. 내용입니다.</p>
 									<div class="d-flex justify-content-between align-items-center">
 										<!-- 사용언어 -->
@@ -804,13 +804,13 @@ String cp = request.getContextPath();
 									<strong class="mb-2 text-primary-emphasis writer"><span
 										class="leader-level"></span>작성자닉네임</strong>
 									<!-- 제목 -->
-									<a href="javascript:;" class="card-tit mb-3">
-										<h3>
+									<a href="javascript:;" class="card-tit mb-2">
+										<span class="h3">
 											제목입니다.제목입니다.<br>제목입니다.제목입니다.
-										</h3>
+										</span>
 									</a>
 									<!-- 상세내용 -->
-									<p class="card-text text-truncate mb-3">내용입니다. 내용입니다.
+									<p class="card-text text-truncate mb-2">내용입니다. 내용입니다.
 										내용입니다. 내용입니다. 내용입니다.</p>
 									<div class="d-flex justify-content-between align-items-center">
 										<!-- 사용언어 -->
@@ -852,13 +852,13 @@ String cp = request.getContextPath();
 									<strong class="mb-2 text-primary-emphasis writer"><span
 										class="leader-level"></span>작성자닉네임</strong>
 									<!-- 제목 -->
-									<a href="javascript:;" class="card-tit mb-3">
-										<h3>
+									<a href="javascript:;" class="card-tit mb-2">
+										<span class="h3">
 											제목입니다.제목입니다.<br>제목입니다.제목입니다.
-										</h3>
+										</span>
 									</a>
 									<!-- 상세내용 -->
-									<p class="card-text text-truncate mb-3">내용입니다. 내용입니다.
+									<p class="card-text text-truncate mb-2">내용입니다. 내용입니다.
 										내용입니다. 내용입니다. 내용입니다.</p>
 									<div class="d-flex justify-content-between align-items-center">
 										<!-- 사용언어 -->
@@ -900,13 +900,13 @@ String cp = request.getContextPath();
 									<strong class="mb-2 text-primary-emphasis writer"><span
 										class="leader-level"></span>작성자닉네임</strong>
 									<!-- 제목 -->
-									<a href="javascript:;" class="card-tit mb-3">
-										<h3>
+									<a href="javascript:;" class="card-tit mb-2">
+										<span class="h3">
 											제목입니다.제목입니다.<br>제목입니다.제목입니다.
-										</h3>
+										</span>
 									</a>
 									<!-- 상세내용 -->
-									<p class="card-text text-truncate mb-3">내용입니다. 내용입니다.
+									<p class="card-text text-truncate mb-2">내용입니다. 내용입니다.
 										내용입니다. 내용입니다. 내용입니다.</p>
 									<div class="d-flex justify-content-between align-items-center">
 										<!-- 사용언어 -->
@@ -948,13 +948,13 @@ String cp = request.getContextPath();
 									<strong class="mb-2 text-primary-emphasis writer"><span
 										class="leader-level"></span>작성자닉네임</strong>
 									<!-- 제목 -->
-									<a href="javascript:;" class="card-tit mb-3">
-										<h3>
+									<a href="javascript:;" class="card-tit mb-2">
+										<span class="h3">
 											제목입니다.제목입니다.<br>제목입니다.제목입니다.
-										</h3>
+										</span>
 									</a>
 									<!-- 상세내용 -->
-									<p class="card-text text-truncate mb-3">내용입니다. 내용입니다.
+									<p class="card-text text-truncate mb-2">내용입니다. 내용입니다.
 										내용입니다. 내용입니다. 내용입니다.</p>
 									<div class="d-flex justify-content-between align-items-center">
 										<!-- 사용언어 -->
@@ -996,13 +996,13 @@ String cp = request.getContextPath();
 									<strong class="mb-2 text-primary-emphasis writer"><span
 										class="leader-level"></span>작성자닉네임</strong>
 									<!-- 제목 -->
-									<a href="javascript:;" class="card-tit mb-3">
-										<h3>
+									<a href="javascript:;" class="card-tit mb-2">
+										<span class="h3">
 											제목입니다.제목입니다.<br>제목입니다.제목입니다.
-										</h3>
+										</span>
 									</a>
 									<!-- 상세내용 -->
-									<p class="card-text text-truncate mb-3">내용입니다. 내용입니다.
+									<p class="card-text text-truncate mb-2">내용입니다. 내용입니다.
 										내용입니다. 내용입니다. 내용입니다.</p>
 									<div class="d-flex justify-content-between align-items-center">
 										<!-- 사용언어 -->
@@ -1044,13 +1044,13 @@ String cp = request.getContextPath();
 									<strong class="mb-2 text-primary-emphasis writer"><span
 										class="leader-level"></span>작성자닉네임</strong>
 									<!-- 제목 -->
-									<a href="javascript:;" class="card-tit mb-3">
-										<h3>
+									<a href="javascript:;" class="card-tit mb-2">
+										<span class="h3">
 											제목입니다.제목입니다.<br>제목입니다.제목입니다.
-										</h3>
+										</span>
 									</a>
 									<!-- 상세내용 -->
-									<p class="card-text text-truncate mb-3">내용입니다. 내용입니다.
+									<p class="card-text text-truncate mb-2">내용입니다. 내용입니다.
 										내용입니다. 내용입니다. 내용입니다.</p>
 									<div class="d-flex justify-content-between align-items-center">
 										<!-- 사용언어 -->
@@ -1092,13 +1092,13 @@ String cp = request.getContextPath();
 									<strong class="mb-2 text-primary-emphasis writer"><span
 										class="leader-level"></span>작성자닉네임</strong>
 									<!-- 제목 -->
-									<a href="javascript:;" class="card-tit mb-3">
-										<h3>
+									<a href="javascript:;" class="card-tit mb-2">
+										<span class="h3">
 											제목입니다.제목입니다.<br>제목입니다.제목입니다.
-										</h3>
+										</span>
 									</a>
 									<!-- 상세내용 -->
-									<p class="card-text text-truncate mb-3">내용입니다. 내용입니다.
+									<p class="card-text text-truncate mb-2">내용입니다. 내용입니다.
 										내용입니다. 내용입니다. 내용입니다.</p>
 									<div class="d-flex justify-content-between align-items-center">
 										<!-- 사용언어 -->
@@ -1140,13 +1140,13 @@ String cp = request.getContextPath();
 									<strong class="mb-2 text-primary-emphasis writer"><span
 										class="leader-level"></span>작성자닉네임</strong>
 									<!-- 제목 -->
-									<a href="javascript:;" class="card-tit mb-3">
-										<h3>
+									<a href="javascript:;" class="card-tit mb-2">
+										<span class="h3">
 											제목입니다.제목입니다.<br>제목입니다.제목입니다.
-										</h3>
+										</span>
 									</a>
 									<!-- 상세내용 -->
-									<p class="card-text text-truncate mb-3">내용입니다. 내용입니다.
+									<p class="card-text text-truncate mb-2">내용입니다. 내용입니다.
 										내용입니다. 내용입니다. 내용입니다.</p>
 									<div class="d-flex justify-content-between align-items-center">
 										<!-- 사용언어 -->
@@ -1188,13 +1188,13 @@ String cp = request.getContextPath();
 									<strong class="mb-2 text-primary-emphasis writer"><span
 										class="leader-level"></span>작성자닉네임</strong>
 									<!-- 제목 -->
-									<a href="javascript:;" class="card-tit mb-3">
-										<h3>
+									<a href="javascript:;" class="card-tit mb-2">
+										<span class="h3">
 											제목입니다.제목입니다.<br>제목입니다.제목입니다.
-										</h3>
+										</span>
 									</a>
 									<!-- 상세내용 -->
-									<p class="card-text text-truncate mb-3">내용입니다. 내용입니다.
+									<p class="card-text text-truncate mb-2">내용입니다. 내용입니다.
 										내용입니다. 내용입니다. 내용입니다.</p>
 									<div class="d-flex justify-content-between align-items-center">
 										<!-- 사용언어 -->

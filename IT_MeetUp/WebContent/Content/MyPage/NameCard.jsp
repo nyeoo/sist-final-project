@@ -227,9 +227,9 @@ String cp = request.getContextPath();
 								data-bs-toggle="tooltip" data-bs-placement="top"
 								data-bs-title="프로젝트경험횟수">계정레벨 <i
 									class="bi bi-question-circle"></i></span></span>
-							<h3 class="card-title mb-2">
+							<div class="card-title mb-2">
 								<span style="vertical-align: inherit;">10건</span>
-							</h3>
+							</div>
 							<small class="text-success fw-semibold"><i
 								class="bx bx-up-arrow-alt"></i>레벨1</small>
 							<!-- <div class="progress progress-sm mr-2">
@@ -258,9 +258,9 @@ String cp = request.getContextPath();
 								data-bs-toggle="tooltip" data-bs-placement="top"
 								data-bs-title="팀장활동점수">리더십점수 <i
 									class="bi bi-question-circle"></i></span></span>
-							<h3 class="card-title mb-2">
+							<div class="card-title mb-2">
 								<span style="vertical-align: inherit;">10점</span>
-							</h3>
+							</div>
 							<small class="text-success fw-semibold"><i
 								class="bx bx-up-arrow-alt"></i>레벨1</small>
 							<div class="progress progress-sm mr-2">
@@ -289,9 +289,9 @@ String cp = request.getContextPath();
 								data-bs-toggle="tooltip" data-bs-placement="top"
 								data-bs-title="프로젝트 후 평가">팀원평가점수 <i
 									class="bi bi-question-circle"></i></span></span>
-							<h3 class="card-title mb-2">
+							<div class="card-title mb-2">
 								<span style="vertical-align: inherit;">80점</span>
-							</h3>
+							</div>
 							<small class="text-success fw-semibold"><i
 								class="bx bx-up-arrow-alt"></i>아이스아메리카노</small>
 							<div class="progress progress-sm mr-2">
@@ -330,13 +330,13 @@ String cp = request.getContextPath();
 				</div>
 				<div class="card-bottom">
 					<!-- 제목 -->
-					<a href="javascript:;" class="card-tit mb-3">
-						<h3>
+					<a href="javascript:;" class="card-tit mb-2">
+						<span class="h3">
 							제목입니다.제목입니다.<br>제목입니다.제목입니다.
-						</h3>
+						</span>
 					</a>
 					<!-- 상세내용 -->
-					<p class="card-text text-truncate mb-3">내용입니다. 내용입니다. 내용입니다.
+					<p class="card-text text-truncate mb-2">내용입니다. 내용입니다. 내용입니다.
 						내용입니다. 내용입니다.</p>
 				</div>
 			</div>
@@ -362,13 +362,13 @@ String cp = request.getContextPath();
 				</div>
 				<div class="card-bottom">
 					<!-- 제목 -->
-					<a href="javascript:;" class="card-tit mb-3">
-						<h3>
+					<a href="javascript:;" class="card-tit mb-2">
+						<span class="h3">
 							제목입니다.제목입니다.<br>제목입니다.제목입니다.
-						</h3>
+						</span>
 					</a>
 					<!-- 상세내용 -->
-					<p class="card-text text-truncate mb-3">내용입니다. 내용입니다. 내용입니다.
+					<p class="card-text text-truncate mb-2">내용입니다. 내용입니다. 내용입니다.
 						내용입니다. 내용입니다.</p>
 				</div>
 			</div>
@@ -394,13 +394,13 @@ String cp = request.getContextPath();
 				</div>
 				<div class="card-bottom">
 					<!-- 제목 -->
-					<a href="javascript:;" class="card-tit mb-3">
-						<h3>
+					<a href="javascript:;" class="card-tit mb-2">
+						<span class="h3">
 							제목입니다.제목입니다.<br>제목입니다.제목입니다.
-						</h3>
+						</span>
 					</a>
 					<!-- 상세내용 -->
-					<p class="card-text text-truncate mb-3">내용입니다. 내용입니다. 내용입니다.
+					<p class="card-text text-truncate mb-2">내용입니다. 내용입니다. 내용입니다.
 						내용입니다. 내용입니다.</p>
 				</div>
 			</div>
@@ -457,13 +457,13 @@ String cp = request.getContextPath();
 										</div>
 										<div class="card-bottom">
 											<!-- 제목 -->
-											<a href="javascript:;" class="card-tit mb-3">
-												<h3>
+											<a href="javascript:;" class="card-tit mb-2">
+												<span class="h3">
 													제목입니다.제목입니다.<br>제목입니다.제목입니다.
-												</h3>
+												</span>
 											</a>
 											<!-- 상세내용 -->
-											<p class="card-text text-truncate mb-3">내용입니다. 내용입니다.
+											<p class="card-text text-truncate mb-2">내용입니다. 내용입니다.
 												내용입니다. 내용입니다. 내용입니다.</p>
 										</div>
 									</div>
@@ -490,13 +490,13 @@ String cp = request.getContextPath();
 										</div>
 										<div class="card-bottom">
 											<!-- 제목 -->
-											<a href="javascript:;" class="card-tit mb-3">
-												<h3>
+											<a href="javascript:;" class="card-tit mb-2">
+												<span class="h3">
 													제목입니다.제목입니다.<br>제목입니다.제목입니다.
-												</h3>
+												</span>
 											</a>
 											<!-- 상세내용 -->
-											<p class="card-text text-truncate mb-3">내용입니다. 내용입니다.
+											<p class="card-text text-truncate mb-2">내용입니다. 내용입니다.
 												내용입니다. 내용입니다. 내용입니다.</p>
 										</div>
 									</div>
@@ -523,13 +523,13 @@ String cp = request.getContextPath();
 										</div>
 										<div class="card-bottom">
 											<!-- 제목 -->
-											<a href="javascript:;" class="card-tit mb-3">
-												<h3>
+											<a href="javascript:;" class="card-tit mb-2">
+												<span class="h3">
 													제목입니다.제목입니다.<br>제목입니다.제목입니다.
-												</h3>
+												</span>
 											</a>
 											<!-- 상세내용 -->
-											<p class="card-text text-truncate mb-3">내용입니다. 내용입니다.
+											<p class="card-text text-truncate mb-2">내용입니다. 내용입니다.
 												내용입니다. 내용입니다. 내용입니다.</p>
 										</div>
 									</div>
@@ -555,13 +555,13 @@ String cp = request.getContextPath();
 										</div>
 										<div class="card-bottom">
 											<!-- 제목 -->
-											<a href="javascript:;" class="card-tit mb-3">
-												<h3>
+											<a href="javascript:;" class="card-tit mb-2">
+												<span class="h3">
 													제목입니다.제목입니다.<br>제목입니다.제목입니다.
-												</h3>
+												</span>
 											</a>
 											<!-- 상세내용 -->
-											<p class="card-text text-truncate mb-3">내용입니다. 내용입니다.
+											<p class="card-text text-truncate mb-2">내용입니다. 내용입니다.
 												내용입니다. 내용입니다. 내용입니다.</p>
 										</div>
 									</div>
@@ -588,13 +588,13 @@ String cp = request.getContextPath();
 										</div>
 										<div class="card-bottom">
 											<!-- 제목 -->
-											<a href="javascript:;" class="card-tit mb-3">
-												<h3>
+											<a href="javascript:;" class="card-tit mb-2">
+												<span class="h3">
 													제목입니다.제목입니다.<br>제목입니다.제목입니다.
-												</h3>
+												</span>
 											</a>
 											<!-- 상세내용 -->
-											<p class="card-text text-truncate mb-3">내용입니다. 내용입니다.
+											<p class="card-text text-truncate mb-2">내용입니다. 내용입니다.
 												내용입니다. 내용입니다. 내용입니다.</p>
 										</div>
 									</div>
@@ -621,13 +621,13 @@ String cp = request.getContextPath();
 										</div>
 										<div class="card-bottom">
 											<!-- 제목 -->
-											<a href="javascript:;" class="card-tit mb-3">
-												<h3>
+											<a href="javascript:;" class="card-tit mb-2">
+												<span class="h3">
 													제목입니다.제목입니다.<br>제목입니다.제목입니다.
-												</h3>
+												</span>
 											</a>
 											<!-- 상세내용 -->
-											<p class="card-text text-truncate mb-3">내용입니다. 내용입니다.
+											<p class="card-text text-truncate mb-2">내용입니다. 내용입니다.
 												내용입니다. 내용입니다. 내용입니다.</p>
 										</div>
 									</div>
@@ -653,13 +653,13 @@ String cp = request.getContextPath();
 										</div>
 										<div class="card-bottom">
 											<!-- 제목 -->
-											<a href="javascript:;" class="card-tit mb-3">
-												<h3>
+											<a href="javascript:;" class="card-tit mb-2">
+												<span class="h3">
 													제목입니다.제목입니다.<br>제목입니다.제목입니다.
-												</h3>
+												</span>
 											</a>
 											<!-- 상세내용 -->
-											<p class="card-text text-truncate mb-3">내용입니다. 내용입니다.
+											<p class="card-text text-truncate mb-2">내용입니다. 내용입니다.
 												내용입니다. 내용입니다. 내용입니다.</p>
 										</div>
 									</div>
@@ -686,13 +686,13 @@ String cp = request.getContextPath();
 										</div>
 										<div class="card-bottom">
 											<!-- 제목 -->
-											<a href="javascript:;" class="card-tit mb-3">
-												<h3>
+											<a href="javascript:;" class="card-tit mb-2">
+												<span class="h3">
 													제목입니다.제목입니다.<br>제목입니다.제목입니다.
-												</h3>
+												</span>
 											</a>
 											<!-- 상세내용 -->
-											<p class="card-text text-truncate mb-3">내용입니다. 내용입니다.
+											<p class="card-text text-truncate mb-2">내용입니다. 내용입니다.
 												내용입니다. 내용입니다. 내용입니다.</p>
 										</div>
 									</div>
@@ -719,13 +719,13 @@ String cp = request.getContextPath();
 										</div>
 										<div class="card-bottom">
 											<!-- 제목 -->
-											<a href="javascript:;" class="card-tit mb-3">
-												<h3>
+											<a href="javascript:;" class="card-tit mb-2">
+												<span class="h3">
 													제목입니다.제목입니다.<br>제목입니다.제목입니다.
-												</h3>
+												</span>
 											</a>
 											<!-- 상세내용 -->
-											<p class="card-text text-truncate mb-3">내용입니다. 내용입니다.
+											<p class="card-text text-truncate mb-2">내용입니다. 내용입니다.
 												내용입니다. 내용입니다. 내용입니다.</p>
 										</div>
 									</div>
