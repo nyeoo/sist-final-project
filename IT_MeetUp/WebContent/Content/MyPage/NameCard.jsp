@@ -308,72 +308,10 @@ String cp = request.getContextPath();
 	</div>
 	<!-- //레벨 & 점수 -->
 </div>
-<div class="con-section">
+<div class="con-section complete-list">
 
 	<ul class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 card-list">
-		<li class="col-12 col-sm-6 col-md-4 col-lg-4">
-			<div class="card p-4 d-flex flex-column">
-				<div class="card-top">
-					<div class="img-box">
-					
-					</div>
-				</div>
-				<div class="card-bottom">
-					<!-- 작성자 -->
-					<strong class="mb-2 text-primary-emphasis writer"><span
-						class="leader-level"></span>작성자닉네임</strong>
-					<!-- 제목 -->
-					<a href="javascript:;" class="card-tit mb-3">
-						<h3>
-							제목입니다.제목입니다.<br>제목입니다.제목입니다.
-						</h3>
-					</a>
-					<!-- 상세내용 -->
-					<p class="card-text text-truncate mb-3">내용입니다. 내용입니다. 내용입니다.
-						내용입니다. 내용입니다.</p>
-				</div>
-			</div>
-		</li>
-		<li class="col-12 col-sm-6 col-md-4 col-lg-4">
-			<div class="card p-4 d-flex flex-column">
-
-				<div class="card-top">
-					<!-- 고정하기 -->
-					<div class="form-check zzim fixed">
-						<label class="form-check-label"> <input
-							class="form-check-input" type="checkbox" value="" id=""
-							title="고정하기"> <span class="icon-box"><i
-								class="bi bi-pin-angle"></i><i class="bi bi-pin-angle-fill"></i></span>
-						</label>
-					</div>
-					<!-- 데드라인/ 시작예정일 - 예상기간 -->
-					<div class="mb-1 text-body-secondary">
-						<span class="deadline">(D-100)</span>2.4 - 3.19
-					</div>
-					<!-- 직무 -->
-					<div class="d-flex job-box">
-						<span class="badge rounded-pill bg-primary">프론트</span> <span
-							class="badge rounded-pill bg-secondary">백</span> <span
-							class="badge rounded-pill bg-success">기획</span> <span
-							class="badge rounded-pill bg-danger">디자인</span>
-					</div>
-				</div>
-				<div class="card-bottom">
-					<!-- 작성자 -->
-					<strong class="mb-2 text-primary-emphasis writer"><span
-						class="leader-level"></span>작성자닉네임</strong>
-					<!-- 제목 -->
-					<a href="javascript:;" class="card-tit mb-3">
-						<h3>
-							제목입니다.제목입니다.<br>제목입니다.제목입니다.
-						</h3>
-					</a>
-					<!-- 상세내용 -->
-					<p class="card-text text-truncate mb-3">내용입니다. 내용입니다. 내용입니다.
-						내용입니다. 내용입니다.</p>
-				</div>
-			</div>
-		</li>
+		<!-- 이미지 썸네일 -->
 		<li class="col-12 col-sm-6 col-md-4 col-lg-4">
 			<div class="card p-4 d-flex flex-column">
 				<div class="card-top">
@@ -385,22 +323,12 @@ String cp = request.getContextPath();
 								class="bi bi-pin-angle"></i><i class="bi bi-pin-angle-fill"></i></span>
 						</label>
 					</div>
-					<!-- 데드라인/ 시작예정일 - 예상기간 -->
-					<div class="mb-1 text-body-secondary">
-						<span class="deadline">(D-100)</span>2.4 - 3.19
-					</div>
-					<!-- 직무 -->
-					<div class="d-flex job-box">
-						<span class="badge rounded-pill bg-primary">프론트</span> <span
-							class="badge rounded-pill bg-secondary">백</span> <span
-							class="badge rounded-pill bg-success">기획</span> <span
-							class="badge rounded-pill bg-danger">디자인</span>
+					<!-- 썸네일 이미지 -->
+					<div class="thumbnail-box img-box">
+						<img src="../../asset/images/img_sample00.jpg" alt="썸네일샘플" />
 					</div>
 				</div>
 				<div class="card-bottom">
-					<!-- 작성자 -->
-					<strong class="mb-2 text-primary-emphasis writer"><span
-						class="leader-level"></span>작성자닉네임</strong>
 					<!-- 제목 -->
 					<a href="javascript:;" class="card-tit mb-3">
 						<h3>
@@ -413,6 +341,71 @@ String cp = request.getContextPath();
 				</div>
 			</div>
 		</li>
+		<!-- //이미지 썸네일 -->
+		<!-- 텍스트 썸네일 -->
+		<li class="col-12 col-sm-6 col-md-4 col-lg-4">
+			<div class="card p-4 d-flex flex-column">
+				<div class="card-top">
+					<!-- 고정하기 -->
+					<div class="form-check zzim fixed">
+						<label class="form-check-label"> <input
+							class="form-check-input" type="checkbox" value="" id=""
+							title="고정하기"> <span class="icon-box"><i
+								class="bi bi-pin-angle"></i><i class="bi bi-pin-angle-fill"></i></span>
+						</label>
+					</div>
+					<!-- 썸네일 텍스트 -->
+					<div class="thumbnail-box thumnail-txt">
+						<div class="thumbnail-tit text-truncate">제목입니다.제목입니다.</div>
+						<div class="thumbnail-txt text-truncate">#팀이름팀이름</div>
+					</div>
+				</div>
+				<div class="card-bottom">
+					<!-- 제목 -->
+					<a href="javascript:;" class="card-tit mb-3">
+						<h3>
+							제목입니다.제목입니다.<br>제목입니다.제목입니다.
+						</h3>
+					</a>
+					<!-- 상세내용 -->
+					<p class="card-text text-truncate mb-3">내용입니다. 내용입니다. 내용입니다.
+						내용입니다. 내용입니다.</p>
+				</div>
+			</div>
+		</li>
+		<!-- //텍스트 썸네일 -->
+		<!-- 텍스트 썸네일 -->
+		<li class="col-12 col-sm-6 col-md-4 col-lg-4">
+			<div class="card p-4 d-flex flex-column">
+				<div class="card-top">
+					<!-- 고정하기 -->
+					<div class="form-check zzim fixed">
+						<label class="form-check-label"> <input
+							class="form-check-input" type="checkbox" value="" id=""
+							title="고정하기"> <span class="icon-box"><i
+								class="bi bi-pin-angle"></i><i class="bi bi-pin-angle-fill"></i></span>
+						</label>
+					</div>
+					<!-- 썸네일 텍스트 -->
+					<div class="thumbnail-box thumnail-txt">
+						<div class="thumbnail-tit text-truncate">제목입니다.제목입니다.</div>
+						<div class="thumbnail-txt text-truncate">#팀이름팀이름</div>
+					</div>
+				</div>
+				<div class="card-bottom">
+					<!-- 제목 -->
+					<a href="javascript:;" class="card-tit mb-3">
+						<h3>
+							제목입니다.제목입니다.<br>제목입니다.제목입니다.
+						</h3>
+					</a>
+					<!-- 상세내용 -->
+					<p class="card-text text-truncate mb-3">내용입니다. 내용입니다. 내용입니다.
+						내용입니다. 내용입니다.</p>
+				</div>
+			</div>
+		</li>
+		<!-- //텍스트 썸네일 -->
 	</ul>
 
 	<!-- 더보기 -->

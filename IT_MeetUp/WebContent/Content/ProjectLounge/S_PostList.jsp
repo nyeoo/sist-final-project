@@ -74,7 +74,7 @@ String cp = request.getContextPath();
 										<div class="card-bottom">
 											<!-- 작성자 -->
 											<strong class="mb-2 text-primary-emphasis writer"><span
-												class="leader-level"></span>작성자닉네임</strong>
+												class="leader-level"><img src="" alt="" /></span>작성자닉네임</strong>
 											<!-- 제목 -->
 											<a href="javascript:;" class="card-tit mb-3">
 												<h3>

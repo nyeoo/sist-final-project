@@ -11,3 +11,7 @@
 
 @import "../../asset/css/common.css";           /* 공통 */
 @import "../../asset/css/layout.css";           /* 레이아웃 */
+
+/* 폰트 */
+@import url('https://fonts.googleapis.com/css2?family=Average&family=Bangers&family=Borel&family=Bungee+Shade&family=Carter+One&family=Coming+Soon&family=Fredericka+the+Great&family=Fugaz+One&family=Italiana&family=Kalnia:wght@100..700&family=Kite+One&family=Kranky&family=Megrim&family=Moirai+One&family=Neonderthaw&family=Nixie+One&family=Norican&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&family=Oleo+Script+Swash+Caps:wght@400;700&family=Pacifico&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Rubik+Puddles&family=Rubik+Spray+Paint&family=Sail&family=Sigmar+One&family=Silkscreen:wght@400;700&family=Sofia&family=Warnes&family=Yeseva+One&display=swap');
+

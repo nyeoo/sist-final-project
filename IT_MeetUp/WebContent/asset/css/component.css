@@ -13,3 +13,5 @@
 .comp_flexbox.thir > li{width: 33.3333%;}
 
 .wrapper a[target="_blank"]{text-decoration: underline;}
+.logo-box{display:flex;flex-wrap: wrap;background: #2b2b2b;color: #fff;}
+.logo-box > li{min-width: 20%;font-size: 40px;}

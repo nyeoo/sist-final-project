@@ -36,6 +36,42 @@ html, body { height: 100%;}
 /* 헤더 ---------------------------------------- */
 .m-personal-box { } 
 .m-personal-box .m-avator { margin-top: 6px;} 
+/* 폰트 */
+.rubik-puddles-regular { font-family: "Rubik Puddles", system-ui; font-weight: 400; font-style: normal; } 
+.warnes-regular { font-family: "Warnes", cursive; font-weight: 400; font-style: normal; } 
+.rubik-spray paint-regular { font-family: "Rubik Spray Paint", system-ui; font-weight: 400; font-style: normal; } 
+.neonderthaw-regular { font-family: "Neonderthaw", cursive; font-weight: 400; font-style: normal; } 
+.moirai-one-regular { font-family: "Moirai One", system-ui; font-weight: 400; font-style: normal; } 
+.kite-one-regular { font-family: "Kite One", sans-serif; font-weight: 400; font-style: normal; } 
+.borel-regular { font-family: "Borel", cursive; font-weight: 400; font-style: normal; } 
+.kranky-regular { font-family: "Kranky", serif; font-weight: 400; font-style: normal; } 
+.sail-regular { font-family: "Sail", system-ui; font-weight: 400; font-style: normal; } 
+.megrim-regular { font-family: "Megrim", system-ui; font-weight: 400; font-style: normal; } 
+.bungee-shade-regular { font-family: "Bungee Shade", sans-serif; font-weight: 400; font-style: normal; } 
+.oleo-script swash caps-regular { font-family: "Oleo Script Swash Caps", system-ui; font-weight: 400; font-style: normal; } 
+.oleo-script swash caps-bold { font-family: "Oleo Script Swash Caps", system-ui; font-weight: 700; font-style: normal; } 
+.italiana-regular { font-family: "Italiana", sans-serif; font-weight: 400; font-style: normal; } 
+.nixie-one-regular { font-family: "Nixie One", system-ui; font-weight: 400; font-style: normal; } 
+.average-regular { font-family: "Average", serif; font-weight: 400; font-style: normal; } 
+.norican-regular { font-family: "Norican", cursive; font-weight: 400; font-style: normal; } 
+.sigmar-one-regular { font-family: "Sigmar One", sans-serif; font-weight: 400; font-style: normal; } 
+.coming-soon-regular { font-family: "Coming Soon", cursive; font-weight: 400; font-style: normal; } 
+.fredericka-the great-regular { font-family: "Fredericka the Great", serif; font-weight: 400; font-style: normal; } 
+.sofia-regular { font-family: "Sofia", cursive; font-weight: 400; font-style: normal; } 
+.silkscreen-regular { font-family: "Silkscreen", sans-serif; font-weight: 400; font-style: normal; } 
+.silkscreen-bold { font-family: "Silkscreen", sans-serif; font-weight: 700; font-style: normal; } 
+.carter-one-regular { font-family: "Carter One", system-ui; font-weight: 400; font-style: normal; } 
+.fugaz-one-regular { font-family: "Fugaz One", sans-serif; font-weight: 400; font-style: normal; } 
+.playfair-display sc-regular { font-family: "Playfair Display SC", serif; font-weight: 400; font-style: normal; } 
+.playfair-display sc-bold { font-family: "Playfair Display SC", serif; font-weight: 700; font-style: normal; } 
+.playfair-display sc-black { font-family: "Playfair Display SC", serif; font-weight: 900; font-style: normal; } 
+.playfair-display sc-regular-italic { font-family: "Playfair Display SC", serif; font-weight: 400; font-style: italic; } 
+.playfair-display sc-bold-italic { font-family: "Playfair Display SC", serif; font-weight: 700; font-style: italic; } 
+.playfair-display sc-black-italic { font-family: "Playfair Display SC", serif; font-weight: 900; font-style: italic; } 
+.yeseva-one-regular { font-family: "Yeseva One", serif; font-weight: 400; font-style: normal; } 
+.bangers-regular { font-family: "Bangers", system-ui; font-weight: 400; font-style: normal; } 
+.pacifico-regular { font-family: "Pacifico", cursive; font-weight: 400; font-style: normal; } 
+
 /* 알림 */
 .personal-box { } 
 .notifications { min-width: 20rem;;} 
@@ -162,13 +198,24 @@ html .ui-button.ui-state-disabled:active { color: #666 !important;background: #f
 .card-list { } 
 .card-list .card { position: relative;border-top-right-radius: 10rem;transition: all 0.3s;min-height: 360px;justify-content: space-between;} 
 .card-list .card .card-top{}
+.card-list .card .img-box{position:relative; overflow:hidden; background-color:#efefef; padding-top:60%;transition: all 0.3s;}
+.card-list .card.add-zzim .img-box{border-radius: 6px;border-top-right-radius: 10rem;}
+.card-list .card .thumbnail-box{border-radius: 6px;border-top-right-radius: 10rem;background: #0d6efd;min-height: 188px;color: #fff;padding: 1.25rem;display: flex;flex-direction: column;justify-content: center;align-items: flex-start;transition: all 0.3s;}
+.card-list .card .thumbnail-box .thumbnail-tit{font-size: 20px;margin-bottom: 0.25rem;margin-right: 20px;max-width: 100%;}
+.card-list .card .thumbnail-box .thumbnail-txt{background: #fff;border-radius: 6px;color: #0d6efd;padding: 2px 10px 4px;margin-right: 10px;display: inline-flex;max-width: 100%;}
+.card-list .card.add-zzim .thumbnail-box{border-top-right-radius: 6px;color: #fff;}
+.card-list .card .img-box img{display:block; position:absolute; top:50%; left:50%; width:auto; height:auto; min-width:1000%; min-height:1000%; max-width:none; max-height:none; transform:translate(-50%, -50%) scale(0.101);}
+
+
 .card-list .card .card-bottom{}
 .card-list .card.add-zzim { border-top-right-radius: 6px;} 
 .card-list .card .card-tit { display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 2;word-wrap: break-word;word-break: keep-all;overflow: hidden;} 
+.complete-list .card-list .card .card-tit{-webkit-line-clamp: 1;}
+.complete-list .card .card-bottom .card-text{margin-bottom: 0 !important;}
 .language-box { display: flex;column-gap: 0.25rem;} 
 .language-box .badge-language { display: block;width: 20px;height:20px;border-radius: 50%;background-color: gray;} 
 /* 찜하기 */
-.form-check.zzim { position: absolute;top: 0px;right:0px;display: inline-block;padding: 1.5rem;} 
+.form-check.zzim {line-height: 16px;position: absolute;top: 0px;right:0px;display: inline-block;padding: 1.5rem;z-index:1;} 
 .form-check.zzim .form-check-input { background-color: transparent;border:transparent;position: absolute;right: 1.5rem;} 
 .form-check.zzim .form-check-input:checked[type=checkbox] { --bs-form-check-bg-image: none;} 
 .form-check.zzim .form-check-input + .icon-box { } 
