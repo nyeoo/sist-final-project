@@ -427,7 +427,7 @@ html .ui-button.ui-state-disabled:active { color: #666 !important;background: #f
 
 
 @keyframes animate-loading { 
-	0% { transform: rotate(0deg);} 
+    0% { transform: rotate(0deg);} 
 	
 	100% { transform: rotate(360deg);} 
 }
@@ -486,9 +486,13 @@ html .ui-button.ui-state-disabled:active { color: #666 !important;background: #f
 .level .level-con .card-body .card-title { } 
 .level .level-con .card-body .level-bottom { } 
 
+/* 완료목록팝업 ---------------------------------*/
+.completeList-popup{}
+.completeList-popup.modal .modal-dialog{max-width: 1180px;}
+.completeList-popup.modal .modal-footer{border-top: 0px solid #fff;}
 
-
-
+@media (min-width: 1400px){max-width: 1320px;}
+@media (min-width: 1200px){max-width: 1140px;}
 
 
 

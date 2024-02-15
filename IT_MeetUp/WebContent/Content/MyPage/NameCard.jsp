@@ -411,11 +411,356 @@ String cp = request.getContextPath();
 	<!-- 더보기 -->
 	<div class="col-12 btn-box">
 		<div class="btn-center">
-			<button type="button" class="btn btn-primary">
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal"
+				data-bs-target="#completeList">
 				<i class="bi bi-plus-lg"></i> 더보기
 			</button>
 		</div>
 	</div>
 	<!-- //더보기 -->
+
+	<!-- Scrollable modal -->
+	<!-- 완료목록팝업 -->
+	<div class="modal fade completeList-popup" id="completeList"
+		tabindex="-1" aria-labelledby="completeListLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-scrollable">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h1 class="modal-title fs-5" id="completeListLabel">팝업02 제목</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal"
+						aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="modal-contents" style="height: 1000px;">
+
+						<div class="con-section complete-list">
+
+							<ul
+								class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 card-list">
+								<!-- 이미지 썸네일 -->
+								<li class="col-12 col-sm-6 col-md-4 col-lg-4">
+									<div class="card p-4 d-flex flex-column">
+										<div class="card-top">
+											<!-- 고정하기 -->
+											<div class="form-check zzim fixed">
+												<label class="form-check-label"> <input
+													class="form-check-input" type="checkbox" value="" id=""
+													title="고정하기"> <span class="icon-box"><i
+														class="bi bi-pin-angle"></i><i
+														class="bi bi-pin-angle-fill"></i></span>
+												</label>
+											</div>
+											<!-- 썸네일 이미지 -->
+											<div class="thumbnail-box img-box">
+												<img src="../../asset/images/img_sample00.jpg" alt="썸네일샘플" />
+											</div>
+										</div>
+										<div class="card-bottom">
+											<!-- 제목 -->
+											<a href="javascript:;" class="card-tit mb-3">
+												<h3>
+													제목입니다.제목입니다.<br>제목입니다.제목입니다.
+												</h3>
+											</a>
+											<!-- 상세내용 -->
+											<p class="card-text text-truncate mb-3">내용입니다. 내용입니다.
+												내용입니다. 내용입니다. 내용입니다.</p>
+										</div>
+									</div>
+								</li>
+								<!-- //이미지 썸네일 -->
+								<!-- 텍스트 썸네일 -->
+								<li class="col-12 col-sm-6 col-md-4 col-lg-4">
+									<div class="card p-4 d-flex flex-column">
+										<div class="card-top">
+											<!-- 고정하기 -->
+											<div class="form-check zzim fixed">
+												<label class="form-check-label"> <input
+													class="form-check-input" type="checkbox" value="" id=""
+													title="고정하기"> <span class="icon-box"><i
+														class="bi bi-pin-angle"></i><i
+														class="bi bi-pin-angle-fill"></i></span>
+												</label>
+											</div>
+											<!-- 썸네일 텍스트 -->
+											<div class="thumbnail-box thumnail-txt">
+												<div class="thumbnail-tit text-truncate">제목입니다.제목입니다.</div>
+												<div class="thumbnail-txt text-truncate">#팀이름팀이름</div>
+											</div>
+										</div>
+										<div class="card-bottom">
+											<!-- 제목 -->
+											<a href="javascript:;" class="card-tit mb-3">
+												<h3>
+													제목입니다.제목입니다.<br>제목입니다.제목입니다.
+												</h3>
+											</a>
+											<!-- 상세내용 -->
+											<p class="card-text text-truncate mb-3">내용입니다. 내용입니다.
+												내용입니다. 내용입니다. 내용입니다.</p>
+										</div>
+									</div>
+								</li>
+								<!-- //텍스트 썸네일 -->
+								<!-- 텍스트 썸네일 -->
+								<li class="col-12 col-sm-6 col-md-4 col-lg-4">
+									<div class="card p-4 d-flex flex-column">
+										<div class="card-top">
+											<!-- 고정하기 -->
+											<div class="form-check zzim fixed">
+												<label class="form-check-label"> <input
+													class="form-check-input" type="checkbox" value="" id=""
+													title="고정하기"> <span class="icon-box"><i
+														class="bi bi-pin-angle"></i><i
+														class="bi bi-pin-angle-fill"></i></span>
+												</label>
+											</div>
+											<!-- 썸네일 텍스트 -->
+											<div class="thumbnail-box thumnail-txt">
+												<div class="thumbnail-tit text-truncate">제목입니다.제목입니다.</div>
+												<div class="thumbnail-txt text-truncate">#팀이름팀이름</div>
+											</div>
+										</div>
+										<div class="card-bottom">
+											<!-- 제목 -->
+											<a href="javascript:;" class="card-tit mb-3">
+												<h3>
+													제목입니다.제목입니다.<br>제목입니다.제목입니다.
+												</h3>
+											</a>
+											<!-- 상세내용 -->
+											<p class="card-text text-truncate mb-3">내용입니다. 내용입니다.
+												내용입니다. 내용입니다. 내용입니다.</p>
+										</div>
+									</div>
+								</li>
+								<!-- //텍스트 썸네일 -->
+								<!-- 이미지 썸네일 -->
+								<li class="col-12 col-sm-6 col-md-4 col-lg-4">
+									<div class="card p-4 d-flex flex-column">
+										<div class="card-top">
+											<!-- 고정하기 -->
+											<div class="form-check zzim fixed">
+												<label class="form-check-label"> <input
+													class="form-check-input" type="checkbox" value="" id=""
+													title="고정하기"> <span class="icon-box"><i
+														class="bi bi-pin-angle"></i><i
+														class="bi bi-pin-angle-fill"></i></span>
+												</label>
+											</div>
+											<!-- 썸네일 이미지 -->
+											<div class="thumbnail-box img-box">
+												<img src="../../asset/images/img_sample00.jpg" alt="썸네일샘플" />
+											</div>
+										</div>
+										<div class="card-bottom">
+											<!-- 제목 -->
+											<a href="javascript:;" class="card-tit mb-3">
+												<h3>
+													제목입니다.제목입니다.<br>제목입니다.제목입니다.
+												</h3>
+											</a>
+											<!-- 상세내용 -->
+											<p class="card-text text-truncate mb-3">내용입니다. 내용입니다.
+												내용입니다. 내용입니다. 내용입니다.</p>
+										</div>
+									</div>
+								</li>
+								<!-- //이미지 썸네일 -->
+								<!-- 텍스트 썸네일 -->
+								<li class="col-12 col-sm-6 col-md-4 col-lg-4">
+									<div class="card p-4 d-flex flex-column">
+										<div class="card-top">
+											<!-- 고정하기 -->
+											<div class="form-check zzim fixed">
+												<label class="form-check-label"> <input
+													class="form-check-input" type="checkbox" value="" id=""
+													title="고정하기"> <span class="icon-box"><i
+														class="bi bi-pin-angle"></i><i
+														class="bi bi-pin-angle-fill"></i></span>
+												</label>
+											</div>
+											<!-- 썸네일 텍스트 -->
+											<div class="thumbnail-box thumnail-txt">
+												<div class="thumbnail-tit text-truncate">제목입니다.제목입니다.</div>
+												<div class="thumbnail-txt text-truncate">#팀이름팀이름</div>
+											</div>
+										</div>
+										<div class="card-bottom">
+											<!-- 제목 -->
+											<a href="javascript:;" class="card-tit mb-3">
+												<h3>
+													제목입니다.제목입니다.<br>제목입니다.제목입니다.
+												</h3>
+											</a>
+											<!-- 상세내용 -->
+											<p class="card-text text-truncate mb-3">내용입니다. 내용입니다.
+												내용입니다. 내용입니다. 내용입니다.</p>
+										</div>
+									</div>
+								</li>
+								<!-- //텍스트 썸네일 -->
+								<!-- 텍스트 썸네일 -->
+								<li class="col-12 col-sm-6 col-md-4 col-lg-4">
+									<div class="card p-4 d-flex flex-column">
+										<div class="card-top">
+											<!-- 고정하기 -->
+											<div class="form-check zzim fixed">
+												<label class="form-check-label"> <input
+													class="form-check-input" type="checkbox" value="" id=""
+													title="고정하기"> <span class="icon-box"><i
+														class="bi bi-pin-angle"></i><i
+														class="bi bi-pin-angle-fill"></i></span>
+												</label>
+											</div>
+											<!-- 썸네일 텍스트 -->
+											<div class="thumbnail-box thumnail-txt">
+												<div class="thumbnail-tit text-truncate">제목입니다.제목입니다.</div>
+												<div class="thumbnail-txt text-truncate">#팀이름팀이름</div>
+											</div>
+										</div>
+										<div class="card-bottom">
+											<!-- 제목 -->
+											<a href="javascript:;" class="card-tit mb-3">
+												<h3>
+													제목입니다.제목입니다.<br>제목입니다.제목입니다.
+												</h3>
+											</a>
+											<!-- 상세내용 -->
+											<p class="card-text text-truncate mb-3">내용입니다. 내용입니다.
+												내용입니다. 내용입니다. 내용입니다.</p>
+										</div>
+									</div>
+								</li>
+								<!-- //텍스트 썸네일 -->
+								<!-- 이미지 썸네일 -->
+								<li class="col-12 col-sm-6 col-md-4 col-lg-4">
+									<div class="card p-4 d-flex flex-column">
+										<div class="card-top">
+											<!-- 고정하기 -->
+											<div class="form-check zzim fixed">
+												<label class="form-check-label"> <input
+													class="form-check-input" type="checkbox" value="" id=""
+													title="고정하기"> <span class="icon-box"><i
+														class="bi bi-pin-angle"></i><i
+														class="bi bi-pin-angle-fill"></i></span>
+												</label>
+											</div>
+											<!-- 썸네일 이미지 -->
+											<div class="thumbnail-box img-box">
+												<img src="../../asset/images/img_sample00.jpg" alt="썸네일샘플" />
+											</div>
+										</div>
+										<div class="card-bottom">
+											<!-- 제목 -->
+											<a href="javascript:;" class="card-tit mb-3">
+												<h3>
+													제목입니다.제목입니다.<br>제목입니다.제목입니다.
+												</h3>
+											</a>
+											<!-- 상세내용 -->
+											<p class="card-text text-truncate mb-3">내용입니다. 내용입니다.
+												내용입니다. 내용입니다. 내용입니다.</p>
+										</div>
+									</div>
+								</li>
+								<!-- //이미지 썸네일 -->
+								<!-- 텍스트 썸네일 -->
+								<li class="col-12 col-sm-6 col-md-4 col-lg-4">
+									<div class="card p-4 d-flex flex-column">
+										<div class="card-top">
+											<!-- 고정하기 -->
+											<div class="form-check zzim fixed">
+												<label class="form-check-label"> <input
+													class="form-check-input" type="checkbox" value="" id=""
+													title="고정하기"> <span class="icon-box"><i
+														class="bi bi-pin-angle"></i><i
+														class="bi bi-pin-angle-fill"></i></span>
+												</label>
+											</div>
+											<!-- 썸네일 텍스트 -->
+											<div class="thumbnail-box thumnail-txt">
+												<div class="thumbnail-tit text-truncate">제목입니다.제목입니다.</div>
+												<div class="thumbnail-txt text-truncate">#팀이름팀이름</div>
+											</div>
+										</div>
+										<div class="card-bottom">
+											<!-- 제목 -->
+											<a href="javascript:;" class="card-tit mb-3">
+												<h3>
+													제목입니다.제목입니다.<br>제목입니다.제목입니다.
+												</h3>
+											</a>
+											<!-- 상세내용 -->
+											<p class="card-text text-truncate mb-3">내용입니다. 내용입니다.
+												내용입니다. 내용입니다. 내용입니다.</p>
+										</div>
+									</div>
+								</li>
+								<!-- //텍스트 썸네일 -->
+								<!-- 텍스트 썸네일 -->
+								<li class="col-12 col-sm-6 col-md-4 col-lg-4">
+									<div class="card p-4 d-flex flex-column">
+										<div class="card-top">
+											<!-- 고정하기 -->
+											<div class="form-check zzim fixed">
+												<label class="form-check-label"> <input
+													class="form-check-input" type="checkbox" value="" id=""
+													title="고정하기"> <span class="icon-box"><i
+														class="bi bi-pin-angle"></i><i
+														class="bi bi-pin-angle-fill"></i></span>
+												</label>
+											</div>
+											<!-- 썸네일 텍스트 -->
+											<div class="thumbnail-box thumnail-txt">
+												<div class="thumbnail-tit text-truncate">제목입니다.제목입니다.</div>
+												<div class="thumbnail-txt text-truncate">#팀이름팀이름</div>
+											</div>
+										</div>
+										<div class="card-bottom">
+											<!-- 제목 -->
+											<a href="javascript:;" class="card-tit mb-3">
+												<h3>
+													제목입니다.제목입니다.<br>제목입니다.제목입니다.
+												</h3>
+											</a>
+											<!-- 상세내용 -->
+											<p class="card-text text-truncate mb-3">내용입니다. 내용입니다.
+												내용입니다. 내용입니다. 내용입니다.</p>
+										</div>
+									</div>
+								</li>
+								<!-- //텍스트 썸네일 -->
+							</ul>
+						</div>
+						<!-- 페이지네이션 -->
+						<div class="page-box">
+							<nav aria-label="Page navigation example">
+								<ul class="pagination">
+									<li class="page-item"><a class="page-link" href="#"
+										aria-label="Previous"> <span aria-hidden="true">«</span>
+									</a></li>
+									<li class="page-item"><a class="page-link" href="#">1</a></li>
+									<li class="page-item"><a class="page-link" href="#">2</a></li>
+									<li class="page-item"><a class="page-link" href="#">3</a></li>
+									<li class="page-item"><a class="page-link" href="#"
+										aria-label="Next"> <span aria-hidden="true">»</span>
+									</a></li>
+								</ul>
+							</nav>
+						</div>
+						<!-- //페이지네이션 -->
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-bs-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Save changes</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- //완료목록팝업 -->
 
 </div>
