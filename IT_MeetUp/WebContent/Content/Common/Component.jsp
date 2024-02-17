@@ -694,8 +694,8 @@ String cp = request.getContextPath();
 							<div class="modal-dialog modal-dialog-centered">
 								<div class="modal-content">
 									<div class="modal-header">
-										<h1 class="modal-title fs-5" id="exampleModal01Label">팝업01
-											제목</h1>
+										<div class="modal-title fs-5 h1" id="exampleModal01Label">팝업01
+											제목</div>
 										<button type="button" class="btn-close"
 											data-bs-dismiss="modal" aria-label="Close"></button>
 									</div>
@@ -720,8 +720,8 @@ String cp = request.getContextPath();
 							<div class="modal-dialog modal-dialog-scrollable">
 								<div class="modal-content">
 									<div class="modal-header">
-										<h1 class="modal-title fs-5" id="exampleModal02Label">팝업02
-											제목</h1>
+										<div class="modal-title fs-5 h1" id="exampleModal02Label">팝업02
+											제목</div>
 										<button type="button" class="btn-close"
 											data-bs-dismiss="modal" aria-label="Close"></button>
 									</div>

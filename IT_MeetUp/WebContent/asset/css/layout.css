@@ -494,8 +494,14 @@ html .ui-button.ui-state-disabled:active { color: #666 !important;background: #f
 @media (min-width: 1400px){max-width: 1320px;}
 @media (min-width: 1200px){max-width: 1140px;}
 
-
-
+/* 로그인 ---------------------------------*/
+.list-bar>ul{display:flex;justify-content: center;gap:0.25rem;}
+.list-bar>ul>li{position:relative;display: flex;align-items: center;}
+.list-bar>ul>li + li:before{content:'';display: inline-block;width: 1px;height: 16px;background:lightgray;margin: 0 1.25rem;}
+.list-bar>ul{display:flex;justify-content: center;gap:0.25rem;}
+.login-bar{display:flex;align-items:center;justify-content:center;gap:1.25rem;margin-bottom: 1.25rem;}
+.login-bar:before,
+.login-bar:after{display:block;content:'';width: 30%;height:1px;background:lightgray;}
 
 
 
