@@ -195,6 +195,7 @@
                                             <select class="form-select" aria-label="Default select example"
                                                 title="selectTitle01">
                                                 <option selected>인원수를 골라주세요</option>
+                                                <option value="0">0명</option>
                                                 <option value="1">1명</option>
                                                 <option value="2">2명</option>
                                                 <option value="3">3명</option>

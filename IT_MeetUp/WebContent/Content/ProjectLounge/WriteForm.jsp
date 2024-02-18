@@ -66,6 +66,9 @@ String cp = request.getContextPath();
                                     <p class="h5">제목</p>
                                 </a>
                                 <a class="nav-link ms-3 my-1" href="#item-1-2">
+                                    <p class="h5">카테고리</p>
+                                </a>
+                                <a class="nav-link ms-3 my-1" href="#item-1-3">
                                     <p class="h5">내용</p>
                                 </a>
                             </nav>
@@ -100,31 +103,44 @@ String cp = request.getContextPath();
                                 <!-- //모집내용 -->
                                 <!-- 제목 -->
                                 <div id="item-1-1" class="col-12">
-                                    <div class="m-input-box">
+                                    <div class="m-input-box" >
                                         <label for="writePost01" class="form-label">
                                             <p class="h5">제목</p>
                                         </label>
-                                        <input type="text" class="form-control" id="title" name="title" required="required" style="width: 450px;">
+                                        <input type="text" class="form-control" id="title" name="title" required="required" style="width: 350px;">
                                         <div class="invalid-feedback">
                                             제목1을 입력해주세요.
                                         </div>
                                     </div>
                                 </div>
                                 <!-- //제목 -->
-                                <!-- 내용 -->
+                                <!-- 카테코리 -->
                                 <div id="item-1-2" class="col-12">
+                                    <p class="h5">카테고리</p>
+                                    <div class="row">
+                                        <div class="col-6 m-select">
+                                            <select class="form-select" aria-label="Default select example" id="categori" name="categori"  title="selectTitle01" style="width: 250px; " >
+                                                <option selected="selected">카테고리를 고르세요</option>
+                                                <option value="1">교육</option>
+                                                <option value="2">의료</option>
+                                                <option value="3">모집</option>
+                                                <option value="4">기타</option>
+                                        </select>
+                                        </div>
+                                	</div>
+                                </div>
+                                <!-- //카테코리 -->
+                                <!-- 내용 -->
+                                <div id="item-1-3" class="col-12">
                                     <div class="m-textarea">
                                         <label for="exampleFormControlTextarea1" class="form-label"> 
                                             <p class="h5">내용</p>
                                         </label>
-                                        <textarea class="form-control" id="content" name="content" rows="15"  required="required" style="width: 450px;"></textarea>
+                                        <textarea class="form-control" id="content" name="content" rows="15"  required="required" style="width: 700px;"></textarea>
                                     </div>
                                 </div>
                                 <!-- //내용 -->
                                 <!-- 모집 필요사항 -->
-                                <div id="item-2" class="col-12">
-                                    <p class="h4">모집 필요사항</p>
-                                </div>
                                 <!-- //모집 필요사항 -->
                                 <!-- //일정 -->
                                 <div id="item-2-1" class="col-12">
