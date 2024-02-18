@@ -181,18 +181,15 @@
                                 <p class="h4">내용</p>
                             </a>
                             <a class="nav-link ms-3 my-1  " href="#item-3">
-                                <p class="h4">업무단계</p>
-                            </a>
-                            <a class="nav-link ms-3 my-1  " href="#item-4">
                                 <p class="h4">업무분류</p>
                             </a>
-                            <a class="nav-link ms-3 my-1  " href="#item-5">
+                            <a class="nav-link ms-3 my-1  " href="#item-4">
                                 <p class="h4">업무 수행 기간</p>
                             </a>
-                            <a class="nav-link ms-3 my-1  " href="#item-6">
+                            <a class="nav-link ms-3 my-1  " href="#item-5">
                                 <p class="h4">사용스킬</p>
                             </a>
-                            <a class="nav-link ms-3 my-1  " href="#item-7">
+                            <a class="nav-link ms-3 my-1  " href="#item-6">
                                 <p class="h4">첨부파일</p>
                             </a>
                         </nav>
@@ -215,20 +212,8 @@
 				<div  id="#item-2" class="comp_tit">내용
 					<textarea class="form-control" id="content" rows="3" style="width: 450px;" required="required"></textarea>
 		        </div>
-		<div id="#item-3" class="comp_tit">업무 단계:
-			<div class="btn-group" role="group" aria-label="Basic radio toggle button group"style="border-radius: 500px;">
-				<input type="radio" class="btn-check" name="btnradio" id="분석" autocomplete="off">
-				 <label class="btn btn-light" for="분석">분석</label>
-				 <input type="radio" class="btn-check"name="btnradio" id="설계" autocomplete="off"> 
-				 <label class="btn btn-light" for="설계">설계</label> 
-				 <input	type="radio" class="btn-check" name="btnradio" id="구현" autocomplete="off"> 
-				 <label class="btn btn-light" for="구현">구현</label>
-				 <input	type="radio" class="btn-check" name="btnradio" id="테스트" autocomplete="off"> 
-				 <label class="btn btn-light" for="테스트">테스트</label>
-			</div>
-		</div>
 		
-		<div id="#item-4" class="d-flex comp_tit">
+		<div id="#item-3" class="d-flex comp_tit">
 			업무 분류
 			<div class="m-select">
 				<select class="form-select" aria-label="업무분류"
@@ -241,7 +226,7 @@
 			</div>
 		</div>
 
-		<div  id="#item-5" class="comp_tit">업무 수행 기간
+		<div  id="#item-4" class="comp_tit">업무 수행 기간
 			<div style="display: flex;">
 				<span>시작일 <input type="date" class="form-control"
 					id="startDate" onchange="startDateCheck()" style="width: 150px;">
@@ -256,7 +241,7 @@
 
 		<br> <br>
 		
-		<div  id="#item-6" class="dropdown skill-dropdown ">
+		<div  id="#item-5" class="dropdown skill-dropdown ">
                   <div class=" comp_tit">사용 스킬</div>
                     <nav id="skilLIst">
                       <div class="nav nav-tabs mb-3" id="nav-tab" role="tablist">
@@ -565,7 +550,7 @@
                 </div>
 
 <br><br><br>
-	<div id="#item-7" class="comp_tit ">첨부파일 
+	<div id="#item-6" class="comp_tit ">첨부파일 
 		<div class="m-file">
 			<label for="formFile" class="form-label">file</label> <input
 				class="form-control" type="file" id="formFile">
