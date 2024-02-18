@@ -33,8 +33,14 @@
 	<script type="text/javascript">
   	$(function ()
   	{
-  	   
-	})
+  	   //alert("hmm");
+  	
+  	   /* $('#date_from_1').attr("readonly",true);
+  	   $('#date_to_4').attr("readonly",true); */
+  	 ("#date_to_4").datepicker( "option", "disabled", true );
+  	 ("##date_from_1").datepicker( "option", "disabled", true );
+  	
+	});
     </script>
 </head>
 <body>
@@ -97,48 +103,48 @@
                                 <div id="date-1-1" class="col-12">
 								    <div class="row range-datepicker">
 								        <div class="col-6 m-input-cal">
-								            <label for="date-from-1" class="form-label">분석 시작 예정일</label> 
-								            <input type="text" class="form-control date-from" id="date-from-1" name="date_from_1" readonly="readonly" value="<%=from%>"> 
+								            <label for="date_from_1" class="form-label">분석 시작 예정일</label> 
+								            <input type="text" class="form-control date-from" id="date_from_1" name="date_from_1" readonly="readonly" value="<%=from%>"> 
 								        </div>
 								        <div class="col-6 m-input-cal">
-								            <label for="date-to-1" class="form-label">분석 종료 예정일</label> 
-								            <input type="text" class="form-control date-to" id="date-to-1" name="date_to_1" readonly="readonly">
+								            <label for="date_to_1" class="form-label">분석 종료 예정일</label> 
+								            <input type="text" class="form-control date-to" id="date_to_1" name="date_to_1" >
 								        </div>
 								    </div>
 								</div>
                                  <div id="date-1-2" class="col-12">
 										<div class="row range-datepicker">
 											<div class="col-6 m-input-cal">
-												<label for="date-from" class="form-label">설계 시작 예정일</label> <input
-													type="text" class="form-control date-from" id="date-from" name="date_form" >
+												<label for="date_from_2" class="form-label">설계 시작 예정일</label> 
+												<input type="text" class="form-control date-from" id="date_from_2" name="date_from_2" >
 											</div>
 											<div class="col-6 m-input-cal">
-												<label for="date-to" class="form-label">설계 종료 예정일</label> <input
-													type="text" class="form-control date-to" id="date-to" name="date_to">
+												<label for="date_to_2" class="form-label">설계 종료 예정일</label> 
+												<input type="text" class="form-control date-to" id="date_to_2" name="date_to_2">
 											</div>
 										</div>
                                 </div>
                                  <div id="date-1-3" class="col-12">
 										<div class="row range-datepicker">
 											<div class="col-6 m-input-cal">
-												<label for="date-from" class="form-label">구현 시작 예정일</label> <input
-													type="text" class="form-control date-from" id="date-from" name="date_form" >
+												<label for="date_from_3" class="form-label">구현 시작 예정일</label> 
+												<input type="text" class="form-control date-from" id="date_from_3" name="date_form_3" >
 											</div>
 											<div class="col-6 m-input-cal">
-												<label for="date-to" class="form-label">구현 종료 예정일</label> <input
-													type="text" class="form-control date-to" id="date-to" name="date_to">
+												<label for="date_to_3" class="form-label">구현 종료 예정일</label> 
+												<input type="text" class="form-control date-to" id="date_to_3" name="date_to_3">
 											</div>
 										</div>
                                 </div>
                                  <div id="date-1-4" class="col-12">
 										<div class="row range-datepicker">
 											<div class="col-6 m-input-cal">
-												<label for="date-from" class="form-label">테스트 시작 예정일</label> <input
-													type="text" class="form-control date-from" id="date-from" name="date_form" >
+												<label for="date_from_4" class="form-label">테스트 시작 예정일</label> 
+												<input type="text" class="form-control date-from" id="date_from_4" name="date_form_4" >
 											</div>
 											<div class="col-6 m-input-cal">
-												<label for="date-to" class="form-label">테스트 종료 예정일</label> <input
-													type="text" class="form-control date-to" id="date-to" name="date_to" value="<%=to%>" readonly="readonly">
+												<label for="date-to" class="form-label">테스트 종료 예정일</label> 
+												<input type="text" class="form-control date-to" id="date_to_4" name="date_to_4" value="<%=to%>" readonly="readonly">
 											</div>
 										</div>
                                 </div>

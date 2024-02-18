@@ -91,7 +91,7 @@
                                         <p class="h4">모집 내용</p> 
                                         
                                         <!-- 신고버튼 시작 -->
-                                        <div style="text-align: right;"> <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal01" >  <i class="bi bi-emoji-angry"></i>  </button></div>
+                                        <div style="text-align: right;"> <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal01" >  <i class="bi bi-emoji-angry"></i>  </button></div>
 										<div class="modal fade" id="exampleModal01" tabindex="-1"
 											aria-labelledby="exampleModal01Label" aria-hidden="true">
 											<div class="modal-dialog modal-dialog-centered">
@@ -265,9 +265,60 @@
                                 <div class="btn-box">
                                     <div class="btn-center">
                                       <button type="button" class="btn btn-primary">수정하기</button>
-                                      <button type="button" class="btn btn-secondary">신청한 사람보기</button>
+                                      
+                                      
+                                      
+                                      
+                        <!-- Modal -->
+						<button type="button" class="btn btn-primary"
+							data-bs-toggle="modal" data-bs-target="#sinchungpeople">
+							신청한 사람보기</button>
+
+						<div class="modal fade" id="sinchungpeople" tabindex="-1" 
+							aria-labelledby="sinchungpeopleLabel" aria-hidden="true"> <!-- 픽 리스트 등장 -->
+							<div class="modal-dialog modal-dialog-centered">
+								<div class="modal-content">
+									<div class="modal-header">
+										<div class="modal-title fs-5 h1" id="sinchungpeopleLabel">신청한 사람들</div>
+										<button type="button" class="btn-close"
+											data-bs-dismiss="modal" aria-label="닫기"></button>
+									</div>
+									<div class="modal-body">
+									<table class="table">
+										<tr>
+											<th>이름?닉네임?</th>
+											<th>지원한 직무</th>
+											<th>경력</th>
+											<th>지원한 날짜</th>
+											<th>픽 여부</th>
+										</tr>
+										<tr>
+											<td>홍길동</td>
+											<td>백엔드</td>
+											<td>3년</td>
+											<td>2024-02-18</td>
+											<td>
+											<button type="button" class="btn btn-primary" id="pick" >픽</button> 																			
+											</td>
+										</tr>
+									</table> 
+									
+											
+									
+									
+									</div> <!-- 1파업바디 엔드 -->
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary"
+											data-bs-dismiss="modal">Close</button>
+									</div>
+								</div>
+							</div>
+						</div> <!-- 픽 리스트 등장// -->
+                                      
+                                      
+                                      
                                     </div>
-                                  </div>
+                                  </div><!-- 버튼// -->
 
 
 								<div class="comp_box">
@@ -298,20 +349,22 @@
 										</div>
 										<div class="tab-pane fade" id="nav-profile2" role="tabpanel"
 											aria-labelledby="nav-profile-tab2">
-											<textarea class="form-control"
-												id="exampleFormControlTextarea1" rows="5"
-												readonly="readonly">댓글 내용입니다.</textarea>
-											<div style="display: flex;">
-											<input type="text" class="form-control"
-												id="validationCustom03" style="width: 150px;">
-											<button type="button" class="btn btn-primary">▲</button>
+										  <div class="comments mt-3"><!-- 댓글 나오는창 -->
 											
-											</div>
+										  </div>
+											<div class="card-footer">
+										  <form onsubmit="addComment(event)">
+										   <div class="form-group">
+										      <input type="text" class="form-control" placeholder="댓글을 입력하세요"  id="comment"required>
+										    </div>
+										    <button type="submit" class="btn btn-primary">작성</button>
+										  </form>
+										</div>
 										</div>
 										
 									</div>
 								</div>
-								</div>
+								<!-- </div> -->
 
                         
                     </div>
@@ -343,8 +396,47 @@
     	
     	});
 		
+    	$("#pick").click(function()
+    	{
+    		if(confirm("이 사람을 정말정말 진짜루다가 픽하시겠습니까?"))
+    		{
+    			alert("픽 보내기 성공.");
+    		}else
+    		{
+    			alert("픽 보내기 보류!");
+    		}
+    	    	
+    	});
+    	
+    	
 	});
     
+    
+    
+    
+    
+    
+    function addComment(event)
+    {
+    	  event.preventDefault();
+    	  var commentInput = event.target.querySelector("input");
+    	  var commentText = commentInput.value;
+    	  var date = new Date().toLocaleString();
+
+    	  var commentDiv = document.createElement("div");
+    	  commentDiv.className = "card my-3";
+    	  commentDiv.innerHTML = `
+    	    <div class="card-body">
+    	      <p class="card-text">${commentText}</p>
+    	      <p class="card-text"><small class="text-muted">${date}</small></p>
+    	    </div>
+    	  `;
+
+    	  var commentsDiv = event.target.parentNode.querySelector(".comments");
+    	  commentsDiv.insertBefore(commentDiv, commentsDiv.firstChild);
+
+    	  commentInput.value = "";
+    }
     </script>
 </body>
 

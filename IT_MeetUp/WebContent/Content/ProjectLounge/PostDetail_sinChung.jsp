@@ -89,7 +89,7 @@
                                     <!-- 모집내용 -->
                                     <div id="item-1" class="col-12">
                                         <p class="h4">모집 내용</p> 
-                                        <div style="text-align: right;"> <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal01" >  <i class="bi bi-emoji-angry"></i>  </button></div>
+                                        <div style="text-align: right;"> <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal01" >  <i class="bi bi-emoji-angry"></i>  </button></div>
 										<div class="modal fade" id="exampleModal01" tabindex="-1"
 											aria-labelledby="exampleModal01Label" aria-hidden="true">
 											<div class="modal-dialog modal-dialog-centered">
@@ -262,7 +262,59 @@
                                 <!-- 버튼영역 -->
                                 <div class="btn-box">
                                     <div class="btn-center">
-                                      <button type="button" class="btn btn-primary" id="sinchung">신청하기</button>
+                                    
+                                    <!-- Modal -->
+						<button type="button" class="btn btn-primary"
+							data-bs-toggle="modal" data-bs-target="#sinchung">
+							신청하기</button>
+
+						<div class="modal fade" id="sinchung" tabindex="-1"
+							aria-labelledby="sinchungLabel" aria-hidden="true">
+							<div class="modal-dialog modal-dialog-centered">
+								<div class="modal-content">
+									<div class="modal-header">
+										<div class="modal-title fs-5 h1" id="sinchungLabel">신청하기</div>
+										<button type="button" class="btn-close"
+											data-bs-dismiss="modal" aria-label="Close"></button>
+									</div>
+									<div class="modal-body">
+									<table class="table">
+										<tr>
+											<th>직무</th>
+											
+											<th>신청 여부</th>
+										</tr>
+										<tr>
+											<td>프론트엔드</td>
+											<td>
+											<button type="button" class="btn btn-primary sign" id="front" >신청</button> 																			
+											</td>
+										</tr>
+										<tr>
+											<td>백엔드</td>
+											<td>
+											<button type="button" class="btn btn-primary sign" id="back" >신청</button> 																			
+											</td>
+										</tr>
+										<tr>
+											<td>디자인</td>
+											<td>
+											<button type="button" class="btn btn-primary sign" id="design" >신청</button> 																			
+											</td>
+										</tr>
+									</table> 
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary"
+											data-bs-dismiss="modal">Close</button>
+										
+									</div>
+								</div>
+							</div>
+						</div>
+                                    
+                                    
+                                      
                                       <button type="button" class="btn btn-secondary">신청취소?</button>
                                     </div>
                                   </div>
@@ -296,16 +348,19 @@
 										</div>
 										<div class="tab-pane fade" id="nav-profile2" role="tabpanel"
 											aria-labelledby="nav-profile-tab2">
-											<textarea class="form-control"
-												id="exampleFormControlTextarea1" rows="5"
-												readonly="readonly">댓글 내용입니다.</textarea>
-											<div style="display: flex;">
-											<input type="text" class="form-control"
-												id="validationCustom03" style="width: 150px;">
-											<button type="button" class="btn btn-primary">▲</button>
+										  <div class="comments mt-3"><!-- 댓글 나오는창 -->
 											
-											</div>
+										  </div>
+											<div class="card-footer">
+										  <form onsubmit="addComment(event)">
+										   <div class="form-group">
+										      <input type="text" class="form-control" placeholder="댓글을 입력하세요"  id="comment"required>
+										    </div>
+										    <button type="submit" class="btn btn-primary">작성</button>
+										  </form>
 										</div>
+										</div>
+										
 										
 									</div>
 								</div>
@@ -334,20 +389,27 @@
     <script src="../../asset/js/common.js"></script>
     <script>
     $(function()
-	{
-    	$("#singo").click(function()
-    	{
-	    	alert("신고했습니다. 😁");
-    	
-    	});
-    	$("#sinchung").click(function()
+    		{
+    	    	$("#singo").click(function()
     	    	{
-    		    	alert("신청했습니다. 😁");
+    		    	alert("신고했습니다. 😁");
     	    	
     	    	});
-    	
-		
-	});
+    			
+    	    	$(".sign").click(function()
+    	    	{
+    	    		if(confirm("정말 이 프로젝트에 신청하시겠습니까??"))
+    	    		{
+    	    			alert("신청 보내기 성공.");
+    	    		}else
+    	    		{
+    	    			alert("신청 보내기 보류!");
+    	    		}
+    	    	    	
+    	    	});
+    	    	
+    	    	
+    		});
     
     </script>
 </body>
