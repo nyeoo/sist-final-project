@@ -37,8 +37,8 @@
   	
   	   /* $('#date_from_1').attr("readonly",true);
   	   $('#date_to_4').attr("readonly",true); */
-  	 ("#date_to_4").datepicker( "option", "disabled", true );
-  	 ("##date_from_1").datepicker( "option", "disabled", true );
+  	 $("#date_to_4").datepicker( "option", "disabled", true );
+  	 $("#date_from_1").datepicker( "option", "disabled", true );
   	
 	});
     </script>
