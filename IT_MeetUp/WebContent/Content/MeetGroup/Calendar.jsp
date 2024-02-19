@@ -21,6 +21,8 @@ String cp = request.getContextPath();
 <link rel="stylesheet" href="../../asset/css/style.css">
 
 <style type="text/css">
+	.datepicker{display: inline-block; width:83%;}
+
 	.workSet .form-check {
 	    display: inline-block;
 		margin-right: 10px;
@@ -65,9 +67,9 @@ String cp = request.getContextPath();
 					</div>
 				</div>
 
-				<div class="datepicker calendar-datepicker"></div>
 
 			</div>
+			<div class="datepicker calendar-datepicker"></div>
 		</section>
 		<!-- //바디영역 -->
 

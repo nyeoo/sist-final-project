@@ -20,6 +20,8 @@ String cp = request.getContextPath();
 <!-- css -->
 <link rel="stylesheet" href="../../asset/css/style.css">
 <style type="text/css">
+
+.td{text-align: center;}
 .icon {
 	text-align: center;
 }
@@ -206,10 +208,12 @@ String cp = request.getContextPath();
 							</div>
 
 						</div>
+						
+						
+						
+						
 						<div class="tab-pane fade" id="nav-tab02" role="tabpanel"
 							aria-labelledby="nav-tab02-tab">
-
-
 							<div class="card tbl-card">
 								<h5 class="card-header">그룹원 설정</h5>
 								<div class="table-responsive text-nowrap">
@@ -364,6 +368,7 @@ String cp = request.getContextPath();
 								</div>
 							</div>
 						</div>
+						
 					</div>
 					<!-- 탭 -->
 
