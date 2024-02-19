@@ -28,7 +28,7 @@
 					<!-- //헤더영역 -->
 
 					<!-- 바디영역 -->
-					<section class="m-body-area">
+					<section class="m-body-area h-body-section">
 						<!-- 홈 소개 -->
 						<div class="intro">
 							<span class="intro-description_header">팀원 모집, 프로젝트 관리, 포트폴리오 생성</span>
