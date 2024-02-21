@@ -162,6 +162,62 @@ $(function () {
       })
   }
   
+  // 댓글 펼치기/접기-------------------------------------------
+  $('.comment_more').on('click', function(){
+      if(!$(this).parents('.comment_area_wrap').hasClass('open')){
+          $('.comment_area_wrap').removeClass("open")
+          $(this).parents('.comment_area_wrap').addClass("open")
+
+          // 댓글 펼쳤을때 스크롤 위로 올라가도록
+          var hArr = $(this).parents('.pop_con').children().not('.comment_area_wrap');
+          var h = 0;
+          
+          for(var i = 0; i < hArr.length; i++){
+              h += hArr.eq(i).outerHeight();
+              h += parseInt(hArr.eq(i).css('marginTop').split('px')[0]);
+              h += parseInt(hArr.eq(i).css('marginBottom').split('px')[0]);
+          }
+
+          $('.pop_con').animate({scrollTop:  h}, 800);
+
+      } else{
+          $(this).parents('.comment_area_wrap').removeClass("open")
+      }
+  })
+
+  // 답글 펼치기/접기-------------------------------------------
+  $('.btn_cmnt').on('click', function(){
+      if(!$(this).parents('.comment_group').hasClass('open')){
+          $(this).parents('.comment_group').addClass("open")
+      } else{
+          $(this).parents('.comment_group').removeClass("open")
+      }
+  })
+  
+  // textarea 카운트
+  $('[data-textarea]').each(function(index, item){
+    var textareaName = $(this).data('textarea');
+    var lengthCnt = $(this).parents('.comment_reg').find('[data-textarea-cnt="' + textareaName + '"]');
+
+    lengthCnt.html($(this).val().length);
+    
+    $(item).on('input', function(){
+        lengthCnt.html($(this).val().length);
+    })
+  })
+    
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 
 
   // html include

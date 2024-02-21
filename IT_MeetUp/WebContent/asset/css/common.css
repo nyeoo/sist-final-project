@@ -85,7 +85,7 @@ button{border:0 none;border-radius:0;background-color:transparent;cursor:pointer
 address,caption,cite,code,dfn,em,var{font-style:normal;font-weight:normal}
 caption{position:absolute; left:-9999px; width:0.01px; height:0.01px; font-size:0.1px; line-height:0.01px; overflow:hidden;}
 table{border-spacing:0;border-collapse:collapse;}
-textarea{-webkit-appearance:none;-webkit-border-radius:0;width:100%;min-height:270px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;padding:10px 20px;border:1px solid #ddd;outline:none;font:inherit;resize:none;-webkit-transition:all 0.3s ease;-moz-transition:all 0.3s ease;transition:all 0.3s ease; overflow:auto;}
+textarea{-webkit-appearance:none;-webkit-border-radius:0;width:100%;/*min-height:270px;*/-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;padding:10px 20px;border:1px solid #ddd;outline:none;font:inherit;resize:none;-webkit-transition:all 0.3s ease;-moz-transition:all 0.3s ease;transition:all 0.3s ease; overflow:auto;}
 legend{position:absolute; left:-9999px; width:0.01px; height:0.01px; font-size:0.1px; line-height:0.01px; overflow:hidden;}
 
 input::placeholder{font-family:'Pretendard','Roboto','Noto Sans SC','Noto Sans JP','Noto Sans KR','Apple SD Gothic Neo', sans-serif; color:#999 !important; font-weight:400 !important;}

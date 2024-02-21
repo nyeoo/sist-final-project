@@ -503,6 +503,98 @@ html .ui-button.ui-state-disabled:active { color: #666 !important;background: #f
 .login-bar:before,
 .login-bar:after{display:block;content:'';width: 30%;height:1px;background:lightgray;}
 
+/* 댓글영역1 */
+.read_box_area{padding: 24px 20px; border-bottom:0.04rem solid #dddddd;}
+.comment_area_wrap{margin-top:20px;}
+.comment_more{position: relative; border: 0; padding-left: 32px; height: 22px; line-height: 22px; margin-bottom: 2px; font-size: 15px;color: #333;}
+.comment_more::before{content:''; position: absolute; top: 0; left: 0; display: block; width: 24px; height: 24px; /*background-image: url(../images/ico_arrorw_bottom.png); background-repeat: no-repeat; background-size: 24px;*/}
+.comment_more .cmnt_txt.ty01{display:inline-block;}
+.comment_more .cmnt_txt.ty02{display:none;}
+.comment_area{display:none; background-color: #f9f9f9; padding: 8px 16px;}
+.comment_area_wrap .comment_more .cmnt_txt .bi{position:absolute;top:0;left:6px;}
+.comment_area_wrap.open .comment_more{margin-bottom:12px;}
+.comment_area_wrap.open .comment_more::before{/*background-image: url(../images/ico_arrorw_top.png);*/}
+.comment_area_wrap.open .comment_more .cmnt_txt.ty01{display:none;}
+.comment_area_wrap.open .comment_more .cmnt_txt.ty02{display:inline-block;}
+.comment_area_wrap.open .comment_area{display:block;}
+.comment_area_wrap.open .comment_area > li + li{border-top:1px solid #ddd;}
+.comment{padding:12px 0;}
+.comment .tbl_cont_area.ty2 .cont{margin-bottom: 12px !important;}
+.comment .tbl_box{padding: 0;position: relative;}
+.comment .tbl_box:last-child{border-bottom:0.04rem solid #dddddd;}
+.comment .tbl_box.checked{background-color: transparent;}
+.comment .tbl_box .more_area{top: 0; right: -4px;}
+.comment .info{display:flex; height: 25px;} 
+.comment .info .reg_info{width: calc(100% - 200px);} 
+.comment .info .fr{display:flex; align-items:center; justify-content:flex-end; width:200px;}
+/* .comment .info .fr .rcmnd_area{width: auto; margin-top: 0;justify-content: flex-end; margin-left: 16px;} */ 
+.comment_area .comment_reg{margin-top:0; padding:12px 0;}
+.comment_reg{display: flex; justify-content: space-between; margin-top: 24px;}
+.comment_reg .textarea_wrap{/*width: calc(100% - 90px)*/}
+.comment_reg .right-box .btn.btn-primary{padding: 0.35rem 0.275rem;line-height: 14px;font-size: 14px;}
+.reply{position:relative; padding-left:42px !important; border-top:1px solid #ddd;}
+.reply:before{content:''; position: absolute; top: 19px; left: 24px; display: block; width: 6px; height: 6px; border-left:0.04rem solid #999999; border-bottom:0.04rem solid #999999;}
+.reply .name{display:inline-block; padding:0 8px; background:#868d9b; color:#fff; font-size:14px; line-height:22px; font-weight:400; border-radius:2px; margin-right:4px;}
+.btn_cmnt{ border: 0 !important; background-color: transparent !important; min-width: auto !important; height: auto !important; font-size: 14px !important; padding: 0 !important;}
+.comment_group .comment_reg{display:none;}
+.comment_group .btn_cmnt .ty02{display: none;}
+.comment_group.open .comment_reg{display:flex;}
+.comment_group.open .btn_cmnt .ty02{display: inline-block;}
+.editor_area{height:256px; border:0.04rem solid #ccc;}
+
+.tbl_box .cont { display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; color:#666; font-size:15px; line-height:22px; margin-bottom:12px; word-break:keep-all;} 
+.tbl_box .tbl_cont_area.ty2 .cont{white-space:normal;}
+.tbl_box .tbl_cont_area.ty3{width:100%;}
+.tbl_box .tbl_cont_area.ty3 .cont{color:#0c0000;}
+.tbl_box + .cmnt_bt_area{margin-top: 12px;}
+.cmnt_bt_area + .rgstr_area{margin-top: 12px; padding-top: 12px; border-top:0.04rem solid #dddddd;}
+
+/* 더보기 버튼 ----------------*/
+.tbl_box .more_area{position:absolute; right:11px; top:12px;}
+.more_area{position:relative; display:inline-block;}
+.more_area .btn_more{border:0 none; border-radius:100%; width:32px; height:32px; /*background:url(../images/ico_more.png)no-repeat center; background-size:32px 32px;*/ min-width: auto; }
+.more_area .btn_more:disabled,
+.more_area .btn_more:disabled:hover,
+.more_area .btn_more:disabled:focus{background-image:url(../images/ico_more_disabled.png); pointer-events:none;}
+.more_area .btn_more:hover,
+.more_area .btn_more:focus,
+.more_area.open .btn_more{background-image:url(../images/ico_more_hover.png);}
+.more_area ul{display:none; position:absolute; right:0; top:36px; background:#fff; border:1px solid #ccc; border-radius:4px; width:60px; padding:8px 0; z-index:10; box-shadow:0 0.04rem 3px 0 rgba(0, 0, 0, 0.16)}
+.more_area ul li{}
+.more_area ul li a{display:block; padding:0 11px; font-size:14px; line-height:32px; color:#333;}
+.more_area ul li a:hover,
+.more_area ul li a:focus{background:#f5f5f5; color:#03589a;}
+.more_area.open ul{display:block;}
+
+/* 등록정보 */
+.reg_info { display:flex; color:#868d9b; font-size:14px; line-height:20px; align-items:center;} 
+.reg_info > li{display:flex; align-items:center; position:relative; padding-right:12px; margin-right:12px; color:#868D9B; } 
+.reg_info > li::after { content:''; display:block; position:absolute; right:0; top:50%; background:#e2e2e2; width:1px; height:14px; margin-top:-7px; }
+.reg_info > li:first-child{padding-left:0; margin-left:0;}
+.reg_info > li:last-child::after{display:none;}
+.reg_info > li.no_bar{padding-right:0; margin-right:20px;}
+.reg_info > li.no_bar::after{display:none;}
+
+/* 댓글 영역 ---------------------------------------- */
+/* .btn-change-group [class*="change0"]{display:none;}
+.btn-change-group:not(.con-change) [class*="change0"].change01{display:inline-block;}
+.btn-change-group.con-change [class*="change0"].change02{display:inline-block;}
+.comment-box .accordion-item{border: 0px solid #fff !important;}
+.comment-box .accordion-item .accordion-button{background: transparent !important;border: 0px solid #fff !important;border-radius: 5px;box-shadow: none;}
+.comment-box .accordion-item .accordion-body{padding:0;}
+.comment-box .accordion-item:first-of-type{border: 0px solid #fff !important;}
+.comment-box .accordion-item .accordion-body{}
+.comment-box .accordion-item .accordion-body .card{background:transparent;}
+.comment-box .accordion-item{}
+.comment-box .accordion-item{}
+.comment-box .accordion-item{}
+.comment-box .accordion-item{}
+.comment-item-box > li{}
+.comment-item-box.ripple-add > li.comment-add{display:block;}
+.comment-item-box > li + li{margin-top: 0.25rem;}
+.comment-item-box .comment-add{display:none;} */
+
+
 
 
 

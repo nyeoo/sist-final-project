@@ -44,35 +44,25 @@ String cp = request.getContextPath();
 						ㄴ<a href="" target="_blank"></a>
 
 						<div class="comp_tit02">목록1(리스트형)</div>
-						ㄴ<a
-							href="http://localhost:3306/IT_MeetUp/Content/MyPage/S_ApplyManagement.jsp"
-							target="_blank">http://localhost:3306/IT_MeetUp/Content/MyPage/S_ApplyManagement.jsp</a>
+						ㄴ<a href="http://localhost:3306/IT_MeetUp/Content/MyPage/S_ApplyManagement.jsp" target="_blank">http://localhost:3306/IT_MeetUp/Content/MyPage/S_ApplyManagement.jsp</a>
 
 						<h2 class="comp_tit02">목록3(그룹리스트형)</h2>
-						ㄴ<a
-							href="http://localhost:3306/IT_MeetUp/Content/MeetGroup/S_GroupSetup.jsp"
-							target="_blank">http://localhost:3306/IT_MeetUp/Content/MeetGroup/S_GroupSetup.jsp</a>
+						ㄴ<a href="http://localhost:3306/IT_MeetUp/Content/MeetGroup/S_GroupSetup.jsp" target="_blank">http://localhost:3306/IT_MeetUp/Content/MeetGroup/S_GroupSetup.jsp</a>
 
 						<div class="comp_tit02">목록2(썸네일형)</div>
 						ㄴ목록2+필터 참조
 
 						<div class="comp_tit02">목록2+필터</div>
-						ㄴ<a
-							href="http://localhost:3306/IT_MeetUp/Content/ProjectLounge/S_PostList.jsp"
-							target="_blank">http://localhost:3306/IT_MeetUp/Content/ProjectLounge/S_PostList.jsp</a>
+						ㄴ<a href="http://localhost:3306/IT_MeetUp/Content/ProjectLounge/S_PostList.jsp" target="_blank">http://localhost:3306/IT_MeetUp/Content/ProjectLounge/S_PostList.jsp</a>
 
 						<div class="comp_tit02">등록1(작성형)</div>
-						ㄴ<a
-							href="http://localhost:3306/IT_MeetUp/Content/WritePost/S_WritePost.jsp"
-							target="_blank">http://localhost:3306/IT_MeetUp/Content/WritePost/S_WritePost.jsp</a>
+						ㄴ<a href="http://localhost:3306/IT_MeetUp/Content/WritePost/S_WritePost.jsp" target="_blank">http://localhost:3306/IT_MeetUp/Content/WritePost/S_WritePost.jsp</a>
 
 						<div class="comp_tit02">등록2(가입형)</div>
 						ㄴ<a href="" target="_blank"></a>
 
 						<div class="comp_tit02">등록3(그룹작성형)</div>
-						ㄴ<a
-							href="http://localhost:3306/IT_MeetUp/Content/MeetGroup/S_WorkManage.jsp"
-							target="_blank">http://localhost:3306/IT_MeetUp/Content/MeetGroup/S_WorkManage.jsp</a>
+						ㄴ<a href="http://localhost:3306/IT_MeetUp/Content/MeetGroup/S_WorkManage.jsp" target="_blank">http://localhost:3306/IT_MeetUp/Content/MeetGroup/S_WorkManage.jsp</a>
 
 						<div class="comp_tit02">상세1</div>
 						ㄴ<a href="" target="_blank"></a>
@@ -81,16 +71,13 @@ String cp = request.getContextPath();
 						ㄴ<a href="" target="_blank"></a>
 
 						<div class="comp_tit02">로그인</div>
-						ㄴ<a
-							href="http://localhost:3306/IT_MeetUp/Content/Site/S_Login.jsp"
-							target="_blank">http://localhost:3306/IT_MeetUp/Content/Site/S_Login.jsp</a>
+						ㄴ<a href="http://localhost:3306/IT_MeetUp/Content/Site/S_Login.jsp" target="_blank">http://localhost:3306/IT_MeetUp/Content/Site/S_Login.jsp</a>
 
 						<div class="comp_tit02">팝업</div>
 						ㄴ컴포넌트 참조
 
 						<div class="comp_tit02">달력</div>
-						ㄴ<a href="http://127.0.0.1:5501/Content/MeetGroup/S_Calendar.html"
-							target="_blank">http://127.0.0.1:5501/Content/MeetGroup/S_Calendar.html</a>
+						ㄴ<a href="http://127.0.0.1:5501/Content/MeetGroup/S_Calendar.html" target="_blank">http://127.0.0.1:5501/Content/MeetGroup/S_Calendar.html</a>
 
 						<div class="comp_tit02">일정 관리</div>
 						ㄴ<a href="" target="_blank"></a>
@@ -177,33 +164,26 @@ String cp = request.getContextPath();
 
 							<!-- 기본 -->
 							<div class="form-check">
-								<label class="form-check-label"> <input
-									class="form-check-input" type="checkbox" value="" id="">
-									Default checkbox
+								<label class="form-check-label"> <input class="form-check-input" type="checkbox" value="" id=""> Default checkbox
 								</label>
 							</div>
 
 							<!-- checked -->
 							<div class="form-check">
-								<label class="form-check-label"> <input
-									class="form-check-input" type="checkbox" value="" id="" checked>
-									Checked checkbox
+								<label class="form-check-label"> <input class="form-check-input" type="checkbox" value="" id="" checked> Checked checkbox
 								</label>
 							</div>
 
 							<!-- disabled -->
 							<div class="form-check">
-								<label class="form-check-label"> <input
-									class="form-check-input" type="checkbox" value="" id=""
-									disabled> Disabled checkbox
+								<label class="form-check-label"> <input class="form-check-input" type="checkbox" value="" id="" disabled> Disabled checkbox
 								</label>
 							</div>
 
 							<!-- disabled checked -->
 							<div class="form-check">
-								<label class="form-check-label"> <input
-									class="form-check-input" type="checkbox" value="" id="" checked
-									disabled> Disabled checked checkbox
+								<label class="form-check-label"> <input class="form-check-input" type="checkbox" value="" id="" checked disabled> Disabled
+									checked checkbox
 								</label>
 							</div>
 
@@ -216,52 +196,38 @@ String cp = request.getContextPath();
 
 							<!-- 기본 -->
 							<div class="form-check">
-								<label class="form-check-label"> <input
-									class="form-check-input" type="radio" name="radio01" id="">
-									Default radio
+								<label class="form-check-label"> <input class="form-check-input" type="radio" name="radio01" id=""> Default radio
 								</label>
 							</div>
 
 							<!-- checked -->
 							<div class="form-check">
-								<label class="form-check-label"> <input
-									class="form-check-input" type="radio" name="radio01" id=""
-									checked> Default checked radio
+								<label class="form-check-label"> <input class="form-check-input" type="radio" name="radio01" id="" checked> Default checked
+									radio
 								</label>
 							</div>
 
 							<!-- disabled -->
 							<div class="form-check">
-								<label class="form-check-label"> <input
-									class="form-check-input" type="radio" name="radio01" id=""
-									disabled> Disabled radio
+								<label class="form-check-label"> <input class="form-check-input" type="radio" name="radio01" id="" disabled> Disabled radio
 								</label>
 							</div>
 
 							<!-- disabled checked -->
 							<div class="form-check">
-								<label class="form-check-label"> <input
-									class="form-check-input" type="radio" name="" id="" checked
-									disabled> Disabled checked radio
+								<label class="form-check-label"> <input class="form-check-input" type="radio" name="" id="" checked disabled> Disabled checked
+									radio
 								</label>
 							</div>
 
 						</div>
 
 						<div class="comp_tit02">혼합형 라디오 버튼</div>
-						<div class="btn-group" role="group"
-							aria-label="Basic radio toggle button group">
-							<input type="radio" class="btn-check" name="btnradio"
-								id="btnradio1" autocomplete="off" checked> <label
-								class="btn btn-outline-primary" for="btnradio1">Radio 1</label>
-
-							<input type="radio" class="btn-check" name="btnradio"
-								id="btnradio2" autocomplete="off"> <label
-								class="btn btn-outline-primary" for="btnradio2">Radio 2</label>
-
-							<input type="radio" class="btn-check" name="btnradio"
-								id="btnradio3" autocomplete="off"> <label
-								class="btn btn-outline-primary" for="btnradio3">Radio 3</label>
+						<div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+							<input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked> <label class="btn btn-outline-primary"
+								for="btnradio1">Radio 1</label> <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off"> <label
+								class="btn btn-outline-primary" for="btnradio2">Radio 2</label> <input type="radio" class="btn-check" name="btnradio" id="btnradio3"
+								autocomplete="off"> <label class="btn btn-outline-primary" for="btnradio3">Radio 3</label>
 						</div>
 
 						<p class="comp_txt">
@@ -271,8 +237,7 @@ String cp = request.getContextPath();
 							<li class="col-3">
 								<!-- 기본 -->
 								<div class="m-select">
-									<select class="form-select" aria-label="Default select example"
-										title="selectTitle01">
+									<select class="form-select" aria-label="Default select example" title="selectTitle01">
 										<option selected>Open this select menu</option>
 										<option value="1">One</option>
 										<option value="2">Two</option>
@@ -283,8 +248,7 @@ String cp = request.getContextPath();
 							<li class="col-3">
 								<!-- disabled -->
 								<div class="m-select">
-									<select class="form-select" aria-label="Default select example"
-										title="selectTitle02" disabled>
+									<select class="form-select" aria-label="Default select example" title="selectTitle02" disabled>
 										<option selected>Open this select menu</option>
 										<option value="1">One</option>
 										<option value="2">Two</option>
@@ -302,38 +266,32 @@ String cp = request.getContextPath();
 						<form class="row needs-validation" novalidate>
 							<!-- 기본 -->
 							<div class="col-3 m-input-box">
-								<label for="validationCustom01" class="form-label">기본</label> <input
-									type="text" class="form-control" id="validationCustom01"
-									required>
+								<label for="validationCustom01" class="form-label">기본</label> <input type="text" class="form-control" id="validationCustom01" required>
 								<div class="invalid-feedback">제목1을 입력해주세요.</div>
 							</div>
 
 							<!-- disabled -->
 							<div class="col-3 m-input-box">
-								<label for="validationCustom02" class="form-label">disabled</label>
-								<input type="text" class="form-control" id="validationCustom02"
-									required disabled>
+								<label for="validationCustom02" class="form-label">disabled</label> <input type="text" class="form-control" id="validationCustom02" required
+									disabled>
 								<div class="invalid-feedback">제목2을 입력해주세요.</div>
 							</div>
 
 							<!-- readonly -->
 							<div class="col-3 m-input-box">
-								<label for="validationCustom03" class="form-label">readonly</label>
-								<input type="text" class="form-control" id="validationCustom03"
-									required readonly>
+								<label for="validationCustom03" class="form-label">readonly</label> <input type="text" class="form-control" id="validationCustom03" required
+									readonly>
 								<div class="invalid-feedback">제목3을 입력해주세요.</div>
 							</div>
 
 							<!-- form-control-plaintext: 읽기전용 -->
 							<div class="col-3 m-input-box">
-								<label for="validationCustom04" class="form-label">읽기전용</label>
-								<input type="text" class="form-control form-control-plaintext"
+								<label for="validationCustom04" class="form-label">읽기전용</label> <input type="text" class="form-control form-control-plaintext"
 									id="validationCustom04" value="email@example.com" readonly>
 							</div>
 
 							<div class="col-12 mt-3">
-								<button class="btn btn-primary" type="submit">Submit
-									form</button>
+								<button class="btn btn-primary" type="submit">Submit form</button>
 							</div>
 						</form>
 
@@ -344,15 +302,13 @@ String cp = request.getContextPath();
 							<div class="col-4">
 								<div class="m-textarea">
 									<label for="exampleFormControlTextarea1" class="form-label">textarea제목</label>
-									<textarea class="form-control" id="exampleFormControlTextarea1"
-										rows="3"></textarea>
+									<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
 								</div>
 							</div>
 							<div class="col-4">
 								<!-- 단일 파일 업로드 -->
 								<div class="m-file">
-									<label for="formFile" class="form-label">file</label> <input
-										class="form-control" type="file" id="formFile">
+									<label for="formFile" class="form-label">file</label> <input class="form-control" type="file" id="formFile">
 								</div>
 								<!-- 멀티 파일 업로드 -->
 								<!-- <div class="m-file">
@@ -362,10 +318,8 @@ String cp = request.getContextPath();
 							</div>
 							<div class="col-4">
 								<div class="m-picker">
-									<label for="exampleColorInput" class="form-label">Color
-										picker</label> <input type="color"
-										class="form-control form-control-color" id="exampleColorInput"
-										value="#563d7c" title="Choose your color">
+									<label for="exampleColorInput" class="form-label">Color picker</label> <input type="color" class="form-control form-control-color"
+										id="exampleColorInput" value="#563d7c" title="Choose your color">
 								</div>
 
 							</div>
@@ -384,12 +338,10 @@ String cp = request.getContextPath();
 
 						<div class="row range-datepicker">
 							<div class="col-6 m-input-cal">
-								<label for="date-from" class="form-label">시작 예정일</label> <input
-									type="text" class="form-control date-from" id="date-from">
+								<label for="date-from" class="form-label">시작 예정일</label> <input type="text" class="form-control date-from" id="date-from">
 							</div>
 							<div class="col-6 m-input-cal">
-								<label for="date-to" class="form-label">종료 예정일</label> <input
-									type="text" class="form-control date-to" id="date-to">
+								<label for="date-to" class="form-label">종료 예정일</label> <input type="text" class="form-control date-to" id="date-to">
 							</div>
 						</div>
 
@@ -404,54 +356,39 @@ String cp = request.getContextPath();
 
 						<div class="tab-box">
 							<nav>
-								<div class="nav nav-tabs nav-tabs-bordered mb-3" id="nav-tab"
-									role="tablist">
-									<button class="nav-link active" id="nav-home-tab"
-										data-bs-toggle="tab" data-bs-target="#nav-home" type="button"
-										role="tab" aria-controls="nav-home" aria-selected="true">Home</button>
-									<button class="nav-link" id="nav-profile-tab"
-										data-bs-toggle="tab" data-bs-target="#nav-profile"
-										type="button" role="tab" aria-controls="nav-profile"
-										aria-selected="false">Profile</button>
-									<button class="nav-link" id="nav-contact-tab"
-										data-bs-toggle="tab" data-bs-target="#nav-contact"
-										type="button" role="tab" aria-controls="nav-contact"
-										aria-selected="false">Contact</button>
+								<div class="nav nav-tabs nav-tabs-bordered mb-3" id="nav-tab" role="tablist">
+									<button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab"
+										aria-controls="nav-home" aria-selected="true">Home</button>
+									<button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab"
+										aria-controls="nav-profile" aria-selected="false">Profile</button>
+									<button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab"
+										aria-controls="nav-contact" aria-selected="false">Contact</button>
 								</div>
 							</nav>
 							<div class="tab-content" id="nav-tabContent">
-								<div class="tab-pane fade show active" id="nav-home"
-									role="tabpanel" aria-labelledby="nav-home-tab">
+								<div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
 									<p>
-										This is some placeholder content the <strong>Home
-											tab's</strong> associated content. Clicking another tab will toggle
-										the visibility of this one for the next. The tab JavaScript
-										swaps classes to control the content visibility and styling.
-										You can use it with tabs, pills, and any other
+										This is some placeholder content the <strong>Home tab's</strong> associated content. Clicking another tab will toggle the visibility of this
+										one for the next. The tab JavaScript swaps classes to control the content visibility and styling. You can use it with tabs, pills, and any
+										other
 										<code>.nav</code>
 										-powered navigation.
 									</p>
 								</div>
-								<div class="tab-pane fade" id="nav-profile" role="tabpanel"
-									aria-labelledby="nav-profile-tab">
+								<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
 									<p>
-										This is some placeholder content the <strong>Profile
-											tab's</strong> associated content. Clicking another tab will toggle
-										the visibility of this one for the next. The tab JavaScript
-										swaps classes to control the content visibility and styling.
-										You can use it with tabs, pills, and any other
+										This is some placeholder content the <strong>Profile tab's</strong> associated content. Clicking another tab will toggle the visibility of
+										this one for the next. The tab JavaScript swaps classes to control the content visibility and styling. You can use it with tabs, pills, and
+										any other
 										<code>.nav</code>
 										-powered navigation.
 									</p>
 								</div>
-								<div class="tab-pane fade" id="nav-contact" role="tabpanel"
-									aria-labelledby="nav-contact-tab">
+								<div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
 									<p>
-										This is some placeholder content the <strong>Contact
-											tab's</strong> associated content. Clicking another tab will toggle
-										the visibility of this one for the next. The tab JavaScript
-										swaps classes to control the content visibility and styling.
-										You can use it with tabs, pills, and any other
+										This is some placeholder content the <strong>Contact tab's</strong> associated content. Clicking another tab will toggle the visibility of
+										this one for the next. The tab JavaScript swaps classes to control the content visibility and styling. You can use it with tabs, pills, and
+										any other
 										<code>.nav</code>
 										-powered navigation.
 									</p>
@@ -468,38 +405,31 @@ String cp = request.getContextPath();
 
 						<div class="comp_tit02">기본</div>
 						<div class="dropdown">
-							<button class="btn btn-secondary dropdown-toggle" type="button"
-								data-bs-toggle="dropdown" aria-expanded="false">
-								Dropdown button</button>
+							<button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown button</button>
 							<ul class="dropdown-menu">
 								<li><a class="dropdown-item" href="#">Action</a></li>
 								<li><a class="dropdown-item" href="#">Another action</a></li>
-								<li><a class="dropdown-item" href="#">Something else
-										here</a></li>
+								<li><a class="dropdown-item" href="#">Something else here</a></li>
 							</ul>
 						</div>
 
 						<div class="comp_tit02">폼 드롭다운</div>
 						<div class="dropdown">
-							<button type="button" class="btn btn-primary dropdown-toggle"
-								data-bs-toggle="dropdown" aria-expanded="false"
-								data-bs-auto-close="outside">Dropdown form</button>
+							<button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">Dropdown
+								form</button>
 							<form class="dropdown-menu p-4">
 								<div class="mb-3">
-									<label for="exampleDropdownFormEmail2" class="form-label">Email
-										address</label> <input type="email" class="form-control"
+									<label for="exampleDropdownFormEmail2" class="form-label">Email address</label> <input type="email" class="form-control"
 										id="exampleDropdownFormEmail2" placeholder="email@example.com">
 								</div>
 								<div class="mb-3">
-									<label for="exampleDropdownFormPassword2" class="form-label">Password</label>
-									<input type="password" class="form-control"
+									<label for="exampleDropdownFormPassword2" class="form-label">Password</label> <input type="password" class="form-control"
 										id="exampleDropdownFormPassword2" placeholder="Password">
 								</div>
 								<div class="mb-3">
 									<div class="form-check">
-										<input type="checkbox" class="form-check-input"
-											id="dropdownCheck2"> <label class="form-check-label"
-											for="dropdownCheck2"> Remember me </label>
+										<input type="checkbox" class="form-check-input" id="dropdownCheck2"> <label class="form-check-label" for="dropdownCheck2">
+											Remember me </label>
 									</div>
 								</div>
 								<button type="submit" class="btn btn-primary">Sign in</button>
@@ -510,70 +440,52 @@ String cp = request.getContextPath();
 
 					<!-- 아코디언 -->
 					<div class="comp_box">
-						<h2 class="comp_tit">아코디언</h2>
+						<div class="comp_tit h2">아코디언</div>
 
 						<div class="accordion" id="accordionExample">
 							<div class="accordion-item">
-								<h2 class="accordion-header">
-									<button class="accordion-button" type="button"
-										data-bs-toggle="collapse" data-bs-target="#collapseOne"
-										aria-expanded="true" aria-controls="collapseOne">
-										Accordion Item #1</button>
-								</h2>
-								<div id="collapseOne" class="accordion-collapse collapse show"
-									data-bs-parent="#accordionExample">
+								<div class="accordion-header h2">
+									<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true"
+										aria-controls="collapseOne">Accordion Item #1</button>
+								</div>
+								<div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
 									<div class="accordion-body">
-										<strong>This is the first item's accordion body.</strong> It
-										is shown by default, until the collapse plugin adds the
-										appropriate classes that we use to style each element. These
-										classes control the overall appearance, as well as the showing
-										and hiding via CSS transitions. You can modify any of this
-										with custom CSS or overriding our default variables. It's also
-										worth noting that just about any HTML can go within the
+										<strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes
+										that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You
+										can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within
+										the
 										<code>.accordion-body</code>
 										, though the transition does limit overflow.
 									</div>
 								</div>
 							</div>
 							<div class="accordion-item">
-								<h2 class="accordion-header">
-									<button class="accordion-button collapsed" type="button"
-										data-bs-toggle="collapse" data-bs-target="#collapseTwo"
-										aria-expanded="false" aria-controls="collapseTwo">
-										Accordion Item #2</button>
-								</h2>
-								<div id="collapseTwo" class="accordion-collapse collapse"
-									data-bs-parent="#accordionExample">
+								<div class="accordion-header h2">
+									<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
+										aria-controls="collapseTwo">Accordion Item #2</button>
+								</div>
+								<div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
 									<div class="accordion-body">
-										<strong>This is the second item's accordion body.</strong> It
-										is hidden by default, until the collapse plugin adds the
-										appropriate classes that we use to style each element. These
-										classes control the overall appearance, as well as the showing
-										and hiding via CSS transitions. You can modify any of this
-										with custom CSS or overriding our default variables. It's also
-										worth noting that just about any HTML can go within the
+										<strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes
+										that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You
+										can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within
+										the
 										<code>.accordion-body</code>
 										, though the transition does limit overflow.
 									</div>
 								</div>
 							</div>
 							<div class="accordion-item">
-								<h2 class="accordion-header">
-									<button class="accordion-button collapsed" type="button"
-										data-bs-toggle="collapse" data-bs-target="#collapseThree"
-										aria-expanded="false" aria-controls="collapseThree">
-										Accordion Item #3</button>
-								</h2>
-								<div id="collapseThree" class="accordion-collapse collapse"
-									data-bs-parent="#accordionExample">
+								<div class="accordion-header h2">
+									<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false"
+										aria-controls="collapseThree">Accordion Item #3</button>
+								</div>
+								<div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
 									<div class="accordion-body">
-										<strong>This is the third item's accordion body.</strong> It
-										is hidden by default, until the collapse plugin adds the
-										appropriate classes that we use to style each element. These
-										classes control the overall appearance, as well as the showing
-										and hiding via CSS transitions. You can modify any of this
-										with custom CSS or overriding our default variables. It's also
-										worth noting that just about any HTML can go within the
+										<strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes
+										that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You
+										can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within
+										the
 										<code>.accordion-body</code>
 										, though the transition does limit overflow.
 									</div>
@@ -659,22 +571,16 @@ String cp = request.getContextPath();
 							</li>
 							<li>
 								<!-- a, buttton, input 의 버튼 -->
-								<div class="comp_tit02">a, buttton, input 의 버튼</div> <a
-								class="btn btn-primary" href="#" role="button">Link</a>
-								<button class="btn btn-primary" type="submit">Button</button> <input
-								class="btn btn-primary" type="button" value="Input"> <input
-								class="btn btn-primary" type="submit" value="Submit"> <input
-								class="btn btn-primary" type="reset" value="Reset">
+								<div class="comp_tit02">a, buttton, input 의 버튼</div> <a class="btn btn-primary" href="#" role="button">Link</a>
+								<button class="btn btn-primary" type="submit">Button</button> <input class="btn btn-primary" type="button" value="Input"> <input
+								class="btn btn-primary" type="submit" value="Submit"> <input class="btn btn-primary" type="reset" value="Reset">
 							</li>
 							<li>
 								<!-- disabled: a, buttton, input 의 버튼 -->
-								<div class="comp_tit02">'disabled'이 적용된 a, buttton, input
-									의 버튼</div> <a class="btn btn-primary disabled" href="#" role="button">Link</a>
-								<button class="btn btn-primary" disabled type="submit">Button</button>
-								<input class="btn btn-primary" disabled type="button"
-								value="Input"> <input class="btn btn-primary" disabled
-								type="submit" value="Submit"> <input
-								class="btn btn-primary" disabled type="reset" value="Reset">
+								<div class="comp_tit02">'disabled'이 적용된 a, buttton, input 의 버튼</div> <a class="btn btn-primary disabled" href="#" role="button">Link</a>
+								<button class="btn btn-primary" disabled type="submit">Button</button> <input class="btn btn-primary" disabled type="button" value="Input">
+								<input class="btn btn-primary" disabled type="submit" value="Submit"> <input class="btn btn-primary" disabled type="reset"
+								value="Reset">
 							</li>
 						</ul>
 					</div>
@@ -685,55 +591,40 @@ String cp = request.getContextPath();
 						<h2 class="comp_tit">팝업</h2>
 
 						<!-- Modal -->
-						<button type="button" class="btn btn-primary"
-							data-bs-toggle="modal" data-bs-target="#exampleModal01">
-							팝업01</button>
+						<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal01">팝업01</button>
 
-						<div class="modal fade" id="exampleModal01" tabindex="-1"
-							aria-labelledby="exampleModal01Label" aria-hidden="true">
+						<div class="modal fade" id="exampleModal01" tabindex="-1" aria-labelledby="exampleModal01Label" aria-hidden="true">
 							<div class="modal-dialog modal-dialog-centered">
 								<div class="modal-content">
 									<div class="modal-header">
-										<div class="modal-title fs-5 h1" id="exampleModal01Label">팝업01
-											제목</div>
-										<button type="button" class="btn-close"
-											data-bs-dismiss="modal" aria-label="Close"></button>
+										<div class="modal-title fs-5 h1" id="exampleModal01Label">팝업01 제목</div>
+										<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 									</div>
 									<div class="modal-body">...</div>
 									<div class="modal-footer">
-										<button type="button" class="btn btn-secondary"
-											data-bs-dismiss="modal">Close</button>
-										<button type="button" class="btn btn-primary">Save
-											changes</button>
+										<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+										<button type="button" class="btn btn-primary">Save changes</button>
 									</div>
 								</div>
 							</div>
 						</div>
 
 						<!-- Scrollable modal -->
-						<button type="button" class="btn btn-primary"
-							data-bs-toggle="modal" data-bs-target="#exampleModal02">
-							팝업02 - 스크롤형</button>
+						<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal02">팝업02 - 스크롤형</button>
 
-						<div class="modal fade" id="exampleModal02" tabindex="-1"
-							aria-labelledby="exampleModal02Label" aria-hidden="true">
+						<div class="modal fade" id="exampleModal02" tabindex="-1" aria-labelledby="exampleModal02Label" aria-hidden="true">
 							<div class="modal-dialog modal-dialog-scrollable">
 								<div class="modal-content">
 									<div class="modal-header">
-										<div class="modal-title fs-5 h1" id="exampleModal02Label">팝업02
-											제목</div>
-										<button type="button" class="btn-close"
-											data-bs-dismiss="modal" aria-label="Close"></button>
+										<div class="modal-title fs-5 h1" id="exampleModal02Label">팝업02 제목</div>
+										<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 									</div>
 									<div class="modal-body">
-										<div class="modal-contents" style="height: 1000px;">
-											...팝업02 - 스크롤형</div>
+										<div class="modal-contents" style="height: 1000px;">...팝업02 - 스크롤형</div>
 									</div>
 									<div class="modal-footer">
-										<button type="button" class="btn btn-secondary"
-											data-bs-dismiss="modal">Close</button>
-										<button type="button" class="btn btn-primary">Save
-											changes</button>
+										<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+										<button type="button" class="btn btn-primary">Save changes</button>
 									</div>
 								</div>
 							</div>
@@ -748,14 +639,9 @@ String cp = request.getContextPath();
 						<!-- .rounded-pill: 더 동그란 라벨 -->
 
 						<div>
-							<span class="badge text-bg-primary">Primary</span> <span
-								class="badge text-bg-secondary">Secondary</span> <span
-								class="badge text-bg-success">Success</span> <span
-								class="badge text-bg-danger">Danger</span> <span
-								class="badge text-bg-warning">Warning</span> <span
-								class="badge text-bg-info">Info</span> <span
-								class="badge text-bg-light">Light</span> <span
-								class="badge text-bg-dark">Dark</span>
+							<span class="badge text-bg-primary">Primary</span> <span class="badge text-bg-secondary">Secondary</span> <span class="badge text-bg-success">Success</span>
+							<span class="badge text-bg-danger">Danger</span> <span class="badge text-bg-warning">Warning</span> <span class="badge text-bg-info">Info</span>
+							<span class="badge text-bg-light">Light</span> <span class="badge text-bg-dark">Dark</span>
 						</div>
 					</div>
 					<!-- // 라벨 -->
@@ -766,35 +652,29 @@ String cp = request.getContextPath();
 
 						<div>
 							<p class="comp_txt">
-								<strong>* <a
-									href="https://icons.getbootstrap.kr/#%EC%82%AC%EC%9A%A9%EB%B2%95"
-									style="color: blue; text-decoration: underline;">부트스트랩 아이콘</a></strong>
+								<strong>* <a href="https://icons.getbootstrap.kr/#%EC%82%AC%EC%9A%A9%EB%B2%95" style="color: blue; text-decoration: underline;">부트스트랩
+										아이콘</a></strong>
 							</p>
 
 							<ul class="icon-box">
-								<li>header.jsp : <i class="bi bi-bell-fill"></i> <i
-									class="bi bi-exclamation-circle text-warning"></i> <i
-									class="bi bi-x-circle text-danger"></i> <i
-									class="bi bi-check-circle text-success"></i>
+								<li>header.jsp : <i class="bi bi-bell-fill"></i> <i class="bi bi-exclamation-circle text-warning"></i> <i
+									class="bi bi-x-circle text-danger"></i> <i class="bi bi-check-circle text-success"></i>
 								</li>
-								<li>PostList.jsp : <i class="bi bi-arrow-left-circle"></i>
-									<i class="bi bi-arrow-right-circle"></i> <i class="bi bi-heart"></i><i
+								<li>PostList.jsp : <i class="bi bi-arrow-left-circle"></i> <i class="bi bi-arrow-right-circle"></i> <i class="bi bi-heart"></i><i
 									class="bi bi-heart-fill"></i>
 								</li>
 								<li>ApplyManagement.jsp : <i class="bi bi-file-earmark"></i>
 								</li>
-								<li>WorkManage.jsp : <i class="bi bi-folder2-open"></i> <i
-									class="bi bi-three-dots-vertical"></i> <i
-									class="bi bi-pencil-square"></i> <i class="bi bi-trash3"></i>
+								<li>WorkManage.jsp : <i class="bi bi-folder2-open"></i> <i class="bi bi-three-dots-vertical"></i> <i class="bi bi-pencil-square"></i> <i
+									class="bi bi-trash3"></i>
 								</li>
 								<li>GroupHome.jsp : <i class="bi bi-person"></i>
 								</li>
-								<li>sidebar.jsp: <i class="bi bi-menu-button-wide"></i> <i
-									class="bi bi-circle"></i> <i class="bi bi-grid"></i>
+								<li>sidebar.jsp: <i class="bi bi-menu-button-wide"></i> <i class="bi bi-circle"></i> <i class="bi bi-grid"></i>
 								</li>
 								<li>WorkManage.jsp: <i class="bi bi-plus-circle-dotted"></i>
 								</li>
-
+								<li></li>
 							</ul>
 						</div>
 					</div>
@@ -804,14 +684,12 @@ String cp = request.getContextPath();
 					<div class="page-box">
 						<nav aria-label="Page navigation example">
 							<ul class="pagination">
-								<li class="page-item"><a class="page-link" href="#"
-									aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
+								<li class="page-item"><a class="page-link" href="#" aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
 								</a></li>
 								<li class="page-item"><a class="page-link" href="#">1</a></li>
 								<li class="page-item"><a class="page-link" href="#">2</a></li>
 								<li class="page-item"><a class="page-link" href="#">3</a></li>
-								<li class="page-item"><a class="page-link" href="#"
-									aria-label="Next"> <span aria-hidden="true">&raquo;</span>
+								<li class="page-item"><a class="page-link" href="#" aria-label="Next"> <span aria-hidden="true">&raquo;</span>
 								</a></li>
 							</ul>
 						</nav>
@@ -827,19 +705,14 @@ String cp = request.getContextPath();
 								<div class="comp_tit02">여러개를 하나의 프로그래스바로 노출</div>
 
 								<div class="progress-stacked">
-									<div class="progress" role="progressbar"
-										aria-label="Segment one" aria-valuenow="15" aria-valuemin="0"
-										aria-valuemax="100" style="width: 15%">
+									<div class="progress" role="progressbar" aria-label="Segment one" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100" style="width: 15%">
 										<div class="progress-bar">15%</div>
 									</div>
-									<div class="progress" role="progressbar"
-										aria-label="Segment two" aria-valuenow="30" aria-valuemin="0"
-										aria-valuemax="100" style="width: 30%">
+									<div class="progress" role="progressbar" aria-label="Segment two" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 30%">
 										<div class="progress-bar bg-success">30%</div>
 									</div>
-									<div class="progress" role="progressbar"
-										aria-label="Segment three" aria-valuenow="20"
-										aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+									<div class="progress" role="progressbar" aria-label="Segment three" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"
+										style="width: 20%">
 										<div class="progress-bar bg-info">20%</div>
 									</div>
 								</div> <br>
@@ -847,26 +720,16 @@ String cp = request.getContextPath();
 							</li>
 							<li>
 								<div class="comp_tit02">여러개의 프로그래스바 노출</div> <!-- progress-bar-animated: 움직이는 바 형태 -->
-								<div class="progress" role="progressbar"
-									aria-label="Success example" aria-valuenow="25"
-									aria-valuemin="0" aria-valuemax="100">
-									<div class="progress-bar progress-bar-animated bg-success"
-										style="width: 25%">25%</div>
+								<div class="progress" role="progressbar" aria-label="Success example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+									<div class="progress-bar progress-bar-animated bg-success" style="width: 25%">25%</div>
 								</div>
-								<div class="progress" role="progressbar"
-									aria-label="Info example" aria-valuenow="50" aria-valuemin="0"
-									aria-valuemax="100">
+								<div class="progress" role="progressbar" aria-label="Info example" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
 									<div class="progress-bar bg-info text-dark" style="width: 50%">50%</div>
 								</div>
-								<div class="progress" role="progressbar"
-									aria-label="Warning example" aria-valuenow="75"
-									aria-valuemin="0" aria-valuemax="100">
-									<div class="progress-bar bg-warning text-dark"
-										style="width: 75%">75%</div>
+								<div class="progress" role="progressbar" aria-label="Warning example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+									<div class="progress-bar bg-warning text-dark" style="width: 75%">75%</div>
 								</div>
-								<div class="progress" role="progressbar"
-									aria-label="Danger example" aria-valuenow="100"
-									aria-valuemin="0" aria-valuemax="100">
+								<div class="progress" role="progressbar" aria-label="Danger example" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
 									<div class="progress-bar bg-danger" style="width: 100%">100%</div>
 								</div>
 							</li>
@@ -887,23 +750,266 @@ String cp = request.getContextPath();
 							</li>
 							<li class="col-3">
 								<div class="comp_tit02">툴팁</div>
-								<button type="button" class="btn btn-secondary"
-									data-bs-toggle="tooltip" data-bs-placement="top"
-									data-bs-title="툴팁 내용">Tooltip on top</button>
+								<button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="툴팁 내용">Tooltip on top</button>
 							</li>
-							<li class="col-3"><a class="icon-link icon-link-hover"
-								style="-bs-link-hover-color-rgb: 25, 135, 84;" href="#">
-									Icon link <i class="bi bi-arrow-right"></i>
+							<li class="col-3"><a class="icon-link icon-link-hover" style="-bs-link-hover-color-rgb: 25, 135, 84;" href="#"> Icon link <i
+									class="bi bi-arrow-right"></i>
 							</a></li>
 						</div>
 					</div>
 					<!-- //로딩중 -->
 
 
+					<!-- 댓글 -->
+					<div class="comp_box">
+						<h2 class="comp_tit">댓글</h2>
+
+						<div class="row comment_reg">
+							<div class="col-12">
+								<div class="textarea_wrap">
+									<textarea rows="2" cols="30" placeholder="댓글을 작성하세요" class="" data-textarea="txt_cnt"></textarea>
+								</div>
+							</div>
+							<div class="col-12 d-flex justify-content-between mt-2">
+								<div class="left-box">
+									<div class="txt">※ 글자수는 1000자 이내로 제한됩니다.</div>
+								</div>
+								<div class="right-box">
+									<span class="me-3"><strong data-textarea-cnt="txt_cnt">29</strong>/1000</span>
+									<button type="button" class="btn btn-primary">Primary</button>
+								</div>
+							</div>
+						</div>
+
+						<div class="comment_area_wrap open">
+
+							<button class="comment_more">
+								댓글 2개 <span class="cmnt_txt ty01"><i class="bi bi-arrow-down-circle"></i>펼치기</span><span class="cmnt_txt ty02"><i
+									class="bi bi-arrow-up-circle"></i>접기</span>
+							</button>
+
+							<ul class="comment_area">
+								<li>
+									<!-- 원댓글 -->
+									<div class="comment_group">
+
+										<div class="comment">
+											<div class="tbl_box">
+												<div class="tbl_cont_area ty2">
+													<div class="cont">
+														댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다.<br> 댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다.<br> 댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다.
+													</div>
+												</div>
+												<div class="more_area">
+													<div class="dropdown">
+														<button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+															<i class="bi bi-three-dots-vertical"></i>
+														</button>
+														<div class="dropdown-menu">
+															<a class="dropdown-item" href="javascript:void(0);"><i class="bi bi-pencil-square"></i> 수정</a> <a class="dropdown-item"
+																href="javascript:void(0);"><i class="bi bi-trash3"></i> Delete</a>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="info">
+												<ul class="reg_info">
+													<li>작성자A</li>
+													<li><span class="ico_date">2024-02-19 15:34</span></li>
+												</ul>
+												<div class="fr">
+													<button class="btn_cmnt link_blue">
+														답글달기 <span class="ty02">취소</span>
+													</button>
+												</div>
+											</div>
+										</div>
+
+										<!-- 댓글 입력 -->
+										<div class="row comment_reg reply">
+											<div class="col-12">
+												<div class="textarea_wrap">
+													<textarea rows="2" cols="30" placeholder="댓글을 작성하세요" class="" data-textarea="txt_cnt"></textarea>
+												</div>
+											</div>
+											<div class="col-12 d-flex justify-content-between mt-2">
+												<div class="left-box">
+													<div class="txt">※ 글자수는 1000자 이내로 제한됩니다.</div>
+												</div>
+												<div class="right-box">
+													<span class="me-3"><strong data-textarea-cnt="txt_cnt">29</strong>/1000</span>
+													<button type="button" class="btn btn-primary">Primary</button>
+												</div>
+											</div>
+										</div>
+										<!-- 댓글 입력 -->
+
+									</div> <!-- // 원댓글 --> <!-- 답글 -->
+									<ul class="reply_group">
+										<li class="comment_group">
+											<div class="comment reply">
+												<div class="tbl_box">
+													<div class="tbl_cont_area ty2">
+														<div class="cont">
+															<strong class="name">작성자A</strong> 댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다.<br> 댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다.<br> 댓글입니다.
+															댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다.
+														</div>
+													</div>
+													<!-- <div class="more_area">
+														<div class="dropdown">
+															<button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+																<i class="bi bi-three-dots-vertical"></i>
+															</button>
+															<div class="dropdown-menu">
+																<a class="dropdown-item" href="javascript:void(0);"><i class="bi bi-pencil-square"></i> 수정</a> <a class="dropdown-item"
+																	href="javascript:void(0);"><i class="bi bi-trash3"></i> Delete</a>
+															</div>
+														</div>
+													</div> -->
+												</div>
+												<div class="info">
+													<ul class="reg_info">
+														<li>김답글A</li>
+														<li><span class="ico_date">2024-02-19 15:34</span></li>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class="comment_group open">
+											<div class="comment reply">
+												<div class="tbl_box">
+													<div class="tbl_cont_area ty2">
+														<div class="cont">
+															<strong class="name">작성자A</strong> 댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다.<br> 댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다.<br> 댓글입니다.
+															댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다.
+														</div>
+													</div>
+												</div>
+												<div class="info">
+													<ul class="reg_info">
+														<li>김답글B</li>
+														<li><span class="ico_date">2024-02-19 15:34</span></li>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class="comment_group open">
+											<div class="comment reply">
+												<div class="tbl_box">
+													<div class="tbl_cont_area ty2">
+														<div class="cont">
+															<strong class="name">작성자A</strong> 댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다.<br> 댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다.<br> 댓글입니다.
+															댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다.
+														</div>
+													</div>
+												</div>
+												<div class="info">
+													<ul class="reg_info">
+														<li>김답글C</li>
+														<li><span class="ico_date">2024-02-19 15:34</span></li>
+													</ul>
+												</div>
+											</div>
+										</li>
+									</ul> <!-- // 답글 -->
+
+								</li>
+								<li>
+									<!-- 원댓글 -->
+									<div class="comment_group open">
+
+										<div class="comment">
+											<div class="tbl_box">
+												<div class="tbl_cont_area ty2">
+													<div class="cont">
+														두번째 댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다.<br> 댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다.<br> 댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다.
+													</div>
+												</div>
+												<div class="more_area">
+													<div class="dropdown">
+														<button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+															<i class="bi bi-three-dots-vertical"></i>
+														</button>
+														<div class="dropdown-menu">
+															<a class="dropdown-item" href="javascript:void(0);"><i class="bi bi-pencil-square"></i> 수정</a> <a class="dropdown-item"
+																href="javascript:void(0);"><i class="bi bi-trash3"></i> Delete</a>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="info">
+												<ul class="reg_info">
+													<li>작성자B</li>
+													<li><span class="ico_date">2024-02-19 15:34</span></li>
+												</ul>
+												<div class="fr">
+													<button class="btn_cmnt link_blue">
+														답글달기 <span class="ty02">취소</span>
+													</button>
+												</div>
+											</div>
+										</div>
+
+										<!-- 
+											댓글 입력 -->
+										<div class="row comment_reg reply">
+											<div class="col-12">
+												<div class="textarea_wrap">
+													<textarea rows="2" cols="30" placeholder="댓글을 작성하세요" class="" data-textarea="txt_cnt"></textarea>
+												</div>
+											</div>
+											<div class="col-12 d-flex justify-content-between mt-2">
+												<div class="left-box">
+													<div class="txt">※ 글자수는 1000자 이내로 제한됩니다.</div>
+												</div>
+												<div class="right-box">
+													<span class="me-3"><strong data-textarea-cnt="txt_cnt">5</strong>/1000</span>
+													<button type="button" class="btn btn-primary">Primary</button>
+												</div>
+											</div>
+										</div>
+
+										<!-- 댓글 입력 -->
+									</div> <!-- // 원댓글 --> <!-- 답글 -->
+									<ul class="reply_group">
+										<li class="comment_group">
+											<div class="comment reply">
+												<div class="tbl_box">
+													<div class="tbl_cont_area ty2">
+														<div class="cont">
+															<strong class="name">작성자B</strong> 댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다.<br> 댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다.<br> 댓글입니다.
+															댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다.
+														</div>
+													</div>
+													<!-- <div class="more_area">
+														<div class="dropdown">
+															<button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+																<i class="bi bi-three-dots-vertical"></i>
+															</button>
+															<div class="dropdown-menu">
+																<a class="dropdown-item" href="javascript:void(0);"><i class="bi bi-pencil-square"></i> 수정</a> <a class="dropdown-item"
+																	href="javascript:void(0);"><i class="bi bi-trash3"></i> Delete</a>
+															</div>
+														</div>
+													</div> -->
+												</div>
+												<div class="info">
+													<ul class="reg_info">
+														<li>김답글A</li>
+														<li><span class="ico_date">2024-02-19 15:34</span></li>
+													</ul>
+												</div>
+											</div>
+										</li>
+									</ul> <!-- // 답글 -->
+
+								</li>
+							</ul>
+						</div>
+					</div>
 
 				</div>
 				<!-- //컴포넌트 콘텐츠 영역 -->
-
 			</div>
 		</section>
 		<!-- //바디영역 -->
