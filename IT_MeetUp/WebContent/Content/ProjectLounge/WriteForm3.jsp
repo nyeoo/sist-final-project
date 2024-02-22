@@ -298,10 +298,9 @@
                                 </div>
                                 <!-- //희망기술 -->		
            						<br><br><br><br><br><br><br><br><br><br><br><br>
-           						
-           						<div id="skilArea" style="border: 1px solid black; border-radius: 50px; width: 500px; text-align: center;"> <!-- 내가 체크한 기술 나오는 공간 -->
-                					<br>
-                				</div>
+	           						<div id="skilArea" style="border: 1px solid black; border-radius: 50px; width: 500px; text-align: center;"> <!-- 내가 체크한 기술 나오는 공간 -->
+	                					<br>
+	                				</div>
                 				<br><br><br><br>
                 				
                 		    <!-- 버튼영역 -->

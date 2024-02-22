@@ -19,7 +19,23 @@
 
     <!-- css -->
     <link rel="stylesheet" href="../../asset/css/style.css">
-
+	<style type="text/css">
+	.comment {
+      margin-bottom: 20px;
+    }
+    .comment .profile-picture {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+    .comment .comment-content {
+      margin-top: 5px;
+    }
+    .reply {
+      display: none;
+    }
+	</style>
 </head>
 
 <body>
@@ -102,8 +118,7 @@
 															data-bs-dismiss="modal" aria-label="Close"></button>
 													</div>
 													<div class="modal-body">
-															<select class="form-select" aria-label=""
-															title="" id="singo" >
+															<select class="form-select" aria-label="" 	title="" id="singoList" >
 															<option selected>신고샤유</option>
 															<option value="1">부적절한 활동</option>
 															<option value="2">욕설/비방</option>
@@ -270,55 +285,60 @@
                                       
                                       
                         <!-- Modal -->
-						<button type="button" class="btn btn-primary"
-							data-bs-toggle="modal" data-bs-target="#sinchungpeople">
-							신청한 사람보기</button>
-
-						<div class="modal fade" id="sinchungpeople" tabindex="-1" 
-							aria-labelledby="sinchungpeopleLabel" aria-hidden="true"> <!-- 픽 리스트 등장 -->
+						<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#sinchungpeople">신청한 사람보기</button>
+						<div class="modal fade" id="sinchungpeople" tabindex="-1" aria-labelledby="sinchungpeopleLabel" aria-hidden="true"> <!-- 픽 리스트 등장 -->
 							<div class="modal-dialog modal-dialog-centered">
 								<div class="modal-content">
 									<div class="modal-header">
 										<div class="modal-title fs-5 h1" id="sinchungpeopleLabel">신청한 사람들</div>
-										<button type="button" class="btn-close"
-											data-bs-dismiss="modal" aria-label="닫기"></button>
+										<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="닫기"></button>
 									</div>
 									<div class="modal-body">
-									<table class="table">
-										<tr>
-											<th>이름?닉네임?</th>
-											<th>지원한 직무</th>
-											<th>경력</th>
-											<th>지원한 날짜</th>
-											<th>픽 여부</th>
-										</tr>
-										<tr>
-											<td>홍길동</td>
-											<td>백엔드</td>
-											<td>3년</td>
-											<td>2024-02-18</td>
-											<td>
-											<button type="button" class="btn btn-primary" id="pick" >픽</button> 																			
-											</td>
-										</tr>
-									</table> 
-									
-											
-									
-									
+										<table class="table">
+											<tr>
+												<th>이름?닉네임?</th>
+												<th>지원한 직무</th>
+												<th>경력</th>
+												<th>지원한 날짜</th>
+												<th>픽 여부</th>
+											</tr>
+											<tr>
+												<td>홍길동</td>
+												<td>백엔드</td>
+												<td>3년</td>
+												<td>2024-02-18</td>
+												<td>
+												<button  type="button" class="btn btn-primary" id="pick"  data-bs-target="#PickCheck" 	data-bs-toggle="modal"><i class="bi bi-arrow-through-heart"></i></button> 																			
+												</td>
+											</tr>
+										</table>
 									</div> <!-- 1파업바디 엔드 -->
 									<div class="modal-footer">
-										<button type="button" class="btn btn-secondary"
-											data-bs-dismiss="modal">Close</button>
+										<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 									</div>
 								</div>
 							</div>
 						</div> <!-- 픽 리스트 등장// -->
+                        <div class="modal fade" id="PickCheck" aria-hidden="true" aria-labelledby="PickCheckLabel" tabindex="-1">
+						  <div class="modal-dialog modal-dialog-centered">
+						    <div class="modal-content">
+						      <div class="modal-header">
+						          <h1 class="modal-title fs-5" id="PickCheckLabel">픽 </h1>
+							        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="아니오"></button>
+							      </div>
+							      <div class="modal-body">
+								        이 사람을 정말 픽하시 겠습니까?
+							      </div>
+							      <div class="modal-footer">
+							        <button  type="button"  class="btn btn-primary" data-bs-target="#sinchungpeople" data-bs-toggle="modal">네</button>
+							        <button type="button" class="btn btn-secondary"  data-bs-target="#sinchungpeople" data-bs-toggle="modal">아니오</button>
+							      </div>
+							    </div>
+						   </div>
+						</div>              
                                       
-                                      
-                                      
-                                    </div>
-                                  </div><!-- 버튼// -->
+                         </div>
+                        </div><!-- 버튼// -->
 
 
 								<div class="comp_box">
@@ -327,40 +347,257 @@
 									<nav>
 										<div class="nav nav-tabs nav-tabs-bordered mb-3" id="nav-tab"
 											role="tablist">
-											<button class="nav-link active" id="nav-home-tab2"
-												data-bs-toggle="tab" data-bs-target="#nav-home2"
-												type="button" role="tab" aria-controls="nav-home2"
-												aria-selected="true">모집현항</button>
+											<button class="nav-link active" id="nav-mojib-tab" 	data-bs-toggle="tab" data-bs-target="#nav-mojib"
+												type="button" role="tab" aria-controls="nav-mojib" 	aria-selected="true">모집현항</button>
 
-											<button class="nav-link" id="nav-profile-tab2"
-												data-bs-toggle="tab" data-bs-target="#nav-profile2"
-												type="button" role="tab" aria-controls="nav-profile2"
-												aria-selected="false">댓글</button>
-
-											
+											<button class="nav-link" id="nav-comment-tab" data-bs-toggle="tab" data-bs-target="#nav-comment"
+												type="button" role="tab" aria-controls="nav-comment" aria-selected="false">댓글</button>
 										</div>
 									</nav>
 									<div class="tab-content" id="nav-tabContent2">
-										<div class="tab-pane fade show active" id="nav-home2"
-											role="tabpanel" aria-labelledby="nav-home-tab2">
+										<div class="tab-pane fade show active" id="nav-mojib"
+											role="tabpanel" aria-labelledby="nav-mojib-tab">
 											<h5>프론트 1/2</h5>
 											<h5>백엔드 0/3</h5>
 											<h5>디자인 1/1</h5>
 										</div>
-										<div class="tab-pane fade" id="nav-profile2" role="tabpanel"
-											aria-labelledby="nav-profile-tab2">
-										  <div class="comments mt-3"><!-- 댓글 나오는창 -->
-											
-										  </div>
-											<div class="card-footer">
-										  <form onsubmit="addComment(event)">
-										   <div class="form-group">
-										      <input type="text" class="form-control" placeholder="댓글을 입력하세요"  id="comment"required>
-										    </div>
-										    <button type="submit" class="btn btn-primary">작성</button>
-										  </form>
+								<div class="tab-pane fade" id="nav-comment" role="tabpanel" aria-labelledby="nav-comment-tab">
+					  					
+					  			<!-- 댓글 -->
+								<div class="row comment_reg">
+									<div class="col-12">
+										<div class="textarea_wrap">
+											<textarea rows="2" cols="30" placeholder="댓글을 작성하세요" class="" data-textarea="txt_cnt"></textarea>
 										</div>
+									</div>
+									<div class="col-12 d-flex justify-content-between mt-2">
+										<div class="left-box">
+											<div class="txt">※ 글자수는 1000자 이내로 제한됩니다.</div>
 										</div>
+										<div class="right-box">
+											<span class="me-3"><strong data-textarea-cnt="txt_cnt">29</strong>/1000</span>
+											<button type="button" class="btn btn-primary">Primary</button>
+										</div>
+									</div>
+								</div>
+		
+								<div class="comment_area_wrap open">
+		
+									<button class="comment_more">
+										댓글 2개 <span class="cmnt_txt ty01"><i class="bi bi-arrow-down-circle"></i>펼치기</span><span class="cmnt_txt ty02">
+										<i class="bi bi-arrow-up-circle"></i>접기</span>
+									</button>
+		
+									<ul class="comment_area">
+										<li>
+											<!-- 원댓글 -->
+											<div class="comment_group">
+												<div class="comment">
+													<div class="tbl_box">
+														<div class="tbl_cont_area ty2">
+															<div class="cont">
+																댓글입니다.
+															</div>
+														</div>
+														<div class="more_area">
+															<div class="dropdown">
+																<button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+																	<i class="bi bi-three-dots-vertical"></i>
+																</button>
+																<div class="dropdown-menu">
+																	<a class="dropdown-item" href="javascript:void(0);"><i class="bi bi-pencil-square"></i> 수정</a> 
+																	<a class="dropdown-item" href="javascript:void(0);"><i class="bi bi-trash3"></i> 삭제</a>
+																	<a class="dropdown-item" href="javascript:void(0);"><i class="bi bi-tencent-qq"></i>신고</a>
+																</div>
+															 </div> <!-- end class="dropdown" -->
+																
+															</div>
+														</div>
+													</div>
+													<div class="info">
+														<ul class="reg_info">
+															<li>작성자A</li>
+															<li><span class="ico_date">2024-02-19 15:34</span></li>
+														</ul>
+														<div class="fr">
+															<button class="btn_cmnt link_blue">
+																답글달기 <span class="ty02">취소</span>
+															</button>
+														</div>
+													</div>
+												</div>
+		
+												<!-- 댓글 입력 -->
+												<div class="row comment_reg reply">
+													<div class="col-12">
+														<div class="textarea_wrap">
+															<textarea rows="2" cols="30" placeholder="댓글을 작성하세요" class="" data-textarea="txt_cnt"></textarea>
+														</div>
+													</div>
+													<div class="col-12 d-flex justify-content-between mt-2">
+														<div class="left-box">
+															<div class="txt">※ 글자수는 1000자 이내로 제한됩니다.</div>
+														</div>
+														<div class="right-box">
+															<span class="me-3"><strong data-textarea-cnt="txt_cnt">29</strong>/1000</span>
+															<button type="button" class="btn btn-primary">▲</button>
+														</div>
+													</div>
+												</div>
+												<!-- 댓글 입력 -->
+		
+											</div> <!-- // 원댓글 --> <!-- 답글 -->
+											<ul class="reply_group">
+												<li class="comment_group">
+													<div class="comment reply">
+														<div class="tbl_box">
+															<div class="tbl_cont_area ty2">
+																<div class="cont">
+																	<strong class="name">작성자A</strong> 댓글입니다. 
+																</div>
+															</div>
+															
+															<!-- <div class="more_area">
+																<div class="dropdown">
+																	<button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+																		<i class="bi bi-three-dots-vertical"></i>
+																	</button>
+																	<div class="dropdown-menu">
+																		<a class="dropdown-item" href="javascript:void(0);"><i class="bi bi-pencil-square"></i> 수정</a> <a class="dropdown-item"
+																			href="javascript:void(0);"><i class="bi bi-trash3"></i> Delete</a>
+																	</div>
+																</div>
+															</div>
+															 --> 
+														</div>
+														<div class="info">
+															<ul class="reg_info">
+																<li>김답글A</li>
+																<li><span class="ico_date">2024-02-19 15:34</span></li>
+															</ul>
+														</div>
+													</div>
+												</li>
+												<li class="comment_group open">
+													<div class="comment reply">
+														<div class="tbl_box">
+															<div class="tbl_cont_area ty2">
+																<div class="cont">
+																	<strong class="name">작성자A</strong> 댓글입니다.
+																</div>
+															</div>
+														</div>
+														<div class="info">
+															<ul class="reg_info">
+																<li>김답글B</li>
+																<li><span class="ico_date">2024-02-19 15:34</span></li>
+															</ul>
+														</div>
+													</div>
+												</li>
+												<li class="comment_group open">
+													<div class="comment reply">
+														<div class="tbl_box">
+															<div class="tbl_cont_area ty2">
+																<div class="cont">
+																	<strong class="name">작성자A</strong> 댓글입니다. 
+																</div>
+															</div>
+														</div>
+														<div class="info">
+															<ul class="reg_info">
+																<li>김답글C</li>
+																<li><span class="ico_date">2024-02-19 15:34</span></li>
+															</ul>
+														</div>
+													</div>
+												</li>
+											</ul> <!-- // 답글 -->
+		
+										</li>
+										<li>
+											<!-- 원댓글 -->
+											<div class="comment_group open">
+		
+												<div class="comment">
+													<div class="tbl_box">
+														<div class="tbl_cont_area ty2">
+															<div class="cont">
+																두번째 댓글입니다.  
+															</div>
+														</div>
+														<div class="more_area">
+															<div class="dropdown">
+																<button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+																	<i class="bi bi-three-dots-vertical"></i>
+																</button>
+																<div class="dropdown-menu">
+																	<a class="dropdown-item" href="javascript:void(0);">
+																	<i class="bi bi-pencil-square"></i> 수정</a> 
+																	<a class="dropdown-item" href="javascript:void(0);"><i class="bi bi-trash3"></i> 삭제</a>
+																	<a class="dropdown-item" href="javascript:void(0);"><i class="bi bi-tencent-qq"></i> 신고</a>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="info">
+														<ul class="reg_info">
+															<li>작성자B</li>
+															<li><span class="ico_date">2024-02-19 15:34</span></li>
+														</ul>
+														<div class="fr">
+															<button class="btn_cmnt link_blue">
+																답글달기 <span class="ty02">취소</span>
+															</button>
+														</div>
+													</div>
+												</div>
+		
+												<!-- 댓글 입력 -->
+												<div class="row comment_reg reply">
+													<div class="col-12">
+														<div class="textarea_wrap">
+															<textarea rows="2" cols="30" placeholder="댓글을 작성하세요" class="" data-textarea="txt_cnt"></textarea>
+														</div>
+													</div>
+													<div class="col-12 d-flex justify-content-between mt-2">
+														<div class="left-box">
+															<div class="txt">※ 글자수는 1000자 이내로 제한됩니다.</div>
+														</div>
+														<div class="right-box">
+															<span class="me-3"><strong data-textarea-cnt="txt_cnt">5</strong>/1000</span>
+															<button type="button" class="btn btn-primary">Primary</button>
+														</div>
+													</div>
+												</div>
+		
+											<!-- 댓글 입력 -->
+											</div> <!-- // 원댓글 --> <!-- 답글 -->
+											<ul class="reply_group">
+												<li class="comment_group">
+													<div class="comment reply">
+														<div class="tbl_box">
+															<div class="tbl_cont_area ty2">
+																<div class="cont">
+																	<strong class="name">작성자B</strong> 댓글입니다. 
+																</div>
+															</div>
+															
+														</div>
+														<div class="info">
+															<ul class="reg_info">
+																<li>김답글A</li>
+																<li><span class="ico_date">2024-02-22 22:34</span></li>
+															</ul>
+														</div>
+													</div>
+												</li>
+											</ul> <!-- // 답글 -->
+
+								</li>
+							</ul>
+						</div>
+								</div>
 										
 									</div>
 								</div>
@@ -373,9 +610,10 @@
 
 
             </div>
+            <br><br><br>
         </section>
         <!-- //바디영역 -->
-
+	
         <!-- 푸터영역 -->
         <div role="footer" data-include="../Components/Footer.jsp" class="mt-auto"></div>
         <!-- //푸터영역 -->
@@ -395,7 +633,7 @@
 	    	alert("신고했습니다. 😁");
     	
     	});
-		
+		/* 
     	$("#pick").click(function()
     	{
     		if(confirm("이 사람을 정말정말 진짜루다가 픽하시겠습니까?"))
@@ -407,6 +645,7 @@
     		}
     	    	
     	});
+		*/
     	
     	
 	});
@@ -416,27 +655,7 @@
     
     
     
-    function addComment(event)
-    {
-    	  event.preventDefault();
-    	  var commentInput = event.target.querySelector("input");
-    	  var commentText = commentInput.value;
-    	  var date = new Date().toLocaleString();
-
-    	  var commentDiv = document.createElement("div");
-    	  commentDiv.className = "card my-3";
-    	  commentDiv.innerHTML = `
-    	    <div class="card-body">
-    	      <p class="card-text">${commentText}</p>
-    	      <p class="card-text"><small class="text-muted">${date}</small></p>
-    	    </div>
-    	  `;
-
-    	  var commentsDiv = event.target.parentNode.querySelector(".comments");
-    	  commentsDiv.insertBefore(commentDiv, commentsDiv.firstChild);
-
-    	  commentInput.value = "";
-    }
+    
     </script>
 </body>
 

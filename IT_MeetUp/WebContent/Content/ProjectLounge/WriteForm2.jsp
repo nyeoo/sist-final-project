@@ -35,10 +35,12 @@
   	{
   	   //alert("hmm");
   	
-  	   /* $('#date_from_1').attr("readonly",true);
-  	   $('#date_to_4').attr("readonly",true); */
+	   
   	 $("#date_to_4").datepicker( "option", "disabled", true );
   	 $("#date_from_1").datepicker( "option", "disabled", true );
+  	 
+  	
+  	
   	
 	});
     </script>
@@ -104,7 +106,7 @@
 								    <div class="row range-datepicker">
 								        <div class="col-6 m-input-cal">
 								            <label for="date_from_1" class="form-label">분석 시작 예정일</label> 
-								            <input type="text" class="form-control date-from" id="date_from_1" name="date_from_1" readonly="readonly" value="<%=from%>"> 
+								            <input type="text" class="form-control date-from" id="date_from_1" name="date_from_1" readonly="readonly"  value="<%=from%>"> 
 								        </div>
 								        <div class="col-6 m-input-cal">
 								            <label for="date_to_1" class="form-label">분석 종료 예정일</label> 

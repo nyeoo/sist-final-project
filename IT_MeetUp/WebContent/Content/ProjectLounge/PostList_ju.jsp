@@ -23,8 +23,7 @@
 	<div class="wrapper">
 
 		<!-- 헤더영역 -->
-		<div role="header" data-include="../Components/Header.jsp"
-			class="sticky-top"></div>
+		<c:import url="../Components/Header.jsp"></c:import>
 		<!-- //헤더영역 -->
 
 		<!-- 바디영역 -->
@@ -421,6 +420,18 @@
 						<ul class="d-flex">
 							<li>
 								<div class="m-select">
+									<select class="form-select" aria-label="카테고리" title="카테고리">
+										<option selected>카테고리</option>
+										<option value="1">교육</option>
+										<option value="2">1 ~ 3미만</option>
+										<option value="3">의료</option>
+										<option value="4">모집</option>
+										<option value="5">기타</option>
+									</select>
+								</div>
+							</li>
+							<li>
+								<div class="m-select">
 									<select class="form-select" aria-label="경력" title="경력">
 										<option selected>경력</option>
 										<option value="1">0 ~ 1미만</option>
@@ -544,14 +555,10 @@
 															</label>
 														</div>
 													</li>
-													<li>
-														<div class="form-check skill-item">
-															<label class="form-check-label"> <input
-																class="form-check-input" type="checkbox" value="" id="">
-																JSP
-															</label>
-														</div>
-													</li>
+													<li><input class="btn-check skil" type="checkbox"
+															value="Xcode" id="Xcode"> <label
+															class="btn btn-outline-primary" for="Xcode">
+																JSP </label></li>
 													<li>
 														<div class="form-check skill-item">
 															<label class="form-check-label"> <input
@@ -1500,9 +1507,8 @@
 		<!-- //바디영역 -->
 
 		<!-- 푸터영역 -->
-		<div role="footer" data-include="../Components/Footer.jsp"
-			class="mt-auto"></div>
-		<!-- //푸터영역 -->
+		<c:import url="../Components/Footer.jsp"></c:import>
+	<!-- //푸터영역 -->
 
 	</div>
 

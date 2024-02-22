@@ -288,34 +288,35 @@
 											<td>프론트엔드</td>
 											<td>
 											<button type="button" class="btn btn-primary sign" id="front" >신청</button> 																			
+											<button type="button" class="btn btn-secondary canel" id="front" >취소</button> 																			
 											</td>
 										</tr>
 										<tr>
 											<td>백엔드</td>
 											<td>
 											<button type="button" class="btn btn-primary sign" id="back" >신청</button> 																			
+											<button type="button" class="btn btn-secondary canel" id="back" >취소</button> 																			
 											</td>
 										</tr>
 										<tr>
 											<td>디자인</td>
 											<td>
 											<button type="button" class="btn btn-primary sign" id="design" >신청</button> 																			
+											<button type="button" class="btn btn-secondary canel" id="design" >취소</button> 																			
 											</td>
 										</tr>
 									</table> 
 									</div>
 									<div class="modal-footer">
-										<button type="button" class="btn btn-secondary"
-											data-bs-dismiss="modal">Close</button>
+										<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 										
 									</div>
 								</div>
 							</div>
 						</div>
                                     
-                                    
                                       
-                                      <button type="button" class="btn btn-secondary">신청취소?</button>
+                                      
                                     </div>
                                   </div>
 
@@ -324,8 +325,7 @@
 									<h2 class="comp_tit">부가 정보</h2>
 
 									<nav>
-										<div class="nav nav-tabs nav-tabs-bordered mb-3" id="nav-tab"
-											role="tablist">
+										<div class="nav nav-tabs nav-tabs-bordered mb-3" id="nav-tab" 	role="tablist">
 											<button class="nav-link active" id="nav-home-tab2"
 												data-bs-toggle="tab" data-bs-target="#nav-home2"
 												type="button" role="tab" aria-controls="nav-home2"
@@ -335,7 +335,6 @@
 												data-bs-toggle="tab" data-bs-target="#nav-profile2"
 												type="button" role="tab" aria-controls="nav-profile2"
 												aria-selected="false">댓글</button>
-
 											
 										</div>
 									</nav>
@@ -408,6 +407,18 @@
     	    	    	
     	    	});
     	    	
+    	    	$(".canel").click(function()
+    	    	{
+    	    		if(confirm("정말 이 프로젝트에 취소하시겠습니까??"))
+    	    		{
+    	    			alert("신청 보내기 성공.");
+    	    		}else
+    	    		{
+    	    			alert("신청 보내기 보류!");
+    	    		}
+	    	    	    	
+    	    	});
+   	    	
     	    	
     		});
     
