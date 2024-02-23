@@ -21,15 +21,17 @@ String cp = request.getContextPath();
 <link rel="stylesheet" href="../../asset/css/style.css">
 
 <style type="text/css">
-	.datepicker{display: inline-block; width:83%;}
+.datepicker {
+	display: inline-block;
+	width: 83%;
+}
 
-	.workSet .form-check {
-	    display: inline-block;
-		margin-right: 10px;
-		margin-bottom: 10px;
-		float: right;
-	}
-
+.workSet .form-check {
+	display: inline-block;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	float: right;
+}
 </style>
 
 </head>
@@ -43,6 +45,10 @@ String cp = request.getContextPath();
 		<!-- //헤더영역 -->
 
 		<!-- 바디영역 -->
+
+		<!-- 사이드 영역 -->
+		<c:import url="../Components/Side.jsp"></c:import>
+		<!-- //사이드 영역 -->
 		<section class="m-body-area">
 			<div class="container-xl">
 
@@ -53,8 +59,7 @@ String cp = request.getContextPath();
 
 				<div class="workSet">
 					<div class="form-check">
-						<label class="form-check-label" for="totWork"> 
-						<input
+						<label class="form-check-label" for="totWork"> <input
 							class="form-check-input" type="radio" name="work" id="totWork"
 							checked="checked"> 전체 업무 보기
 						</label>

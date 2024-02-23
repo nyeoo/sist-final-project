@@ -20,37 +20,28 @@ String cp = request.getContextPath();
 <!-- css -->
 <link rel="stylesheet" href="../../asset/css/style.css">
 <style type="text/css">
-
-.td{text-align: center;}
 .icon {
 	text-align: center;
 }
 
 .LayerMore {
-	overflow-y: auto;
-	position: absolute;
-	top: auto;
-	left: 0;
-	z-index: 1;
-	max-height: 416px;
-	padding: 8px 0;
-	border: 1px solid rgba(0, 0, 0, .06);
-	border-radius: 6px;
-	box-shadow: 0 1px 12px 0 rgba(0, 0, 0, .06);
-	background-color: #fff;
-	box-sizing: border-box;
-	color: #000;
+    position: absolute;
+    left: auto;
+    right: 0; /* 버튼의 오른쪽에 위치하도록 수정 */
+    top: 100%; /* 버튼 아래에 위치하도록 수정 */
+    z-index: 1;
+    max-height: 416px;
+    padding: 8px 0;
+    border: 1px solid rgba(0, 0, 0, .06);
+    border-radius: 6px;
+    box-shadow: 0 1px 12px 0 rgba(0, 0, 0, .06);
+    background-color: #fff;
+    box-sizing: border-box;
+    color: #000;
 }
 
 .user-info-container {
 	position: relative;
-}
-
-#writeNickNameMenu {
-	position: absolute;
-	top: 100%;
-	left: 0;
-	transform: translateX(-100%);
 }
 
 .button-right {
@@ -59,14 +50,25 @@ String cp = request.getContextPath();
 }
 
 .col-md-4 .thumbnail {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
-.thumbnail {background-color: #f0f0f0; height: 100%}
+.thumbnail {
+	background-color: #f0f0f0;
+	height: 100%
+}
 
+.form-select {
+	width: auto;
+}
+
+.state-select {
+	display: flex;
+	justify-content: center;
+}
 </style>
 
 </head>
@@ -208,10 +210,10 @@ String cp = request.getContextPath();
 							</div>
 
 						</div>
-						
-						
-						
-						
+
+
+
+
 						<div class="tab-pane fade" id="nav-tab02" role="tabpanel"
 							aria-labelledby="nav-tab02-tab">
 							<div class="card tbl-card">
@@ -227,7 +229,8 @@ String cp = request.getContextPath();
 												<th>Actions</th>
 											</tr>
 										</thead>
-										<tbody>
+										<tbody style="text-align: center;">
+
 											<tr>
 												<td><i class="fab fa-angular fa-lg text-danger me-3"></i>
 													<strong>1</strong></td>
@@ -235,7 +238,7 @@ String cp = request.getContextPath();
 												<td>
 													<div class="user-info-container">
 														<ul
-															class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+															class="list-unstyled users-list m-0 avatar-group d-flex justify-content-center align-items-center">
 															<li data-bs-toggle="tooltip" data-popup="tooltip-custom"
 																data-bs-placement="top" class="avatar avatar-xs pull-up"
 																title="">
@@ -257,20 +260,22 @@ String cp = request.getContextPath();
 														</div>
 													</div>
 												</td>
-												<td><span class="badge bg-label-primary me-1">Active</span></td>
 												<td>
-													<div class="dropdown">
-														<button type="button"
-															class="btn p-0 dropdown-toggle hide-arrow"
-															data-bs-toggle="dropdown">
-															<i class="bi bi-three-dots-vertical"></i>
-														</button>
-														<div class="dropdown-menu">
-															<a class="dropdown-item" href="javascript:void(0);"><i
-																class="bi bi-pencil-square"></i> 수정</a> <a
-																class="dropdown-item" href="javascript:void(0);"><i
-																class="bi bi-trash3"></i> Delete</a>
-														</div>
+													<span class="badge bg-label-primary me-1">진행중</span>
+													<!-- <div class="state-select"
+														style="text-align: center;">
+														<select class="form-select" aria-label="상태" title="현재상태"
+															id="state">
+															<option value="1">진행중</option>
+															<option value="2">이탈자</option>
+														</select>
+													</div> -->
+												</td>
+												<td>
+													<div class="updatedeletebtn">
+														<button type="button" class="btn btn-primary">네임카드</button>
+														<button type="button" class="btn btn-primary">차단하기</button>
+														<button type="button" class="btn btn-primary">신고하기</button>
 													</div>
 												</td>
 											</tr>
@@ -279,27 +284,21 @@ String cp = request.getContextPath();
 												<td>설계</td>
 												<td>
 													<ul
-														class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+														class="list-unstyled users-list m-0 avatar-group d-flex justify-content-center align-items-center">
 														<li data-bs-toggle="tooltip" data-popup="tooltip-custom"
 															data-bs-placement="top" class="avatar avatar-xs pull-up"
 															title="" data-bs-original-title="Lilian Fuller"><i
 															class="bi bi-person">엄재용</i></li>
 													</ul>
 												</td>
-												<td><span class="badge bg-label-success me-1">Completed</span></td>
 												<td>
-													<div class="dropdown">
-														<button type="button"
-															class="btn p-0 dropdown-toggle hide-arrow"
-															data-bs-toggle="dropdown">
-															<i class="bi bi-three-dots-vertical"></i>
-														</button>
-														<div class="dropdown-menu">
-															<a class="dropdown-item" href="javascript:void(0);"><i
-																class="bi bi-pencil-square"></i> Edit</a> <a
-																class="dropdown-item" href="javascript:void(0);"><i
-																class="bi bi-trash3"></i> Delete</a>
-														</div>
+													<span class="badge bg-label-warning me-1">이탈자</span>
+												</td>
+												<td>
+													<div class="updatedeletebtn">
+														<button type="button" class="btn btn-primary">수정</button>
+														<button type="button" class="btn btn-primary">삭제</button>
+													</div>
 													</div>
 												</td>
 											</tr>
@@ -309,27 +308,20 @@ String cp = request.getContextPath();
 												<td>기획</td>
 												<td>
 													<ul
-														class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+														class="list-unstyled users-list m-0 avatar-group d-flex justify-content-center align-items-center">
 														<li data-bs-toggle="tooltip" data-popup="tooltip-custom"
 															data-bs-placement="top" class="avatar avatar-xs pull-up"
 															title="" data-bs-original-title="Lilian Fuller"><i
 															class="bi bi-person">박나영</i></li>
 													</ul>
 												</td>
-												<td><span class="badge bg-label-info me-1">Scheduled</span></td>
 												<td>
-													<div class="dropdown">
-														<button type="button"
-															class="btn p-0 dropdown-toggle hide-arrow"
-															data-bs-toggle="dropdown">
-															<i class="bi bi-three-dots-vertical"></i>
-														</button>
-														<div class="dropdown-menu">
-															<a class="dropdown-item" href="javascript:void(0);"><i
-																class="bi bi-pencil-square"></i> Edit</a> <a
-																class="dropdown-item" href="javascript:void(0);"><i
-																class="bi bi-trash3"></i> Delete</a>
-														</div>
+													<span class="badge bg-label-primary me-1">진행중</span>
+												</td>
+												<td>
+													<div class="updatedeletebtn">
+														<button type="button" class="btn btn-primary">수정</button>
+														<button type="button" class="btn btn-primary">삭제</button>
 													</div>
 												</td>
 											</tr>
@@ -339,27 +331,20 @@ String cp = request.getContextPath();
 												<td>테스트</td>
 												<td>
 													<ul
-														class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+														class="list-unstyled users-list m-0 avatar-group d-flex justify-content-center align-items-center">
 														<li data-bs-toggle="tooltip" data-popup="tooltip-custom"
 															data-bs-placement="top" class="avatar avatar-xs pull-up"
 															title="" data-bs-original-title="Lilian Fuller"><i
 															class="bi bi-person">문정환</i></li>
 													</ul>
 												</td>
-												<td><span class="badge bg-label-warning me-1">Pending</span></td>
 												<td>
-													<div class="dropdown">
-														<button type="button"
-															class="btn p-0 dropdown-toggle hide-arrow"
-															data-bs-toggle="dropdown">
-															<i class="bi bi-three-dots-vertical"></i>
-														</button>
-														<div class="dropdown-menu">
-															<a class="dropdown-item" href="javascript:void(0);"><i
-																class="bi bi-pencil-square"></i> Edit</a> <a
-																class="dropdown-item" href="javascript:void(0);"><i
-																class="bi bi-trash3"></i> Delete</a>
-														</div>
+													<span class="badge bg-label-warning me-1">이탈자</span>
+												</td>
+												<td>
+													<div class="updatedeletebtn">
+														<button type="button" class="btn btn-primary">수정</button>
+														<button type="button" class="btn btn-primary">삭제</button>
 													</div>
 												</td>
 											</tr>
@@ -368,7 +353,7 @@ String cp = request.getContextPath();
 								</div>
 							</div>
 						</div>
-						
+
 					</div>
 					<!-- 탭 -->
 
@@ -390,7 +375,7 @@ String cp = request.getContextPath();
 	<script src="../../asset/js/jquery-ui.js"></script>
 	<script src="../../asset/js/bootstrap.bundle.min.js"></script>
 	<script src="../../asset/js/common.js"></script>
-	<script>
+	<!-- <script>
 		document.getElementById('writeNickNameButton').addEventListener(
 				'click',
 				function()
@@ -402,6 +387,26 @@ String cp = request.getContextPath();
 						menu.style.display = 'block';
 					} else
 					{
+						menu.style.display = 'none';
+					}
+				});
+	</script> -->
+	<script type="text/javascript">
+		document.getElementById('writeNickNameButton').addEventListener(
+				'click',
+				function(event)
+				{
+					var menu = document.getElementById('writeNickNameMenu');
+					if (menu.style.display === 'none'
+							|| menu.style.display === '')
+					{
+						// If menu is hidden, display it
+						menu.style.display = 'block';
+						// Positioning the menu next to the button
+						menu.style.left = event.target.offsetLeft + event.target.offsetWidth + 'px';
+					} else
+					{
+						// If menu is displayed, hide it
 						menu.style.display = 'none';
 					}
 				});
