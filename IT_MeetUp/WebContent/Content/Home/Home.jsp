@@ -47,7 +47,7 @@
 
 								<!-- 인기 스와이퍼 -->
 								<div class="deadline-box">
-									<div class="deadline-swiper-btn">
+									<div class="swiper-btn">
 										<button type="button" class="swiper-button-prev"><i
 												class="bi bi-arrow-left-circle"></i>
 											<span class="blind">이전</span>
@@ -423,7 +423,7 @@
 
 								<!-- 신규 스와이퍼 -->
 								<div class="deadline-box">
-									<div class="deadline-swiper-btn">
+									<div class="swiper-btn">
 										<button type="button" class="swiper-button-prev"><i
 												class="bi bi-arrow-left-circle"></i>
 											<span class="blind">이전</span>

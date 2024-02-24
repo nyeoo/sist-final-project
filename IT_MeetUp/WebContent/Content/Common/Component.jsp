@@ -643,6 +643,13 @@ String cp = request.getContextPath();
 							<span class="badge text-bg-danger">Danger</span> <span class="badge text-bg-warning">Warning</span> <span class="badge text-bg-info">Info</span>
 							<span class="badge text-bg-light">Light</span> <span class="badge text-bg-dark">Dark</span>
 						</div>
+						
+						<div>
+							<span class="badge bg-label-primary me-1">Active</span>
+							<span class="badge bg-label-success me-1">Completed</span>
+							<span class="badge bg-label-info me-1">Scheduled</span>
+							<span class="badge bg-label-warning me-1">Pending</span>
+						</div>
 					</div>
 					<!-- // 라벨 -->
 

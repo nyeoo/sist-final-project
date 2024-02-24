@@ -45,8 +45,8 @@ $(function () {
         clickable: true,
       },
       navigation: {
-        nextEl: ".deadline-swiper-btn .swiper-button-next",
-        prevEl: ".deadline-swiper-btn .swiper-button-prev",
+        nextEl: ".deadline-box .swiper-btn .swiper-button-next",
+        prevEl: ".deadline-box .swiper-btn .swiper-button-prev",
       },
     });
   };
@@ -90,21 +90,21 @@ $(function () {
       self.datepicker();
 
     });
+    $.datepicker.setDefaults({
+    	showMonthAfterYear: true,
+    	showOtherMonths: true,
+    	prevText: '이전 달',
+    	nextText: '다음 달',
+    	// dateFormat: "yy-mm-dd",
+    	firstDay : 1,
+    	dayNames: ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'],
+    	dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'], 
+    	monthNamesShort: ['1','2','3','4','5','6','7','8','9','10','11','12'],
+    	monthNames: ['01','02','03','04','05','06','07','08','09','10','11','12'],
+    	yearSuffix: '.',
+    	showButtonPanel: true,
+    });
   }
-  $.datepicker.setDefaults({
-    showMonthAfterYear: true,
-    showOtherMonths: true,
-    prevText: '이전 달',
-    nextText: '다음 달',
-    // dateFormat: "yy-mm-dd",
-    firstDay : 1,
-    dayNames: ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'],
-        dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'], 
-        monthNamesShort: ['1','2','3','4','5','6','7','8','9','10','11','12'],
-    monthNames: ['01','02','03','04','05','06','07','08','09','10','11','12'],
-    yearSuffix: '.',
-    showButtonPanel: true,
-  });
 
   // 달력 대형
   if($( ".calendar-datepicker" ).length){
@@ -115,6 +115,20 @@ $(function () {
         // changeYear: true,
       });
 
+    });
+    $.datepicker.setDefaults({
+    	showMonthAfterYear: true,
+    	showOtherMonths: true,
+    	prevText: '이전 달',
+    	nextText: '다음 달',
+    	// dateFormat: "yy-mm-dd",
+    	firstDay : 1,
+    	dayNames: ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'],
+    	dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'], 
+    	monthNamesShort: ['1','2','3','4','5','6','7','8','9','10','11','12'],
+    	monthNames: ['01','02','03','04','05','06','07','08','09','10','11','12'],
+    	yearSuffix: '.',
+    	showButtonPanel: true,
     });
   }
 
@@ -205,7 +219,26 @@ $(function () {
         lengthCnt.html($(this).val().length);
     })
   })
-    
+  
+  // 회원가입 스와이퍼
+  if($(".join-swiper").length) {
+	  //console.log("aaa");
+	  var joinSwiper = new Swiper(".join-swiper", {
+	      pagination: {
+	          el: ".join-swiper .swiper-pagination",
+	          clickable: true,
+	          renderBullet: function (index, className) {
+	            return '<button class="' + className + '"><span>' + (index + 1) + "</span></button>";
+	          },
+	        },
+	      navigation: {
+	        nextEl: ".join-swiper .swiper-button-next",
+	        prevEl: ".join-swiper .swiper-button-prev",
+	      },
+	    });
+	  
+	  joinSwiper.slideTo(2, 0, true);
+  }
     
   
   

@@ -100,8 +100,36 @@ select::-ms-expand{display:none;/* 화살표 없애기 for IE10, 11*/}
 
 .blind{position:absolute; left:-9999px; width:0.01px; height:0.01px; font-size:0.1px; line-height:0.01px; overflow:hidden;}
 
-:root,[data-bs-theme="light"] {
+/* :root,[data-bs-theme="light"] {
     --bd-main:  #0d6efd;
+    --bd-purple: #4c0bce;
+    --bd-violet: #712cf9;
+    --bd-accent: #ffe484;
+    --bd-violet-rgb: 112.520718,44.062154,249.437846;
+    --bd-accent-rgb: 255,228,132;
+    --bd-pink-rgb: 214,51,132;
+    --bd-teal-rgb: 32,201,151;
+    --bd-violet-bg: var(--bd-violet);
+    --bd-toc-color: var(--bd-violet);
+    --bd-sidebar-link-bg: rgba(var(--bd-violet-rgb), .1);
+    --bd-callout-link: 10,88,202;
+    --bd-callout-code-color: #ab296a;
+    --bd-pre-bg: var(--bs-tertiary-bg);
+    --bs-link-color: #0d6efd;
+    --bs-link-color-rgb: #0d6efd;
+} */
+:root,[data-bs-theme="light"] {
+    --bd-main: #3074f0;
+    --bd-main-gray: #b2c0cd;
+    --pt-sky: #73cdff;
+    --pt-yellow: rgb(251, 223, 83);
+    --pt-lightgray: #edf1f6;
+    --pt-black01: #000;
+    --pt-black03: #333;
+    --pt-dark-blue: #3555af;
+    --pt-white: #fff;
+    
+    
     --bd-purple: #4c0bce;
     --bd-violet: #712cf9;
     --bd-accent: #ffe484;
