@@ -126,9 +126,7 @@ String cp = request.getContextPath();
 			        <div class="modal-content">
 			            <div class="modal-header">
 			                <h5 class="modal-title" id="reportModalLabel">신고하기</h5>
-			                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-			                    <span aria-hidden="true">&times;</span>
-			                </button>
+			                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			            </div>
 			            <div class="modal-body">
 			                <!-- 추가: select로 신고 항목 나열 -->
@@ -162,7 +160,7 @@ String cp = request.getContextPath();
 			            </div>
 			
 			            <div class="modal-footer">
-			                <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
+			               
 			                <button type="button" class="btn btn-primary">신고 제출</button>
 			            </div>
 			
@@ -192,11 +190,6 @@ String cp = request.getContextPath();
 		    $('#reportButton').click(function(){
 		        $('#reportModal').modal('show');
 		    });
-		 	// 모달의 닫기 버튼을 눌렀을 때 모달 닫기
-	        $('#reportModal .btn-secondary').on('click', function(){
-	            $('#reportModal').modal('hide');
-	        });
-		    
 		});
 
 	</script>

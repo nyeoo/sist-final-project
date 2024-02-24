@@ -104,11 +104,12 @@ String cp = request.getContextPath();
 												<tbody>
 													<tr>
 														<td class="num"><span class="tag_txt">1</span></td>
-														<td class="category">모집중</td>
-														<td class="tit new"><a href="ProjectDetail.jsp">어쩌고
-																저쩌고 프로젝트 모집중입니다. 클릭시 상세한 내용이 나옵니다. <span
-																class="ico_att_new">new</span>
-														</a></td>
+														<td class="category"><span class="badge text-bg-danger">모집중</span></td>
+														<td class="tit">
+															<a href="ProjectDetail.jsp"> 
+																어쩌고저쩌고 프로젝트 모집중입니다. 클릭시 상세한 내용이 나옵니다. 
+															</a>
+														</td>
 														<td class="start_date">2023.02.06</td>
 														<td class="end_date">2023.08.06</td>
 														<td class="join_date">2023.01.11</td>
@@ -117,9 +118,12 @@ String cp = request.getContextPath();
 												<tbody>
 													<tr>
 														<td class="num"><span class="tag_txt">2</span></td>
-														<td class="category">모집완료</td>
-														<td class="tit"><a href="ProjectDetail.jsp"> 어쩌고
-																저쩌고 프로젝트 모집중입니다. 클릭시 상세한 내용이 나옵니다. </a></td>
+														<td class="category"><span class="badge text-bg-success">모집완료</span></td>
+														<td class="tit">
+															<a href="ProjectDetail.jsp"> 
+																어쩌고저쩌고 프로젝트 모집중입니다. 클릭시 상세한 내용이 나옵니다. 
+															</a>
+														</td>
 														<td class="start_date">2022.04.06</td>
 														<td class="end_date">2022.10.06</td>
 														<td class="join_date">2022.03.20</td>
@@ -128,9 +132,12 @@ String cp = request.getContextPath();
 												<tbody>
 													<tr>
 														<td class="num"><span class="tag_txt">3</span></td>
-														<td class="category">모집실패</td>
-														<td class="tit"><a href="ProjectDetail.jsp">어쩌고
-																저쩌고 프로젝트 모집중입니다. 클릭시 상세한 내용이 나옵니다. </a></td>
+														<td class="category"><span class="badge text-bg-secondary">모집실패</span></td>
+														<td class="tit">
+															<a href="ProjectDetail.jsp">
+																어쩌고저쩌고 프로젝트 모집중입니다. 클릭시 상세한 내용이 나옵니다.
+															</a>
+														</td>
 														<td class="start_date">2021.02.06</td>
 														<td class="end_date">2021.08.06</td>
 														<td class="join_date">2021.01.21</td>
@@ -185,11 +192,12 @@ String cp = request.getContextPath();
 												<tbody>
 													<tr>
 														<td class="num"><span class="tag_txt">1</span></td>
-														<td class="category">모집중</td>
-														<td class="tit new"><a href="WriteProjectDetail.jsp">어쩌고
-																저쩌고 프로젝트 모집중입니다. 클릭시 상세한 내용이 나옵니다. <span
-																class="ico_att_new">new</span>
-														</a></td>
+														<td class="category"><span class="badge text-bg-danger">모집중</span></td>
+														<td class="tit new">
+															<a href="WriteProjectDetail.jsp">
+																어쩌고저쩌고 프로젝트 모집중입니다. 클릭시 상세한 내용이 나옵니다. 
+															</a>
+														</td>
 														<td class="start_date">2023.02.06</td>
 														<td class="end_date">2023.08.06</td>
 														<td class="join_date">2023.01.11</td>
@@ -198,9 +206,12 @@ String cp = request.getContextPath();
 												<tbody>
 													<tr>
 														<td class="num"><span class="tag_txt">2</span></td>
-														<td class="category">모집완료</td>
-														<td class="tit"><a href="WriteProjectDetail.jsp"> 어쩌고 저쩌고
-																프로젝트 모집중입니다. 클릭시 상세한 내용이 나옵니다. </a></td>
+														<td class="category"><span class="badge text-bg-success">모집완료</span></td>
+														<td class="tit">
+															<a href="WriteProjectDetail.jsp"> 
+																어쩌고 저쩌고 프로젝트 모집중입니다. 클릭시 상세한 내용이 나옵니다. 
+															</a>
+														</td>
 														<td class="start_date">2022.04.06</td>
 														<td class="end_date">2022.10.06</td>
 														<td class="join_date">2022.03.20</td>
@@ -209,9 +220,12 @@ String cp = request.getContextPath();
 												<tbody>
 													<tr>
 														<td class="num"><span class="tag_txt">3</span></td>
-														<td class="category">모집실패</td>
-														<td class="tit"><a href="WriteProjectDetail.jsp">어쩌고 저쩌고
-																프로젝트 모집중입니다. 클릭시 상세한 내용이 나옵니다. </a></td>
+														<td class="category"><span class="badge text-bg-secondary">모집실패</span></td>
+														<td class="tit">
+															<a href="WriteProjectDetail.jsp"> 
+																어쩌고 저쩌고 프로젝트 모집중입니다. 클릭시 상세한 내용이 나옵니다. 
+															</a>
+														</td>
 														<td class="start_date">2021.02.06</td>
 														<td class="end_date">2021.08.06</td>
 														<td class="join_date">2021.01.21</td>

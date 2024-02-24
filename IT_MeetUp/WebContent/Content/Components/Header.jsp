@@ -60,12 +60,13 @@
           <!-- 알림 -->
           <ul class="navbar-nav me-auto me-2 mb-lg-0">
             <li class="nav-item dropdown list-group">
-	            <a class="nav-link nav-icon ico-ball" href="#" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-bell-fill"></i><span class="blind">알림</span>
+	            <a class="nav-link nav-icon ico-ball" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+	            <i class="bi bi-bell-fill"></i><span class="blind">알림</span>
 	              <span class="badge bg-primary badge-number">4</span>
 	            </a>
 	            
 	            <!-- 팝업으로 표시되는 알림 내용 -->
-				<div class="dropdown-menu dropdown-menu-end notifications" id="notificationPopup">
+				<div class="dropdown-menu dropdown-menu-end notifications" id="notificationPopup" style="width: 600px;">
 					<!-- 텝 메뉴 -->
 					<ul class="nav nav-tabs" role="tablist">
 						<li class="nav-item" role="presentation">
@@ -125,7 +126,21 @@
 						<div class="tab-pane fade show active" id="pick-alert"
 							role="tabpanel" aria-labelledby="pick-alert-tab">
 							<!-- 픽알림 내용 -->
-							<!-- 필요한 내용 추가 -->
+							<p>
+								※흑곰불꽃발바닥님이 신청하신 팀 개설 요청에 픽!되었습니다. 
+								(픽된 멤버로 프로젝트가 만들어집니다. 신청을 취소하실 경우 신고처리가 부여됩니다.)
+							</p>
+    						<p><a href="#">링크</a></p>
+    						<p>
+								※꽃미남주형이님이 신청하신 팀 개설 요청에 픽!되었습니다. 
+								(픽된 멤버로 프로젝트가 만들어집니다. 신청을 취소하실 경우 신고처리가 부여됩니다.)
+							</p>
+    						<p><a href="#">링크</a></p>
+							<p>
+								※아라라라랄님이 신청하신 팀 개설 요청에 픽!되었습니다. 
+								(픽된 멤버로 프로젝트가 만들어집니다. 신청을 취소하실 경우 신고처리가 부여됩니다.)
+							</p>
+    						<p><a href="#">링크</a></p>
 						</div>
 						<div class="tab-pane fade" id="participant-confirmation"
 							role="tabpanel" aria-labelledby="participant-confirmation-tab">

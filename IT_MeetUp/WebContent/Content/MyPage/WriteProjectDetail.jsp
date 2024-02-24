@@ -77,10 +77,9 @@ String cp = request.getContextPath();
 							<div class="container">
 								<h1>어쩌구저쩌구 프로젝트</h1>
 								<div class="aaa">
-									<a href="UpdateProjectDetail.jsp"><button class="btn btn-primary">수정</button></a>
+									<button class="btn btn-primary">수정</button>
 	          						<button class="btn btn-danger">삭제</button>
-									<a href="ApplyManagement.jsp"><button type="button"
-											class="btn btn-primary">목록으로 가기</button></a>
+									<a href="ApplyManagement.jsp"><button type="button" class="btn btn-secondary">목록으로</button></a>
 								</div>
 								<hr>
 
@@ -88,22 +87,24 @@ String cp = request.getContextPath();
 							        <div class="col-md-6">
 							            <div class="project-details">
 							                <p><strong>번호:</strong> 프로젝트 번호 입력</p>
-							                <p><strong>모임 방식:</strong> 온/오프라인</p>
-							                <p><strong>인원:</strong> 5명</p>
-							                <p><strong>모집 분야:</strong> 웹 개발, 프론트, 백, 디자인</p>
+							                <p><strong>제목(주제) :</strong> 어쩌고저쩌고이쩌고 프로젝트</p>
+							                <p><strong>역할별 인원수 :</strong> 프론트: 2명 벡: 2명 디자인: 1명</p>
+							                <p><strong>시작일 :</strong> 2024년 03월 01일</p>
+							                <p><strong>종료일 :</strong> 2024년 09월 01일</p>
 							            </div>
 							        </div>
 							        <div class="col-md-6">
 							            <div class="project-details">
+							                <p><strong>경력 :</strong> 1~3년</p>
+							                <p><strong>선호 지역 :</strong> 서울 마포구</p>
+							                <p><strong>모임 방식 :</strong> 온/오프라인</p>
+							                <p><strong>카테고리 :</strong> 쇼핑몰</p>
 							                <p>
 							                	<strong>사용 언어:</strong> 
 							                	<span class="tag">HTML</span>
 												<span class="tag">CSS</span> 
-												<span class="tag">JavaScript</span>
+												<span class="tag">Java</span>
 											</p>
-							                <p><strong>시작일:</strong> 2024년 03월 01일</p>
-							                <p><strong>종료일:</strong> 2024년 06월 30일</p>
-							                <p><strong>예상 기간:</strong> 4개월</p>
 							            </div>
 							        </div>
 							    </div>
@@ -119,6 +120,57 @@ String cp = request.getContextPath();
 						</div>
 					</div>
 				</div>
+				
+				<!-- 모달 시작 -->
+				<div class="modal fade" id="editProjectModal" tabindex="-1" aria-labelledby="editProjectModalLabel" aria-hidden="true">
+				    <div class="modal-dialog modal-dialog-centered modal-xl">
+				        <div class="modal-content">
+				            <!-- 모달 헤더 -->
+				            <div class="modal-header">
+				                <h5 class="modal-title" id="editProjectModalLabel">프로젝트 수정</h5>
+				                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				            </div>
+				            <!-- 모달 바디 -->
+				            <div class="modal-body">
+				                <div class="row">
+				                    <div class="col-md-3">
+				                        <div class="project-details">
+				                            <p><strong>제목(주제) :</strong><input type="text" class="form-control" value="프로젝트 제목" disabled></p>
+				                            <p><strong>총 인원 :</strong><input type="text" class="form-control" value="5명" disabled></p>
+				                            <p><strong>역할별 인원수 :</strong><input type="text" class="form-control" value="프론트: 2명 벡: 2명 디자인: 1명" disabled></p>
+				                            <p><strong>시작일 :</strong><input type="date" class="form-control" value="2024-03-01" disabled></p>
+				                            <p><strong>종료일 :</strong><input type="date" class="form-control" value="2024-09-01" disabled></p>
+				                        </div>
+				                    </div>
+				                    <div class="col-md-3">
+				                        <div class="project-details">
+				                            <p><strong>경력 :</strong><input type="text" class="form-control" value="1~3년" disabled></p>
+				                            <p><strong>선호 지역 :</strong><input type="text" class="form-control" value="서울 마포구" disabled></p>
+				                            <p><strong>모임 방식 :</strong><input type="text" class="form-control" value="온/오프라인" disabled></p>
+				                            <p><strong>카테고리 :</strong><input type="text" class="form-control" value="쇼핑몰" disabled></p>
+				                            <p><strong>사용 언어 :</strong><input type="text" class="form-control" value="HTML, CSS, JAVA" disabled></p>
+				                        </div>
+				                    </div>
+				                    
+				                   	<div class="col-md-6">
+				                    	<div class="project-details">
+				                            <p><strong>내용 :</strong>
+				                            	<textarea class="form-control" id="contentInput" rows="13" placeholder="수정할 내용을 작성하세요"></textarea>
+				                            </p>
+				                    	</div>
+				                    </div>
+				                </div>
+				            </div>
+				            <!-- 모달 푸터 -->
+				            <div class="modal-footer">
+				                <!-- 수정 완료 버튼 -->
+				                <button type="button" class="btn btn-primary">수정 완료</button>
+				            </div>
+				        </div>
+				    </div>
+				</div>
+				<!-- 모달 끝 -->
+				
 			</div>
 		</section>
 		<!-- //바디영역 -->
@@ -137,6 +189,13 @@ String cp = request.getContextPath();
 	<script src="../../asset/js/bootstrap.bundle.min.js"></script>
 	<script src="../../asset/js/common.js"></script>
 	<script>
+	
+		 $(document).ready(function(){
+	        // 수정 버튼 클릭 시 모달 표시
+	        $('.btn-primary').click(function(){
+	            $('#editProjectModal').modal('show');
+	        });
+		 });
 		
 	</script>
 </body>
