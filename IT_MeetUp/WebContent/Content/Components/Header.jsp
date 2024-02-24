@@ -60,54 +60,111 @@
           <!-- 알림 -->
           <ul class="navbar-nav me-auto me-2 mb-lg-0">
             <li class="nav-item dropdown list-group">
-              <a class="nav-link nav-icon ico-ball" href="#" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-bell-fill"></i><span class="blind">알림</span>
-                <span class="badge bg-primary badge-number">4</span>
-              </a>
-              <ul class="dropdown-menu dropdown-menu-end notifications">
-                <li class="notification-item">
-                  <i class="bi bi-exclamation-circle text-warning"></i>
-                  <div>
-                    <h4>Lorem Ipsum</h4>
-                    <p>Quae dolorem earum veritatis oditseno</p>
-                    <p>30 min. ago</p>
-                  </div>
-                </li>
-    
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
-    
-                <li class="notification-item">
-                  <i class="bi bi-x-circle text-danger"></i>
-                  <div>
-                    <h4>Atque rerum nesciunt</h4>
-                    <p>Quae dolorem earum veritatis oditseno</p>
-                    <p>1 hr. ago</p>
-                  </div>
-                </li>
-    
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
-                
-                <li class="notification-item">
-                  <i class="bi bi-check-circle text-success"></i>
-                  <div>
-                    <h4>Sit rerum fuga</h4>
-                    <p>Quae dolorem earum veritatis oditseno</p>
-                    <p>2 hrs. ago</p>
-                  </div>
-                </li>
-                
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
-                
-                <li class="dropdown-footer">
-                  <a href="#">Show all notifications</a>
-                </li>
-              </ul>
-            </li>
+	            <a class="nav-link nav-icon ico-ball" href="#" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-bell-fill"></i><span class="blind">알림</span>
+	              <span class="badge bg-primary badge-number">4</span>
+	            </a>
+	            
+	            <!-- 팝업으로 표시되는 알림 내용 -->
+				<div class="dropdown-menu dropdown-menu-end notifications" id="notificationPopup">
+					<!-- 텝 메뉴 -->
+					<ul class="nav nav-tabs" role="tablist">
+						<li class="nav-item" role="presentation">
+							<button class="nav-link active" id="pick-alert-tab"
+								data-bs-toggle="tab" data-bs-target="#pick-alert"
+								type="button" role="tab" aria-controls="pick-alert"
+								aria-selected="true">픽</button>
+						</li>
+						<li class="nav-item" role="presentation">
+							<button class="nav-link" id="participant-confirmation-tab"
+								data-bs-toggle="tab"
+								data-bs-target="#participant-confirmation" type="button"
+								role="tab" aria-controls="participant-confirmation"
+								aria-selected="false">참여자 확인</button>
+						</li>
+						<li class="nav-item" role="presentation">
+							<button class="nav-link" id="dday-alert-tab"
+								data-bs-toggle="tab" data-bs-target="#dday-alert"
+								type="button" role="tab" aria-controls="dday-alert"
+								aria-selected="false">디데이</button>
+						</li>
+						<li class="nav-item" role="presentation">
+							<button class="nav-link" id="comment-alert-tab"
+								data-bs-toggle="tab" data-bs-target="#comment-alert"
+								type="button" role="tab" aria-controls="comment-alert"
+								aria-selected="false">댓글</button>
+						</li>
+						<li class="nav-item" role="presentation">
+							<button class="nav-link" id="reply-alert-tab"
+								data-bs-toggle="tab" data-bs-target="#reply-alert"
+								type="button" role="tab" aria-controls="reply-alert"
+								aria-selected="false">대댓글</button>
+						</li>
+						<li class="nav-item" role="presentation">
+							<button class="nav-link" id="task-alert-tab"
+								data-bs-toggle="tab" data-bs-target="#task-alert"
+								type="button" role="tab" aria-controls="task-alert"
+								aria-selected="false">업무</button>
+						</li>
+						<li class="nav-item" role="presentation">
+							<button class="nav-link" id="weekly-report-alert-tab"
+								data-bs-toggle="tab" data-bs-target="#weekly-report-alert"
+								type="button" role="tab" aria-controls="weekly-report-alert"
+								aria-selected="false">주간 업보고</button>
+						</li>
+						<li class="nav-item" role="presentation">
+							<button class="nav-link" id="evaluation-missing-alert-tab"
+								data-bs-toggle="tab"
+								data-bs-target="#evaluation-missing-alert" type="button"
+								role="tab" aria-controls="evaluation-missing-alert"
+								aria-selected="false">평가 미 작성</button>
+						</li>
+					</ul>
+
+					<!-- 텝 내용 -->
+					<div class="tab-content">
+						<div class="tab-pane fade show active" id="pick-alert"
+							role="tabpanel" aria-labelledby="pick-alert-tab">
+							<!-- 픽알림 내용 -->
+							<!-- 필요한 내용 추가 -->
+						</div>
+						<div class="tab-pane fade" id="participant-confirmation"
+							role="tabpanel" aria-labelledby="participant-confirmation-tab">
+							<!-- 참여자 확인 알림 내용 -->
+							<!-- 필요한 내용 추가 -->
+						</div>
+						<div class="tab-pane fade" id="dday-alert" role="tabpanel"
+							aria-labelledby="dday-alert-tab">
+							<!-- 디데이 알림 내용 -->
+							<!-- 필요한 내용 추가 -->
+						</div>
+						<div class="tab-pane fade" id="comment-alert" role="tabpanel"
+							aria-labelledby="comment-alert-tab">
+							<!-- 댓글 알림 내용 -->
+							<!-- 필요한 내용 추가 -->
+						</div>
+						<div class="tab-pane fade" id="reply-alert" role="tabpanel"
+							aria-labelledby="reply-alert-tab">
+							<!-- 대댓글 알림 내용 -->
+							<!-- 필요한 내용 추가 -->
+						</div>
+						<div class="tab-pane fade" id="task-alert" role="tabpanel"
+							aria-labelledby="task-alert-tab">
+							<!-- 업무 알림 내용 -->
+							<!-- 필요한 내용 추가 -->
+						</div>
+						<div class="tab-pane fade" id="weekly-report-alert"
+							role="tabpanel" aria-labelledby="weekly-report-alert-tab">
+							<!-- 주간 업보고 알림 내용 -->
+							<!-- 필요한 내용 추가 -->
+						</div>
+						<div class="tab-pane fade" id="evaluation-missing-alert"
+							role="tabpanel" aria-labelledby="evaluation-missing-alert-tab">
+							<!-- 평가 미 작성 알림 내용 -->
+							<!-- 필요한 내용 추가 -->
+						</div>
+					</div>
+				</div>
+			</li>
           </ul>
           <!-- //알림 -->
 
@@ -122,8 +179,9 @@
                 <h6>닉네임</h6>
                 <span>@아이디</span>
               </li>
-              <li><a class="dropdown-item" href="#">마이페이지</a></li>
-              <li><a class="dropdown-item" href="#">네임카드</a></li>
+              <li><a class="dropdown-item" href="MyInfo.jsp">마이페이지</a></li>
+              <li><a class="dropdown-item" href="ApplyManagement.jsp">모집/신청 관리</a></li>
+              <li><a class="dropdown-item" href="NameCard.jsp">네임카드</a></li>
               <li>
                 <hr class="dropdown-divider">
               </li>
@@ -145,4 +203,5 @@
       <!-- //(mob) 사이드 메뉴 & (pc) 대메뉴 -->
     </div>
     <!-- //메뉴영역 -->
+    </div>
 </nav>

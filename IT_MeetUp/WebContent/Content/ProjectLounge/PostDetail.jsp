@@ -383,7 +383,7 @@
 		
 								<div class="comment_area_wrap open">
 		
-									<button class="comment_more">
+									<button type="button" class="comment_more">
 										댓글 2개 <span class="cmnt_txt ty01"><i class="bi bi-arrow-down-circle"></i>펼치기</span><span class="cmnt_txt ty02">
 										<i class="bi bi-arrow-up-circle"></i>접기</span>
 									</button>
@@ -420,7 +420,7 @@
 															<li><span class="ico_date">2024-02-19 15:34</span></li>
 														</ul>
 														<div class="fr">
-															<button class="btn_cmnt link_blue">
+															<button type="button" class="btn_cmnt link_blue">
 																답글달기 <span class="ty02">취소</span>
 															</button>
 														</div>
