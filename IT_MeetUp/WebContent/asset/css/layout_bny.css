@@ -5,7 +5,7 @@
 	margin: 0;
 }
 .section {
-	padding-bottom: 0 !important;
+	/* padding-bottom: 0 !important; */
 }
 
 .intro {
@@ -75,7 +75,7 @@
 
 
 /* CompleteProjectDetail */
-.cp-body-section{	margin-top: 3.5rem;}
+.cp-body-section{	/*margin-top: 3.5rem;*/}
 
 
 .project-title {
@@ -96,11 +96,12 @@
 .project-teamname { margin: 5px 0px 15px 30px; font-size: 20px;
 }
 .main {
-	width: 100%;
+	/* width: 100%; */
 }
 
 .intro-head {
 	padding: 20px 90px 145px 70px;
+	padding: 20px 10% 0;
     width: 100%;
 }
 
@@ -257,6 +258,8 @@
 
 .intro-body {
 	background-color: #253579;
+	/* padding-top: 90px; */
+	/* padding-bottom: 30px; */
     /* padding: 90px 160px 30px 160px; */
 }
 .intro-body-list {
