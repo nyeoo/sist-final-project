@@ -24,7 +24,7 @@
 /* ---------------------- 레이아웃 ---------------------- */
 * { font-family: 'Pretendard' } 
 html, body { height: 100%; } 
-.wrapper { position: relative; min-height: 100%; display: flex; flex-direction: column; min-width:320px; } 
+.wrapper { position: relative; /*min-height: 100%;*/ display: flex; flex-direction: column; min-width:320px; } 
 .con-section + .con-section { margin-top: 1.25rem; } 
 .section { padding-top: 5rem; padding-bottom: 5rem; } 
 .content_tit + .section { padding-top: 0; } 
@@ -186,34 +186,37 @@ html .ui-button.ui-state-disabled:active { color: #666 !important; background: #
 /* 스킬 */
 .skill-box { } 
 .skill-dropdown { } 
-.skill-dropdown .dropdown-menu { width: 600px; } 
+.skill-dropdown .dropdown-menu { width: 600px; max-width: 90vw; margin-left: -0.25rem !important;} 
 .skill-check { display: flex; flex-wrap: wrap; column-gap: 0.25rem; row-gap: 0.25rem; } 
 .skill-check .skill-item.form-check { position: relative;padding:0;} 
 .skill-check .skill-item .form-check-input[type=checkbox] { } 
 .skill-check .skill-item .form-check-input { position: absolute; top:0; left:0; width: 100%; height: 100%; margin:0;; background-color: transparent; border:transparent; right: 1.5rem; z-index: 1;} 
-.skill-check .skill-item .form-check-input[type=checkbox]:checked { --bs-form-check-bg-image: none; } 
-.skill-check .skill-item .form-check-input[type=checkbox]:checked + .form-check-label{ --bs-form-check-bg-image: none;border: 1px solid var(--bd-main); box-shadow: 0 0 3px var(--bd-main), inset 0 -1px 0 rgba(255,255,255,0.15); }
+/* .skill-check .skill-item .form-check-input[type=checkbox]:checked { --bs-form-check-bg-image: none; } 
+.skill-check .skill-item .form-check-input[type=checkbox]:checked + .form-check-label{ --bs-form-check-bg-image: none;border: 1px solid var(--bd-main); outline: 2px solid var(--bd-main);} */
+.skill-check .skill-item.add-skill .form-check-input[type=checkbox] { --bs-form-check-bg-image: none; } 
+.skill-check .skill-item.add-skill .form-check-input[type=checkbox] + .form-check-label{ --bs-form-check-bg-image: none;border: 1px solid var(--bd-main); outline: 2px solid var(--bd-main);}
 .skill-check .skill-item .form-check-input:focus { box-shadow: none; }
 .skill-check .skill-item .form-check-label{display: flex;position: relative; padding: 0.35rem 0.45rem; border: 1px solid gray;align-items: center;gap: 0.25rem;border-radius: 30px;}
 .skill-check .skill-item .form-check-label:before{content:''; display: block; width: 30px;height: 30px;background: var(--bd-main-gray); border: 1px solid var(--bd-main-gray); border-radius: 50%;}
 
-
-/* html */ .skill-item.item-html .form-check-label:before{background: url(../images/skill/ico_html5.png) no-repeat center;background-size: cover;}
-
-/* 스킬아이콘 ------- */
+/* 스킬아이콘 -------
+	ㄴ수정사항
+		a. 이미지명끝 css, html, java, javascript, oven 인식X -> 마지막에 01 붙임
+		b. 이미지명 ++,# 인식X -> plus, sharp
+ */
 /* ico_zeplin */ .skill-item.ico_zeplin .form-check-label:before{background: url(../images/skill/ico_zeplin.png) no-repeat center;background-size: cover;}
 /* ico_Adobe_XD */ .skill-item.ico_Adobe_XD .form-check-label:before{background: url(../images/skill/ico_Adobe_XD.png) no-repeat center;background-size: cover;}
 /* ico_Android_Studio */ .skill-item.ico_Android_Studio .form-check-label:before{background: url(../images/skill/ico_Android_Studio.png) no-repeat center;background-size: cover;}
 /* ico_Axure RP */ .skill-item.ico_Axure_RP .form-check-label:before{background: url(../images/skill/ico_Axure_RP.png) no-repeat center;background-size: cover;}
-/* ico_C# */ .skill-item.ico_C_sharp .form-check-label:before{background: url(../images/skill/ico_C#.png) no-repeat center;background-size: cover;}
-/* ico_C++ */ .skill-item.ico_C_plus .form-check-label:before{background: url(../images/skill/ico_C++.png) no-repeat center;background-size: cover;}
-/* ico_css */ .skill-item.ico_css .form-check-label:before{background: url(../images/skill/ico_css.png) no-repeat center;background-size: cover;}
+/* ico_C_sharp(C#) */ .skill-item.ico_C_sharp .form-check-label:before{background: url(../images/skill/ico_C_sharp.png) no-repeat center;background-size: cover;}
+/* ico_C_plus(C++) */ .skill-item.ico_C_plus .form-check-label:before{background: url(../images/skill/ico_C_plus.png) no-repeat center;background-size: cover;}
+/* ico_css_01 */ .skill-item.ico_css_01 .form-check-label:before{background: url(../images/skill/ico_css_01.png) no-repeat center;background-size: cover;}
 /* ico_Eclipse */ .skill-item.ico_Eclipse .form-check-label:before{background: url(../images/skill/ico_Eclipse.png) no-repeat center;background-size: cover;}
 /* ico_Figma */ .skill-item.ico_Figma .form-check-label:before{background: url(../images/skill/ico_Figma.png) no-repeat center;background-size: cover;}
-/* ico_html5 */ .skill-item.ico_HTML5 .form-check-label:before{background: url(../images/skill/ico_html5.png) no-repeat center;background-size: cover;}
+/* ico_html5_01 */ .skill-item.ico_html5_01 .form-check-label:before{background: url(../images/skill/ico_html5_01.png) no-repeat center;background-size: cover;}
 /* ico_IntelliJ */ .skill-item.ico_IntelliJ .form-check-label:before{background: url(../images/skill/ico_IntelliJ.png) no-repeat center;background-size: cover;}
-/* ico_Java */ .skill-item.ico_Java .form-check-label:before{background: url(../images/skill/ico_Java.png) no-repeat center;background-size: cover;}
-/* ico_Javascript */ .skill-item.ico_Javascript .form-check-label:before{background: url(../images/skill/ico_Javascript.png) no-repeat center;background-size: cover;}
+/* ico_Java_01 */ .skill-item.ico_Java_01 .form-check-label:before{background: url(../images/skill/ico_Java_01.png) no-repeat center;background-size: cover;}
+/* ico_Javascript_01 */ .skill-item.ico_Javascript_01 .form-check-label:before{background: url(../images/skill/ico_Javascript_01.png) no-repeat center;background-size: cover;}
 /* ico_Jquery */ .skill-item.ico_Jquery .form-check-label:before{background: url(../images/skill/ico_Jquery.png) no-repeat center;background-size: cover;}
 /* ico_jsp */ .skill-item.ico_jsp .form-check-label:before{background: url(../images/skill/ico_jsp.png) no-repeat center;background-size: cover;}
 /* ico_Kotlin */ .skill-item.ico_Kotlin .form-check-label:before{background: url(../images/skill/ico_Kotlin.png) no-repeat center;background-size: cover;}
@@ -221,9 +224,9 @@ html .ui-button.ui-state-disabled:active { color: #666 !important; background: #
 /* ico_MySQL */ .skill-item.ico_MySQL .form-check-label:before{background: url(../images/skill/ico_MySQL.png) no-repeat center;background-size: cover;}
 /* ico_Nextjs */ .skill-item.ico_Nextjs .form-check-label:before{background: url(../images/skill/ico_Nextjs.png) no-repeat center;background-size: cover;}
 /* ico_Nodejs */ .skill-item.ico_Nodejs .form-check-label:before{background: url(../images/skill/ico_Nodejs.png) no-repeat center;background-size: cover;}
-/* ico_Notepad++ */ .skill-item.ico_Notepad .form-check-label:before{background: url(../images/skill/ico_Notepad++.png) no-repeat center;background-size: cover;}
+/* ico_Notepad */ .skill-item.ico_Notepad .form-check-label:before{background: url(../images/skill/ico_Notepad.png) no-repeat center;background-size: cover;}
 /* ico_Oracle */ .skill-item.ico_Oracle .form-check-label:before{background: url(../images/skill/ico_Oracle.png) no-repeat center;background-size: cover;}
-/* ico_oven */ .skill-item.ico_oven .form-check-label:before{background: url(../images/skill/ico_oven.png) no-repeat center;background-size: cover;}
+/* ico_oven_01 */ .skill-item.ico_oven_01 .form-check-label:before{background: url(../images/skill/ico_oven_01.png) no-repeat center;background-size: cover;}
 /* ico_PHP */ .skill-item.ico_PHP .form-check-label:before{background: url(../images/skill/ico_PHP.png) no-repeat center;background-size: cover;}
 /* ico_powerMockup */ .skill-item.ico_powerMockup .form-check-label:before{background: url(../images/skill/ico_powerMockup.png) no-repeat center;background-size: cover;}
 /* ico_protoNow */ .skill-item.ico_protoNow .form-check-label:before{background: url(../images/skill/ico_protoNow.png) no-repeat center;background-size: cover;}
@@ -654,7 +657,8 @@ html .ui-button.ui-state-disabled:active { color: #666 !important; background: #
 
 /* color 재설정 */
 .wrapper .btn-primary { --bs-btn-bg: var(--bd-main); } 
-.wrapper .bg-dark { background-color: rgba(255,255,255,0.6) !important; backdrop-filter: blur(5px); box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15), inset 0 -1px 0 rgba(255,255,255,0.15); } 
+.wrapper .bg-dark { background-color: transparent !important; box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15), inset 0 -1px 0 rgba(255,255,255,0.15); } 
+.wrapper .bg-dark:before{content:''; display: block; background-color: rgba(255,255,255,0.6); position:absolute; width: 100%;height:100%; backdrop-filter: blur(5px); z-index: -1;}
 .wrapper .nav-link { color: var(--pt-black01); /*mix-blend-mode: difference; */ } 
 .wrapper .nav-link:focus,.wrapper .nav-link:hover { color: var(--bd-main) !important; } 
 .wrapper .nav-link:hover:before { content:''; display:block; position:absolute; bottom:0; left:0; background:; } 

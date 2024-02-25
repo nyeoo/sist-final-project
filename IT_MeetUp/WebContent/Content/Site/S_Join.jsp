@@ -37,7 +37,7 @@ String cp = request.getContextPath();
 		<div class="section register join min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
 			<div class="container">
 				<div class="row justify-content-center">
-					<div class="col-md-10 col-lg-8 d-flex flex-column align-items-center justify-content-center">
+					<div class="col-md-10 col-lg-6 d-flex flex-column align-items-center justify-content-center">
 						<div class="d-flex justify-content-center py-4">
 							<a href="index.jsp" class="logo d-flex align-items-center w-auto"> <span class="d-none d-lg-block"><a class="navbar-brand" href="#">Meet
 										Up</a></span>
@@ -250,8 +250,9 @@ String cp = request.getContextPath();
 															<div class="btn-group" role="group" aria-label="Basic radio toggle button group">
 																<input type="radio" class="btn-check" name="btnradio" id="joinMeet01" autocomplete="off" checked=""> <label
 																	class="btn btn-outline-primary" for="joinMeet01">온라인</label> <input type="radio" class="btn-check" name="btnradio" id="joinMeet02"
-																	autocomplete="off"> <label class="btn btn-outline-primary" for="joinMeet02">오프라인</label> <input type="radio" class="btn-check"
-																	name="btnradio" id="joinMeet03" autocomplete="off"> <label class="btn btn-outline-primary" for="joinMeet03">온/오프라인 </label>
+																	autocomplete="off"> <label class="btn btn-outline-primary" for="joinMeet02">오프라인</label> <input type="radio"
+																	class="btn-check" name="btnradio" id="joinMeet03" autocomplete="off"> <label class="btn btn-outline-primary" for="joinMeet03">온/오프라인
+																</label>
 															</div>
 															<div class="invalid-feedback">비밀번호 확인값을 입력해주세요.</div>
 														</div>
@@ -273,118 +274,430 @@ String cp = request.getContextPath();
 													<div class="skill-box">
 														<nav>
 															<div class="nav nav-tabs mb-3" id="nav-tab" role="tablist">
-																<button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab"
-																	aria-controls="nav-home" aria-selected="true">프론트</button>
-																<button class="nav-link" id=av-profile-tab " data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab"
-																	aria-controls="nav-profile" aria-selected="false">백엔드</button>
-																<button class="nav-link" id자인av-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab"
-																	aria-controls="nav-contact" aria-selected="false">기획, 디자인, 개발툴</button>
+																<button class="nav-link active" id="nav-skill01-tab" data-bs-toggle="tab" data-bs-target="#nav-skill01" type="button" role="tab"
+																	aria-controls="nav-skill01" aria-selected="true">프론트</button>
+																<button class="nav-link" id="nav-skill02-tab " data-bs-toggle="tab" data-bs-target="#nav-skill02" type="button" role="tab"
+																	aria-controls="nav-skill02" aria-selected="false">백엔드</button>
+																<button class="nav-link" id="nav-skill03-tab" data-bs-toggle="tab" data-bs-target="#nav-skill03" type="button" role="tab"
+																	aria-controls="nav-skill03" aria-selected="false">기획, 디자인, 개발툴</button>
 															</div>
 														</nav>
 														<div class="tab-content" id="nav-tabContent">
-															<div class="tab-pane fade show active" id="nav-home" role="skill01" aria-labelledby="nav-home-tab">
+															<div class="tab-pane fade show active" id="nav-skill01" role="skill01" aria-labelledby="nav-skill01-tab">
 																<ul class="skill-check">
-																	<li><input class="btn-check skil" type="checkbox" value="HTML5" id="html" autocomplete="off"> <label
-																		class="btn btn-light" for="html"> HTML5 </label></li>
-																	<li><input class="btn-check skil" type="checkbox" value="CSS" id="css" autocomplete="off"> <label class="btn btn-light"
-																		for="css" id="csslabel"> CSS </label></li>
-																	<li><input class="btn-check skil" type="checkbox" value="JavaScript" id="javasSript" autocomplete="off"> <label
-																		class="btn btn-light" for="javasSript"> JavaScript </label></li>
-																	<li><input class="btn-check skil" type="checkbox" value="TypeScript" id="typeScript" autocomplete="off"> <label
-																		class="btn btn-light" for="typeScript"> TypeScript </label></li>
-																	<li><input class="btn-check skil" type="checkbox" value="React" id="react" autocomplete="off"> <label
-																		class="btn btn-light" for="react"> React </label></li>
-																	<li><input class="btn-check skil" type="checkbox" value="Vue" id="vue" autocomplete="off"> <label class="btn btn-light"
-																		for="vue"> Vue </label></li>
-																	<li><input class="btn-check skil" type="checkbox" value="Svelte" id="svelte" autocomplete="off"> <label
-																		class="btn btn-light" for="svelte"> Svelte </label></li>
-																	<li><input class="btn-check skil" type="checkbox" value="Next.js" id="next.js" autocomplete="off"> <label
-																		class="btn btn-light" for="next.js"> Next.js </label></li>
+																	<!-- ico_html5_01 -->
+																	<li>
+																		<div class="form-check skill-item ico_html5_01">
+																			<input class="form-check-input" type="checkbox" value="" id="">
+																			<label class="form-check-label"> 
+																				 html5
+																			</label>
+																		</div>
+																	</li>
+																	<!-- ico_css_01 -->
+																	<li>
+																		<div class="form-check skill-item ico_css_01">
+																			<input class="form-check-input" type="checkbox" value="" id="">
+																			<label class="form-check-label"> 
+																				 css
+																			</label>
+																		</div>
+																	</li>
+																	<!-- ico_Javascript_01 -->
+																	<li>
+																		<div class="form-check skill-item ico_Javascript_01">
+																			<input class="form-check-input" type="checkbox" value="" id="">
+																			<label class="form-check-label"> 
+																				 Javascript
+																			</label>
+																		</div>
+																	</li>
+																	<!-- ico_TypeScript -->
+																	<li>
+																		<div class="form-check skill-item ico_TypeScript">
+																			<input class="form-check-input" type="checkbox" value="" id="">
+																			<label class="form-check-label"> 
+																				 TypeScript
+																			</label>
+																		</div>
+																	</li>
+																	<!-- ico_React -->
+																	<li>
+																		<div class="form-check skill-item ico_React">
+																			<input class="form-check-input" type="checkbox" value="" id="">
+																			<label class="form-check-label"> 
+																				 React
+																			</label>
+																		</div>
+																	</li>
+																	<!-- ico_Vue -->
+																	<li>
+																		<div class="form-check skill-item ico_Vue">
+																			<input class="form-check-input" type="checkbox" value="" id="">
+																			<label class="form-check-label"> 
+																				 Vue
+																			</label>
+																		</div>
+																	</li>
+																	<!-- ico_Svelte -->
+																	<li>
+																		<div class="form-check skill-item ico_Svelte">
+																			<input class="form-check-input" type="checkbox" value="" id="">
+																			<label class="form-check-label"> 
+																				 Svelte
+																			</label>
+																		</div>
+																	</li>
+																	<!-- ico_Nextjs -->
+																	<li>
+																		<div class="form-check skill-item ico_Nextjs">
+																			<input class="form-check-input" type="checkbox" value="" id="">
+																			<label class="form-check-label"> 
+																				 Nextjs
+																			</label>
+																		</div>
+																	</li>
+																	
+																</ul>
+																
+															</div>
+															<div class="tab-pane fade" id="nav-skill02" role="skill02" aria-labelledby="nav-skill02-tab">
+																<ul class="skill-check">
+																	
+																	<!-- ico_ruby -->
+																	<li>
+																		<div class="form-check skill-item ico_ruby">
+																			<input class="form-check-input" type="checkbox" value="" id="">
+																			<label class="form-check-label"> 
+																				 ruby
+																			</label>
+																		</div>
+																	</li>
+																	<!-- ico_Java_01 -->
+																	<li>
+																		<div class="form-check skill-item ico_Java_01">
+																			<input class="form-check-input" type="checkbox" value="" id="">
+																			<label class="form-check-label"> 
+																				 Java
+																			</label>
+																		</div>
+																	</li>
+																	<!-- ico_jsp -->
+																	<li>
+																		<div class="form-check skill-item ico_jsp">
+																			<input class="form-check-input" type="checkbox" value="" id="">
+																			<label class="form-check-label"> 
+																				 jsp
+																			</label>
+																		</div>
+																	</li>
+																	<!-- ico_python -->
+																	<li>
+																		<div class="form-check skill-item ico_python">
+																			<input class="form-check-input" type="checkbox" value="" id="">
+																			<label class="form-check-label"> 
+																				 python
+																			</label>
+																		</div>
+																	</li>
+																	<!-- ico_C_plus -->
+																	<li>
+																		<div class="form-check skill-item ico_C_plus">
+																			<input class="form-check-input" type="checkbox" value="" id="">
+																			<label class="form-check-label"> 
+																				 C_plus
+																			</label>
+																		</div>
+																	</li>
+																	<!-- ico_C_sharp -->
+																	<li>
+																		<div class="form-check skill-item ico_C_sharp">
+																			<input class="form-check-input" type="checkbox" value="" id="">
+																			<label class="form-check-label"> 
+																				 C_sharp
+																			</label>
+																		</div>
+																	</li>
+																	<!-- ico_R -->
+																	<li>
+																		<div class="form-check skill-item ico_R">
+																			<input class="form-check-input" type="checkbox" value="" id="">
+																			<label class="form-check-label"> 
+																				 R
+																			</label>
+																		</div>
+																	</li>
+																	<!-- ico_Oracle -->
+																	<li>
+																		<div class="form-check skill-item ico_Oracle">
+																			<input class="form-check-input" type="checkbox" value="" id="">
+																			<label class="form-check-label"> 
+																				 Oracle
+																			</label>
+																		</div>
+																	</li>
+																	<!-- ico_MySQL -->
+																	<li>
+																		<div class="form-check skill-item ico_MySQL">
+																			<input class="form-check-input" type="checkbox" value="" id="">
+																			<label class="form-check-label"> 
+																				 MySQL
+																			</label>
+																		</div>
+																	</li>
+																	<!-- ico_PHP -->
+																	<li>
+																		<div class="form-check skill-item ico_PHP">
+																			<input class="form-check-input" type="checkbox" value="" id="">
+																			<label class="form-check-label"> 
+																				 PHP
+																			</label>
+																		</div>
+																	</li>
+																	<!-- ico_Nodejs -->
+																	<li>
+																		<div class="form-check skill-item ico_Nodejs">
+																			<input class="form-check-input" type="checkbox" value="" id="">
+																			<label class="form-check-label"> 
+																				 Nodejs
+																			</label>
+																		</div>
+																	</li>
+																	<!-- ico_Spring -->
+																	<li>
+																		<div class="form-check skill-item ico_Spring">
+																			<input class="form-check-input" type="checkbox" value="" id="">
+																			<label class="form-check-label"> 
+																				 Spring
+																			</label>
+																		</div>
+																	</li>
+																	<!-- ico_Jquery -->
+																	<li>
+																		<div class="form-check skill-item ico_Jquery">
+																			<input class="form-check-input" type="checkbox" value="" id="">
+																			<label class="form-check-label"> 
+																				 Jquery
+																			</label>
+																		</div>
+																	</li>
+																	<!-- ico_Mybatis -->
+																	<li>
+																		<div class="form-check skill-item ico_Mybatis">
+																			<input class="form-check-input" type="checkbox" value="" id="">
+																			<label class="form-check-label"> 
+																				 Mybatis
+																			</label>
+																		</div>
+																	</li>
+																	<!-- ico_Spring_Boot -->
+																	<li>
+																		<div class="form-check skill-item ico_Spring_Boot">
+																			<input class="form-check-input" type="checkbox" value="" id="">
+																			<label class="form-check-label"> 
+																				 Spring_Boot
+																			</label>
+																		</div>
+																	</li>
+																	<!-- ico_Rust -->
+																	<li>
+																		<div class="form-check skill-item ico_Rust">
+																			<input class="form-check-input" type="checkbox" value="" id="">
+																			<label class="form-check-label"> 
+																				 Rust
+																			</label>
+																		</div>
+																	</li>
+																	<!-- ico_scala -->
+																	<li>
+																		<div class="form-check skill-item ico_scala">
+																			<input class="form-check-input" type="checkbox" value="" id="">
+																			<label class="form-check-label"> 
+																				 scala
+																			</label>
+																		</div>
+																	</li>
+																	<!-- ico_Kotlin -->
+																	<li>
+																		<div class="form-check skill-item ico_Kotlin">
+																			<input class="form-check-input" type="checkbox" value="" id="">
+																			<label class="form-check-label"> 
+																				 Kotlin
+																			</label>
+																		</div>
+																	</li>
+																	<!-- ico_unity -->
+																	<li>
+																		<div class="form-check skill-item ico_unity">
+																			<input class="form-check-input" type="checkbox" value="" id="">
+																			<label class="form-check-label"> 
+																				 unity
+																			</label>
+																		</div>
+																	</li>
+				
+																</ul>
+																
+															</div>
+															<div class="tab-pane fade" id="nav-skill03" role="skill03" aria-labelledby="nav-skill03-tab">
+																<ul class="skill-check">
+				
+																	<!-- ico_powerMockup -->
+																	<li>
+																		<div class="form-check skill-item ico_powerMockup">
+																			<input class="form-check-input" type="checkbox" value="" id="">
+																			<label class="form-check-label"> 
+																				 powerMockup
+																			</label>
+																		</div>
+																	</li>
+																	<!-- ico_protoNow -->
+																	<li>
+																		<div class="form-check skill-item ico_protoNow">
+																			<input class="form-check-input" type="checkbox" value="" id="">
+																			<label class="form-check-label"> 
+																				 protoNow
+																			</label>
+																		</div>
+																	</li>
+																	<!-- ico_oven_01 -->
+																	<li>
+																		<div class="form-check skill-item ico_oven_01">
+																			<input class="form-check-input" type="checkbox" value="" id="">
+																			<label class="form-check-label"> 
+																				 oven
+																			</label>
+																		</div>
+																	</li>
+																	<!-- ico_Sketch -->
+																	<li>
+																		<div class="form-check skill-item ico_Sketch">
+																			<input class="form-check-input" type="checkbox" value="" id="">
+																			<label class="form-check-label"> 
+																				 Sketch
+																			</label>
+																		</div>
+																	</li>
+																	<!-- ico_zeplin -->
+																	<li>
+																		<div class="form-check skill-item ico_zeplin">
+																			<input class="form-check-input" type="checkbox" value="" id="">
+																			<label class="form-check-label"> 
+																				 zeplin
+																			</label>
+																		</div>
+																	</li>												
+																	<!-- ico_Figma -->
+																	<li>
+																		<div class="form-check skill-item ico_Figma">
+																			<input class="form-check-input" type="checkbox" value="" id="">
+																			<label class="form-check-label"> 
+																				 Figma
+																			</label>
+																		</div>
+																	</li>
+																	<!-- ico_Axure_RP -->
+																	<li>
+																		<div class="form-check skill-item ico_Axure_RP">
+																			<input class="form-check-input" type="checkbox" value="" id="">
+																			<label class="form-check-label"> 
+																				 Axure_RP
+																			</label>
+																		</div>
+																	</li>
+																	<!-- ico_Adobe_XD -->
+																	<li>
+																		<div class="form-check skill-item ico_Adobe_XD">
+																			<input class="form-check-input" type="checkbox" value="" id="">
+																			<label class="form-check-label"> 
+																				 Adobe_XD
+																			</label>
+																		</div>
+																	</li>
+																	<!-- ico_Visual_Studio_Code -->
+																	<li>
+																		<div class="form-check skill-item ico_Visual_Studio_Code">
+																			<input class="form-check-input" type="checkbox" value="" id="">
+																			<label class="form-check-label"> 
+																				 Visual_Studio_Code
+																			</label>
+																		</div>
+																	</li>
+																	<!-- ico_Visual_Studio -->
+																	<li>
+																		<div class="form-check skill-item ico_Visual_Studio">
+																			<input class="form-check-input" type="checkbox" value="" id="">
+																			<label class="form-check-label"> 
+																				 Visual_Studio
+																			</label>
+																		</div>
+																	</li>
+																	<!-- ico_IntelliJ -->
+																	<li>
+																		<div class="form-check skill-item ico_IntelliJ">
+																			<input class="form-check-input" type="checkbox" value="" id="">
+																			<label class="form-check-label"> 
+																				 IntelliJ
+																			</label>
+																		</div>
+																	</li>
+																	<!-- ico_Notepad -->
+																	<li>
+																		<div class="form-check skill-item ico_Notepad">
+																			<input class="form-check-input" type="checkbox" value="" id="">
+																			<label class="form-check-label"> 
+																				 Notepad
+																			</label>
+																		</div>
+																	</li>
+																	<!-- ico_Vim -->
+																	<li>
+																		<div class="form-check skill-item ico_Vim">
+																			<input class="form-check-input" type="checkbox" value="" id="">
+																			<label class="form-check-label"> 
+																				 Vim
+																			</label>
+																		</div>
+																	</li>
+																	<!-- ico_Android_Studio -->
+																	<li>
+																		<div class="form-check skill-item ico_Android_Studio">
+																			<input class="form-check-input" type="checkbox" value="" id="">
+																			<label class="form-check-label"> 
+																				 Android_Studio
+																			</label>
+																		</div>
+																	</li>
+																	<!-- ico_PyCharm -->
+																	<li>
+																		<div class="form-check skill-item ico_PyCharm">
+																			<input class="form-check-input" type="checkbox" value="" id="">
+																			<label class="form-check-label"> 
+																				 PyCharm
+																			</label>
+																		</div>
+																	</li>
+																	<!-- ico_Eclipse -->
+																	<li>
+																		<div class="form-check skill-item ico_Eclipse">
+																			<input class="form-check-input" type="checkbox" value="" id="">
+																			<label class="form-check-label"> 
+																				 Eclipse
+																			</label>
+																		</div>
+																	</li>
+																	<!-- ico_Xcode -->
+																	<li>
+																		<div class="form-check skill-item ico_Xcode">
+																			<input class="form-check-input" type="checkbox" value="" id="">
+																			<label class="form-check-label"> 
+																				 Xcode
+																			</label>
+																		</div>
+																	</li>
+				
 																</ul>
 															</div>
-															<div class="tab-pane fade" id="nav-profile" role="skill02" aria-labelledby="nav-profile-tab">
-																<ul class="skill-check">
-																	<li><input class="btn-check skil" type="checkbox" value="Ruby" id="Ruby" autocomplete="off"> <label
-																		class="btn btn-outline-primary" for="Ruby"> Ruby </label></li>
-																	<li><input class="btn-check skil" type="checkbox" value="JAVA" id="java" autocomplete="off"> <label
-																		class="btn btn-outline-dark" for="java"> JAVA </label></li>
-																	<li><input class="btn-check skil" type="checkbox" value="JSP" id="jsp" autocomplete="off"> <label
-																		class="btn btn-outline-light" for="jsp"> JSP </label></li>
-																	<li><input class="btn-check skil" type="checkbox" value="Python" id="Python" autocomplete="off"> <label
-																		class="btn btn-outline-info" for="Python"> Python </label></li>
-																	<li><input class="btn-check skil" type="checkbox" value="C#" id="C#"> <label class="btn btn-outline-warning" for="C#">
-																			C# </label></li>
-																	<li><input class="btn-check skil" type="checkbox" value="C++" id="C++"> <label class="btn btn-outline-danger" for="C++">
-																			C++ </label></li>
-																	<li><input class="btn-check skil" type="checkbox" value="C" id="C"> <label class="btn btn-outline-success" for="C">
-																			C </label></li>
-																	<li><input class="btn-check skil" type="checkbox" value="ORACLE" id="ORACLE"> <label class="btn btn-outline-secondary"
-																		for="ORACLE"> ORACLE </label></li>
-																	<li><input class="btn-check skil" type="checkbox" value="MySQL" id="MySQL"> <label class="btn btn-success" for="MySQL">
-																			MySQL </label></li>
-																	<li><input class="btn-check skil" type="checkbox" value="React" id="React"> <label class="btn btn-danger" for="React">
-																			React </label></li>
-																	<li><input class="btn-check skil" type="checkbox" value="" id="PHP"> <label class="btn btn-info" for="PHP"> PHP
-																	</label></li>
-																	<li><input class="btn-check skil" type="checkbox" value="Node.js" id="Node.js"> <label class="btn btn-warning"
-																		for="Node.js"> Node.js </label></li>
-																	<li><input class="btn-check skil" type="checkbox" value="Spring" id="Spring"> <label class="btn btn-warning"
-																		for="Spring"> Spring </label></li>
-																	<li><input class="btn-check skil" type="checkbox" value="Jquery" id="Jquery"> <label class="btn btn-warning"
-																		for="Jquery"> Jquery </label></li>
-																	<li><input class="btn-check skil" type="checkbox" value="Mybatis" id="Mybatis"> <label class="btn btn-warning"
-																		for="Mybatis"> Mybatis </label></li>
-																	<li><input class="btn-check skil" type="checkbox" value="Javascript" id="Javascript"> <label class="btn btn-dark"
-																		for="Javascript"> Javascript </label></li>
-																	<li><input class="btn-check skil" type="checkbox" value="Spring_Boot" id="Spring Boot"> <label class="btn btn-dark"
-																		for="Spring Boot"> Spring Boot </label></li>
-																	<li><input class="btn-check skil" type="checkbox" value="Rust" id="Rust"> <label class="btn btn-dark" for="Rust">
-																			Rust </label></li>
-																	<li><input class="btn-check skil" type="checkbox" value="Scala" id="Scala"> <label class="btn btn-dark" for="Scala">
-																			Scala </label></li>
-																	<li><input class="btn-check skil" type="checkbox" value="Kotlin" id="Kotlin"> <label class="btn btn-dark" for="Kotlin">
-																			Kotlin </label></li>
-																	<li><input class="btn-check skil" type="checkbox" value="Unity" id="Unity"> <label class="btn btn-dark" for="Unity">
-																			Unity </label></li>
-																</ul>
-															</div>
-															<div class="tab-pane fade" id="nav-contact" role="skill03" aria-labelledby="nav-contact-tab">
-																<ul class="skill-check">
-																	<li><input class="btn-check skil" type="checkbox" value="파워목업" id="power"> <label class="btn btn-outline-primary"
-																		for="power"> 파워목업 </label></li>
-																	<li><input class="btn-check skil" type="checkbox" value="네이버 프로토 나우" id="naver"> <label class="btn btn-outline-primary"
-																		for="naver"> 네이버 프로토 나우 </label></li>
-																	<li><input class="btn-check skil" type="checkbox" value="카카오 오븐" id="kakao"> <label class="btn btn-outline-primary"
-																		for="kakao"> 카카오 오븐 </label></li>
-																	<li><input class="btn-check skil" type="checkbox" value="Sketch" id="Sketch"> <label class="btn btn-outline-primary"
-																		for="Sketch"> Sketch </label></li>
-																	<li><input class="btn-check skil" type="checkbox" value="Zeplin" id="Zeplin"> <label class="btn btn-outline-primary"
-																		for="Zeplin"> Zeplin </label></li>
-																	<li><input class="btn-check skil" type="checkbox" value="Axure RP" id=" Axure RP"> <label
-																		class="btn btn-outline-primary" for=" Axure RP"> Axure RP </label></li>
-																	<li><input class="btn-check skil" type="checkbox" value="Adobe XD" id=" Adobe XD"> <label
-																		class="btn btn-outline-primary" for=" Adobe XD"> Adobe XD </label></li>
-																	<li><input class="btn-check skil" type="checkbox" value="Visual Studio Code" id=" VSCode"> <label
-																		class="btn btn-outline-primary" for=" VSCode"> Visual Studio Code </label></li>
-																	<li><input class="btn-check skil" type="checkbox" value="Visual Studio" id="VS"> <label class="btn btn-outline-primary"
-																		for="VS"> Visual Studio </label></li>
-																	<li><input class="btn-check skil" type="checkbox" value="IntelliJ" id="IntelliJ"> <label class="btn btn-outline-primary"
-																		for="IntelliJ"> IntelliJ </label></li>
-																	<li><input class="btn-check skil" type="checkbox" value="Notepad++" id=" Notepad++"> <label
-																		class="btn btn-outline-primary" for=" Notepad++"> Notepad++ </label></li>
-																	<li><input class="btn-check skil" type="checkbox" value="Vim" id=" Vim"> <label class="btn btn-outline-primary"
-																		for=" Vim"> Vim </label></li>
-																	<li><input class="btn-check skil" type="checkbox" value="Android Studio" id="Android Studio"> <label
-																		class="btn btn-outline-primary" for="Android Studio"> Android Studio </label></li>
-																	<li><input class="btn-check skil" type="checkbox" value="PyCharm" id="PyCharm"> <label class="btn btn-outline-primary"
-																		for="PyCharm"> PyCharm </label></li>
-																	<li><input class="btn-check skil" type="checkbox" value="Eclipse" id="Eclipse"> <label class="btn btn-outline-primary"
-																		for="Eclipse"> Eclipse </label></li>
-																	<li><input class="btn-check skil" type="checkbox" value="Xcode" id="Xcode"> <label class="btn btn-outline-primary"
-																		for="Xcode"> Xcode </label></li>
-																</ul>
-															</div>
-
 														</div>
 													</div>
 												</div>
