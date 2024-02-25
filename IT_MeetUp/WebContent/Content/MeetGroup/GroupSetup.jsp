@@ -339,8 +339,8 @@ String cp = request.getContextPath();
 											<td>
 												<div class="updatedeletebtn">
 													<button type="button" class="btn btn-primary">네임카드</button>
-													<button type="button" class="btn btn-primary">차단하기</button>
-													<button type="button" class="btn btn-primary">신고하기</button>
+													<button type="button" class="btn btn-danger">차단하기</button>
+													<button type="button" class="btn btn-secondary">신고하기</button>
 												</div>
 											</td>
 										</tr>
