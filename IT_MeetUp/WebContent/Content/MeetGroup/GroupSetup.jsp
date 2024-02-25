@@ -426,7 +426,6 @@ String cp = request.getContextPath();
 
 			</div>
 			<!-- //콘텐츠 -->
-	</div>
 	</section>
 	<!-- //바디영역 -->
 

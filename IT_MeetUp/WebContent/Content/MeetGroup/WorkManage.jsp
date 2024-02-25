@@ -63,7 +63,7 @@
 						<!-- 일정관리 -->
 						<div class="tab-pane fade show active" id="nav-home"
 							role="tabpanel" aria-labelledby="nav-home-tab">
-							<p>
+							<div>
 								<div class="card tbl-card">
 						            <h5 class="card-header">일정</h5>
 						            <div class="table-responsive text-nowrap tbl-border">
@@ -114,7 +114,7 @@
 						                    <td>
 						                      <div class="m-select">
 						                        <select class="form-select" aria-label="Default select example" title="selectTitle01">
-						                          <option selected="">업무상태를 선택하세요.</option>
+						                          <option selected="selected">업무상태를 선택하세요.</option>
 						                          <option value="1">시작예정</option>
 						                          <option value="2">진행중</option>
 						                          <option value="3">완료</option>
@@ -147,7 +147,7 @@
 						                    <td>
 						                      <div class="m-select">
 						                        <select class="form-select" aria-label="Default select example" title="selectTitle01">
-						                          <option selected="">업무상태를 선택하세요.</option>
+						                          <option selected="selected">업무상태를 선택하세요.</option>
 						                          <option value="1">시작예정</option>
 						                          <option value="2">진행중</option>
 						                          <option value="3">완료</option>
@@ -180,7 +180,7 @@
 						                    <td>
 						                      <div class="m-select">
 						                        <select class="form-select" aria-label="Default select example" title="selectTitle01">
-						                          <option selected="">업무상태를 선택하세요.</option>
+						                          <option selected="selected">업무상태를 선택하세요.</option>
 						                          <option value="1">시작예정</option>
 						                          <option value="2">진행중</option>
 						                          <option value="3">완료</option>
@@ -213,7 +213,7 @@
 						                    <td>
 						                      <div class="m-select">
 						                        <select class="form-select" aria-label="Default select example" title="selectTitle01">
-						                          <option selected="">업무상태를 선택하세요.</option>
+						                          <option selected="selected">업무상태를 선택하세요.</option>
 						                          <option value="1">시작예정</option>
 						                          <option value="2">진행중</option>
 						                          <option value="3">완료</option>
@@ -225,14 +225,14 @@
 						              </table>
 						            </div>
 						          </div>
-							</p>
+							</div>
 						</div>
 						<!-- //일정관리 -->
 						
 						<!-- 업무할당표  -->
 						<div class="tab-pane fade" id="nav-profile" role="tabpanel"
 							aria-labelledby="nav-profile-tab">
-							<p>
+							<div>
 								<div class="comp_box">
 									<h5 class="comp_tit">업무할당표
 										<button type="button" class="btn btn-primary" style="float: right;">업무할당</button>
@@ -291,7 +291,7 @@
 											                    <td>
 											                      <div class="m-select">
 											                        <select class="form-select" aria-label="Default select example" title="selectTitle00">
-											                          <option selected="">담당자명</option>
+											                          <option selected="selected">담당자명</option>
 											                          <option value="1">방장</option>
 											                          <option value="2">팀원1</option>
 											                          <option value="3">팀원2</option>
@@ -377,14 +377,14 @@
 										</div>
 									</div>
 								</div>
-							</p>
+							</div>
 						</div>
 						<!--// 업무할당표  -->
 						
 						<!-- 업무 보고 목록 -->
 						<div class="tab-pane fade" id="nav-contact" role="tabpanel"
 							aria-labelledby="nav-contact-tab">
-							<p>
+							<div>
 								<div class="card tbl-card">
 						            <h5 class="card-header">업무 보고 목록</h5>
 						            <!-- 필터 -->
@@ -510,7 +510,7 @@
 										</nav>
 									</div>
 									<!-- //페이지네이션 -->
-							</p>
+							</div>
 						</div>
 						<!-- //업무 보고 목록 -->
 					</div>

@@ -63,13 +63,13 @@
                     <nav id="navbar-example3" class="h-100 flex-column align-items-stretch pe-4 border-end">
                         <nav class="nav nav-pills flex-column write-nav-con">
                             <a class="nav-link ms-3 my-1" href="#item-1">
-                                <p class="h4">제목(주제)</p>
+                                <span class="h4">제목(주제)</span>
                             </a>
                             <a class="nav-link ms-3 my-1" href="#item-2">
-                                <p class="h4">내용</p>
+                                <span class="h4">내용</span>
                             </a>
                             <a class="nav-link ms-3 my-1  " href="#item-3">
-                                <p class="h4">첨부파일</p>
+                                <span class="h4">첨부파일</span>
                             </a>
                         </nav>
                     </nav>
