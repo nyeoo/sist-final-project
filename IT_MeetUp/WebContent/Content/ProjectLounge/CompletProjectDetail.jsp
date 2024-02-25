@@ -41,8 +41,21 @@
 			<div class="intro-head">
 					<!-- <span class="project-teamname">당근조아 Team</span> -->
 					<div class="intro-detail">
-						<div class="intro-imgbox">
-							<img src="../../asset/images/sub/img_project.PNG" alt="웹 이미지" class="intro-img">
+						<!-- 스와이퍼 -->
+						<div class="swiper mySwiper intro-imgbox monitor">
+						    <div class="swiper-wrapper">
+						      <div class="swiper-slide">
+						      	<img src="../../asset/images/sub/img_project.PNG" alt="웹 이미지" class="intro-img">
+						      </div>
+						      <div class="swiper-slide">
+						      	<img src="../../asset/images/sub/img_project2.PNG" alt="웹 이미지" class="intro-img">
+						      </div>
+						      <div class="swiper-slide">
+						      	<img src="../../asset/images/sub/img_project3.PNG" alt="웹 이미지" class="intro-img">
+						      </div>
+						    </div>
+						    <div class="swiper-button-next"></div>
+						    <div class="swiper-button-prev"></div>
 						</div>
 						<div class="intro-detail-description">
 							<p>국가원로자문회의의 조직·직무범위 기타 필요한 사항은 법률로 정한다. 대통령은 내우·외환·천재·지변 또는
@@ -62,6 +75,7 @@
 	<div class="main">
 		<!-- end intro-head -->
 		<div class="intro-body">
+			<div class="conatiner-md">
 		<span class="team">TEAM ·</span>
 		<span class="team-name">당근</span>
 			<div class="intro-body-list member-intro">
@@ -123,20 +137,25 @@
 				<span class="intro-title">진행 기간</span>
 				<hr>
 				<div class="progress-stacked progress-m">
-							<div class="progress" role="progressbar"
+							<div class="progress progress-bar-striped" role="progressbar"
 								aria-label="Segment one" aria-valuenow="15" aria-valuemin="0"
 								aria-valuemax="100" style="width: 15%">
-								<div class="progress-bar">15%</div>
+								<div class="progress-bar"><span>분석 15%</span></div>
 							</div>
-							<div class="progress" role="progressbar"
+							<div class="progress progress-bar-striped" role="progressbar"
 								aria-label="Segment two" aria-valuenow="30" aria-valuemin="0"
 								aria-valuemax="100" style="width: 30%">
-								<div class="progress-bar bg-success">30%</div>
+								<div class="progress-bar bg-success">설계 30%</div>
 							</div>
-							<div class="progress" role="progressbar"
-								aria-label="Segment three" aria-valuenow="20"
-								aria-valuemin="0" aria-valuemax="100" style="width: 20%">
-								<div class="progress-bar bg-info">20%</div>
+							<div class="progress progress-bar-striped" role="progressbar"
+								aria-label="Segment three" aria-valuenow="40" aria-valuemin="0"
+								aria-valuemax="100" style="width: 40%">
+								<div class="progress-bar bg-info text-dark">구현 40%</div>
+							</div>
+							<div class="progress progress-bar-striped" role="progressbar"
+								aria-label="Segment four" aria-valuenow="15" aria-valuemin="0"
+								aria-valuemax="100" style="width: 15%">
+								<div class="progress-bar bg-warning text-dark">테스트 15%</div>
 							</div>
 						</div>
 		</div>
@@ -162,7 +181,7 @@
 			 9. 참여도 9-1. 회의에 가장 많이 참여한 사람 9-2. 월별 접속 현황(정환 20%, 수경 1%)
 
 		</div>
-
+		</div>
 	</div>
 </div><!-- end main -->
     <!-- 푸터영역 -->
@@ -176,8 +195,14 @@
   <script src="../../asset/js/jquery-ui.js"></script>
   <script src="../../asset/js/bootstrap.bundle.min.js"></script>
   <script src="../../asset/js/common.js"></script>
-  <script>
-
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+	<script>
+	    var swiper = new Swiper(".mySwiper", {
+	      navigation: {
+	        nextEl: ".swiper-button-next",
+	        prevEl: ".swiper-button-prev",
+	      },
+	    });
   </script>
 </body>
 
