@@ -239,7 +239,7 @@
 			<ul class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 card-list">
 				<!-- 이미지 썸네일 -->
 				<li class="col-12 col-sm-6 col-md-4 col-lg-4">
-					<div class="card p-4 d-flex flex-column add-zzim">
+					<div class="card p-3 d-flex flex-column add-zzim ">
 						<div class="card-top">
 							<!-- 썸네일 이미지 -->
 							<div class="thumbnail-box img-box">
@@ -262,7 +262,7 @@
 				<!-- //이미지 썸네일 -->
 				<!-- 텍스트 썸네일 -->
 				<li class="col-12 col-sm-6 col-md-4 col-lg-4">
-					<div class="card p-4 d-flex flex-column  add-zzim">
+					<div class="card p-3 d-flex flex-column  add-zzim">
 						<div class="card-top">
 							<!-- 썸네일 텍스트 -->
 							<div class="thumbnail-box thumnail-txt">
@@ -286,7 +286,7 @@
 				<!-- //텍스트 썸네일 -->
 				<!-- 텍스트 썸네일 -->
 				<li class="col-12 col-sm-6 col-md-4 col-lg-4">
-					<div class="card p-4 d-flex flex-column  add-zzim">
+					<div class="card p-3 d-flex flex-column  add-zzim">
 						<div class="card-top">
 							<!-- 썸네일 텍스트 -->
 							<div class="thumbnail-box thumnail-txt">
@@ -310,7 +310,7 @@
 				<!-- //텍스트 썸네일 -->
 				<!-- 텍스트 썸네일 -->
 				<li class="col-12 col-sm-6 col-md-4 col-lg-4">
-					<div class="card p-4 d-flex flex-column  add-zzim">
+					<div class="card p-3 d-flex flex-column add-zzim ">
 						<div class="card-top">
 							<!-- 썸네일 텍스트 -->
 							<div class="thumbnail-box thumnail-txt">
@@ -334,7 +334,7 @@
 				<!-- //텍스트 썸네일 -->
 				<!-- 텍스트 썸네일 -->
 				<li class="col-12 col-sm-6 col-md-4 col-lg-4">
-					<div class="card p-4 d-flex flex-column  add-zzim">
+					<div class="card p-3 d-flex flex-column  add-zzim">
 						<div class="card-top">
 							<!-- 썸네일 텍스트 -->
 							<div class="thumbnail-box thumnail-txt">
@@ -358,7 +358,7 @@
 				<!-- //텍스트 썸네일 -->
 				<!-- 텍스트 썸네일 -->
 				<li class="col-12 col-sm-6 col-md-4 col-lg-4">
-					<div class="card p-4 d-flex flex-column  add-zzim">
+					<div class="card p-3 d-flex flex-column  add-zzim">
 						<div class="card-top">
 							<!-- 썸네일 텍스트 -->
 							<div class="thumbnail-box thumnail-txt">
