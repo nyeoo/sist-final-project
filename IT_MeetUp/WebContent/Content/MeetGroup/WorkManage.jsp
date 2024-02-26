@@ -224,8 +224,7 @@ String cp = request.getContextPath();
 							<button type="button" class="btn-close" data-bs-dismiss="modal"
 								aria-label="Close"></button>
 						</div>
-						<div data-include="../MeetGroup/WorkReport.jsp"
-							class="modal-body"></div>
+						<div data-include="../MeetGroup/WorkReport.jsp" class="modal-body"></div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary"
 								data-bs-dismiss="modal">취소</button>
@@ -271,14 +270,12 @@ String cp = request.getContextPath();
 				</div>
 			</div>
 			<!--// Modal3  -->
+		</section>
 	</div>
-	</section>
 	<!-- 푸터영역 -->
 	<div role="footer" data-include="../Components/Footer.jsp"
 		class="mt-auto"></div>
 	<!-- //푸터영역 -->
-
-	</div>
 
 	<!-- script -->
 	<script src="../../asset/js/jquery-3.5.1-min.js"></script>
