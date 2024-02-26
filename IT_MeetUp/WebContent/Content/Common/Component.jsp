@@ -124,6 +124,20 @@ String cp = request.getContextPath();
 							<li><span class="pacifico-regular">MeetUp</span></li>
 						</ul>
 					</div>
+					
+					<!-- 사이트 컬러 -->
+					<div class="comp_box">
+						<h2 class="comp_tit">사이트 컬러</h2>
+						
+						<ol class="color-box">
+							<li>대표컬러 A: <span style="background: var(--bd-main);">--bd-main: #3074f0;</span></li>
+							<li>대표컬러 B: <span style="background: var(--bd-main-gray);">--bd-main-gray: #b2c0cd;</span></li>
+							<li>보조컬러 A: <span style="background: var(--pt-sky);">--pt-sky: #73cdff;</span></li>
+							<li>보조컬러 C: <span style="background: var(--pt-yellow);">--pt-yellow: #fbdf53;</span></li>
+							<li>라인컬러 A: <span style="background: var(--pt-lightgray);">--pt-lightgray: #edf1f6;</span></li>
+							<li>배경영역 컬러 A: <span style="background: var(--bs-tertiary-bg-rgb);">--bs-tertiary-bg-rgb: 248,249,250;</span></li>
+						</ul>
+					</div>
 
 					<!-- 타이틀 -->
 					<div class="comp_box">
@@ -748,7 +762,7 @@ String cp = request.getContextPath();
 					<div class="comp_box">
 						<h2 class="comp_tit">로딩중, 툴팁</h2>
 
-						<div class="row">
+						<ul class="row">
 							<li class="col-3">
 								<div class="comp_tit02">로딩중</div>
 								<div class="spinner-border text-primary" role="status">
@@ -762,7 +776,7 @@ String cp = request.getContextPath();
 							<li class="col-3"><a class="icon-link icon-link-hover" style="-bs-link-hover-color-rgb: 25, 135, 84;" href="#"> Icon link <i
 									class="bi bi-arrow-right"></i>
 							</a></li>
-						</div>
+						</ul>
 					</div>
 					<!-- //로딩중 -->
 

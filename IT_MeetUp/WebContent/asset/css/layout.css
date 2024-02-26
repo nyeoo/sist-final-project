@@ -24,13 +24,13 @@
 /* ---------------------- 레이아웃 ---------------------- */
 * { font-family: 'Pretendard' } 
 html, body { height: 100%; } 
-.wrapper { position: relative; /*min-height: 100%;*/ display: flex; flex-direction: column; min-width:320px; } 
+.wrapper { position: relative; /*min-height: 100%; */ display: flex; flex-direction: column; min-width:320px; } 
 .con-section + .con-section { margin-top: 1.25rem; } 
 .section { padding-top: 5rem; padding-bottom: 5rem; } 
 .content_tit + .section { padding-top: 0; } 
 .m-header-area .navbar-brand { font-family: "Bangers", system-ui; font-size: 36px; line-height: 16px; letter-spacing: 1px; color: var(--bs-black); } 
 .m-header-area .navbar-brand em { font-family: "Bangers", system-ui; color: var(--bd-main); } 
-.m-body-area > .section:last-child { /*padding-bottom: 0px;*/ } 
+.m-body-area > .section:last-child { /*padding-bottom: 0px; */ } 
 .wrapper .container-xl > .h1 { margin-bottom: 3.25rem; } 
 .m-body-area { margin-top: 2.5rem } 
 
@@ -38,6 +38,9 @@ html, body { height: 100%; }
 /* 헤더 ---------------------------------------- */
 .m-personal-box { } 
 .m-personal-box .m-avator { margin-top: 6px; } 
+.navbar-expand-md .navbar-nav.m-head-gnb .nav-link{position:relative;}
+.navbar-expand-md .navbar-nav.m-head-gnb .nav-link:before { content: ''; display: block; position: absolute; bottom: 0; left: 50%; width: 0; height: 4px; background: var(--pt-opacitysky); transition: all .3s; } 
+.navbar-expand-md .navbar-nav.m-head-gnb .nav-link:hover:before { left: 0; right: 0; width: 100%; } 
 /* 폰트 */
 .rubik-puddles-regular { font-family: "Rubik Puddles", system-ui; font-weight: 400; font-style: normal; } 
 .warnes-regular { font-family: "Warnes", cursive; font-weight: 400; font-style: normal; } 
@@ -83,7 +86,8 @@ html, body { height: 100%; }
 .notifications .notification-item p { font-size: 13px; margin-bottom: 3px; color: #919191; } 
 .notifications .notification-item:hover { background-color: #f6f9ff; } 
 .personal-box .badge-number { position: absolute; inset: -2px -5px auto auto; font-weight: normal; font-size: 12px; padding: 3px 6px; } 
-.ico-ball { position: relative; margin-right: 1.25rem; } 
+.m-ball { position: relative;margin-right: 0.25rem;} 
+.m-ball .badge-number{position:absolute;top: -4px;left: 16px;border-radius: 3px;padding: 6px 6px 4px;} 
 /* 푸터 ---------------------------------------- */
 .footer_area { padding-top: 3rem !important; } 
 /* 인풋요소 ---------------------------------------- */
@@ -92,7 +96,7 @@ html, body { height: 100%; }
 .m-textarea { } 
 .m-file { } 
 .m-picker { } 
-.form-label.no-txt{min-height: 24px;min-width:1px;display:block;}
+.form-label.no-txt { min-height: 24px; min-width:1px; display:block; } 
 /* 폼 */
 .form-control-plaintext { padding: 0.375rem 0.75rem; background-color: transparent !important; } 
 .form-control-plaintext:focus { box-shadow: none; border-color: transparent; } 
@@ -186,68 +190,68 @@ html .ui-button.ui-state-disabled:active { color: #666 !important; background: #
 /* 스킬 */
 .skill-box { } 
 .skill-dropdown { } 
-.skill-dropdown .dropdown-menu { width: 600px; max-width: 90vw; margin-left: -0.25rem !important;} 
+.skill-dropdown .dropdown-menu { width: 600px; max-width: 90vw; margin-left: -0.25rem !important; } 
 .skill-check { display: flex; flex-wrap: wrap; column-gap: 0.25rem; row-gap: 0.25rem; } 
-.skill-check .skill-item.form-check { position: relative;padding:0;} 
+.skill-check .skill-item.form-check { position: relative; padding:0; } 
 .skill-check .skill-item .form-check-input[type=checkbox] { } 
-.skill-check .skill-item .form-check-input { position: absolute; top:0; left:0; width: 100%; height: 100%; margin:0;; background-color: transparent; border:transparent; right: 1.5rem; z-index: 1;} 
+.skill-check .skill-item .form-check-input { position: absolute; top:0; left:0; width: 100%; height: 100%; margin:0;; background-color: transparent; border:transparent; right: 1.5rem; z-index: 1; } 
 /* .skill-check .skill-item .form-check-input[type=checkbox]:checked { --bs-form-check-bg-image: none; } 
-.skill-check .skill-item .form-check-input[type=checkbox]:checked + .form-check-label{ --bs-form-check-bg-image: none;border: 1px solid var(--bd-main); outline: 2px solid var(--bd-main);} */
+.skill-check .skill-item .form-check-input[type=checkbox]:checked + .form-check-label { --bs-form-check-bg-image: none; border: 1px solid var(--bd-main); outline: 2px solid var(--bd-main); } */
 .skill-check .skill-item.add-skill .form-check-input[type=checkbox] { --bs-form-check-bg-image: none; } 
-.skill-check .skill-item.add-skill .form-check-input[type=checkbox] + .form-check-label{ --bs-form-check-bg-image: none;border: 1px solid var(--bd-main); outline: 2px solid var(--bd-main);}
-.skill-check .skill-item .form-check-input:focus { box-shadow: none; }
-.skill-check .skill-item .form-check-label{display: flex;position: relative; padding: 0.35rem 0.45rem; border: 1px solid gray;align-items: center;gap: 0.25rem;border-radius: 30px;}
-.skill-check .skill-item .form-check-label:before{content:''; display: block; width: 30px;height: 30px;background: var(--bd-main-gray); border: 1px solid var(--bd-main-gray); border-radius: 50%;}
+.skill-check .skill-item.add-skill .form-check-input[type=checkbox] + .form-check-label { --bs-form-check-bg-image: none; border: 1px solid var(--bd-main); outline: 2px solid var(--bd-main); } 
+.skill-check .skill-item .form-check-input:focus { box-shadow: none; } 
+.skill-check .skill-item .form-check-label { display: flex; position: relative; padding: 0.35rem 0.45rem; border: 1px solid gray; align-items: center; gap: 0.25rem; border-radius: 30px; } 
+.skill-check .skill-item .form-check-label:before { content:''; display: block; width: 30px; height: 30px; background: var(--bd-main-gray); border: 1px solid var(--bd-main-gray); border-radius: 50%; } 
 
 /* 스킬아이콘 -------
-	ㄴ수정사항
-		a. 이미지명끝 css, html, java, javascript, oven 인식X -> 마지막에 01 붙임
-		b. 이미지명 ++,# 인식X -> plus, sharp
+ㄴ수정사항
+a. 이미지명끝 css, html, java, javascript, oven 인식X -> 마지막에 01 붙임
+b. 이미지명 ++,# 인식X -> plus, sharp
  */
-/* ico_zeplin */ .skill-item.ico_zeplin .form-check-label:before{background: url(../images/skill/ico_zeplin.png) no-repeat center;background-size: cover;}
-/* ico_Adobe_XD */ .skill-item.ico_Adobe_XD .form-check-label:before{background: url(../images/skill/ico_Adobe_XD.png) no-repeat center;background-size: cover;}
-/* ico_Android_Studio */ .skill-item.ico_Android_Studio .form-check-label:before{background: url(../images/skill/ico_Android_Studio.png) no-repeat center;background-size: cover;}
-/* ico_Axure RP */ .skill-item.ico_Axure_RP .form-check-label:before{background: url(../images/skill/ico_Axure_RP.png) no-repeat center;background-size: cover;}
-/* ico_C_sharp(C#) */ .skill-item.ico_C_sharp .form-check-label:before{background: url(../images/skill/ico_C_sharp.png) no-repeat center;background-size: cover;}
-/* ico_C_plus(C++) */ .skill-item.ico_C_plus .form-check-label:before{background: url(../images/skill/ico_C_plus.png) no-repeat center;background-size: cover;}
-/* ico_css_01 */ .skill-item.ico_css_01 .form-check-label:before{background: url(../images/skill/ico_css_01.png) no-repeat center;background-size: cover;}
-/* ico_Eclipse */ .skill-item.ico_Eclipse .form-check-label:before{background: url(../images/skill/ico_Eclipse.png) no-repeat center;background-size: cover;}
-/* ico_Figma */ .skill-item.ico_Figma .form-check-label:before{background: url(../images/skill/ico_Figma.png) no-repeat center;background-size: cover;}
-/* ico_html5_01 */ .skill-item.ico_html5_01 .form-check-label:before{background: url(../images/skill/ico_html5_01.png) no-repeat center;background-size: cover;}
-/* ico_IntelliJ */ .skill-item.ico_IntelliJ .form-check-label:before{background: url(../images/skill/ico_IntelliJ.png) no-repeat center;background-size: cover;}
-/* ico_Java_01 */ .skill-item.ico_Java_01 .form-check-label:before{background: url(../images/skill/ico_Java_01.png) no-repeat center;background-size: cover;}
-/* ico_Javascript_01 */ .skill-item.ico_Javascript_01 .form-check-label:before{background: url(../images/skill/ico_Javascript_01.png) no-repeat center;background-size: cover;}
-/* ico_Jquery */ .skill-item.ico_Jquery .form-check-label:before{background: url(../images/skill/ico_Jquery.png) no-repeat center;background-size: cover;}
-/* ico_jsp */ .skill-item.ico_jsp .form-check-label:before{background: url(../images/skill/ico_jsp.png) no-repeat center;background-size: cover;}
-/* ico_Kotlin */ .skill-item.ico_Kotlin .form-check-label:before{background: url(../images/skill/ico_Kotlin.png) no-repeat center;background-size: cover;}
-/* ico_Mybatis */ .skill-item.ico_Mybatis .form-check-label:before{background: url(../images/skill/ico_Mybatis.png) no-repeat center;background-size: cover;}
-/* ico_MySQL */ .skill-item.ico_MySQL .form-check-label:before{background: url(../images/skill/ico_MySQL.png) no-repeat center;background-size: cover;}
-/* ico_Nextjs */ .skill-item.ico_Nextjs .form-check-label:before{background: url(../images/skill/ico_Nextjs.png) no-repeat center;background-size: cover;}
-/* ico_Nodejs */ .skill-item.ico_Nodejs .form-check-label:before{background: url(../images/skill/ico_Nodejs.png) no-repeat center;background-size: cover;}
-/* ico_Notepad */ .skill-item.ico_Notepad .form-check-label:before{background: url(../images/skill/ico_Notepad.png) no-repeat center;background-size: cover;}
-/* ico_Oracle */ .skill-item.ico_Oracle .form-check-label:before{background: url(../images/skill/ico_Oracle.png) no-repeat center;background-size: cover;}
-/* ico_oven_01 */ .skill-item.ico_oven_01 .form-check-label:before{background: url(../images/skill/ico_oven_01.png) no-repeat center;background-size: cover;}
-/* ico_PHP */ .skill-item.ico_PHP .form-check-label:before{background: url(../images/skill/ico_PHP.png) no-repeat center;background-size: cover;}
-/* ico_powerMockup */ .skill-item.ico_powerMockup .form-check-label:before{background: url(../images/skill/ico_powerMockup.png) no-repeat center;background-size: cover;}
-/* ico_protoNow */ .skill-item.ico_protoNow .form-check-label:before{background: url(../images/skill/ico_protoNow.png) no-repeat center;background-size: cover;}
-/* ico_PyCharm */ .skill-item.ico_PyCharm .form-check-label:before{background: url(../images/skill/ico_PyCharm.png) no-repeat center;background-size: cover;}
-/* ico_python */ .skill-item.ico_python .form-check-label:before{background: url(../images/skill/ico_python.png) no-repeat center;background-size: cover;}
-/* ico_R */ .skill-item.ico_R .form-check-label:before{background: url(../images/skill/ico_R.png) no-repeat center;background-size: cover;}
-/* ico_React */ .skill-item.ico_React .form-check-label:before{background: url(../images/skill/ico_React.png) no-repeat center;background-size: cover;}
-/* ico_ruby */ .skill-item.ico_ruby .form-check-label:before{background: url(../images/skill/ico_ruby.png) no-repeat center;background-size: cover;}
-/* ico_Rust */ .skill-item.ico_Rust .form-check-label:before{background: url(../images/skill/ico_Rust.png) no-repeat center;background-size: cover;}
-/* ico_scala */ .skill-item.ico_scala .form-check-label:before{background: url(../images/skill/ico_scala.png) no-repeat center;background-size: cover;}
-/* ico_Sketch */ .skill-item.ico_Sketch .form-check-label:before{background: url(../images/skill/ico_Sketch.png) no-repeat center;background-size: cover;}
-/* ico_Spring Boot */ .skill-item.ico_Spring_Boot .form-check-label:before{background: url(../images/skill/ico_Spring_Boot.png) no-repeat center;background-size: cover;}
-/* ico_Spring */ .skill-item.ico_Spring .form-check-label:before{background: url(../images/skill/ico_Spring.png) no-repeat center;background-size: cover;}
-/* ico_Svelte */ .skill-item.ico_Svelte .form-check-label:before{background: url(../images/skill/ico_Svelte.png) no-repeat center;background-size: cover;}
-/* ico_TypeScript */ .skill-item.ico_TypeScript .form-check-label:before{background: url(../images/skill/ico_TypeScript.png) no-repeat center;background-size: cover;}
-/* ico_unity */ .skill-item.ico_unity .form-check-label:before{background: url(../images/skill/ico_unity.png) no-repeat center;background-size: cover;}
-/* ico_Vim */ .skill-item.ico_Vim .form-check-label:before{background: url(../images/skill/ico_Vim.png) no-repeat center;background-size: cover;}
-/* ico_Visual_Studio */ .skill-item.ico_Visual_Studio .form-check-label:before{background: url(../images/skill/ico_Visual_Studio.png) no-repeat center;background-size: cover;}
-/* ico_Visual_Studio_Code */ .skill-item.ico_Visual_Studio_Code .form-check-label:before{background: url(../images/skill/ico_Visual_Studio_Code.png) no-repeat center;background-size: cover;}
-/* ico_Vue */ .skill-item.ico_Vue .form-check-label:before{background: url(../images/skill/ico_Vue.png) no-repeat center;background-size: cover;}
-/* ico_Xcode */ .skill-item.ico_Xcode .form-check-label:before{background: url(../images/skill/ico_Xcode.png) no-repeat center;background-size: cover;}
+/* ico_zeplin */ .skill-item.ico_zeplin .form-check-label:before { background: url(../images/skill/ico_zeplin.png) no-repeat center; background-size: cover; } 
+/* ico_Adobe_XD */ .skill-item.ico_Adobe_XD .form-check-label:before { background: url(../images/skill/ico_Adobe_XD.png) no-repeat center; background-size: cover; } 
+/* ico_Android_Studio */ .skill-item.ico_Android_Studio .form-check-label:before { background: url(../images/skill/ico_Android_Studio.png) no-repeat center; background-size: cover; } 
+/* ico_Axure RP */ .skill-item.ico_Axure_RP .form-check-label:before { background: url(../images/skill/ico_Axure_RP.png) no-repeat center; background-size: cover; } 
+/* ico_C_sharp(C#) */ .skill-item.ico_C_sharp .form-check-label:before { background: url(../images/skill/ico_C_sharp.png) no-repeat center; background-size: cover; } 
+/* ico_C_plus(C++) */ .skill-item.ico_C_plus .form-check-label:before { background: url(../images/skill/ico_C_plus.png) no-repeat center; background-size: cover; } 
+/* ico_css_01 */ .skill-item.ico_css_01 .form-check-label:before { background: url(../images/skill/ico_css_01.png) no-repeat center; background-size: cover; } 
+/* ico_Eclipse */ .skill-item.ico_Eclipse .form-check-label:before { background: url(../images/skill/ico_Eclipse.png) no-repeat center; background-size: cover; } 
+/* ico_Figma */ .skill-item.ico_Figma .form-check-label:before { background: url(../images/skill/ico_Figma.png) no-repeat center; background-size: cover; } 
+/* ico_html5_01 */ .skill-item.ico_html5_01 .form-check-label:before { background: url(../images/skill/ico_html5_01.png) no-repeat center; background-size: cover; } 
+/* ico_IntelliJ */ .skill-item.ico_IntelliJ .form-check-label:before { background: url(../images/skill/ico_IntelliJ.png) no-repeat center; background-size: cover; } 
+/* ico_Java_01 */ .skill-item.ico_Java_01 .form-check-label:before { background: url(../images/skill/ico_Java_01.png) no-repeat center; background-size: cover; } 
+/* ico_Javascript_01 */ .skill-item.ico_Javascript_01 .form-check-label:before { background: url(../images/skill/ico_Javascript_01.png) no-repeat center; background-size: cover; } 
+/* ico_Jquery */ .skill-item.ico_Jquery .form-check-label:before { background: url(../images/skill/ico_Jquery.png) no-repeat center; background-size: cover; } 
+/* ico_jsp */ .skill-item.ico_jsp .form-check-label:before { background: url(../images/skill/ico_jsp.png) no-repeat center; background-size: cover; } 
+/* ico_Kotlin */ .skill-item.ico_Kotlin .form-check-label:before { background: url(../images/skill/ico_Kotlin.png) no-repeat center; background-size: cover; } 
+/* ico_Mybatis */ .skill-item.ico_Mybatis .form-check-label:before { background: url(../images/skill/ico_Mybatis.png) no-repeat center; background-size: cover; } 
+/* ico_MySQL */ .skill-item.ico_MySQL .form-check-label:before { background: url(../images/skill/ico_MySQL.png) no-repeat center; background-size: cover; } 
+/* ico_Nextjs */ .skill-item.ico_Nextjs .form-check-label:before { background: url(../images/skill/ico_Nextjs.png) no-repeat center; background-size: cover; } 
+/* ico_Nodejs */ .skill-item.ico_Nodejs .form-check-label:before { background: url(../images/skill/ico_Nodejs.png) no-repeat center; background-size: cover; } 
+/* ico_Notepad */ .skill-item.ico_Notepad .form-check-label:before { background: url(../images/skill/ico_Notepad.png) no-repeat center; background-size: cover; } 
+/* ico_Oracle */ .skill-item.ico_Oracle .form-check-label:before { background: url(../images/skill/ico_Oracle.png) no-repeat center; background-size: cover; } 
+/* ico_oven_01 */ .skill-item.ico_oven_01 .form-check-label:before { background: url(../images/skill/ico_oven_01.png) no-repeat center; background-size: cover; } 
+/* ico_PHP */ .skill-item.ico_PHP .form-check-label:before { background: url(../images/skill/ico_PHP.png) no-repeat center; background-size: cover; } 
+/* ico_powerMockup */ .skill-item.ico_powerMockup .form-check-label:before { background: url(../images/skill/ico_powerMockup.png) no-repeat center; background-size: cover; } 
+/* ico_protoNow */ .skill-item.ico_protoNow .form-check-label:before { background: url(../images/skill/ico_protoNow.png) no-repeat center; background-size: cover; } 
+/* ico_PyCharm */ .skill-item.ico_PyCharm .form-check-label:before { background: url(../images/skill/ico_PyCharm.png) no-repeat center; background-size: cover; } 
+/* ico_python */ .skill-item.ico_python .form-check-label:before { background: url(../images/skill/ico_python.png) no-repeat center; background-size: cover; } 
+/* ico_R */ .skill-item.ico_R .form-check-label:before { background: url(../images/skill/ico_R.png) no-repeat center; background-size: cover; } 
+/* ico_React */ .skill-item.ico_React .form-check-label:before { background: url(../images/skill/ico_React.png) no-repeat center; background-size: cover; } 
+/* ico_ruby */ .skill-item.ico_ruby .form-check-label:before { background: url(../images/skill/ico_ruby.png) no-repeat center; background-size: cover; } 
+/* ico_Rust */ .skill-item.ico_Rust .form-check-label:before { background: url(../images/skill/ico_Rust.png) no-repeat center; background-size: cover; } 
+/* ico_scala */ .skill-item.ico_scala .form-check-label:before { background: url(../images/skill/ico_scala.png) no-repeat center; background-size: cover; } 
+/* ico_Sketch */ .skill-item.ico_Sketch .form-check-label:before { background: url(../images/skill/ico_Sketch.png) no-repeat center; background-size: cover; } 
+/* ico_Spring Boot */ .skill-item.ico_Spring_Boot .form-check-label:before { background: url(../images/skill/ico_Spring_Boot.png) no-repeat center; background-size: cover; } 
+/* ico_Spring */ .skill-item.ico_Spring .form-check-label:before { background: url(../images/skill/ico_Spring.png) no-repeat center; background-size: cover; } 
+/* ico_Svelte */ .skill-item.ico_Svelte .form-check-label:before { background: url(../images/skill/ico_Svelte.png) no-repeat center; background-size: cover; } 
+/* ico_TypeScript */ .skill-item.ico_TypeScript .form-check-label:before { background: url(../images/skill/ico_TypeScript.png) no-repeat center; background-size: cover; } 
+/* ico_unity */ .skill-item.ico_unity .form-check-label:before { background: url(../images/skill/ico_unity.png) no-repeat center; background-size: cover; } 
+/* ico_Vim */ .skill-item.ico_Vim .form-check-label:before { background: url(../images/skill/ico_Vim.png) no-repeat center; background-size: cover; } 
+/* ico_Visual_Studio */ .skill-item.ico_Visual_Studio .form-check-label:before { background: url(../images/skill/ico_Visual_Studio.png) no-repeat center; background-size: cover; } 
+/* ico_Visual_Studio_Code */ .skill-item.ico_Visual_Studio_Code .form-check-label:before { background: url(../images/skill/ico_Visual_Studio_Code.png) no-repeat center; background-size: cover; } 
+/* ico_Vue */ .skill-item.ico_Vue .form-check-label:before { background: url(../images/skill/ico_Vue.png) no-repeat center; background-size: cover; } 
+/* ico_Xcode */ .skill-item.ico_Xcode .form-check-label:before { background: url(../images/skill/ico_Xcode.png) no-repeat center; background-size: cover; } 
 
 
 
@@ -655,13 +659,44 @@ html .ui-button.ui-state-disabled:active { color: #666 !important; background: #
 .comment-item-box > li + li { margin-top: 0.25rem; } 
 .comment-item-box .comment-add { display:none; } */
 
-/* color 재설정 */
+/* color 재설정 -------*/
+/* 헤더 */
 .wrapper .btn-primary { --bs-btn-bg: var(--bd-main); } 
-.wrapper .bg-dark { background-color: transparent !important; box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15), inset 0 -1px 0 rgba(255,255,255,0.15); } 
-.wrapper .bg-dark:before{content:''; display: block; background-color: rgba(255,255,255,0.6); position:absolute; width: 100%;height:100%; backdrop-filter: blur(5px); z-index: -1;}
-.wrapper .nav-link { color: var(--pt-black01); /*mix-blend-mode: difference; */ } 
-.wrapper .nav-link:focus,.wrapper .nav-link:hover { color: var(--bd-main) !important; } 
-.wrapper .nav-link:hover:before { content:''; display:block; position:absolute; bottom:0; left:0; background:; } 
+.wrapper .m-header-area { background-color: transparent !important; box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15), inset 0 -1px 0 rgba(255,255,255,0.15); } 
+.wrapper .m-header-area:before { content:''; display: block; background-color: rgba(255,255,255,0.6); position:absolute; width: 100%; height:100%; backdrop-filter: blur(5px); z-index: -1; } 
+.wrapper .m-right-nav:not(.show) .nav-link { color: var(--pt-black01); } 
+@media (max-width: 768px){
+	.wrapper .offcanvas.m-right-nav { } 
+	.wrapper .offcanvas.m-right-nav .offcanvas-body { display: flex; flex-direction: column; } 
+	.wrapper .offcanvas.m-right-nav .offcanvas-body .navbar-nav { order:1; } 
+	.wrapper .offcanvas.m-right-nav .offcanvas-body .navbar-nav >.nav-item > .nav-link { color: var(--pt-white); } 
+	.wrapper .offcanvas.m-right-nav .offcanvas-body .personal-box { order:0; } 
+	.wrapper .offcanvas.m-right-nav .offcanvas-body .personal-box .m-avator { } 
+	.wrapper .offcanvas.m-right-nav .offcanvas-body .personal-box .dropdown-menu-end[data-bs-popper] { left: 0; } 
+ }
+.wrapper .m-right-nav:not(.show) .nav-link:focus,.wrapper .nav-link:hover { color: var(--bd-main); } 
+.wrapper .m-right-nav:not(.show) .nav-link:hover:before { content:''; display:block; position:absolute; bottom:0; left:0; } 
+
+/* 버튼 */
+.wrapper .btn-secondary{--bs-btn-color: var(--pt-black03);
+    --bs-btn-bg: var(--pt-opacitysky);
+    --bs-btn-border-color: var(--pt-opacitysky);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: var(--pt-opacitysky-hover);
+    --bs-btn-hover-border-color: var(--pt-opacitysky-hover);
+    --bs-btn-focus-shadow-rgb: 130,138,145;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: var(--pt-opacitysky-hover);
+    --bs-btn-active-border-color: var(--pt-opacitysky-hover);
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: var(--pt-opacitysky);
+    --bs-btn-disabled-border-color: var(--pt-opacitysky)
+}
+.wrapper .btn.disabled,
+.wrapper .btn:disabled,
+.wrapper fieldset:disabled .btn{ filter: brightness(90%);}
+.wrapper .btn.btn-secondary:disabled{--bs-btn-color: var(--pt-black03);}
 
  /* .swiper { width: 100%; height: 100%; } 
  .swiper-slide { text-align: center; font-size: 18px; background: #fff; display: flex; justify-content: center; align-items: center; } 
@@ -671,7 +706,7 @@ html .ui-button.ui-state-disabled:active { color: #666 !important; background: #
  /* 회원가입 스와이퍼 */
 .join-area { width: 100%; } 
 .join-area .card-body { } 
-.join-area .join-swiper { padding-top: 60px; }
+.join-area .join-swiper { padding-top: 60px; } 
 .join-area .join-swiper .swiper-slide { padding: 0 4px; } 
 .join-area .swiper-pagination { top:10px; left:0; height:40px; } 
 .join-area .swiper-pagination-clickable .swiper-pagination-bullet { } 
@@ -685,7 +720,7 @@ html .ui-button.ui-state-disabled:active { color: #666 !important; background: #
 .join-area .swiper-pagination-clickable .swiper-pagination-bullet:last-child::after { display:none; } 
 .join-area .swiper-pagination-clickable .swiper-pagination-bullet-active:after { border-top:1px dashed #25252566; } 
 .join-area .swiper-pagination-clickable .swiper-pagination-bullet-active ~ *:not(.swiper-slide-thumb-active):after { border-top:1px dashed #25252566; } 
-.join-area .swiper-btn{margin-top: 0; justify-content: center;}
+.join-area .swiper-btn { margin-top: 0; justify-content: center; } 
 
  /* bubble 인터렉션효과 */
  @keyframes bubble { 
@@ -698,14 +733,14 @@ html .ui-button.ui-state-disabled:active { color: #666 !important; background: #
  100% { border-color:rgba(55, 131, 169, 0); } 
  }
  
-.row.col-12 { width: calc(100% + (var(--bs-gutter-x) * .5) * 2); }
-.career-col-box .row.col-12 { /*width: calc(100% + (var(--bs-gutter-x) * .5) * 4);*/ }
-.career-col-box .row.range-datepicker { }
-.card .row:last-child .col-12 > .btn{margin: 0.5rem 0 1.5rem;}
+.row.col-12 { width: calc(100% + (var(--bs-gutter-x) * .5) * 2); } 
+.career-col-box .row.col-12 { /*width: calc(100% + (var(--bs-gutter-x) * .5) * 4); */ } 
+.career-col-box .row.range-datepicker { } 
+.card .row:last-child .col-12 > .btn { margin: 0.5rem 0 1.5rem; } 
 
 /* 회원가입-스킬 */
-.sikll-box{min-height: 80px; border: 1px solid var(--bs-border-color);border-radius: 0.375rem;}
-.btn-more-one{padding: 4px;}
+.sikll-box { min-height: 80px; border: 1px solid var(--bs-border-color); border-radius: 0.375rem; } 
+.btn-more-one { padding: 4px; } 
 
 
 
@@ -774,12 +809,9 @@ html .ui-button.ui-state-disabled:active { color: #666 !important; background: #
 .board_list table tbody tr td.file { display: none; } 
 
 .board_list table tbody tr.nodata td { position: relative; width: 100%; height: 100%; display: flex; align-items: center } 
-.board_list table tbody tr.nodata .ico_nodata { } */}
+.board_list table tbody tr.nodata .ico_nodata { } */ } 
 
 
-@media (min-width: 576px) {
-	/* 회원가입 ---------------------------------------- */
-    .container,.container-sm {
-        max-width:100%
-    }
-}
+@media (min-width: 576px) { /* 회원가입 ---------------------------------------- */
+ .container,.container-sm { max-width:100% } 
+ }

@@ -122,12 +122,20 @@ select::-ms-expand{display:none;/* 화살표 없애기 for IE10, 11*/}
     --bd-main: #3074f0;
     --bd-main-gray: #b2c0cd;
     --pt-sky: #73cdff;
-    --pt-yellow: rgb(251, 223, 83);
+    --pt-opacitysky: #e4eefe;
+    --pt-opacitysky-hover: #c6cedc;
+    --pt-yellow: #fbdf53;
     --pt-lightgray: #edf1f6;
     --pt-black01: #000;
     --pt-black03: #333;
     --pt-dark-blue: #3555af;
     --pt-white: #fff;
+    --pt-lightsky: #bbe4f6;
+    --pt-lightblue: #afbdff;
+    --pt-lightpink: #ffcff7;
+    --pt-lightpurple: #e2d3fa;
+    --pt-lightgreen: #cde8bf;
+    --pt-lightyellow: #ffeca7;
     
     
     --bd-purple: #4c0bce;

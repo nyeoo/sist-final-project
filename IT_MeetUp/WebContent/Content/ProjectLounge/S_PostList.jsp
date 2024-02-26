@@ -373,256 +373,175 @@ String cp = request.getContextPath();
 													<!-- ico_html5_01 -->
 													<li>
 														<div class="form-check skill-item ico_html5_01">
-															<input class="form-check-input" type="checkbox" value="" id="">
-															<label class="form-check-label"> 
-																 html5
-															</label>
+															<input class="form-check-input" type="checkbox" value="" id=""> <label class="form-check-label"> html5 </label>
 														</div>
 													</li>
 													<!-- ico_css_01 -->
 													<li>
 														<div class="form-check skill-item ico_css_01">
-															<input class="form-check-input" type="checkbox" value="" id="">
-															<label class="form-check-label"> 
-																 css
-															</label>
+															<input class="form-check-input" type="checkbox" value="" id=""> <label class="form-check-label"> css </label>
 														</div>
 													</li>
 													<!-- ico_Javascript_01 -->
 													<li>
 														<div class="form-check skill-item ico_Javascript_01">
-															<input class="form-check-input" type="checkbox" value="" id="">
-															<label class="form-check-label"> 
-																 Javascript
-															</label>
+															<input class="form-check-input" type="checkbox" value="" id=""> <label class="form-check-label"> Javascript </label>
 														</div>
 													</li>
 													<!-- ico_TypeScript -->
 													<li>
 														<div class="form-check skill-item ico_TypeScript">
-															<input class="form-check-input" type="checkbox" value="" id="">
-															<label class="form-check-label"> 
-																 TypeScript
-															</label>
+															<input class="form-check-input" type="checkbox" value="" id=""> <label class="form-check-label"> TypeScript </label>
 														</div>
 													</li>
 													<!-- ico_React -->
 													<li>
 														<div class="form-check skill-item ico_React">
-															<input class="form-check-input" type="checkbox" value="" id="">
-															<label class="form-check-label"> 
-																 React
-															</label>
+															<input class="form-check-input" type="checkbox" value="" id=""> <label class="form-check-label"> React </label>
 														</div>
 													</li>
 													<!-- ico_Vue -->
 													<li>
 														<div class="form-check skill-item ico_Vue">
-															<input class="form-check-input" type="checkbox" value="" id="">
-															<label class="form-check-label"> 
-																 Vue
-															</label>
+															<input class="form-check-input" type="checkbox" value="" id=""> <label class="form-check-label"> Vue </label>
 														</div>
 													</li>
 													<!-- ico_Svelte -->
 													<li>
 														<div class="form-check skill-item ico_Svelte">
-															<input class="form-check-input" type="checkbox" value="" id="">
-															<label class="form-check-label"> 
-																 Svelte
-															</label>
+															<input class="form-check-input" type="checkbox" value="" id=""> <label class="form-check-label"> Svelte </label>
 														</div>
 													</li>
 													<!-- ico_Nextjs -->
 													<li>
 														<div class="form-check skill-item ico_Nextjs">
-															<input class="form-check-input" type="checkbox" value="" id="">
-															<label class="form-check-label"> 
-																 Nextjs
-															</label>
+															<input class="form-check-input" type="checkbox" value="" id=""> <label class="form-check-label"> Nextjs </label>
 														</div>
 													</li>
-													
+
 												</ul>
-												
+
 											</div>
 											<div class="tab-pane fade" id="nav-skill02" role="skill02" aria-labelledby="nav-skill02-tab">
 												<ul class="skill-check">
-													
+
 													<!-- ico_ruby -->
 													<li>
 														<div class="form-check skill-item ico_ruby">
-															<input class="form-check-input" type="checkbox" value="" id="">
-															<label class="form-check-label"> 
-																 ruby
-															</label>
+															<input class="form-check-input" type="checkbox" value="" id=""> <label class="form-check-label"> ruby </label>
 														</div>
 													</li>
 													<!-- ico_Java_01 -->
 													<li>
 														<div class="form-check skill-item ico_Java_01">
-															<input class="form-check-input" type="checkbox" value="" id="">
-															<label class="form-check-label"> 
-																 Java
-															</label>
+															<input class="form-check-input" type="checkbox" value="" id=""> <label class="form-check-label"> Java </label>
 														</div>
 													</li>
 													<!-- ico_jsp -->
 													<li>
 														<div class="form-check skill-item ico_jsp">
-															<input class="form-check-input" type="checkbox" value="" id="">
-															<label class="form-check-label"> 
-																 jsp
-															</label>
+															<input class="form-check-input" type="checkbox" value="" id=""> <label class="form-check-label"> jsp </label>
 														</div>
 													</li>
 													<!-- ico_python -->
 													<li>
 														<div class="form-check skill-item ico_python">
-															<input class="form-check-input" type="checkbox" value="" id="">
-															<label class="form-check-label"> 
-																 python
-															</label>
+															<input class="form-check-input" type="checkbox" value="" id=""> <label class="form-check-label"> python </label>
 														</div>
 													</li>
 													<!-- ico_C_plus -->
 													<li>
 														<div class="form-check skill-item ico_C_plus">
-															<input class="form-check-input" type="checkbox" value="" id="">
-															<label class="form-check-label"> 
-																 C_plus
-															</label>
+															<input class="form-check-input" type="checkbox" value="" id=""> <label class="form-check-label"> C_plus </label>
 														</div>
 													</li>
 													<!-- ico_C_sharp -->
 													<li>
 														<div class="form-check skill-item ico_C_sharp">
-															<input class="form-check-input" type="checkbox" value="" id="">
-															<label class="form-check-label"> 
-																 C_sharp
-															</label>
+															<input class="form-check-input" type="checkbox" value="" id=""> <label class="form-check-label"> C_sharp </label>
 														</div>
 													</li>
 													<!-- ico_R -->
 													<li>
 														<div class="form-check skill-item ico_R">
-															<input class="form-check-input" type="checkbox" value="" id="">
-															<label class="form-check-label"> 
-																 R
-															</label>
+															<input class="form-check-input" type="checkbox" value="" id=""> <label class="form-check-label"> R </label>
 														</div>
 													</li>
 													<!-- ico_Oracle -->
 													<li>
 														<div class="form-check skill-item ico_Oracle">
-															<input class="form-check-input" type="checkbox" value="" id="">
-															<label class="form-check-label"> 
-																 Oracle
-															</label>
+															<input class="form-check-input" type="checkbox" value="" id=""> <label class="form-check-label"> Oracle </label>
 														</div>
 													</li>
 													<!-- ico_MySQL -->
 													<li>
 														<div class="form-check skill-item ico_MySQL">
-															<input class="form-check-input" type="checkbox" value="" id="">
-															<label class="form-check-label"> 
-																 MySQL
-															</label>
+															<input class="form-check-input" type="checkbox" value="" id=""> <label class="form-check-label"> MySQL </label>
 														</div>
 													</li>
 													<!-- ico_PHP -->
 													<li>
 														<div class="form-check skill-item ico_PHP">
-															<input class="form-check-input" type="checkbox" value="" id="">
-															<label class="form-check-label"> 
-																 PHP
-															</label>
+															<input class="form-check-input" type="checkbox" value="" id=""> <label class="form-check-label"> PHP </label>
 														</div>
 													</li>
 													<!-- ico_Nodejs -->
 													<li>
 														<div class="form-check skill-item ico_Nodejs">
-															<input class="form-check-input" type="checkbox" value="" id="">
-															<label class="form-check-label"> 
-																 Nodejs
-															</label>
+															<input class="form-check-input" type="checkbox" value="" id=""> <label class="form-check-label"> Nodejs </label>
 														</div>
 													</li>
 													<!-- ico_Spring -->
 													<li>
 														<div class="form-check skill-item ico_Spring">
-															<input class="form-check-input" type="checkbox" value="" id="">
-															<label class="form-check-label"> 
-																 Spring
-															</label>
+															<input class="form-check-input" type="checkbox" value="" id=""> <label class="form-check-label"> Spring </label>
 														</div>
 													</li>
 													<!-- ico_Jquery -->
 													<li>
 														<div class="form-check skill-item ico_Jquery">
-															<input class="form-check-input" type="checkbox" value="" id="">
-															<label class="form-check-label"> 
-																 Jquery
-															</label>
+															<input class="form-check-input" type="checkbox" value="" id=""> <label class="form-check-label"> Jquery </label>
 														</div>
 													</li>
 													<!-- ico_Mybatis -->
 													<li>
 														<div class="form-check skill-item ico_Mybatis">
-															<input class="form-check-input" type="checkbox" value="" id="">
-															<label class="form-check-label"> 
-																 Mybatis
-															</label>
+															<input class="form-check-input" type="checkbox" value="" id=""> <label class="form-check-label"> Mybatis </label>
 														</div>
 													</li>
 													<!-- ico_Spring_Boot -->
 													<li>
 														<div class="form-check skill-item ico_Spring_Boot">
-															<input class="form-check-input" type="checkbox" value="" id="">
-															<label class="form-check-label"> 
-																 Spring_Boot
-															</label>
+															<input class="form-check-input" type="checkbox" value="" id=""> <label class="form-check-label"> Spring_Boot </label>
 														</div>
 													</li>
 													<!-- ico_Rust -->
 													<li>
 														<div class="form-check skill-item ico_Rust">
-															<input class="form-check-input" type="checkbox" value="" id="">
-															<label class="form-check-label"> 
-																 Rust
-															</label>
+															<input class="form-check-input" type="checkbox" value="" id=""> <label class="form-check-label"> Rust </label>
 														</div>
 													</li>
 													<!-- ico_scala -->
 													<li>
 														<div class="form-check skill-item ico_scala">
-															<input class="form-check-input" type="checkbox" value="" id="">
-															<label class="form-check-label"> 
-																 scala
-															</label>
+															<input class="form-check-input" type="checkbox" value="" id=""> <label class="form-check-label"> scala </label>
 														</div>
 													</li>
 													<!-- ico_Kotlin -->
 													<li>
 														<div class="form-check skill-item ico_Kotlin">
-															<input class="form-check-input" type="checkbox" value="" id="">
-															<label class="form-check-label"> 
-																 Kotlin
-															</label>
+															<input class="form-check-input" type="checkbox" value="" id=""> <label class="form-check-label"> Kotlin </label>
 														</div>
 													</li>
 													<!-- ico_unity -->
 													<li>
 														<div class="form-check skill-item ico_unity">
-															<input class="form-check-input" type="checkbox" value="" id="">
-															<label class="form-check-label"> 
-																 unity
-															</label>
+															<input class="form-check-input" type="checkbox" value="" id=""> <label class="form-check-label"> unity </label>
 														</div>
 													</li>
 
 												</ul>
-												
+
 											</div>
 											<div class="tab-pane fade" id="nav-skill03" role="skill03" aria-labelledby="nav-skill03-tab">
 												<ul class="skill-check">
@@ -630,154 +549,103 @@ String cp = request.getContextPath();
 													<!-- ico_powerMockup -->
 													<li>
 														<div class="form-check skill-item ico_powerMockup">
-															<input class="form-check-input" type="checkbox" value="" id="">
-															<label class="form-check-label"> 
-																 powerMockup
-															</label>
+															<input class="form-check-input" type="checkbox" value="" id=""> <label class="form-check-label"> powerMockup </label>
 														</div>
 													</li>
 													<!-- ico_protoNow -->
 													<li>
 														<div class="form-check skill-item ico_protoNow">
-															<input class="form-check-input" type="checkbox" value="" id="">
-															<label class="form-check-label"> 
-																 protoNow
-															</label>
+															<input class="form-check-input" type="checkbox" value="" id=""> <label class="form-check-label"> protoNow </label>
 														</div>
 													</li>
 													<!-- ico_oven_01 -->
 													<li>
 														<div class="form-check skill-item ico_oven_01">
-															<input class="form-check-input" type="checkbox" value="" id="">
-															<label class="form-check-label"> 
-																 oven
-															</label>
+															<input class="form-check-input" type="checkbox" value="" id=""> <label class="form-check-label"> oven </label>
 														</div>
 													</li>
 													<!-- ico_Sketch -->
 													<li>
 														<div class="form-check skill-item ico_Sketch">
-															<input class="form-check-input" type="checkbox" value="" id="">
-															<label class="form-check-label"> 
-																 Sketch
-															</label>
+															<input class="form-check-input" type="checkbox" value="" id=""> <label class="form-check-label"> Sketch </label>
 														</div>
 													</li>
 													<!-- ico_zeplin -->
 													<li>
 														<div class="form-check skill-item ico_zeplin">
-															<input class="form-check-input" type="checkbox" value="" id="">
-															<label class="form-check-label"> 
-																 zeplin
-															</label>
+															<input class="form-check-input" type="checkbox" value="" id=""> <label class="form-check-label"> zeplin </label>
 														</div>
-													</li>												
+													</li>
 													<!-- ico_Figma -->
 													<li>
 														<div class="form-check skill-item ico_Figma">
-															<input class="form-check-input" type="checkbox" value="" id="">
-															<label class="form-check-label"> 
-																 Figma
-															</label>
+															<input class="form-check-input" type="checkbox" value="" id=""> <label class="form-check-label"> Figma </label>
 														</div>
 													</li>
 													<!-- ico_Axure_RP -->
 													<li>
 														<div class="form-check skill-item ico_Axure_RP">
-															<input class="form-check-input" type="checkbox" value="" id="">
-															<label class="form-check-label"> 
-																 Axure_RP
-															</label>
+															<input class="form-check-input" type="checkbox" value="" id=""> <label class="form-check-label"> Axure_RP </label>
 														</div>
 													</li>
 													<!-- ico_Adobe_XD -->
 													<li>
 														<div class="form-check skill-item ico_Adobe_XD">
-															<input class="form-check-input" type="checkbox" value="" id="">
-															<label class="form-check-label"> 
-																 Adobe_XD
-															</label>
+															<input class="form-check-input" type="checkbox" value="" id=""> <label class="form-check-label"> Adobe_XD </label>
 														</div>
 													</li>
 													<!-- ico_Visual_Studio_Code -->
 													<li>
 														<div class="form-check skill-item ico_Visual_Studio_Code">
-															<input class="form-check-input" type="checkbox" value="" id="">
-															<label class="form-check-label"> 
-																 Visual_Studio_Code
-															</label>
+															<input class="form-check-input" type="checkbox" value="" id=""> <label class="form-check-label"> Visual_Studio_Code </label>
 														</div>
 													</li>
 													<!-- ico_Visual_Studio -->
 													<li>
 														<div class="form-check skill-item ico_Visual_Studio">
-															<input class="form-check-input" type="checkbox" value="" id="">
-															<label class="form-check-label"> 
-																 Visual_Studio
-															</label>
+															<input class="form-check-input" type="checkbox" value="" id=""> <label class="form-check-label"> Visual_Studio </label>
 														</div>
 													</li>
 													<!-- ico_IntelliJ -->
 													<li>
 														<div class="form-check skill-item ico_IntelliJ">
-															<input class="form-check-input" type="checkbox" value="" id="">
-															<label class="form-check-label"> 
-																 IntelliJ
-															</label>
+															<input class="form-check-input" type="checkbox" value="" id=""> <label class="form-check-label"> IntelliJ </label>
 														</div>
 													</li>
 													<!-- ico_Notepad -->
 													<li>
 														<div class="form-check skill-item ico_Notepad">
-															<input class="form-check-input" type="checkbox" value="" id="">
-															<label class="form-check-label"> 
-																 Notepad
-															</label>
+															<input class="form-check-input" type="checkbox" value="" id=""> <label class="form-check-label"> Notepad </label>
 														</div>
 													</li>
 													<!-- ico_Vim -->
 													<li>
 														<div class="form-check skill-item ico_Vim">
-															<input class="form-check-input" type="checkbox" value="" id="">
-															<label class="form-check-label"> 
-																 Vim
-															</label>
+															<input class="form-check-input" type="checkbox" value="" id=""> <label class="form-check-label"> Vim </label>
 														</div>
 													</li>
 													<!-- ico_Android_Studio -->
 													<li>
 														<div class="form-check skill-item ico_Android_Studio">
-															<input class="form-check-input" type="checkbox" value="" id="">
-															<label class="form-check-label"> 
-																 Android_Studio
-															</label>
+															<input class="form-check-input" type="checkbox" value="" id=""> <label class="form-check-label"> Android_Studio </label>
 														</div>
 													</li>
 													<!-- ico_PyCharm -->
 													<li>
 														<div class="form-check skill-item ico_PyCharm">
-															<input class="form-check-input" type="checkbox" value="" id="">
-															<label class="form-check-label"> 
-																 PyCharm
-															</label>
+															<input class="form-check-input" type="checkbox" value="" id=""> <label class="form-check-label"> PyCharm </label>
 														</div>
 													</li>
 													<!-- ico_Eclipse -->
 													<li>
 														<div class="form-check skill-item ico_Eclipse">
-															<input class="form-check-input" type="checkbox" value="" id="">
-															<label class="form-check-label"> 
-																 Eclipse
-															</label>
+															<input class="form-check-input" type="checkbox" value="" id=""> <label class="form-check-label"> Eclipse </label>
 														</div>
 													</li>
 													<!-- ico_Xcode -->
 													<li>
 														<div class="form-check skill-item ico_Xcode">
-															<input class="form-check-input" type="checkbox" value="" id="">
-															<label class="form-check-label"> 
-																 Xcode
-															</label>
+															<input class="form-check-input" type="checkbox" value="" id=""> <label class="form-check-label"> Xcode </label>
 														</div>
 													</li>
 
@@ -819,10 +687,7 @@ String cp = request.getContextPath();
 							</li>
 							<li>
 								<div class="form-check">
-									<input class="form-check-input" type="checkbox" value="" id="">
-									<label class="form-check-label"> 
-										 Default checkbox
-									</label>
+									<input class="form-check-input" type="checkbox" value="" id=""> <label class="form-check-label"> Default checkbox </label>
 								</div>
 							</li>
 						</ul>
@@ -867,6 +732,7 @@ String cp = request.getContextPath();
 										<small class="text-body-secondary">view 10</small>
 									</div>
 								</div>
+							</div>
 						</li>
 						<li class="col-12 col-sm-6 col-md-4 col-lg-3">
 							<div class="card p-4 d-flex flex-column">
@@ -906,6 +772,7 @@ String cp = request.getContextPath();
 										<small class="text-body-secondary">view 10</small>
 									</div>
 								</div>
+							</div>
 						</li>
 						<li class="col-12 col-sm-6 col-md-4 col-lg-3">
 							<div class="card p-4 d-flex flex-column">
@@ -945,6 +812,7 @@ String cp = request.getContextPath();
 										<small class="text-body-secondary">view 10</small>
 									</div>
 								</div>
+							</div>
 						</li>
 						<li class="col-12 col-sm-6 col-md-4 col-lg-3">
 							<div class="card p-4 d-flex flex-column">
@@ -984,6 +852,7 @@ String cp = request.getContextPath();
 										<small class="text-body-secondary">view 10</small>
 									</div>
 								</div>
+							</div>
 						</li>
 						<li class="col-12 col-sm-6 col-md-4 col-lg-3">
 							<div class="card p-4 d-flex flex-column">
@@ -1023,6 +892,7 @@ String cp = request.getContextPath();
 										<small class="text-body-secondary">view 10</small>
 									</div>
 								</div>
+							</div>
 						</li>
 						<li class="col-12 col-sm-6 col-md-4 col-lg-3">
 							<div class="card p-4 d-flex flex-column">
@@ -1062,6 +932,7 @@ String cp = request.getContextPath();
 										<small class="text-body-secondary">view 10</small>
 									</div>
 								</div>
+							</div>
 						</li>
 						<li class="col-12 col-sm-6 col-md-4 col-lg-3">
 							<div class="card p-4 d-flex flex-column">
@@ -1101,6 +972,7 @@ String cp = request.getContextPath();
 										<small class="text-body-secondary">view 10</small>
 									</div>
 								</div>
+							</div>
 						</li>
 						<li class="col-12 col-sm-6 col-md-4 col-lg-3">
 							<div class="card p-4 d-flex flex-column">
@@ -1140,6 +1012,7 @@ String cp = request.getContextPath();
 										<small class="text-body-secondary">view 10</small>
 									</div>
 								</div>
+							</div>
 						</li>
 						<li class="col-12 col-sm-6 col-md-4 col-lg-3">
 							<div class="card p-4 d-flex flex-column">
@@ -1179,6 +1052,7 @@ String cp = request.getContextPath();
 										<small class="text-body-secondary">view 10</small>
 									</div>
 								</div>
+							</div>
 						</li>
 						<li class="col-12 col-sm-6 col-md-4 col-lg-3">
 							<div class="card p-4 d-flex flex-column">
@@ -1218,6 +1092,7 @@ String cp = request.getContextPath();
 										<small class="text-body-secondary">view 10</small>
 									</div>
 								</div>
+							</div>
 						</li>
 						<li class="col-12 col-sm-6 col-md-4 col-lg-3">
 							<div class="card p-4 d-flex flex-column">
@@ -1257,6 +1132,7 @@ String cp = request.getContextPath();
 										<small class="text-body-secondary">view 10</small>
 									</div>
 								</div>
+							</div>
 						</li>
 						<li class="col-12 col-sm-6 col-md-4 col-lg-3">
 							<div class="card p-4 d-flex flex-column">
@@ -1296,6 +1172,7 @@ String cp = request.getContextPath();
 										<small class="text-body-secondary">view 10</small>
 									</div>
 								</div>
+							</div>
 						</li>
 					</ul>
 
