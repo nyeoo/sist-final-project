@@ -20,15 +20,11 @@ String cp = request.getContextPath();
 <!-- css -->
 <link rel="stylesheet" href="../../asset/css/style.css">
 <style type="text/css">
-.icon {
-	text-align: center;
-}
-
-.LayerMore {
+/* .LayerMore {
 	position: absolute;
 	left: auto;
-	right: 0; /* 버튼의 오른쪽에 위치하도록 수정 */
-	top: 100%; /* 버튼 아래에 위치하도록 수정 */
+	right: 0;
+	top: 100%;
 	z-index: 1;
 	max-height: 416px;
 	padding: 8px 0;
@@ -38,15 +34,13 @@ String cp = request.getContextPath();
 	background-color: #fff;
 	box-sizing: border-box;
 	color: #000;
+} */
+.modal-content {
+	width: 350px;
 }
 
 .user-info-container {
 	position: relative;
-}
-
-.button-right {
-	text-align: right;
-	margin-top: 10px;
 }
 
 .col-md-4 .thumbnail {
@@ -61,14 +55,14 @@ String cp = request.getContextPath();
 	height: 100%
 }
 
-.form-select {
+/* .form-select {
 	width: auto;
-}
+} */
 
-.state-select {
+/* .state-select {
 	display: flex;
 	justify-content: center;
-}
+} */
 </style>
 
 </head>
@@ -92,11 +86,53 @@ String cp = request.getContextPath();
 				<div class="content">
 
 					<div class="content_tit">
-						<p class="h3">그룹원 정보 설정</p>
+						<div class="h3">
+							팀명
+							<button type="button" class="btn btn-primary"
+								data-bs-toggle="modal" data-bs-target="#teamnameUpdate">
+								<i class="bi bi-plus-lg"></i> 팀명 수정
+							</button>
+						</div>
+
+						<div class="modal fade" id="teamnameUpdate"
+							tabindex="-1" aria-labelledby="completeListLabel"
+							aria-hidden="true">
+							<div class="modal-dialog modal-dialog-centered">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h1 class="modal-title fs-5" id="completeListLabel">그룹원
+											수정</h1>
+										<button type="button" class="btn-close"
+											data-bs-dismiss="modal" aria-label="Close"></button>
+									</div>
+									<div class="modal-body">
+										<div class="modal-contents">
+											<div class="con-section complete-list">
+
+												<div class="row">
+													<div class="col-md-8">
+														<div class="mb-3">
+															<label for="teamName" class="form-label">팀명</label> <input
+																type="text" class="form-control" id="teamName"
+																name="teamName" value="meet조">
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary"
+											data-bs-dismiss="modal">나가기</button>
+										<button type="button" class="btn btn-primary">수정하기</button>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 
 					<!-- 탭 -->
-					<nav>
+					<!-- <nav>
 						<div class="nav nav-tabs nav-tabs-bordered mb-3" id="nav-tab"
 							role="tablist">
 							<button class="nav-link" id="nav-profile-tab"
@@ -104,7 +140,7 @@ String cp = request.getContextPath();
 								role="tab" aria-controls="nav-tab02" aria-selected="false">그룹원
 								정보 조회/설정</button>
 						</div>
-					</nav>
+					</nav> -->
 					<!-- <div class="tab-content" id="nav-tabContent">
 						<div class="tab-pane fade show active" id="nav-tab01"
 							role="tabpanel" aria-labelledby="nav-tab01-tab">
@@ -206,9 +242,10 @@ String cp = request.getContextPath();
 									<i class="bi bi-plus-lg"></i> 그룹 수정
 								</button>
 								<button type="button" class="btn btn-primary">그룹 나가기</button>
-							</div> -->
+							</div>
+							
 
-							<!-- <div class="modal fade completeList-popup" id="groupUpdate"
+							<div class="modal fade completeList-popup" id="groupUpdate"
 								tabindex="-1" aria-labelledby="completeListLabel"
 								aria-hidden="true">
 								<div class="modal-dialog modal-dialog-scrollable">
@@ -249,7 +286,7 @@ String cp = request.getContextPath();
 														</div>
 														<div class="col-md-6">
 															<div class="mb-2" style="width: 200px; padding: 10px;">
-															<label for="imagesss" class="form-label">썸네일 이미지</label>
+																<label for="imagesss" class="form-label">썸네일 이미지</label>
 																<div class="thumbnail rounded">
 																	<img src="../../asset/images/ico_language_python.png">
 																</div>
@@ -267,10 +304,10 @@ String cp = request.getContextPath();
 										</div>
 									</div>
 								</div>
-							</div> -->
+							</div>
 						</div>
 
-					</div>
+					</div> -->
 
 
 
@@ -285,9 +322,8 @@ String cp = request.getContextPath();
 											<th>번호</th>
 											<th>아이디</th>
 											<th>직무</th>
-											<th>역할</th>
+											<th>완료/부여</th>
 											<th>상태</th>
-											<th>Actions</th>
 										</tr>
 									</thead>
 									<tbody style="text-align: center;">
@@ -301,11 +337,9 @@ String cp = request.getContextPath();
 														class="list-unstyled users-list m-0 avatar-group d-flex justify-content-center align-items-center">
 														<li data-bs-toggle="tooltip" data-popup="tooltip-custom"
 															data-bs-placement="top" class="avatar avatar-xs pull-up"
-															title="">
-															<button id="writeNickNameButton" class="nickName">
-																<i class="bi bi-person">오수경</i>
-															</button>
-														</li>
+															title=""><a href="#" role="button"
+															class="layer_bottom"> <i class="bi bi-person">오수경</i>
+														</a></li>
 													</ul>
 													<!-- <div id="writeNickNameMenu" role="menu" class="LayerMore"
 															style="display: none;">
@@ -331,13 +365,13 @@ String cp = request.getContextPath();
 															<option value="2">이탈자</option>
 														</select>
 													</div> --></td>
-											<td>
+											<!-- <td>
 												<div class="updatedeletebtn">
 													<button type="button" class="btn btn-primary">네임카드</button>
 													<button type="button" class="btn btn-danger">차단하기</button>
 													<button type="button" class="btn btn-secondary">신고하기</button>
 												</div>
-											</td>
+											</td> -->
 										</tr>
 										<tr>
 											<td><i class="fab fa-react fa-lg text-info me-3"></i> <strong>2</strong></td>
@@ -353,13 +387,6 @@ String cp = request.getContextPath();
 											<td>디자인</td>
 											<td>설계</td>
 											<td><span class="badge bg-label-warning me-1">이탈자</span>
-											</td>
-											<td>
-												<div class="updatedeletebtn">
-													<button type="button" class="btn btn-primary">네임카드</button>
-													<button type="button" class="btn btn-primary">차단하기</button>
-													<button type="button" class="btn btn-primary">신고하기</button>
-												</div>
 											</td>
 										</tr>
 										<tr>
@@ -378,13 +405,6 @@ String cp = request.getContextPath();
 											<td>기획</td>
 											<td><span class="badge bg-label-primary me-1">진행중</span>
 											</td>
-											<td>
-												<div class="updatedeletebtn">
-													<button type="button" class="btn btn-primary">네임카드</button>
-													<button type="button" class="btn btn-primary">차단하기</button>
-													<button type="button" class="btn btn-primary">신고하기</button>
-												</div>
-											</td>
 										</tr>
 										<tr>
 											<td><i class="fab fa-bootstrap fa-lg text-primary me-3"></i>
@@ -402,13 +422,6 @@ String cp = request.getContextPath();
 											<td>테스트</td>
 											<td><span class="badge bg-label-warning me-1">이탈자</span>
 											</td>
-											<td>
-												<div class="updatedeletebtn">
-													<button type="button" class="btn btn-primary">네임카드</button>
-													<button type="button" class="btn btn-primary">차단하기</button>
-													<button type="button" class="btn btn-primary">신고하기</button>
-												</div>
-											</td>
 										</tr>
 									</tbody>
 								</table>
@@ -421,12 +434,12 @@ String cp = request.getContextPath();
 
 			</div>
 			<!-- //콘텐츠 -->
-	</section>
-	<!-- //바디영역 -->
+		</section>
+		<!-- //바디영역 -->
 
-	<!-- 푸터영역 -->
-	<!-- <c:import url="../Components/Footer.jsp" ></c:import> -->
-	<!-- //푸터영역 -->
+		<!-- 푸터영역 -->
+		<!-- <c:import url="../Components/Footer.jsp" ></c:import> -->
+		<!-- //푸터영역 -->
 
 	</div>
 
@@ -453,18 +466,26 @@ String cp = request.getContextPath();
 					}
 				});
 
-		document.getElementById('thumbnailInput').addEventListener('change', function(event) {
-	        var file = event.target.files[0];
-	        var thumbnailPreview = document.getElementById('thumbnailPreview');
-	        
-	        if (file) {
-	            var reader = new FileReader();
-	            reader.onload = function(e) {
-	                thumbnailPreview.innerHTML = '<img src="' + e.target.result + '">';
-	            }
-	            reader.readAsDataURL(file);
-	        }
-	    });
+		document
+				.getElementById('thumbnailInput')
+				.addEventListener(
+						'change',
+						function(event)
+						{
+							var file = event.target.files[0];
+							var thumbnailPreview = document
+									.getElementById('thumbnailPreview');
+
+							if (file)
+							{
+								var reader = new FileReader();
+								reader.onload = function(e)
+								{
+									thumbnailPreview.innerHTML = '<img src="' + e.target.result + '">';
+								}
+								reader.readAsDataURL(file);
+							}
+						});
 	</script>
 </body>
 
