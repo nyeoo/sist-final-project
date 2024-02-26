@@ -224,7 +224,7 @@ String cp = request.getContextPath();
 							<button type="button" class="btn-close" data-bs-dismiss="modal"
 								aria-label="Close"></button>
 						</div>
-						<div data-include="../MeetGroup/M_WorkReport.jsp"
+						<div data-include="../MeetGroup/WorkReport.jsp"
 							class="modal-body"></div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary"
