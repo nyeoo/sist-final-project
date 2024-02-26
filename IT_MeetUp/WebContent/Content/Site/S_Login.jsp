@@ -112,6 +112,37 @@ String cp = request.getContextPath();
 
 	</div>
 
+	<!-- 회원가입 -->
+	<div class="modal fade" id="Join" tabindex="-1" aria-labelledby="FindIdLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title fs-5 h1" id="FindIdLabel">아이디찾기</div>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<p class="mb-4">
+						가입한 이메일을 작성해주세요. <br>아이디를 메일로 보내드립니다.
+					</p>
+					<form class="row g-3 needs-validation" novalidate>
+
+						<div class="col-12">
+							<div class="m-input-box">
+								<label for="loginId02" class="form-label">가입이메일</label> <input type="text" class="form-control" id="loginId02" required="">
+								<div class="invalid-feedback">가입이메일을 입력해주세요.</div>
+							</div>
+						</div>
+
+						<div class="col-12">
+							<button class="btn btn-primary w-100" type="submit">아이디찾기</button>
+						</div>
+					</form>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- //회원가입 -->
 	<!-- 아이디찾기 -->
 	<div class="modal fade" id="FindId" tabindex="-1" aria-labelledby="FindIdLabel" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered">

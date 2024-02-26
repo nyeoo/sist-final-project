@@ -5,14 +5,14 @@
 	margin: 0;
 }
 .section {
-	padding-bottom: 0 !important;
+	/* padding-bottom: 0 !important; */
 }
 
 .intro {
 	position: relative;
 	padding: 130px 40px 130px 40px;
 	text-align: center;
-	background-image: url("../../asset/img/home.jpg");
+	background-image: url("../../asset/images/sub/img_home.jpg");
 	background-size: cover;
 }
 .intro::before {
@@ -50,7 +50,9 @@
 .c-body-section {
 	margin-top: 65px;
 }
-.col-lg-4 {width: 25% !important;}
+.col-lg-4 {
+	width: 25% !important;
+}
 
 /* 카테고리 */
 .mb-3 {margin-bottom: 4px;}
@@ -73,47 +75,81 @@
 
 
 /* CompleteProjectDetail */
-body {
-	font-family: 'Noto Sans KR', sans-serif;
+.cp-body-section{	/*margin-top: 3.5rem;*/}
+
+
+.project-title {
+    margin: 5px 0px 30px 30px;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    display: block;
 }
-
-li {
-	list-style: none;
+.title-hr {
+    height: 1px;
+    background: #000;
+    width: 85px;
+    text-align: center;
+    margin: 0px auto;
+    margin-bottom: 30px;
 }
-
-
-h2 {
-	margin: 5px 0px 15px 30px;
-	font-weight: bold;
+.project-teamname { margin: 5px 0px 15px 30px; font-size: 20px;
+}
+.main {
+	/* width: 100%; */
 }
 
 .intro-head {
-	background-color: #D3E4FF;
-	padding: 80px 50px 20px 50px;
-}
-
-.intro-img {
-	margin: 10px;
-	border: 3px solid #DEE1E6;
-	border-radius: 30px;
-	width: 580px;
+	padding: 20px 90px 145px 70px;
+	padding: 20px 10% 0;
+    width: 100%;
 }
 
 .intro-detail {
 	display: flex;
+	flex-wrap: wrap;
+}
+.intro-imgbox {
+	width: 70%;
+    flex-basis: 510px;
+    flex-shrink: 1;
+    flex-grow: 1;
+}
+.monitor {
+	border-radius: 11px;
+    box-shadow: 5px 8px 17px lightgray;
+    border: 14px solid black;
+}
+.intro-img {
+	/* border-radius: 11px; */
+    /* box-shadow: 5px 8px 17px lightgray; */
+    max-width: 100%;
+    height: 100%;
+    /* border: 14px solid black; */
+    object-fit: cover;
 }
 
 .intro-detail-description {
-	margin: 30px;
+	padding: 35px 0px 0px 60px;
+    width: 45%;
+    flex-basis: 330px;
+    flex-shrink: 1;
+    flex-grow: 1;
+}
+.intro-title {
+    font-size: 22px;
+    font-weight: 600;
 }
 
-.project-description_header {
-	font-weight: bold;
-	font-size: 20px;
-	display: inline-block;
+.job-list {
+	margin-top: 10px;
+	flex-flow: wrap;
+}
+.job {
+	align-items: center;
 	margin-bottom: 10px;
+	margin: 15px 30px 15px 0;
 }
-
 .tag {
 	border-radius: 30px;
 	text-align: center;
@@ -132,6 +168,88 @@ h2 {
 	background-color: #fff;
 	margin-bottom: 5px;
 }
+.job-tag {
+	font-size: 14px;
+    color: white;
+    font-weight: 500;
+    border: none;
+    min-width: 75px;
+}
+.job-1 {
+	--bs-bg-opacity: 1;
+    color: rgba(var(--bs-success-rgb),var(--bs-bg-opacity))!important;
+}
+.job-2 {
+	--bs-bg-opacity: 1;
+    color: rgba(var(--bs-danger-rgb),var(--bs-bg-opacity))!important;
+}
+.job-3 {
+	--bs-bg-opacity: 1;
+    color: rgba(var(--bs-primary-rgb),var(--bs-bg-opacity))!important;
+}
+.job-4 {
+	--bs-bg-opacity: 1;
+    color: rgba(var(--bs-secondary-rgb),var(--bs-bg-opacity))!important;
+}
+.member-box {
+	align-items: end;	
+}
+.member {
+	margin-left: 10px;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+.no-profile {
+	font-size: 55px;
+	color: #69696B;
+	text-shadow: 1px 1px 4px #c1c1c1;
+}
+.no-profile:hover {
+	text-shadow: 2px 2px 6px #c1c1c1;
+}
+.none-event {
+	pointer-events : none;
+}
+.no-eva {
+	color: #F2F2F2;
+	text-shadow: none;
+}
+.member-img {
+	border-radius: 50%;
+	width: 55px;
+	height: 55px;
+	box-shadow: 1px 1px 6px 0px #c1c1c1;
+	
+}
+.member-img:hover {
+	box-shadow: 2px 2px 9px 0px #c1c1c1;
+}
+.nickname {
+	margin-top: 6px;
+    overflow: hidden;
+    display: block;
+    color: #8e8f92;
+    font-size: 14px;
+    white-space: nowrap;
+    text-align: center;
+    text-overflow: ellipsis;
+    width: 60px;
+}
+.crown {
+	font-size: 17px;
+    color: yellow;
+    position: absolute;
+    top: -8px;
+    left: calc(50% - 33px);
+    z-index: 1;
+    padding: 5px;
+    background-color: black;
+    border-radius: 50%;
+}
+
 
 .tag-box {
 	margin-top: 20px;
@@ -139,22 +257,40 @@ h2 {
 }
 
 .intro-body {
-	background-color: #F8F9FA;
-	padding: 80px 50px 30px 50px;
+	background-color: #253579;
+	/* padding-top: 90px; */
+	/* padding-bottom: 30px; */
+    /* padding: 90px 160px 30px 160px; */
 }
-
-.progressbar {
-	margin-bottom: 30px;
+.intro-body-list {
+    margin-bottom: 20px;
+    background: white;
+    padding: 35px;
+    border-radius: 8px;
 }
-
-.member-box {
-	margin-bottom: 30px;
+.team {
+	font-size: 23px;
+    color: white;
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 5px;
+    font-weight: 500;
 }
-
-.member {
+.team-name {
+	font-size: 35px;
+    color: white;
+    font-weight: bolder;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+.progress-m {
+	margin: 30px 20px 30px 20px;
+	height: 20px;
+	}
+.progress {
+	height: 100%;
+}
+.statistics-title {
+	display: block;
+}
 	
-}
-
-.skill {
-	margin-bottom: 30px;
-}

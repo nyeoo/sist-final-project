@@ -175,22 +175,22 @@
                     <nav id="navbar-example3" class="h-100 flex-column align-items-stretch pe-4 border-end">
                         <nav class="nav nav-pills flex-column write-nav-con">
                             <a class="nav-link ms-3 my-1" href="#item-1">
-                                <p class="h4">제목(주제)</p>
+                                <span class="h4">제목(주제)</span>
                             </a>
                             <a class="nav-link ms-3 my-1" href="#item-2">
-                                <p class="h4">내용</p>
+                                <span class="h4">내용</span>
                             </a>
                             <a class="nav-link ms-3 my-1  " href="#item-3">
-                                <p class="h4">업무분류</p>
+                                <span class="h4">업무분류</span>
                             </a>
                             <a class="nav-link ms-3 my-1  " href="#item-4">
-                                <p class="h4">업무 수행 기간</p>
+                                <span class="h4">업무 수행 기간</span>
                             </a>
                             <a class="nav-link ms-3 my-1  " href="#item-5">
-                                <p class="h4">사용스킬</p>
+                                <span class="h4">사용스킬</span>
                             </a>
                             <a class="nav-link ms-3 my-1  " href="#item-6">
-                                <p class="h4">첨부파일</p>
+                                <span class="h4">첨부파일</span>
                             </a>
                         </nav>
                     </nav>
@@ -248,7 +248,7 @@
                         <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab"
                           data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home"
                           aria-selected="true">프론트</button>
-                        <button class="nav-link" id=av-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile"
+                        <button class="nav-link" id="av-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile"
                           type="button" role="tab" aria-controls="nav-profile" aria-selected="false">백엔드</button>
                         <button class="nav-link" id="av-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact"
                           type="button" role="tab" aria-controls="nav-contact" aria-selected="false">기획, 디자인,

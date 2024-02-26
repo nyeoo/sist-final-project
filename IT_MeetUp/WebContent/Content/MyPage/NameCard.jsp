@@ -19,8 +19,6 @@ String cp = request.getContextPath();
 
 <!-- css -->
 <link rel="stylesheet" href="../../asset/css/style.css">
-
-<link rel="stylesheet" href="../../asset/css/style.css">
 <style type="text/css">
 .comp_box {
 	text-align: center;
