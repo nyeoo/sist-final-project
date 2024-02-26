@@ -92,24 +92,20 @@ String cp = request.getContextPath();
 				<div class="content">
 
 					<div class="content_tit">
-						<p class="h3">그룹 정보 설정</p>
+						<p class="h3">그룹원 정보 설정</p>
 					</div>
 
 					<!-- 탭 -->
 					<nav>
 						<div class="nav nav-tabs nav-tabs-bordered mb-3" id="nav-tab"
 							role="tablist">
-							<button class="nav-link active" id="nav-tab01-tab"
-								data-bs-toggle="tab" data-bs-target="#nav-tab01" type="button"
-								role="tab" aria-controls="nav-tab01" aria-selected="true">그룹
-								정보 조회/수정</button>
 							<button class="nav-link" id="nav-profile-tab"
 								data-bs-toggle="tab" data-bs-target="#nav-tab02" type="button"
 								role="tab" aria-controls="nav-tab02" aria-selected="false">그룹원
 								정보 조회/설정</button>
 						</div>
 					</nav>
-					<div class="tab-content" id="nav-tabContent">
+					<!-- <div class="tab-content" id="nav-tabContent">
 						<div class="tab-pane fade show active" id="nav-tab01"
 							role="tabpanel" aria-labelledby="nav-tab01-tab">
 
@@ -210,9 +206,9 @@ String cp = request.getContextPath();
 									<i class="bi bi-plus-lg"></i> 그룹 수정
 								</button>
 								<button type="button" class="btn btn-primary">그룹 나가기</button>
-							</div>
+							</div> -->
 
-							<div class="modal fade completeList-popup" id="groupUpdate"
+							<!-- <div class="modal fade completeList-popup" id="groupUpdate"
 								tabindex="-1" aria-labelledby="completeListLabel"
 								aria-hidden="true">
 								<div class="modal-dialog modal-dialog-scrollable">
@@ -271,7 +267,7 @@ String cp = request.getContextPath();
 										</div>
 									</div>
 								</div>
-							</div>
+							</div> -->
 						</div>
 
 					</div>
@@ -279,8 +275,7 @@ String cp = request.getContextPath();
 
 
 
-					<div class="tab-pane fade" id="nav-tab02" role="tabpanel"
-						aria-labelledby="nav-tab02-tab">
+					<div class="row">
 						<div class="card tbl-card">
 							<h5 class="card-header">그룹원 설정</h5>
 							<div class="table-responsive text-nowrap">
