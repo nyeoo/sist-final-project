@@ -35,53 +35,11 @@
 
                 <div class="content_tit">
                     <p class="h3">모집공고 상세보기</p>
-                    <!-- 브레드크럼블 -->
-                    <div role="breadcrumb" data-include="../Components/Breadcrumb.jsp"></div>
-                    <!-- //브레드크럼블 -->
                 </div>
 
                 <!-- 작성영역 -->
                 <div class="row write-area">
-                    <div class="col-12 col-sm-4 col-lg-3 write-nav">
-                        <nav id="navbar-example3" class="h-100 flex-column align-items-stretch pe-4 border-end">
-                            <nav class="nav nav-pills flex-column write-nav-con">
-                                <a class="nav-link" href="#item-1">
-                                    <p class="h4">모집 내용</p>
-                                </a>
-                                <nav class="nav nav-pills flex-column">
-                                    <a class="nav-link ms-3 my-1" href="#item-1-1">
-                                        <p class="h5">제목</p>
-                                    </a>
-                                    <a class="nav-link ms-3 my-1" href="#item-1-2">
-                                        <p class="h5">내용</p>
-                                    </a>
-                                </nav>
-                                <a class="nav-link" href="#item-2">
-                                    <p class="h4">모집 상세내용</p>
-                                </a>
-                                <nav class="nav nav-pills flex-column">
-                                    <a class="nav-link ms-3 my-1" href="#item-2-1">
-                                        <p class="h5">일정</p>
-                                    </a>
-                                    <a class="nav-link ms-3 my-1" href="#item-2-2">
-                                        <p class="h5">모집인원</p>
-                                    </a>
-                                    <a class="nav-link ms-3 my-1" href="#item-2-3">
-                                        <p class="h5">희망기술</p>
-                                    </a>
-                                    <a class="nav-link ms-3 my-1" href="#item-2-4">
-                                        <p class="h5">선호지역</p>
-                                    </a>
-                                    <a class="nav-link ms-3 my-1" href="#item-2-5">
-                                        <p class="h5">모임방식</p>
-                                    </a>
-                                </nav>
-                            </nav>
-                        </nav>
-                    </div>
-
                     <div class="col-12 col-sm-8 col-lg-9 write-content">
-                        <form action="">
                             <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-smooth-scroll="true"
                                 class="scrollspy-example-2" tabindex="0">
 
@@ -264,18 +222,15 @@
                                     <div class="btn-center">
                                     
                                     <!-- Modal -->
-						<button type="button" class="btn btn-primary"
-							data-bs-toggle="modal" data-bs-target="#sinchung">
-							신청하기</button>
-
+						<button type="button" class="btn btn-primary" 	data-bs-toggle="modal" data-bs-target="#sinchung"> 	신청하기</button>
+						<button type="button" class="btn btn-secondary" > 	목록으로</button>
 						<div class="modal fade" id="sinchung" tabindex="-1"
 							aria-labelledby="sinchungLabel" aria-hidden="true">
 							<div class="modal-dialog modal-dialog-centered">
 								<div class="modal-content">
 									<div class="modal-header">
 										<div class="modal-title fs-5 h1" id="sinchungLabel">신청하기</div>
-										<button type="button" class="btn-close"
-											data-bs-dismiss="modal" aria-label="Close"></button>
+										<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 									</div>
 									<div class="modal-body">
 									<table class="table">
@@ -345,27 +300,22 @@
 											<h5>백엔드 0/3</h5>
 											<h5>디자인 1/1</h5>
 										</div>
-										<div class="tab-pane fade" id="nav-profile2" role="tabpanel"
-											aria-labelledby="nav-profile-tab2">
+										<div class="tab-pane fade" id="nav-profile2" role="tabpanel" aria-labelledby="nav-profile-tab2">
 										  <div class="comments mt-3"><!-- 댓글 나오는창 -->
 											
 										  </div>
 											<div class="card-footer">
-										  <form onsubmit="addComment(event)">
+										   <form onsubmit="addComment(event)">
 										   <div class="form-group">
 										      <input type="text" class="form-control" placeholder="댓글을 입력하세요"  id="comment"required>
 										    </div>
 										    <button type="submit" class="btn btn-primary">작성</button>
-										  </form>
 										</div>
 										</div>
-										
-										
 									</div>
 								</div>
 								</div>
 
-                        
                     </div>
                 </div>
                 <!-- //작성영역 -->
