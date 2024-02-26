@@ -224,49 +224,48 @@
                   </form>
                 </div>
               </li>
-			  <li>
+			 <!--  <li>
                 <div class="m-select ">
                   <select class="form-select" aria-label="정렬" title="정렬">
                     <option selected>조회수</option>
                     <option value="1">최신순</option>
                   </select>
                 </div>
-              </li>
+              </li> -->
             </ul>
           </div>
 		  <!-- //필터(카테고리) -->
           <div class="con-section complete-list">
 			<ul class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 card-list">
 				<!-- 이미지 썸네일 -->
-				<li class="col-12 col-sm-6 col-md-4 col-lg-4">
+				<!-- <li class="col-12 col-sm-6 col-md-4 col-lg-4">
 					<div class="card p-3 d-flex flex-column add-zzim ">
 						<div class="card-top">
-							<!-- 썸네일 이미지 -->
+							썸네일 이미지
 							<div class="thumbnail-box img-box">
 								<img src="../../asset/images/img_sample00.jpg" alt="썸네일샘플" />
 							</div>
 						</div>
 						<div class="card-bottom">
-							<!-- 제목 -->
+							제목
 							<a href="javascript:;" class="card-tit mb-2">
 								<span class="h3">
-									제목입니다.제목입니다.<br>제목입니다.제목입니다.
+									프로젝트 제목
 								</span>
 							</a>
-							<!-- 상세내용 -->
-							<p class="card-text text-truncate mb-2">내용입니다. 내용입니다. 내용입니다.
-								내용입니다. 내용입니다.</p>
+							상세내용
+							<p class="card-text text-truncate mb-2">내용입니다. 내용입니다. 내용입니다.</p>
 						</div>
 					</div>
 				</li>
-				<!-- //이미지 썸네일 -->
+				//이미지 썸네일 -->
 				<!-- 텍스트 썸네일 -->
 				<li class="col-12 col-sm-6 col-md-4 col-lg-4">
 					<div class="card p-3 d-flex flex-column  add-zzim">
 						<div class="card-top">
 							<!-- 썸네일 텍스트 -->
 							<div class="thumbnail-box thumnail-txt">
-								<div class="thumbnail-tit text-truncate">제목입니다.제목입니다.</div>
+								<div class="thumbnail-tit text-truncate">프로젝트 제목 프로젝트 제목 프로젝트 제목 프로젝트 제목 프로젝트 제목</div>
 								<div class="thumbnail-txt text-truncate">#팀이름팀이름</div>
 							</div>
 						</div>
@@ -274,12 +273,11 @@
 							<!-- 제목 -->
 							<a href="javascript:;" class="card-tit mb-2">
 								<span class="h3">
-									제목입니다.제목입니다.<br>제목입니다.제목입니다.
+								프로젝트 제목
 								</span>
 							</a>
 							<!-- 상세내용 -->
-							<p class="card-text text-truncate mb-2">내용입니다. 내용입니다. 내용입니다.
-								내용입니다. 내용입니다.</p>
+							<p class="card-text text-truncate mb-2">내용입니다. 내용입니다. 내용입니다.</p>
 						</div>
 					</div>
 				</li>
@@ -297,13 +295,11 @@
 						<div class="card-bottom">
 							<!-- 제목 -->
 							<a href="javascript:;" class="card-tit mb-2">
-								<span class="h3">
-									제목입니다.제목입니다.<br>제목입니다.제목입니다.
+								<span class="h3">프로젝트 제목
 								</span>
 							</a>
 							<!-- 상세내용 -->
-							<p class="card-text text-truncate mb-2">내용입니다. 내용입니다. 내용입니다.
-								내용입니다. 내용입니다.</p>
+							<p class="card-text text-truncate mb-2">내용입니다. 내용입니다. 내용입니다.</p>
 						</div>
 					</div>
 				</li>
@@ -322,12 +318,11 @@
 							<!-- 제목 -->
 							<a href="javascript:;" class="card-tit mb-2">
 								<span class="h3">
-									제목입니다.제목입니다.<br>제목입니다.제목입니다.
+									프로젝트 제목
 								</span>
 							</a>
 							<!-- 상세내용 -->
-							<p class="card-text text-truncate mb-2">내용입니다. 내용입니다. 내용입니다.
-								내용입니다. 내용입니다.</p>
+							<p class="card-text text-truncate mb-2">내용입니다. 내용입니다. 내용입니다.내용입니다. 내용입니다. 내용입니다.</p>
 						</div>
 					</div>
 				</li>
@@ -350,8 +345,7 @@
 								</span>
 							</a>
 							<!-- 상세내용 -->
-							<p class="card-text text-truncate mb-2">내용입니다. 내용입니다. 내용입니다.
-								내용입니다. 내용입니다.</p>
+							<p class="card-text text-truncate mb-2">내용입니다. 내용입니다. 내용입니다.</p>
 						</div>
 					</div>
 				</li>
@@ -374,8 +368,7 @@
 								</span>
 							</a>
 							<!-- 상세내용 -->
-							<p class="card-text text-truncate mb-2">내용입니다. 내용입니다. 내용입니다.
-								내용입니다. 내용입니다.</p>
+							<p class="card-text text-truncate mb-2">내용입니다. 내용입니다. 내용입니다.</p>
 						</div>
 					</div>
 				</li>

@@ -23,7 +23,6 @@ String cp = request.getContextPath();
 
 <!-- font-awesome -->
 <script src="https://kit.fontawesome.com/81ca059e0e.js" crossorigin="anonymous"></script>
-
 </head>
 
 <body>
@@ -148,10 +147,17 @@ String cp = request.getContextPath();
 					<div class="intro-body-list">
 						<span class="intro-title">프로젝트 분석</span>
 						<hr>
-						<span> ~ 8-2. 문서 제출 현황(정환 50%, 수경 10%, …) : 회의록, DB 설계, 최종개발 코드 산출물이 몇개씩 나왔는지 </span> <span> 8-3. 데이터 작성 현황(가장 많이 작성한 사람) </span> <span>
-							8-4. 업무완료 현황(정환 10개, 수경 1개) </span> 9. 참여도 9-1. 회의에 가장 많이 참여한 사람 9-2. 월별 접속 현황(정환 20%, 수경 1%)
+						<span class="statistics-title">산출물 분포</span>
+						<div style="width: 400px; height: 400px;">
+						  <canvas id="myChart" width="300" height="300" style="display: block; box-sizing: border-box; height: 713px; width: 713px;"></canvas>
+						</div>
+						<span class="statistics-title">업무 현황(표로 보여주기)</span>
+						<div>
+						
+						</div>
+						<span class="statistics-title">업무 기여도(업무완료 갯수를 차트)</span>
+						
 
-					</div>
 				</div>
 			</div>
 			<!-- end main -->
@@ -178,6 +184,47 @@ String cp = request.getContextPath();
 				nextEl : ".swiper-button-next",
 				prevEl : ".swiper-button-prev",
 			},
+		});
+	</script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script>
+	  const ctx = document.getElementById('myChart');
+	
+	  /* new Chart(ctx, {
+		  type: 'doughnut',
+		  data: {
+	      labels: ['산출물1', '산출물2', '산출물3'],
+	      datasets: [{
+	        label: '산출물 분류',
+	        data: [12, 19, 3],
+	        borderWidth: 0
+	      }]
+	    },
+	    options: {
+	      scales: {
+	        y: {
+	          beginAtZero: true
+	        }
+	      }
+	    }
+	  }); */
+	  
+	  var myChart = new Chart(ctx, {
+		  type: 'doughnut',
+		    data: {
+		    	labels: ['산출물1', '산출물2', '산출물3'],
+		      datasets: [{
+		        data: [40, 60, 70],
+		        backgroundColor: [
+		          '#9DCEFF',
+		          '#F2F3F6',
+		          'blue'
+		        ],
+		        borderWidth: 0,
+		        scaleBeginAtZero: true,
+		      }
+		    ]
+		  },
 		});
 	</script>
 </body>
