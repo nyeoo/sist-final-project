@@ -171,105 +171,125 @@ String cp = request.getContextPath();
 							</div>
 						</nav>
 						<div class="tab-content" id="nav-tabContent">
-							<div data-include="../MeetGroup/ScheduleManage.jsp"
-								class="tab-pane fade show active"></div>
+							<!-- 첫 번째 탭: 일정 관리 -->
+							<div class="tab-pane fade show active" id="nav-home"
+								role="tabpanel" aria-labelledby="nav-home-tab">
+								<div>
+									<div class="card tbl-card">
+										<div data-include="../MeetGroup/ScheduleManage.jsp"
+											class="card-header"></div>
+									</div>
+								</div>
+							</div>
+
+							<!-- 두 번째 탭: 업무 할당표 -->
 							<div class="tab-pane fade" id="nav-profile" role="tabpanel"
 								aria-labelledby="nav-profile-tab">
-								<div data-include="../MeetGroup/WorkAssignment.jsp"
-									class="comp_tit"></div>
+								<div>
+									<div class="comp_box">
+										<div data-include="../MeetGroup/WorkAssignment.jsp"
+											class="comp_tit"></div>
+									</div>
+								</div>
 							</div>
+
+							<!-- 세 번째 탭: 업무 보고 목록 -->
 							<div class="tab-pane fade" id="nav-contact" role="tabpanel"
 								aria-labelledby="nav-contact-tab">
-								<div data-include="../MeetGroup/WorkReportList.jsp"
-									class="card tbl-card"></div>
+								<div>
+									<div class="card tbl-card">
+										<div data-include="../MeetGroup/WorkReportList.jsp"
+											class="card-header"></div>
+									</div>
+								</div>
 							</div>
 
 						</div>
 					</div>
 				</div>
-			</div>
-			<!-- 탭 -->
+				<!-- 탭 -->
 
-			<!-- Modal -->
-			<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
-				data-bs-keyboard="false" tabindex="-1"
-				aria-labelledby="staticBackdropLabel" aria-hidden="true">
-				<div class="modal-dialog">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title" id="staticBackdropLabel">업무 할당</h5>
-							<button type="button" class="btn-close" data-bs-dismiss="modal"
-								aria-label="Close"></button>
-						</div>
-						<div data-include="../MeetGroup/M_WorkAssignment.jsp"
-							class="modal-body"></div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary"
-								data-bs-dismiss="modal">취소</button>
-							<button type="button" class="btn btn-primary">제출</button>
+				<!-- Modal -->
+				<div class="modal fade" id="staticBackdrop"
+					data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+					aria-labelledby="staticBackdropLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="staticBackdropLabel">업무 할당</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal"
+									aria-label="Close"></button>
+							</div>
+							<div data-include="../MeetGroup/M_WorkAssignment.jsp"
+								class="modal-body"></div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary"
+									data-bs-dismiss="modal">취소</button>
+								<button type="button" class="btn btn-primary">제출</button>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			<!--// Modal  -->
+				<!--// Modal  -->
 
-			<!-- Modal2 -->
-			<div class="modal fade" id="staticBackdrop2"
-				data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-				aria-labelledby="staticBackdropLabel" aria-hidden="true">
-				<div class="modal-dialog">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title" id="staticBackdropLabel">업무보고</h5>
-							<button type="button" class="btn-close" data-bs-dismiss="modal"
-								aria-label="Close"></button>
-						</div>
-						<div data-include="../MeetGroup/WorkReport.jsp" class="modal-body"></div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary"
-								data-bs-dismiss="modal">취소</button>
-							<button type="button" class="btn btn-primary">제출</button>
+				<!-- Modal2 -->
+				<div class="modal fade" id="staticBackdrop2"
+					data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+					aria-labelledby="staticBackdropLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="staticBackdropLabel">업무보고</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal"
+									aria-label="Close"></button>
+							</div>
+							<div data-include="../MeetGroup/WorkReport.jsp"
+								class="modal-body"></div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary"
+									data-bs-dismiss="modal">취소</button>
+								<button type="button" class="btn btn-primary">제출</button>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			<!-- //Modal2 -->
+				<!-- //Modal2 -->
 
-			<!-- Modal3 -->
-			<div class="modal fade" id="staticBackdrop3"
-				data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-				aria-labelledby="staticBackdropLabel" aria-hidden="true">
-				<div class="modal-dialog">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title" id="staticBackdropLabel">업무 결재</h5>
-							<button type="button" class="btn-close" data-bs-dismiss="modal"
-								aria-label="Close"></button>
-						</div>
-						<div class="modal-body">
-							<form id="decisionForm">
-								<div class="form-check">
-									<input class="form-check-input" type="radio" name="decision"
-										id="approve" value="approve"> <label
-										class="form-check-label" for="approve"> 승인 </label>
-								</div>
-								<div class="form-check">
-									<input class="form-check-input" type="radio" name="decision"
-										id="reject" value="reject"> <label
-										class="form-check-label" for="reject"> 반려 </label>
-								</div>
-							</form>
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary"
-								data-bs-dismiss="modal">취소</button>
-							<button type="button" class="btn btn-primary"
-								onclick="submitDecision()">제출</button>
+				<!-- Modal3 -->
+				<div class="modal fade" id="staticBackdrop3"
+					data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+					aria-labelledby="staticBackdropLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="staticBackdropLabel">업무 결재</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal"
+									aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
+								<form id="decisionForm">
+									<div class="form-check">
+										<input class="form-check-input" type="radio" name="decision"
+											id="approve" value="approve"> <label
+											class="form-check-label" for="approve"> 승인 </label>
+									</div>
+									<div class="form-check">
+										<input class="form-check-input" type="radio" name="decision"
+											id="reject" value="reject"> <label
+											class="form-check-label" for="reject"> 반려 </label>
+									</div>
+								</form>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary"
+									data-bs-dismiss="modal">취소</button>
+								<button type="button" class="btn btn-primary"
+									onclick="submitDecision()">제출</button>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			<!--// Modal3  -->
+				<!--// Modal3  -->
 		</section>
 	</div>
 	<!-- 푸터영역 -->
