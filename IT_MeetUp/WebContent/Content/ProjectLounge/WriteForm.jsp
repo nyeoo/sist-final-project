@@ -14,7 +14,7 @@ String cp = request.getContextPath();
   <meta name="title" content="IT MeetUp">
   <meta name="author" content="Sist 2Team">
   <meta name="keywords" content="IT 프로젝트 모집, 사이드 프로젝트 진행">
-  <title>모집공고 작성 </title>
+  <title>모집공고 작성adasd </title>
 <!-- css -->
 	<link rel="stylesheet" href="../../asset/css/style.css">
 <!-- 컴포넌트 전용 css -->
