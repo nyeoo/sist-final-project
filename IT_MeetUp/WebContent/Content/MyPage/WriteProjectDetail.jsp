@@ -114,6 +114,8 @@ String cp = request.getContextPath();
 							    <div class="col-md-12">
 							        <div class="project-notice">
 							            <h1>프로젝트 참여자를 구합니다! 관심 있으신 분은 지금 바로 지원해주세요!</h1>
+							            <br><br>
+							            <hr>
 							        </div>
 							    </div>
 							</div>
@@ -170,7 +172,174 @@ String cp = request.getContextPath();
 				    </div>
 				</div>
 				<!-- 모달 끝 -->
-				
+
+				<div class="comp_box">
+					<div class="row comment_reg">
+						<div class="col-12">
+							<div class="textarea_wrap">
+								<textarea rows="2" cols="30" placeholder="댓글을 작성하세요" class=""
+									data-textarea="txt_cnt"></textarea>
+							</div>
+						</div>
+						<div class="col-12 d-flex justify-content-between mt-2">
+							<div class="left-box">
+								<div class="txt">※ 글자수는 1000자 이내로 제한됩니다.</div>
+							</div>
+							<div class="right-box">
+								<span class="me-3"><strong data-textarea-cnt="txt_cnt">29</strong>/1000</span>
+								<button type="button" class="btn btn-primary">Primary</button>
+							</div>
+						</div>
+					</div>
+
+					<div class="comment_area_wrap open">
+
+						<button class="comment_more">
+							댓글 2개 <span class="cmnt_txt ty01"><i
+								class="bi bi-arrow-down-circle"></i>펼치기</span><span
+								class="cmnt_txt ty02"><i class="bi bi-arrow-up-circle"></i>접기</span>
+						</button>
+
+						<ul class="comment_area">
+							<li>
+								<!-- 원댓글 -->
+								<div class="comment_group">
+
+									<div class="comment">
+										<div class="tbl_box">
+											<div class="tbl_cont_area ty2">
+												<div class="cont">
+													댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다.<br> 댓글입니다. 댓글입니다.
+													댓글입니다. 댓글입니다. 댓글입니다.<br> 댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다.
+													댓글입니다.
+												</div>
+											</div>
+											<div class="more_area">
+												<div class="dropdown">
+													<button type="button"
+														class="btn p-0 dropdown-toggle hide-arrow"
+														data-bs-toggle="dropdown">
+														<i class="bi bi-three-dots-vertical"></i>
+													</button>
+													<div class="dropdown-menu">
+														<a class="dropdown-item" href="javascript:void(0);"><i
+															class="bi bi-pencil-square"></i> 수정</a> <a
+															class="dropdown-item" href="javascript:void(0);"><i
+															class="bi bi-trash3"></i> Delete</a>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="info">
+											<ul class="reg_info">
+												<li>작성자A</li>
+												<li><span class="ico_date">2024-02-19 15:34</span></li>
+											</ul>
+											<div class="fr">
+												<button class="btn_cmnt link_blue">
+													답글달기 <span class="ty02">취소</span>
+												</button>
+											</div>
+										</div>
+									</div>
+
+									<!-- 댓글 입력 -->
+									<div class="row comment_reg reply">
+										<div class="col-12">
+											<div class="textarea_wrap">
+												<textarea rows="2" cols="30" placeholder="댓글을 작성하세요"
+													class="" data-textarea="txt_cnt"></textarea>
+											</div>
+										</div>
+										<div class="col-12 d-flex justify-content-between mt-2">
+											<div class="left-box">
+												<div class="txt">※ 글자수는 1000자 이내로 제한됩니다.</div>
+											</div>
+											<div class="right-box">
+												<span class="me-3"><strong
+													data-textarea-cnt="txt_cnt">29</strong>/1000</span>
+												<button type="button" class="btn btn-primary">Primary</button>
+											</div>
+										</div>
+									</div>
+									<!-- 댓글 입력 -->
+
+								</div> <!-- // 원댓글 --> <!-- 답글 -->
+								<ul class="reply_group">
+									<li class="comment_group">
+										<div class="comment reply">
+											<div class="tbl_box">
+												<div class="tbl_cont_area ty2">
+													<div class="cont">
+														<strong class="name">작성자A</strong> 댓글입니다. 댓글입니다. 댓글입니다.
+														댓글입니다. 댓글입니다.<br> 댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다.<br>
+														댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다.
+													</div>
+												</div>
+												<!-- <div class="more_area">
+														<div class="dropdown">
+															<button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+																<i class="bi bi-three-dots-vertical"></i>
+															</button>
+															<div class="dropdown-menu">
+																<a class="dropdown-item" href="javascript:void(0);"><i class="bi bi-pencil-square"></i> 수정</a> <a class="dropdown-item"
+																	href="javascript:void(0);"><i class="bi bi-trash3"></i> Delete</a>
+															</div>
+														</div>
+													</div> -->
+											</div>
+											<div class="info">
+												<ul class="reg_info">
+													<li>김답글A</li>
+													<li><span class="ico_date">2024-02-19 15:34</span></li>
+												</ul>
+											</div>
+										</div>
+									</li>
+									<li class="comment_group open">
+										<div class="comment reply">
+											<div class="tbl_box">
+												<div class="tbl_cont_area ty2">
+													<div class="cont">
+														<strong class="name">작성자A</strong> 댓글입니다. 댓글입니다. 댓글입니다.
+														댓글입니다. 댓글입니다.<br> 댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다.<br>
+														댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다.
+													</div>
+												</div>
+											</div>
+											<div class="info">
+												<ul class="reg_info">
+													<li>김답글B</li>
+													<li><span class="ico_date">2024-02-19 15:34</span></li>
+												</ul>
+											</div>
+										</div>
+									</li>
+									<li class="comment_group open">
+										<div class="comment reply">
+											<div class="tbl_box">
+												<div class="tbl_cont_area ty2">
+													<div class="cont">
+														<strong class="name">작성자A</strong> 댓글입니다. 댓글입니다. 댓글입니다.
+														댓글입니다. 댓글입니다.<br> 댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다.<br>
+														댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다.
+													</div>
+												</div>
+											</div>
+											<div class="info">
+												<ul class="reg_info">
+													<li>김답글C</li>
+													<li><span class="ico_date">2024-02-19 15:34</span></li>
+												</ul>
+											</div>
+										</div>
+									</li>
+								</ul> <!-- // 답글 -->
+							</li>
+						</ul>
+					</div>
+				</div>
+
 			</div>
 		</section>
 		<!-- //바디영역 -->

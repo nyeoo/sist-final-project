@@ -99,6 +99,7 @@ String cp = request.getContextPath();
 															<th scope="col" class="reason">신고사유</th>
 															<th scope="col" class="date">일자</th>
 															<th scope="col" class="category">상태</th>
+															<th scope="col" class="indict_process">처리</th>
 															<th scope="col" class="indicter">처리자</th>
 															<th scope="col" class="indict_date">처리일자</th>
 														</tr>
@@ -117,6 +118,9 @@ String cp = request.getContextPath();
 																	<option value="3">중재</option>
 																</select>
 															</td>
+															<td class="indict_process">
+																<button type="button" class="btn btn-secondary">처리</button>
+															</td>
 															<td class="indicter">관리자 ID</td>
 															<td class="indict_date">2023.02.14</td>
 														</tr>
@@ -134,6 +138,9 @@ String cp = request.getContextPath();
 																	<option value="2">피신고자</option>
 																	<option value="3">중재</option>
 																</select>
+															</td>
+															<td class="indict_process">
+																<button type="button" class="btn btn-secondary">처리</button>
 															</td>
 															<td class="indicter">관리자 ID</td>
 															<td class="indict_date">2023.02.10</td>
@@ -174,8 +181,8 @@ String cp = request.getContextPath();
 														<col class="reason">
 														<col class="date">
 														<col class="category" style="width: 120px;">
-														<col class="indicter" style="width: 120px;">
 														<col class="indict_date" style="width: 120px;">
+														<col class="indicter" style="width: 120px;">
 													</colgroup>
 													<thead>
 														<tr>
@@ -183,6 +190,7 @@ String cp = request.getContextPath();
 															<th scope="col" class="reason">신고사유</th>
 															<th scope="col" class="date">일자</th>
 															<th scope="col" class="category">상태</th>
+															<th scope="col" class="indict_process">처리</th>
 															<th scope="col" class="indicter">처리자</th>
 															<th scope="col" class="indict_date">처리일자</th>
 														</tr>
@@ -201,6 +209,9 @@ String cp = request.getContextPath();
 																	<option value="3">중재</option>
 																</select>
 															</td>
+															<td class="indict_process">
+																<button type="button" class="btn btn-secondary">처리</button>
+															</td>
 															<td class="indicter">관리자 ID</td>
 															<td class="indict_date">2023.02.14</td>
 														</tr>
@@ -218,6 +229,9 @@ String cp = request.getContextPath();
 																	<option value="2">피신고자</option>
 																	<option value="3">중재</option>
 																</select>
+															</td>
+															<td class="indict_process">
+																<button type="button" class="btn btn-secondary">처리</button>
 															</td>
 															<td class="indicter">관리자 ID</td>
 															<td class="indict_date">2023.02.10</td>
@@ -250,6 +264,45 @@ String cp = request.getContextPath();
 						</div>
 					</div>
 				</div>
+
+				<div class="modal fade" id="indictprocess" data-bs-backdrop="static"
+					data-bs-keyboard="false" tabindex="-1"
+					aria-labelledby="staticBackdropLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="staticBackdropLabel">신고 처리</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal"
+									aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
+								<form id="decisionForm">
+									<div class="form-check">
+										<input class="form-check-input" type="radio" name="decision"
+											id="approve" value="approve"> <label
+											class="form-check-label" for="approve"> 신고자 </label>
+									</div>
+									<div class="form-check">
+										<input class="form-check-input" type="radio" name="decision"
+											id="reject" value="reject"> <label
+											class="form-check-label" for="reject"> 피신고자 </label>
+									</div>
+									<div class="form-check">
+										<input class="form-check-input" type="radio" name="decision"
+											id="reject" value="reject"> <label
+											class="form-check-label" for="reject"> 중재 </label>
+									</div>
+								</form>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary"
+									data-bs-dismiss="modal">취소</button>
+								<button type="button" class="btn btn-primary"
+									onclick="submitDecision()">처리 완료</button>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</section>
 		<!-- //바디영역 -->
@@ -269,6 +322,13 @@ String cp = request.getContextPath();
 	<script src="../../asset/js/common.js"></script>
 	<script>
 		
+		$(document).ready(function(){
+	        // 수정 버튼 클릭 시 모달 표시
+	        $('.btn-secondary').click(function(){
+	            $('#indictprocess').modal('show');
+	        });
+		 });
+	
 	</script>
 </body>
 

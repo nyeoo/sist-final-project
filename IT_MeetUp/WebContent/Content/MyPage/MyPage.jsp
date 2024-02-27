@@ -19,22 +19,7 @@ String cp = request.getContextPath();
 
 <!-- css -->
 <link rel="stylesheet" href="../../asset/css/style.css">
-
-<link rel="stylesheet" href="../../asset/css/style.css">
-<style type="text/css">
-.comp_box {
-	text-align: center;
-}
-
-.pagination {
-	display: inline-block;
-}
-
-.pagination li {
-	display: inline-block;
-}
-</style>
-
+<link rel="stylesheet" href="../../asset/css/layout_mjh.css">
 </head>
 
 <body>
@@ -185,8 +170,9 @@ String cp = request.getContextPath();
 												<td class="num"><span class="tag_txt">1</span></td>
 												<td class="date">2023.02.06</td>
 												<td class="name">흑곰발바닥</td>
-												<td class="category"><button type="button"
-														class="btn btn-primary">차단 해제</button></td>
+												<td class="category">
+													<button type="button"><span class="badge text-bg-secondary">차단 해제</span></button>
+												</td>
 											</tr>
 										</tbody>
 										<tbody>
@@ -194,8 +180,9 @@ String cp = request.getContextPath();
 												<td class="num"><span class="tag_txt">2</span></td>
 												<td class="date">2022.02.01</td>
 												<td class="name">이주형은 멋쟁이</td>
-												<td class="category"><button type="button"
-														class="btn btn-primary">차단 해제</button></td>
+												<td class="category">
+													<button type="button"><span class="badge text-bg-secondary">차단 해제</span></button>
+												</td>
 											</tr>
 										</tbody>
 										<tbody>
@@ -203,8 +190,9 @@ String cp = request.getContextPath();
 												<td class="num"><span class="tag_txt">3</span></td>
 												<td class="date">2021.11.26</td>
 												<td class="name">2조 화이팅</td>
-												<td class="category"><button type="button"
-														class="btn btn-primary">차단 해제</button></td>
+												<td class="category">
+													<button type="button"><span class="badge text-bg-secondary">차단 해제</span></button>
+												</td>
 											</tr>
 										</tbody>
 										<tbody>
@@ -212,8 +200,9 @@ String cp = request.getContextPath();
 												<td class="num"><span class="tag_txt">4</span></td>
 												<td class="date">2020.12.21</td>
 												<td class="name">하성이형 아웃</td>
-												<td class="category"><button type="button"
-														class="btn btn-primary">차단 해제</button></td>
+												<td class="category">
+													<button type="button"><span class="badge text-bg-secondary">차단 해제</span></button>
+												</td>
 											</tr>
 										</tbody>
 									</table>

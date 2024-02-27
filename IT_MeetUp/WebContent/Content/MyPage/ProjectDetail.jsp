@@ -80,45 +80,35 @@ String cp = request.getContextPath();
 									<button type="button" class="btn btn-danger" id="reportButton"
 										style="text-align: right;">신고하기</button>
 									<a href="ApplyManagement.jsp"><button type="button"
-											class="btn btn-primary">목록으로 가기</button></a>
+											class="btn btn-primary">목록으로</button></a>
 								</div>
 								<hr>
 
 								<div class="row">
-									<div class="col-md-6">
-										<div class="project-details">
-											<p>
-												<strong>번호:</strong> 프로젝트 번호 입력
+							        <div class="col-md-6">
+							            <div class="project-details">
+							                <p><strong>번호:</strong> 프로젝트 번호 입력</p>
+							                <p><strong>제목(주제) :</strong> 어쩌고저쩌고이쩌고 프로젝트</p>
+							                <p><strong>역할별 인원수 :</strong> 프론트: 2명 벡: 2명 디자인: 1명</p>
+							                <p><strong>시작일 :</strong> 2024년 03월 01일</p>
+							                <p><strong>종료일 :</strong> 2024년 09월 01일</p>
+							            </div>
+							        </div>
+							        <div class="col-md-6">
+							            <div class="project-details">
+							                <p><strong>경력 :</strong> 1~3년</p>
+							                <p><strong>선호 지역 :</strong> 서울 마포구</p>
+							                <p><strong>모임 방식 :</strong> 온/오프라인</p>
+							                <p><strong>카테고리 :</strong> 쇼핑몰</p>
+							                <p>
+							                	<strong>사용 언어:</strong> 
+							                	<span class="tag">HTML</span>
+												<span class="tag">CSS</span> 
+												<span class="tag">Java</span>
 											</p>
-											<p>
-												<strong>모임 방식:</strong> 온/오프라인
-											</p>
-											<p>
-												<strong>인원:</strong> 5명
-											</p>
-											<p>
-												<strong>모집 분야:</strong> 웹 개발, 프론트, 백, 디자인
-											</p>
-										</div>
-									</div>
-									<div class="col-md-6">
-										<div class="project-details">
-											<p>
-												<strong>사용 언어:</strong> <span class="tag">HTML</span> <span
-													class="tag">CSS</span> <span class="tag">JavaScript</span>
-											</p>
-											<p>
-												<strong>시작일:</strong> 2024년 03월 01일
-											</p>
-											<p>
-												<strong>종료일:</strong> 2024년 06월 30일
-											</p>
-											<p>
-												<strong>예상 기간:</strong> 4개월
-											</p>
-										</div>
-									</div>
-								</div>
+							            </div>
+							        </div>
+							    </div>
 							</div>
 							<hr>
 							<div class="row mt-4">
@@ -126,12 +116,14 @@ String cp = request.getContextPath();
 									<div class="project-notice">
 										<h1>프로젝트 참여자를 구합니다! 관심 있으신 분은 지금 바로 지원해주세요!</h1>
 										<br><br>
+										<hr>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
+				
 				<div class="comp_box">
 					<div class="row comment_reg">
 						<div class="col-12">
