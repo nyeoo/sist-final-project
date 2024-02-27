@@ -46,7 +46,7 @@ String cp = request.getContextPath();
 	position: absolute;
 	right: 0px;
 	top: 15px;
-	padding-right: 10px;
+	padding-right: 20px;
 }
 </style>
 
@@ -125,8 +125,7 @@ String cp = request.getContextPath();
 						<div class="col-12 col-md-6">
 							<div class="card weekwork">
 								<div class="addsee">
-									<a class="icon" href="WeeklyReport.jsp"><i
-										class="bi bi-three-dots"></i></a>
+									<a class="icon" href="WeeklyReportList.jsp">더보기</a>
 								</div>
 								<div class="card-body">
 									<div class="card-title">
