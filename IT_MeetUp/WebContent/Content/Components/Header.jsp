@@ -49,7 +49,7 @@ String cp = request.getContextPath();
 				<ul class="navbar-nav me-2 mb-lg-0">
 					<li class="nav-item dropdown list-group"><a
 						class="nav-link nav-icon m-ball" href="#"
-						data-bs-toggle="dropdown" aria-expanded="false"> <i
+						data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside"> <i
 							class="bi bi-bell-fill"></i><span class="blind">알림</span> <span
 							class="badge bg-primary badge-number">4</span>
 					</a> <!-- 팝업으로 표시되는 알림 내용 -->
