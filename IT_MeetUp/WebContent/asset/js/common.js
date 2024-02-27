@@ -68,8 +68,8 @@ $(function () {
   };
 
   // 스킬
-  if ($('.skill-check .skill-item .form-check-input').length) {
-    $.each($('.skill-check .skill-item .form-check-input'), function () {
+  if ($('.skill-check:not(.not-action) .skill-item .form-check-input').length) {
+    $.each($('.skill-check:not(.not-action) .skill-item .form-check-input'), function () {
       var self = $(this);
       self.click(function () {
         self.parents(".skill-item").toggleClass("add-skill");
