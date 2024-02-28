@@ -18,7 +18,7 @@ String cp = request.getContextPath();
 <meta name="keywords" content="IT 프로젝트 모집, 사이드 프로젝트 진행">
 
 <!-- css -->
-<link rel="stylesheet" href="../../asset/css/style.css">
+<link rel="stylesheet" href="<%=cp %>/asset/css/style.css">
 <style type="text/css">
 .comp_box {
 	text-align: center;
