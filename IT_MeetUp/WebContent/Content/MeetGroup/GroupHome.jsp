@@ -196,9 +196,9 @@ String cp = request.getContextPath();
 								<li class="d-flex job"><span class="tag bg-success job-tag">기획</span>
 									<div class="d-flex member-box">
 										<div class="d-flex member">
-											<i class="fa-solid fa-crown crown"></i> <img
+											<a href="../MyPage/NameCard.jsp"><i class="fa-solid fa-crown crown"></i> <img
 												src="../../asset/images/sub/img_profile.jpg"
-												class="member-img" /> <span class="nickname">닉네임이길면어떻</span>
+												class="member-img" /> <span class="nickname">닉네임이길면어떻</span></a>
 										</div>
 										<div class="d-flex member">
 											<i class="fa-solid fa-circle-user no-profile"></i> <span
@@ -241,6 +241,7 @@ String cp = request.getContextPath();
 
 						<div class="intro-body-list progressbar">
 							<span class="intro-title">진행 기간</span>
+							<span class="period">｜2023-08-22 ~ 2024-03-19</span>
 							<hr>
 							<div class="progress-stacked progress-m">
 								<div class="progress progress-bar-striped" role="progressbar"
