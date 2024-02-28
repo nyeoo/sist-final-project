@@ -252,7 +252,7 @@ String cp = request.getContextPath();
 						<hr>
 						<!-- 산출물 분포 -->						
 						<h5 class="analyze-title">산출물 분포</h5>
-						<div class="card shadow">
+						<div class="card shadow analyze-card">
 							<div class="card-body">
 								<div style="width: 400px; height: 400px; margin-top: 10px;">
 									<canvas id="myChart" width="300" height="300"
