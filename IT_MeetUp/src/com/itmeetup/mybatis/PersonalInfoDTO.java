@@ -1,0 +1,27 @@
+/*
+	#
+*/
+package com.itmeetup.mybatis;
+
+/*
+-- ○ 개인정보
+CREATE TABLE PERSONAL_INFO
+( PI_MEM_CODE      VARCHAR2(50)              CONSTRAINT PI_MEM_CODE_NN NOT NULL    -- 회원코드
+, PI_NAME       VARCHAR2(50)        CONSTRAINT PI_NAME_NN NOT NULL    --이름
+, PI_EMAIL      VARCHAR2(50)        CONSTRAINT PI_EMAIL_NN NOT NULL  -- 이메일
+, PI_PROF_IMG   VARCHAR2(255)   --이미지 파일명
+, PI_ID         VARCHAR2(50)        CONSTRAINT PI_ID_NN NOT NULL    -- 아이디
+, PI_PW         VARCHAR2(50)        CONSTRAINT PI_PW_NN NOT NULL    -- 비밀번호
+, PI_NICKNAME   VARCHAR2(50)        CONSTRAINT PI_NICKNAME_NN NOT NULL    -- 닉네임
+, PI_SELF_INTRO VARCHAR2(500)                                           -- 짧은 소개글
+, CONSTRAINT PI_MEM_CODE_PK PRIMARY KEY (PI_MEM_CODE)
+, CONSTRAINT PI_MEM_CODE_FK FOREIGN KEY(PI_MEM_CODE)
+            REFERENCES MEMBER(MEM_CODE)
+, CONSTRAINT PI_ID_UK UNIQUE (PI_ID)
+, CONSTRAINT PI_NICKNAME_UK UNIQUE (PI_NICKNAME)
+);
+*/
+public class PersonalInfoDTO
+{
+	//
+}
