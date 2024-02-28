@@ -5,10 +5,11 @@
 	String cp = request.getContextPath();
 %>
 <%
+	// 이전 페이지로부터 넘어온 데이터 
 	String title = request.getParameter("title");
 	String content = request.getParameter("content");
-	String from = request.getParameter("date_form");
-	String to = request.getParameter("date_to");
+	String startDate = request.getParameter("startDate-from");
+	String endDate = request.getParameter("endDate-to");
 %>
 <!DOCTYPE html>
 <html>
@@ -33,11 +34,11 @@
 	<script type="text/javascript">
   	$(function ()
   	{
-  	   //alert("hmm");
+  	   	//alert("hmm");
   	
 	   
-  	 $("#date_to_4").datepicker( "option", "disabled", true );
-  	 $("#date_from_1").datepicker( "option", "disabled", true );
+	  	 $("#date_to_4").datepicker( "option", "disabled", true );
+	  	 $("#date_from_1").datepicker( "option", "disabled", true );
   	 
   	
   	
@@ -57,14 +58,12 @@
         <div class="container-xl">
             <div class="content_tit">
                 <p class="h3">모집공고 작성</p>
-                <!-- 브레드크럼블 -->
-                <c:import url="../Components/Breadcrumb.jsp"></c:import>
-                <!-- //브레드크럼블 -->
+                
             </div>
             <!-- 작성영역 -->
             <div class="row write-area">
                 <div class="col-12 col-sm-4 col-lg-3 write-nav">
-                    <nav id="navbar-example3" class="h-100 flex-column align-items-stretch pe-4 border-end">
+                    <nav id="writeForm2" class="h-100 flex-column align-items-stretch pe-4 border-end">
                         <nav class="nav nav-pills flex-column write-nav-con">
                             <a class="nav-link" href="#date-1">
                                 <p class="h4">일정 세부</p>
@@ -88,6 +87,11 @@
                             </a>
                             <nav class="nav nav-pills flex-column">
                                 <a class="nav-link ms-3 my-1" href="#item-2-1">
+                                    <p class="h5">팀명 설정</p>
+                                </a>
+                            </nav>
+                            <nav class="nav nav-pills flex-column">
+                                <a class="nav-link ms-3 my-1" href="#item-2-2">
                                     <p class="h5">팀원 설정</p>
                                 </a>
                             </nav>
@@ -97,7 +101,7 @@
 
                 <div class="col-12 col-sm-8 col-lg-9 write-content">
                     
-                        <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-smooth-scroll="true"
+                        <div data-bs-spy="scroll" data-bs-target="#writeForm2" data-bs-smooth-scroll="true"
                             class="scrollspy-example-2" tabindex="0">
                             <div class="row">
 							<form action="WriteForm3.jsp" method="get">
@@ -106,7 +110,7 @@
 								    <div class="row range-datepicker">
 								        <div class="col-6 m-input-cal">
 								            <label for="date_from_1" class="form-label">분석 시작 예정일</label> 
-								            <input type="text" class="form-control date-from" id="date_from_1" name="date_from_1" readonly="readonly"  value="<%=from%>"> 
+								            <input type="text" class="form-control date-from" id="date_from_1" name="date_from_1" readonly="readonly"  value="<%=startDate%>"> 
 								        </div>
 								        <div class="col-6 m-input-cal">
 								            <label for="date_to_1" class="form-label">분석 종료 예정일</label> 
@@ -146,7 +150,7 @@
 											</div>
 											<div class="col-6 m-input-cal">
 												<label for="date-to" class="form-label">테스트 종료 예정일</label> 
-												<input type="text" class="form-control date-to" id="date_to_4" name="date_to_4" value="<%=to%>" readonly="readonly">
+												<input type="text" class="form-control date-to" id="date_to_4" name="date_to_4" value="<%=endDate%>" readonly="readonly">
 											</div>
 										</div>
                                 </div>
@@ -154,15 +158,22 @@
                                 
                                 <!-- 팀원구성 필요사항 -->
                                 <div id="item-2" class="col-12">
-                                    <p class="h4">팀원 구성</p>
+                                    <p class="h4">팀 구성</p>
                                 </div>
-                                <!-- 팀원구성 필요사항 -->
+                                <!-- 팀 구성시 필요사항 -->
                                 <div id="item-2-1" class="col-12">
+									<div style="display: flex;">                         
+	                                	<div class="m-input-box" >
+	                                	<h5>팀명</h5> <input type="text" class="form-control"  placeholder="팀명을 입력하세요">
+	                                	</div>
+									</div>                   	
                                     <p class="h5">팀원 설정</p>
 									<div class="row">
-                                        <div class="col-5 m-select">
-                                            프론트
-                                        </div>
+										
+	                                        <div class="col-5 m-select">
+	                                            프론트
+	                                        </div>
+                                        
                                         <div class="col-5 m-select">
                                             <select class="form-select" aria-label="Default select example"
                                                 title="selectTitle01">
