@@ -725,7 +725,7 @@ String cp = request.getContextPath();
 									<div class="d-flex justify-content-between align-items-center">
 										<!-- 사용언어 -->
 										<div class="language-box">
-											<span class="badge-language"><span class="blind">파이썬</span></span> <span class="badge-language"><span class="blind">파이썬</span></span> <span
+											<span class="badge-language ico_html5_01"><span class="blind">파이썬</span></span> <span class="badge-language"><span class="blind">파이썬</span></span> <span
 												class="badge-language"><span class="blind">파이썬</span></span>
 										</div>
 										<!-- 조회수 -->
