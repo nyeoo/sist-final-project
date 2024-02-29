@@ -4,15 +4,21 @@
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
  <!-- mybatis 환경 설정 파일 활용 -->
- <mapper namespace="com.itmeetup.mybatis.AssignmentDAO">
+ <mapper namespace="com.itmeetup.mybatis.AssignmentListDAO">
  
- 	<select id="" resultType="com.itmeetup.mybatis.AssignmentDTO">
- 		SELECT "CODE", "START", "END", "PROFILE", "NICKNAME", "TITLE", "CONTENT", "VIEW", "DAY"
-		FROM POPULAR_VIEW
+ 	<select id="assignmentList" resultType="com.itmeetup.mybatis.AssignmentDTO">
+ 		SELECT SD_OP_CODE "sdOpCode"
+ 		, ASS_NAME "assName"
+ 		,CHARGER "charger"
+ 		, PI_NICKNAME "piNickName"
+ 		, ASS_START_DATE "assStartDate"
+ 		, ASS_END_DATE "assEndDate"
+ 		, ASS_DATE "assDate"
+ 		, OU_NAME "ouName"
+ 		, SS_NAME "ssName"
+		FROM VIEW_ASSIGNMENT
+		WHERE SD_OP_CODE = 'OP_2'
  	</select>
- 	<select id="newList" resultType="com.itmeetup.mybatis.AssignmentDTO">
- 		SELECT "CODE", "START", "END", "PROFILE", "NICKNAME", "TITLE", "CONTENT", "VIEW", "DAY"
-		FROM NEW_VIEW
- 	</select>
+ 	
 
  </mapper>

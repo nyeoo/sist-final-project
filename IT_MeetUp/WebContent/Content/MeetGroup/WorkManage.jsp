@@ -73,12 +73,12 @@ String cp = request.getContextPath();
 							</div>
 
 							<!-- 두 번째 탭: 업무 할당표 -->
+							
 							<div class="tab-pane fade" id="nav-profile" role="tabpanel"
 								aria-labelledby="nav-profile-tab">
 								<div>
 									<div class="comp_box">
-										<div data-include="../MeetGroup/WorkAssignment.jsp"
-											class="comp_tit"></div>
+										<c:import url="../MeetGroup/WorkReportList.jsp"></c:import>
 									</div>
 								</div>
 							</div>
@@ -192,9 +192,25 @@ String cp = request.getContextPath();
 	<script src="<%=cp %>/asset/js/jquery-ui.js"></script>
 	<script src="<%=cp %>/asset/js/bootstrap.bundle.min.js"></script>
 	<script src="<%=cp %>/asset/js/common.js"></script>
-	<script>
 
-  </script>
+	<script type="text/javascript">
+    $(document).ready(function() {
+        $("#nav-profile-tab").click(function() {
+            $.ajax({
+                type: "GET",
+                url: "workAssignment.action",
+                success: function(response) {
+                    $("#nav-profile").html(response);
+                },
+                error: function(xhr, status, error) {
+                    console.error("Error occurred while loading WorkAssignment.jsp:", error);
+                }
+            });
+        });
+    });
+</script>
+
+
 </body>
 
 </html>

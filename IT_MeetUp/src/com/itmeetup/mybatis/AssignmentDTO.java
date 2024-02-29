@@ -5,111 +5,134 @@ package com.itmeetup.mybatis;
 
 public class AssignmentDTO
 {
-	private String ASS_CODE, ASS_NAME, ASS_CONTENT; 		// 업무할당 코드, 업무할당명, 업무할당 내용 
-	private String INDICATOR, CHARGER;						// 업무지시자, 업무담당자
-	private String ASS_START_DATE, ASS_END_DATE, ASS_DATE;	// 업무시작지시일, 업무종료지시일, 업무할당일
-	private String ASS_FILE, ASS_OU_CODE, OU_NAME;			// 할당첨무파일경로, 할당산출물 명
-	private String ASS_SD_NO;								// 기간 상세 코드
-	
+	private String sdOpCode, assCode, assName, assContent; 		// 팀코드, 업무할당 코드, 업무할당명, 업무할당 내용 
+	private String indicator, charger, piNickName;				// 업무지시자, 업무담당자
+	private String assStartDate, assEndDate, assDate;			// 업무시작지시일, 업무종료지시일, 업무할당일
+	private String assFile, assOuCode, ouName;					// 할당첨무파일경로, 산출물 코드, 할당산출물 명
+	private String assSdNo, ssName;								// 기간 상세 코드, 일정단계명
 	
 	// getter / setter 구성
-	public String getASS_CODE()
+	public String getSdOpCode()
 	{
-		return ASS_CODE;
+		return sdOpCode;
 	}
-	public void setASS_CODE(String aSS_CODE)
+	public void setSdOpCode(String sdOpCode)
 	{
-		ASS_CODE = aSS_CODE;
+		this.sdOpCode = sdOpCode;
 	}
-	public String getASS_NAME()
+	public String getAssCode()
 	{
-		return ASS_NAME;
+		return assCode;
 	}
-	public void setASS_NAME(String aSS_NAME)
+	public void setAssCode(String assCode)
 	{
-		ASS_NAME = aSS_NAME;
+		this.assCode = assCode;
 	}
-	public String getASS_CONTENT()
+	public String getAssName()
 	{
-		return ASS_CONTENT;
+		return assName;
 	}
-	public void setASS_CONTENT(String aSS_CONTENT)
+	public void setAssName(String assName)
 	{
-		ASS_CONTENT = aSS_CONTENT;
+		this.assName = assName;
 	}
-	public String getINDICATOR()
+	public String getAssContent()
 	{
-		return INDICATOR;
+		return assContent;
 	}
-	public void setINDICATOR(String iNDICATOR)
+	public void setAssContent(String assContent)
 	{
-		INDICATOR = iNDICATOR;
+		this.assContent = assContent;
 	}
-	public String getCHARGER()
+	public String getIndicator()
 	{
-		return CHARGER;
+		return indicator;
 	}
-	public void setCHARGER(String cHARGER)
+	public void setIndicator(String indicator)
 	{
-		CHARGER = cHARGER;
+		this.indicator = indicator;
 	}
-	public String getASS_START_DATE()
+	public String getCharger()
 	{
-		return ASS_START_DATE;
+		return charger;
 	}
-	public void setASS_START_DATE(String aSS_START_DATE)
+	public void setCharger(String charger)
 	{
-		ASS_START_DATE = aSS_START_DATE;
+		this.charger = charger;
 	}
-	public String getASS_END_DATE()
+	public String getPiNickName()
 	{
-		return ASS_END_DATE;
+		return piNickName;
 	}
-	public void setASS_END_DATE(String aSS_END_DATE)
+	public void setPiNickName(String piNickName)
 	{
-		ASS_END_DATE = aSS_END_DATE;
+		this.piNickName = piNickName;
 	}
-	public String getASS_DATE()
+	public String getAssStartDate()
 	{
-		return ASS_DATE;
+		return assStartDate;
 	}
-	public void setASS_DATE(String aSS_DATE)
+	public void setAssStartDate(String assStartDate)
 	{
-		ASS_DATE = aSS_DATE;
+		this.assStartDate = assStartDate;
 	}
-	public String getASS_FILE()
+	public String getAssEndDate()
 	{
-		return ASS_FILE;
+		return assEndDate;
 	}
-	public void setASS_FILE(String aSS_FILE)
+	public void setAssEndDate(String assEndDate)
 	{
-		ASS_FILE = aSS_FILE;
+		this.assEndDate = assEndDate;
 	}
-	public String getASS_OU_CODE()
+	public String getAssDate()
 	{
-		return ASS_OU_CODE;
+		return assDate;
 	}
-	public void setASS_OU_CODE(String aSS_OU_CODE)
+	public void setAssDate(String assDate)
 	{
-		ASS_OU_CODE = aSS_OU_CODE;
+		this.assDate = assDate;
 	}
-	public String getOU_NAME()
+	public String getAssFile()
 	{
-		return OU_NAME;
+		return assFile;
 	}
-	public void setOU_NAME(String oU_NAME)
+	public void setAssFile(String assFile)
 	{
-		OU_NAME = oU_NAME;
+		this.assFile = assFile;
 	}
-	public String getASS_SD_NO()
+	public String getAssOuCode()
 	{
-		return ASS_SD_NO;
+		return assOuCode;
 	}
-	public void setASS_SD_NO(String aSS_SD_NO)
+	public void setAssOuCode(String assOuCode)
 	{
-		ASS_SD_NO = aSS_SD_NO;
+		this.assOuCode = assOuCode;
 	}
-
+	public String getOuName()
+	{
+		return ouName;
+	}
+	public void setOuName(String ouName)
+	{
+		this.ouName = ouName;
+	}
+	public String getAssSdNo()
+	{
+		return assSdNo;
+	}
+	public void setAssSdNo(String assSdNo)
+	{
+		this.assSdNo = assSdNo;
+	}
+	public String getSsName()
+	{
+		return ssName;
+	}
+	public void setSsName(String ssName)
+	{
+		this.ssName = ssName;
+	}
+	
 	
 	
 }
