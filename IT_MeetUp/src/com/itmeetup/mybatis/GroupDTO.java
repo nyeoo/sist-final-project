@@ -5,108 +5,111 @@ package com.itmeetup.mybatis;
 
 public class GroupDTO
 {
-	private String OP_CODE, MEM_CODE, PI_NICKNAME, PC_CODE, TJ_JOB_CODE;	// 개설코드, 회원코드, 닉네임, 참여확인코드, 팀원별 직무코드 
-	private String JOB_NAME, LEA_PC_CODE;									// 직무명, 이탈자
-	private String OP_START_DATE, OP_END_DATE;								// 프로젝트시작일, 프로젝트종료일
-	private int REP_SUCCESS, REP_GRANT, LEA_NO;								// 업무완료 갯수, 업무 부여 갯수, 이탈번호
+	private String opCode, memCode, piNickName, pcCode, tjJobCode;	// 개설코드, 회원코드, 닉네임, 참여확인코드, 팀원별 직무코드 
+	private String jobName, leaPcCode;								// 직무명, 이탈자
+	private String opStartDate, opEndDate;							// 프로젝트시작일, 프로젝트종료일
+	private int repSuccess, repGrant, leaNo;						// 업무완료 갯수, 업무 부여 갯수, 이탈번호
 	
 	// getter / setter 구성
-	public String getOP_CODE()
+	public String getOpCode()
 	{
-		return OP_CODE;
+		return opCode;
 	}
-	public void setOP_CODE(String oP_CODE)
+	public void setOpCode(String opCode)
 	{
-		OP_CODE = oP_CODE;
+		this.opCode = opCode;
 	}
-	public String getMEM_CODE()
+	public String getMemCode()
 	{
-		return MEM_CODE;
+		return memCode;
 	}
-	public void setMEM_CODE(String mEM_CODE)
+	public void setMemCode(String memCode)
 	{
-		MEM_CODE = mEM_CODE;
+		this.memCode = memCode;
 	}
-	public String getPI_NICKNAME()
+	public String getPiNickName()
 	{
-		return PI_NICKNAME;
+		return piNickName;
 	}
-	public void setPI_NICKNAME(String pI_NICKNAME)
+	public void setPiNickName(String piNickName)
 	{
-		PI_NICKNAME = pI_NICKNAME;
+		this.piNickName = piNickName;
 	}
-	public String getPC_CODE()
+	public String getPcCode()
 	{
-		return PC_CODE;
+		return pcCode;
 	}
-	public void setPC_CODE(String pC_CODE)
+	public void setPcCode(String pcCode)
 	{
-		PC_CODE = pC_CODE;
+		this.pcCode = pcCode;
 	}
-	public String getTJ_JOB_CODE()
+	public String getTjJobCode()
 	{
-		return TJ_JOB_CODE;
+		return tjJobCode;
 	}
-	public void setTJ_JOB_CODE(String tJ_JOB_CODE)
+	public void setTjJobCode(String tjJobCode)
 	{
-		TJ_JOB_CODE = tJ_JOB_CODE;
+		this.tjJobCode = tjJobCode;
 	}
-	public String getJOB_NAME()
+	public String getJobName()
 	{
-		return JOB_NAME;
+		return jobName;
 	}
-	public void setJOB_NAME(String jOB_NAME)
+	public void setJobName(String jobName)
 	{
-		JOB_NAME = jOB_NAME;
+		this.jobName = jobName;
 	}
-	public String getLEA_PC_CODE()
+	public String getLeaPcCode()
 	{
-		return LEA_PC_CODE;
+		return leaPcCode;
 	}
-	public void setLEA_PC_CODE(String lEA_PC_CODE)
+	public void setLeaPcCode(String leaPcCode)
 	{
-		LEA_PC_CODE = lEA_PC_CODE;
+		this.leaPcCode = leaPcCode;
 	}
-	public String getOP_START_DATE()
+	public String getOpStartDate()
 	{
-		return OP_START_DATE;
+		return opStartDate;
 	}
-	public void setOP_START_DATE(String oP_START_DATE)
+	public void setOpStartDate(String opStartDate)
 	{
-		OP_START_DATE = oP_START_DATE;
+		this.opStartDate = opStartDate;
 	}
-	public String getOP_END_DATE()
+	public String getOpEndDate()
 	{
-		return OP_END_DATE;
+		return opEndDate;
 	}
-	public void setOP_END_DATE(String oP_END_DATE)
+	public void setOpEndDate(String opEndDate)
 	{
-		OP_END_DATE = oP_END_DATE;
+		this.opEndDate = opEndDate;
 	}
-	public int getREP_SUCCESS()
+	public int getRepSuccess()
 	{
-		return REP_SUCCESS;
+		return repSuccess;
 	}
-	public void setREP_SUCCESS(int rEP_SUCCESS)
+	public void setRepSuccess(int repSuccess)
 	{
-		REP_SUCCESS = rEP_SUCCESS;
+		this.repSuccess = repSuccess;
 	}
-	public int getREP_GRANT()
+	public int getRepGrant()
 	{
-		return REP_GRANT;
+		return repGrant;
 	}
-	public void setREP_GRANT(int rEP_GRANT)
+	public void setRepGrant(int repGrant)
 	{
-		REP_GRANT = rEP_GRANT;
+		this.repGrant = repGrant;
 	}
-	public int getLEA_NO()
+	public int getLeaNo()
 	{
-		return LEA_NO;
+		return leaNo;
 	}
-	public void setLEA_NO(int lEA_NO)
+	public void setLeaNo(int leaNo)
 	{
-		LEA_NO = lEA_NO;
+		this.leaNo = leaNo;
 	}
+	
+	
+	
 	
 	
 	
