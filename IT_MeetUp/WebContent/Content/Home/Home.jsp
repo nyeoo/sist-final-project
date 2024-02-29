@@ -105,7 +105,7 @@
 													class="d-flex justify-content-between align-items-center">
 													<!-- 사용언어 -->
 													<div class="language-box ">
-									
+									...
 													</div>
 													<!-- 조회수 -->
 													<small class="text-body-secondary">view ${pop.view }</small>
