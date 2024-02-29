@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <!-- mybatis 환경 설정 파일 활용 -->
+ <mapper namespace="com.itmeetup.mybatis.IGroupSetupDAO">
+ 
+ 	<select id="groupSetupList" resultType="com.itmeetup.mybatis.GroupDTO">
+		SELECT ROWNUM "OPCODE", PI_NICKNAME "PINICKNAME", JOB_NAME "JOBNAME", LEA_PC_CODE "LEAPCCODE"
+		FROM GROUPSETVIEW
+		WHERE OP_CODE = 'OP_2'
+ 	</select>
+ 	
+ 	
+
+ </mapper>

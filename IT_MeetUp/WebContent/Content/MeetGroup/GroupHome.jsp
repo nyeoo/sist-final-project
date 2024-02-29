@@ -18,150 +18,10 @@ String cp = request.getContextPath();
 <meta name="keywords" content="IT 프로젝트 모집, 사이드 프로젝트 진행">
 
 <!-- css -->
-<link rel="stylesheet" href="../../asset/css/style.css">
+<link rel="stylesheet" href="<%=cp %>/asset/css/style.css">
+<link rel="stylesheet" href="<%=cp %>/asset/css/layout_lhs.css">
 <script src="https://kit.fontawesome.com/81ca059e0e.js"
 	crossorigin="anonymous"></script>
-
-<style type="text/css">
-.intro-body-list {
-	margin-bottom: 20px;
-	background: white;
-	padding: 35px;
-	border-radius: 8px;
-}
-
-.intro-title {
-	font-size: 22px;
-	font-weight: 600;
-}
-
-.progress-m {
-	margin: 30px 20px 30px 20px;
-	height: 50px;
-}
-
-.progress {
-	height: 100%;
-}
-
-.progress-bars {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    overflow: hidden;
-    color: var(--bs-progress-bar-color);
-    text-align: center;
-    white-space: nowrap;
-    background-color: var(--bs-progress-bar-bg);
-    transition: var(--bs-progress-bar-transition);
-    margin: 10px 5px 10px 5px;
-	height: 40px;
-}
-
-
-.weekwork .addsee {
-	position: absolute;
-	right: 0px;
-	top: 15px;
-	padding-right: 20px;
-}
-
-.job-list {
-	margin-top: 10px;
-	flex-flow: wrap;
-}
-
-.job {
-	align-items: center;
-	margin-bottom: 10px;
-	margin: 15px 30px 15px 0;
-}
-
-.tag {
-	border-radius: 30px;
-	text-align: center;
-	display: inline-flex;
-	justify-content: center;
-	align-items: center;
-	height: 35px;
-	margin-right: 4px;
-	padding-right: 13px;
-	padding-left: 13px;
-	color: #121213;
-	font-size: 15px;
-	line-height: 1.13em;
-	letter-spacing: -.4px;
-	border: 1px solid #d0d1d4;
-	background-color: #fff;
-	margin-bottom: 5px;
-}
-
-.job-tag {
-	font-size: 14px;
-	color: white;
-	font-weight: 500;
-	border: none;
-	min-width: 75px;
-}
-
-.member-box {
-	align-items: end;
-}
-
-.member {
-	margin-left: 10px;
-	flex-direction: column;
-	align-items: center;
-	position: relative;
-	cursor: pointer;
-	flex-shrink: 0;
-}
-
-.no-profile {
-	font-size: 55px;
-	color: #69696B;
-	text-shadow: 1px 1px 4px #c1c1c1;
-}
-
-.no-profile:hover {
-	text-shadow: 2px 2px 6px #c1c1c1;
-}
-
-.member-img {
-	border-radius: 50%;
-	width: 55px;
-	height: 55px;
-	box-shadow: 1px 1px 6px 0px #c1c1c1;
-}
-
-.member-img:hover {
-	box-shadow: 2px 2px 9px 0px #c1c1c1;
-}
-
-.nickname {
-	margin-top: 6px;
-	overflow: hidden;
-	display: block;
-	color: #8e8f92;
-	font-size: 14px;
-	white-space: nowrap;
-	text-align: center;
-	text-overflow: ellipsis;
-	width: 60px;
-}
-
-.crown {
-	font-size: 17px;
-	color: yellow;
-	position: absolute;
-	top: -8px;
-	left: calc(50% - 33px);
-	z-index: 1;
-	padding: 5px;
-	background-color: black;
-	border-radius: 50%;
-}
-</style>
 
 </head>
 
@@ -188,7 +48,7 @@ String cp = request.getContextPath();
 				<div class="container-md">
 
 
-					<!-- <div class="groupWon-stacked groupWon-m">
+					<div class="groupWon-stacked groupWon-m">
 						<div class="intro-body-list groupWon">
 							<span class="intro-title">그룹원</span>
 							<hr>
@@ -237,7 +97,7 @@ String cp = request.getContextPath();
 										</div>
 									</div></li>
 							</ul>
-						</div> -->
+						</div>
 
 						<div class="intro-body-list progressbar">
 							<span class="intro-title">진행 기간</span>
