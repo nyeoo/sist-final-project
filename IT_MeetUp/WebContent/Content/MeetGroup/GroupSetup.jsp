@@ -144,7 +144,7 @@ String cp = request.getContextPath();
 									<thead>
 										<tr>
 											<th>번호</th>
-											<th>아이디</th>
+											<th>닉네임</th>
 											<th>직무</th>
 											<th>완료/부여</th>
 											<th>상태</th>

@@ -55,7 +55,7 @@ String cp = request.getContextPath();
     background-color: var(--bs-progress-bar-bg);
     transition: var(--bs-progress-bar-transition);
     margin: 10px 5px 10px 5px;
-	height: 25px;
+	height: 40px;
 }
 
 
@@ -188,7 +188,7 @@ String cp = request.getContextPath();
 				<div class="container-md">
 
 
-					<div class="groupWon-stacked groupWon-m">
+					<!-- <div class="groupWon-stacked groupWon-m">
 						<div class="intro-body-list groupWon">
 							<span class="intro-title">그룹원</span>
 							<hr>
@@ -237,7 +237,7 @@ String cp = request.getContextPath();
 										</div>
 									</div></li>
 							</ul>
-						</div>
+						</div> -->
 
 						<div class="intro-body-list progressbar">
 							<span class="intro-title">진행 기간</span>
@@ -269,28 +269,6 @@ String cp = request.getContextPath();
 							</div>
 						</div>
 
-						<!-- <div class="row con-section level">
-							<div class="col-12 col-md-6">
-								<div class="card complete">
-									<div class="card-body">
-										<div class="card-title">
-											<p class="h5">
-												<span>최소완료조건현황</span>
-											</p>
-											<hr>
-										</div>
-										<p>회의록 2/10</p>
-										<p>산출물 0/1</p>
-										<p>할당된 업무 처리 10/10</p>
-										<p>기획서 2/10</p>
-										<p>요구분석서 2/10</p>
-										<p>결과물 2/10</p>
-									</div>
-
-								</div>
-							</div> -->
-
-
 						<!-- 프로그래스바 -->
 						<div class="row con-section level">
 
@@ -315,18 +293,6 @@ String cp = request.getContextPath();
 														style="width: 25%">회의록 25%</div>
 												</div>
 												<div class="progress" role="progressbar"
-													aria-label="Info example" aria-valuenow="50"
-													aria-valuemin="0" aria-valuemax="100">
-													<div class="progress-bars bg-info text-dark"
-														style="width: 50%">산출물 50%</div>
-												</div>
-												<div class="progress" role="progressbar"
-													aria-label="Warning example" aria-valuenow="75"
-													aria-valuemin="0" aria-valuemax="100">
-													<div class="progress-bars bg-warning text-dark"
-														style="width: 75%">할당된 업무처리 75%</div>
-												</div>
-												<div class="progress" role="progressbar"
 													aria-label="Danger example" aria-valuenow="100"
 													aria-valuemin="0" aria-valuemax="100">
 													<div class="progress-bars bg-danger" style="width: 100%">기획서
@@ -341,7 +307,7 @@ String cp = request.getContextPath();
 												<div class="progress" role="progressbar"
 													aria-label="Danger example" aria-valuenow="100"
 													aria-valuemin="0" aria-valuemax="100">
-													<div class="progress-bars bg-success" style="width: 100%">결과물100%</div>
+													<div class="progress-bars bg-warning" style="width: 100%">순서도</div>
 												</div>
 											</li>
 										</ul>
