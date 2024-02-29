@@ -32,12 +32,14 @@
     <!-- 바디영역 -->
     <section class="m-body-area">
       <div class="container-xl">
+		<!-- 사이드 영역 -->
+		<c:import url="../Components/Side.jsp"></c:import>
+		<!-- //사이드 영역 -->
 
         <div class="content_tit">
-          <p class="h3">주간업무 보고서</p>
-          <!-- 브레드크럼블 -->
-          <c:import url="../Components/Breadcrumb.jsp"></c:import>
-          <!-- //브레드크럼블 -->
+          <p class="h3">주간업무 보고서
+          <button type="button" class="btn btn-primary" style="float: right;">작성하기</button></p>
+          <br>
         </div>
 
         <!-- 리스트 -->
@@ -49,7 +51,7 @@
               <col class="tit">
               <col class="date" style="width: 120px;">
               <col class="count" style="width: 75px">
-              <col class="file" style="width: 70px">
+              <col class="w_writer" style="width: 70px">
             </colgroup>
             <thead>
               <tr>
@@ -58,7 +60,7 @@
                 <th scope="col" class="tit">제목</th>
                 <th scope="col" class="date">작성일</th>
                 <th scope="col" class="count">조회수</th>
-                <th scope="col" class="file">파일</th>
+                <th scope="col" class="w_writer">작성자</th>
               </tr>
             </thead>
             <tbody>
@@ -68,7 +70,7 @@
                 <td class="tit new"><a href="javascript:;">작성한 주간업무보고서글이 나오며 버튼 누를 시 주간업무보고서 상세 페이지로 이동이 나오며 버튼 누를시 상세 페이지로 이동 <span class="ico_att_new">new</span></a></td>
                 <td class="date">2024.02.06</td>
                 <td class="count">777</td>
-                <td class="file"></td>
+                <td class="w_writer">팀원1</td>
               </tr>
               <tr>
                 <td class="num"><span class="num_txt">7777</span></td>
@@ -76,7 +78,7 @@
                 <td class="tit"><a href="javascript:;">작성한 주간업무보고서글이 나오며 버튼 누를 시 주간업무보고서 상세 페이지로 이동이 나오며 버튼 누를시 상세 페이지로 이동 </a> </td>
                 <td class="date">2024.02.06</td>
                 <td class="count">777</td>
-                <td class="file"><i class="bi bi-file-earmark"><span class="blind">첨부파일</span></i></td>
+                <td class="w_writer">팀원1</td>
               </tr>
               <tr>
                 <td class="num"><span class="num_txt">7777</span></td>
@@ -84,7 +86,7 @@
                 <td class="tit"><a href="javascript:;">작성한 주간업무보고서글이 나오며 버튼 누를 시 주간업무보고서 상세 페이지로 이동이 나오며 버튼 누를시 상세 페이지로 이동 </a> </td>
                 <td class="date">2024.02.06</td>
                 <td class="count">777</td>
-                <td class="file"><i class="bi bi-file-earmark"><span class="blind">첨부파일</span></i></td>
+                <td class="w_writer">팀원1</td>
               </tr>
               <tr>
                 <td class="num"><span class="num_txt">7777</span></td>
@@ -92,7 +94,7 @@
                 <td class="tit"><a href="javascript:;">작성한 주간업무보고서글이 나오며 버튼 누를 시 주간업무보고서 상세 페이지로 이동이 나오며 버튼 누를시 상세 페이지로 이동 </a> </td>
                 <td class="date">2024.02.06</td>
                 <td class="count">777</td>
-                <td class="file"><i class="bi bi-file-earmark"><span class="blind">첨부파일</span></i></td>
+                <td class="w_writer">팀원1</td>
               </tr>
               <tr>
                 <td class="num"><span class="num_txt">7777</span></td>
@@ -100,7 +102,7 @@
                 <td class="tit"><a href="javascript:;">작성한 주간업무보고서글이 나오며 버튼 누를 시 주간업무보고서 상세 페이지로 이동이 나오며 버튼 누를시 상세 페이지로 이동 </a> </td>
                 <td class="date">2024.02.06</td>
                 <td class="count">777</td>
-                <td class="file"></td>
+                <td class="w_writer">팀원1</td>
               </tr>
               <tr>
                 <td class="num"><span class="num_txt">7777</span></td>
@@ -108,7 +110,7 @@
                 <td class="tit"><a href="javascript:;">작성한 주간업무보고서글이 나오며 버튼 누를 시 주간업무보고서 상세 페이지로 이동이 나오며 버튼 누를시 상세 페이지로 이동 </a> </td>
                 <td class="date">2024.02.06</td>
                 <td class="count">777</td>
-                <td class="file"></td>
+                <td class="w_writer">팀원1</td>
               </tr>
               <tr>
                 <td class="num"><span class="num_txt">7777</span></td>
@@ -116,7 +118,7 @@
                 <td class="tit"><a href="javascript:;">작성한 주간업무보고서글이 나오며 버튼 누를 시 주간업무보고서 상세 페이지로 이동이 나오며 버튼 누를시 상세 페이지로 이동 </a> </td>
                 <td class="date">2024.02.06</td>
                 <td class="count">777</td>
-                <td class="file"></td>
+                <td class="w_writer">팀원1</td>
               </tr>
               <tr>
                 <td class="num"><span class="num_txt">7777</span></td>
@@ -124,7 +126,7 @@
                 <td class="tit"><a href="javascript:;">작성한 주간업무보고서글이 나오며 버튼 누를 시 주간업무보고서 상세 페이지로 이동이 나오며 버튼 누를시 상세 페이지로 이동 </a></td>
                 <td class="date">2024.02.06</td>
                 <td class="count">777</td>
-                <td class="file"></td>
+                <td class="w_writer">팀원1</td>
               </tr>
               <tr>
                 <td class="num"><span class="num_txt">7777</span></td>
@@ -132,7 +134,7 @@
                 <td class="tit"><a href="javascript:;">작성한 주간업무보고서글이 나오며 버튼 누를 시 주간업무보고서 상세 페이지로 이동이 나오며 버튼 누를시 상세 페이지로 이동 </a></td>
                 <td class="date">2024.02.06</td>
                 <td class="count">777</td>
-                <td class="file"></td>
+                <td class="w_writer">팀원1</td>
               </tr>
               <tr>
                 <td class="num"><span class="num_txt">7777</span></td>
@@ -140,7 +142,7 @@
                 <td class="tit"><a href="javascript:;">작성한 주간업무보고서글이 나오며 버튼 누를 시 주간업무보고서 상세 페이지로 이동이 나오며 버튼 누를시 상세 페이지로 이동 </a></td>
                 <td class="date">2024.02.06</td>
                 <td class="count">777</td>
-                <td class="file"></td>
+                <td class="w_writer">팀원1</td>
               </tr>
             </tbody>
           </table>

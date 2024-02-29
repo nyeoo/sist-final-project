@@ -59,7 +59,7 @@
         <li class="nav-item">
           <a class="nav-link collapsed" href="javascript:;">
             <i class="bi bi-grid"></i>
-            <span>일정 관리</span>
+            <span>주간업무 보고</span>
           </a>
         </li>
 

@@ -20,116 +20,6 @@ String cp = request.getContextPath();
 <!-- css -->
 <link rel="stylesheet" href="<%=cp %>/asset/css/style.css">
 
-
-<script>
-
-  	$(function()
-	{
-  		
-  		$(".skil").change(function(){
-  	        var skilArea = $("#skilArea");		// div 영역 가져오기
-  	        var skillName = $(this).attr("id"); // 기술이름가져오기
-  	        var skillLabel = $("label[for='" + skillName + "']").text();  
-
-  	        var checkSkill = skilArea.find("span");
-  	        if ($(this).is(":checked"))
-  	        {
-  	            // 선택된 기술이 5개 미만인 경우에만 추가
-  	            if (checkSkill.length < 5)
-  	            {
-  	              var skill = $("<span>").text("["+skillLabel+"]"   );
-  	               skilArea.append(skill);
-  	            } 
-  	            else
-  	            {
-  	                $(this).prop("checked", false);
-  	                alert("최대 5개까지 선택 가능합니다.");
-  	            }
-  	        } 
-  	        else
-  	        {
-  	            // 체크를 해제 하면 해당 기술을 삭제
-  	            checkSkill.each(function()
-  	            {
-  	                if ($(this).text().indexOf(skillLabel) !== -1)
-  	                {
-  	                    $(this).remove();
-  	                }
-  	            });
-  	        }
-  	    });	
-  
-	  	// 기간 유효성 검사
-	  	function startDateCheck() 
-	  	{
-	  	    var startDateInput = document.getElementById('startDate');
-	  	    var endDateInput = document.getElementById('endDate');
-	
-	  	    var startDate = new Date(startDateInput.value);
-	  	    var endDate = new Date(endDateInput.value);
-	
-	  	    // 시작일이 종료일보다 늦은 경우
-	  	    if (startDate > endDate) {
-	  	        alert("시작일은 종료일보다 늦을 수 없습니다.");
-	  	        endDateInput.value = ""; // 유효하지 않은 경우 입력한 종료일을 지웁니다.
-	  	        return;
-	  	    }
-	
-	  	    // 최소 1개월 이후부터 선택 가능
-	  	    var minSelectableDate = new Date(startDate);
-	  	    minSelectableDate.setMonth(minSelectableDate.getMonth() + 1);
-	  	    if (endDate < minSelectableDate) {
-	  	        alert("시작일로부터 최소 1개월 이후부터 종료일을 선택할 수 있습니다.");
-	  	        endDateInput.value = ""; // 유효하지 않은 경우 입력한 종료일을 지웁니다.
-	  	        return;
-	  	    }
-	
-	  	    // 최대 6개월 이내인지 확인
-	  	    var maxEndDate = new Date(startDate);
-	  	    maxEndDate.setMonth(maxEndDate.getMonth() + 6);
-	  	    if (endDate > maxEndDate) {
-	  	        alert("종료일은 시작일로부터 최대 6개월 이내여야 합니다.");
-	  	        endDateInput.value = ""; // 유효하지 않은 경우 입력한 종료일을 지웁니다.
-	  	    }
-	  	}
-	
-	  	 
-	  	function endDateCheck() 
-	  	{
-	  	    var startDateInput = document.getElementById('startDate');
-	  	    var endDateInput = document.getElementById('endDate');
-	
-	  	    var startDate = new Date(startDateInput.value);
-	  	    var endDate = new Date(endDateInput.value);
-	
-	  	    // 종료일이 시작일보다 빠른 경우
-	  	    if (endDate < startDate) {
-	  	        alert("종료일은 시작일보다 늦어야 합니다.");
-	  	        endDateInput.value = ""; // 유효하지 않은 경우 입력한 종료일을 지웁니다.
-	  	        return;
-	  	    }
-	
-	  	    
-	  	    // 최소 1개월 이전부터 선택 가능
-	  	    var minSelectableDate = new Date(startDate);
-	  	    minSelectableDate.setMonth(minSelectableDate.getMonth() + 1);
-	  	    if (endDate < minSelectableDate) {
-	  	        alert("종료일로부터 최소 1개월 이전부터 시작일을 선택할 수 있습니다.");
-	  	      startDateInput.value = ""; // 유효하지 않은 경우 입력한 종료일을 지웁니다.
-	  	        return;
-	  	    }
-	  	    
-	  	    // 최대 6개월 이내인지 확인
-	  	    var maxEndDate = new Date(startDate);
-	  	    maxEndDate.setMonth(maxEndDate.getMonth() + 6);
-	  	    if (endDate > maxEndDate) {
-	  	        alert("종료일은 시작일로부터 최대 6개월 이내여야 합니다.");
-	  	        endDateInput.value = ""; // 유효하지 않은 경우 입력한 종료일을 지웁니다.
-	  	    }
-	  	} 
-  	
-</script>
-
 </head>
 
 <body>
@@ -146,7 +36,7 @@ String cp = request.getContextPath();
 			<div class="container-xl">
 
 				<!-- 사이드 영역 -->
-				<div role="side" data-include="../Components/Side.jsp"></div>
+				<c:import url="../Components/Side.jsp"></c:import>
 				<!-- //사이드 영역 -->
 
 				<!-- 탭 -->
