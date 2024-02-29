@@ -5,93 +5,111 @@ package com.itmeetup.mybatis;
 
 public class AssignmentDTO
 {
-	private String assCode, assName, assContent; 		// 업무할당 코드, 업무할당명, 업무할당 내용 
-	private String assIndicator, assCharger;			// 업무지시자, 업무담당자
-	private String assStartDate, assEndDate, assDate;	// 업무시작지시일, 업무종료지시일, 업무할당일
-	private String assFile, outName; 					// 할당첨무파일경로, 할당산출물 명
+	private String ASS_CODE, ASS_NAME, ASS_CONTENT; 		// 업무할당 코드, 업무할당명, 업무할당 내용 
+	private String INDICATOR, CHARGER;						// 업무지시자, 업무담당자
+	private String ASS_START_DATE, ASS_END_DATE, ASS_DATE;	// 업무시작지시일, 업무종료지시일, 업무할당일
+	private String ASS_FILE, ASS_OU_CODE, OU_NAME;			// 할당첨무파일경로, 할당산출물 명
+	private String ASS_SD_NO;								// 기간 상세 코드
 	
 	
 	// getter / setter 구성
-	public String getAssCode()
+	public String getASS_CODE()
 	{
-		return assCode;
+		return ASS_CODE;
 	}
-	public void setAssCode(String assCode)
+	public void setASS_CODE(String aSS_CODE)
 	{
-		this.assCode = assCode;
+		ASS_CODE = aSS_CODE;
 	}
-	public String getAssName()
+	public String getASS_NAME()
 	{
-		return assName;
+		return ASS_NAME;
 	}
-	public void setAssName(String assName)
+	public void setASS_NAME(String aSS_NAME)
 	{
-		this.assName = assName;
+		ASS_NAME = aSS_NAME;
 	}
-	public String getAssContent()
+	public String getASS_CONTENT()
 	{
-		return assContent;
+		return ASS_CONTENT;
 	}
-	public void setAssContent(String assContent)
+	public void setASS_CONTENT(String aSS_CONTENT)
 	{
-		this.assContent = assContent;
+		ASS_CONTENT = aSS_CONTENT;
 	}
-	public String getAssIndicator()
+	public String getINDICATOR()
 	{
-		return assIndicator;
+		return INDICATOR;
 	}
-	public void setAssIndicator(String assIndicator)
+	public void setINDICATOR(String iNDICATOR)
 	{
-		this.assIndicator = assIndicator;
+		INDICATOR = iNDICATOR;
 	}
-	public String getAssCharger()
+	public String getCHARGER()
 	{
-		return assCharger;
+		return CHARGER;
 	}
-	public void setAssCharger(String assCharger)
+	public void setCHARGER(String cHARGER)
 	{
-		this.assCharger = assCharger;
+		CHARGER = cHARGER;
 	}
-	public String getAssStartDate()
+	public String getASS_START_DATE()
 	{
-		return assStartDate;
+		return ASS_START_DATE;
 	}
-	public void setAssStartDate(String assStartDate)
+	public void setASS_START_DATE(String aSS_START_DATE)
 	{
-		this.assStartDate = assStartDate;
+		ASS_START_DATE = aSS_START_DATE;
 	}
-	public String getAssEndDate()
+	public String getASS_END_DATE()
 	{
-		return assEndDate;
+		return ASS_END_DATE;
 	}
-	public void setAssEndDate(String assEndDate)
+	public void setASS_END_DATE(String aSS_END_DATE)
 	{
-		this.assEndDate = assEndDate;
+		ASS_END_DATE = aSS_END_DATE;
 	}
-	public String getAssDate()
+	public String getASS_DATE()
 	{
-		return assDate;
+		return ASS_DATE;
 	}
-	public void setAssDate(String assDate)
+	public void setASS_DATE(String aSS_DATE)
 	{
-		this.assDate = assDate;
+		ASS_DATE = aSS_DATE;
 	}
-	public String getAssFile()
+	public String getASS_FILE()
 	{
-		return assFile;
+		return ASS_FILE;
 	}
-	public void setAssFile(String assFile)
+	public void setASS_FILE(String aSS_FILE)
 	{
-		this.assFile = assFile;
+		ASS_FILE = aSS_FILE;
 	}
-	public String getOutName()
+	public String getASS_OU_CODE()
 	{
-		return outName;
+		return ASS_OU_CODE;
 	}
-	public void setOutName(String outName)
+	public void setASS_OU_CODE(String aSS_OU_CODE)
 	{
-		this.outName = outName;
+		ASS_OU_CODE = aSS_OU_CODE;
 	}
+	public String getOU_NAME()
+	{
+		return OU_NAME;
+	}
+	public void setOU_NAME(String oU_NAME)
+	{
+		OU_NAME = oU_NAME;
+	}
+	public String getASS_SD_NO()
+	{
+		return ASS_SD_NO;
+	}
+	public void setASS_SD_NO(String aSS_SD_NO)
+	{
+		ASS_SD_NO = aSS_SD_NO;
+	}
+
 	
 	
 }
