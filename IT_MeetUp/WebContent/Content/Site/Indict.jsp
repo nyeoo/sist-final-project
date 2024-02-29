@@ -20,6 +20,7 @@ String cp = request.getContextPath();
 
 <!-- css -->
 <link rel="stylesheet" href="<%=cp%>/asset/css/style.css">
+
 <style type="text/css">
 .comp_box {
 	text-align: center;
@@ -39,8 +40,7 @@ String cp = request.getContextPath();
 	<div class="wrapper">
 
 		<!-- 헤더영역 -->
-		<div role="header" data-include="../Components/Header.jsp"
-			class="sticky-top"></div>
+		<c:import url="../Components/Header.jsp"></c:import>
 		<!-- //헤더영역 -->
 
 		<!-- 바디영역 -->
@@ -111,7 +111,7 @@ String cp = request.getContextPath();
 															<col class="reason">
 															<col class="date">
 															<col class="category" style="width: 120px;">
-															<col class="indicter" style="width: 120px;">
+															<col class="indicter" style="width: 150px;">
 															<col class="indict_date" style="width: 120px;">
 														</colgroup>
 														<thead>
@@ -126,23 +126,30 @@ String cp = request.getContextPath();
 															</tr>
 														</thead>
 														<tbody>
-															<tr>
-																<td class="num"><span class="tag_txt">1</span></td>
-																<td class="reason"><a href="ProjectDetail.jsp">욕설</a>
-																</td>
-																<td class="date">2023.02.12</td>
-																<td class="category"><select class="form-select"
-																	style="width: 105px;">
-																		<option value="1">신고자</option>
-																		<option value="2">피신고자</option>
-																		<option value="3">중재</option>
-																</select></td>
-																<td class="indict_process">
-																	<button type="button" class="btn btn-secondary">처리</button>
-																</td>
-																<td class="indicter">관리자 ID</td>
-																<td class="indict_date">2023.02.14</td>
-															</tr>
+															<c:forEach var="teamOpenIdtItem"
+																items="${teamOpenIdtList }">
+																<tr>
+																	<td class="num">
+																		<%-- <input type="text" value="${teamOpenIdtItem.idtNum}"/> --%>
+																		<span class="tag_txt">${teamOpenIdtItem.idtNum}</span>
+																	</td>
+																	<td class="reason"><a href="ProjectDetail.jsp">${teamOpenIdtItem.idtReason}</a>
+																	</td>
+																	<td class="date">${teamOpenIdtItem.idtDate }</td>
+																	<td class="category"><select class="form-select"
+																		style="width: 105px;">
+																			<c:forEach var="idtProcessItem"
+																				items="${idtProcessList }">
+																				<option value="${idtProcessItem.ipCode }">${idtProcessItem.ipName }</option>
+																			</c:forEach>
+																	</select></td>
+																	<td class="indict_process">
+																		<button type="button" class="btn btn-secondary" onclick="popOpen(${teamOpenIdtItem.idtNo})">${teamOpenIdtItem.idtProcess }</button>
+																	</td>
+																	<td class="indicter">${teamOpenIdtItem.indicted }</td>
+																	<td class="indict_date">${teamOpenIdtItem.idtProcessDate }</td>
+																</tr>
+															</c:forEach>
 														</tbody>
 													</table>
 												</div>
@@ -175,7 +182,7 @@ String cp = request.getContextPath();
 															<col class="reason">
 															<col class="date">
 															<col class="category" style="width: 120px;">
-															<col class="indicter" style="width: 120px;">
+															<col class="indicter" style="width: 150px;">
 															<col class="indict_date" style="width: 120px;">
 														</colgroup>
 														<thead>
@@ -190,42 +197,27 @@ String cp = request.getContextPath();
 															</tr>
 														</thead>
 														<tbody>
-															<tr>
-																<td class="num"><span class="tag_txt">1</span></td>
-																<td class="reason"><a href="ProjectDetail.jsp">욕설</a>
-																</td>
-																<td class="date">2023.02.12</td>
-																<td class="category"><select class="form-select"
-																	style="width: 105px;">
-																		<option value="1">신고자</option>
-																		<option value="2">피신고자</option>
-																		<option value="3">중재</option>
-																</select></td>
-																<td class="indict_process">
-																	<button type="button" class="btn btn-secondary">처리</button>
-																</td>
-																<td class="indicter">관리자 ID</td>
-																<td class="indict_date">2023.02.14</td>
-															</tr>
-														</tbody>
-														<tbody>
-															<tr>
-																<td class="num"><span class="tag_txt">2</span></td>
-																<td class="reason"><a href="ProjectDetail.jsp">광고및
-																		홍보</a></td>
-																<td class="date">2023.02.08</td>
-																<td class="category"><select class="form-select"
-																	style="width: 105px;">
-																		<option value="1">신고자</option>
-																		<option value="2">피신고자</option>
-																		<option value="3">중재</option>
-																</select></td>
-																<td class="indict_process">
-																	<button type="button" class="btn btn-secondary">처리</button>
-																</td>
-																<td class="indicter">관리자 ID</td>
-																<td class="indict_date">2023.02.10</td>
-															</tr>
+															<c:forEach var="commentIdtItem"
+																items="${commentIdtList }">
+																<tr>
+																	<td class="num"><span class="tag_txt">${commentIdtItem.idtNo }</span></td>
+																	<td class="reason"><a href="ProjectDetail.jsp">${commentIdtItem.idtReason }</a>
+																	</td>
+																	<td class="date">${commentIdtItem.idtDate }</td>
+																	<td class="category"><select class="form-select"
+																		style="width: 105px;">
+																			<c:forEach var="idtProcessItem"
+																				items="${idtProcessList }">
+																				<option value="${idtProcessItem.ipCode }">${idtProcessItem.ipName }</option>
+																			</c:forEach>
+																	</select></td>
+																	<td class="indict_process">
+																		<button type="button" class="btn btn-secondary">${commentIdtItem.idtProcess }</button>
+																	</td>
+																	<td class="indicter">${commentIdtItem.indicted }</td>
+																	<td class="indict_date">${commentIdtItem.idtProcessDate }</td>
+																</tr>
+															</c:forEach>
 														</tbody>
 													</table>
 												</div>
@@ -258,7 +250,7 @@ String cp = request.getContextPath();
 															<col class="reason">
 															<col class="date">
 															<col class="category" style="width: 120px;">
-															<col class="indicter" style="width: 120px;">
+															<col class="indicter" style="width: 150px;">
 															<col class="indict_date" style="width: 120px;">
 														</colgroup>
 														<thead>
@@ -273,23 +265,27 @@ String cp = request.getContextPath();
 															</tr>
 														</thead>
 														<tbody>
-															<tr>
-																<td class="num"><span class="tag_txt">1</span></td>
-																<td class="reason"><a href="ProjectDetail.jsp">욕설</a>
-																</td>
-																<td class="date">2023.02.12</td>
-																<td class="category"><select class="form-select"
-																	style="width: 105px;">
-																		<option value="1">신고자</option>
-																		<option value="2">피신고자</option>
-																		<option value="3">중재</option>
-																</select></td>
-																<td class="indict_process">
-																	<button type="button" class="btn btn-secondary">처리</button>
-																</td>
-																<td class="indicter">관리자 ID</td>
-																<td class="indict_date">2023.02.14</td>
-															</tr>
+															<c:forEach var="recommentIdtItem"
+																items="${recommentIdtList }">
+																<tr>
+																	<td class="num"><span class="tag_txt">${recommentIdtItem.idtNo }</span></td>
+																	<td class="reason"><a href="ProjectDetail.jsp">${recommentIdtItem.idtReason }</a>
+																	</td>
+																	<td class="date">${recommentIdtItem.idtDate }</td>
+																	<td class="category"><select class="form-select"
+																		style="width: 105px;">
+																			<c:forEach var="idtProcessItem"
+																				items="${idtProcessList }">
+																				<option value="${idtProcessItem.ipCode }">${idtProcessItem.ipName }</option>
+																			</c:forEach>
+																	</select></td>
+																	<td class="indict_process">
+																		<button type="button" class="btn btn-secondary">${recommentIdtItem.idtProcess }</button>
+																	</td>
+																	<td class="indicter">${recommentIdtItem.indicted }</td>
+																	<td class="indict_date">${recommentIdtItem.idtProcessDate }</td>
+																</tr>
+															</c:forEach>
 														</tbody>
 													</table>
 												</div>
@@ -347,7 +343,7 @@ String cp = request.getContextPath();
 															<col class="reason">
 															<col class="date">
 															<col class="category" style="width: 120px;">
-															<col class="indict_date" style="width: 120px;">
+															<col class="indict_date" style="width: 150px;">
 															<col class="indicter" style="width: 120px;">
 														</colgroup>
 														<thead>
@@ -362,40 +358,26 @@ String cp = request.getContextPath();
 															</tr>
 														</thead>
 														<tbody>
-															<tr>
-																<td class="num"><span class="tag_txt">1</span></td>
-																<td class="reason"><a href="#">업무보고 신고</a></td>
-																<td class="date">2023.02.12</td>
-																<td class="category"><select class="form-select"
-																	style="width: 105px;">
-																		<option value="1">신고자</option>
-																		<option value="2">피신고자</option>
-																		<option value="3">중재</option>
-																</select></td>
-																<td class="indict_process">
-																	<button type="button" class="btn btn-secondary">처리</button>
-																</td>
-																<td class="indicter">관리자 ID</td>
-																<td class="indict_date">2023.02.14</td>
-															</tr>
-														</tbody>
-														<tbody>
-															<tr>
-																<td class="num"><span class="tag_txt">2</span></td>
-																<td class="reason"><a href="#">업무할당 신고</a></td>
-																<td class="date">2023.02.08</td>
-																<td class="category"><select class="form-select"
-																	style="width: 105px;">
-																		<option value="1">신고자</option>
-																		<option value="2">피신고자</option>
-																		<option value="3">중재</option>
-																</select></td>
-																<td class="indict_process">
-																	<button type="button" class="btn btn-secondary">처리</button>
-																</td>
-																<td class="indicter">관리자 ID</td>
-																<td class="indict_date">2023.02.10</td>
-															</tr>
+															<c:forEach var="assignmentIdtItem"
+																items="${assignmentIdtList }">
+																<tr>
+																	<td class="num"><span class="tag_txt">${assignmentIdtItem.idtNo }</span></td>
+																	<td class="reason"><a href="#">${assignmentIdtItem.idtReason }</a></td>
+																	<td class="date">${assignmentIdtItem.idtDate }</td>
+																	<td class="category"><select class="form-select"
+																		style="width: 105px;">
+																			<c:forEach var="idtProcessItem"
+																				items="${idtProcessList }">
+																				<option value="${idtProcessItem.ipCode }">${idtProcessItem.ipName }</option>
+																			</c:forEach>
+																	</select></td>
+																	<td class="indict_process">
+																		<button type="button" class="btn btn-secondary">${assignmentIdtItem.idtProcess }</button>
+																	</td>
+																	<td class="indicter">${assignmentIdtItem.indicted }</td>
+																	<td class="indict_date">${assignmentIdtItem.idtProcessDate }</td>
+																</tr>
+															</c:forEach>
 														</tbody>
 													</table>
 												</div>
@@ -428,7 +410,7 @@ String cp = request.getContextPath();
 															<col class="reason">
 															<col class="date">
 															<col class="category" style="width: 120px;">
-															<col class="indict_date" style="width: 120px;">
+															<col class="indict_date" style="width: 150px;">
 															<col class="indicter" style="width: 120px;">
 														</colgroup>
 														<thead>
@@ -443,40 +425,25 @@ String cp = request.getContextPath();
 															</tr>
 														</thead>
 														<tbody>
-															<tr>
-																<td class="num"><span class="tag_txt">1</span></td>
-																<td class="reason"><a href="#">업무보고 신고</a></td>
-																<td class="date">2023.02.12</td>
-																<td class="category"><select class="form-select"
-																	style="width: 105px;">
-																		<option value="1">신고자</option>
-																		<option value="2">피신고자</option>
-																		<option value="3">중재</option>
-																</select></td>
-																<td class="indict_process">
-																	<button type="button" class="btn btn-secondary">처리</button>
-																</td>
-																<td class="indicter">관리자 ID</td>
-																<td class="indict_date">2023.02.14</td>
-															</tr>
-														</tbody>
-														<tbody>
-															<tr>
-																<td class="num"><span class="tag_txt">2</span></td>
-																<td class="reason"><a href="#">업무할당 신고</a></td>
-																<td class="date">2023.02.08</td>
-																<td class="category"><select class="form-select"
-																	style="width: 105px;">
-																		<option value="1">신고자</option>
-																		<option value="2">피신고자</option>
-																		<option value="3">중재</option>
-																</select></td>
-																<td class="indict_process">
-																	<button type="button" class="btn btn-secondary">처리</button>
-																</td>
-																<td class="indicter">관리자 ID</td>
-																<td class="indict_date">2023.02.10</td>
-															</tr>
+															<c:forEach var="reportIdtItem" items="${reportIdtList }">
+																<tr>
+																	<td class="num"><span class="tag_txt">${reportIdtItem.idtNo }</span></td>
+																	<td class="reason"><a href="#">${reportIdtItem.idtReason }</a></td>
+																	<td class="date">${reportIdtItem.idtDate }</td>
+																	<td class="category"><select class="form-select"
+																		style="width: 105px;">
+																			<c:forEach var="idtProcessItem"
+																				items="${idtProcessList }">
+																				<option value="${idtProcessItem.ipCode }">${idtProcessItem.ipName }</option>
+																			</c:forEach>
+																	</select></td>
+																	<td class="indict_process">
+																		<button type="button" class="btn btn-secondary">${reportIdtItem.idtProcess }</button>
+																	</td>
+																	<td class="indicter">${reportIdtItem.indicted }</td>
+																	<td class="indict_date">${reportIdtItem.idtProcessDate }</td>
+																</tr>
+															</c:forEach>
 														</tbody>
 													</table>
 												</div>
@@ -509,7 +476,7 @@ String cp = request.getContextPath();
 															<col class="reason">
 															<col class="date">
 															<col class="category" style="width: 120px;">
-															<col class="indict_date" style="width: 120px;">
+															<col class="indict_date" style="width: 150px;">
 															<col class="indicter" style="width: 120px;">
 														</colgroup>
 														<thead>
@@ -524,40 +491,25 @@ String cp = request.getContextPath();
 															</tr>
 														</thead>
 														<tbody>
-															<tr>
-																<td class="num"><span class="tag_txt">1</span></td>
-																<td class="reason"><a href="#">업무보고 신고</a></td>
-																<td class="date">2023.02.12</td>
-																<td class="category"><select class="form-select"
-																	style="width: 105px;">
-																		<option value="1">신고자</option>
-																		<option value="2">피신고자</option>
-																		<option value="3">중재</option>
-																</select></td>
-																<td class="indict_process">
-																	<button type="button" class="btn btn-secondary">처리</button>
-																</td>
-																<td class="indicter">관리자 ID</td>
-																<td class="indict_date">2023.02.14</td>
-															</tr>
-														</tbody>
-														<tbody>
-															<tr>
-																<td class="num"><span class="tag_txt">2</span></td>
-																<td class="reason"><a href="#">업무할당 신고</a></td>
-																<td class="date">2023.02.08</td>
-																<td class="category"><select class="form-select"
-																	style="width: 105px;">
-																		<option value="1">신고자</option>
-																		<option value="2">피신고자</option>
-																		<option value="3">중재</option>
-																</select></td>
-																<td class="indict_process">
-																	<button type="button" class="btn btn-secondary">처리</button>
-																</td>
-																<td class="indicter">관리자 ID</td>
-																<td class="indict_date">2023.02.10</td>
-															</tr>
+															<c:forEach var="weeklyIdtItem" items="${weeklyIdtList }">
+																<tr>
+																	<td class="num"><span class="tag_txt">${weeklyIdtItem.idtNo }</span></td>
+																	<td class="reason"><a href="#">${weeklyIdtItem.idtReason }</a></td>
+																	<td class="date">${weeklyIdtItem.idtDate }</td>
+																	<td class="category"><select class="form-select"
+																		style="width: 105px;">
+																			<c:forEach var="idtProcessItem"
+																				items="${idtProcessList }">
+																				<option value="${idtProcessItem.ipCode }">${idtProcessItem.ipName }</option>
+																			</c:forEach>
+																	</select></td>
+																	<td class="indict_process">
+																		<button type="button" class="btn btn-secondary">${weeklyIdtItem.idtProcess }</button>
+																	</td>
+																	<td class="indicter">${weeklyIdtItem.indicted }</td>
+																	<td class="indict_date">${weeklyIdtItem.idtProcessDate }</td>
+																</tr>
+															</c:forEach>
 														</tbody>
 													</table>
 												</div>
@@ -580,7 +532,6 @@ String cp = request.getContextPath();
 											</div>
 											<!-- //2dep-주간업무보고 신고 -->
 										</div>
-
 									</div>
 									<!-- // 1dep-Meet 그룹 신고 탭 -->
 								</div>
@@ -592,6 +543,8 @@ String cp = request.getContextPath();
 				</div>
 			</div>
 
+
+			<!-- 팀 개설요청 신고 처리 팝업 -->
 			<div class="modal fade" id="indictprocess" data-bs-backdrop="static"
 				data-bs-keyboard="false" tabindex="-1"
 				aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -603,29 +556,37 @@ String cp = request.getContextPath();
 								aria-label="Close"></button>
 						</div>
 						<div class="modal-body">
-							<form id="decisionForm">
+							<form id="decisionForm" action="teamopenindictupdate.action"
+								method="get">
+								<input type="text" class="sendNum" name="sendNum" value=""/>
 								<div class="form-check">
-									<input class="form-check-input" type="radio" name="decision"
-										id="approve" value="approve"> <label
+									<input class="form-check-input" type="radio" name="idtProcess"
+										id="reject" value="IP_1"> <label
 										class="form-check-label" for="approve"> 신고자 </label>
 								</div>
 								<div class="form-check">
-									<input class="form-check-input" type="radio" name="decision"
-										id="reject" value="reject"> <label
+									<input class="form-check-input" type="radio" name="idtProcess"
+										id="reject" value="IP_2"> <label
 										class="form-check-label" for="reject"> 피신고자 </label>
 								</div>
 								<div class="form-check">
-									<input class="form-check-input" type="radio" name="decision"
-										id="reject" value="reject"> <label
+									<input class="form-check-input" type="radio" name="idtProcess"
+										id="reject" value="IP_3"> <label
 										class="form-check-label" for="reject"> 중재 </label>
 								</div>
+								<div class="m-input-box">
+									<label for="validationCustom01" class="form-label">벌점
+									<span class="input-sm-txt">(0 ~ 9 사이의 벌점을 입력하세요. (중재는 0으로 입력해주세요.))</span></label> <input
+										type="number" class="form-control" id="validationCustom01"
+										required="" min="0" max="9" name="demeritNum">
+									<div class="invalid-feedback">벌점을 입력 해주세요.</div>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary"
+										data-bs-dismiss="modal">취소</button>
+									<button type="submit" class="btn btn-primary">처리 완료</button>
+								</div>
 							</form>
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary"
-								data-bs-dismiss="modal">취소</button>
-							<button type="button" class="btn btn-primary"
-								onclick="submitDecision()">처리 완료</button>
 						</div>
 					</div>
 				</div>
@@ -637,17 +598,16 @@ String cp = request.getContextPath();
 
 
 	<!-- 푸터영역 -->
-	<div role="footer" data-include="../Components/Footer.jsp"
-		class="mt-auto"></div>
+	<c:import url="../Components/Footer.jsp"></c:import>
 	<!-- //푸터영역 -->
 
 
 	<!-- script -->
-	<script src="../../asset/js/jquery-3.5.1-min.js"></script>
-	<script src="../../asset/js/jquery-ui.js"></script>
-	<script src="../../asset/js/bootstrap.bundle.min.js"></script>
-	<script src="../../asset/js/common.js"></script>
-	<script>
+	<script src="<%=cp%>/asset/js/jquery-3.5.1-min.js"></script>
+	<script src="<%=cp%>/asset/js/jquery-ui.js"></script>
+	<script src="<%=cp%>/asset/js/bootstrap.bundle.min.js"></script>
+	<script src="<%=cp%>/asset/js/common.js"></script>
+	<script type="text/javascript">
 		$(document).ready(function()
 		{
 			// 수정 버튼 클릭 시 모달 표시
@@ -655,7 +615,13 @@ String cp = request.getContextPath();
 			{
 				$('#indictprocess').modal('show');
 			});
+			
 		});
+		
+			function popOpen(sendNum){
+				alert(sendNum);
+				$('#indictprocess').find('.sendNum').attr('value',sendNum);
+			}
 	</script>
 </body>
 

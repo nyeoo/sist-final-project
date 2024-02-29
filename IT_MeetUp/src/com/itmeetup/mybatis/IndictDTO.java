@@ -6,9 +6,10 @@ package com.itmeetup.mybatis;
 
 public class IndictDTO
 {
-	private int idtNo;		// 신고번호
-	private String idtDate, idtReason, idtProcess, indicted, idtProcessDate;	// 신고 일자, 신고 사유, 처리결과, 처리자, 처리일자
-	
+	private int idtNo, idtNum, demeritNum, sendNum;		// 신고번호, 사용자에게 보여질 번호, 벌점, 업데이트할 번호(받은 번호)
+	private String idtDate, idtReason, idtProcess, indicted, idtProcessDate;	// 신고 일자, 신고 사유, 신고 결과 코드, 관리자번호, 처리일자
+
+
 	
 	// getter / setter
 	public int getIdtNo()
@@ -18,6 +19,30 @@ public class IndictDTO
 	public void setIdtNo(int idtNo)
 	{
 		this.idtNo = idtNo;
+	}
+	public int getIdtNum()
+	{
+		return idtNum;
+	}
+	public void setIdtNum(int idtNum)
+	{
+		this.idtNum = idtNum;
+	}
+	public int getDemeritNum()
+	{
+		return demeritNum;
+	}
+	public void setDemeritNum(int demeritNum)
+	{
+		this.demeritNum = demeritNum;
+	}
+	public int getSendNum()
+	{
+		return sendNum;
+	}
+	public void setSendNum(int sendNum)
+	{
+		this.sendNum = sendNum;
 	}
 	public String getIdtDate()
 	{
