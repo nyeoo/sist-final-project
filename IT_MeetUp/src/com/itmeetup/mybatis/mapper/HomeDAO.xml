@@ -14,5 +14,10 @@
  		SELECT "CODE", "START", "END", "PROFILE", "NICKNAME", "TITLE", "CONTENT", "VIEW", "DAY"
 		FROM NEW_VIEW
  	</select>
-
+ 	<select id="skills" resultType="com.itmeetup.mybatis.OpenProjectDTO">
+ 		SELECT TS_SK_CODE
+ 		FROM TEAM_SKILL
+ 		WHERE TS_OP_CODE = #{code}
+ 	</select>
+ 	
  </mapper>

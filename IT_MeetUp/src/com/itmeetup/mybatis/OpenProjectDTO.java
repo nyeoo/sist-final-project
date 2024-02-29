@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class OpenProjectDTO
 {
 	// 주요 속성 구성
-	private String code, start, end, profile, nickname, title, content, sigg ,meet, teamName;
+	private String code, start, end, profile, nickname, title, content, sigg, meet, teamName;
 	private int view, day;
 	private ArrayList<String> skill;
 	//private ArrayList<JobDTO> jobList;

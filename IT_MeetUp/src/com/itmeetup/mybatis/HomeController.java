@@ -1,5 +1,8 @@
 package com.itmeetup.mybatis;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,6 +23,16 @@ public class HomeController
 	{
 		IHomeDAO dao = sqlSession.getMapper(IHomeDAO.class);
 		
+		
+		HashMap<String, ArrayList<String>> skillList = new HashMap<String, ArrayList<String>>();
+		ArrayList<OpenProjectDTO> project = dao.popList();
+		for (OpenProjectDTO dto : project)
+		{
+			skillList.put(dto.getCode(), dao.skills(dto.getCode()));
+		}
+		
+		
+		model.addAttribute("skillList", skillList);
 		model.addAttribute("popList", dao.popList());
 		model.addAttribute("newList", dao.newList());
 

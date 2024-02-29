@@ -105,7 +105,9 @@
 													class="d-flex justify-content-between align-items-center">
 													<!-- 사용언어 -->
 													<div class="language-box ">
-									...
+														<c:forEach var="skill" items="${skillList[pop.code] }">
+														<span>${skill }</span>
+														</c:forEach>
 													</div>
 													<!-- 조회수 -->
 													<small class="text-body-secondary">view ${pop.view }</small>
