@@ -203,55 +203,147 @@ html .ui-button.ui-state-disabled:active { color: #666 !important; background: #
 .skill-check .skill-item .form-check-label { display: flex; position: relative; padding: 0.35rem 0.45rem; border: 1px solid gray; align-items: center; gap: 0.25rem; border-radius: 30px; } 
 .skill-check .skill-item .form-check-label:before { content:''; display: block; width: 30px; height: 30px; background: var(--bd-main-gray); border: 1px solid var(--bd-main-gray); border-radius: 50%; } 
 
+.language-box { display: flex; column-gap: 0.25rem; } 
+.language-box .badge-language { display: block; width: 20px; height:20px; border-radius: 50%; background-color: gray; } 
+.language-box .badge-language:before { content:''; display: block; width: 100%; height: 100%; background: var(--bd-main-gray); border: 1px solid var(--bd-main-gray); border-radius: 50%; } 
+
 /* 스킬아이콘 -------
 ㄴ수정사항
 a. 이미지명끝 css, html, java, javascript, oven 인식X -> 마지막에 01 붙임
 b. 이미지명 ++,# 인식X -> plus, sharp
  */
-/* ico_zeplin */ .skill-item.ico_zeplin .form-check-label:before { background: url(../images/skill/ico_zeplin.png) no-repeat center; background-size: cover; } 
-/* ico_Adobe_XD */ .skill-item.ico_Adobe_XD .form-check-label:before { background: url(../images/skill/ico_Adobe_XD.png) no-repeat center; background-size: cover; } 
-/* ico_Android_Studio */ .skill-item.ico_Android_Studio .form-check-label:before { background: url(../images/skill/ico_Android_Studio.png) no-repeat center; background-size: cover; } 
-/* ico_Axure RP */ .skill-item.ico_Axure_RP .form-check-label:before { background: url(../images/skill/ico_Axure_RP.png) no-repeat center; background-size: cover; } 
-/* ico_C_sharp(C#) */ .skill-item.ico_C_sharp .form-check-label:before { background: url(../images/skill/ico_C_sharp.png) no-repeat center; background-size: cover; } 
-/* ico_C_plus(C++) */ .skill-item.ico_C_plus .form-check-label:before { background: url(../images/skill/ico_C_plus.png) no-repeat center; background-size: cover; } 
-/* ico_css_01 */ .skill-item.ico_css_01 .form-check-label:before { background: url(../images/skill/ico_css_01.png) no-repeat center; background-size: cover; } 
-/* ico_Eclipse */ .skill-item.ico_Eclipse .form-check-label:before { background: url(../images/skill/ico_Eclipse.png) no-repeat center; background-size: cover; } 
-/* ico_Figma */ .skill-item.ico_Figma .form-check-label:before { background: url(../images/skill/ico_Figma.png) no-repeat center; background-size: cover; } 
-/* ico_html5_01 */ .skill-item.ico_html5_01 .form-check-label:before { background: url(../images/skill/ico_html5_01.png) no-repeat center; background-size: cover; } 
-/* ico_IntelliJ */ .skill-item.ico_IntelliJ .form-check-label:before { background: url(../images/skill/ico_IntelliJ.png) no-repeat center; background-size: cover; } 
-/* ico_Java_01 */ .skill-item.ico_Java_01 .form-check-label:before { background: url(../images/skill/ico_Java_01.png) no-repeat center; background-size: cover; } 
-/* ico_Javascript_01 */ .skill-item.ico_Javascript_01 .form-check-label:before { background: url(../images/skill/ico_Javascript_01.png) no-repeat center; background-size: cover; } 
-/* ico_Jquery */ .skill-item.ico_Jquery .form-check-label:before { background: url(../images/skill/ico_Jquery.png) no-repeat center; background-size: cover; } 
-/* ico_jsp */ .skill-item.ico_jsp .form-check-label:before { background: url(../images/skill/ico_jsp.png) no-repeat center; background-size: cover; } 
-/* ico_Kotlin */ .skill-item.ico_Kotlin .form-check-label:before { background: url(../images/skill/ico_Kotlin.png) no-repeat center; background-size: cover; } 
-/* ico_Mybatis */ .skill-item.ico_Mybatis .form-check-label:before { background: url(../images/skill/ico_Mybatis.png) no-repeat center; background-size: cover; } 
-/* ico_MySQL */ .skill-item.ico_MySQL .form-check-label:before { background: url(../images/skill/ico_MySQL.png) no-repeat center; background-size: cover; } 
-/* ico_Nextjs */ .skill-item.ico_Nextjs .form-check-label:before { background: url(../images/skill/ico_Nextjs.png) no-repeat center; background-size: cover; } 
-/* ico_Nodejs */ .skill-item.ico_Nodejs .form-check-label:before { background: url(../images/skill/ico_Nodejs.png) no-repeat center; background-size: cover; } 
-/* ico_Notepad */ .skill-item.ico_Notepad .form-check-label:before { background: url(../images/skill/ico_Notepad.png) no-repeat center; background-size: cover; } 
-/* ico_Oracle */ .skill-item.ico_Oracle .form-check-label:before { background: url(../images/skill/ico_Oracle.png) no-repeat center; background-size: cover; } 
-/* ico_oven_01 */ .skill-item.ico_oven_01 .form-check-label:before { background: url(../images/skill/ico_oven_01.png) no-repeat center; background-size: cover; } 
-/* ico_PHP */ .skill-item.ico_PHP .form-check-label:before { background: url(../images/skill/ico_PHP.png) no-repeat center; background-size: cover; } 
-/* ico_powerMockup */ .skill-item.ico_powerMockup .form-check-label:before { background: url(../images/skill/ico_powerMockup.png) no-repeat center; background-size: cover; } 
-/* ico_protoNow */ .skill-item.ico_protoNow .form-check-label:before { background: url(../images/skill/ico_protoNow.png) no-repeat center; background-size: cover; } 
-/* ico_PyCharm */ .skill-item.ico_PyCharm .form-check-label:before { background: url(../images/skill/ico_PyCharm.png) no-repeat center; background-size: cover; } 
-/* ico_python */ .skill-item.ico_python .form-check-label:before { background: url(../images/skill/ico_python.png) no-repeat center; background-size: cover; } 
-/* ico_R */ .skill-item.ico_R .form-check-label:before { background: url(../images/skill/ico_R.png) no-repeat center; background-size: cover; } 
-/* ico_React */ .skill-item.ico_React .form-check-label:before { background: url(../images/skill/ico_React.png) no-repeat center; background-size: cover; } 
-/* ico_ruby */ .skill-item.ico_ruby .form-check-label:before { background: url(../images/skill/ico_ruby.png) no-repeat center; background-size: cover; } 
-/* ico_Rust */ .skill-item.ico_Rust .form-check-label:before { background: url(../images/skill/ico_Rust.png) no-repeat center; background-size: cover; } 
-/* ico_scala */ .skill-item.ico_scala .form-check-label:before { background: url(../images/skill/ico_scala.png) no-repeat center; background-size: cover; } 
-/* ico_Sketch */ .skill-item.ico_Sketch .form-check-label:before { background: url(../images/skill/ico_Sketch.png) no-repeat center; background-size: cover; } 
-/* ico_Spring Boot */ .skill-item.ico_Spring_Boot .form-check-label:before { background: url(../images/skill/ico_Spring_Boot.png) no-repeat center; background-size: cover; } 
-/* ico_Spring */ .skill-item.ico_Spring .form-check-label:before { background: url(../images/skill/ico_Spring.png) no-repeat center; background-size: cover; } 
-/* ico_Svelte */ .skill-item.ico_Svelte .form-check-label:before { background: url(../images/skill/ico_Svelte.png) no-repeat center; background-size: cover; } 
-/* ico_TypeScript */ .skill-item.ico_TypeScript .form-check-label:before { background: url(../images/skill/ico_TypeScript.png) no-repeat center; background-size: cover; } 
-/* ico_unity */ .skill-item.ico_unity .form-check-label:before { background: url(../images/skill/ico_unity.png) no-repeat center; background-size: cover; } 
-/* ico_Vim */ .skill-item.ico_Vim .form-check-label:before { background: url(../images/skill/ico_Vim.png) no-repeat center; background-size: cover; } 
-/* ico_Visual_Studio */ .skill-item.ico_Visual_Studio .form-check-label:before { background: url(../images/skill/ico_Visual_Studio.png) no-repeat center; background-size: cover; } 
-/* ico_Visual_Studio_Code */ .skill-item.ico_Visual_Studio_Code .form-check-label:before { background: url(../images/skill/ico_Visual_Studio_Code.png) no-repeat center; background-size: cover; } 
-/* ico_Vue */ .skill-item.ico_Vue .form-check-label:before { background: url(../images/skill/ico_Vue.png) no-repeat center; background-size: cover; } 
-/* ico_Xcode */ .skill-item.ico_Xcode .form-check-label:before { background: url(../images/skill/ico_Xcode.png) no-repeat center; background-size: cover; } 
+/* ico_zeplin */ 
+.skill-item.ico_zeplin .form-check-label:before
+, .badge-language.ico_zeplin:before { background: url(../images/skill/ico_zeplin.png) no-repeat center; background-size: cover; } 
+/* ico_Adobe_XD */ 
+.skill-item.ico_Adobe_XD .form-check-label:before
+, .badge-language.ico_Adobe_XD:before { background: url(../images/skill/ico_Adobe_XD.png) no-repeat center; background-size: cover; } 
+/* ico_Android_Studio */ 
+.skill-item.ico_Android_Studio .form-check-label:before
+, .badge-language.ico_Android_Studio:before { background: url(../images/skill/ico_Android_Studio.png) no-repeat center; background-size: cover; } 
+/* ico_Axure RP */ 
+.skill-item.ico_Axure_RP .form-check-label:before
+, .badge-language.ico_Axure_RP:before { background: url(../images/skill/ico_Axure_RP.png) no-repeat center; background-size: cover; } 
+/* ico_C_sharp(C#) */ 
+.skill-item.ico_C_sharp .form-check-label:before
+, .badge-language.ico_C_sharp:before { background: url(../images/skill/ico_C_sharp.png) no-repeat center; background-size: cover; } 
+/* ico_C_plus(C++) */ 
+.skill-item.ico_C_plus .form-check-label:before
+, .badge-language.ico_C_plus:before { background: url(../images/skill/ico_C_plus.png) no-repeat center; background-size: cover; } 
+/* ico_css_01 */ 
+.skill-item.ico_css_01 .form-check-label:before
+, .badge-language.ico_css_01:before { background: url(../images/skill/ico_css_01.png) no-repeat center; background-size: cover; } 
+/* ico_Eclipse */ 
+.skill-item.ico_Eclipse .form-check-label:before
+, .badge-language.ico_Eclipse:before { background: url(../images/skill/ico_Eclipse.png) no-repeat center; background-size: cover; } 
+/* ico_Figma */ 
+.skill-item.ico_Figma .form-check-label:before
+, .badge-language.ico_Figma:before { background: url(../images/skill/ico_Figma.png) no-repeat center; background-size: cover; } 
+/* ico_html5_01 */ 
+.skill-item.ico_html5_01 .form-check-label:before
+, .badge-language.ico_html5_01:before { background: url(../images/skill/ico_html5_01.png) no-repeat center; background-size: cover; } 
+/* ico_IntelliJ */ 
+.skill-item.ico_IntelliJ .form-check-label:before
+, .badge-language.ico_IntelliJ:before { background: url(../images/skill/ico_IntelliJ.png) no-repeat center; background-size: cover; } 
+/* ico_Java_01 */ 
+.skill-item.ico_Java_01 .form-check-label:before
+, .badge-language.ico_Java_01:before { background: url(../images/skill/ico_Java_01.png) no-repeat center; background-size: cover; } 
+/* ico_Javascript_01 */ 
+.skill-item.ico_Javascript_01 .form-check-label:before
+, .badge-language.ico_Javascript_01:before { background: url(../images/skill/ico_Javascript_01.png) no-repeat center; background-size: cover; } 
+/* ico_Jquery */ 
+.skill-item.ico_Jquery .form-check-label:before
+, .badge-language.ico_Jquery:before { background: url(../images/skill/ico_Jquery.png) no-repeat center; background-size: cover; } 
+/* ico_jsp */ 
+.skill-item.ico_jsp .form-check-label:before
+, .badge-language.ico_jsp:before { background: url(../images/skill/ico_jsp.png) no-repeat center; background-size: cover; } 
+/* ico_Kotlin */ 
+.skill-item.ico_Kotlin .form-check-label:before
+, .badge-language.ico_Kotlin:before { background: url(../images/skill/ico_Kotlin.png) no-repeat center; background-size: cover; } 
+/* ico_Mybatis */ 
+.skill-item.ico_Mybatis .form-check-label:before
+, .badge-language.ico_Mybatis:before { background: url(../images/skill/ico_Mybatis.png) no-repeat center; background-size: cover; } 
+/* ico_MySQL */ 
+.skill-item.ico_MySQL .form-check-label:before
+, .badge-language.ico_MySQL:before { background: url(../images/skill/ico_MySQL.png) no-repeat center; background-size: cover; } 
+/* ico_Nextjs */ 
+.skill-item.ico_Nextjs .form-check-label:before
+, .badge-language.ico_Nextjs:before { background: url(../images/skill/ico_Nextjs.png) no-repeat center; background-size: cover; } 
+/* ico_Nodejs */ 
+.skill-item.ico_Nodejs .form-check-label:before
+, .badge-language.ico_Nodejs:before { background: url(../images/skill/ico_Nodejs.png) no-repeat center; background-size: cover; } 
+/* ico_Notepad */ 
+.skill-item.ico_Notepad .form-check-label:before
+, .badge-language.ico_Notepad:before { background: url(../images/skill/ico_Notepad.png) no-repeat center; background-size: cover; } 
+/* ico_Oracle */ 
+.skill-item.ico_Oracle .form-check-label:before
+, .badge-language.ico_Oracle:before { background: url(../images/skill/ico_Oracle.png) no-repeat center; background-size: cover; } 
+/* ico_oven_01 */ 
+.skill-item.ico_oven_01 .form-check-label:before
+, .badge-language.ico_oven_01:before { background: url(../images/skill/ico_oven_01.png) no-repeat center; background-size: cover; } 
+/* ico_PHP */ 
+.skill-item.ico_PHP .form-check-label:before
+, .badge-language.ico_PHP:before { background: url(../images/skill/ico_PHP.png) no-repeat center; background-size: cover; } 
+/* ico_powerMockup */ 
+.skill-item.ico_powerMockup .form-check-label:before
+, .badge-language.ico_powerMockup:before { background: url(../images/skill/ico_powerMockup.png) no-repeat center; background-size: cover; } 
+/* ico_protoNow */ 
+.skill-item.ico_protoNow .form-check-label:before
+, .badge-language.ico_protoNow:before { background: url(../images/skill/ico_protoNow.png) no-repeat center; background-size: cover; } 
+/* ico_PyCharm */ 
+.skill-item.ico_PyCharm .form-check-label:before
+, .badge-language.ico_PyCharm:before { background: url(../images/skill/ico_PyCharm.png) no-repeat center; background-size: cover; } 
+/* ico_python */ 
+.skill-item.ico_python .form-check-label:before
+, .badge-language.ico_python:before { background: url(../images/skill/ico_python.png) no-repeat center; background-size: cover; } 
+/* ico_R */ 
+.skill-item.ico_R .form-check-label:before
+, .badge-language.ico_R:before { background: url(../images/skill/ico_R.png) no-repeat center; background-size: cover; } 
+/* ico_React */ 
+.skill-item.ico_React .form-check-label:before
+, .badge-language.ico_React:before { background: url(../images/skill/ico_React.png) no-repeat center; background-size: cover; } 
+/* ico_ruby */ 
+.skill-item.ico_ruby .form-check-label:before
+, .badge-language.ico_ruby:before { background: url(../images/skill/ico_ruby.png) no-repeat center; background-size: cover; } 
+/* ico_Rust */ 
+.skill-item.ico_Rust .form-check-label:before
+, .badge-language.ico_Rust:before { background: url(../images/skill/ico_Rust.png) no-repeat center; background-size: cover; } 
+/* ico_scala */ 
+.skill-item.ico_scala .form-check-label:before
+, .badge-language.ico_scala:before { background: url(../images/skill/ico_scala.png) no-repeat center; background-size: cover; } 
+/* ico_Sketch */ 
+.skill-item.ico_Sketch .form-check-label:before
+, .badge-language.ico_Sketch:before { background: url(../images/skill/ico_Sketch.png) no-repeat center; background-size: cover; } 
+/* ico_Spring Boot */ 
+.skill-item.ico_Spring_Boot .form-check-label:before
+, .badge-language.ico_Spring_Boot:before { background: url(../images/skill/ico_Spring_Boot.png) no-repeat center; background-size: cover; } 
+/* ico_Spring */ 
+.skill-item.ico_Spring .form-check-label:before
+, .badge-language.ico_Spring:before { background: url(../images/skill/ico_Spring.png) no-repeat center; background-size: cover; } 
+/* ico_Svelte */ 
+.skill-item.ico_Svelte .form-check-label:before
+, .badge-language.ico_Svelte:before { background: url(../images/skill/ico_Svelte.png) no-repeat center; background-size: cover; } 
+/* ico_TypeScript */ 
+.skill-item.ico_TypeScript .form-check-label:before
+, .badge-language.ico_TypeScript:before { background: url(../images/skill/ico_TypeScript.png) no-repeat center; background-size: cover; } 
+/* ico_unity */ 
+.skill-item.ico_unity .form-check-label:before
+, .badge-language.ico_unity:before { background: url(../images/skill/ico_unity.png) no-repeat center; background-size: cover; } 
+/* ico_Vim */ 
+.skill-item.ico_Vim .form-check-label:before
+, .badge-language.ico_Vim:before { background: url(../images/skill/ico_Vim.png) no-repeat center; background-size: cover; } 
+/* ico_Visual_Studio */ 
+.skill-item.ico_Visual_Studio .form-check-label:before
+, .badge-language.ico_Visual_Studio:before { background: url(../images/skill/ico_Visual_Studio.png) no-repeat center; background-size: cover; } 
+/* ico_Visual_Studio_Code */ 
+.skill-item.ico_Visual_Studio_Code .form-check-label:before
+, .badge-language.ico_Visual_Studio_Code:before { background: url(../images/skill/ico_Visual_Studio_Code.png) no-repeat center; background-size: cover; } 
+/* ico_Vue */ 
+.skill-item.ico_Vue .form-check-label:before
+, .badge-language.ico_Vue:before { background: url(../images/skill/ico_Vue.png) no-repeat center; background-size: cover; } 
+/* ico_Xcode */ 
+.skill-item.ico_Xcode .form-check-label:before
+, .badge-language.ico_Xcode:before { background: url(../images/skill/ico_Xcode.png) no-repeat center; background-size: cover; } 
 
 
 
@@ -277,8 +369,7 @@ b. 이미지명 ++,# 인식X -> plus, sharp
 .card-list .card .card-tit { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; word-wrap: break-word; word-break: keep-all; overflow: hidden; } 
 .complete-list .card-list .card .card-tit { -webkit-line-clamp: 1; } 
 .complete-list .card .card-bottom .card-text { margin-bottom: 0 !important; } 
-.language-box { display: flex; column-gap: 0.25rem; } 
-.language-box .badge-language { display: block; width: 20px; height:20px; border-radius: 50%; background-color: gray; } 
+
 /* 찜하기 */
 .form-check.zzim { line-height: 16px; position: absolute; top: 0px; right:0px; display: inline-block; padding: 1.5rem; z-index:1; } 
 .form-check.zzim .form-check-input { background-color: transparent; border:transparent; position: absolute; right: 1.5rem; } 
