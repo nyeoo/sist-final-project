@@ -123,7 +123,7 @@ String cp = request.getContextPath();
 												</div>
 											</td>
 											<td>${groupSetupItem.jobName }</td>
-											<td>${groupSetupItem.jobName }</td>
+											<td>${groupSetupItem.repSuccess } / ${groupSetupItem.repGrant }</td>
 											<td><span class="badge bg-label-primary me-1">${groupSetupItem.leaPcCode }</span>
 										</tr>
 										</c:forEach>
