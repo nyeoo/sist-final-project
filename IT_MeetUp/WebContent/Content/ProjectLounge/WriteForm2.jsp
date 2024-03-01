@@ -4,13 +4,7 @@
 	request.setCharacterEncoding("UTF-8");
 	String cp = request.getContextPath();
 %>
-<%
-	// 이전 페이지로부터 넘어온 데이터 
-	String title = request.getParameter("title");
-	String content = request.getParameter("content");
-	String startDate = request.getParameter("startDate-from");
-	String endDate = request.getParameter("endDate-to");
-%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,28 +17,9 @@
   <meta name="keywords" content="IT 프로젝트 모집, 사이드 프로젝트 진행">
   <title>모집공고 작성(일정 세부) </title>
 <!-- css -->
-	<link rel="stylesheet" href="../../asset/css/style.css">
+	<link rel="stylesheet" href="<%=cp %>/asset/css/style.css">
 <!-- 컴포넌트 전용 css -->
-	<link rel="stylesheet" href="../../asset/css/component.css">
-<!-- script -->
-	<script src="../../asset/js/jquery-3.5.1-min.js"></script>
-	<script src="../../asset/js/jquery-ui.js"></script>
-	<script src="../../asset/js/bootstrap.bundle.min.js"></script>
-	<script src="../../asset/js/common.js"></script>
-	<script type="text/javascript">
-  	$(function ()
-  	{
-  	   	//alert("hmm");
-  	
-	   
-	  	 $("#date_to_4").datepicker( "option", "disabled", true );
-	  	 $("#date_from_1").datepicker( "option", "disabled", true );
-  	 
-  	
-  	
-  	
-	});
-    </script>
+	<link rel="stylesheet" href="<%=cp %>/asset/css/component.css">
 </head>
 <body>
 
@@ -110,7 +85,7 @@
 								    <div class="row range-datepicker">
 								        <div class="col-6 m-input-cal">
 								            <label for="date_from_1" class="form-label">분석 시작 예정일</label> 
-								            <input type="text" class="form-control date-from" id="date_from_1" name="date_from_1" readonly="readonly"  value="<%=startDate%>"> 
+								            <input type="text" class="form-control date-from" id="date_from_1" name="date_from_1" readonly="readonly"  value=""> 
 								        </div>
 								        <div class="col-6 m-input-cal">
 								            <label for="date_to_1" class="form-label">분석 종료 예정일</label> 
@@ -150,7 +125,7 @@
 											</div>
 											<div class="col-6 m-input-cal">
 												<label for="date-to" class="form-label">테스트 종료 예정일</label> 
-												<input type="text" class="form-control date-to" id="date_to_4" name="date_to_4" value="<%=endDate%>" readonly="readonly">
+												<input type="text" class="form-control date-to" id="date_to_4" name="date_to_4" value="" readonly="readonly">
 											</div>
 										</div>
                                 </div>
@@ -261,5 +236,24 @@
 		<c:import url="../Components/Footer.jsp"></c:import>
 	<!-- //푸터영역 -->
 </div> <!-- .wrapper End -->
+<!-- script -->
+	<script src="../../asset/js/jquery-3.5.1-min.js"></script>
+	<script src="../../asset/js/jquery-ui.js"></script>
+	<script src="../../asset/js/bootstrap.bundle.min.js"></script>
+	<script src="../../asset/js/common.js"></script>
+	<script type="text/javascript">
+  	$(function ()
+  	{
+  	   	//alert("hmm");
+  	
+	   
+	  	 $("#date_to_4").datepicker( "option", "disabled", true );
+	  	 $("#date_from_1").datepicker( "option", "disabled", true );
+  	 
+  	
+  	
+  	
+	});
+    </script>
 </body>
 </html>

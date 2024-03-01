@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+
+<mapper namespace="com.itmeetup.mybatis.IOpenProjectDAO">
+			       
+	<!-- 프로젝트 정보 출력 -->
+	<select id="openList" resultType="com.itmeetup.mybatis.OpenProjectDTO" >
+	
+		SELECT "CODE", "CATEGORY", "TITLE", "MOJIBSU", "CONTENT"
+        	  ,"VIEW", "START", "END" ,"TEAMNAME", "SIDO"
+       		  ,"SIGG", "NICKNAME", "CAREER", "REGDATE" ,"DAY"
+		FROM PROJECT_INFO
+		
+	</select>
+	
+	<!-- 카테고리 정보 출력 -->
+	<select id="cateList" resultType="java.lang.String" >
+			SELECT CAT_NAME AS"CATEGORY"
+			FROM CATEGORY
+	</select>
+	
+	<!-- 시 도 정보 출력 -->
+	<select id="sidoList" resultType="java.lang.String" >
+			SELECT SIDO_NAME AS "SIDO"
+			FROM SIDO
+	</select>
+	
+	<!-- 군 구 정보 출력 -->
+	<select id="siggList" resultType="java.lang.String" >
+			SELECT SIGG_NAME AS "SIGG"
+			FROM SIGG
+	</select>
+	
+	<!-- 경력 정보 출력 -->
+	<select id="carList" resultType="java.lang.String" >
+			SELECT CAR_NAME AS "CAREER"
+			FROM CAREER
+	</select>
+	
+	<!-- 사용자가 클릭한 프로젝트 정보 출력 -->
+	<select id="choiceProList" resultType="com.itmeetup.mybatis.OpenProjectDTO" >
+			SELECT "CODE", "CATEGORY", "TITLE", "MOJIBSU", "CONTENT"
+       		,"VIEW", "START", "END" ,"TEAMNAME", "SIDO"
+       		,"SIGG", "NICKNAME", "MEET","CAREER", "REGDATE" ,"DAY"
+			FROM PROJECT_INFO
+			WHERE CODE = #{code}
+	</select>
+	
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+

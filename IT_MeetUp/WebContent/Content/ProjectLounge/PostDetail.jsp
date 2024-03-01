@@ -18,7 +18,7 @@
     <meta name="keywords" content="IT 프로젝트 모집, 사이드 프로젝트 진행">
 
     <!-- css -->
-    <link rel="stylesheet" href="../../asset/css/style.css">
+    <link rel="stylesheet" href="<%=cp %>/asset/css/style.css">
 	<style type="text/css">
 	.comment {
       margin-bottom: 20px;
@@ -55,7 +55,9 @@
                     <div class="col-12 col-sm-8 col-lg-9 write-content">
                     	<div class="container">
                     	<p class="h3">모집공고 상세보기</p>
-								<h1>어쩌구저쩌구 프로젝트</h1>
+								<!-- <h1>어쩌구저쩌구 프로젝트</h1> -->
+								<h1>${choicProList.title}</h1> 
+												   
 								<div style="text-align: right;"> <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal01" >  <i class="bi bi-emoji-angry"></i>  </button></div>	
 								<hr>
 
@@ -63,13 +65,13 @@
 									<div class="col-md-6">
 										<div class="project-details">
 											<p>
-												<strong>번호:</strong> 프로젝트 번호 입력
+												<strong>번호:</strong> ${choicProList.code}
 											</p>
 											<p>
-												<strong>모임 방식:</strong> 온/오프라인
+												<strong>모임 방식:</strong> ${choicProList.meet}
 											</p>
 											<p>
-												<strong>인원:</strong> 5명
+												<strong>인원:</strong> ${choicProList.mojibsu} 명
 											</p>
 											<p>
 												<strong>모집 분야:</strong> 웹 개발, 프론트, 백, 디자인
@@ -83,13 +85,13 @@
 													class="tag">CSS</span> <span class="tag">JavaScript</span>
 											</p>
 											<p>
-												<strong>시작일:</strong> 2024년 03월 01일
+												<strong>시작일:</strong> ${choicProList.start}
 											</p>
 											<p>
-												<strong>종료일:</strong> 2024년 06월 30일
+												<strong>종료일:</strong> ${choicProList.end}
 											</p>
 											<p>
-												<strong>예상 기간:</strong> 4개월
+												<strong>예상 기간:</strong> hmm  
 											</p>
 										</div>
 									</div>
@@ -467,10 +469,10 @@
     </div>
 
     <!-- script -->
-    <script src="../../asset/js/jquery-3.5.1-min.js"></script>
-  <script src="../../asset/js/jquery-ui.js"></script>
-    <script src="../../asset/js/bootstrap.bundle.min.js"></script>
-    <script src="../../asset/js/common.js"></script>
+    <script src="<%=cp %>/asset/js/jquery-3.5.1-min.js"></script>
+  <script src="<%=cp %>/asset/js/jquery-ui.js"></script>
+    <script src="<%=cp %>/asset/js/bootstrap.bundle.min.js"></script>
+    <script src="<%=cp %>/asset/js/common.js"></script>
     <script>
     $(function()
 	{

@@ -32,9 +32,8 @@ String cp = request.getContextPath();
 			<!-- (mob) 사이드 메뉴 & (pc) 대메뉴 -->
 			<div class="offcanvas-body">
 				<ul class="navbar-nav me-auto mb-lg-0 m-head-gnb">
-					<li class="nav-item"><a class="nav-link" aria-current="page"
-						href="#">홈</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">모집공고작성</a></li>
+					<li class="nav-item"><a class="nav-link" aria-current="page" href="#">홈</a></li>
+					<li class="nav-item"><a class="nav-link" href="WriteFormControl.action">모집공고작성</a></li>
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle" href="#"
 						data-bs-toggle="dropdown" aria-expanded="false">프로젝트 라운지</a>

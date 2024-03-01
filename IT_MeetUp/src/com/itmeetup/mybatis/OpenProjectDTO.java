@@ -5,8 +5,9 @@ import java.util.ArrayList;
 public class OpenProjectDTO
 {
 	// 주요 속성 구성
-	private String code, start, end, profile, nickname, title, content, sigg, meet, teamName;
-	private int view, day;
+	private String code, start, end, profile, nickname, title, content, sigg, sido ,meet, teamName ,category ;   //,categorys;
+																								    
+	private int view, day ,mojibsu;
 	private ArrayList<String> skill;
 	//private ArrayList<JobDTO> jobList;
 	
@@ -117,5 +118,40 @@ public class OpenProjectDTO
 		this.teamName = teamName;
 	}
 	
-	
+	public String getCategory()
+	{
+		return category;
+	}
+	public void setCategory(String category)
+	{
+		this.category = category;
+	}
+	public String getSido()
+	{
+		return sido;
+	}
+	public void setSido(String sido)
+	{
+		this.sido = sido;
+	}
+	public int getMojibsu()
+	{
+		return mojibsu;
+	}
+	public void setMojibsu(int mojibsu)
+	{
+		this.mojibsu = mojibsu;
+	}
+
+	/*
+	// 현재 진행중인 프로젝트 리스트에 필요한 카테고리
+	public String getCategorys()
+	{
+		return categorys;
+	}
+	public void setCategorys(String categorys)
+	{
+		this.categorys = categorys;
+	}
+	*/
 }

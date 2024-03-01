@@ -102,10 +102,12 @@
                                         <div class="col-6 m-select">
                                          <select class="form-select" aria-label="Default select example" id="categori" name="categori"  title="selectTitle01" required="required" style="width: 250px; " >
                                                 <option selected="selected">카테고리를 고르세요</option>
-                                                <option value="1">교육</option>
-                                                <option value="2">의료</option>
-                                                <option value="3">모집</option>
-                                                <option value="4">기타</option>
+                                                <c:forEach var ="categorys" items="${cateList }" varStatus="status"  >
+										 
+													<option value= "CAT_${status.index +1}" >${categorys }</option>
+										
+												</c:forEach>
+                                                
                                         </select>
                                         </div>
                                 	</div>
@@ -144,11 +146,11 @@
                                     <p class="h5">모임방식</p>
                                     <div class="row">
 											<div class="btn-group" role="group" aria-label="Basic radio toggle button group" style="border-radius: 500px;">
-													<input type="radio" class="btn-check meet" name="btnradio" id="online"  value="1" autocomplete="off" required="required">
+													<input type="radio" class="btn-check meet" name="btnradio" id="online"  value="MEET_1" autocomplete="off" required="required">
 												<label class="btn btn-light" for="online">온라인</label> 
-													<input type="radio" class="btn-check meet" name="btnradio" id="offline" value="2" autocomplete="off">
+													<input type="radio" class="btn-check meet" name="btnradio" id="offline" value="MEET_2" autocomplete="off">
 												<label class="btn btn-light" for="offline">오프라인</label> 
-													<input type="radio" class="btn-check meet" name="btnradio" id="allline" value="3" autocomplete="off"> 
+													<input type="radio" class="btn-check meet" name="btnradio" id="allline" value="MEET_3" autocomplete="off"> 
 												<label class="btn btn-light" for="allline">온 / 오프라인</label>
 											</div>
 										</div>
@@ -162,20 +164,31 @@
                                         <div class="col-6 m-select">
                                             <select class="form-select " aria-label="Default select example" id="si" name="si"  title="selectTitle01" required="required">
                                                 <option value="0" selected="selected">지역을 고르세요</option>
+                                                <c:forEach var ="sidoList" items="${sidoList }" varStatus="status"  >
+													<option value="SIDO_${status.index +1}">${sidoList }</option>
+												</c:forEach>
+                                                
+                                                <!-- 
                                                 <option value="1">서울특별시</option>
                                                 <option value="2">인천광역시</option>
                                                 <option value="3">대구광역시</option>
                                                 <option value="4">부산광역시</option>
+                                                 -->
                                             </select>
                                         </div>
                                         <div class="col-6 m-select">
                                             <select class="form-select" aria-label="Default select example" id="do" name="do" title="selectTitle01" disabled="disabled" required="required">
                                                 <option value="0" selected>큰 지역 먼저 골라주세요</option>
+                                                <c:forEach var ="siggList" items="${siggList }" varStatus="status"  >
+													<option value="SIGG_${status.index +1}">${siggList }</option>
+												</c:forEach>
+												<!-- 
                                                 <option value="1">수원시</option>
                                                 <option value="2">화성시</option>
                                                 <option value="4">용인시</option>
                                                 <option value="4">부천시</option>
                                                 <option value="5">하남시</option>
+                                                 -->
                                             </select>
                                         </div>
                                     </div>
@@ -215,19 +228,52 @@
 	<script type="text/javascript">
   	$(function()
   	{
-		$("#startDate-from").datepicker( "option", "showAnim", "clip" );   //데이트 픽커 
-		$("#endDate-to").datepicker( "option", "showAnim", "slide" );   //데이트 픽커
+		$("#startDate-from").datepicker( "option", "showAnim", "clip" );   // 데이트 픽커
 		
-  		
+		$("#endDate-to").datepicker( "option", "showAnim", "slide" );      // 데이트 픽커
+		
+		var start_val = null;
+		var end_val   = null;
+		
+ 		$("#startDate-from").on("input change",function()
+ 		{
+ 			start_val = $(this).val();
+ 			
+ 			//alert(val);
+ 		});
+ 		
+ 		
+ 		$("#endDate-to").on("input change",function()
+ 		{
+ 			if(start_val == null || start_val == " " )
+ 			{
+ 				alert("시작 예정일 먼저 입력해주세요");
+ 				
+ 				return;
+ 			}
+ 			
+ 			
+ 			end_val =	$(this).val();
+ 			
+ 			if(end_val <= start_val+"1m")
+ 			{
+ 				alert("시작예정일 기준 한달 후 부터 선택 가능합니다.");
+ 			}
+ 			
+ 		});    
+		
+		
   		$(".meet").change(function()
 		{
-  			var meetType = $('input[name=btnradio]:checked').val();		// 선호방식 담는 변수
+  			//alert(startDate);
+  			
+  			var meetType = $("input[name=btnradio]:checked").val();			// 선호방식 담는 변수
 			  				
-			if (meetType != 1)											// 선호방식이 온라인이 아니면 시군구 입력 폼 등장
+			if (meetType != 1)												// 선호방식이 온라인이 아니면 시군구 입력 폼 등장
 			{
 				$(".meetType").css('display','inline');  
 			} 
-			else														// 선호방식이 온라인이라면 선호지역 입력 폼 숨기기
+			else															// 선호방식이 온라인이라면 선호지역 입력 폼 숨기기
 			{
 				$(".meetType").css('display','none');
 				$("#si").val("0").prop("selected", true);
@@ -242,7 +288,23 @@
 		$("#si").change(function()
 		{        
 			$("#do").attr("disabled", false);
-			               
+			
+		     /* var si = $("#si").val();
+			 var doSelect = $("#do");
+			 var siggList = $("#siggList").val().split(",");
+			  doSelect.empty(); // 기존 구/군 목록 초기화
+			  
+			  if (si !== "0") { // 시/도를 선택했을 경우
+			    doSelect.prop('disabled', false); // 구/군 선택 가능하도록 활성화
+			    $.each(siggList, function(index, value) {
+			      doSelect.append("<option value='" + value + "'>" + value + "</option>");
+			    });
+			  } else {
+			    doSelect.prop('disabled', true); // 구/군 선택 불가능하도록 비활성화
+			    doSelect.append("<option value='0'>큰 지역 먼저 골라주세요</option>");
+			  }  */
+		    
+		         
 		});
 	});
   </script>
