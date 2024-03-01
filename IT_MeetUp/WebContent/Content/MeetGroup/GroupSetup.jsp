@@ -10,7 +10,7 @@ String cp = request.getContextPath();
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GroupHome</title>
+<title>GroupSetup</title>
 <meta name="description" content="IT 프로젝트 모집·진행 웹 어플리케이션">
 <meta name="subject" content="IT 프로젝트 모집·진행 웹 어플리케이션">
 <meta name="title" content="IT MeetUp">
@@ -48,17 +48,20 @@ String cp = request.getContextPath();
 					<div class="row">
 						<div class="card tbl-card">
 
+							<c:forEach var="groupTeamNameItem" items="${groupTeamName }">
+								<div class="h3">
+									${groupTeamNameItem.teamName }
+									<button type="button" id="teamnameUpdateButton"
+										class="btn btn-primary" data-bs-toggle="modal"
+										data-bs-target="#teamnameUpdate">
+										<i class="bi bi-plus-lg"></i> 팀명 수정
+									</button>
+								</div>
+							</c:forEach>
 
-							<div class="h3">
-								meet조
-								<button type="button" class="btn btn-primary"
-									data-bs-toggle="modal" data-bs-target="#teamnameUpdate">
-									<i class="bi bi-plus-lg"></i> 팀명 수정
-								</button>
-							</div>
 
 							<div class="modal fade" id="teamnameUpdate" tabindex="-1"
-								aria-labelledby="completeListLabel" aria-hidden="true">
+								aria-labelledby="#completeListLabel" aria-hidden="true">
 								<div class="modal-dialog modal-dialog-centered">
 									<div class="modal-content">
 										<div class="modal-header">
@@ -75,8 +78,8 @@ String cp = request.getContextPath();
 														<div class="col-md-8">
 															<div class="mb-3">
 																<label for="teamName" class="form-label">팀명</label> <input
-																	type="text" class="form-control" id="teamName"
-																	name="teamName" value="meet조">
+																	type="text" class="form-control" id="teamnameModify"
+																	name="teamName" value="${groupTeamNameItem.teamName }">
 															</div>
 														</div>
 													</div>
@@ -92,6 +95,7 @@ String cp = request.getContextPath();
 								</div>
 							</div>
 
+
 							<div class="table-responsive text-nowrap">
 								<table class="table">
 									<thead>
@@ -104,81 +108,30 @@ String cp = request.getContextPath();
 										</tr>
 									</thead>
 									<tbody style="text-align: center;">
-										
+
 										<c:forEach var="groupSetupItem" items="${groupSetupList }">
-										<tr>
-											<td><i class="fab fa-angular fa-lg text-danger me-3"></i>
-												<strong>${groupSetupItem.opCode }</strong></td>
-											<td>
-												<div class="user-info-container">
-													<ul
-														class="list-unstyled users-list m-0 avatar-group d-flex justify-content-center align-items-center">
-														<li data-bs-toggle="tooltip" data-popup="tooltip-custom"
-															data-bs-placement="top" class="avatar avatar-xs pull-up"
-															title=""><a href="../MyPage/NameCard.jsp"
-															role="button" class="layer_bottom"> <i
-																class="bi bi-person">${groupSetupItem.piNickName }</i>
-														</a></li>
-													</ul>
-												</div>
-											</td>
-											<td>${groupSetupItem.jobName }</td>
-											<td>${groupSetupItem.repSuccess } / ${groupSetupItem.repGrant }</td>
-											<td><span class="badge bg-label-primary me-1">${groupSetupItem.leaPcCode }</span>
-										</tr>
+											<tr>
+												<td><i class="fab fa-angular fa-lg text-danger me-3"></i>
+													<strong>${groupSetupItem.opCode }</strong></td>
+												<td>
+													<div class="user-info-container">
+														<ul
+															class="list-unstyled users-list m-0 avatar-group d-flex justify-content-center align-items-center">
+															<li data-bs-toggle="tooltip" data-popup="tooltip-custom"
+																data-bs-placement="top" class="avatar avatar-xs pull-up"
+																title=""><a href="../MyPage/NameCard.jsp"
+																role="button" class="layer_bottom"> <i
+																	class="bi bi-person">${groupSetupItem.piNickName }</i>
+															</a></li>
+														</ul>
+													</div>
+												</td>
+												<td>${groupSetupItem.jobName }</td>
+												<td>${groupSetupItem.repSuccess }/
+													${groupSetupItem.repGrant }</td>
+												<td><span class="badge bg-label-primary me-1">${groupSetupItem.leaPcCode }</span>
+											</tr>
 										</c:forEach>
-										
-									
-										<!-- <tr>
-											<td><i class="fab fa-react fa-lg text-info me-3"></i> <strong>2</strong></td>
-											<td>
-												<ul
-													class="list-unstyled users-list m-0 avatar-group d-flex justify-content-center align-items-center">
-													<li data-bs-toggle="tooltip" data-popup="tooltip-custom"
-														data-bs-placement="top" class="avatar avatar-xs pull-up"
-														title="" data-bs-original-title="Lilian Fuller"><i
-														class="bi bi-person">엄재용</i></li>
-												</ul>
-											</td>
-											<td>디자인</td>
-											<td>0/2</td>
-											<td><span class="badge bg-label-warning me-1">이탈자</span>
-											</td>
-										</tr>
-										<tr>
-											<td><i class="fab fa-vuejs fa-lg text-success me-3"></i>
-												<strong>3</strong></td>
-											<td>
-												<ul
-													class="list-unstyled users-list m-0 avatar-group d-flex justify-content-center align-items-center">
-													<li data-bs-toggle="tooltip" data-popup="tooltip-custom"
-														data-bs-placement="top" class="avatar avatar-xs pull-up"
-														title="" data-bs-original-title="Lilian Fuller"><i
-														class="bi bi-person">박나영</i></li>
-												</ul>
-											</td>
-											<td>프론트엔드</td>
-											<td>1/4</td>
-											<td><span class="badge bg-label-primary me-1">진행중</span>
-											</td>
-										</tr>
-										<tr>
-											<td><i class="fab fa-bootstrap fa-lg text-primary me-3"></i>
-												<strong>4</strong></td>
-											<td>
-												<ul
-													class="list-unstyled users-list m-0 avatar-group d-flex justify-content-center align-items-center">
-													<li data-bs-toggle="tooltip" data-popup="tooltip-custom"
-														data-bs-placement="top" class="avatar avatar-xs pull-up"
-														title="" data-bs-original-title="Lilian Fuller"><i
-														class="bi bi-person">문정환</i></li>
-												</ul>
-											</td>
-											<td>백엔드</td>
-											<td>2/3</td>
-											<td><span class="badge bg-label-warning me-1">이탈자</span>
-											</td>
-										</tr> -->
 									</tbody>
 								</table>
 							</div>
@@ -194,55 +147,53 @@ String cp = request.getContextPath();
 		<!-- //바디영역 -->
 
 		<!-- 푸터영역 -->
-		<!-- <c:import url="../Components/Footer.jsp" ></c:import> -->
+		<c:import url="../Components/Footer.jsp"></c:import>
 		<!-- //푸터영역 -->
 
 	</div>
 
 	<!-- script -->
-	<script src="../../asset/js/jquery-3.5.1-min.js"></script>
-	<script src="../../asset/js/jquery-ui.js"></script>
-	<script src="../../asset/js/bootstrap.bundle.min.js"></script>
-	<script src="../../asset/js/common.js"></script>
+	<script src="<%=cp%>/asset/js/jquery-3.5.1-min.js"></script>
+	<script src="<%=cp%>/asset/js/jquery-ui.js"></script>
+	<script src="<%=cp%>/asset/js/bootstrap.bundle.min.js"></script>
+	<script src="<%=cp%>/asset/js/common.js"></script>
 	<script type="text/javascript">
-		document.getElementById('writeNickNameButton').addEventListener(
-				'click',
-				function(event)
+		$(document).ready(function()
+		{
+			$('#teamnameUpdateButton').click(function()
+			{
+				$('#teamnameUpdate').modal('show');
+				$('#teamnameModify').focus();
+			});
+
+			$('#modifyTeamName').click(function()
+			{
+				var newTeamName = $('#teamnameModify').val(); // 수정된 팀명 가져오기
+				$.ajax(
 				{
-					var menu = document.getElementById('writeNickNameMenu');
-					if (menu.style.display === 'none'
-							|| menu.style.display === '')
+					url : 'groupteamnamemodify.action', // 컨트롤러에서 처리할 URL
+					type : 'POST',
+					data :
 					{
-						menu.style.display = 'block';
-						menu.style.left = event.target.offsetLeft
-								+ event.target.offsetWidth + 'px';
-					} else
+						teamName : newTeamName
+					}, // 수정된 팀명을 전송
+					success : function(response)
 					{
-						menu.style.display = 'none';
+						// 성공적으로 업데이트되면 모달 닫기 등의 작업 수행
+						$('#teamnameUpdate').modal('hide');
+						// 페이지 새로고침 또는 필요한 처리 수행
+						location.reload(); // 예시로 페이지 새로고침
+					},
+					error : function(xhr, status, error)
+					{
+						// 오류 처리
+						console.error(xhr.responseText);
 					}
 				});
-
-		document
-				.getElementById('thumbnailInput')
-				.addEventListener(
-						'change',
-						function(event)
-						{
-							var file = event.target.files[0];
-							var thumbnailPreview = document
-									.getElementById('thumbnailPreview');
-
-							if (file)
-							{
-								var reader = new FileReader();
-								reader.onload = function(e)
-								{
-									thumbnailPreview.innerHTML = '<img src="' + e.target.result + '">';
-								}
-								reader.readAsDataURL(file);
-							}
-						});
+			});
+		});
 	</script>
+
 </body>
 
 </html>

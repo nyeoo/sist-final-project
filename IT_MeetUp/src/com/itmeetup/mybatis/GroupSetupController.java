@@ -23,9 +23,35 @@ public class GroupSetupController
 			IGroupSetupDAO dao = sqlSession.getMapper(IGroupSetupDAO.class);
 			
 			model.addAttribute("groupSetupList", dao.groupSetupList());
+			model.addAttribute("groupTeamName", dao.groupTeamName());
 			
 			return "/Content/MeetGroup/GroupSetup.jsp";
-			//result = "/Content/MeetGroup/GroupSetup.jsp";
-			//return result;
 		}
+		
+		@RequestMapping(value = "/groupSetupUpdate.action")
+		public String GroupTeamNamesearchId(int code, ModelMap model)
+		{
+			//String result = null;
+			IGroupSetupDAO dao = sqlSession.getMapper(IGroupSetupDAO.class);
+			
+			OpenProjectDTO opdto = new OpenProjectDTO();
+			
+			opdto = dao.GroupTeamNamesearchId(code);
+			
+			model.addAttribute("opdto", opdto);
+			
+			return "/Content/MeetGroup/GroupSetupMod.jsp";
+		}
+		
+		
+		@RequestMapping(value = "/groupteamnamemodify.action")
+		public String GroupTeamNamemodify(OpenProjectDTO opdto)
+		{
+			IGroupSetupDAO dao = sqlSession.getMapper(IGroupSetupDAO.class);
+			
+			dao.GroupTeamNamemodify(opdto);
+			
+			return "redirect:groupsetup.action";
+		}
+		
 }

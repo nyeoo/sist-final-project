@@ -6,4 +6,10 @@ public interface IGroupSetupDAO
 {
 	// 그룹원 조회
 	public ArrayList<GroupDTO> groupSetupList();
+	
+	public  ArrayList<OpenProjectDTO> groupTeamName();
+	
+	public OpenProjectDTO GroupTeamNamesearchId(int code);
+	
+	public int GroupTeamNamemodify(OpenProjectDTO opdto); 
 }
