@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itmeetup.mybatis.IMemberDAO">
+
+<!-- MemberDAO.xml -->
+	
+	<!-- ========================================[ 로그인 ]======================================== -->
+	<!-- 일반회원 로그인 조회 쿼리문 -->
+	<select id="getMember" parameterType="map" resultType="com.itmeetup.mybatis.MemberDTO">
+		SELECT PI_MEM_CODE "PIMEMCODE", PI_ID "PIID", PI_PW "PIPW", PI_NICKNAME "PINICKNAME"
+		FROM PERSONAL_INFO
+		WHERE PI_ID=#{piId} AND PI_PW=#{piPw}
+	</select>
+
+	<!-- 관리자 로그인 조회 쿼리문 -->
+	<select id="getAdmin" parameterType="map" resultType="com.itmeetup.mybatis.MemberDTO">
+		SELECT AD_NO "PIMEMCODE", AD_ID "PIID", AD_PW "PIPW", AD_NICKNAME "PINICKNAME"
+		FROM ADMIN
+		WHERE AD_ID=#{piId} AND AD_PW=#{piPw}
+	</select>
+	
+	<!-- ========================================[ 회원가입 ]======================================== -->
+	<!-- <update id="" >
+		
+	</update> -->
+	
+</mapper>

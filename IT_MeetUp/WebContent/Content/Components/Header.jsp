@@ -32,8 +32,10 @@ String cp = request.getContextPath();
 			<!-- (mob) 사이드 메뉴 & (pc) 대메뉴 -->
 			<div class="offcanvas-body">
 				<ul class="navbar-nav me-auto mb-lg-0 m-head-gnb">
-					<li class="nav-item"><a class="nav-link" aria-current="page" href="#">홈</a></li>
-					<li class="nav-item"><a class="nav-link" href="WriteFormControl.action">모집공고작성</a></li>
+					<li class="nav-item"><a class="nav-link" aria-current="page"
+						href="#">홈</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="WriteFormControl.action">모집공고작성</a></li>
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle" href="#"
 						data-bs-toggle="dropdown" aria-expanded="false">프로젝트 라운지</a>
@@ -314,37 +316,49 @@ String cp = request.getContextPath();
 
 				<!-- 개인계정 -->
 				<div class="d-flex personal-box">
-					<!-- 개인계정 영역 -->
-					<div class="flex-shrink-0 dropdown m-avator">
-						<a href="#"
-							class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
-							data-bs-toggle="dropdown" aria-expanded="false"> <img
-							src="https://github.com/mdo.png" alt="mdo" width="32" height="32"
-							class="rounded-circle">
-						</a>
-						<ul class="dropdown-menu dropdown-menu-end text-small shadow">
-							<li class="dropdown-header">
-								<h6>닉네임</h6> <span>@아이디</span>
-							</li>
-							<li><a class="dropdown-item" href="MyInfo.jsp">마이페이지</a></li>
-							<li><a class="dropdown-item" href="ApplyManagement.jsp">모집/신청
-									관리</a></li>
-							<li><a class="dropdown-item" href="NameCard.jsp">네임카드</a></li>
-							<li>
-								<hr class="dropdown-divider">
-							</li>
-							<li><a class="dropdown-item" href="#">로그아웃</a></li>
-						</ul>
-					</div>
+					<c:choose>
+						<c:when test="${sessionScope.loginDTO.piMemCode!=null}">
+							<!-- 개인계정 영역 -->
+							<div class="flex-shrink-0 dropdown m-avator">
+								<a href="#"
+									class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
+									data-bs-toggle="dropdown" aria-expanded="false"> <span
+									class="member-icon-box <c:if test='${sessionScope.loginDTO.admin!=null}'> admin</c:if>">
+										<span class="member-img"> <!-- <img
+										src="../../asset/images/img_sample00.jpg" alt="userImage"> -->
+									</span>
 
-					<!-- 로그인, 회원가입 -->
-					<div class="d-flex m-login">
-						<button type="button" class="btn btn-outline-primary me-2">Login</button>
-						<button type="button" class="btn btn-primary">Sign-up</button>
-					</div>
-					<!-- //로그인, 회원가입 -->
 
-					<!-- //개인계정영역 -->
+								</span>
+								</a>
+								<ul class="dropdown-menu dropdown-menu-end text-small shadow">
+									<li class="dropdown-header">
+										<c:if test='${sessionScope.loginDTO.admin!=null}'> <span class="badge text-bg-primary">관리자</span></c:if>
+										<h6>${sessionScope.loginDTO.piNickname }</h6> <span>@${sessionScope.loginDTO.piPw }</span>
+									</li>
+									<li><a class="dropdown-item" href="MyInfo.jsp">마이페이지</a></li>
+									<li><a class="dropdown-item" href="ApplyManagement.jsp">모집/신청
+											관리</a></li>
+									<li><a class="dropdown-item" href="NameCard.jsp">네임카드</a></li>
+									<li>
+										<hr class="dropdown-divider">
+									</li>
+									<li><a class="dropdown-item" href="/IT_MeetUp/logout.action">로그아웃</a></li>
+								</ul>
+							</div>
+							<!-- //개인계정영역 -->
+						</c:when>
+						<c:otherwise>
+							<!-- 로그인, 회원가입 -->
+							<div class="d-flex m-login">
+								<button type="button" class="btn btn-outline-primary me-2"
+									onclick="location.href='/IT_MeetUp/loginform.action'">로그인</button>
+								<button type="button" class="btn btn-primary"
+									onclick="location.href='/IT_MeetUp/joinform.action'">회원가입</button>
+							</div>
+							<!-- //로그인, 회원가입 -->
+						</c:otherwise>
+					</c:choose>
 				</div>
 				<!-- //개인계정 -->
 			</div>
