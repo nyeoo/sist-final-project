@@ -144,7 +144,9 @@ String cp = request.getContextPath();
 																			</c:forEach>
 																	</select></td>
 																	<td class="indict_process">
-																		<button type="button" class="btn btn-secondary" onclick="popOpen(${teamOpenIdtItem.idtNo})">${teamOpenIdtItem.idtProcess }</button>
+																		<button type="button"
+																			class="btn btn-secondary btn-team-open"
+																			onclick="popOpen(${teamOpenIdtItem.idtNo})">${teamOpenIdtItem.idtProcess }</button>
 																	</td>
 																	<td class="indicter">${teamOpenIdtItem.indicted }</td>
 																	<td class="indict_date">${teamOpenIdtItem.idtProcessDate }</td>
@@ -200,7 +202,7 @@ String cp = request.getContextPath();
 															<c:forEach var="commentIdtItem"
 																items="${commentIdtList }">
 																<tr>
-																	<td class="num"><span class="tag_txt">${commentIdtItem.idtNo }</span></td>
+																	<td class="num"><span class="tag_txt">${commentIdtItem.idtNum }</span></td>
 																	<td class="reason"><a href="ProjectDetail.jsp">${commentIdtItem.idtReason }</a>
 																	</td>
 																	<td class="date">${commentIdtItem.idtDate }</td>
@@ -212,7 +214,9 @@ String cp = request.getContextPath();
 																			</c:forEach>
 																	</select></td>
 																	<td class="indict_process">
-																		<button type="button" class="btn btn-secondary">${commentIdtItem.idtProcess }</button>
+																		<button type="button"
+																			class="btn btn-secondary btn-comment"
+																			onclick="popOpen2(${commentIdtItem.idtNo})">${commentIdtItem.idtProcess }</button>
 																	</td>
 																	<td class="indicter">${commentIdtItem.indicted }</td>
 																	<td class="indict_date">${commentIdtItem.idtProcessDate }</td>
@@ -268,7 +272,7 @@ String cp = request.getContextPath();
 															<c:forEach var="recommentIdtItem"
 																items="${recommentIdtList }">
 																<tr>
-																	<td class="num"><span class="tag_txt">${recommentIdtItem.idtNo }</span></td>
+																	<td class="num"><span class="tag_txt">${recommentIdtItem.idtNum }</span></td>
 																	<td class="reason"><a href="ProjectDetail.jsp">${recommentIdtItem.idtReason }</a>
 																	</td>
 																	<td class="date">${recommentIdtItem.idtDate }</td>
@@ -280,7 +284,9 @@ String cp = request.getContextPath();
 																			</c:forEach>
 																	</select></td>
 																	<td class="indict_process">
-																		<button type="button" class="btn btn-secondary">${recommentIdtItem.idtProcess }</button>
+																		<button type="button"
+																			class="btn btn-secondary btn-recomment"
+																			onclick="popOpen3(${recommentIdtItem.idtNo})">${recommentIdtItem.idtProcess }</button>
 																	</td>
 																	<td class="indicter">${recommentIdtItem.indicted }</td>
 																	<td class="indict_date">${recommentIdtItem.idtProcessDate }</td>
@@ -361,7 +367,7 @@ String cp = request.getContextPath();
 															<c:forEach var="assignmentIdtItem"
 																items="${assignmentIdtList }">
 																<tr>
-																	<td class="num"><span class="tag_txt">${assignmentIdtItem.idtNo }</span></td>
+																	<td class="num"><span class="tag_txt">${assignmentIdtItem.idtNum }</span></td>
 																	<td class="reason"><a href="#">${assignmentIdtItem.idtReason }</a></td>
 																	<td class="date">${assignmentIdtItem.idtDate }</td>
 																	<td class="category"><select class="form-select"
@@ -372,7 +378,9 @@ String cp = request.getContextPath();
 																			</c:forEach>
 																	</select></td>
 																	<td class="indict_process">
-																		<button type="button" class="btn btn-secondary">${assignmentIdtItem.idtProcess }</button>
+																		<button type="button"
+																			class="btn btn-secondary btn-assignment"
+																			onclick="popOpen4(${assignmentIdtItem.idtNo})">${assignmentIdtItem.idtProcess }</button>
 																	</td>
 																	<td class="indicter">${assignmentIdtItem.indicted }</td>
 																	<td class="indict_date">${assignmentIdtItem.idtProcessDate }</td>
@@ -427,7 +435,7 @@ String cp = request.getContextPath();
 														<tbody>
 															<c:forEach var="reportIdtItem" items="${reportIdtList }">
 																<tr>
-																	<td class="num"><span class="tag_txt">${reportIdtItem.idtNo }</span></td>
+																	<td class="num"><span class="tag_txt">${reportIdtItem.idtNum }</span></td>
 																	<td class="reason"><a href="#">${reportIdtItem.idtReason }</a></td>
 																	<td class="date">${reportIdtItem.idtDate }</td>
 																	<td class="category"><select class="form-select"
@@ -438,7 +446,9 @@ String cp = request.getContextPath();
 																			</c:forEach>
 																	</select></td>
 																	<td class="indict_process">
-																		<button type="button" class="btn btn-secondary">${reportIdtItem.idtProcess }</button>
+																		<button type="button"
+																			class="btn btn-secondary btn-report"
+																			onclick="popOpen5(${reportIdtItem.idtNo})">${reportIdtItem.idtProcess }</button>
 																	</td>
 																	<td class="indicter">${reportIdtItem.indicted }</td>
 																	<td class="indict_date">${reportIdtItem.idtProcessDate }</td>
@@ -493,7 +503,7 @@ String cp = request.getContextPath();
 														<tbody>
 															<c:forEach var="weeklyIdtItem" items="${weeklyIdtList }">
 																<tr>
-																	<td class="num"><span class="tag_txt">${weeklyIdtItem.idtNo }</span></td>
+																	<td class="num"><span class="tag_txt">${weeklyIdtItem.idtNum }</span></td>
 																	<td class="reason"><a href="#">${weeklyIdtItem.idtReason }</a></td>
 																	<td class="date">${weeklyIdtItem.idtDate }</td>
 																	<td class="category"><select class="form-select"
@@ -504,7 +514,8 @@ String cp = request.getContextPath();
 																			</c:forEach>
 																	</select></td>
 																	<td class="indict_process">
-																		<button type="button" class="btn btn-secondary">${weeklyIdtItem.idtProcess }</button>
+																		<button type="button" class="btn btn-secondary btn-weekly"
+																		onclick="popOpen6(${weeklyIdtItem.idtNo})">${weeklyIdtItem.idtProcess }</button>
 																	</td>
 																	<td class="indicter">${weeklyIdtItem.indicted }</td>
 																	<td class="indict_date">${weeklyIdtItem.idtProcessDate }</td>
@@ -558,7 +569,7 @@ String cp = request.getContextPath();
 						<div class="modal-body">
 							<form id="decisionForm" action="teamopenindictupdate.action"
 								method="get">
-								<input type="text" class="sendNum" name="sendNum" value=""/>
+								<input type="text" class="sendNum" name="sendNum" value="" />
 								<div class="form-check">
 									<input class="form-check-input" type="radio" name="idtProcess"
 										id="reject" value="IP_1"> <label
@@ -575,10 +586,257 @@ String cp = request.getContextPath();
 										class="form-check-label" for="reject"> 중재 </label>
 								</div>
 								<div class="m-input-box">
-									<label for="validationCustom01" class="form-label">벌점
-									<span class="input-sm-txt">(0 ~ 9 사이의 벌점을 입력하세요. (중재는 0으로 입력해주세요.))</span></label> <input
-										type="number" class="form-control" id="validationCustom01"
-										required="" min="0" max="9" name="demeritNum">
+									<label for="validationCustom01" class="form-label">벌점 <span
+										class="input-sm-txt">(0 ~ 9 사이의 벌점을 입력하세요. (중재는 0으로
+											입력해주세요.))</span></label> <input type="number" class="form-control"
+										id="validationCustom01" required="" min="0" max="9"
+										name="demeritNum">
+									<div class="invalid-feedback">벌점을 입력 해주세요.</div>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary"
+										data-bs-dismiss="modal">취소</button>
+									<button type="submit" class="btn btn-primary">처리 완료</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 댓글 신고 처리 팝업 -->
+			<div class="modal fade" id="indictprocess2" data-bs-backdrop="static"
+				data-bs-keyboard="false" tabindex="-1"
+				aria-labelledby="staticBackdropLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="staticBackdropLabel">신고 처리</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal"
+								aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+							<form id="decisionForm" action="commentindictupdate.action"
+								method="get">
+								<input type="text" class="sendNum" name="sendNum" value="" />
+								<div class="form-check">
+									<input class="form-check-input" type="radio" name="idtProcess"
+										id="reject" value="IP_1"> <label
+										class="form-check-label" for="approve"> 신고자 </label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" name="idtProcess"
+										id="reject" value="IP_2"> <label
+										class="form-check-label" for="reject"> 피신고자 </label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" name="idtProcess"
+										id="reject" value="IP_3"> <label
+										class="form-check-label" for="reject"> 중재 </label>
+								</div>
+								<div class="m-input-box">
+									<label for="validationCustom01" class="form-label">벌점 <span
+										class="input-sm-txt">(0 ~ 9 사이의 벌점을 입력하세요. (중재는 0으로
+											입력해주세요.))</span></label> <input type="number" class="form-control"
+										id="validationCustom01" required="" min="0" max="9"
+										name="demeritNum">
+									<div class="invalid-feedback">벌점을 입력 해주세요.</div>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary"
+										data-bs-dismiss="modal">취소</button>
+									<button type="submit" class="btn btn-primary">처리 완료</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<!-- 대댓글 신고 처리 팝업 -->
+			<div class="modal fade" id="indictprocess3" data-bs-backdrop="static"
+				data-bs-keyboard="false" tabindex="-1"
+				aria-labelledby="staticBackdropLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="staticBackdropLabel">신고 처리</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal"
+								aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+							<form id="decisionForm" action="recommentindictupdate.action"
+								method="get">
+								<input type="text" class="sendNum" name="sendNum" value="" />
+								<div class="form-check">
+									<input class="form-check-input" type="radio" name="idtProcess"
+										id="reject" value="IP_1"> <label
+										class="form-check-label" for="approve"> 신고자 </label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" name="idtProcess"
+										id="reject" value="IP_2"> <label
+										class="form-check-label" for="reject"> 피신고자 </label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" name="idtProcess"
+										id="reject" value="IP_3"> <label
+										class="form-check-label" for="reject"> 중재 </label>
+								</div>
+								<div class="m-input-box">
+									<label for="validationCustom01" class="form-label">벌점 <span
+										class="input-sm-txt">(0 ~ 9 사이의 벌점을 입력하세요. (중재는 0으로
+											입력해주세요.))</span></label> <input type="number" class="form-control"
+										id="validationCustom01" required="" min="0" max="9"
+										name="demeritNum">
+									<div class="invalid-feedback">벌점을 입력 해주세요.</div>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary"
+										data-bs-dismiss="modal">취소</button>
+									<button type="submit" class="btn btn-primary">처리 완료</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 업무할당 신고 처리 팝업 -->
+			<div class="modal fade" id="indictprocess4" data-bs-backdrop="static"
+				data-bs-keyboard="false" tabindex="-1"
+				aria-labelledby="staticBackdropLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="staticBackdropLabel">신고 처리</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal"
+								aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+							<form id="decisionForm" action="assignmentidtlistupdate.action"
+								method="get">
+								<input type="text" class="sendNum" name="sendNum" value="" />
+								<div class="form-check">
+									<input class="form-check-input" type="radio" name="idtProcess"
+										id="reject" value="IP_1"> <label
+										class="form-check-label" for="approve"> 신고자 </label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" name="idtProcess"
+										id="reject" value="IP_2"> <label
+										class="form-check-label" for="reject"> 피신고자 </label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" name="idtProcess"
+										id="reject" value="IP_3"> <label
+										class="form-check-label" for="reject"> 중재 </label>
+								</div>
+								<div class="m-input-box">
+									<label for="validationCustom01" class="form-label">벌점 <span
+										class="input-sm-txt">(0 ~ 9 사이의 벌점을 입력하세요. (중재는 0으로
+											입력해주세요.))</span></label> <input type="number" class="form-control"
+										id="validationCustom01" required="" min="0" max="9"
+										name="demeritNum">
+									<div class="invalid-feedback">벌점을 입력 해주세요.</div>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary"
+										data-bs-dismiss="modal">취소</button>
+									<button type="submit" class="btn btn-primary">처리 완료</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 업무보고 신고 처리 팝업 -->
+			<div class="modal fade" id="indictprocess5" data-bs-backdrop="static"
+				data-bs-keyboard="false" tabindex="-1"
+				aria-labelledby="staticBackdropLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="staticBackdropLabel">신고 처리</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal"
+								aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+							<form id="decisionForm" action="reportidtlistupdate.action"
+								method="get">
+								<input type="text" class="sendNum" name="sendNum" value="" />
+								<div class="form-check">
+									<input class="form-check-input" type="radio" name="idtProcess"
+										id="reject" value="IP_1"> <label
+										class="form-check-label" for="approve"> 신고자 </label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" name="idtProcess"
+										id="reject" value="IP_2"> <label
+										class="form-check-label" for="reject"> 피신고자 </label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" name="idtProcess"
+										id="reject" value="IP_3"> <label
+										class="form-check-label" for="reject"> 중재 </label>
+								</div>
+								<div class="m-input-box">
+									<label for="validationCustom01" class="form-label">벌점 <span
+										class="input-sm-txt">(0 ~ 9 사이의 벌점을 입력하세요. (중재는 0으로
+											입력해주세요.))</span></label> <input type="number" class="form-control"
+										id="validationCustom01" required="" min="0" max="9"
+										name="demeritNum">
+									<div class="invalid-feedback">벌점을 입력 해주세요.</div>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary"
+										data-bs-dismiss="modal">취소</button>
+									<button type="submit" class="btn btn-primary">처리 완료</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 주간업무보고 신고 처리 팝업 -->
+			<div class="modal fade" id="indictprocess6" data-bs-backdrop="static"
+				data-bs-keyboard="false" tabindex="-1"
+				aria-labelledby="staticBackdropLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="staticBackdropLabel">신고 처리</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal"
+								aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+							<form id="decisionForm" action="weeklyidtlistupdate.action"
+								method="get">
+								<input type="text" class="sendNum" name="sendNum" value="" />
+								<div class="form-check">
+									<input class="form-check-input" type="radio" name="idtProcess"
+										id="reject" value="IP_1"> <label
+										class="form-check-label" for="approve"> 신고자 </label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" name="idtProcess"
+										id="reject" value="IP_2"> <label
+										class="form-check-label" for="reject"> 피신고자 </label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" name="idtProcess"
+										id="reject" value="IP_3"> <label
+										class="form-check-label" for="reject"> 중재 </label>
+								</div>
+								<div class="m-input-box">
+									<label for="validationCustom01" class="form-label">벌점 <span
+										class="input-sm-txt">(0 ~ 9 사이의 벌점을 입력하세요. (중재는 0으로
+											입력해주세요.))</span></label> <input type="number" class="form-control"
+										id="validationCustom01" required="" min="0" max="9"
+										name="demeritNum">
 									<div class="invalid-feedback">벌점을 입력 해주세요.</div>
 								</div>
 								<div class="modal-footer">
@@ -608,20 +866,91 @@ String cp = request.getContextPath();
 	<script src="<%=cp%>/asset/js/bootstrap.bundle.min.js"></script>
 	<script src="<%=cp%>/asset/js/common.js"></script>
 	<script type="text/javascript">
+	
 		$(document).ready(function()
 		{
-			// 수정 버튼 클릭 시 모달 표시
-			$('.btn-secondary').click(function()
+			$('.btn.btn-team-open').click(function()
 			{
 				$('#indictprocess').modal('show');
 			});
 			
 		});
 		
-			function popOpen(sendNum){
-				alert(sendNum);
-				$('#indictprocess').find('.sendNum').attr('value',sendNum);
-			}
+		$(document).ready(function()
+		{
+			$('.btn.btn-comment').click(function()
+			{
+				$('#indictprocess2').modal('show');
+			});
+					
+		});
+		
+		$(document).ready(function()
+		{
+			$('.btn.btn-recomment').click(function()
+			{
+				$('#indictprocess3').modal('show');
+			});
+							
+		});
+		
+		$(document).ready(function()
+		{
+			$('.btn.btn-assignment').click(function()
+			{
+				$('#indictprocess4').modal('show');
+			});
+							
+		});
+		
+		$(document).ready(function()
+		{
+			$('.btn.btn-report').click(function()
+			{
+				$('#indictprocess5').modal('show');
+			});
+							
+		});
+		
+		$(document).ready(function()
+		{
+			$('.btn.btn-weekly').click(function()
+			{
+				$('#indictprocess6').modal('show');
+			});
+							
+		});
+		
+		
+		function popOpen(sendNum){
+			//alert(sendNum);
+			$('#indictprocess').find('.sendNum').attr('value',sendNum);
+		}
+		
+		function popOpen2(sendNum){
+			//alert(sendNum);
+			$('#indictprocess2').find('.sendNum').attr('value',sendNum);
+		}
+		
+		function popOpen3(sendNum){
+			//alert(sendNum);
+			$('#indictprocess3').find('.sendNum').attr('value',sendNum);
+		}
+		
+		function popOpen4(sendNum){
+			//alert(sendNum);
+			$('#indictprocess4').find('.sendNum').attr('value',sendNum);
+		}
+		
+		function popOpen5(sendNum){
+			//alert(sendNum);
+			$('#indictprocess5').find('.sendNum').attr('value',sendNum);
+		}
+		
+		function popOpen6(sendNum){
+			//alert(sendNum);
+			$('#indictprocess6').find('.sendNum').attr('value',sendNum);
+		}
 	</script>
 </body>
 

@@ -4,54 +4,116 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.itmeetup.mybatis.IIndictDAO">
 
-<!-- mybatis 환경 설정 파일 활용 -->
-<!-- IndictDAO.xml -->
+	<!-- mybatis 환경 설정 파일 활용 -->
+	<!-- IndictDAO.xml -->
 
 	<!-- 팀 개설요청 리스트 조회 쿼리문 -->
-	<select id="teamOpenIdtList" resultType="com.itmeetup.mybatis.IndictDTO">
-		SELECT ROWNUM "IDTNUM" , "IDTNO", "IDTDATE", "IDTREASON", "IDTPROCESS", "INDICTED", "IDTPROCESSDATE"
+	<select id="teamOpenIdtList"
+		resultType="com.itmeetup.mybatis.IndictDTO">
+		SELECT ROWNUM "IDTNUM" , "IDTNO", "IDTDATE", "IDTREASON",
+		"IDTPROCESS", "INDICTED", "IDTPROCESSDATE"
 		FROM VIEW_TEAM_OPEN_INDICT
 	</select>
-	
+
 	<!-- 댓글 신고 리스트 조회 쿼리문 -->
-	<select id="commentIdtList" resultType="com.itmeetup.mybatis.IndictDTO">
-		SELECT ROWNUM "IDTNUM", "IDTNO", "IDTDATE", "IDTREASON", "IDTPROCESS", "INDICTED", "IDTPROCESSDATE"
+	<select id="commentIdtList"
+		resultType="com.itmeetup.mybatis.IndictDTO">
+		SELECT ROWNUM "IDTNUM" , "IDTNO", "IDTDATE", "IDTREASON",
+		"IDTPROCESS", "INDICTED", "IDTPROCESSDATE"
 		FROM VIEW_COMMENT_INDICT
 	</select>
-	
+
 	<!-- 대댓글 신고 리스트 조회 쿼리문 -->
-	<select id="recommentIdtList" resultType="com.itmeetup.mybatis.IndictDTO">
-		SELECT ROWNUM "IDTNUM", "IDTNO", "IDTDATE", "IDTREASON", "IDTPROCESS", "INDICTED", "IDTPROCESSDATE"
+	<select id="recommentIdtList"
+		resultType="com.itmeetup.mybatis.IndictDTO">
+		SELECT ROWNUM "IDTNUM", "IDTNO", "IDTDATE", "IDTREASON",
+		"IDTPROCESS", "INDICTED", "IDTPROCESSDATE"
 		FROM VIEW_RECOMMENT_INDICT
 	</select>
-	
+
 	<!-- 업무할당 신고 리스트 조회 쿼리문 -->
-	<select id="assignmentIdtList" resultType="com.itmeetup.mybatis.IndictDTO">
-		SELECT ROWNUM "IDTNUM", "IDTNO", "IDTDATE", "IDTREASON", "IDTPROCESS", "INDICTED", "IDTPROCESSDATE"
+	<select id="assignmentIdtList"
+		resultType="com.itmeetup.mybatis.IndictDTO">
+		SELECT ROWNUM "IDTNUM", "IDTNO", "IDTDATE", "IDTREASON",
+		"IDTPROCESS", "INDICTED", "IDTPROCESSDATE"
 		FROM VIEW_ASSIGNMENT_INDICT
 	</select>
-	
+
 	<!-- 업무보고 신고 리스트 조회 쿼리문 -->
-	<select id="reportIdtList" resultType="com.itmeetup.mybatis.IndictDTO">
-		SELECT ROWNUM "IDTNUM", "IDTNO", "IDTDATE", "IDTREASON", "IDTPROCESS", "INDICTED", "IDTPROCESSDATE"
+	<select id="reportIdtList"
+		resultType="com.itmeetup.mybatis.IndictDTO">
+		SELECT ROWNUM "IDTNUM", "IDTNO", "IDTDATE", "IDTREASON",
+		"IDTPROCESS", "INDICTED", "IDTPROCESSDATE"
 		FROM VIEW_REPORT_INDICT
 	</select>
-	
+
 	<!-- 주간업무보고 신고 리스트 조회 쿼리문 -->
-	<select id="weeklyIdtList" resultType="com.itmeetup.mybatis.IndictDTO">
-		SELECT ROWNUM "IDTNUM", "IDTNO", "IDTDATE", "IDTREASON", "IDTPROCESS", "INDICTED", "IDTPROCESSDATE"
+	<select id="weeklyIdtList"
+		resultType="com.itmeetup.mybatis.IndictDTO">
+		SELECT ROWNUM "IDTNUM", "IDTNO", "IDTDATE", "IDTREASON",
+		"IDTPROCESS", "INDICTED", "IDTPROCESSDATE"
 		FROM VIEW_WEEKLY_INDICT
 	</select>
-	
-	
-	<!-- 신고 처리 변경  -->
-	<update id="teamOpenIdtListUpdate">	
+
+
+	<!-- 팀 개설요청 신고 처리 변경 -->
+	<update id="teamOpenIdtListUpdate">
 		UPDATE TEAM_OPEN_INDICT
 		SET TOI_PRO_DATE = SYSDATE
-		  , TOI_AD_NO = 2
-		  , TOI_IP_CODE = #{idtProcess}
-		  , TOI_DEMERIT = #{demeritNum}
+		, TOI_AD_NO = 2
+		, TOI_IP_CODE = #{idtProcess}
+		, TOI_DEMERIT = #{demeritNum}
 		WHERE TOI_NO = #{sendNum}
 	</update>
+
+	<!-- 댓글 신고 처리 변경 -->
+	<update id="commentIdtListUpdate">
+		UPDATE COMMENT_INDICT
+		SET CI_PRO_DATE = SYSDATE
+		, CI_AD_NO = 1
+		, CI_IP_CODE = #{idtProcess}
+		, CI_DEMERIT = #{demeritNum}
+		WHERE CI_NO = #{sendNum}
+	</update>
+
+	<!-- 대댓글 신고 처리 변경 -->
+	<update id="recommentIdtListUpdate">
+		UPDATE RECOMMENT_INDICT
+		SET RCI_PRO_DATE = SYSDATE 
+		, RCI_AD_NO = 2 
+		, RCI_IP_CODE = #{idtProcess} 
+		, RCI_DEMERIT = #{demeritNum}
+		WHERE RCI_NO = #{sendNum}
+	</update>
 	
+	<!-- 업무할당 신고 처리 변경 -->
+	<update id="assignmentIdtListUpdate">
+		UPDATE ASSIGNMENT_INDICT
+		SET AI_PRO_DATE = SYSDATE   
+		  , AI_AD_NO = 2            
+		  , AI_IP_CODE = #{idtProcess} 
+		  , AI_DEMERIT = #{demeritNum}    
+		WHERE AI_NO = #{sendNum}
+	</update>
+	
+	<!-- 업무보고 신고 처리 변경 -->
+	<update id="reportIdtListUpdate">
+		UPDATE REPORT_INDICT
+		SET RI_PRO_DATE = SYSDATE
+		  , RI_AD_NO = 2
+		  , RI_IP_CODE = #{idtProcess} 
+		  , RI_DEMERIT = #{demeritNum}
+		WHERE RI_NO = #{sendNum}
+	</update>
+	
+	<!-- 주간업무보고 신고 처리 변경 -->
+	<update id="weeklyIdtListUpdate">
+		UPDATE WEEKLY_INDICT
+		SET WI_PRO_DATE = SYSDATE
+		  , WI_AD_NO = 2 
+		  , WI_IP_CODE = #{idtProcess}
+		  , WI_DEMERIT = #{demeritNum}
+		WHERE WI_NO = #{sendNum}
+	</update>
+
 </mapper>
