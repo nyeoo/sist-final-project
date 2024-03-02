@@ -7,7 +7,7 @@ public class JobDTO
 	// 주요 속성 구성 
 	private  String jobCode ; 	// 직무 코드
 	private int inwon;			// 인원수
-	
+	private ArrayList<String> job; // 직무 이름 
 
 	// gett/ setter 구성 	
 	public String getJobCode()
@@ -25,6 +25,15 @@ public class JobDTO
 	public void setInwon(int inwon)
 	{
 		this.inwon = inwon;
+	}
+	
+	public ArrayList<String> getJob()
+	{
+		return job;
+	}
+	public void setJob(ArrayList<String> job)
+	{
+		this.job = job;
 	}
 	
 	

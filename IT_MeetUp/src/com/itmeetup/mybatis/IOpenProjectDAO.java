@@ -14,11 +14,14 @@ public interface IOpenProjectDAO
 	// 커리어 출력
 	public ArrayList<String> carList();
 	
+	// 프로젝트의 해당하는 희망 기술 뽑기
+	public ArrayList<String> skillList(String code);
 	
 	// 현재 생성된 프로젝트 출력
 	public ArrayList<OpenProjectDTO> openList();
 	
 	// 사용자가 누른  프로젝트 출력
 	public OpenProjectDTO choiceProList(String code);
+
 	
 }

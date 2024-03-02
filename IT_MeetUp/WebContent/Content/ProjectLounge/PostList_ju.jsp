@@ -2,7 +2,9 @@
 
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <% request.setCharacterEncoding("UTF-8"); String cp=request.getContextPath(); %>
+
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -429,11 +431,13 @@
 											<option value= "CAT_${status.index +1}" >${categorys }</option>
 										
 										</c:forEach>
-<!-- 											<option value="1">교육</option>
+										<!--
+											<option value="1">교육</option>
 											<option value="2">1 ~ 3미만</option>
 											<option value="3">의료</option>
 											<option value="4">모집</option>
-											<option value="5">기타</option> -->
+											<option value="5">기타</option> 
+										-->
 									</select>
 								</div>
 							</li>
@@ -454,7 +458,7 @@
 									</select>
 								</div>
 							</li>
-														<li>
+							<li>
 								<div class="dropdown skill-dropdown skill-box">
 									<button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">보유스킬</button>
 									<form class="dropdown-menu p-4">
@@ -845,10 +849,28 @@
 									</div>
 									<!-- 직무 -->
 									<div class="d-flex job-box">
-										<span class="badge rounded-pill bg-primary">프론트</span>
-										<span class="badge rounded-pill bg-secondary">백</span> 
-										<span class="badge rounded-pill bg-success">기획</span> 
-										<span class="badge rounded-pill bg-danger">디자인</span>
+									<c:forEach var="jobString" items="${jobs[opList.code]}">
+									    	<c:set var="jobList" value="${fn:split(jobString, ' ')}" />
+									    		<c:forEach var="job" items="${jobList}">
+									        		<c:choose>
+									           			<c:when test="${job eq '기획자'}">
+									                		<span class="badge rounded-pill bg-success">기획자</span> 
+									            		</c:when>
+									            		<c:when test="${job eq '디자이너'}">
+									                		<span class="badge rounded-pill bg-danger">디자인</span> 
+									            		</c:when>
+									            		<c:when test="${job eq '프론트엔드'}">
+									                		<span class="badge rounded-pill bg-primary">프론트엔드</span> 
+									            		</c:when>
+									            		<c:when test="${job eq '백엔드'}">
+									                		<span class="badge rounded-pill bg-secondary">백엔드</span> 
+									            		</c:when>   
+									            		<c:otherwise>
+									                		<span class="badge rounded-pill bg-primary">${job}</span>   
+									            		</c:otherwise>                                   
+									        		</c:choose>
+												</c:forEach>
+									</c:forEach>
 									</div>
 								</div> <!-- card-top -->
 								<div class="card-bottom">
@@ -856,6 +878,14 @@
 									<strong class="mb-2 text-primary-emphasis writer">
 										<span class="leader-level"></span>${opList.nickname}
 									</strong>
+									<!-- 카테고리 -->
+									<strong class="mb-2 text-primary-emphasis writer">
+										${opList.category} 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  ${opList.sido} ${opList.sigg} 
+									</strong>
+									<!-- 지역 -->
+									
+									
+									
 									<!-- 제목 -->
 									<a href="PostDetail.action?code=${opList.code}"   class="card-tit mb-2">
 									
@@ -866,11 +896,13 @@
 									<p class="card-text text-truncate mb-2"> ${opList.content}</p>
 									<div class="d-flex justify-content-between align-items-center">
 										<!-- 사용언어 -->
-										<div class="language-box">
-											<span class="badge-language"><span class="blind">파이썬</span></span>
-											<span class="badge-language"><span class="blind">파이썬</span></span>
-											<span class="badge-language"><span class="blind">파이썬</span></span>
-										</div>
+										<%-- <div class="language-box">
+												<span class="badge-language"><span class="blind">${skills[opList.code] }</span></span> 
+										</div> --%>
+										<c:forEach var ="skill" items="${skills[opList.code] }">
+											${skill }
+										<%-- <span class="badge-language"><span class="blind"></span></span> --%>
+										</c:forEach>
 										<!-- 조회수 -->
 										<small class="text-body-secondary">${opList.view}</small>
 									</div>

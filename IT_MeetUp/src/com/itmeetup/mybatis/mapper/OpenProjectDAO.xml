@@ -48,6 +48,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			WHERE CODE = #{code}
 	</select>
 	
+	<!-- 프로젝트 해당하는 기술 출력 -->
+	<select id="skillList" resultType="java.lang.String" >
+			SELECT ASK.SK_NAME AS "SKILL"
+			FROM TEAM_SKILL TK
+			JOIN ALL_SKILL ASK ON ASK.SK_CODE = TK.TS_SK_CODE
+			WHERE TS_OP_CODE = #{code}
+	</select>
+	
 	
 </mapper>
 

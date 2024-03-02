@@ -74,15 +74,25 @@
 												<strong>인원:</strong> ${choicProList.mojibsu} 명
 											</p>
 											<p>
-												<strong>모집 분야:</strong> 웹 개발, 프론트, 백, 디자인
+												<strong>모집 분야:</strong> 
+												<c:forEach var="job" items="${jobs }">
+													${job }
+												</c:forEach>
+												
 											</p>
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="project-details">
 											<p>
-												<strong>사용 언어:</strong> <span class="tag">HTML</span> <span
-													class="tag">CSS</span> <span class="tag">JavaScript</span>
+												<strong>사용 언어:</strong>
+												<c:forEach var="skill" items="${skillList }">
+												<span class="tag">${skill}</span> 
+												</c:forEach>
+												 <!-- 
+												 <span class="tag">CSS</span>
+												 <span class="tag">JavaScript</span>
+												  -->
 											</p>
 											<p>
 												<strong>시작일:</strong> ${choicProList.start}
@@ -98,10 +108,9 @@
 								</div>
 							</div>
 							<hr>
-							<br />
 							<div>
-								${choicProList.content}
-								
+								<span style="font-size: 30px;"> ${choicProList.content} </span>
+								<br><br><br><br><br><br><br><br><br><br><br>
 							</div>
                     </div>
                     	 <!-- 버튼영역 -->
@@ -109,7 +118,7 @@
                             <div class="btn-center">
                               <button type="button" class="btn btn-primary">수정하기</button>
 							  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#sinchungpeople">신청한 사람보기</button>
-							  <button type="button" class="btn btn-secondary" > 	목록으로</button>
+							  <button type="button" class="btn btn-secondary" id= "prolist"> 목록으로</button>
                             </div>
                          </div><!-- 버튼// -->	
                          <br><br>
@@ -500,7 +509,10 @@
     	});
 		*/
     	
-    	
+    	$("#prolist").click(function()
+		{
+    		$(location).attr("href", "projectList.action");
+		});
 	});
     
     
