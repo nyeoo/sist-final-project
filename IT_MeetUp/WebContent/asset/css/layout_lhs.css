@@ -74,11 +74,10 @@
 	margin-top: 10px;
 	flex-flow: wrap;
 }
+.job-list > li{margin-top: 0.5rem;}
 
 .job {
 	align-items: center;
-	margin-bottom: 10px;
-	margin: 15px 30px 15px 0;
 }
 
 .tag {
@@ -187,3 +186,19 @@ text-align: center;}
 	float: right;
 }
 
+/* 그룹홈 ------------------------------------------ */
+.grouphome {}
+.grouphome .gh-min-completion{}
+.grouphome .gh-weekwork{margin-top: 1.5rem;}
+.grouphome .gh-namecard{}
+.grouphome .gh-namecard .intro-body-list {
+    padding: 0;
+    margin: 0.5rem;
+}
+.grouphome {}
+.grouphome {}
+
+
+.weeklyRepTable {    table-layout: fixed;
+    width: 100%;
+    word-wrap: break-word;}

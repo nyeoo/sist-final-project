@@ -16,7 +16,7 @@
 		SELECT OP_CODE "CODE", OP_TEAM_NAME "TEAMNAME"
 		FROM MEMBER M
 		LEFT JOIN OPEN_PROJECT OP ON M.MEM_CODE = OP.OP_MEM_CODE
-		WHERE mem_code = 'MEM_2'
+		WHERE MEM_CODE = 'MEM_2'
  	</select>
  	
  	<select id="GroupTeamNamesearchId" resultType="com.itmeetup.mybatis.OpenProjectDTO">
