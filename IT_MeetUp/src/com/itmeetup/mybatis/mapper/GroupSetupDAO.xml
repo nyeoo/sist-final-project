@@ -13,22 +13,22 @@
  	</select>
  	
  	<select id="groupTeamName" resultType="com.itmeetup.mybatis.OpenProjectDTO">
-		SELECT OP_TEAM_NAME "TEAMNAME"
+		SELECT OP_CODE "CODE", OP_TEAM_NAME "TEAMNAME"
 		FROM MEMBER M
 		LEFT JOIN OPEN_PROJECT OP ON M.MEM_CODE = OP.OP_MEM_CODE
 		WHERE mem_code = 'MEM_2'
  	</select>
  	
- 	<select id="searchTeamName" resultType="com.itmeetup.mybatis.OpenProjectDTO">
+ 	<select id="GroupTeamNamesearchId" resultType="com.itmeetup.mybatis.OpenProjectDTO">
 		SELECT OP_CODE, OP_TEAM_NAME
 		FROM OPEN_PROJECT OP
 		LEFT JOIN MEMBER M ON M.MEM_CODE = OP.OP_MEM_CODE
 		WHERE OP_CODE= 'OP_2'
  	</select>
  	
- 	<update id="modify">
+ 	<update id="groupTeamNamemodify">
 		UPDATE OPEN_PROJECT
-		SET OP_TEAM_NAME='#{TEAMNAME}'
+		SET OP_TEAM_NAME= #{teamName}
 		WHERE OP_CODE='OP_2'
 	</update>
  	

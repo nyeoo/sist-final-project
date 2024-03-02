@@ -11,5 +11,5 @@ public interface IGroupSetupDAO
 	
 	public OpenProjectDTO GroupTeamNamesearchId(int code);
 	
-	public int GroupTeamNamemodify(OpenProjectDTO opdto); 
+	public int groupTeamNamemodify(String teamName); 
 }

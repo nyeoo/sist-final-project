@@ -50,50 +50,16 @@ String cp = request.getContextPath();
 
 							<c:forEach var="groupTeamNameItem" items="${groupTeamName }">
 								<div class="h3">
-									${groupTeamNameItem.teamName }
+									<span>${groupTeamNameItem.teamName}</span>
 									<button type="button" id="teamnameUpdateButton"
 										class="btn btn-primary" data-bs-toggle="modal"
-										data-bs-target="#teamnameUpdate">
+										data-bs-target="#teamnameUpdate" value="${groupTeamNameItem.teamName}" onclick="NameModify()">
 										<i class="bi bi-plus-lg"></i> 팀명 수정
 									</button>
 								</div>
 							</c:forEach>
 
-
-							<div class="modal fade" id="teamnameUpdate" tabindex="-1"
-								aria-labelledby="#completeListLabel" aria-hidden="true">
-								<div class="modal-dialog modal-dialog-centered">
-									<div class="modal-content">
-										<div class="modal-header">
-											<h1 class="modal-title fs-5" id="completeListLabel">그룹원
-												수정</h1>
-											<button type="button" class="btn-close"
-												data-bs-dismiss="modal" aria-label="Close"></button>
-										</div>
-										<div class="modal-body">
-											<div class="modal-contents">
-												<div class="con-section complete-list">
-
-													<div class="row">
-														<div class="col-md-8">
-															<div class="mb-3">
-																<label for="teamName" class="form-label">팀명</label> <input
-																	type="text" class="form-control" id="teamnameModify"
-																	name="teamName" value="${groupTeamNameItem.teamName }">
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="modal-footer">
-											<button type="button" class="btn btn-secondary"
-												data-bs-dismiss="modal">나가기</button>
-											<button type="button" class="btn btn-primary">수정하기</button>
-										</div>
-									</div>
-								</div>
-							</div>
+							<c:import url="../MeetGroup/M_GroupSetup.jsp"></c:import>
 
 
 							<div class="table-responsive text-nowrap">
@@ -158,40 +124,13 @@ String cp = request.getContextPath();
 	<script src="<%=cp%>/asset/js/bootstrap.bundle.min.js"></script>
 	<script src="<%=cp%>/asset/js/common.js"></script>
 	<script type="text/javascript">
-		$(document).ready(function()
+				
+		function NameModify()
 		{
-			$('#teamnameUpdateButton').click(function()
-			{
-				$('#teamnameUpdate').modal('show');
-				$('#teamnameModify').focus();
-			});
-
-			$('#modifyTeamName').click(function()
-			{
-				var newTeamName = $('#teamnameModify').val(); // 수정된 팀명 가져오기
-				$.ajax(
-				{
-					url : 'groupteamnamemodify.action', // 컨트롤러에서 처리할 URL
-					type : 'POST',
-					data :
-					{
-						teamName : newTeamName
-					}, // 수정된 팀명을 전송
-					success : function(response)
-					{
-						// 성공적으로 업데이트되면 모달 닫기 등의 작업 수행
-						$('#teamnameUpdate').modal('hide');
-						// 페이지 새로고침 또는 필요한 처리 수행
-						location.reload(); // 예시로 페이지 새로고침
-					},
-					error : function(xhr, status, error)
-					{
-						// 오류 처리
-						console.error(xhr.responseText);
-					}
-				});
-			});
-		});
+			$(location).attr("href", "groupSetupUpdate.action?code=" + $(this).val());
+			$('#teamnameUpdate').load("../MeetGroup/M_GroupSetup.jsp");
+			$('#teamnameUpdate').modal();
+		}
 	</script>
 
 </body>
