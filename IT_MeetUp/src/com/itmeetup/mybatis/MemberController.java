@@ -26,7 +26,7 @@ public class MemberController
 	// 로그인 폼
 	// 일반멤버 - ljh1234 / ljh1234
 	// 관리자 - admin1 / 1234
-	@RequestMapping(value = "/loginform.action", method = RequestMethod.GET)
+	@RequestMapping(value = "/login.action", method = RequestMethod.GET)
 	public String loinForm()
 	{
 		return "/Content/Site/Login.jsp";
@@ -64,7 +64,7 @@ public class MemberController
 
 		} else
 		{ // 로그인X
-			viewPage = "redirect:/loginform.action";
+			viewPage = "redirect:/login.action";
 
 		}
 

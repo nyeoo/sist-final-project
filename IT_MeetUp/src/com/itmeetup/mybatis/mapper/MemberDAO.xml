@@ -7,6 +7,7 @@
 <!-- MemberDAO.xml -->
 	
 	<!-- ========================================[ 로그인 ]======================================== -->
+	
 	<!-- 일반회원 로그인 조회 쿼리문 -->
 	<select id="getMember" parameterType="map" resultType="com.itmeetup.mybatis.MemberDTO">
 		SELECT PI_MEM_CODE "PIMEMCODE", PI_ID "PIID", PI_PW "PIPW", PI_NICKNAME "PINICKNAME"
@@ -22,8 +23,6 @@
 	</select>
 	
 	<!-- ========================================[ 회원가입 ]======================================== -->
-	<!-- <update id="" >
-		
-	</update> -->
+	
 	
 </mapper>
