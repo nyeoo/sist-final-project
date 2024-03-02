@@ -98,6 +98,11 @@
 								</div>
 							</div>
 							<hr>
+							<br />
+							<div>
+								${choicProList.content}
+								
+							</div>
                     </div>
                     	 <!-- 버튼영역 -->
                          <div class="btn-box">
