@@ -5,10 +5,10 @@ package com.itmeetup.mybatis;
 
 public class WeeklyReportDTO
 {
-	private String wrTitle, wrContent, wrPerson;	// 주간업무보고명, 주간업무보고내용, 주간업무보고자 
-	private String wrFile, wrDate;		// 첨부파일경로, 주간업무보고일
-	private int wrNumber;				// 주간업무보고번호
-	
+	private String wrTitle, wrContent, wrPerson;	// 주간업무보고명, 주간업무보고내용, 주간업무보고자닉네임 
+	private String wrFile, wrDate;					// 첨부파일경로, 주간업무보고일
+	private int wrNumber;							// 주간업무보고번호
+
 	// getter / setter 구성
 	public String getWrTitle()
 	{

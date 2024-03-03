@@ -73,15 +73,18 @@ String cp = request.getContextPath();
 																data-bs-toggle="tooltip" data-bs-placement="top"
 																data-bs-title="최소 4건">회의록 <i
 																	class="bi bi-question-circle"></i></span></span>
-															<div class="card-title mb-2"><span>1</span>/4</div>
+															<div class="card-title mb-2">
+																<span>${meetCount == null ? 0 : meetCount}</span>/4
+															</div>
 														</div>
 													</div>
 													<div class="level-bottom">
 														<div class="progress" role="progressbar"
 															aria-label="Danger example" aria-valuenow="100"
 															aria-valuemin="0" aria-valuemax="100">
-															<div class="progress-bars bg-danger" style="width: 100%">회의록
-																100%</div>
+															<div class="progress-bars bg-danger"
+																style="width: ${(meetCount >= 1 ? 25 : 0) + (meetCount >= 2 ? 25 : 0) + (meetCount >= 3 ? 25 : 0) + (meetCount >= 4 ? 25 : 0)}%">
+																회의록 ${meetCount >= 1 ? '25%' : '0%'}</div>
 														</div>
 													</div>
 												</div>
@@ -100,15 +103,18 @@ String cp = request.getContextPath();
 																data-bs-toggle="tooltip" data-bs-placement="top"
 																data-bs-title="최소 1건">순서도 <i
 																	class="bi bi-question-circle"></i></span></span>
-															<div class="card-title mb-2"><span>0</span>/1</div>
+															<div class="card-title mb-2">
+																<span>${flowchartCount == null ? 0 : flowchartCount}</span>/1
+															</div>
 														</div>
 													</div>
 													<div class="level-bottom">
 														<div class="progress" role="progressbar"
 															aria-label="Danger example" aria-valuenow="100"
 															aria-valuemin="0" aria-valuemax="100">
-															<div class="progress-bars bg-danger" style="width: 100%">회의록
-																100%</div>
+															<div class="progress-bars bg-danger"
+																style="width: ${flowchartCount >= 1 ? '100%' : '0%'}">
+																순서도 ${flowchartCount >= 1 ? '100%' : '0%'}</div>
 														</div>
 													</div>
 												</div>
@@ -127,15 +133,18 @@ String cp = request.getContextPath();
 																data-bs-toggle="tooltip" data-bs-placement="top"
 																data-bs-title="최소 1건">기획서 <i
 																	class="bi bi-question-circle"></i></span></span>
-															<div class="card-title mb-2"><span>0</span>/1</div>
+															<div class="card-title mb-2">
+																<span>${planCount == null ? 0 : planCount}</span>/1
+															</div>
 														</div>
 													</div>
 													<div class="level-bottom">
 														<div class="progress" role="progressbar"
 															aria-label="Danger example" aria-valuenow="100"
 															aria-valuemin="0" aria-valuemax="100">
-															<div class="progress-bars bg-danger" style="width: 100%">회의록
-																100%</div>
+															<div class="progress-bars bg-danger"
+																style="width: ${planCount >= 1 ? '100%' : '0%'}">
+																기획서 ${planCount >= 1 ? '100%' : '0%'}</div>
 														</div>
 													</div>
 												</div>
@@ -153,15 +162,19 @@ String cp = request.getContextPath();
 																data-bs-toggle="tooltip" data-bs-placement="top"
 																data-bs-title="최소 1건">요구분석서 <i
 																	class="bi bi-question-circle"></i></span></span>
-															<div class="card-title mb-2"><span>1</span>/1</div>
+															<div class="card-title mb-2">
+																<span>${requestCount == null ? 0 : requestCount}</span>/1
+															</div>
 														</div>
 													</div>
 													<div class="level-bottom">
 														<div class="progress" role="progressbar"
-															aria-label="Danger example" aria-valuenow="100"
+															aria-label="요구분석서 진행 상태"
+															aria-valuenow="${requestCount >= 1 ? 100 : 0}"
 															aria-valuemin="0" aria-valuemax="100">
-															<div class="progress-bars bg-danger" style="width: 100%">회의록
-																100%</div>
+															<div class="progress-bars bg-danger"
+																style="width: ${requestCount >= 1 ? '100%' : '0%'}">
+																요구분석서 ${requestCount >= 1 ? '100%' : '1%'}</div>
 														</div>
 													</div>
 												</div>
@@ -187,79 +200,31 @@ String cp = request.getContextPath();
 												<hr>
 											</div>
 
-											<!-- <ul>
-												<li class="row-4">
-													<div class="card">
-														<div class="card-bottom">
-															제목 <a href="WeeklyReport.jsp">작성한 주간업무보고서글이 나오며 버튼 누를
-																시 주간업무보고서 상세 페이지로 이동이 나오며 버튼 누를시 상세 페이지로 이동 </a>
-														<div class="card-bottom">
-															내용 <a href="WeeklyReport.jsp">작성한 주간업무보고서글이 나오며 버튼 누를
-																시 주간업무보고서 상세 페이지로 이동이 나오며 버튼 누를시 상세 페이지로 이동 </a>
-														</div>
-														</div>
-													</div>
-												</li>
-												<li class="row-4">
-													<div class="card">
-														<div class="card-bottom">
-															제목 <a href="javascript:;">작성한 주간업무보고서글이 나오며 버튼 누를 시
-																주간업무보고서 상세 페이지로 이동이 나오며 버튼 누를시 상세 페이지로 이동 </a>
-														</div>
-													</div>
-												</li>
-												<li class="row-4">
-													<div class="card">
-														<div class="card-bottom">
-															제목 <a href="javascript:;">작성한 주간업무보고서글이 나오며 버튼 누를 시
-																주간업무보고서 상세 페이지로 이동이 나오며 버튼 누를시 상세 페이지로 이동 </a>
-														</div>
-													</div>
-												</li>
-												<li class="row-4">
-													<div class="card">
-														<div class="card-bottom">
-															제목 <a href="javascript:;">작성한 주간업무보고서글이 나오며 버튼 누를 시
-																주간업무보고서 상세 페이지로 이동이 나오며 버튼 누를시 상세 페이지로 이동 </a>
-														</div>
-													</div>
-												</li>
-												<li class="row-4">
-													<div class="card">
-														<div class="card-bottom">
-															제목 <a href="javascript:;">작성한 주간업무보고서글이 나오며 버튼 누를 시
-																주간업무보고서 상세 페이지로 이동이 나오며 버튼 누를시 상세 페이지로 이동 </a>
-														</div>
-													</div>
-												</li>
-											</ul> -->
-
 											<table class="table weeklyRepTable">
-									<thead>
-										<tr>
-											<th>번호</th>
-											<th>제목</th>
-											<th>내용</th>
-											<th>작성일</th>
-											<th>작성자</th>
-										</tr>
-									</thead>
-									<tbody style="text-align: center;">
-
-										
-											<tr>
-												<td><strong>123</strong></td>
-												<td>
-													<div class="user-info-container">
-														ㅇㅇㅇㅇㅇ
-													</div>
-												</td>
-												<td style="white-space: nowrap; overflow: hidden;  text-overflow: ellipsis;">ㄶㄹㄶㄹㄶㄹ융ㅀㅍㄴㅇㅍㅊㅍㄹ융ㅇㅎㅇㅀㅍㄴㅍㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ</td>
-												<td>01234891519</td>
-												<td><span class="badge bg-label-primary me-1">ㅇㅇㅇ</span>
-											</tr>
-									</tbody>
-								</table>
+												<thead>
+													<tr>
+														<th>번호</th>
+														<th>제목</th>
+														<th>내용</th>
+														<th>작성일</th>
+														<th>작성자</th>
+													</tr>
+												</thead>
+												<tbody style="text-align: center;">
+													<c:forEach var="weeklyList" items="${weeklyReportList }">
+														<tr>
+															<td><strong>${weeklyList.wrNumber }</strong></td>
+															<td>
+																<div class="user-info-container">${weeklyList.wrTitle }</div>
+															</td>
+															<td
+																style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${weeklyList.wrContent }</td>
+															<td>${weeklyList.wrDate }</td>
+															<td><span class="badge bg-label-primary me-1">${weeklyList.wrPerson }</span>
+														</tr>
+													</c:forEach>
+												</tbody>
+											</table>
 										</div>
 
 									</div>
@@ -389,10 +354,10 @@ String cp = request.getContextPath();
 	<!-- //푸터영역 -->
 
 	<!-- script -->
-	<script src="../../asset/js/jquery-3.5.1-min.js"></script>
-	<script src="../../asset/js/jquery-ui.js"></script>
-	<script src="../../asset/js/bootstrap.bundle.min.js"></script>
-	<script src="../../asset/js/common.js"></script>
+	<script src="<%=cp%>/asset/js/jquery-3.5.1-min.js"></script>
+	<script src="<%=cp%>/asset/js/jquery-ui.js"></script>
+	<script src="<%=cp%>/asset/js/bootstrap.bundle.min.js"></script>
+	<script src="<%=cp%>/asset/js/common.js"></script>
 	<script>
 		
 	</script>

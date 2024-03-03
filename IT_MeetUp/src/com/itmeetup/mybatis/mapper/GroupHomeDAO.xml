@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <!-- mybatis 환경 설정 파일 활용 -->
+ <mapper namespace="com.itmeetup.mybatis.IGroupHomeDAO">
+ 
+	<select id="weeklyReportList" resultType="com.itmeetup.mybatis.WeeklyReportDTO">
+		SELECT ROWNUM "WRNUMBER", WR_TITLE "WRTITLE", WR_CONTENT "WRCONTENT", TO_CHAR(WR_DATE, 'YYYY-MM-DD') "WRDATE", PI_NICKNAME "WRPERSON"
+		FROM WEEKLYREPVIEW
+		WHERE ROWNUM  &lt;= 4 AND OP_CODE = 'OP_2'
+ 	</select>
+ 	
+ 	<select id="meetCount" resultType="java.lang.Integer">
+		SELECT NVL(OUCOUNT,0) "MEETCOUNT"
+		FROM GROUPOUTPUTVIEW
+		WHERE OP_CODE = 'OP_2' AND ASS_OU_CODE = 'OU_11'
+	</select>
+	
+	<select id="planCount" resultType="java.lang.Integer">
+		SELECT NVL(OUCOUNT,0) "PLANCOUNT"
+		FROM GROUPOUTPUTVIEW
+		WHERE OP_CODE = 'OP_2' AND ASS_OU_CODE = 'OU_1'
+	</select>
+	
+	<select id="requestCount" resultType="java.lang.Integer">
+		SELECT NVL(OUCOUNT,0) "REQUESTCOUNT"
+		FROM GROUPOUTPUTVIEW
+		WHERE OP_CODE = 'OP_2' AND ASS_OU_CODE = 'OU_2'
+	</select>
+	
+	<select id="flowchartCount" resultType="java.lang.Integer">
+		SELECT NVL(OUCOUNT,0) "FLOWCHARTCOUNT"
+		FROM GROUPOUTPUTVIEW
+		WHERE OP_CODE = 'OP_2' AND ASS_OU_CODE = 'OU_3'	
+	</select>
+ 	
+ </mapper>

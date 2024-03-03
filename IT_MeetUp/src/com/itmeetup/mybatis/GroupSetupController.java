@@ -15,7 +15,7 @@ public class GroupSetupController
 	@Autowired
 	private SqlSession sqlSession;
 
-	// 전체 학생 조회
+	
 	@RequestMapping(value = "/groupSetup.action", method = RequestMethod.GET)
 	public String groupSetupList(ModelMap model)
 	{
