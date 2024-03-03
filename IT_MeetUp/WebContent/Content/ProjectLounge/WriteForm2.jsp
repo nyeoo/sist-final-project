@@ -79,13 +79,14 @@
                         <div data-bs-spy="scroll" data-bs-target="#writeForm2" data-bs-smooth-scroll="true"
                             class="scrollspy-example-2" tabindex="0">
                             <div class="row">
-							<form action="WriteForm3.jsp" method="get">
+							<form action="WriteForm3.action" method="post">
                                 <!-- 모집내용 -->
+                                <p class="h4">일정 세부 설정</p>
                                 <div id="date-1-1" class="col-12">
 								    <div class="row range-datepicker">
 								        <div class="col-6 m-input-cal">
 								            <label for="date_from_1" class="form-label">분석 시작 예정일</label> 
-								            <input type="text" class="form-control date-from" id="date_from_1" name="date_from_1" readonly="readonly"  value=""> 
+								            <input type="text" class="form-control date-from" id="date_from_1" name="date_from_1"   value= "${startDate }" disabled="disabled"> 
 								        </div>
 								        <div class="col-6 m-input-cal">
 								            <label for="date_to_1" class="form-label">분석 종료 예정일</label> 
@@ -97,7 +98,7 @@
 										<div class="row range-datepicker">
 											<div class="col-6 m-input-cal">
 												<label for="date_from_2" class="form-label">설계 시작 예정일</label> 
-												<input type="text" class="form-control date-from" id="date_from_2" name="date_from_2" >
+												<input type="text" class="form-control date-from" id="date_from_2" name="date_from_2"  >
 											</div>
 											<div class="col-6 m-input-cal">
 												<label for="date_to_2" class="form-label">설계 종료 예정일</label> 
@@ -121,11 +122,11 @@
 										<div class="row range-datepicker">
 											<div class="col-6 m-input-cal">
 												<label for="date_from_4" class="form-label">테스트 시작 예정일</label> 
-												<input type="text" class="form-control date-from" id="date_from_4" name="date_form_4" >
+												<input type="text" class="form-control date-from" id="date_from_4" name="date_form_4"  disabled="disabled" value="asd">
 											</div>
 											<div class="col-6 m-input-cal">
 												<label for="date-to" class="form-label">테스트 종료 예정일</label> 
-												<input type="text" class="form-control date-to" id="date_to_4" name="date_to_4" value="" readonly="readonly">
+												<input type="text" class="form-control date-to" id="date_to_4" name="date_to_4" value="${endDate }" readonly="readonly" disabled="disabled">
 											</div>
 										</div>
                                 </div>
@@ -144,15 +145,17 @@
 									</div>                   	
                                     <p class="h5">팀원 설정</p>
 									<div class="row">
-										
+									<c:forEach var="job" items="${jobs }">
+									
 	                                        <div class="col-5 m-select">
-	                                            프론트
+	                                            <!-- 프론트 -->
+	                                            ${job.job }
 	                                        </div>
-                                        
+
                                         <div class="col-5 m-select">
-                                            <select class="form-select" aria-label="Default select example"
-                                                title="selectTitle01">
+                                            <select class="form-select inwon" aria-label="Default select example"   title="selectTitle01" required="required">
                                                 <option selected>인원수를 골라주세요</option>
+                                                <option value="0">0명</option>
                                                 <option value="1">1명</option>
                                                 <option value="2">2명</option>
                                                 <option value="3">3명</option>
@@ -164,7 +167,9 @@
                                                 <option value="9">9명</option>
                                             </select>
                                         </div>
-                                        <div class="col-5 m-select">
+									</c:forEach>	
+                                        
+<!--                                         <div class="col-5 m-select">
                                             백엔드
                                         </div>
                                         <div class="col-5 m-select">
@@ -201,13 +206,11 @@
                                                 <option value="9">9명</option>
                                             </select>
                                         </div>
-                                    </div>
+ -->                          
+ 			          </div>
                                 </div>
                                 <!-- 팀원설정 끝 -->	
 								
-                                </div>
-                                
-                               
                             <!-- 버튼영역 -->
                             <div class="btn-box">
                                 <div class="btn-center">
@@ -217,15 +220,18 @@
                             </div>
                             <!-- //버튼영역 -->
                             </form> 
+                               </div>
+                                
+                               
                             </div>
                         </div>
-                    <!-- </form> -->
+                     
                 </div>
             </div>
             <!-- //작성영역 -->
 
 
-            </div>
+            
         </section>
         <!-- //바디영역 -->		
 		
@@ -235,23 +241,52 @@
 	<!-- 푸터영역 -->
 		<c:import url="../Components/Footer.jsp"></c:import>
 	<!-- //푸터영역 -->
+	
 </div> <!-- .wrapper End -->
 <!-- script -->
-	<script src="../../asset/js/jquery-3.5.1-min.js"></script>
-	<script src="../../asset/js/jquery-ui.js"></script>
-	<script src="../../asset/js/bootstrap.bundle.min.js"></script>
-	<script src="../../asset/js/common.js"></script>
+	<script src="<%=cp %>/asset/js/jquery-3.5.1-min.js"></script>
+	<script src="<%=cp %>/asset/js/jquery-ui.js"></script>
+	<script src="<%=cp %>/asset/js/bootstrap.bundle.min.js"></script>
+	<script src="<%=cp %>/asset/js/common.js"></script>
 	<script type="text/javascript">
   	$(function ()
   	{
   	   	//alert("hmm");
   	
 	   
-	  	 $("#date_to_4").datepicker( "option", "disabled", true );
-	  	 $("#date_from_1").datepicker( "option", "disabled", true );
+/* 	  	 $("#date_to_4").datepicker( "option", "disabled", true );
+	  	 $("#date_from_1").datepicker( "option", "disabled", true ); */
   	 
   	
-  	
+  		
+	  	 $(".inwon").change(function() 
+	  	 {
+	            var sum = 0;
+	            // 모든 select 요소의 값을 합산
+	            $(".inwon").each(function() 
+	            {
+	                sum += parseInt($(this).val());
+	            });
+
+	            // 합계가 12명을 초과하는 경우, 알림 창 띄우기
+	            if (sum > 12) 
+	            {
+	                alert("최대 참가 인원은 12명입니다.");
+	                
+	                // 마지막 select 요소의 값을 12명으로 설정
+	                var lastIndex = $(".inwon").length - 1;
+	                $(".inwon").eq(lastIndex).val(12 - (sum - parseInt($(".inwon").eq(lastIndex).val())));
+	    
+	            }
+	            else if(sum == 0)
+	            {
+	            	alert("최소 1명이라도 골라야됩니다.");
+	            	var firstSelect = document.getElementsByClassName("inwon")[0];
+	            	firstSelect.focus();
+	            }
+	        });
+	  	 
+	  	 
   	
 	});
     </script>

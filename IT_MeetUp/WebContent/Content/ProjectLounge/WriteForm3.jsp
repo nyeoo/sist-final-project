@@ -17,7 +17,7 @@
   <meta name="keywords" content="IT 프로젝트 모집, 사이드 프로젝트 진행">
   <title>모집공고 작성(희망기술) </title>
 <!-- css -->
-	<link rel="stylesheet" href="../../asset/css/style.css">
+	<link rel="stylesheet" href="<%=cp %>/asset/css/style.css">
 <style type="text/css">
 
 	span {font-weight: bold; }
@@ -25,10 +25,10 @@
 <!-- 컴포넌트 전용 css -->
 	<link rel="stylesheet" href="../../asset/css/component.css">
 <!-- script -->
-	<script src="../../asset/js/jquery-3.5.1-min.js"></script>
-	<script src="../../asset/js/jquery-ui.js"></script>
-	<script src="../../asset/js/bootstrap.bundle.min.js"></script>
-	<script src="../../asset/js/common.js"></script>
+	<script src="<%=cp %>/asset/js/jquery-3.5.1-min.js"></script>
+	<script src="<%=cp %>/asset/js/jquery-ui.js"></script>
+	<script src="<%=cp %>/asset/js/bootstrap.bundle.min.js"></script>
+	<script src="<%=cp %>/asset/js/common.js"></script>
 	<script type="text/javascript">
 
 	$(document).ready(function()
@@ -415,7 +415,7 @@
                 		    <!-- 버튼영역 -->
                           	<div class="btn-box">
                                 <div class="btn-center">
-                                  <button type="submit" class="btn btn-primary">다음</button>
+                                  <button type="submit" class="btn btn-primary">모집 공고 올리기</button>
                                 </div>
                             </div>
                             <!-- //버튼영역 -->

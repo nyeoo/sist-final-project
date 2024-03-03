@@ -64,7 +64,7 @@
                                 <a class="nav-link ms-3 my-1" href="#item-2-4">
                                     <p class="h5">모임방식</p>
                                 </a>
-                                <a class="nav-link ms-3 my-1" href="#item-2-5">
+                                <a style="display: none;" class="nav-link ms-3 my-1 sunho" href="#item-2-5">
                                     <p class="h5">선호지역</p>
                                 </a>
                             </nav>
@@ -76,7 +76,9 @@
                         <div data-bs-spy="scroll" data-bs-target="#project-nav" data-bs-smooth-scroll="true"
                             class="scrollspy-example-2" tabindex="0">
                             <div class="row">
-							<form action="WriteForm2.jsp" method="get">
+                            
+							<form  action="WriteForm2.action"  method="post">
+							
                                 <!-- 모집내용 -->
                                 <div id="item-1" class="col-12">
                                     <p class="h4">모집 내용</p>
@@ -130,12 +132,14 @@
                                     <p class="h5">일정</p>
 										<div class="row range-datepicker">
 											<div class="col-6 m-input-cal">
-												<label for="date-from" class="form-label"><i class="bi bi-calendar2-plus"></i> 시작 예정일</label> 
-												<input type="text" required="required" class="form-control date-from" id="startDate-from" name="startDate-from"> 
+												<label for="startDate" class="form-label"><i class="bi bi-calendar2-plus"></i> 시작 예정일</label> 
+												<!-- <input type="text" required="required" class="form-control date-from" id="startDate" name="startDate"> -->  
+												<input type="text" required="required" class="form-control " id="startDate" name="startDate"> 
 											</div>
 											<div class="col-6 m-input-cal">
-												<label for="date-to" class="form-label"><i class="bi bi-calendar2-plus"></i> 종료 예정일</label> 
-												<input type="text" required="required" class="form-control date-to" id="endDate-to" name="endDate-to" >
+												<label for="endDate" class="form-label"><i class="bi bi-calendar2-plus"></i> 종료 예정일</label> 
+												<!-- <input type="text" required="required" class="form-control date-to" id="endDate" name="endDate" > --> 
+												<input type="text" required="required" class="form-control " id="endDate" name="endDate" > 
 											</div>
 										</div>
                                 </div>
@@ -226,55 +230,63 @@
 	<script src="<%=cp %>/asset/js/bootstrap.bundle.min.js"></script>
 	<script src="<%=cp %>/asset/js/common.js"></script>
 	<script type="text/javascript">
+	
+	// 데이트 픽커 설정 
+	   $.datepicker.setDefaults(
+	   {
+	        dateFormat: 'yymmdd',
+	        prevText: '이전 달',
+	        nextText: '다음 달',
+	        monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+	        monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+	        dayNames: ['일', '월', '화', '수', '목', '금', '토'],
+	        dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+	        dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+	        showMonthAfterYear: true,
+	        yearSuffix: '년'
+	    });
+	   
   	$(function()
   	{
-		$("#startDate-from").datepicker( "option", "showAnim", "clip" );   // 데이트 픽커
-		
-		$("#endDate-to").datepicker( "option", "showAnim", "slide" );      // 데이트 픽커
-		
-		var start_val = null;
-		var end_val   = null;
-		
- 		$("#startDate-from").on("input change",function()
- 		{
- 			start_val = $(this).val();
- 			
- 			//alert(val);
- 		});
- 		
- 		
- 		$("#endDate-to").on("input change",function()
- 		{
- 			if(start_val == null || start_val == " " )
- 			{
- 				alert("시작 예정일 먼저 입력해주세요");
- 				
- 				return;
- 			}
- 			
- 			
- 			end_val =	$(this).val();
- 			
- 			if(end_val <= start_val+"1m")
- 			{
- 				alert("시작예정일 기준 한달 후 부터 선택 가능합니다.");
- 			}
- 			
- 		});    
-		
-		
-  		$(".meet").change(function()
+  		// 시작 날짜 선택
+        $( "#startDate" ).datepicker(
+        {
+        	dateFormat: "yy/mm/dd" ,			
+          	onSelect: function(selectedDate) 
+          	{
+            	var startDate = $(this).datepicker('getDate'); 						// 시작 날짜 가져오기
+            	var endDateMin = new Date(startDate.getTime()); 					// 시작 날짜 복사
+            	endDateMin.setMonth(endDateMin.getMonth() + 1); 					// 한 달 뒤로 설정
+            	var endDateMax = new Date(startDate.getTime()); 					// 시작 날짜 복사
+            	endDateMax.setMonth(endDateMax.getMonth() + 6); 					// 6개월 뒤로 설정
+            	$( "#endDate" ).datepicker( "option", "minDate", endDateMin ); 		// 종료 날짜 선택 가능한 범위 설정
+            	$( "#endDate" ).datepicker( "option", "maxDate", endDateMax ); 		// 종료 날짜 선택 가능한 범위 설정
+          }
+        });
+        
+        // 종료 날짜 선택
+        $( "#endDate" ).datepicker(
+        {
+        	 dateFormat: "yy/mm/dd" 
+        });
+  		
+  		
+		// 선호방식 눌렀을떄
+  		$(".meet").change(function() 
 		{
   			//alert(startDate);
   			
   			var meetType = $("input[name=btnradio]:checked").val();			// 선호방식 담는 변수
 			  				
-			if (meetType != 1)												// 선호방식이 온라인이 아니면 시군구 입력 폼 등장
+			if (meetType !="MEET_1")												// 선호방식이 온라인이 아니면 시군구 입력 폼 등장
 			{
+				
+				$(".sunho").css('display','inline');
 				$(".meetType").css('display','inline');  
 			} 
 			else															// 선호방식이 온라인이라면 선호지역 입력 폼 숨기기
 			{
+				$(".sunho").css('display','none');
 				$(".meetType").css('display','none');
 				$("#si").val("0").prop("selected", true);
 				$("#do").val("0").prop("selected", true);
@@ -306,6 +318,14 @@
 		    
 		         
 		});
+  		/* 
+		// startDate와 endDate 값을 가져와서 form의 action 속성을 설정
+	    var startDate = $("#startDate").val();
+	    var endDate = $("#endDate").val();
+	    var formAction = "WriteForm2.action?startDate=" + startDate + "&endDate=" + endDate;
+	    // form 요소의 action 속성을 설정
+	    $("#form2").attr("action", formAction);
+	     */
 	});
   </script>
 </html>

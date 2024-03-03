@@ -1,13 +1,12 @@
 package com.itmeetup.mybatis;
 
-import java.util.ArrayList;
 
 public class JobDTO
 {
 	// 주요 속성 구성 
-	private  String jobCode ; 	// 직무 코드
+	private  String jobCode ,job; 	// 직무 코드 , 직무 이름
 	private int inwon;			// 인원수
-	private ArrayList<String> job; // 직무 이름 
+	
 
 	// gett/ setter 구성 	
 	public String getJobCode()
@@ -26,15 +25,16 @@ public class JobDTO
 	{
 		this.inwon = inwon;
 	}
-	
-	public ArrayList<String> getJob()
+	public String getJob()
 	{
 		return job;
 	}
-	public void setJob(ArrayList<String> job)
+	public void setJob(String job)
 	{
 		this.job = job;
 	}
+	
+	
 	
 	
 }

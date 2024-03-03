@@ -6,13 +6,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.itmeetup.mybatis.IJobDAO">
 
 	
-	<!-- 프로젝트 정보 출력 -->
+	<!-- 해당 프로젝트 희망 직위 출력 -->
 	<select id="jobList" resultType="java.lang.String" >
 	
 		SELECT J.JOB_NAME AS "JOB"
 		FROM TEAM_JOB TE_J
 		JOIN JOB J  ON J.JOB_CODE = TE_J.TJ_JOB_CODE
 		WHERE TJ_OP_CODE = #{code}
+		
+	</select>
+	
+	
+	<!-- 직위 출력  -->
+	<select id="jobs" resultType="com.itmeetup.mybatis.JobDTO" >
+	
+		SELECT JOB_CODE AS"JOBCODE" , JOB_NAME AS "JOB" 
+		FROM JOB
 		
 	</select>
 </mapper>
