@@ -19,6 +19,7 @@ String cp = request.getContextPath();
 
 <!-- css -->
 <link rel="stylesheet" href="<%=cp %>/asset/css/style.css">
+<link rel="stylesheet" href="<%=cp %>/asset/css/layout_jaeyong.css">
 
 </head>
 
@@ -42,7 +43,6 @@ String cp = request.getContextPath();
 				<!-- 탭 -->
 				<div class="comp_box">
 					<h2 class="comp_tit">업무관리</h2>
-
 					<div class="tab-box">
 						<nav>
 							<div class="nav nav-tabs nav-tabs-bordered mb-3" id="nav-tab"
@@ -62,35 +62,24 @@ String cp = request.getContextPath();
 						</nav>
 						<div class="tab-content" id="nav-tabContent">
 							<!-- 첫 번째 탭: 일정 관리 -->
-							<div class="tab-pane fade show active" id="nav-home"
-								role="tabpanel" aria-labelledby="nav-home-tab">
-								<div>
-									<div class="card tbl-card">
-										<div data-include="../MeetGroup/ScheduleManage.jsp"
-											class="card-header"></div>
-									</div>
+							<div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+								<div class="card tbl-card">
+									<c:import url="../MeetGroup/ScheduleManage.jsp"></c:import>
 								</div>
 							</div>
 
 							<!-- 두 번째 탭: 업무 할당표 -->
 							
-							<div class="tab-pane fade" id="nav-profile" role="tabpanel"
-								aria-labelledby="nav-profile-tab">
-								<div>
-									<div class="comp_box">
-										<c:import url="../MeetGroup/WorkReportList.jsp"></c:import>
-									</div>
+							<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+								<div class="card tbl-card">
+									<c:import url="../MeetGroup/WorkAssignment.jsp"></c:import>
 								</div>
 							</div>
 
 							<!-- 세 번째 탭: 업무 보고 목록 -->
-							<div class="tab-pane fade" id="nav-contact" role="tabpanel"
-								aria-labelledby="nav-contact-tab">
-								<div>
-									<div class="card tbl-card">
-										<div data-include="../MeetGroup/WorkReportList.jsp"
-											class="card-header"></div>
-									</div>
+							<div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+								<div class="card tbl-card">
+									<c:import url="../MeetGroup/WorkReportList.jsp"></c:import>
 								</div>
 							</div>
 
@@ -180,11 +169,11 @@ String cp = request.getContextPath();
 					</div>
 				</div>
 				<!--// Modal3  -->
+			</div>
 		</section>
 	</div>
 	<!-- 푸터영역 -->
-	<div role="footer" data-include="../Components/Footer.jsp"
-		class="mt-auto"></div>
+	<div role="footer" data-include="../Components/Footer.jsp" class="mt-auto"></div>
 	<!-- //푸터영역 -->
 
 	<!-- script -->
@@ -194,23 +183,21 @@ String cp = request.getContextPath();
 	<script src="<%=cp %>/asset/js/common.js"></script>
 
 	<script type="text/javascript">
-    $(document).ready(function() {
-        $("#nav-profile-tab").click(function() {
-            $.ajax({
-                type: "GET",
-                url: "workAssignment.action",
-                success: function(response) {
-                    $("#nav-profile").html(response);
-                },
-                error: function(xhr, status, error) {
-                    console.error("Error occurred while loading WorkAssignment.jsp:", error);
-                }
-            });
-        });
-    });
-</script>
-
-
+	    $(document).ready(function() {
+	        $("#nav-profile-tab").click(function() {
+	            $.ajax({
+	                type: "GET",
+	                url: "workAssignment.action",
+	                success: function(response) {
+	                    $("#nav-profile").html(response);
+	                },
+	                error: function(xhr, status, error) {
+	                    console.error("Error occurred while loading WorkAssignment.jsp:", error);
+	                }
+	            });
+	        });
+	    });
+	</script>
 </body>
 
 </html>

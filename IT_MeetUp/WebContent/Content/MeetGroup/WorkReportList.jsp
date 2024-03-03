@@ -5,9 +5,11 @@
 String cp = request.getContextPath();
 %>
 <!-- 업무 보고 목록 -->
-<h5 class="card-header">업무 보고 목록</h5>
+<div class="card-header">
+	<h5>업무보고목록</h5>
+</div>
 <!-- 필터 -->
-<div class="filter-box mb-5" style="margin: auto;">
+<div class="filter-box mb-3" style="margin: auto;">
 	<ul class="d-flex">
 		<li>
 			<div class="m-select">
@@ -124,22 +126,23 @@ String cp = request.getContextPath();
 			</tr>
 		</tbody>
 	</table>
+
+	<!-- 페이지네이션 -->
+	<div class="page-box">
+		<nav aria-label="Page navigation example">
+			<ul class="pagination">
+				<li class="page-item"><a class="page-link" href="#"
+					aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
+				</a></li>
+				<li class="page-item"><a class="page-link" href="#">1</a></li>
+				<li class="page-item"><a class="page-link" href="#">2</a></li>
+				<li class="page-item"><a class="page-link" href="#">3</a></li>
+				<li class="page-item"><a class="page-link" href="#"
+					aria-label="Next"> <span aria-hidden="true">&raquo;</span>
+				</a></li>
+			</ul>
+		</nav>
+	</div>
+	<!-- //페이지네이션 -->
 </div>
-<!-- 페이지네이션 -->
-<div class="page-box">
-	<nav aria-label="Page navigation example">
-		<ul class="pagination">
-			<li class="page-item"><a class="page-link" href="#"
-				aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
-			</a></li>
-			<li class="page-item"><a class="page-link" href="#">1</a></li>
-			<li class="page-item"><a class="page-link" href="#">2</a></li>
-			<li class="page-item"><a class="page-link" href="#">3</a></li>
-			<li class="page-item"><a class="page-link" href="#"
-				aria-label="Next"> <span aria-hidden="true">&raquo;</span>
-			</a></li>
-		</ul>
-	</nav>
-</div>
-<!-- //페이지네이션 -->
 <!-- //업무 보고 목록 -->

@@ -5,7 +5,6 @@
 String cp = request.getContextPath();
 %>
 <div class="modal-body">
-
 	<div id="#newItem-1" class="comp_tit">
 		제목(주제) <input type="text" class="form-control" id="title"
 			required="required" style="width: 450px;">
@@ -30,7 +29,7 @@ String cp = request.getContextPath();
 	<br>
 	<hr>
 	<div id="#newItem-4" class="dropdown skill-dropdown ">
-		<div class=" comp_tit">사용 스킬</div>
+		<div class="comp_tit">사용 스킬</div>
 		<nav id="skilLIst">
 			<div class="nav nav-tabs mb-3" id="nav-tab" role="tablist">
 				<button class="nav-link active" id="nav-front-tab"
@@ -199,14 +198,11 @@ String cp = request.getContextPath();
 				</ul>
 			</div>
 		</div>
-
 	</div>
 
 
-	<div id="skilArea"
-		style="border: 2px solid black; border-radius: 30px; width: 300px;">
-		<!-- 내가 체크한 기술 나오는 공간 -->
-		<br> <br>
+	<div id="skilArea"style="border: 2px solid black; border-radius: 30px; width: 300px;">
+		<!-- 내가 체크한 기술 나오는 공간 -->		
 	</div>
 	<br>
 	<hr>
@@ -217,6 +213,24 @@ String cp = request.getContextPath();
 				class="form-control" type="file" id="formFile">
 		</div>
 	</div>
-
-
 </div>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+	    $(".skil").click(function() {
+  	        var skillName = $("label[for='" + $(this).attr("id") + "']").text();
+  	      	var checkedSkill = $("#skilArea").find("span");
+  	      	
+  	      	if ($(this).is(":checked")) {
+              var skill = $("<span>").text("["+skillName+"]");
+              $("#skilArea").append(skill);
+	        } else {
+	        	checkedSkill.each(function() {
+	                if ($(this).text().indexOf(skillName) !== -1) {
+	                    $(this).remove();
+	                }
+	            });
+	        }
+	    });
+	});
+</script>
