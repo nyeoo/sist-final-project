@@ -26,7 +26,7 @@ public class GroupSetupController
 
 		return "/Content/MeetGroup/GroupSetup.jsp";
 	}
-
+	
 	@RequestMapping(value = "/groupSetupUpdate.action", method = RequestMethod.GET)
 	public String GroupTeamNamesearchId(int code, ModelMap model)
 	{
