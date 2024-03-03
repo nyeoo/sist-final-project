@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <!-- mybatis 환경 설정 파일 활용 -->
+ <mapper namespace="com.itmeetup.mybatis.ICompleteProjectDAO">
+ 
+ 	<select id="cpList" resultType="com.itmeetup.mybatis.CompleteProjectDTO">
+		SELECT F.FINAL_NAME AS TITLE, F.FINAL_INTRO AS CONTENT, O.OP_TEAM_NAME AS TEAMNAME
+		FROM FINAL_INFO F JOIN OPEN_PROJECT O
+                  ON F.FI_OP_CODE = O.OP_CODE
+ 	</select>
+ 	
+ </mapper>

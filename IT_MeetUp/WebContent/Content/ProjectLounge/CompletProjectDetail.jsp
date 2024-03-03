@@ -93,7 +93,7 @@ String cp = request.getContextPath();
 											class="member-img" /> <span class="nickname">닉네임이길면어떻</span>
 									</div>
 									<div class="d-flex member">
-										<i class="fa-solid fa-circle-user no-profile"></i> <span
+										<i class="fa-solid fa-circle-user no-profile-lg"></i> <span
 											class="nickname">닉네임</span>
 									</div>
 								</div></li>
@@ -101,7 +101,7 @@ String cp = request.getContextPath();
 							<li class="d-flex job"><span class="tag bg-danger job-tag">디자인</span>
 								<div class="d-flex member-box">
 									<div class="d-flex member">
-										<i class="fa-solid fa-circle-user no-profile"></i> <span
+										<i class="fa-solid fa-circle-user no-profile-lg"></i> <span
 											class="nickname">닉네임</span>
 									</div>
 								</div></li>
@@ -109,7 +109,7 @@ String cp = request.getContextPath();
 							<li class="d-flex job"><span class="tag bg-primary job-tag">프론트</span>
 								<div class="d-flex member-box">
 									<div class="d-flex member">
-										<i class="fa-solid fa-circle-user no-profile"></i> <span
+										<i class="fa-solid fa-circle-user no-profile-lg"></i> <span
 											class="nickname">닉네임</span>
 									</div>
 								</div></li>
@@ -118,11 +118,11 @@ String cp = request.getContextPath();
 								class="tag bg-secondary job-tag">백</span>
 								<div class="d-flex member-box">
 									<div class="d-flex member none-event">
-										<i class="fa-solid fa-circle-user no-profile no-eva"></i> <span
+										<i class="fa-solid fa-circle-user no-profile-lg no-eva"></i> <span
 											class="nickname">평가안함</span>
 									</div>
 									<div class="d-flex member">
-										<i class="fa-solid fa-circle-user no-profile"></i> <span
+										<i class="fa-solid fa-circle-user no-profile-lg"></i> <span
 											class="nickname">닉네임</span>
 									</div>
 								</div>

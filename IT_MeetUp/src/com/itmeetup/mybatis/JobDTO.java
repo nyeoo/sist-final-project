@@ -5,10 +5,9 @@ public class JobDTO
 {
 	// 주요 속성 구성 
 	private  String jobCode ,job; 	// 직무 코드 , 직무 이름
-	private int inwon;			// 인원수
+	private int inwon;				// 인원수
 	
-
-	// gett/ setter 구성 	
+	// getter / setter 구성 	
 	public String getJobCode()
 	{
 		return jobCode;

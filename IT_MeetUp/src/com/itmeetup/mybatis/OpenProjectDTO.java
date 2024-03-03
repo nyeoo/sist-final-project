@@ -9,7 +9,7 @@ public class OpenProjectDTO
 																								    
 	private int view, day ,mojibsu;
 	private ArrayList<String> skill;
-	//private ArrayList<JobDTO> jobList;
+	private ArrayList<JobDTO> jobList;
 	
 	// getter / setter 구성
 	public String getCode()
@@ -142,7 +142,15 @@ public class OpenProjectDTO
 	{
 		this.mojibsu = mojibsu;
 	}
-
+	public ArrayList<JobDTO> getJobList()
+	{
+		return jobList;
+	}
+	public void setJobList(ArrayList<JobDTO> jobList)
+	{
+		this.jobList = jobList;
+	}
+	
 	/*
 	// 현재 진행중인 프로젝트 리스트에 필요한 카테고리
 	public String getCategorys()

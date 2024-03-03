@@ -19,5 +19,10 @@
  		FROM TEAM_SKILL
  		WHERE TS_OP_CODE = #{code}
  	</select>
+ 	<select id="jobs" resultType="com.itmeetup.mybatis.JobDTO">
+ 		SELECT TJ_JOB_CODE "JOBCODE"
+		FROM TEAM_JOB
+		WHERE TJ_OP_CODE = #{code}
+ 	</select>
  	
  </mapper>

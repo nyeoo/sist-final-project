@@ -57,6 +57,11 @@
     border: 1px solid #EA726F;
     color: #EA726F;
 }
+.no-profile-sm {
+	color: #69696B;
+	font-size: 20px;
+	margin-right: .25rem;
+}
 
 /* CompleteProject.jsp */
 .c-body-section {
@@ -212,7 +217,7 @@
     cursor: pointer;
     flex-shrink: 0;
 }
-.no-profile {
+.no-profile-lg {
 	font-size: 55px;
 	color: #69696B;
 	text-shadow: 1px 1px 4px #c1c1c1;

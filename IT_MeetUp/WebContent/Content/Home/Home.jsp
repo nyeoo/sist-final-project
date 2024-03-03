@@ -21,6 +21,10 @@
 <link rel="stylesheet" href="<%=cp%>/asset/css/style.css">
 <link rel="stylesheet" href="<%=cp%>/asset/css/layout_bny.css">
 
+
+<!-- font-awesome -->
+<script src="https://kit.fontawesome.com/81ca059e0e.js"
+	crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -85,16 +89,32 @@
 												</div>
 												<!-- 직무 -->
 												<div class="d-flex job-box">
-													<span class="badge rounded-pill bg-primary">프론트</span> <span
-														class="badge rounded-pill bg-secondary">백</span> <span
-														class="badge rounded-pill bg-success">기획</span> <span
-														class="badge rounded-pill bg-danger">디자인</span>
+													<c:forEach var="job" items="${jobList[pop.code] }">
+														<c:choose>
+															<c:when test="${job.jobCode eq 'JOB_1'}">
+																<span class="badge rounded-pill bg-success">기획</span>
+															</c:when>
+															<c:when test="${job.jobCode eq 'JOB_2'}">
+																<span class="badge rounded-pill bg-danger">디자인</span>
+															</c:when>
+															<c:when test="${job.jobCode eq 'JOB_3'}">
+																<span class="badge rounded-pill bg-primary">프론트</span>
+															</c:when>
+															<c:otherwise>
+																<span class="badge rounded-pill bg-secondary">백</span>
+															</c:otherwise>
+														</c:choose>
+													</c:forEach>
 												</div>
 											</div>
 											<div class="card-bottom">
 												<!-- 작성자 -->
-												<strong class="mb-2 text-primary-emphasis writer"><span
-													class="leader-level"></span>${pop.nickname }</strong>
+												<strong class="mb-2 text-primary-emphasis writer">
+													<c:if test="${empty pop.profile}">
+														<i class="fa-solid fa-circle-user no-profile-sm"></i>
+													</c:if>
+													<span>${pop.nickname }</span>
+												</strong>
 												<!-- 제목 -->
 												<a href="javascript:;" class="card-tit mb-2"> <span
 													class="h3">${pop.title }</span>
@@ -106,7 +126,7 @@
 													<!-- 사용언어 -->
 													<div class="language-box ">
 														<c:forEach var="skill" items="${skillList[pop.code] }">
-														<div class="badge-language ${skill }"></div>
+															<div class="badge-language ${skill }"></div>
 														</c:forEach>
 													</div>
 													<!-- 조회수 -->
@@ -160,16 +180,32 @@
 												</div>
 												<!-- 직무 -->
 												<div class="d-flex job-box">
-													<span class="badge rounded-pill bg-primary">프론트</span> <span
-														class="badge rounded-pill bg-secondary">백</span> <span
-														class="badge rounded-pill bg-success">기획</span> <span
-														class="badge rounded-pill bg-danger">디자인</span>
+													<c:forEach var="job" items="${jobList[recent.code] }">
+														<c:choose>
+															<c:when test="${job.jobCode eq 'JOB_1'}">
+																<span class="badge rounded-pill bg-success">기획</span>
+															</c:when>
+															<c:when test="${job.jobCode eq 'JOB_2'}">
+																<span class="badge rounded-pill bg-danger">디자인</span>
+															</c:when>
+															<c:when test="${job.jobCode eq 'JOB_3'}">
+																<span class="badge rounded-pill bg-primary">프론트</span>
+															</c:when>
+															<c:otherwise>
+																<span class="badge rounded-pill bg-secondary">백</span>
+															</c:otherwise>
+														</c:choose>
+													</c:forEach>
 												</div>
 											</div>
 											<div class="card-bottom">
 												<!-- 작성자 -->
-												<strong class="mb-2 text-primary-emphasis writer"><span
-													class="leader-level"></span>${recent.nickname }</strong>
+												<strong class="mb-2 text-primary-emphasis writer">
+													<c:if test="${empty pop.profile}">
+														<i class="fa-solid fa-circle-user no-profile-sm"></i>
+													</c:if>
+													<span>${recent.nickname }</span>
+												</strong>
 												<!-- 제목 -->
 												<a href="javascript:;" class="card-tit mb-2"> <span
 													class="h3">${recent.title }</span>
@@ -179,10 +215,10 @@
 												<div
 													class="d-flex justify-content-between align-items-center">
 													<!-- 사용언어 -->
-													<div class="language-box">
-														<span class="badge-language"><span class="blind">파이썬</span></span>
-														<span class="badge-language"><span class="blind">파이썬</span></span>
-														<span class="badge-language"><span class="blind">파이썬</span></span>
+													<div class="language-box ">
+														<c:forEach var="skill" items="${skillList[recent.code] }">
+															<div class="badge-language ${skill }"></div>
+														</c:forEach>
 													</div>
 													<!-- 조회수 -->
 													<small class="text-body-secondary">view
