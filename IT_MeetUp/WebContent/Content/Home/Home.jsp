@@ -106,7 +106,7 @@
 													<!-- 사용언어 -->
 													<div class="language-box ">
 														<c:forEach var="skill" items="${skillList[pop.code] }">
-														<span>${skill }</span>
+														<div class="badge-language ${skill }"></div>
 														</c:forEach>
 													</div>
 													<!-- 조회수 -->

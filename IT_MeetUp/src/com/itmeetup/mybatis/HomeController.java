@@ -28,7 +28,11 @@ public class HomeController
 		ArrayList<OpenProjectDTO> project = dao.popList();
 		for (OpenProjectDTO dto : project)
 		{
-			skillList.put(dto.getCode(), dao.skills(dto.getCode()));
+			ArrayList<String> processedSkills = SkillProcessor.processSkills(dao.skills(dto.getCode()));
+			skillList.put(dto.getCode(), processedSkills);
+			//skillList.put(dto.getCode(), dao.skills(dto.getCode()));
+			//System.out.println(dto.getCode());
+			//System.out.println(dao.skills(dto.getCode()));
 		}
 		
 		
@@ -37,10 +41,8 @@ public class HomeController
 		model.addAttribute("newList", dao.newList());
 
 		return "/Content/Home/Home.jsp";
+		
+		
 	}
-	
-
-	
-	
 	
 }
