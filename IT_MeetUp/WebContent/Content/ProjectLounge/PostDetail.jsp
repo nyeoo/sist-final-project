@@ -42,7 +42,7 @@
     <div class="wrapper">
 
         <!-- 헤더영역 -->
-        <div role="header" data-include="../Components/Header.jsp" class="sticky-top"></div>
+		<c:import url="../Components/Header.jsp"></c:import>
         <!-- //헤더영역 -->
 
         <!-- 바디영역 -->
@@ -228,71 +228,58 @@
 										</div>
 									<div class="tab-pane fade" id="nav-comment" role="tabpanel" aria-labelledby="nav-comment-tab">
 						  					
-							  			<!-- 댓글 -->
-										<div class="row comment_reg">
-											<div class="col-12">
-												<div class="textarea_wrap">
-													<textarea rows="2" cols="30" placeholder="댓글을 작성하세요" class="" data-textarea="txt_cnt"></textarea>
-												</div>
-											</div>
-											<div class="col-12 d-flex justify-content-between mt-2">
-												<div class="left-box">
-													<div class="txt">※ 글자수는 1000자 이내로 제한됩니다.</div>
-												</div>
-												<div class="right-box">
-													<span class="me-3"><strong data-textarea-cnt="txt_cnt">29</strong>/1000</span>
-													<button type="button" class="btn btn-primary">Primary</button>
-												</div>
-											</div>
-										</div>
+					<div class="comment_area_wrap open">
+									<button type="button" class="comment_more">
+										${count } 개
+										<span class="cmnt_txt ty01"><i class="bi bi-arrow-down-circle"></i>펼치기</span>
+										<span class="cmnt_txt ty02"><i class="bi bi-arrow-up-circle"></i>접기</span>
+									</button>
 				
-										<div class="comment_area_wrap open">
+									<ul class="comment_area">
+<%-- 							
 				
-											<button type="button" class="comment_more">
-												댓글 2개 <span class="cmnt_txt ty01"><i class="bi bi-arrow-down-circle"></i>펼치기</span><span class="cmnt_txt ty02">
-												<i class="bi bi-arrow-up-circle"></i>접기</span>
-											</button>
-				
-											<ul class="comment_area">
-												<li>
-													<!-- 원댓글 -->
-													<div class="comment_group">
-														<div class="comment">
-															<div class="tbl_box">
-																<div class="tbl_cont_area ty2">
-																	<div class="cont">
-																		댓글입니다.
-																	</div>
-																</div>
-																<div class="more_area">
-																	<div class="dropdown">
-																		<button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-																			<i class="bi bi-three-dots-vertical"></i>
-																		</button>
-																		<div class="dropdown-menu">
-																			<a class="dropdown-item" href="javascript:void(0);"><i class="bi bi-pencil-square"></i> 수정</a> 
-																			<a class="dropdown-item" href="javascript:void(0);"><i class="bi bi-trash3"></i> 삭제</a>
-																			<a class="dropdown-item" href="javascript:void(0);"><i class="bi bi-tencent-qq"></i>신고</a>
-																		</div>
-																	 </div> <!-- end class="dropdown" -->
-																		
-																	</div>
-																</div>
-															</div>
-															<div class="info">
-																<ul class="reg_info">
-																	<li>작성자A</li>
-																	<li><span class="ico_date">2024-02-19 15:34</span></li>
-																</ul>
-																<div class="fr">
-																	<button type="button" class="btn_cmnt link_blue">
-																		답글달기 <span class="ty02">취소</span>
-																	</button>
-																</div>
-															</div>
+										<li>
+										<!-- 원댓글 -->
+											
+										<c:forEach var ="comment" items="${comments }">
+										<div class="comment_group">
+											<div class="comment">
+												<div class="tbl_box">
+													<div class="tbl_cont_area ty2">
+														<div class="cont">
+																${comment.content }
 														</div>
+													</div>
+													<div class="more_area">  <!-- 더보기 버튼  -->
+														<div class="dropdown">
+															<button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+																	<i class="bi bi-three-dots-vertical"></i>
+															</button>
+																	<div class="dropdown-menu">
+																		<a class="dropdown-item" href="javascript:void(0);"><i class="bi bi-pencil-square"></i> 수정</a> 
+																		<a class="dropdown-item" href="javascript:void(0);"><i class="bi bi-trash3"></i> 삭제</a>
+																		<a class="dropdown-item" href="javascript:void(0);"><i class="bi bi-tencent-qq"></i>신고</a>
+																		<a class="dropdown-item" href="javascript:void(0);"><i class="bi bi-person-circle"></i>정보 보기</a>
+																	</div>
+														 </div> <!-- end class="dropdown" -->
+															
+													</div>
+												</div>
+											</div>
+													<div class="info">
+														<ul class="reg_info">
+															<li>${comment.nickname }</li>
+															<li><span class="ico_date">${comment.date }</span></li>
+														</ul>
+														<div class="fr">
+															<button type="button" class="btn_cmnt link_blue">
+																답글달기 <span class="ty02">취소</span>
+															</button>
+														</div>
+													</div>
+											</div>
 				
-														<!-- 댓글 입력 -->
+														<!-- 대댓글 입력 -->
 														<div class="row comment_reg reply">
 															<div class="col-12">
 																<div class="textarea_wrap">
@@ -310,8 +297,9 @@
 															</div>
 														</div>
 														<!-- 댓글 입력 -->
-				
-													</div> <!-- // 원댓글 --> <!-- 답글 -->
+														</c:forEach>
+									
+										</div> <!-- // 원댓글 --> <!-- 답글 -->
 										<ul class="reply_group">
 														<li class="comment_group">
 															<div class="comment reply">
@@ -380,6 +368,8 @@
 													</ul> <!-- // 답글 -->
 				
 												</li>
+ --%>													
+ 												<c:forEach var ="comment" items="${comments }">
 												<li>
 													<!-- 원댓글 -->
 													<div class="comment_group open">
@@ -388,27 +378,32 @@
 															<div class="tbl_box">
 																<div class="tbl_cont_area ty2">
 																	<div class="cont">
-																		두번째 댓글입니다.  
+																		${comment.content }
+																		<!-- 두번째 댓글입니다. -->  
+																		
 																	</div>
 																</div>
-																<div class="more_area">
+															
+															<div class="more_area">
 																	<div class="dropdown">
 																		<button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
 																			<i class="bi bi-three-dots-vertical"></i>
 																		</button>
 																		<div class="dropdown-menu">
-																			<a class="dropdown-item" href="javascript:void(0);">
-																			<i class="bi bi-pencil-square"></i> 수정</a> 
+																			<a class="dropdown-item" href="javascript:void(0);"><i class="bi bi-pencil-square"></i> 수정</a> 
 																			<a class="dropdown-item" href="javascript:void(0);"><i class="bi bi-trash3"></i> 삭제</a>
-																			<a class="dropdown-item" href="javascript:void(0);"><i class="bi bi-tencent-qq"></i> 신고</a>
+																			<a class="dropdown-item" href="javascript:void(0);"><i class="bi bi-tencent-qq"></i>신고</a>
+																			<a class="dropdown-item" href="javascript:void(0);"><i class="bi bi-person-circle"></i>정보 보기</a>
 																		</div>
 																	</div>
 																</div>
 															</div>
 															<div class="info">
 																<ul class="reg_info">
-																	<li>작성자B</li>
-																	<li><span class="ico_date">2024-02-19 15:34</span></li>
+																	<li>${comment.nickname }</li>
+																	<%-- <li>작성자</li> --%>
+																	<li><span class="ico_date">${comment.date }</span></li>
+															  <!-- <li><span class="ico_date">2024-02-19 15:34</span></li> -->
 																</ul>
 																<div class="fr">
 																	<button class="btn_cmnt link_blue">
@@ -417,8 +412,35 @@
 																</div>
 															</div>
 														</div>
-				
-														<!-- 댓글 입력 -->
+														
+														<c:forEach var ="recomment" items="${recomments[comment.number] }">
+															
+															<i class="bi bi-arrow-return-right"></i> ${recomment.nickname }  | <span> ${recomment.content } </span>   | ${recomment.date }
+														</c:forEach>
+														
+														<ul class="reply_group">
+														<li class="comment_group">
+															<div class="comment reply">
+																<div class="tbl_box">
+																	<div class="tbl_cont_area ty2">
+																		<div class="cont">
+																			<strong class="name">작성자B</strong> 댓글입니다. 
+																		</div>
+																	</div>
+																	
+																</div>
+																<div class="info">
+																	<ul class="reg_info">
+																		<li>김답글A</li>
+																		<li><span class="ico_date">2024-02-22 22:34</span></li>
+																	</ul>
+																</div>
+															</div>
+														</li>
+													</ul> <!-- // 답글 -->
+														
+														
+														댓글 입력
 														<div class="row comment_reg reply">
 															<div class="col-12">
 																<div class="textarea_wrap">
@@ -435,7 +457,7 @@
 																</div>
 															</div>
 														</div>
-				
+				 
 													<!-- 댓글 입력 -->
 													</div> <!-- // 원댓글 --> <!-- 답글 -->
 													<ul class="reply_group">
@@ -460,11 +482,29 @@
 													</ul> <!-- // 답글 -->
 		
 										</li>
+										</c:forEach>
 									     </ul>
+							  	<!-- 댓글 -->
+								<div class="row comment_reg">
+											<div class="col-12">
+												<div class="textarea_wrap">
+													<textarea rows="2" cols="30" placeholder="댓글을 작성하세요" class="" data-textarea="txt_cnt"></textarea>
+												</div>
+											</div>
+											<div class="col-12 d-flex justify-content-between mt-2">
+												<div class="left-box">
+													<div class="txt">※ 글자수는 1000자 이내로 제한됩니다.</div>
+												</div>
+												<div class="right-box">
+													<span class="me-3"><strong data-textarea-cnt="txt_cnt">29</strong>/1000</span>
+													<button type="button" class="btn btn-primary">Primary</button>
+												</div>
+											</div>
+								</div><!-- 댓글작성 폼	 -->
 							        </div>
 								</div>
 										
-						</div>
+						</div> <!--부가정보 끝  -->
 						
                     </div> <!-- .col-12 col-sm-8 col-lg-9 write-content end -->
                 </div> <!-- //내용영역 --> 
@@ -473,12 +513,14 @@
 
             
             <br><br><br>
+            </div>
         </section>
         <!-- //바디영역 -->
 	
+        
         <!-- 푸터영역 -->
-        <div role="footer" data-include="../Components/Footer.jsp" class="mt-auto"></div>
-        <!-- //푸터영역 -->
+		<c:import url="../Components/Footer.jsp"></c:import>
+		<!-- //푸터영역 -->
 
     </div>
 

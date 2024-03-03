@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+
+<mapper namespace="com.itmeetup.mybatis.ICommentDAO">
+
+			       
+	<!-- 댓글 -->
+	<select id="commentList" resultType="com.itmeetup.mybatis.CommentDTO" >
+	   
+		SELECT COM_NO AS "NUMBER", COM_DATE "DATE" , PI_NAME AS "NAME"
+		, PI_NICKNAME AS "NICKNAME" ,COM_CONTENT "CONTENT"
+		FROM PROJECT_INFO PI
+		JOIN COMMENTS C ON PI.CODE = c.com_op_code
+		JOIN MEMBER_INFO MI ON mi.mem_code= c.com_mem_code
+		WHERE PI.CODE = #{code}
+				
+	</select>
+	
+	<!-- 대댓글 -->
+	<select id="recommentList" resultType="com.itmeetup.mybatis.CommentDTO" >
+		
+		SELECT REC_NO AS "RENUMBER" , REC_COM_NO AS"NUMBER" ,REC_CONTENT AS"CONTENT" , PI_NAME AS"NAME" ,PI_NICKNAME AS "NICKNAME" ,REC_DATE AS "DATE"
+		FROM RECOMENT RE
+		JOIN COMMENTS C ON RE.REC_COM_NO = C.COM_NO
+		JOIN MEMBER_INFO MI ON mi.mem_code= RE.REC_mem_code
+		WHERE REC_COM_NO =#{number}
+	</select>
+	
+	<!-- 댓글 개수 세기 -->
+	<select id="countComment" resultType="java.lang.String" >
+		SELECT COUNT(*) AS "COUNT"
+		FROM PROJECT_INFO PI
+		JOIN COMMENTS C ON PI.CODE = C.COM_OP_CODE
+		JOIN MEMBER_INFO MI ON MI.MEM_CODE= c.COM_MEM_CODE
+		WHERE PI.CODE = #{code}
+	</select>
+
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
