@@ -25,7 +25,7 @@
 	<!-- ========================================[ 회원가입 ]======================================== -->
 	<!-- 직업 조회 쿼리문 -->
 	<select id="jobs" resultType="com.itmeetup.mybatis.JobDTO">
-		SELECT JOB_CODE "JOBCODE", JOB_NAME "JOB"
+		SELECT JOB_CODE "JOBCODE", JOB_NAME "JOBNAME"
 		FROM JOB
 	</select>
 	

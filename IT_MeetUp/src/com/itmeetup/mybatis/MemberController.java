@@ -90,8 +90,8 @@ public class MemberController
 	@RequestMapping(value = "/join.action", method = RequestMethod.GET)
 	public String joinForm(ModelMap model)
 	{
-		IMemberDAO jobDAO = sqlSession.getMapper(IMemberDAO.class);
-		IMemberDAO meetDAO = sqlSession.getMapper(IMemberDAO.class);
+		IMemberDAO jobDAO = sqlSession.getMapper(IMemberDAO.class);		// 직업 select
+		IMemberDAO meetDAO = sqlSession.getMapper(IMemberDAO.class);	// 모임방식 select
 
 		model.addAttribute("jobs", jobDAO.jobs());
 		model.addAttribute("meets", meetDAO.meets());
