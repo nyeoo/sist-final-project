@@ -95,7 +95,16 @@ String cp = request.getContextPath();
 												<td>${groupSetupItem.jobName }</td>
 												<td>${groupSetupItem.repSuccess }/
 													${groupSetupItem.repGrant }</td>
-												<td><span class="badge bg-label-primary me-1">${groupSetupItem.leaPcCode }</span>
+												<td>
+												<c:choose>
+												<c:when test="${groupSetupItem.leaPcCode eq '진행중'}">
+												<span class="badge bg-label-primary me-1">${groupSetupItem.leaPcCode }</span>
+												</c:when>
+												<c:otherwise>
+												<span class="badge bg-label-warning me-1">${groupSetupItem.leaPcCode }</span>
+												</c:otherwise>
+												</c:choose>
+												</td>
 											</tr>
 										</c:forEach>
 									</tbody>

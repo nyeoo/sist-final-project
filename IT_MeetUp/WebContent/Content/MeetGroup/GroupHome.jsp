@@ -239,7 +239,7 @@ String cp = request.getContextPath();
 
 
 						<div class="col-md-4 gh-namecard">
-							<!-- 네임카드 -->
+							<!-- 그룹원 -->
 							<div class="card">
 								<div class="card-body pt-3">
 									<form>
@@ -304,7 +304,7 @@ String cp = request.getContextPath();
 									</form>
 								</div>
 							</div>
-							<!-- //네임카드 -->
+							<!-- //그룹원 -->
 						</div>
 
 					</div>
