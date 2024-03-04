@@ -17,23 +17,50 @@
 		FROM GROUPOUTPUTVIEW
 		WHERE OP_CODE = 'OP_2' AND ASS_OU_CODE = 'OU_11'
 	</select>
-	
 	<select id="planCount" resultType="java.lang.Integer">
 		SELECT NVL(OUCOUNT,0) "PLANCOUNT"
 		FROM GROUPOUTPUTVIEW
 		WHERE OP_CODE = 'OP_2' AND ASS_OU_CODE = 'OU_1'
 	</select>
-	
 	<select id="requestCount" resultType="java.lang.Integer">
 		SELECT NVL(OUCOUNT,0) "REQUESTCOUNT"
 		FROM GROUPOUTPUTVIEW
 		WHERE OP_CODE = 'OP_2' AND ASS_OU_CODE = 'OU_2'
 	</select>
-	
 	<select id="flowchartCount" resultType="java.lang.Integer">
 		SELECT NVL(OUCOUNT,0) "FLOWCHARTCOUNT"
 		FROM GROUPOUTPUTVIEW
 		WHERE OP_CODE = 'OP_2' AND ASS_OU_CODE = 'OU_3'	
 	</select>
+	
+	<select id="groupHomePlan" resultType="com.itmeetup.mybatis.GroupDTO">
+		SELECT PI_NICKNAME "PINICKNAME"
+		FROM GROUPSETVIEW
+		WHERE OP_CODE = 'OP_2' AND JOB_CODE = 'JOB_1'
+ 	</select>
+ 	
+ 	<select id="groupHomeDesign" resultType="com.itmeetup.mybatis.GroupDTO">
+		SELECT PI_NICKNAME "PINICKNAME"
+		FROM GROUPSETVIEW
+		WHERE OP_CODE = 'OP_2' AND JOB_CODE = 'JOB_2'
+ 	</select>
+ 	
+ 	<select id="groupHomeFront" resultType="com.itmeetup.mybatis.GroupDTO">
+		SELECT PI_NICKNAME "PINICKNAME"
+		FROM GROUPSETVIEW
+		WHERE OP_CODE = 'OP_2' AND JOB_CODE = 'JOB_3'
+ 	</select>
+ 	
+ 	<select id="groupHomeBack" resultType="com.itmeetup.mybatis.GroupDTO">
+		SELECT PI_NICKNAME "PINICKNAME"
+		FROM GROUPSETVIEW
+		WHERE OP_CODE = 'OP_2' AND JOB_CODE = 'JOB_4'
+ 	</select>
+ 	
+ 	<select id="progressPeriod" resultType="com.itmeetup.mybatis.OpenProjectDTO">
+		SELECT "START", END "END"
+		FROM PROJECT_INFO
+		WHERE CODE = 'OP_2'
+ 	</select>
  	
  </mapper>

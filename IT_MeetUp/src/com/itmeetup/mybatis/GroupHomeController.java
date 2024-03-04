@@ -26,9 +26,13 @@ public class GroupHomeController
 		model.addAttribute("flowchartCount", dao.flowchartCount());
 		model.addAttribute("requestCount", dao.requestCount());
 		model.addAttribute("weeklyReportList", dao.weeklyReportList());
+		model.addAttribute("groupHomePlan", dao.groupHomePlan());
+		model.addAttribute("groupHomeDesign", dao.groupHomeDesign());
+		model.addAttribute("groupHomeFront", dao.groupHomeFront());
+		model.addAttribute("groupHomeBack", dao.groupHomeBack());
+		model.addAttribute("progressPeriod", dao.progressPeriod());
 
 		return "/Content/MeetGroup/GroupHome.jsp";
 	}
-
 
 }

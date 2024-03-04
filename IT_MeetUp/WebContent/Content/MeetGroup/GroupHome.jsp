@@ -48,7 +48,7 @@ String cp = request.getContextPath();
 
 				<div class="content_tit">
 					<p class="h3">그룹홈</p>
-					<br>
+					<hr>
 				</div>
 
 				<div class="section grouphome">
@@ -82,7 +82,7 @@ String cp = request.getContextPath();
 														<div class="progress" role="progressbar"
 															aria-label="Danger example" aria-valuenow="100"
 															aria-valuemin="0" aria-valuemax="100">
-															<div class="progress-bars bg-danger"
+															<div class="progress-bars bg-primary"
 																style="width: ${(meetCount >= 1 ? 25 : 0) + (meetCount >= 2 ? 25 : 0) + (meetCount >= 3 ? 25 : 0) + (meetCount >= 4 ? 25 : 0)}%">
 																회의록 ${meetCount >= 1 ? '25%' : '0%'}</div>
 														</div>
@@ -142,7 +142,7 @@ String cp = request.getContextPath();
 														<div class="progress" role="progressbar"
 															aria-label="Danger example" aria-valuenow="100"
 															aria-valuemin="0" aria-valuemax="100">
-															<div class="progress-bars bg-danger"
+															<div class="progress-bars bg-success"
 																style="width: ${planCount >= 1 ? '100%' : '0%'}">
 																기획서 ${planCount >= 1 ? '100%' : '0%'}</div>
 														</div>
@@ -172,7 +172,7 @@ String cp = request.getContextPath();
 															aria-label="요구분석서 진행 상태"
 															aria-valuenow="${requestCount >= 1 ? 100 : 0}"
 															aria-valuemin="0" aria-valuemax="100">
-															<div class="progress-bars bg-danger"
+															<div class="progress-bars bg-info"
 																style="width: ${requestCount >= 1 ? '100%' : '0%'}">
 																요구분석서 ${requestCount >= 1 ? '100%' : '1%'}</div>
 														</div>
@@ -251,50 +251,48 @@ String cp = request.getContextPath();
 														<li class="d-flex job"><span
 															class="tag bg-success job-tag">기획</span>
 															<div class="d-flex member-box">
-																<div class="d-flex member">
-																	<a href="../MyPage/NameCard.jsp"><i
-																		class="fa-solid fa-crown crown"></i> <img
-																		src="../../asset/images/sub/img_profile.jpg"
-																		class="member-img" /> <span class="nickname">닉네임이길면어떻</span></a>
-																</div>
-																<div class="d-flex member">
-																	<i class="fa-solid fa-circle-user no-profile"></i> <span
-																		class="nickname">닉네임</span>
-																</div>
+																<c:forEach var="groupHomeItem" items="${groupHomePlan }">
+																	<div class="d-flex member">
+																		<a href="../MyPage/NameCard.jsp"><i
+																			class="fa-solid fa-crown crown"></i> <img
+																			src="<%=cp%>/asset/images/sub/img_profile.jpg"
+																			class="member-img" /> <span class="nickname">${groupHomeItem.piNickName }</span>
+																		</a>
+																	</div>
+																</c:forEach>
 															</div></li>
 
 														<li class="d-flex job"><span
-															class="tag bg-success job-tag">디자인</span>
+															class="tag bg-primary job-tag">디자인</span>
 															<div class="d-flex member-box">
-																<div class="d-flex member">
-																	<i class="fa-solid fa-circle-user no-profile"></i> <span
-																		class="nickname">닉네임</span>
-																</div>
+																<c:forEach var="groupHomeItem"
+																	items="${groupHomeDesign }">
+																	<div class="d-flex member">
+																		<i class="fa-solid fa-circle-user no-profile"></i> <span
+																			class="nickname">${groupHomeItem.piNickName }</span>
+																	</div>
+																</c:forEach>
 															</div></li>
-
 														<li class="d-flex job"><span
 															class="tag bg-danger job-tag">프론트</span>
 															<div class="d-flex member-box">
-																<div class="d-flex member">
-																	<i class="fa-solid fa-circle-user no-profile"></i> <span
-																		class="nickname">닉네임</span>
-																</div>
-																<div class="d-flex member">
-																	<i class="fa-solid fa-circle-user no-profile"></i> <span
-																		class="nickname">닉네임</span>
-																</div>
+																<c:forEach var="groupHomeItem"
+																	items="${groupHomeFront }">
+																	<div class="d-flex member">
+																		<i class="fa-solid fa-circle-user no-profile"></i> <span
+																			class="nickname">${groupHomeItem.piNickName }</span>
+																	</div>
+																</c:forEach>
 															</div></li>
 														<li class="d-flex job"><span
-															class="tag bg-primary job-tag">백엔드</span>
+															class="tag bg-info job-tag">백엔드</span>
 															<div class="d-flex member-box">
-																<div class="d-flex member">
-																	<i class="fa-solid fa-circle-user no-profile"></i> <span
-																		class="nickname">닉네임</span>
-																</div>
-																<div class="d-flex member">
-																	<i class="fa-solid fa-circle-user no-profile"></i> <span
-																		class="nickname">닉네임</span>
-																</div>
+																<c:forEach var="groupHomeItem" items="${groupHomeBack }">
+																	<div class="d-flex member">
+																		<i class="fa-solid fa-circle-user no-profile"></i> <span
+																			class="nickname">${groupHomeItem.piNickName }</span>
+																	</div>
+																</c:forEach>
 															</div></li>
 													</ul>
 												</div>
@@ -311,8 +309,11 @@ String cp = request.getContextPath();
 					<div class="row con-section level">
 						<div class="card">
 							<div class="intro-body-list progressbar">
-								<span class="intro-title">진행 기간</span> <span class="period">｜2023-08-22
-									~ 2024-03-19</span>
+								<c:forEach var="progressItem" items="${progressPeriod }">
+									<span class="intro-title">진행 기간</span>
+									<span class="period">${progressItem.start } ~
+										${progressItem.end } </span>
+								</c:forEach>
 								<hr>
 								<div class="progress-stacked progress-m">
 									<div class="progress progress-bar-striped" role="progressbar"

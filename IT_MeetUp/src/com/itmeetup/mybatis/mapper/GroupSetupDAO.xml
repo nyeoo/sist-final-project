@@ -9,7 +9,7 @@
  	<select id="groupSetupList" resultType="com.itmeetup.mybatis.GroupDTO">
 		SELECT ROWNUM "OPCODE", PI_NICKNAME "PINICKNAME", JOB_NAME "JOBNAME", CHARGERCOUNT "REPGRANT", COMPLETEDCOUNT "REPSUCCESS", LEAPCCODE "LEAPCCODE"
 		FROM GROUPSETUPVIEW
-		WHERE OP_CODE = 'OP_10'
+		WHERE OP_CODE = 'OP_2'
  	</select>
  	
  	<select id="groupTeamName" resultType="com.itmeetup.mybatis.OpenProjectDTO">
