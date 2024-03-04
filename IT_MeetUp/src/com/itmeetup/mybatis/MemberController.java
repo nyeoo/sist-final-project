@@ -92,7 +92,10 @@ public class MemberController
 	{
 		IMemberDAO jobDAO = sqlSession.getMapper(IMemberDAO.class);		// 직업 select
 		IMemberDAO meetDAO = sqlSession.getMapper(IMemberDAO.class);	// 모임방식 select
-
+		IOpenProjectDAO odao = sqlSession.getMapper(IOpenProjectDAO.class); // 지역 select
+		model.addAttribute("sidoList",odao.sidoList());
+		model.addAttribute("siggList",odao.siggList());
+		
 		model.addAttribute("jobs", jobDAO.jobs());
 		model.addAttribute("meets", meetDAO.meets());
 

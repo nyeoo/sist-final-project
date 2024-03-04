@@ -243,11 +243,16 @@ String cp = request.getContextPath();
 																		<select class="form-select"
 																			aria-label="Default select example" id="jobArea01"
 																			title="jobArea01">
-																			<option>-선택-</option>
+																			<option selected="selected">-선택-</option>
+																				<c:forEach var ="sidoList" items="${sidoList }" varStatus="status"  >
+																					<option value="SIDO_${status.index +1}">${sidoList }</option>
+																				</c:forEach>
+																			<!-- 
 																			<option value="SIGG_1" selected="selected">서울</option>
 																			<option value="SIGG_2">경기도</option>
 																			<option value="SIGG_3">인천</option>
 																			<option value="SIGG_4">부산</option>
+																			 -->
 																		</select>
 																	</div>
 																	<div class="invalid-feedback">선호지역1을(를) 입력해주세요.</div>
@@ -257,11 +262,16 @@ String cp = request.getContextPath();
 																		<select class="form-select"
 																			aria-label="Default select example" id="jobArea02"
 																			title="jobArea02">
-																			<option>-선택-</option>
+																			<option selected="selected">-선택-</option>
+																				<c:forEach var ="siggList" items="${siggList }" varStatus="status"  >
+																					<option value="SIGG_${status.index +1}">${siggList }</option>
+																				</c:forEach>
+																			<!-- 																			
 																			<option value="SIGG_1" selected="selected">마포구</option>
 																			<option value="SIGG_2">중구</option>
 																			<option value="SIGG_3">강서구</option>
 																			<option value="SIGG_4">수원시 영통구</option>
+ 																			-->																			
 																		</select>
 																	</div>
 																	<div class="invalid-feedback">선호지역2을(를) 입력해주세요.</div>
