@@ -2,7 +2,7 @@ package com.itmeetup.mybatis;
 
 import java.util.ArrayList;
 
-public interface AssignmentListDAO
+public interface IAssignmentListDAO
 {
 	public ArrayList<AssignmentDTO> assignmentList();
 }

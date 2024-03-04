@@ -1,7 +1,6 @@
 package com.itmeetup.mybatis;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,9 +18,8 @@ public class AssignmentController {
     @RequestMapping(value = "/workAssignment.action", method = RequestMethod.GET)
     public String workAssignmentList(ModelMap model)
     {
-        AssignmentListDAO dao = sqlSession.getMapper(AssignmentListDAO.class);
-        ArrayList<AssignmentDTO> ssName = dao.assignmentList();
-        model.addAttribute("ssName", ssName); // ssName 데이터를 모델에 추가
+        IAssignmentListDAO dao = sqlSession.getMapper(IAssignmentListDAO.class);
+        model.addAttribute("assignmentList", dao.assignmentList()); // ssName 데이터를 모델에 추가
         return "/Content/MeetGroup/WorkAssignment.jsp";
     }
 }

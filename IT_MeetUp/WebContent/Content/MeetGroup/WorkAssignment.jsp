@@ -13,11 +13,12 @@ String cp = request.getContextPath();
     </button>
 </div>
 <div class="accordion" id="accordionExample">
+	<c:forEach var="workAssignment" items="${assignmentList }">
     <div class="accordion-item">
         <h2 class="accordion-header">
             <button class="accordion-button" type="button"
                     data-bs-toggle="collapse" data-bs-target="#collapseOne"
-                    aria-expanded="true" aria-controls="collapseOne">${ssName}</button>
+                    aria-expanded="true" aria-controls="collapseOne">${workAssignment.ssName}</button>
         </h2>
         <div id="collapseOne" class="accordion-collapse collapse show"
 			data-bs-parent="#accordionExample">
@@ -52,18 +53,18 @@ String cp = request.getContextPath();
 							<tr class="range-datepicker">
 								<td><input type="button"
 									class="form-control form-control-plaintext"
-									id="validationCustom01" value="요구사항분석"></td>
-								<td>03/11</td>
+									id="validationCustom01" value="${workAssignment.ouName}"></td>
+								<td>${workAssignment.assDate}</td>
 								<td>
 									<div class="m-input-cal">
 										<input type="text" class="form-control date-from"
-											disabled="disabled">
+											disabled="disabled" value="${workAssignment.assStartDate}">
 									</div>
 								</td>
 								<td>
 									<div class="m-input-cal">
 										<input type="text" class="form-control date-to"
-											disabled="disabled">
+											disabled="disabled" value="${workAssignment.assEndDate}">
 									</div>
 								</td>
 								<td>
@@ -71,9 +72,7 @@ String cp = request.getContextPath();
 										<select class="form-select"
 											aria-label="Default select example" title="selectTitle00">
 											<option selected="selected">담당자명</option>
-											<option value="1">방장</option>
-											<option value="2">팀원1</option>
-											<option value="3">팀원2</option>
+											<option value="1">${workAssignment.piNickName}</option>
 										</select>
 									</div>
 								</td>
@@ -121,38 +120,6 @@ String cp = request.getContextPath();
 			</div>
 		</div>
 	</div>
-	<div class="accordion-item">
-		<h2 class="accordion-header">
-			<button class="accordion-button collapsed" type="button"
-				data-bs-toggle="collapse" data-bs-target="#collapseTwo"
-				aria-expanded="false" aria-controls="collapseTwo">${ssName}</button>
-		</h2>
-		<div id="collapseTwo" class="accordion-collapse collapse"
-			data-bs-parent="#accordionExample">
-			<div class="accordion-body"></div>
-		</div>
-	</div>
-	<div class="accordion-item">
-		<h2 class="accordion-header">
-			<button class="accordion-button collapsed" type="button"
-				data-bs-toggle="collapse" data-bs-target="#collapseThree"
-				aria-expanded="false" aria-controls="collapseThree">${ssName}</button>
-		</h2>
-		<div id="collapseThree" class="accordion-collapse collapse"
-			data-bs-parent="#accordionExample">
-			<div class="accordion-body"></div>
-		</div>
-	</div>
-	<div class="accordion-item">
-		<h2 class="accordion-header">
-			<button class="accordion-button collapsed" type="button"
-				data-bs-toggle="collapse" data-bs-target="#collapseFour"
-				aria-expanded="false" aria-controls="collapseFour">${ssName}</button>
-		</h2>
-		<div id="collapseFour" class="accordion-collapse collapse"
-			data-bs-parent="#accordionExample">
-			<div class="accordion-body"></div>
-		</div>
-	</div>
+	</c:forEach>
 </div>
 <!--// 업무할당표  -->
