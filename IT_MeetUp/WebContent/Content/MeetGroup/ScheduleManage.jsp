@@ -29,158 +29,46 @@ String cp = request.getContextPath();
 			</tr>
 		</thead>
 		<tbody>
-			<tr class="range-datepicker">
-				<td><strong>분석</strong></td>
-				<td>
-					<div class="m-input-cal">
-						<input type="text" class="form-control date-from"
-							disabled="disabled">
-					</div>
-				</td>
-				<td>
-					<div class="m-input-cal">
-						<input type="text" class="form-control date-to"
-							disabled="disabled">
-					</div>
-				</td>
-				<td>
-					<div class="m-input-cal">
-						<input type="text" class="form-control date-from"
-							disabled="disabled">
-					</div>
-				</td>
-				<td>
-					<div class="m-input-cal">
-						<input type="text" class="form-control date-to"
-							disabled="disabled">
-					</div>
-				</td>
-				<td>
-					<div class="m-select">
-						<select class="form-select" aria-label="Default select example"
-							title="selectTitle01">
-							<option selected="selected">업무상태를 선택하세요.</option>
-							<option value="1">시작예정</option>
-							<option value="2">진행중</option>
-							<option value="3">완료</option>
-						</select>
-					</div>
-				</td>
-			</tr>
-			<tr class="range-datepicker">
-				<td><strong>설계</strong></td>
-				<td>
-					<div class="m-input-cal">
-						<input type="text" class="form-control date-from"
-							disabled="disabled">
-					</div>
-				</td>
-				<td>
-					<div class="m-input-cal">
-						<input type="text" class="form-control date-to"
-							disabled="disabled">
-					</div>
-				</td>
-				<td>
-					<div class="m-input-cal">
-						<input type="text" class="form-control date-from"
-							disabled="disabled">
-					</div>
-				</td>
-				<td>
-					<div class="m-input-cal">
-						<input type="text" class="form-control date-to"
-							disabled="disabled">
-					</div>
-				</td>
-				<td>
-					<div class="m-select">
-						<select class="form-select" aria-label="Default select example"
-							title="selectTitle01">
-							<option selected="selected">업무상태를 선택하세요.</option>
-							<option value="1">시작예정</option>
-							<option value="2">진행중</option>
-							<option value="3">완료</option>
-						</select>
-					</div>
-				</td>
-			</tr>
-			<tr class="range-datepicker">
-				<td><strong>구현</strong></td>
-				<td>
-					<div class="m-input-cal">
-						<input type="text" class="form-control date-from"
-							disabled="disabled">
-					</div>
-				</td>
-				<td>
-					<div class="m-input-cal">
-						<input type="text" class="form-control date-to"
-							disabled="disabled">
-					</div>
-				</td>
-				<td>
-					<div class="m-input-cal">
-						<input type="text" class="form-control date-from"
-							disabled="disabled">
-					</div>
-				</td>
-				<td>
-					<div class="m-input-cal">
-						<input type="text" class="form-control date-to"
-							disabled="disabled">
-					</div>
-				</td>
-				<td>
-					<div class="m-select">
-						<select class="form-select" aria-label="Default select example"
-							title="selectTitle01">
-							<option selected="selected">업무상태를 선택하세요.</option>
-							<option value="1">시작예정</option>
-							<option value="2">진행중</option>
-							<option value="3">완료</option>
-						</select>
-					</div>
-				</td>
-			</tr>
-			<tr class="range-datepicker">
-				<td><strong>테스트</strong></td>
-				<td>
-					<div class="m-input-cal">
-						<input type="text" class="form-control date-from"
-							disabled="disabled">
-					</div>
-				</td>
-				<td>
-					<div class="m-input-cal">
-						<input type="text" class="form-control date-to"
-							disabled="disabled">
-					</div>
-				</td>
-				<td>
-					<div class="m-input-cal">
-						<input type="text" class="form-control date-from"
-							disabled="disabled">
-					</div>
-				</td>
-				<td>
-					<div class="m-input-cal">
-						<input type="text" class="form-control date-to"
-							disabled="disabled">
-					</div>
-				</td>
-				<td>
-					<div class="m-select">
-						<select class="form-select" aria-label="Default select example"
-							title="selectTitle01">
-							<option selected="selected">업무상태를 선택하세요.</option>
-							<option value="1">시작예정</option>
-							<option value="2">진행중</option>
-							<option value="3">완료</option>
-						</select>
-					</div>
-				</td>
-			</tr>
+			<c:forEach var="scheduleDetails" items="${scheduleList }">
+				<tr class="range-datepicker">
+				<td><strong>${scheduleDetails.ssName }</strong></td>
+					<td>
+						<div class="m-input-cal">
+							<input type="text" class="form-control date-from"
+								disabled="disabled" value="${scheduleDetails.seStartDate }">
+						</div>
+					</td>
+					<td>
+						<div class="m-input-cal">
+							<input type="text" class="form-control date-to"
+								disabled="disabled" value="${scheduleDetails.sdEndDate }">
+						</div>
+					</td>
+					<td>
+						<div class="m-input-cal">
+							<input type="text" class="form-control date-from"
+								disabled="disabled">
+						</div>
+					</td>
+					<td>
+						<div class="m-input-cal">
+							<input type="text" class="form-control date-to"
+								disabled="disabled">
+						</div>
+					</td>
+					<td>
+						<div class="m-select">
+							<select class="form-select" aria-label="Default select example"
+								title="selectTitle01">
+								<option selected="selected">업무상태를 선택하세요.</option>
+								<option value="1">시작예정</option>
+								<option value="2">진행중</option>
+								<option value="3">완료</option>
+							</select>
+						</div>
+					</td>
+				</tr>
+			</c:forEach>
 		</tbody>
 	</table>
 </div>
