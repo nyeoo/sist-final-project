@@ -818,7 +818,7 @@ b. 이미지명 ++,# 인식X -> plus, sharp
 .row.col-12 { width: calc(100% + (var(--bs-gutter-x) * .5) * 2); } 
 .career-col-box .row.col-12 { /*width: calc(100% + (var(--bs-gutter-x) * .5) * 4); */ } 
 .career-col-box .row.range-datepicker { } 
-.card .row:last-child .col-12 > .btn { margin: 0.5rem 0 1.5rem; } 
+.join-swiper .swiper-slide> .row:last-child > .col-12:last-child > .btn.w-100 { margin: 0.5rem 0 1.5rem; } 
 
 /* 회원가입-스킬 */
 .sikll-box { min-height: 80px; border: 1px solid var(--bs-border-color); border-radius: 0.375rem; } 

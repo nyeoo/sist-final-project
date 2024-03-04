@@ -11,6 +11,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -49,18 +50,19 @@ public class MemberController
 		{	// 일반멤버
 			member = new MemberDTO();
 			member = dao.getMember(piId, piPw);
+			session.setAttribute("admin", "0");
 		} else
 		{	// 관리자
 			member = new MemberDTO();
-			member.setAdmin(1);
 			member = dao.getAdmin(piId, piPw);
+			session.setAttribute("admin", "1");
 		}
 
 		if (member != null)
 		{ // 로그인O
 			session.setMaxInactiveInterval(30*60);	// 세션 유효시간 30분 설정
 			session.setAttribute("loginDTO", member);
-			viewPage = "/Content/Home/Home.jsp";
+			viewPage = "/Content/ProjectLounge/PostList_ju.jsp";
 
 		} else
 		{ // 로그인X
@@ -75,19 +77,57 @@ public class MemberController
 	@RequestMapping(value = "/logout.action")
 	public String logout(HttpSession session)
 	{
+		session.setAttribute("admin", "");
 		session.removeAttribute("loginDTO");
 		session.invalidate();	// 세션제거
 
-		return "redirect:/Content/Home/Home.jsp";
+		return "redirect:/Content/ProjectLounge/PostList_ju.jsp";
 	}
 	
 	// ========================================[ 회원가입 ]========================================
 	// 회원가입 폼
-	@RequestMapping(value = "")
-	public String joinForm()
+	
+	@RequestMapping(value = "/join.action", method = RequestMethod.GET)
+	public String joinForm(ModelMap model)
 	{
-		return "/Content/Site/Join.jsp";
+		IMemberDAO jobDAO = sqlSession.getMapper(IMemberDAO.class);
+		IMemberDAO meetDAO = sqlSession.getMapper(IMemberDAO.class);
+
+		model.addAttribute("jobs", jobDAO.jobs());
+		model.addAttribute("meets", meetDAO.meets());
+
+		return "/Content/Site/Join.jsp"; 
 	}
+	 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

@@ -77,10 +77,10 @@ String cp = request.getContextPath();
 
 													<div class="col-12">
 														<div class="m-input-box">
-															<label for="joinId01" class="form-label h5">아이디</label>
+															<label for="piName" class="form-label h5">아이디</label>
 															<div class="row col-12">
 																<div class="col-12 col-md-7">
-																	<input type="text" class="form-control" value="sist" id="joinId01" required="required">
+																	<input type="text" class="form-control" value="sist" id="piName" required="required">
 																	<div class="invalid-feedback">아이디를 입력해주세요.</div>
 																</div>
 																<div class="col-12 col-md-5">
@@ -108,6 +108,7 @@ String cp = request.getContextPath();
 
 													<div class="col-12">
 														<div class="m-input-box">
+															<input type="text" id="piEmail" name="piEmail">
 															<label for="joinEmail01" class="form-label h5">이메일</label>
 															<div class="row col-12">
 																<div class="col-12 col-md-7">
@@ -116,11 +117,11 @@ String cp = request.getContextPath();
 																</div>
 																<div class="col-12 col-md-5">
 																	<div class="m-select">
-																		<select class="form-select" aria-label="Default select example" title="selectTitle01">
+																		<select class="form-select" aria-label="Default select example" title="email" id="joinEmail02">
 																			<option>-선택-</option>
-																			<option value="1" selected="selected">@naver.com</option>
-																			<option value="2">@gmail.com</option>
-																			<option value="3">@daum.net</option>
+																			<option value="@naver.com" selected="selected">@naver.com</option>
+																			<option value="@gmail.com">@gmail.com</option>
+																			<option value="@daum.net">@daum.net</option>
 																		</select>
 																	</div>
 																</div>
@@ -146,7 +147,7 @@ String cp = request.getContextPath();
 													</div>
 
 													<div class="col-12">
-														<button class="btn btn-primary w-100" type="submit">다음단계</button>
+														<button class="btn btn-primary w-100 join-step01" type="button">다음단계</button>
 													</div>
 												</div>
 											</div>
@@ -163,10 +164,6 @@ String cp = request.getContextPath();
 																	<div class="m-select">
 																		<select class="form-select" aria-label="Default select example" title="selectJoinJob">
 																			<option>-선택-</option>
-																			<option value="1" selected="selected">기획</option>
-																			<option value="2">디자인</option>
-																			<option value="3">프론트개발</option>
-																			<option value="4">백엔드개발</option>
 																		</select>
 																	</div>
 																	<div class="invalid-feedback">직무를 입력해주세요.</div>
@@ -186,10 +183,6 @@ String cp = request.getContextPath();
 																			<div class="m-select">
 																				<select class="form-select" aria-label="Default select example" title="selectJoinCareer">
 																					<option>-선택-</option>
-																					<option value="1" selected="selected">기획</option>
-																					<option value="2">디자인</option>
-																					<option value="3">프론트엔드</option>
-																					<option value="4">백엔드</option>
 																				</select>
 																			</div>
 																			<div class="invalid-feedback">아이디를 입력해주세요.</div>
@@ -205,7 +198,7 @@ String cp = request.getContextPath();
 																	</div>
 																	<div class="col-2">
 																		<span class="form-label no-txt"></span>
-																		<button class="btn btn-primary w-100 btn-more-one" type="button" title="경력 추가" onclick="careerAdd()">
+																		<button class="btn btn-primary w-100 btn-more-one" type="button" title="경력 추가" onclick="addCareer()">
 																			<i class="bi bi-plus-circle-dotted"></i>
 																		</button>
 																	</div>
@@ -251,11 +244,16 @@ String cp = request.getContextPath();
 															<label for="joinMeet" class="form-label h5">모임방식</label>
 															<div class="row col-12">
 																<div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-																	<input type="radio" class="btn-check" name="btnradio" id="joinMeet01" autocomplete="off" checked="checked"> <label
-																		class="btn btn-outline-primary" for="joinMeet01">온라인</label> <input type="radio" class="btn-check" name="btnradio" id="joinMeet02"
-																		autocomplete="off"> <label class="btn btn-outline-primary" for="joinMeet02">오프라인</label> <input type="radio"
-																		class="btn-check" name="btnradio" id="joinMeet03" autocomplete="off"> <label class="btn btn-outline-primary"
-																		for="joinMeet03">온/오프라인 </label>
+																		
+																	<c:forEach var="meetItem" items="${meets }">
+																		<input type="radio" class="btn-check" name="btnradio" id="joinMeet01" autocomplete="off" checked="checked"> 
+																		<label class="btn btn-outline-primary" for="joinMeet01">${meetItem.meetName }</label> 
+																	</c:forEach>
+																	
+																	<input type="radio" class="btn-check" name="btnradio" id="joinMeet02" autocomplete="off">
+																	<label class="btn btn-outline-primary" for="joinMeet02">오프라인</label>
+																	<input type="radio" class="btn-check" name="btnradio" id="joinMeet03" autocomplete="off">
+																	<label class="btn btn-outline-primary" for="joinMeet03">온/오프라인 </label>
 																</div>
 																<div class="invalid-feedback">비밀번호 확인값을 입력해주세요.</div>
 															</div>
@@ -263,7 +261,7 @@ String cp = request.getContextPath();
 													</div>
 
 													<div class="col-12">
-														<button class="btn btn-primary w-100" type="submit">다음단계</button>
+														<button class="btn btn-primary w-100 join-step02" type="button">다음단계</button>
 													</div>
 												</div>
 											</div>
@@ -289,6 +287,7 @@ String cp = request.getContextPath();
 																<div class="tab-pane fade show active" id="nav-skill01" role="skill01" aria-labelledby="nav-skill01-tab">
 																	<ul class="skill-check">
 																		<!-- ico_html5_01 -->
+																		<!-- 테스트를 위해 값을 미리 채워넣음  checked="checked" -->
 																		<li>
 																			<div class="form-check skill-item ico_html5_01">
 																				<input class="form-check-input" type="checkbox" value="" id="" checked="checked"> <label class="form-check-label"> html5 </label>
@@ -582,7 +581,7 @@ String cp = request.getContextPath();
 													</div>
 
 													<div class="col-12">
-														<button class="btn btn-primary w-100" type="submit">회원가입</button>
+														<button class="btn btn-primary w-100 join-step03" type="submit">회원가입</button>
 													</div>
 												</div>
 											</div>
@@ -689,23 +688,6 @@ String cp = request.getContextPath();
 	<script src="<%=cp %>/asset/js/bootstrap.bundle.min.js"></script>
 	<script src="<%=cp %>/asset/js/swiper-bundle.min.js"></script>
 	<script src="<%=cp %>/asset/js/common.js"></script>
-	<script type="text/javascript">
-		//$(function(){
-
-		function careerAdd()
-		{
-
-			let careerTag = document.querySelector(".career-col-box");
-			console.log(careerTag);
-			//careerTag.style.backgroundColor = "red";
-
-			let careerAddTag = "<li><div class='row col-12'><div class='col-12 col-md-4'><div class='m-input-box'><label for='selectJoinCareer' class='form-label'>경력직무</label><div class='m-select'><select class='form-select' aria-label='Default select example' title='selectJoinCareer'><option>-선택-</option><option value='1' selected='selected'>기획</option><option value='2'>디자인</option><option value='3'>프론트개발</option><option value='4'>백엔드개발</option></select></div><div class='invalid-feedback'>아이디를 입력해주세요.</div></div></div><div class='row col-10 col-md-6 range-datepicker'><div class='col-6 m-input-cal'><label for='job-date-from' class='form-label'>시작날짜</label> <input type='text' class='form-control job-date-from' id='date-from'></div><div class='col-6 m-input-cal'><label for='job-date-to' class='form-label'>종료날짜</label> <input type='text' class='form-control job-date-to' id='date-to'></div></div><div class='col-2'><span class='form-label no-txt'></span><button class='btn btn-primary w-100 btn-more-one' type='button' title='경력 추가' onclick='careerAdd()'><i class='bi bi-plus-circle-dotted'></i></button></div></div></li>";
-
-			careerTag.insertAdjacentHTML("beforeend", careerAddTag);
-		}
-
-		//});
-	</script>
 </body>
 
 </html>

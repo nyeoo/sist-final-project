@@ -23,6 +23,23 @@
 	</select>
 	
 	<!-- ========================================[ 회원가입 ]======================================== -->
+	<!-- 직업 조회 쿼리문 -->
+	<select id="jobs" resultType="com.itmeetup.mybatis.JobDTO">
+		SELECT JOB_CODE "JOBCODE", JOB_NAME "JOB"
+		FROM JOB
+	</select>
+	
+	<!-- 직업 추가 쿼리문 -->
+	<insert id="addMember">
+		EXEC MEMBER_INSERT(#{piName}, #{piEmail}, NULL, 'kcc1234', 'kcc1234', '김코코', '코코입니다', 'JOB_1', 'MEET_1', 'SIGG_1')
+	</insert>
+	
+	<!-- 모임방식 조회 쿼리문 -->
+	<select id="meets" resultType="com.itmeetup.mybatis.MeetDTO">
+		SELECT MEET_CODE "MEETCODE", MEET_NAME "MEETNAME"
+		FROM MEETING
+	</select>
+	
 	
 	
 </mapper>

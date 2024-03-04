@@ -323,8 +323,8 @@ String cp = request.getContextPath();
 								<a href="#"
 									class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
 									data-bs-toggle="dropdown" aria-expanded="false"> <span
-									class="member-icon-box <c:if test='${sessionScope.loginDTO.admin!=null}'> admin</c:if>">
-										<span class="member-img"> <!-- <img
+									class="member-icon-box <c:if test='${sessionScope.admin==1}'> admin</c:if>">
+										<span class="member-icon-img"> <!-- <img
 										src="../../asset/images/img_sample00.jpg" alt="userImage"> -->
 									</span>
 
@@ -333,7 +333,7 @@ String cp = request.getContextPath();
 								</a>
 								<ul class="dropdown-menu dropdown-menu-end text-small shadow">
 									<li class="dropdown-header">
-										<c:if test='${sessionScope.loginDTO.admin!=null}'> <span class="badge text-bg-primary">관리자</span></c:if>
+										<c:if test='${sessionScope.admin==1}'> <span class="badge text-bg-primary">관리자</span></c:if>
 										<h6>${sessionScope.loginDTO.piNickname }</h6> <span>@${sessionScope.loginDTO.piPw }</span>
 									</li>
 									<li><a class="dropdown-item" href="MyInfo.jsp">마이페이지</a></li>
@@ -352,9 +352,9 @@ String cp = request.getContextPath();
 							<!-- 로그인, 회원가입 -->
 							<div class="d-flex m-login">
 								<button type="button" class="btn btn-outline-primary me-2"
-									onclick="location.href='/IT_MeetUp/loginform.action'">로그인</button>
+									onclick="location.href='/IT_MeetUp/login.action'">로그인</button>
 								<button type="button" class="btn btn-primary"
-									onclick="location.href='/IT_MeetUp/joinform.action'">회원가입</button>
+									onclick="location.href='/IT_MeetUp/join.action'">회원가입</button>
 							</div>
 							<!-- //로그인, 회원가입 -->
 						</c:otherwise>
