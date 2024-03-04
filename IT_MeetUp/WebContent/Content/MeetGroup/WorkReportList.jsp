@@ -68,62 +68,36 @@ String cp = request.getContextPath();
 			</tr>
 		</thead>
 		<tbody>
-			<tr class="range-datepicker">
-				<td><strong>분석</strong></td>
-				<td><strong>회의록</strong></td>
-				<td><input type="button"
-					class="form-control form-control-plaintext" id="validationCustom01"
-					value="1차 회의록"></td>
-				<td>담당자명</td>
-				<td>2024-01-18</td>
-				<td>첨부한파일1.hwp
-					<button type="button" class="btn btn-primary btn-plus">
-						<i class="bi bi-file-arrow-down"></i>
-					</button>
-				</td>
-				<td>
-					<div class="dropdown">
-						<button type="button" class="btn p-0 dropdown-toggle hide-arrow"
-							data-bs-toggle="dropdown">
-							<i class="bi bi-three-dots-vertical"></i>
+			<c:forEach var="reportList" items="${reportList}">
+				<tr class="range-datepicker">
+					<td><strong>${reportList.ssName}</strong></td>
+					<td><strong>${reportList.assName}</strong></td>
+					<td><input type="button"
+						class="form-control form-control-plaintext"
+						id="validationCustom01" value="${reportList.repTitle}"></td>
+					<td>${reportList.piNickName}</td>
+					<td>${reportList.repDate}</td>
+					<td>${reportList.repFile}
+						<button type="button" class="btn btn-primary btn-plus">
+							<i class="bi bi-file-arrow-down"></i>
 						</button>
-						<div class="dropdown-menu">
-							<a class="dropdown-item" href="javascript:void(0);"
-								data-bs-toggle="modal" data-bs-target="#staticBackdrop3"><i
-								class="bi bi-pencil-square"></i> 업무처리</a> <a class="dropdown-item"
-								href="javascript:void(0);"><i class="bi bi-trash3"></i>보고삭제</a>
+					</td>
+					<td>
+						<div class="dropdown">
+							<button type="button" class="btn p-0 dropdown-toggle hide-arrow"
+								data-bs-toggle="dropdown">
+								<i class="bi bi-three-dots-vertical"></i>
+							</button>
+							<div class="dropdown-menu">
+								<a class="dropdown-item" href="javascript:void(0);"
+									data-bs-toggle="modal" data-bs-target="#staticBackdrop3"><i
+									class="bi bi-pencil-square"></i> 업무처리</a> <a class="dropdown-item"
+									href="javascript:void(0);"><i class="bi bi-trash3"></i>보고삭제</a>
+							</div>
 						</div>
-					</div>
-				</td>
-			</tr>
-			<tr class="range-datepicker">
-				<td><strong>설계</strong></td>
-				<td><strong>요구분석서</strong></td>
-				<td><input type="button"
-					class="form-control form-control-plaintext" id="validationCustom01"
-					value="요구분석서1차"></td>
-				<td>담당자명</td>
-				<td>2024-01-31</td>
-				<td>첨부한파일2.pdf
-					<button type="button" class="btn btn-primary btn-plus">
-						<i class="bi bi-file-arrow-down"></i>
-					</button>
-				</td>
-				<td>
-					<div class="dropdown">
-						<button type="button" class="btn p-0 dropdown-toggle hide-arrow"
-							data-bs-toggle="dropdown">
-							<i class="bi bi-three-dots-vertical"></i>
-						</button>
-						<div class="dropdown-menu">
-							<a class="dropdown-item" href="javascript:void(0);"
-								data-bs-toggle="modal" data-bs-target="#staticBackdrop3"><i
-								class="bi bi-pencil-square"></i> 업무처리</a> <a class="dropdown-item"
-								href="javascript:void(0);"><i class="bi bi-trash3"></i>보고삭제</a>
-						</div>
-					</div>
-				</td>
-			</tr>
+					</td>
+				</tr>
+			</c:forEach>
 		</tbody>
 	</table>
 

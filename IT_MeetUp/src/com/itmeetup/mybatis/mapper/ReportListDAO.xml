@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <!-- mybatis 환경 설정 파일 활용 -->
+ <mapper namespace="com.itmeetup.mybatis.IReportListDAO">
+ 
+ 	<select id="reportList" resultType="com.itmeetup.mybatis.ReportListDTO">
+ 		SELECT SD_OP_CODE "sdOpCode"
+		, ASS_NAME "assName"
+		, PI_NICKNAME "piNickName"
+		, OU_NAME "ouName"
+		, SS_NAME "ssName"
+		, SS_CODE "ssCode"
+		, REP_TITLE "repTitle"
+		, REP_NO "repNo"
+		, REP_DATE "repDate"
+		, REP_FILE "repFile"
+		FROM VIEW_REPORT
+		WHERE SD_OP_CODE = 'OP_2' AND REP_NO IS NOT NULL
+ 	</select>
+ 	
+
+ </mapper>
