@@ -4,10 +4,11 @@ package com.itmeetup.mybatis;
 public class JobDTO
 {
 	// 주요 속성 구성 
-	private  String jobCode ,job; 	// 직무 코드 , 직무 이름
+	private  String jobCode ,jobName; 	// 직무 코드 , 직무 이름
 	private int inwon;				// 인원수
 	
 	// getter / setter 구성 	
+	
 	public String getJobCode()
 	{
 		return jobCode;
@@ -15,6 +16,14 @@ public class JobDTO
 	public void setJobCode(String jobCode)
 	{
 		this.jobCode = jobCode;
+	}
+	public String getJobName()
+	{
+		return jobName;
+	}
+	public void setJobName(String jobName)
+	{
+		this.jobName = jobName;
 	}
 	public int getInwon()
 	{
@@ -24,16 +33,4 @@ public class JobDTO
 	{
 		this.inwon = inwon;
 	}
-	public String getJob()
-	{
-		return job;
-	}
-	public void setJob(String job)
-	{
-		this.job = job;
-	}
-	
-	
-	
-	
 }
