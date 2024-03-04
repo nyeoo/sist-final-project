@@ -63,4 +63,28 @@
 		WHERE CODE = 'OP_2'
  	</select>
  	
+ 	<select id="analyzePercent" resultType="java.lang.Double">
+		SELECT ROUND((ADJUSTED_DATE/DAY_OP)*100,1) AS "PERCENT"
+		FROM GROUPPERIODVIEW
+		WHERE CODE = 'OP_2' AND SD_SS_CODE = 'SS_1'
+ 	</select>
+ 	
+ 	<select id="designPercent" resultType="java.lang.Double">
+		SELECT ROUND((ADJUSTED_DATE/DAY_OP)*100,1) AS "PERCENT"
+		FROM GROUPPERIODVIEW
+		WHERE CODE = 'OP_2' AND SD_SS_CODE = 'SS_2'
+ 	</select>
+ 	
+ 	<select id="avatarPercent" resultType="java.lang.Double">
+		SELECT ROUND((ADJUSTED_DATE/DAY_OP)*100,1) AS "PERCENT"
+		FROM GROUPPERIODVIEW
+		WHERE CODE = 'OP_2' AND SD_SS_CODE = 'SS_3'
+ 	</select>
+ 	
+ 	<select id="testPercent" resultType="java.lang.Double">
+		SELECT ROUND((ADJUSTED_DATE/DAY_OP)*100,1) AS "PERCENT"
+		FROM GROUPPERIODVIEW
+		WHERE CODE = 'OP_2' AND SD_SS_CODE = 'SS_4'
+ 	</select>
+ 	
  </mapper>

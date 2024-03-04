@@ -17,4 +17,9 @@ public interface IGroupHomeDAO
 	public ArrayList<GroupDTO> groupHomeBack();
 	
 	public ArrayList<OpenProjectDTO> progressPeriod();
+	
+	public Double analyzePercent();
+	public Double designPercent();
+	public Double avatarPercent();
+	public Double testPercent();
 }

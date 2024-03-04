@@ -150,7 +150,6 @@ public class OpenProjectDTO
 	{
 		this.jobList = jobList;
 	}
-	
 	/*
 	// 현재 진행중인 프로젝트 리스트에 필요한 카테고리
 	public String getCategorys()

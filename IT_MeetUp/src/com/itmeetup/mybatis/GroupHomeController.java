@@ -31,6 +31,10 @@ public class GroupHomeController
 		model.addAttribute("groupHomeFront", dao.groupHomeFront());
 		model.addAttribute("groupHomeBack", dao.groupHomeBack());
 		model.addAttribute("progressPeriod", dao.progressPeriod());
+		model.addAttribute("analyzePercent", dao.analyzePercent());
+		model.addAttribute("designPercent", dao.designPercent());
+		model.addAttribute("avatarPercent", dao.avatarPercent());
+		model.addAttribute("testPercent", dao.testPercent());
 
 		return "/Content/MeetGroup/GroupHome.jsp";
 	}

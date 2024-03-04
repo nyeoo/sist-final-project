@@ -318,25 +318,25 @@ String cp = request.getContextPath();
 								<div class="progress-stacked progress-m">
 									<div class="progress progress-bar-striped" role="progressbar"
 										aria-label="Segment one" aria-valuenow="15" aria-valuemin="0"
-										aria-valuemax="100" style="width: 15%">
+										aria-valuemax="100" style="width: ${analyzePercent }%">
 										<div class="progress-bar">
-											<span>분석 15%</span>
+											<span>분석 ${analyzePercent }%</span>
 										</div>
 									</div>
 									<div class="progress progress-bar-striped" role="progressbar"
 										aria-label="Segment two" aria-valuenow="30" aria-valuemin="0"
-										aria-valuemax="100" style="width: 30%">
-										<div class="progress-bar bg-success">설계 30%</div>
+										aria-valuemax="100" style="width: ${designPercent }%">
+										<div class="progress-bar bg-success">설계 ${designPercent }%</div>
 									</div>
 									<div class="progress progress-bar-striped" role="progressbar"
 										aria-label="Segment three" aria-valuenow="40"
-										aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-										<div class="progress-bar bg-info text-dark">구현 40%</div>
+										aria-valuemin="0" aria-valuemax="100" style="width: ${avatarPercent }%">
+										<div class="progress-bar bg-info text-dark">구현 ${avatarPercent }%</div>
 									</div>
 									<div class="progress progress-bar-striped" role="progressbar"
 										aria-label="Segment four" aria-valuenow="15" aria-valuemin="0"
-										aria-valuemax="100" style="width: 15%">
-										<div class="progress-bar bg-warning text-dark">테스트 15%</div>
+										aria-valuemax="100" style="width: ${testPercent }%">
+										<div class="progress-bar bg-warning text-dark">테스트 ${testPercent }%</div>
 									</div>
 								</div>
 							</div>
