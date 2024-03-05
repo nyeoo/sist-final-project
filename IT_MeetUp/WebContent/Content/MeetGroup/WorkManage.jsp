@@ -18,8 +18,8 @@ String cp = request.getContextPath();
 <meta name="keywords" content="IT 프로젝트 모집, 사이드 프로젝트 진행">
 
 <!-- css -->
-<link rel="stylesheet" href="<%=cp %>/asset/css/style.css">
-<link rel="stylesheet" href="<%=cp %>/asset/css/layout_jaeyong.css">
+<link rel="stylesheet" href="<%=cp%>/asset/css/style.css">
+<link rel="stylesheet" href="<%=cp%>/asset/css/layout_jaeyong.css">
 
 </head>
 
@@ -62,23 +62,21 @@ String cp = request.getContextPath();
 						</nav>
 						<div class="tab-content" id="nav-tabContent">
 							<!-- 첫 번째 탭: 일정 관리 -->
-							<div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-								<div class="card tbl-card">
-									<c:import url="../MeetGroup/ScheduleManage.jsp"></c:import>
-								</div>
+							<div class="tab-pane fade show active" id="nav-home"
+								role="tabpanel" aria-labelledby="nav-home-tab">
+								<div id="scheduleContent"></div>
 							</div>
 
 							<!-- 두 번째 탭: 업무 할당표 -->
-							
-							<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-								<div class="card tbl-card">
-									<c:import url="../MeetGroup/WorkAssignment.jsp"></c:import>
-								</div>
+							<div class="tab-pane fade" id="nav-profile" role="tabpanel"
+								aria-labelledby="nav-profile-tab">
+								<div id="assignmentContent"></div>
 							</div>
 
 							<!-- 세 번째 탭: 업무 보고 목록 -->
-							<div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-								<div class="card tbl-card">
+							<div class="tab-pane fade" id="nav-contact" role="tabpanel"
+								aria-labelledby="nav-contact-tab">
+								<div id="reportListContent">
 									<c:import url="../MeetGroup/WorkReportList.jsp"></c:import>
 								</div>
 							</div>
@@ -173,31 +171,18 @@ String cp = request.getContextPath();
 		</section>
 	</div>
 	<!-- 푸터영역 -->
-	<div role="footer" data-include="../Components/Footer.jsp" class="mt-auto"></div>
+	<div role="footer" data-include="../Components/Footer.jsp"
+		class="mt-auto"></div>
 	<!-- //푸터영역 -->
 
 	<!-- script -->
-	<script src="<%=cp %>/asset/js/jquery-3.5.1-min.js"></script>
-	<script src="<%=cp %>/asset/js/jquery-ui.js"></script>
-	<script src="<%=cp %>/asset/js/bootstrap.bundle.min.js"></script>
-	<script src="<%=cp %>/asset/js/common.js"></script>
+	<script src="<%=cp%>/asset/js/jquery-3.5.1-min.js"></script>
+	<script src="<%=cp%>/asset/js/jquery-ui.js"></script>
+	<script src="<%=cp%>/asset/js/bootstrap.bundle.min.js"></script>
+	<script src="<%=cp%>/asset/js/common.js"></script>
 
-	<script type="text/javascript">
-	    $(document).ready(function() {
-	        $("#nav-profile-tab").click(function() {
-	            $.ajax({
-	                type: "GET",
-	                url: "workAssignment.action",
-	                success: function(response) {
-	                    $("#nav-profile").html(response);
-	                },
-	                error: function(xhr, status, error) {
-	                    console.error("Error occurred while loading WorkAssignment.jsp:", error);
-	                }
-	            });
-	        });
-	    });
-	</script>
+
+
 </body>
 
 </html>

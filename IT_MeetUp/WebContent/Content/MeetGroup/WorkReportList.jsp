@@ -5,44 +5,44 @@
 String cp = request.getContextPath();
 %>
 <!-- 업무 보고 목록 -->
-<div class="card-header">
-	<h5>업무보고목록</h5>
-</div>
-<!-- 필터 -->
-<div class="filter-box mb-3" style="margin: auto;">
-	<ul class="d-flex">
-		<li>
-			<div class="m-select">
-				<select class="form-select" aria-label="업무단계" title="업무단계">
-					<option selected>업무단계</option>
-					<option value="1">분석</option>
-					<option value="2">설계</option>
-					<option value="3">구현</option>
-					<option value="4">테스트</option>
-				</select>
-			</div>
-		</li>
-		<li>
-			<div class="d-flex">
+<div class="card tbl-card">
+	<div class="card-header">
+		<h5>업무보고목록</h5>
+	</div>
+	<!-- 필터 -->
+	<div class="filter-box mb-3" style="margin: auto;">
+		<ul class="d-flex">
+			<li>
+				<div class="m-select">
+					<select class="form-select" aria-label="업무단계" title="업무단계">
+						<option selected>업무단계</option>
+						<c:forEach var="schedule" items="${reportScheduleList}">
+							<option value="1">${schedule.ssName}</option>
+						</c:forEach>
+					</select>
+				</div>
+			</li>
+			<li>
 				<div class="m-select">
 					<select class="form-select" aria-label="업무분류" title="업무분류">
 						<option selected>업무분류</option>
-						<option value="1">회의록</option>
-						<option value="2">요구사항분석서</option>
-						<option value="3">최종보고서</option>
+						<c:forEach var="output" items="${reportOutputList}">
+							<option value="1">${output.ouName}</option>
+						</c:forEach>
 					</select>
 				</div>
+
 				<div class="m-select">
 					<select class="form-select" aria-label="담당자" title="담당자">
 						<option selected>담당자</option>
-						<option value="1">오수경</option>
-						<option value="2">임하성</option>
-						<option value="3">이주형</option>
+						<c:forEach var="person" items="${reportPersonList}">
+							<option value="1">${person.piNickName}</option>
+						</c:forEach>
 					</select>
 				</div>
-			</div>
-		</li>
-	</ul>
+			</li>
+		</ul>
+	</div>
 </div>
 <div class="table-responsive text-nowrap tbl-border">
 	<table class="table">
@@ -71,7 +71,7 @@ String cp = request.getContextPath();
 			<c:forEach var="reportList" items="${reportList}">
 				<tr class="range-datepicker">
 					<td><strong>${reportList.ssName}</strong></td>
-					<td><strong>${reportList.assName}</strong></td>
+					<td><strong>${reportList.ouName}</strong></td>
 					<td><input type="button"
 						class="form-control form-control-plaintext"
 						id="validationCustom01" value="${reportList.repTitle}"></td>
@@ -118,5 +118,6 @@ String cp = request.getContextPath();
 		</nav>
 	</div>
 	<!-- //페이지네이션 -->
+</div>
 </div>
 <!-- //업무 보고 목록 -->
