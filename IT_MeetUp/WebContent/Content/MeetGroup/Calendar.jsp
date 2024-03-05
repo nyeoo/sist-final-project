@@ -80,8 +80,8 @@ String cp = request.getContextPath();
 	<script src="<%=cp%>/asset/js/bootstrap.bundle.min.js"></script>
 	<script src="<%=cp%>/asset/js/common.js"></script>
 	<script src="<%=cp%>/asset/js/index.global.js"></script>
+    
 	<script>
-	
 		document.addEventListener('DOMContentLoaded', function()
 		{
 			var calendarEl = document.getElementById('calendar');
@@ -153,12 +153,12 @@ String cp = request.getContextPath();
 					groupId : 999,
 					title : 'Repeating Event',
 					start : '2023-01-16T16:00:00'
+				}
 				]
 			});
 
 			calendar.render();
 		});
-				}
 	</script>
 </body>
 
