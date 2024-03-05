@@ -124,39 +124,29 @@ String cp = request.getContextPath();
 													role="tabpanel" aria-labelledby="pick-alert-tab">
 													<div class="tab-pane fade show active" id="pick-alert"
 														role="tabpanel" aria-labelledby="pick-alert-tab">
-														<div class="alert" role="alert">
-															<strong><span class="badge text-bg-primary">픽
-																	알림</span></strong> <span class="text-muted float-end small">
-																2024년 2월 24일 오후 3시 30분 </span>
-															<hr class="my-2">
-															<p>
-																<strong>흑곰불꽃발바닥님이 신청하신 팀 개설 요청에 픽!되었습니다.</strong> (픽된
-																멤버로 프로젝트가 만들어집니다. 신청을 취소하실 경우 신고처리가 부여됩니다.) <a href="#"
-																	class="alert-link"><i class="bi bi-plus-square"></i></a>
-															</p>
-														</div>
-														<div class="alert" role="alert">
-															<strong><span class="badge text-bg-primary">픽
-																	알림</span></strong> <span class="text-muted float-end small">
-																2024년 2월 24일 오후 3시 30분 </span>
-															<hr class="my-2">
-															<p>
-																<strong>국비지원님이 신청하신 팀 개설 요청에 픽!되었습니다.</strong> (픽된 멤버로
-																프로젝트가 만들어집니다. 신청을 취소하실 경우 신고처리가 부여됩니다.) <a href="#"
-																	class="alert-link"><i class="bi bi-plus-square"></i></a>
-															</p>
-														</div>
-														<div class="alert" role="alert">
-															<strong><span class="badge text-bg-primary">픽
-																	알림</span></strong> <span class="text-muted float-end small">
-																2024년 2월 24일 오후 3시 30분 </span>
-															<hr class="my-2">
-															<p>
-																<strong>아아아아앙님이 신청하신 팀 개설 요청에 픽!되었습니다.</strong> (픽된 멤버로
-																프로젝트가 만들어집니다. 신청을 취소하실 경우 신고처리가 부여됩니다.) <a href="#"
-																	class="alert-link"><i class="bi bi-plus-square"></i></a>
-															</p>
-														</div>
+														
+														<!-- 픽 알림 리스트 뿌리기 -->
+														<c:forEach var="pickNtfItem" items="${pickNtfList }">
+															<div class="alert" role="alert">
+																<strong> 
+																	<span class="badge text-bg-primary">픽 알림</span>
+																</strong>
+																<span class="text-muted float-end small">
+																	${pickNtfItem.pickDate } 
+																</span>
+																<hr class="my-2">
+																<p>
+																	<strong> 
+																		"${pickNtfItem.job }" 로 신청하신 "${pickNtfItem.title }" 팀 개설 요청에 픽!되었습니다. 
+																	</strong> 
+																	(픽된 멤버로 프로젝트가 만들어집니다. 신청을 취소하실 경우 신고처리가 부여됩니다.) 
+																	<a href="#" class="alert-link"> 
+																		더보기<i class="bi bi-plus-square"></i>
+																	</a>
+																</p>
+															</div>
+														</c:forEach>
+														
 													</div>
 												</div>
 
@@ -164,67 +154,54 @@ String cp = request.getContextPath();
 												<div class="tab-pane fade" id="participant-confirmation"
 													role="tabpanel"
 													aria-labelledby="participant-confirmation-tab">
-													<div class="alert" role="alert">
-														<strong> <span class="badge text-bg-secondary">참여자
-																확인 알림</span>
-														</strong> <span class="text-muted float-end small"> 2024년 2월
-															24일 오후 3시 30분 </span>
-														<hr class="my-2">
-														<p>
-															<strong>아아아아앙님이 XX님이 신청하신 팀 개설 요청가 개설될 예정입니다.
-																프로젝트의 내용을 확인해주세요.</strong>
-														</p>
-														<p>
-															(3일안에 확인하지 않으실 경우, 프로젝트가 실패됩니다.) <a href="#"
-																class="alert-link"><i class="bi bi-plus-square"></i></a>
-														</p>
-													</div>
-													<div class="alert" role="alert">
-														<strong> <span class="badge text-bg-secondary">참여자
-																확인 알림</span>
-														</strong> <span class="text-muted float-end small"> 2024년 2월
-															26일 오후 3시 30분 </span>
-														<hr class="my-2">
-														<p>
-															<strong>아아아아앙님이 XX님이 신청하신 팀 개설 요청가 개설될 예정입니다.
-																프로젝트의 내용을 확인해주세요.</strong>
-														</p>
-														<p>
-															(3일안에 확인하지 않으실 경우, 프로젝트가 실패됩니다.) <a href="#"
-																class="alert-link"><i class="bi bi-plus-square"></i></a>
-														</p>
-													</div>
-													<div class="alert" role="alert">
-														<strong> <span class="badge text-bg-secondary">참여자
-																확인 알림</span>
-														</strong> <span class="text-muted float-end small"> 2024년 2월
-															28일 오후 3시 30분 </span>
-														<hr class="my-2">
-														<p>
-															<strong>아아아아앙님이 XX님이 신청하신 팀 개설 요청가 개설될 예정입니다.
-																프로젝트의 내용을 확인해주세요.</strong>
-														</p>
-														<p>
-															(3일안에 확인하지 않으실 경우, 프로젝트가 실패됩니다.) <a href="#"
-																class="alert-link"><i class="bi bi-plus-square"></i></a>
-														</p>
-													</div>
+													<c:forEach var="partCheckNtfItem" items="${partCheckNtfList }">
+														<div class="alert" role="alert">
+															<strong> 
+																<span class="badge text-bg-secondary">
+																	참여자 확인 알림
+																</span>
+															</strong> 
+															<span class="text-muted float-end small"> 
+																${partCheckNtfItem.pcDate }
+															</span>
+															<hr class="my-2">
+															<p>
+																<strong>
+																	"${partCheckNtfItem.job }" 로 신청하신 "${partCheckNtfItem.title }" 팀 개설 요청 그룹이 개설될 예정입니다.
+																	프로젝트의 내용을 확인해주세요.
+																</strong>
+															</p>
+															<p>
+																(3일안에 확인하지 않으실 경우, 프로젝트가 실패됩니다.) 
+																<a href="#" class="alert-link"> 
+																	더보기<i class="bi bi-plus-square"></i>
+																</a>
+															</p>
+														</div>
+													</c:forEach>
 												</div>
 
 												<!-- 디데이 알림  -->
 												<div class="tab-pane fade" id="dday-alert" role="tabpanel"
 													aria-labelledby="dday-alert-tab">
 													<div class="alert" role="alert">
-														<strong><span class="badge text-bg-success">디데이
-																알림</span></strong> <span class="text-muted float-end small">
-															2024년 2월 26일 오후 3시 30분 </span>
+														<strong>
+															<span class="badge text-bg-success">
+																디데이 알림
+															</span>
+														</strong> 
+														<span class="text-muted float-end small">
+															2024년 2월 26일 오후 3시 30분
+														</span>
 														<hr class="my-2">
 														<p>
-															<strong>아아아앙님에게 딱 맞는 팀 개설 요청입니다.</strong>
+															<strong>회원님이 선호하는 "(직무)", "(모임방식)", "(지역)" 에 딱 맞는 팀 개설 요청입니다.</strong>
 														</p>
 														<p>
-															(게시물을 보실려면 플러스 버튼을 누르세요.)<a href="#" class="alert-link"><i
-																class="bi bi-plus-square"></i></a>
+															(게시물을 보실려면 플러스 버튼을 누르세요.)
+															<a href="#" class="alert-link">
+																더보기<i class="bi bi-plus-square"></i>
+															</a>
 														</p>
 													</div>
 												</div>
@@ -332,8 +309,10 @@ String cp = request.getContextPath();
 								</span>
 								</a>
 								<ul class="dropdown-menu dropdown-menu-end text-small shadow">
-									<li class="dropdown-header">
-										<c:if test='${sessionScope.admin==1}'> <span class="badge text-bg-primary">관리자</span></c:if>
+									<li class="dropdown-header"><c:if
+											test='${sessionScope.loginDTO.admin!=null}'>
+											<span class="badge text-bg-primary">관리자</span>
+										</c:if>
 										<h6>${sessionScope.loginDTO.piNickname }</h6> <span>@${sessionScope.loginDTO.piPw }</span>
 									</li>
 									<li><a class="dropdown-item" href="MyInfo.jsp">마이페이지</a></li>
@@ -343,7 +322,8 @@ String cp = request.getContextPath();
 									<li>
 										<hr class="dropdown-divider">
 									</li>
-									<li><a class="dropdown-item" href="/IT_MeetUp/logout.action">로그아웃</a></li>
+									<li><a class="dropdown-item"
+										href="/IT_MeetUp/logout.action">로그아웃</a></li>
 								</ul>
 							</div>
 							<!-- //개인계정영역 -->

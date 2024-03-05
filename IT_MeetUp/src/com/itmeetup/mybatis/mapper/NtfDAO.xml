@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itmeetup.mybatis.INtfDAO">
+	
+	<!-- mybatis 환경 설정 파일 활용 -->
+	<!-- IPickNtfDAO.xml -->
+	
+	<!-- 픽 알림 리스트 조회 쿼리문  -->
+	<select id="pickNtfList" resultType="com.itmeetup.mybatis.NtfDTO">
+		SELECT "PNNO", "OPCODE", "MEMCODE", "JOB", "TITLE", "PICKDATE"
+		FROM VIEW_PICK_NTF
+	</select>
+	
+	<!-- 참여확인 알림 리스트 조회 쿼리문 -->
+	<select id="partCheckNtfList" resultType="com.itmeetup.mybatis.NtfDTO">
+		SELECT "PCNNO", "PCDATE", "JOB", "TITLE", "OPCODE"
+		FROM VIEW_PART_CHECK_NTF
+	</select>
+
+</mapper>

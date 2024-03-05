@@ -27,10 +27,10 @@ public class IndictController
 		IIndictDAO dao = sqlSession.getMapper(IIndictDAO.class);
 		IIndictProcessDAO dao1 = sqlSession.getMapper(IIndictProcessDAO.class);
 
-		// 신고처리 상세 내용
+		// 신고처리 상세 내용 
 		model.addAttribute("idtProcessList", dao1.idtProcessList());
 
-		// 각 신고 항목들 리스트
+		// 각 신고 항목들 리스트 
 		model.addAttribute("teamOpenIdtList", dao.teamOpenIdtList());
 		model.addAttribute("commentIdtList", dao.commentIdtList());
 		model.addAttribute("recommentIdtList", dao.recommentIdtList());
@@ -73,7 +73,7 @@ public class IndictController
 
 		return "redirect:indict.action";
 	}
-	
+
 	// 업무할당 신고 업데이트
 	@RequestMapping(value = "/assignmentidtlistupdate.action", method = RequestMethod.GET)
 	public String assignmentIdtListUpdate(IndictDTO indict)
@@ -84,7 +84,7 @@ public class IndictController
 
 		return "redirect:indict.action";
 	}
-	
+
 	// 업무보고 신고 업데이트
 	@RequestMapping(value = "/reportidtlistupdate.action", method = RequestMethod.GET)
 	public String reportIdtListUpdate(IndictDTO indict)
@@ -95,7 +95,7 @@ public class IndictController
 
 		return "redirect:indict.action";
 	}
-	
+
 	// 주간업무보고 신고 업데이트
 	@RequestMapping(value = "/weeklyidtlistupdate.action", method = RequestMethod.GET)
 	public String weeklyIdtListUpdate(IndictDTO indict)
