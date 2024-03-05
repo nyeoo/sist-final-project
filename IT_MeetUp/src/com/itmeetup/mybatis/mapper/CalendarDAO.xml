@@ -6,40 +6,29 @@
  <!-- mybatis 환경 설정 파일 활용 -->
  <mapper namespace="com.itmeetup.mybatis.ICalendarDAO">
  
-	<select id="CalendarSchePeriod" resultType="com.itmeetup.mybatis.ScheduleDTO">
-		SELECT SD_START_DATE, SD_END_DATE
+	<select id="calProgress" resultType="com.itmeetup.mybatis.ScheduleDTO">
+		SELECT TO_CHAR(SD_START_DATE, 'YYYY-MM-DD') "seStartDate", TO_CHAR(SD_END_DATE, 'YYYY-MM-DD') "sdEndDate"
 		FROM CALENDARSCHEVIEW
 		WHERE CODE = 'OP_2' AND SD_SS_CODE = 'SS_1'
  	</select>
  	
- 	<!-- <select id="progressPeriod" resultType="com.itmeetup.mybatis.OpenProjectDTO">
-		SELECT "START", END "END"
-		FROM PROJECT_INFO
-		WHERE CODE = 'OP_2'
- 	</select>
- 	
- 	<select id="analyzePercent" resultType="java.lang.Double">
-		SELECT ROUND((ADJUSTED_DATE/DAY_OP)*100,1) AS "PERCENT"
-		FROM GROUPPERIODVIEW
-		WHERE CODE = 'OP_2' AND SD_SS_CODE = 'SS_1'
- 	</select>
- 	
- 	<select id="designPercent" resultType="java.lang.Double">
-		SELECT ROUND((ADJUSTED_DATE/DAY_OP)*100,1) AS "PERCENT"
-		FROM GROUPPERIODVIEW
+ 	<select id="calDesign" resultType="com.itmeetup.mybatis.ScheduleDTO">
+		SELECT SD_START_DATE "seStartDate", SD_END_DATE "sdEndDate"
+		FROM CALENDARSCHEVIEW
 		WHERE CODE = 'OP_2' AND SD_SS_CODE = 'SS_2'
  	</select>
  	
- 	<select id="avatarPercent" resultType="java.lang.Double">
-		SELECT ROUND((ADJUSTED_DATE/DAY_OP)*100,1) AS "PERCENT"
-		FROM GROUPPERIODVIEW
+ 	<select id="calAvatar" resultType="com.itmeetup.mybatis.ScheduleDTO">
+		SELECT SD_START_DATE "seStartDate", SD_END_DATE "sdEndDate"
+		FROM CALENDARSCHEVIEW
 		WHERE CODE = 'OP_2' AND SD_SS_CODE = 'SS_3'
  	</select>
  	
- 	<select id="testPercent" resultType="java.lang.Double">
-		SELECT ROUND((ADJUSTED_DATE/DAY_OP)*100,1) AS "PERCENT"
-		FROM GROUPPERIODVIEW
+ 	<select id="calTest" resultType="com.itmeetup.mybatis.ScheduleDTO">
+		SELECT SD_START_DATE "seStartDate", SD_END_DATE "sdEndDate"
+		FROM CALENDARSCHEVIEW
 		WHERE CODE = 'OP_2' AND SD_SS_CODE = 'SS_4'
- 	</select> -->
+ 	</select>
+ 	
  	
  </mapper>

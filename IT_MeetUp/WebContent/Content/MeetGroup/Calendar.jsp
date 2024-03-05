@@ -84,7 +84,6 @@ String cp = request.getContextPath();
 		document.addEventListener('DOMContentLoaded', function()
 		{
 			var calendarEl = document.getElementById('calendar');
-
 			var calendar = new FullCalendar.Calendar(calendarEl,
 			{
 				headerToolbar :
@@ -93,21 +92,48 @@ String cp = request.getContextPath();
 					center : 'title',
 					right : 'next'
 				},
-				initialDate : '2023-01-12',
+				initialDate : '2019-01-12',
 				navLinks : true,
 				editable : true,
 				dayMaxEvents : true,
 				events : [
 				{
 					title : '분석',
-					start : '2023-01-01',
-					end : '2023-01-10'
-				},
+					start : '2019-01-15',
+					end : '2019-01-18'
+				}
+				/* 
+				 <c:forEach items="${calProgress}" var="calprogress">
 				{
-					title : '설계',
-					start : '2023-01-11',
-					end : '2023-01-15'
+				    title: '분석',
+				    start: new Date('${calprogress.seStartDate}'),
+				    end: new Date('${calprogress.sdEndDate}')
 				},
+				</c:forEach>
+				<c:forEach items="${calDesign}" var="calDesign">
+				{
+				    title: '설계',
+				    start: new Date('${calDesign.seStartDate}'),
+				    end: new Date('${calDesign.sdEndDate}')
+				},
+				</c:forEach>
+				
+				<c:forEach items="${calAvatar}" var="calAvatar">
+				{
+				    title: '구현',
+				    start: new Date('${calAvatar.seStartDate}'),
+				    end: new Date('${calAvatar.sdEndDate}')
+				},
+				</c:forEach>
+				
+				<c:forEach items="${calTest}" var="calTest">
+				{
+				    title: '테스트',
+				    start: new Date('${calTest.seStartDate}'),
+				    end: new Date('${calTest.sdEndDate}')
+				},
+				</c:forEach>
+
 				{
 					title : '구현',
 					start : '2023-01-16',
@@ -127,42 +153,8 @@ String cp = request.getContextPath();
 					groupId : 999,
 					title : 'Repeating Event',
 					start : '2023-01-16T16:00:00'
-				},
-				{
-					title : 'Conference',
-					start : '2023-01-11',
-					end : '2023-01-13'
-				},
-				{
-					title : 'Meeting',
-					start : '2023-01-12T10:30:00',
-					end : '2023-01-12T12:30:00'
-				},
-				{
-					title : 'Lunch',
-					start : '2023-01-12T12:00:00'
-				},
-				{
-					title : 'Meeting',
-					start : '2023-01-12T14:30:00'
-				},
-				{
-					title : 'Happy Hour',
-					start : '2023-01-12T17:30:00'
-				},
-				{
-					title : 'Dinner',
-					start : '2023-01-12T20:00:00'
-				},
-				{
-					title : 'Birthday Party',
-					start : '2023-01-13T07:00:00'
-				},
-				{
-					title : 'Click for Google',
-					url : 'http://google.com/',
-					start : '2023-01-28'
-				} ]
+				} */
+				]
 			});
 
 			calendar.render();

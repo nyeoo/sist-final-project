@@ -21,7 +21,10 @@ public class CalendarController
 	{
 		ICalendarDAO dao = sqlSession.getMapper(ICalendarDAO.class);
 
-		model.addAttribute("CalendarSchePeriod", dao.CalendarSchePeriod());
+		model.addAttribute("calProgress", dao.calProgress());
+		model.addAttribute("calDesign", dao.calDesign());
+		model.addAttribute("calAvatar", dao.calAvatar());
+		model.addAttribute("calTest", dao.calTest());
 
 		return "/Content/MeetGroup/Calendar.jsp";
 	}
