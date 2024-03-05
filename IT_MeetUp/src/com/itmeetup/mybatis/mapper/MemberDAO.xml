@@ -40,6 +40,36 @@
 		FROM MEETING
 	</select>
 	
+	<!-- 희망기술 탭 조회 쿼리문 -->
+	<select id="skillCategorys" resultType="com.itmeetup.mybatis.SkillCategoryDTO">
+		SELECT SC_CODE "SCCODE", SC_NAME "SCNAME"
+		FROM SKILL_CATEGORY
+	</select>
+	
+	<!-- 희망기술 상세 조회 쿼리문 -->
+	<select id="skills" resultType="com.itmeetup.mybatis.SkillDTO">
+		SELECT SK_CODE "SKCODE", SK_NAME "SKNAME", SK_SC_CODE "SKSCCODE"
+		FROM SKILL
+	</select>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 </mapper>

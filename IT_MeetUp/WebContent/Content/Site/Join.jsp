@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
@@ -116,18 +117,18 @@ String cp = request.getContextPath();
 													<div class="col-12">
 														<div class="m-input-box">
 															<input type="text" id="piEmail" name="piEmail"> <label
-																for="joinEmail01" class="form-label h5">이메일</label>
+																for="joinEmail1" class="form-label h5">이메일</label>
 															<div class="row col-12">
 																<div class="col-12 col-md-7">
 																	<input type="text" class="form-control"
-																		value="sist1234" id="joinEmail01" required="required">
+																		value="sist1234" id="joinEmail1" required="required">
 																	<div class="invalid-feedback">이메일을 입력해주세요.</div>
 																</div>
 																<div class="col-12 col-md-5">
 																	<div class="m-select">
 																		<select class="form-select"
 																			aria-label="Default select example" title="email"
-																			id="joinEmail02">
+																			id="joinEmail2">
 																			<option>-선택-</option>
 																			<option value="@naver.com" selected="selected">@naver.com</option>
 																			<option value="@gmail.com">@gmail.com</option>
@@ -244,9 +245,10 @@ String cp = request.getContextPath();
 																			aria-label="Default select example" id="jobArea01"
 																			title="jobArea01">
 																			<option selected="selected">-선택-</option>
-																				<c:forEach var ="sidoList" items="${sidoList }" varStatus="status"  >
-																					<option value="SIDO_${status.index +1}">${sidoList }</option>
-																				</c:forEach>
+																			<c:forEach var="sidoList" items="${sidoList }"
+																				varStatus="status">
+																				<option value="SIDO_${status.index +1}">${sidoList }</option>
+																			</c:forEach>
 																			<!-- 
 																			<option value="SIGG_1" selected="selected">서울</option>
 																			<option value="SIGG_2">경기도</option>
@@ -263,15 +265,16 @@ String cp = request.getContextPath();
 																			aria-label="Default select example" id="jobArea02"
 																			title="jobArea02">
 																			<option selected="selected">-선택-</option>
-																				<c:forEach var ="siggList" items="${siggList }" varStatus="status"  >
-																					<option value="SIGG_${status.index +1}">${siggList }</option>
-																				</c:forEach>
+																			<c:forEach var="siggList" items="${siggList }"
+																				varStatus="status">
+																				<option value="SIGG_${status.index +1}">${siggList }</option>
+																			</c:forEach>
 																			<!-- 																			
 																			<option value="SIGG_1" selected="selected">마포구</option>
 																			<option value="SIGG_2">중구</option>
 																			<option value="SIGG_3">강서구</option>
 																			<option value="SIGG_4">수원시 영통구</option>
- 																			-->																			
+ 																			-->
 																		</select>
 																	</div>
 																	<div class="invalid-feedback">선호지역2을(를) 입력해주세요.</div>
@@ -293,9 +296,10 @@ String cp = request.getContextPath();
 																			id="joinMeet${status.index + 1}" autocomplete="off"
 																			<c:if test="${status.index == 0}">checked="checked"</c:if>>
 																		<label class="btn btn-outline-primary"
-																			for="joinMeet${status.index + 1}" value="${meetItem.meetCode }">${meetItem.meetName }</label>
+																			for="joinMeet${status.index + 1}"
+																			value="${meetItem.meetCode }">${meetItem.meetName }</label>
 																	</c:forEach>
-																	
+
 																</div>
 																<div class="invalid-feedback">비밀번호 확인값을 입력해주세요.</div>
 															</div>
@@ -317,397 +321,122 @@ String cp = request.getContextPath();
 														<p class="h5">희망기술</p>
 														<div class="skill-box">
 															<nav>
+																<!-- <div class="nav nav-tabs mb-3" id="nav-tab" role="tablist">
+																	<button class="nav-link active" id="nav-skill1-tab" data-bs-toggle="tab" data-bs-target="#nav-skill1" type="button" role="tab"
+																		aria-controls="nav-skill1" aria-selected="true">프론트</button>
+																	<button class="nav-link" id="nav-skill2-tab " data-bs-toggle="tab" data-bs-target="#nav-skill2" type="button" role="tab"
+																		aria-controls="nav-skill2" aria-selected="false">백엔드</button>
+																	<button class="nav-link" id="nav-skill3-tab" data-bs-toggle="tab" data-bs-target="#nav-skill3" type="button" role="tab"
+																		aria-controls="nav-skill3" aria-selected="false">기획, 디자인, 개발툴</button>
+																</div> -->
+
 																<div class="nav nav-tabs mb-3" id="nav-tab"
 																	role="tablist">
-																	<button class="nav-link active" id="nav-skill01-tab"
-																		data-bs-toggle="tab" data-bs-target="#nav-skill01"
-																		type="button" role="tab" aria-controls="nav-skill01"
-																		aria-selected="true">프론트</button>
-																	<button class="nav-link" id="nav-skill02-tab "
-																		data-bs-toggle="tab" data-bs-target="#nav-skill02"
-																		type="button" role="tab" aria-controls="nav-skill02"
-																		aria-selected="false">백엔드</button>
-																	<button class="nav-link" id="nav-skill03-tab"
-																		data-bs-toggle="tab" data-bs-target="#nav-skill03"
-																		type="button" role="tab" aria-controls="nav-skill03"
-																		aria-selected="false">기획, 디자인, 개발툴</button>
+																	<c:forEach var="skill" items="${skillCategorys}"
+																		varStatus="status">
+																		<button
+																			class="nav-link <c:if test="${status.index == 0}">active</c:if>"
+																			id="nav-skill${status.index + 1}-tab"
+																			data-bs-toggle="tab"
+																			data-bs-target="#nav-skill${status.index + 1}"
+																			type="button" role="tab"
+																			aria-controls="nav-skill${status.index + 1}"
+																			aria-selected="true" value="${skill.scCode}">${skill.scName}</button>
+																	</c:forEach>
 																</div>
+
 															</nav>
 															<div class="tab-content" id="nav-tabContent">
-																<div class="tab-pane fade show active" id="nav-skill01"
-																	role="skill01" aria-labelledby="nav-skill01-tab">
+																<div class="tab-pane fade show active" id="nav-skill1"
+																	role="skill1" aria-labelledby="nav-skill1-tab">
 																	<ul class="skill-check">
-																		<!-- ico_html5_01 -->
-																		<!-- 테스트를 위해 값을 미리 채워넣음  checked="checked" -->
-																		<li>
-																			<div class="form-check skill-item ico_html5_01">
-																				<input class="form-check-input" type="checkbox"
-																					value="" id="" checked="checked"> <label
-																					class="form-check-label"> html5 </label>
-																			</div>
-																		</li>
-																		<!-- ico_css_01 -->
-																		<li>
-																			<div class="form-check skill-item ico_css_01">
-																				<input class="form-check-input" type="checkbox"
-																					value="" id=""> <label
-																					class="form-check-label"> css </label>
-																			</div>
-																		</li>
-																		<!-- ico_Javascript_01 -->
-																		<li>
-																			<div class="form-check skill-item ico_Javascript_01">
-																				<input class="form-check-input" type="checkbox"
-																					value="" id=""> <label
-																					class="form-check-label"> Javascript </label>
-																			</div>
-																		</li>
-																		<!-- ico_TypeScript -->
-																		<li>
-																			<div class="form-check skill-item ico_TypeScript">
-																				<input class="form-check-input" type="checkbox"
-																					value="" id=""> <label
-																					class="form-check-label"> TypeScript </label>
-																			</div>
-																		</li>
-																		<!-- ico_React -->
-																		<li>
-																			<div class="form-check skill-item ico_React">
-																				<input class="form-check-input" type="checkbox"
-																					value="" id=""> <label
-																					class="form-check-label"> React </label>
-																			</div>
-																		</li>
-																		<!-- ico_Vue -->
-																		<li>
-																			<div class="form-check skill-item ico_Vue">
-																				<input class="form-check-input" type="checkbox"
-																					value="" id=""> <label
-																					class="form-check-label"> Vue </label>
-																			</div>
-																		</li>
-																		<!-- ico_Svelte -->
-																		<li>
-																			<div class="form-check skill-item ico_Svelte">
-																				<input class="form-check-input" type="checkbox"
-																					value="" id=""> <label
-																					class="form-check-label"> Svelte </label>
-																			</div>
-																		</li>
-																		<!-- ico_Nextjs -->
-																		<li>
-																			<div class="form-check skill-item ico_Nextjs">
-																				<input class="form-check-input" type="checkbox"
-																					value="" id=""> <label
-																					class="form-check-label"> Nextjs </label>
-																			</div>
-																		</li>
+																		<c:forEach var="skillItem" items="${skills }"
+																			varStatus="status">
+
+																			<c:if test="${skillItem.skScCode == 'SC_1' }">
+																				<li>
+																					<div
+																						class="form-check skill-item 
+																						<c:forEach var="entry" items="${skProcessors}">
+																							<c:set var="skillCode" value="${entry.key}" />
+																							<c:set var="imageName" value="${entry.value}" />
+																							
+																							<c:if test="${skillCode == skillItem.skCode }">
+																								${imageName}
+																							</c:if>
+																						</c:forEach>">
+																						<input class="form-check-input " type="checkbox"
+																							value="${skillItem.skCode }"
+																							id="${status.index +1}"> <label
+																							class="form-check-label">
+																							${skillItem.skName } </label>
+																					</div>
+																				</li>
+																			</c:if>
+																		</c:forEach>
 
 																	</ul>
 
 																</div>
-																<div class="tab-pane fade" id="nav-skill02"
-																	role="skill02" aria-labelledby="nav-skill02-tab">
+																<div class="tab-pane fade" id="nav-skill2" role="skill2"
+																	aria-labelledby="nav-skill2-tab">
 																	<ul class="skill-check">
+																		<c:forEach var="skillItem" items="${skills }"
+																			varStatus="status">
 
-																		<!-- ico_ruby -->
-																		<li>
-																			<div class="form-check skill-item ico_ruby">
-																				<input class="form-check-input" type="checkbox"
-																					value="" id=""> <label
-																					class="form-check-label"> ruby </label>
-																			</div>
-																		</li>
-																		<!-- ico_Java_01 -->
-																		<li>
-																			<div class="form-check skill-item ico_Java_01">
-																				<input class="form-check-input" type="checkbox"
-																					value="" id=""> <label
-																					class="form-check-label"> Java </label>
-																			</div>
-																		</li>
-																		<!-- ico_jsp -->
-																		<li>
-																			<div class="form-check skill-item ico_jsp">
-																				<input class="form-check-input" type="checkbox"
-																					value="" id=""> <label
-																					class="form-check-label"> jsp </label>
-																			</div>
-																		</li>
-																		<!-- ico_python -->
-																		<li>
-																			<div class="form-check skill-item ico_python">
-																				<input class="form-check-input" type="checkbox"
-																					value="" id=""> <label
-																					class="form-check-label"> python </label>
-																			</div>
-																		</li>
-																		<!-- ico_C_plus -->
-																		<li>
-																			<div class="form-check skill-item ico_C_plus">
-																				<input class="form-check-input" type="checkbox"
-																					value="" id=""> <label
-																					class="form-check-label"> C_plus </label>
-																			</div>
-																		</li>
-																		<!-- ico_C_sharp -->
-																		<li>
-																			<div class="form-check skill-item ico_C_sharp">
-																				<input class="form-check-input" type="checkbox"
-																					value="" id=""> <label
-																					class="form-check-label"> C_sharp </label>
-																			</div>
-																		</li>
-																		<!-- ico_R -->
-																		<li>
-																			<div class="form-check skill-item ico_R">
-																				<input class="form-check-input" type="checkbox"
-																					value="" id=""> <label
-																					class="form-check-label"> R </label>
-																			</div>
-																		</li>
-																		<!-- ico_Oracle -->
-																		<li>
-																			<div class="form-check skill-item ico_Oracle">
-																				<input class="form-check-input" type="checkbox"
-																					value="" id=""> <label
-																					class="form-check-label"> Oracle </label>
-																			</div>
-																		</li>
-																		<!-- ico_MySQL -->
-																		<li>
-																			<div class="form-check skill-item ico_MySQL">
-																				<input class="form-check-input" type="checkbox"
-																					value="" id=""> <label
-																					class="form-check-label"> MySQL </label>
-																			</div>
-																		</li>
-																		<!-- ico_PHP -->
-																		<li>
-																			<div class="form-check skill-item ico_PHP">
-																				<input class="form-check-input" type="checkbox"
-																					value="" id=""> <label
-																					class="form-check-label"> PHP </label>
-																			</div>
-																		</li>
-																		<!-- ico_Nodejs -->
-																		<li>
-																			<div class="form-check skill-item ico_Nodejs">
-																				<input class="form-check-input" type="checkbox"
-																					value="" id=""> <label
-																					class="form-check-label"> Nodejs </label>
-																			</div>
-																		</li>
-																		<!-- ico_Spring -->
-																		<li>
-																			<div class="form-check skill-item ico_Spring">
-																				<input class="form-check-input" type="checkbox"
-																					value="" id=""> <label
-																					class="form-check-label"> Spring </label>
-																			</div>
-																		</li>
-																		<!-- ico_Jquery -->
-																		<li>
-																			<div class="form-check skill-item ico_Jquery">
-																				<input class="form-check-input" type="checkbox"
-																					value="" id=""> <label
-																					class="form-check-label"> Jquery </label>
-																			</div>
-																		</li>
-																		<!-- ico_Mybatis -->
-																		<li>
-																			<div class="form-check skill-item ico_Mybatis">
-																				<input class="form-check-input" type="checkbox"
-																					value="" id=""> <label
-																					class="form-check-label"> Mybatis </label>
-																			</div>
-																		</li>
-																		<!-- ico_Spring_Boot -->
-																		<li>
-																			<div class="form-check skill-item ico_Spring_Boot">
-																				<input class="form-check-input" type="checkbox"
-																					value="" id=""> <label
-																					class="form-check-label"> Spring_Boot </label>
-																			</div>
-																		</li>
-																		<!-- ico_Rust -->
-																		<li>
-																			<div class="form-check skill-item ico_Rust">
-																				<input class="form-check-input" type="checkbox"
-																					value="" id=""> <label
-																					class="form-check-label"> Rust </label>
-																			</div>
-																		</li>
-																		<!-- ico_scala -->
-																		<li>
-																			<div class="form-check skill-item ico_scala">
-																				<input class="form-check-input" type="checkbox"
-																					value="" id=""> <label
-																					class="form-check-label"> scala </label>
-																			</div>
-																		</li>
-																		<!-- ico_Kotlin -->
-																		<li>
-																			<div class="form-check skill-item ico_Kotlin">
-																				<input class="form-check-input" type="checkbox"
-																					value="" id=""> <label
-																					class="form-check-label"> Kotlin </label>
-																			</div>
-																		</li>
-																		<!-- ico_unity -->
-																		<li>
-																			<div class="form-check skill-item ico_unity">
-																				<input class="form-check-input" type="checkbox"
-																					value="" id=""> <label
-																					class="form-check-label"> unity </label>
-																			</div>
-																		</li>
+																			<c:if test="${skillItem.skScCode == 'SC_2' }">
+																				<li>
+																					<div
+																						class="form-check skill-item 
+																						<c:forEach var="entry" items="${skProcessors}">
+																							<c:set var="skillCode" value="${entry.key}" />
+																							<c:set var="imageName" value="${entry.value}" />
+																							
+																							<c:if test="${skillCode == skillItem.skCode }">
+																								${imageName}
+																							</c:if>
+																						</c:forEach>">
+																						<input class="form-check-input " type="checkbox"
+																							value="${skillItem.skCode }"
+																							id="${status.index +1}"> <label
+																							class="form-check-label">
+																							${skillItem.skName } </label>
+																					</div>
+																				</li>
+																			</c:if>
+																		</c:forEach>
 
 																	</ul>
 
 																</div>
-																<div class="tab-pane fade" id="nav-skill03"
-																	role="skill03" aria-labelledby="nav-skill03-tab">
+																<div class="tab-pane fade" id="nav-skill3" role="skill3"
+																	aria-labelledby="nav-skill3-tab">
 																	<ul class="skill-check">
 
-																		<!-- ico_powerMockup -->
-																		<li>
-																			<div class="form-check skill-item ico_powerMockup">
-																				<input class="form-check-input" type="checkbox"
-																					value="" id=""> <label
-																					class="form-check-label"> powerMockup </label>
-																			</div>
-																		</li>
-																		<!-- ico_protoNow -->
-																		<li>
-																			<div class="form-check skill-item ico_protoNow">
-																				<input class="form-check-input" type="checkbox"
-																					value="" id=""> <label
-																					class="form-check-label"> protoNow </label>
-																			</div>
-																		</li>
-																		<!-- ico_oven_01 -->
-																		<li>
-																			<div class="form-check skill-item ico_oven_01">
-																				<input class="form-check-input" type="checkbox"
-																					value="" id=""> <label
-																					class="form-check-label"> oven </label>
-																			</div>
-																		</li>
-																		<!-- ico_Sketch -->
-																		<li>
-																			<div class="form-check skill-item ico_Sketch">
-																				<input class="form-check-input" type="checkbox"
-																					value="" id=""> <label
-																					class="form-check-label"> Sketch </label>
-																			</div>
-																		</li>
-																		<!-- ico_zeplin -->
-																		<li>
-																			<div class="form-check skill-item ico_zeplin">
-																				<input class="form-check-input" type="checkbox"
-																					value="" id=""> <label
-																					class="form-check-label"> zeplin </label>
-																			</div>
-																		</li>
-																		<!-- ico_Figma -->
-																		<li>
-																			<div class="form-check skill-item ico_Figma">
-																				<input class="form-check-input" type="checkbox"
-																					value="" id=""> <label
-																					class="form-check-label"> Figma </label>
-																			</div>
-																		</li>
-																		<!-- ico_Axure_RP -->
-																		<li>
-																			<div class="form-check skill-item ico_Axure_RP">
-																				<input class="form-check-input" type="checkbox"
-																					value="" id=""> <label
-																					class="form-check-label"> Axure_RP </label>
-																			</div>
-																		</li>
-																		<!-- ico_Adobe_XD -->
-																		<li>
-																			<div class="form-check skill-item ico_Adobe_XD">
-																				<input class="form-check-input" type="checkbox"
-																					value="" id=""> <label
-																					class="form-check-label"> Adobe_XD </label>
-																			</div>
-																		</li>
-																		<!-- ico_Visual_Studio_Code -->
-																		<li>
-																			<div
-																				class="form-check skill-item ico_Visual_Studio_Code">
-																				<input class="form-check-input" type="checkbox"
-																					value="" id=""> <label
-																					class="form-check-label">
-																					Visual_Studio_Code </label>
-																			</div>
-																		</li>
-																		<!-- ico_Visual_Studio -->
-																		<li>
-																			<div class="form-check skill-item ico_Visual_Studio">
-																				<input class="form-check-input" type="checkbox"
-																					value="" id=""> <label
-																					class="form-check-label"> Visual_Studio </label>
-																			</div>
-																		</li>
-																		<!-- ico_IntelliJ -->
-																		<li>
-																			<div class="form-check skill-item ico_IntelliJ">
-																				<input class="form-check-input" type="checkbox"
-																					value="" id=""> <label
-																					class="form-check-label"> IntelliJ </label>
-																			</div>
-																		</li>
-																		<!-- ico_Notepad -->
-																		<li>
-																			<div class="form-check skill-item ico_Notepad">
-																				<input class="form-check-input" type="checkbox"
-																					value="" id=""> <label
-																					class="form-check-label"> Notepad </label>
-																			</div>
-																		</li>
-																		<!-- ico_Vim -->
-																		<li>
-																			<div class="form-check skill-item ico_Vim">
-																				<input class="form-check-input" type="checkbox"
-																					value="" id=""> <label
-																					class="form-check-label"> Vim </label>
-																			</div>
-																		</li>
-																		<!-- ico_Android_Studio -->
-																		<li>
-																			<div class="form-check skill-item ico_Android_Studio">
-																				<input class="form-check-input" type="checkbox"
-																					value="" id=""> <label
-																					class="form-check-label"> Android_Studio </label>
-																			</div>
-																		</li>
-																		<!-- ico_PyCharm -->
-																		<li>
-																			<div class="form-check skill-item ico_PyCharm">
-																				<input class="form-check-input" type="checkbox"
-																					value="" id=""> <label
-																					class="form-check-label"> PyCharm </label>
-																			</div>
-																		</li>
-																		<!-- ico_Eclipse -->
-																		<li>
-																			<div class="form-check skill-item ico_Eclipse">
-																				<input class="form-check-input" type="checkbox"
-																					value="" id=""> <label
-																					class="form-check-label"> Eclipse </label>
-																			</div>
-																		</li>
-																		<!-- ico_Xcode -->
-																		<li>
-																			<div class="form-check skill-item ico_Xcode">
-																				<input class="form-check-input" type="checkbox"
-																					value="" id=""> <label
-																					class="form-check-label"> Xcode </label>
-																			</div>
-																		</li>
+																		<c:forEach var="skillItem" items="${skills }"
+																			varStatus="status">
+
+																			<c:if test="${skillItem.skScCode == 'SC_3' }">
+																				<li>
+																					<div
+																						class="form-check skill-item 
+																						<c:forEach var="entry" items="${skProcessors}">
+																							<c:set var="skillCode" value="${entry.key}" />
+																							<c:set var="imageName" value="${entry.value}" />
+																							
+																							<c:if test="${skillCode == skillItem.skCode }">
+																								${imageName}
+																							</c:if>
+																						</c:forEach>">
+																						<input class="form-check-input " type="checkbox"
+																							value="${skillItem.skCode }"
+																							id="${status.index +1}"> <label
+																							class="form-check-label">
+																							${skillItem.skName } </label>
+																					</div>
+																				</li>
+																			</c:if>
+																		</c:forEach>
 
 																	</ul>
 																</div>
@@ -842,6 +571,17 @@ String cp = request.getContextPath();
 	<script src="<%=cp%>/asset/js/bootstrap.bundle.min.js"></script>
 	<script src="<%=cp%>/asset/js/swiper-bundle.min.js"></script>
 	<script src="<%=cp%>/asset/js/common.js"></script>
+	<script type="text/javascript">
+		function addCareer()
+		{
+
+			let careerTag = document.querySelector(".career-col-box");
+			//console.log(careerTag);
+			let careerAddTag = "<div class='row col-12'><div class='col-12 col-md-3'><div class='m-input-box'><label for='selectJoinCareer' class='form-label'>경력직무</label><div class='m-select'><select class='form-select' aria-label='Default select example' title='selectJoinCareer'><option>-선택-</option><option value='JOB_1'>기획자</option><option value='JOB_2'>디자이너</option><option value='JOB_3'>프론트엔드</option><option value='JOB_4'>백엔드</option></select></div><div class='invalid-feedback'>아이디를 입력해주세요.</div></div></div><div class='row col-10 col-md-7 range-datepicker'><div class='col-6 m-input-cal'><label for='job-date-from' class='form-label'>시작날짜</label><input type='text' class='form-control job-date-from' value='2024/02/02' id='date-from'></div><div class='col-6 m-input-cal'><label for='job-date-to' class='form-label'>종료날짜</label><input type='text' class='form-control job-date-to' value='2024/02/28' id='date-to'></div></div><div class='col-2'><span class='form-label no-txt'></span><button class='btn btn-primary w-100 btn-more-one' type='button' title='경력 추가' onclick='addCareer()'><i class='bi bi-plus-circle-dotted'></i></button></div></div>";
+
+			careerTag.insertAdjacentHTML("beforeend", careerAddTag);
+		}
+	</script>
 </body>
 
 </html>

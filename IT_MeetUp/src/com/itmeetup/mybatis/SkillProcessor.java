@@ -9,7 +9,7 @@ public class SkillProcessor {
     private static final Map<String, String> SKILL_MAPPING = createSkillMapping();
     
     // 스킬코드와 스킬을 나타내는 아이콘(이미지) 이름을 매핑해주는 메소드
-    private static Map<String, String> createSkillMapping() {
+    static Map<String, String> createSkillMapping() {
         Map<String, String> mapping = new HashMap<>();
         // 매핑 정보 추가
         mapping.put("SK_1", "ico_html5_01");

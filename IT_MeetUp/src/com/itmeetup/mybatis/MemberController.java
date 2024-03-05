@@ -3,6 +3,8 @@
 ===========================*/
 package com.itmeetup.mybatis;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -91,14 +93,26 @@ public class MemberController
 	public String joinForm(ModelMap model)
 	{
 		IMemberDAO jobDAO = sqlSession.getMapper(IMemberDAO.class);		// 직업 select
+		model.addAttribute("jobs", jobDAO.jobs());
+		
 		IMemberDAO meetDAO = sqlSession.getMapper(IMemberDAO.class);	// 모임방식 select
+		model.addAttribute("meets", meetDAO.meets());
+		
 		IOpenProjectDAO odao = sqlSession.getMapper(IOpenProjectDAO.class); // 지역 select
 		model.addAttribute("sidoList",odao.sidoList());
 		model.addAttribute("siggList",odao.siggList());
 		
-		model.addAttribute("jobs", jobDAO.jobs());
-		model.addAttribute("meets", meetDAO.meets());
+		IMemberDAO skillCategoryDAO = sqlSession.getMapper(IMemberDAO.class);	// 스킬카테고리 select
+		model.addAttribute("skillCategorys", skillCategoryDAO.skillCategorys());
+		
+		IMemberDAO skillsDAO = sqlSession.getMapper(IMemberDAO.class);	// 스킬 리스트
+		model.addAttribute("skills", skillsDAO.skills());
+		
+		SkillProcessor skProcessors = new SkillProcessor();				// 스킬 리스트 조회 및 처리
+		model.addAttribute("skProcessors", skProcessors.createSkillMapping());
+		
 
+		
 		return "/Content/Site/Join.jsp"; 
 	}
 	 

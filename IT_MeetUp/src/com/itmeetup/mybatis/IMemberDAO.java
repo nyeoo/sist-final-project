@@ -11,6 +11,10 @@ public interface IMemberDAO
 	public MemberDTO getAdmin(@Param("piId") String piId, @Param("piPw") String piPw); // 관리자 로그인 조회
 
 	// 회원가입
-	public ArrayList<JobDTO> jobs();	// 직업 select
-	public ArrayList<MeetDTO> meets();	// 모임방식 select
+	public ArrayList<JobDTO> jobs();						// 직업 select
+	public ArrayList<MeetDTO> meets();						// 모임방식 select
+	public ArrayList<SkillCategoryDTO> skillCategorys();	// 스킬카테고리 select
+	public ArrayList<SkillDTO> skills();				// 스킬 상세
+	
+	
 }
