@@ -24,42 +24,55 @@ public class WriteFormControl
 		String result = null;
 		
 		IOpenProjectDAO dao = sqlSession.getMapper(IOpenProjectDAO.class);
-		model.addAttribute("cateList",dao.cateList());
-		model.addAttribute("sidoList",dao.sidoList());
-		model.addAttribute("siggList",dao.siggList());
-		model.addAttribute("carList",dao.carList());
-		
-		result = "/Content/ProjectLounge/WriteForm1.jsp";
-		
-		return result; 
-	}
-	
-	
-	@RequestMapping(value = "/WriteForm2.action" , method = RequestMethod.POST)
-	public String WriteForm2List(ModelMap model ,@RequestParam("startDate") String startDate,  @RequestParam("endDate") String endDate) 
-	{
-		String result = null;
-		
 		IJobDAO jdao = sqlSession.getMapper(IJobDAO.class);
+		IMemberDAO skillCategoryDAO = sqlSession.getMapper(IMemberDAO.class);	// 스킬카테고리 select
+		IMemberDAO skillsDAO = sqlSession.getMapper(IMemberDAO.class);			// 스킬 리스트
 
-		model.addAttribute("startDate",startDate);
-		model.addAttribute("endDate",endDate);
-		model.addAttribute("jobs",jdao.jobs());
+		model.addAttribute("cateList",dao.cateList());							// 카테고리 뽑기	
+		model.addAttribute("sidoList",dao.sidoList());							// 시군구 뽑기
+		model.addAttribute("siggList",dao.siggList());							// 시군구 뽑기
+		model.addAttribute("carList",dao.carList());							// 경력 코드
+		model.addAttribute("jobs",jdao.jobs());									// 직무 뽑기
+		model.addAttribute("skillCategorys", skillCategoryDAO.skillCategorys());
 		
-		result = "/Content/ProjectLounge/WriteForm2.jsp";
+		model.addAttribute("skills", skillsDAO.skills());
+		
+		SkillProcessor skProcessors = new SkillProcessor();						// 스킬 리스트 조회 및 처리
+		model.addAttribute("skProcessors", skProcessors.createSkillMapping());
+		
+		
+		
+		result = "/Content/ProjectLounge/rewriteForm.jsp";
 		
 		return result; 
 	}
 	
-	@RequestMapping(value = "/WriteForm3.action" , method = RequestMethod.POST)
-	public String WriteForm3List(ModelMap model)
-	{
-		String result = null;
-		
-		
-		
-		result = "/Content/ProjectLounge/WriteForm3.jsp";
-		
-		return result; 
-	}
+	
+//	@RequestMapping(value = "/WriteForm2.action" , method = RequestMethod.POST)
+//	public String WriteForm2List(ModelMap model ,@RequestParam("startDate") String startDate,  @RequestParam("endDate") String endDate) 
+//	{
+//		String result = null;
+//		
+//		IOpenProjectDAO odao = sqlSession.getMapper(IOpenProjectDAO.class);
+//
+//		model.addAttribute("carList",odao.carList());
+//		model.addAttribute("startDate",startDate);
+//		model.addAttribute("endDate",endDate);
+//		
+//		result = "/Content/ProjectLounge/WriteForm2.jsp";
+//		
+//		return result; 
+//	}
+//	
+//	@RequestMapping(value = "/WriteForm3.action" , method = RequestMethod.POST)
+//	public String WriteForm3List(ModelMap model)
+//	{
+//		String result = null;
+//		
+//		
+//		
+//		result = "/Content/ProjectLounge/WriteForm3.jsp";
+//		
+//		return result; 
+//	}
 }
