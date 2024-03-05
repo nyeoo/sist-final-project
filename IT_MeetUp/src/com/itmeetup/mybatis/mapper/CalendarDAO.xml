@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <!-- mybatis 환경 설정 파일 활용 -->
+ <mapper namespace="com.itmeetup.mybatis.ICalendarDAO">
+ 
+	<select id="CalendarSchePeriod" resultType="com.itmeetup.mybatis.ScheduleDTO">
+		SELECT SD_START_DATE, SD_END_DATE
+		FROM CALENDARSCHEVIEW
+		WHERE CODE = 'OP_2' AND SD_SS_CODE = 'SS_1'
+ 	</select>
+ 	
+ 	<!-- <select id="progressPeriod" resultType="com.itmeetup.mybatis.OpenProjectDTO">
+		SELECT "START", END "END"
+		FROM PROJECT_INFO
+		WHERE CODE = 'OP_2'
+ 	</select>
+ 	
+ 	<select id="analyzePercent" resultType="java.lang.Double">
+		SELECT ROUND((ADJUSTED_DATE/DAY_OP)*100,1) AS "PERCENT"
+		FROM GROUPPERIODVIEW
+		WHERE CODE = 'OP_2' AND SD_SS_CODE = 'SS_1'
+ 	</select>
+ 	
+ 	<select id="designPercent" resultType="java.lang.Double">
+		SELECT ROUND((ADJUSTED_DATE/DAY_OP)*100,1) AS "PERCENT"
+		FROM GROUPPERIODVIEW
+		WHERE CODE = 'OP_2' AND SD_SS_CODE = 'SS_2'
+ 	</select>
+ 	
+ 	<select id="avatarPercent" resultType="java.lang.Double">
+		SELECT ROUND((ADJUSTED_DATE/DAY_OP)*100,1) AS "PERCENT"
+		FROM GROUPPERIODVIEW
+		WHERE CODE = 'OP_2' AND SD_SS_CODE = 'SS_3'
+ 	</select>
+ 	
+ 	<select id="testPercent" resultType="java.lang.Double">
+		SELECT ROUND((ADJUSTED_DATE/DAY_OP)*100,1) AS "PERCENT"
+		FROM GROUPPERIODVIEW
+		WHERE CODE = 'OP_2' AND SD_SS_CODE = 'SS_4'
+ 	</select> -->
+ 	
+ </mapper>
