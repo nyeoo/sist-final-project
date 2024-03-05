@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class WriteFormControl
@@ -48,31 +47,24 @@ public class WriteFormControl
 	}
 	
 	
-//	@RequestMapping(value = "/WriteForm2.action" , method = RequestMethod.POST)
-//	public String WriteForm2List(ModelMap model ,@RequestParam("startDate") String startDate,  @RequestParam("endDate") String endDate) 
-//	{
-//		String result = null;
-//		
-//		IOpenProjectDAO odao = sqlSession.getMapper(IOpenProjectDAO.class);
-//
-//		model.addAttribute("carList",odao.carList());
-//		model.addAttribute("startDate",startDate);
-//		model.addAttribute("endDate",endDate);
-//		
-//		result = "/Content/ProjectLounge/WriteForm2.jsp";
-//		
-//		return result; 
-//	}
-//	
-//	@RequestMapping(value = "/WriteForm3.action" , method = RequestMethod.POST)
-//	public String WriteForm3List(ModelMap model)
-//	{
-//		String result = null;
-//		
-//		
-//		
-//		result = "/Content/ProjectLounge/WriteForm3.jsp";
-//		
-//		return result; 
-//	}
+	
+	
+	// 모집 입력 문 
+	@RequestMapping(value = "/opProjectInsertController.action" , method = RequestMethod.GET)
+	public String InertOpProject (ModelMap model,WriteFormDTO dto)
+	{
+		
+		  String result = null;
+		  
+		  IWriteFormDAO dao = sqlSession.getMapper(IWriteFormDAO.class);
+		  
+		  dao.addProject(dto);
+		  
+		  result = "/projectList.action";
+		  
+		  return result;
+		 
+	}
+	
+
 }

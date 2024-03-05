@@ -56,6 +56,7 @@ String cp = request.getContextPath();
 								</div>
 
 								<!-- 모집공고 Swiper -->
+								<form action="opProjectInsertController.action" method="get">
 								<div class="swiper join-swiper">
 									<div class="swiper-btn">
 										<button type="button" class="swiper-button-prev">
@@ -70,8 +71,8 @@ String cp = request.getContextPath();
 										<!-- 모집공고1 -->
 										
 										<div class="swiper-slide">
-											<form class="row g-3 needs-validation" novalidate>
-
+											<div class="row g-3 needs-validation" novalidate>
+								<input type="hidden" name="memcode" id="memcode" value="${sessionScope.loginDTO.piMemCode}" />	<!-- 개설자 회원코드 -->
 								<!-- 모집내용 -->
                                 <div id="item-1" class="col-12">
                                     <p class="h4">모집 내용</p>
@@ -81,7 +82,7 @@ String cp = request.getContextPath();
                                     <p class="h5">카테고리</p>
                                     <div class="row">
                                         <div class="col-6 m-select">
-                                         <select class="form-select" aria-label="Default select example" id="categori" name="categori"  title="selectTitle01" required="required" style="width: 250px; " >
+                                         <select class="form-select" aria-label="Default select example" id="catcode" name="catcode"  title="selectTitle01" required="required" style="width: 250px; " >
                                                 <option selected="selected">카테고리를 고르세요</option>
                                                 <c:forEach var ="categorys" items="${cateList }" varStatus="status"  >
 										 
@@ -132,12 +133,16 @@ String cp = request.getContextPath();
 											<div class="col-6 m-input-cal">
 												<label for="startDate" class="form-label"><i class="bi bi-calendar2-plus"></i> 시작 예정일</label> 
 												<!-- <input type="text" required="required" class="form-control date-from" id="startDate" name="startDate"> -->  
-												<input type="text" required="required" class="form-control " id="startDate" name="startDate"> 
+												<input type="text" required="required" class="form-control " id="sdate" name="sdate">  
+												 
+												<input type="hidden"  id="startDate" name="startDate" >  
 											</div>
 											<div class="col-6 m-input-cal">
 												<label for="endDate" class="form-label"><i class="bi bi-calendar2-plus"></i> 종료 예정일</label> 
 												<!-- <input type="text" required="required" class="form-control date-to" id="endDate" name="endDate" > --> 
-												<input type="text" required="required" class="form-control " id="endDate" name="endDate" > 
+												<input type="text" required="required" class="form-control " id="edate" name="edate" > 
+												
+												<input type="hidden" id="endDate" name="endDate" >  
 											</div>
 										</div>
                                 </div>
@@ -148,11 +153,11 @@ String cp = request.getContextPath();
                                     <p class="h5">모임방식</p>
                                     <div class="row">
 											<div class="btn-group" role="group" aria-label="Basic radio toggle button group" style="border-radius: 500px;">
-													<input type="radio" class="btn-check meet" name="btnradio" id="online"  value="MEET_1" autocomplete="off" required="required">
+													<input type="radio" class="btn-check meet" name="meetcode" id="online"  value="MEET_1" autocomplete="off" required="required">
 												<label class="btn btn-light" for="online">온라인</label> 
-													<input type="radio" class="btn-check meet" name="btnradio" id="offline" value="MEET_2" autocomplete="off">
+													<input type="radio" class="btn-check meet" name="meetcode" id="offline" value="MEET_2" autocomplete="off">
 												<label class="btn btn-light" for="offline">오프라인</label> 
-													<input type="radio" class="btn-check meet" name="btnradio" id="allline" value="MEET_3" autocomplete="off"> 
+													<input type="radio" class="btn-check meet" name="meetcode" id="allline" value="MEET_3" autocomplete="off"> 
 												<label class="btn btn-light" for="allline">온 / 오프라인</label>
 											</div>
 										</div>
@@ -164,10 +169,10 @@ String cp = request.getContextPath();
                                     <p class="h5">선호지역</p>
                                     <div  class="row">
                                         <div class="col-6 m-select">
-                                            <select class="form-select " aria-label="Default select example" id="si" name="si"  title="selectTitle01" required="required">
+                                            <select class="form-select " aria-label="Default select example" id="siggcode" name="siggcode"  title="selectTitle01" required="required">
                                                 <option value="0" selected="selected">지역을 고르세요</option>
                                                 <c:forEach var ="sidoList" items="${sidoList }" varStatus="status"  >
-													<option value="SIDO_${status.index +1}">${sidoList }</option>
+													<option value="SIGG_${status.index +1}">${sidoList }</option>
 												</c:forEach>
                                                 
                                                 <!-- 
@@ -182,7 +187,7 @@ String cp = request.getContextPath();
                                             <select class="form-select" aria-label="Default select example" id="do" name="do" title="selectTitle01" disabled="disabled" required="required">
                                                 <option value="0" selected>큰 지역 먼저 골라주세요</option>
                                                 <c:forEach var ="siggList" items="${siggList }" varStatus="status"  >
-													<option value="SIGG_${status.index +1}">${siggList }</option>
+													<option value="SIDO_${status.index +1}">${siggList }</option>
 												</c:forEach>
 												<!-- 
                                                 <option value="1">수원시</option>
@@ -197,18 +202,18 @@ String cp = request.getContextPath();
                                 </div>
                                 <!-- //선호지역 -->
 												<div class="col-12">
-													<button class="btn btn-primary w-100" type="submit">다음단계</button>
+													<button class="btn btn-primary w-100 join-step01" type="button">다음단계</button>
 												</div>
-											</form>
+											</div>
 										
 										
 										</div>
 																				
-										<!-- //회원가입1 -->
+										<!-- //모집폼1 -->
 										
-										<!-- 회원가입2 -->
+										<!-- 모집폼2 -->
 										<div class="swiper-slide">
-											<form class="row g-3 needs-validation" novalidate>
+											<div class="row g-3 needs-validation" novalidate>
 
 												<!-- 모집내용 -->
                                 <p class="h4">일정 세부 설정</p>
@@ -272,13 +277,13 @@ String cp = request.getContextPath();
 									 
 									<div id="item-2-1" style="display: flex;">                         
 	                                	<div class="m-input-box" >
-	                                	<h5>팀명</h5> <input type="text" class="form-control"  placeholder="팀명을 입력하세요"> 
+	                                	<h5>팀명</h5> <input type="text" class="form-control" id="teamname" name="teamname" placeholder="팀명을 입력하세요"> 
 	                                	</div>
 									</div>
 									 
 									<div id="item-2-2">                 	
 									<p class="h5">희망 경력</p>
-									<select class="form-select" aria-label="Default select example" id="career" name="career" title="selectTitle01"  required="required" style="width: 205px;">
+									<select class="form-select" aria-label="Default select example" id="carcode" name="carcode" title="selectTitle01"  required="required" style="width: 205px;">
                                     
                                     	<option value="0" selected>희망경력을 골라주세요.</option>
 										<c:forEach var="car" items="${carList }" varStatus="status">								                  	
@@ -297,7 +302,7 @@ String cp = request.getContextPath();
 	                                        </div>
 
                                         <div class="col-5 m-select">
-                                            <select class="form-select inwon" aria-label="Default select example"   title="selectTitle01" required="required">
+                                            <select class="form-select inwon" aria-label="Default select example" id=""  title="selectTitle01" required="required">
                                                 <option selected>인원수를 골라주세요</option>
                                                 <option value="0">0명</option>
                                                 <option value="1">1명</option>
@@ -312,6 +317,7 @@ String cp = request.getContextPath();
                                             </select>
                                         </div>
 									</c:forEach>	
+									<input type="hidden" id="mojibsu" name="mojibsu" value="" />
                                         
 <!--                                         <div class="col-5 m-select">
                                             백엔드
@@ -356,14 +362,14 @@ String cp = request.getContextPath();
                                 <!-- 팀원설정 끝 -->	
 
 												<div class="col-12">
-													<button class="btn btn-primary w-100" type="submit">다음단계</button>
+													<button class="btn btn-primary w-100 join-step02" type="button">다음단계</button>
 												</div>
-											</form>
+											</div>
 										</div>
 										<!-- //회원가입2 -->
 										<!-- 회원가입3 -->
 										<div class="swiper-slide">
-											<form class="row g-3 needs-validation" novalidate>
+											<div class="row g-3 needs-validation" novalidate>
 												<!-- 희망기술 -->
 												<div id="item-2-3" class="col-12">
 														<p class="h5">희망기술</p>
@@ -501,15 +507,15 @@ String cp = request.getContextPath();
 												</div>
 
 												<div class="col-12">
-													<button class="btn btn-primary w-100" type="submit">회원가입</button>
+													<button class="btn btn-primary w-100" type="submit">개설 신청</button>
 												</div>
-											</form>
+											</div>
 										</div>
 										<!-- //회원가입3 -->
 									</div>
 								</div>
 								<!-- //회원가입 Swiper -->
-
+								</form>
 							</div>
 						</div>
 
@@ -545,7 +551,7 @@ String cp = request.getContextPath();
 	// 데이트 픽커 설정 
 	   $.datepicker.setDefaults(
 	   {
-	        dateFormat: 'yy-mm-dd',
+	        dateFormat: 'yyyy-mm-dd',
 	        prevText: '이전 달',
 	        nextText: '다음 달',
 	        monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
@@ -559,19 +565,45 @@ String cp = request.getContextPath();
 	   
   	$(function()
   	{
-  		var date1, date2;
-  		
-  		var sdate = document.getElementById("startdate1");
-  		var edate = document.getElementById("enddate4");
   		
   		
+  		
+  		$(".inwon").change(function() 
+	  	 {
+	            var sum = 0;
+	            // 모든 select 요소의 값을 합산
+	            $(".inwon").each(function() 
+	            {
+	                sum += parseInt($(this).val());
+	            });
+
+	            // 합계가 12명을 초과하는 경우, 알림 창 띄우기
+	            if (sum > 12) 
+	            {
+	                alert("최대 참가 인원은 12명입니다.");
+	                
+	                // 마지막 select 요소의 값을 12명으로 설정
+	                var lastIndex = $(".inwon").length - 1;
+	                $(".inwon").eq(lastIndex).val(12 - (sum - parseInt($(".inwon").eq(lastIndex).val())));
+	    
+	            }
+	            else if(sum == 0)
+	            {
+	            	alert("최소 1명이라도 골라야됩니다.");
+	            	var firstSelect = document.getElementsByClassName("inwon")[0];
+	            	firstSelect.focus();
+	            }
+	            mojibsu.value= sum;
+	        });
+  		
+		var date1, date2;
   		
   		
   		
   		// 시작 날짜 선택
-        $( "#startDate" ).datepicker(
+        $( "#sdate" ).datepicker(
         {
-        	dateFormat: "yy-mm-dd" ,			
+        	dateFormat: "yyyy-mm-dd" ,			
           	onSelect: function(selectedDate) 
           	{
             	var startDate = $(this).datepicker('getDate'); 						// 시작 날짜 가져오기
@@ -579,36 +611,50 @@ String cp = request.getContextPath();
             	endDateMin.setMonth(endDateMin.getMonth() + 1); 					// 한 달 뒤로 설정
             	var endDateMax = new Date(startDate.getTime()); 					// 시작 날짜 복사
             	endDateMax.setMonth(endDateMax.getMonth() + 6); 					// 6개월 뒤로 설정
-            	$( "#endDate" ).datepicker( "option", "minDate", endDateMin ); 		// 종료 날짜 선택 가능한 범위 설정
-            	$( "#endDate" ).datepicker( "option", "maxDate", endDateMax ); 		// 종료 날짜 선택 가능한 범위 설정
+            	$( "#edate" ).datepicker( "option", "minDate", endDateMin ); 		// 종료 날짜 선택 가능한 범위 설정
+            	$( "#edate" ).datepicker( "option", "maxDate", endDateMax ); 		// 종료 날짜 선택 가능한 범위 설정
                	
-            	date1 = $(this).datepicker('getDate');
+            
+            	//date1 = $(this).datepicker('getDate');
+            	date1 = $.datepicker.formatDate("yy-mm-dd", startDate);
+            	
           }
         });
+  		
         
-  		// alert("hmm");
+  		
+  		
         // 종료 날짜 선택
-        $( "#endDate" ).datepicker(
+        $( "#edate" ).datepicker(
         {
-        	 dateFormat: "yy-mm-dd",
+        	 dateFormat: "yyyy-mm-dd",
         	 
         	 onSelect: function(selectedDate) 
              {
-               	//alert(date2);
-               	
-               	date2 = $(this).datepicker('getDate');
-               	sdate.value = formatDate(date1); 
-                edate.value = formatDate(date2); 
-             } 
-        
-        	
+        		 var endDate = $(this).datepicker('getDate'); 
+        		 date2 = $.datepicker.formatDate("yy-mm-dd", endDate);
+        		 
+        		//alert(date1);
+       			//alert(date2);
+       			
+       			document.getElementById("startDate").value = date1;
+       			document.getElementById("endDate").value = date2;
+       			document.getElementById("startdate1").value = date1;
+       			document.getElementById("enddate4").value = date2;
+       			
+             }  
+      
         });
     	
+              
   		
+        
+        
 		// 선호방식 눌렀을떄
   		$(".meet").change(function() 
 		{
-  			//alert(startDate);
+			//alert(document.getElementById("startDate").value);
+  			
   			
   			var meetType = $("input[name=btnradio]:checked").val();			// 선호방식 담는 변수
 			  				
@@ -631,8 +677,8 @@ String cp = request.getContextPath();
 		});
   		
   		// 시를 고르면 다음 지역 선택가능하게 해주는 함수
-		$("#si").change(function()
-		{        
+		$("#siggcode").change(function()
+		{       
 			$("#do").attr("disabled", false);
 			
 		     /* var si = $("#si").val();
@@ -656,12 +702,13 @@ String cp = request.getContextPath();
 	     
 	     
 		// 날짜를 'yyyy-mm-dd' 형식으로 변환하는 함수
-		function formatDate(date) {
+		function formatDate(date)
+		{
 		    var year = date.getFullYear();
 		    var month = ('0' + (date.getMonth() + 1)).slice(-2);
 		    var day = ('0' + date.getDate()).slice(-2);
 		    return year + '-' + month + '-' + day;
-		}
+		};
 	     
 /* 
 		// 기술 체크할떄마다 span 구역에 나오게 함수

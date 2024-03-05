@@ -227,6 +227,23 @@
 											<h5>디자인 1/1</h5>
 										</div>
 									<div class="tab-pane fade" id="nav-comment" role="tabpanel" aria-labelledby="nav-comment-tab">
+							  	<!-- 댓글 -->
+								<div class="row comment_reg">
+											<div class="col-12">
+												<div class="textarea_wrap">
+													<textarea rows="2" cols="30" placeholder="댓글을 작성하세요" class="" data-textarea="txt_cnt"></textarea>
+												</div>
+											</div>
+											<div class="col-12 d-flex justify-content-between mt-2">
+												<div class="left-box">
+													<div class="txt">※ 글자수는 1000자 이내로 제한됩니다.</div>
+												</div>
+												<div class="right-box">
+													<span class="me-3"><strong data-textarea-cnt="txt_cnt">29</strong>/1000</span>
+													<button type="button" class="btn btn-primary">Primary</button>
+												</div>
+											</div>
+								</div><!-- 댓글작성 폼	 -->
 						  					
 					<div class="comment_area_wrap open">
 									<button type="button" class="comment_more">
@@ -484,23 +501,6 @@
 										</li>
 										</c:forEach>
 									     </ul>
-							  	<!-- 댓글 -->
-								<div class="row comment_reg">
-											<div class="col-12">
-												<div class="textarea_wrap">
-													<textarea rows="2" cols="30" placeholder="댓글을 작성하세요" class="" data-textarea="txt_cnt"></textarea>
-												</div>
-											</div>
-											<div class="col-12 d-flex justify-content-between mt-2">
-												<div class="left-box">
-													<div class="txt">※ 글자수는 1000자 이내로 제한됩니다.</div>
-												</div>
-												<div class="right-box">
-													<span class="me-3"><strong data-textarea-cnt="txt_cnt">29</strong>/1000</span>
-													<button type="button" class="btn btn-primary">Primary</button>
-												</div>
-											</div>
-								</div><!-- 댓글작성 폼	 -->
 							        </div>
 								</div>
 										

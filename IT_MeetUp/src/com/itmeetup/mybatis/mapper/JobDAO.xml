@@ -20,7 +20,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 직위 출력  -->
 	<select id="jobs" resultType="com.itmeetup.mybatis.JobDTO" >
 	
-		SELECT JOB_CODE AS"JOBCODE" , JOB_NAME AS "JOB" 
+		SELECT JOB_CODE AS"JOBCODE" , JOB_NAME AS "JOBNAME" 
 		FROM JOB
 		
 	</select>
