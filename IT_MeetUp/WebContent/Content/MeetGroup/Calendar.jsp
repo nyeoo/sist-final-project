@@ -81,84 +81,104 @@ String cp = request.getContextPath();
 	<script src="<%=cp%>/asset/js/common.js"></script>
 	<script src="<%=cp%>/asset/js/index.global.js"></script>
 	<script>
+		/* 
 		document.addEventListener('DOMContentLoaded', function()
 		{
-			var calendarEl = document.getElementById('calendar');
-			var calendar = new FullCalendar.Calendar(calendarEl,
-			{
-				headerToolbar :
-				{
-					left : 'prev',
-					center : 'title',
-					right : 'next'
-				},
-				initialDate : '2019-01-12',
-				navLinks : true,
-				editable : true,
-				dayMaxEvents : true,
-				events : [
-				{
-					title : '분석',
-					start : '2019-01-15',
-					end : '2019-01-18'
-				}
-				/* 
-				 <c:forEach items="${calProgress}" var="calprogress">
-				{
-				    title: '분석',
-				    start: new Date('${calprogress.seStartDate}'),
-				    end: new Date('${calprogress.sdEndDate}')
-				},
-				</c:forEach>
-				<c:forEach items="${calDesign}" var="calDesign">
-				{
-				    title: '설계',
-				    start: new Date('${calDesign.seStartDate}'),
-				    end: new Date('${calDesign.sdEndDate}')
-				},
-				</c:forEach>
-				
-				<c:forEach items="${calAvatar}" var="calAvatar">
-				{
-				    title: '구현',
-				    start: new Date('${calAvatar.seStartDate}'),
-				    end: new Date('${calAvatar.sdEndDate}')
-				},
-				</c:forEach>
-				
-				<c:forEach items="${calTest}" var="calTest">
-				{
-				    title: '테스트',
-				    start: new Date('${calTest.seStartDate}'),
-				    end: new Date('${calTest.sdEndDate}')
-				},
-				</c:forEach>
+		var calendarEl = document.getElementById('calendar');
+		var calendar = new FullCalendar.Calendar(calendarEl,
+		{
+		headerToolbar :
+		{
+			left : 'prev',
+			center : 'title',
+			right : 'next'
+		},
+		initialDate : '2019-01-12',
+		navLinks : true,
+		editable : true,
+		dayMaxEvents : true,
+		events : [
+		{
+			title : '분석',
+			start : '2019-01-15',
+			end : '2019-01-18'
+		}
+		 <c:forEach items="${calProgress}" var="calprogress">
+		{
+		    title: '분석',
+		    start: new Date('${calprogress.seStartDate}'),
+		    end: new Date('${calprogress.sdEndDate}')
+		},
+		</c:forEach>
+		<c:forEach items="${calDesign}" var="calDesign">
+		{
+		    title: '설계',
+		    start: new Date('${calDesign.seStartDate}'),
+		    end: new Date('${calDesign.sdEndDate}')
+		},
+		</c:forEach>
+		
+		<c:forEach items="${calAvatar}" var="calAvatar">
+		{
+		    title: '구현',
+		    start: new Date('${calAvatar.seStartDate}'),
+		    end: new Date('${calAvatar.sdEndDate}')
+		},
+		</c:forEach>
+		
+		<c:forEach items="${calTest}" var="calTest">
+		{
+		    title: '테스트',
+		    start: new Date('${calTest.seStartDate}'),
+		    end: new Date('${calTest.sdEndDate}')
+		},
+		</c:forEach>
 
-				{
-					title : '구현',
-					start : '2023-01-16',
-					end : '2023-01-20'
-				},
-				{
-					title : '테스트',
-					start : '2023-01-21',
-					end : '2023-01-30'
-				},
-				{
-					groupId : 999,
-					title : 'Repeating Event',
-					start : '2023-01-09T16:00:00'
-				},
-				{
-					groupId : 999,
-					title : 'Repeating Event',
-					start : '2023-01-16T16:00:00'
-				} */
-				]
-			});
-
-			calendar.render();
+		{
+			title : '구현',
+			start : '2023-01-16',
+			end : '2023-01-20'
+		},
+		{
+			title : '테스트',
+			start : '2023-01-21',
+			end : '2023-01-30'
+		},
+		{
+			groupId : 999,
+			title : 'Repeating Event',
+			start : '2023-01-09T16:00:00'
+		},
+		{
+			groupId : 999,
+			title : 'Repeating Event',
+			start : '2023-01-16T16:00:00'
+		]
 		});
+
+		calendar.render();
+		});
+		} */
+	    document.addEventListener('DOMContentLoaded', function() {
+	        var calendarEl = document.getElementById('calendar');
+	        var calendar = new FullCalendar.Calendar(calendarEl, {
+	            headerToolbar: {
+	                left: 'prev',
+	                center: 'title',
+	                right: 'next'
+	            },
+	            initialDate: '2019-01-12',
+	            navLinks: true,
+	            editable: true,
+	            dayMaxEvents: true,
+	            events: {
+	                url: '<%=cp%>/calendar.action', // AJAX로 데이터를 가져올 URL 설정
+	                method: 'GET',
+	                dataType: 'json' // 서버에서 JSON 데이터를 반환하도록 요청
+	            }
+	        });
+	        calendar.render();
+	    });
 	</script>
 </body>
 

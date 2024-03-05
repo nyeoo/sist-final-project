@@ -5,7 +5,13 @@
  
  <!-- mybatis 환경 설정 파일 활용 -->
  <mapper namespace="com.itmeetup.mybatis.ICalendarDAO">
- 
+ 	<select id="getAllEvents" resultType="com.itmeetup.mybatis.ScheduleDTO">
+	    SELECT TO_CHAR(SD_START_DATE, 'YYYY-MM-DD') AS seStartDate, TO_CHAR(SD_END_DATE, 'YYYY-MM-DD') AS sdEndDate
+	    FROM CALENDARSCHEVIEW
+	    WHERE CODE = 'OP_2'
+	</select>
+ 	
+ 	
 	<select id="calProgress" resultType="com.itmeetup.mybatis.ScheduleDTO">
 		SELECT TO_CHAR(SD_START_DATE, 'YYYY-MM-DD') "seStartDate", TO_CHAR(SD_END_DATE, 'YYYY-MM-DD') "sdEndDate"
 		FROM CALENDARSCHEVIEW
