@@ -29,11 +29,6 @@
 		FROM JOB
 	</select>
 	
-	<!-- 직업 추가 쿼리문 -->
-	<insert id="addMember">
-		EXEC MEMBER_INSERT(#{piName}, #{piEmail}, NULL, 'kcc1234', 'kcc1234', '김코코', '코코입니다', 'JOB_1', 'MEET_1', 'SIGG_1')
-	</insert>
-	
 	<!-- 모임방식 조회 쿼리문 -->
 	<select id="meets" resultType="com.itmeetup.mybatis.MeetDTO">
 		SELECT MEET_CODE "MEETCODE", MEET_NAME "MEETNAME"
@@ -52,6 +47,22 @@
 		FROM SKILL
 	</select>
 	
+	<!-- 직업 추가 쿼리문 -->
+	<select id="addMember" parameterType="string" statementType="CALLABLE">
+		{call MEMBER_INSERT(
+				   #{piName, mode=IN, jdbcType=VARCHAR}
+				 , #{piEmail, mode=IN, jdbcType=VARCHAR}
+				 , NULL
+				 , #{piId, mode=IN, jdbcType=VARCHAR}
+				 , #{piPw, mode=IN, jdbcType=VARCHAR}
+				 , #{piNickname, mode=IN, jdbcType=VARCHAR}
+				 , NULL
+				 , #{mJobCode, mode=IN, jdbcType=VARCHAR}
+				 , #{mMetCode, mode=IN, jdbcType=VARCHAR}
+				 , #{mSiggCode, mode=IN, jdbcType=VARCHAR}
+			)
+		}
+	</select>
 	
 	
 	

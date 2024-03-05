@@ -88,7 +88,6 @@ public class MemberController
 	
 	// ========================================[ 회원가입 ]========================================
 	// 회원가입 폼
-	
 	@RequestMapping(value = "/join.action", method = RequestMethod.GET)
 	public String joinForm(ModelMap model)
 	{
@@ -111,14 +110,18 @@ public class MemberController
 		SkillProcessor skProcessors = new SkillProcessor();				// 스킬 리스트 조회 및 처리
 		model.addAttribute("skProcessors", skProcessors.createSkillMapping());
 		
-
-		
 		return "/Content/Site/Join.jsp"; 
 	}
-	 
 	
-	
-	
+	// 회원가입 과정
+	@RequestMapping(value = "/joininsert.action", method = RequestMethod.GET)
+	public String join(MemberDTO member)
+	{
+		IMemberDAO joinDAO = sqlSession.getMapper(IMemberDAO.class);
+		joinDAO.addMember(member);
+		
+		return "redirect:/Content/ProjectLounge/PostList_ju.jsp";
+	}
 	
 	
 	

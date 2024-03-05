@@ -14,7 +14,7 @@ public interface IMemberDAO
 	public ArrayList<JobDTO> jobs();						// 직업 select
 	public ArrayList<MeetDTO> meets();						// 모임방식 select
 	public ArrayList<SkillCategoryDTO> skillCategorys();	// 스킬카테고리 select
-	public ArrayList<SkillDTO> skills();				// 스킬 상세
-	
+	public ArrayList<SkillDTO> skills();					// 스킬 상세
+	public Integer addMember(MemberDTO member);				// 회원 insert
 	
 }
