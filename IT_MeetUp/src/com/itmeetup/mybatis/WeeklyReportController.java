@@ -8,16 +8,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class AssignmentController {
+public class WeeklyReportController {
 
     @Autowired
     private SqlSession sqlSession;
 
-    @RequestMapping(value = "/workAssignment.action", method = RequestMethod.GET)
-    public String workAssignmentList(ModelMap model)
+    @RequestMapping(value = "/weeklyReport.action", method = RequestMethod.GET)
+    public String weeklyReport(ModelMap model)
     {
-        IAssignmentListDAO dao = sqlSession.getMapper(IAssignmentListDAO.class);
-        model.addAttribute("assignmentList", dao.assignmentList()); // ssName 데이터를 모델에 추가
-        return "/Content/MeetGroup/WorkAssignment.jsp";
+        IWeeklyReportDAO dao = sqlSession.getMapper(IWeeklyReportDAO.class);
+        model.addAttribute("weeklyReport", dao.weeklyReport()); // ssName 데이터를 모델에 추가
+        return "/Content/MeetGroup/WeeklyReportList.jsp";
     }
 }
