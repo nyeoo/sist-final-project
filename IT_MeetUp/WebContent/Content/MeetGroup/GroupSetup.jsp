@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	request.setCharacterEncoding("UTF-8");
-String cp = request.getContextPath();
+	String cp = request.getContextPath();
 %>
 <!DOCTYPE html>
 <html lang="ko">
@@ -30,13 +30,13 @@ String cp = request.getContextPath();
 		<c:import url="../Components/Header.jsp"></c:import>
 		<!-- //헤더영역 -->
 
+		<!-- 사이드 영역 -->
+		<c:import url="../Components/Side.jsp"></c:import>
+		<!-- //사이드 영역 -->
 		<!-- 바디영역 -->
 		<section class="m-body-area">
 			<div class="container-xl">
 
-				<!-- 사이드 영역 -->
-				<c:import url="../Components/Side.jsp"></c:import>
-				<!-- //사이드 영역 -->
 
 				<!-- 콘텐츠 -->
 				<div class="content">
@@ -138,7 +138,7 @@ String cp = request.getContextPath();
 	<script src="<%=cp%>/asset/js/bootstrap.bundle.min.js"></script>
 	<script src="<%=cp%>/asset/js/common.js"></script>
 	<script type="text/javascript">
-		/* 수정을 할대 모달 불러오는 스크립트 */
+		/* 수정을 할때 모달 불러오는 스크립트 */
 		function NameModify()
 		{
 			$(location).attr("href", "groupSetupUpdate.action?code=" + $(this).val());

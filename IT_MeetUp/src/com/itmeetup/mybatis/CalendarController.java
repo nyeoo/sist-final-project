@@ -2,9 +2,6 @@ package com.itmeetup.mybatis;
 
 
 import java.util.ArrayList;
-
-import javax.servlet.http.HttpSession;
-
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -67,7 +64,7 @@ public class CalendarController
 		ArrayList<ScheduleDTO> dtos = dao.allCalendar(sdOpCode);
 		initialDate += "'" + dtos.get(0).getSeStartDate() + "'";
 		
-		
+		/*
 		if(assCalendar.size()!=0)
 		{
 			assCalendar.get(0).getPiNickName();
@@ -80,6 +77,7 @@ public class CalendarController
 			allCalendar.get(0).getSeStartDate();
 			allCalendar.get(0).getSdEndDate();
 		}
+		*/
 		
 		model.addAttribute("initialDate", initialDate);
 		model.addAttribute("calData", calData);

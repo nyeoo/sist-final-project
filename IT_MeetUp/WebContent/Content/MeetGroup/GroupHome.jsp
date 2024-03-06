@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	request.setCharacterEncoding("UTF-8");
-String cp = request.getContextPath();
+	String cp = request.getContextPath();
 %>
 <!DOCTYPE html>
 <html lang="ko">
@@ -20,11 +20,6 @@ String cp = request.getContextPath();
 <!-- css -->
 <link rel="stylesheet" href="<%=cp%>/asset/css/style.css">
 <link rel="stylesheet" href="<%=cp%>/asset/css/layout_lhs.css">
-<script src="https://kit.fontawesome.com/81ca059e0e.js"
-	crossorigin="anonymous"></script>
-
-<style type="text/css">
-</style>
 
 </head>
 
@@ -366,6 +361,8 @@ String cp = request.getContextPath();
 	<script src="<%=cp%>/asset/js/jquery-ui.js"></script>
 	<script src="<%=cp%>/asset/js/bootstrap.bundle.min.js"></script>
 	<script src="<%=cp%>/asset/js/common.js"></script>
+	<script src="https://kit.fontawesome.com/81ca059e0e.js"
+	crossorigin="anonymous"></script>
 	<script>
 		
 	</script>

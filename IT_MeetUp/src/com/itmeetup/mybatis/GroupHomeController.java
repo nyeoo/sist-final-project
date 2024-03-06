@@ -17,33 +17,33 @@ public class GroupHomeController
 
 	//그룹홈 과정
 	@RequestMapping(value = "/grouphome.action", method = RequestMethod.GET)
-	public String weeklyReportList(ModelMap model)
+	public String weeklyReportList(ModelMap model, String opCode)
 	{
 		IGroupHomeDAO dao = sqlSession.getMapper(IGroupHomeDAO.class);
 		
 		// 산출물 갯수
-		model.addAttribute("meetCount", dao.meetCount());
-		model.addAttribute("planCount", dao.planCount());
-		model.addAttribute("flowchartCount", dao.flowchartCount());
-		model.addAttribute("requestCount", dao.requestCount());
+		model.addAttribute("meetCount", dao.meetCount(opCode));
+		model.addAttribute("planCount", dao.planCount(opCode));
+		model.addAttribute("flowchartCount", dao.flowchartCount(opCode));
+		model.addAttribute("requestCount", dao.requestCount(opCode));
 		
 		// 주간업무보고리스트
-		model.addAttribute("weeklyReportList", dao.weeklyReportList());
+		model.addAttribute("weeklyReportList", dao.weeklyReportList(opCode));
 		
 		// 그룹원
-		model.addAttribute("groupHomePlan", dao.groupHomePlan());
-		model.addAttribute("groupHomeDesign", dao.groupHomeDesign());
-		model.addAttribute("groupHomeFront", dao.groupHomeFront());
-		model.addAttribute("groupHomeBack", dao.groupHomeBack());
+		model.addAttribute("groupHomePlan", dao.groupHomePlan(opCode));
+		model.addAttribute("groupHomeDesign", dao.groupHomeDesign(opCode));
+		model.addAttribute("groupHomeFront", dao.groupHomeFront(opCode));
+		model.addAttribute("groupHomeBack", dao.groupHomeBack(opCode));
 		
 		// 진행기간
-		model.addAttribute("progressPeriod", dao.progressPeriod());
+		model.addAttribute("progressPeriod", dao.progressPeriod(opCode));
 		
 		// 진행기간별 막대그래프 비율
-		model.addAttribute("analyzePercent", dao.analyzePercent());
-		model.addAttribute("designPercent", dao.designPercent());
-		model.addAttribute("avatarPercent", dao.avatarPercent());
-		model.addAttribute("testPercent", dao.testPercent());
+		model.addAttribute("analyzePercent", dao.analyzePercent(opCode));
+		model.addAttribute("designPercent", dao.designPercent(opCode));
+		model.addAttribute("avatarPercent", dao.avatarPercent(opCode));
+		model.addAttribute("testPercent", dao.testPercent(opCode));
 
 		return "/Content/MeetGroup/GroupHome.jsp";
 	}

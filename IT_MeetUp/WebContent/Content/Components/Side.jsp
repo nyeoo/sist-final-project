@@ -36,11 +36,12 @@ String cp = request.getContextPath();
 			<li class="nav-heading">Pages</li>
 
 			<li class="nav-item"><a class="nav-link collapsed"
-				href="javascript:;"> <i class="bi bi-grid"></i> <span>그룹홈</span>
+				href="grouphome.action?opCode=${sessionScope.loginDTO.piMemCode}"> <i class="bi bi-grid"></i> <span>그룹홈</span>
 			</a></li>
 
 			<li class="nav-item"><a class="nav-link collapsed"
-				href="javascript:;"> <i class="bi bi-grid"></i> <span>캘린더</span>
+				href="calendar.action?sdOpCode=${sessionScope.loginDTO.piMemCode}"> <i class="bi bi-grid"></i> <span>캘린더</span>
+				
 			</a></li>
 
 			<li class="nav-item"><a class="nav-link collapsed"
@@ -54,7 +55,7 @@ String cp = request.getContextPath();
 						관리</span>
 			</a></li>
 
-			<li class="nav-item"><a class="nav-link " href="javascript:;">
+			<li class="nav-item"><a class="nav-link" href="groupsetup.action?opcode=${sessionScope.loginDTO.piMemCode}">
 					<i class="bi bi-person"></i> <span>그룹 정보</span>
 			</a></li>
 		</ul>
