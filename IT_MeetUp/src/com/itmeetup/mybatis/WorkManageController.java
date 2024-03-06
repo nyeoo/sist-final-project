@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class WorkManageController {
+public class WorkManageController
+{
 
     @Autowired
     private SqlSession sqlSession;

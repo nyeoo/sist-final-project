@@ -32,6 +32,7 @@ String cp = request.getContextPath();
 		<!-- 바디영역 -->
 		<section class="m-body-area">
 			<div class="container-xl">
+			
 				<!-- 사이드 영역 -->
 				<c:import url="../Components/Side.jsp"></c:import>
 				<!-- //사이드 영역 -->
