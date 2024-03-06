@@ -219,9 +219,7 @@ String cp = request.getContextPath();
 																							</div>
 																						</td>
 																						<td>
-																							<div class="m-select">
-																								<span class="badge bg-label-success me-1">Completed</span>
-																							</div>
+																							
 																						</td>
 																						<td>
 																							<div class="dropdown">
@@ -312,7 +310,7 @@ String cp = request.getContextPath();
 														</select>
 													</div>
 												</li>
-												
+
 											</ul>
 										</div>
 										<!--// 필터 -->
@@ -335,7 +333,8 @@ String cp = request.getContextPath();
 														<th>제목</th>
 														<th>담당자</th>
 														<th>보고일자</th>
-														<th>첨부파일명</th>
+														<th>결재일자</th>
+														<th>결재결과</th>
 														<th>처리</th>
 													</tr>
 												</thead>
@@ -349,11 +348,18 @@ String cp = request.getContextPath();
 																id="validationCustom01" value="${reportList.repTitle}"></td>
 															<td>${reportList.piNickName}</td>
 															<td>${reportList.repDate}</td>
-															<td>${reportList.repFile}
-																<button type="button" class="btn btn-primary btn-plus">
-																	<i class="bi bi-file-arrow-down"></i>
-																</button>
-															</td>
+															<td>${reportList.appDate}</td>
+															<td><c:choose>
+																	<c:when test="${reportList.wsName == '반려'}">
+																		<span class="badge bg-label-warning me-1">${reportList.wsName}</span>
+																	</c:when>
+																	<c:when test="${reportList.wsName == '완료'}">
+																		<span class="badge bg-label-success me-1">${reportList.wsName}</span>
+																	</c:when>
+																	<c:otherwise>
+																		<span class="badge bg-label-primary me-1">진행중</span>
+																	</c:otherwise>
+																</c:choose></td>
 															<td>
 																<div class="dropdown">
 																	<button type="button"
@@ -501,10 +507,6 @@ String cp = request.getContextPath();
 	<script src="<%=cp%>/asset/js/jquery-ui.js"></script>
 	<script src="<%=cp%>/asset/js/bootstrap.bundle.min.js"></script>
 	<script src="<%=cp%>/asset/js/common.js"></script>
-	<script type="text/javascript">
-	
-	
-	</script>
 
 
 </body>

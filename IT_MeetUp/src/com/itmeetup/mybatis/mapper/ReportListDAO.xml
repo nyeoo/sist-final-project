@@ -10,20 +10,18 @@
 		resultType="com.itmeetup.mybatis.ReportListDTO">
 		SELECT SD_OP_CODE "sdOpCode"
 		, ASS_NAME "assName"
-		,
-		PI_NICKNAME "piNickName"
+		, PI_NICKNAME "piNickName"
 		, OU_NAME "ouName"
 		, SS_NAME "ssName"
-		, SS_CODE
-		"ssCode"
+		, SS_CODE "ssCode"
 		, REP_TITLE "repTitle"
 		, REP_NO "repNo"
 		, REP_DATE "repDate"
-		,
-		REP_FILE "repFile"
+		, REP_FILE "repFile"
+		, APP_DATE "appDate"
+		, WS_NAME "wsName"
 		FROM VIEW_REPORT
-		WHERE SD_OP_CODE = 'OP_2' AND REP_NO
-		IS NOT NULL
+		WHERE SD_OP_CODE = 'OP_2' AND REP_NO IS NOT NULL
 	</select>
 
 	<select id="reportPersonList"
@@ -48,6 +46,5 @@
 		ASS.ASS_CODE
 		WHERE SD_OP_CODE = 'OP_2'
 	</select>
-
 
 </mapper>

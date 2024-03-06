@@ -10,20 +10,16 @@
 		resultType="com.itmeetup.mybatis.AssignmentDTO">
 		SELECT SD_OP_CODE "sdOpCode"
 		, ASS_NAME "assName"
-		,CHARGER
-		"charger"
+		,CHARGER "charger"
 		, PI_NICKNAME "piNickName"
 		, ASS_START_DATE "assStartDate"
-		,
-		ASS_END_DATE "assEndDate"
+		, ASS_END_DATE "assEndDate"
 		, ASS_DATE "assDate"
 		, OU_NAME "ouName"
-		,
-		SS_NAME "ssName"
+		, SS_NAME "ssName"
 		FROM VIEW_ASSIGNMENT
 		WHERE SD_OP_CODE = 'OP_2'
-		ORDER BY
-		SS_CODE
+		ORDER BY SS_CODE
 	</select>
 
 	<select id="assScheduleList"
@@ -35,11 +31,14 @@
 		ORDER BY SS_CODE
 	</select>
 
-	<select id="assOutputList" resultType="com.itmeetup.mybatis.AssignmentDTO">
-		SELECT SS_CODE "ssCode", SS_NAME "ssName", OU_CODE "ouCode", OU_NAME
+	<select id="assOutputList"
+		resultType="com.itmeetup.mybatis.AssignmentDTO">
+		SELECT SS_CODE "ssCode", SS_NAME "ssName", OU_CODE
+		"ouCode", OU_NAME
 		"ouName"
 		FROM OUTPUTS OU
-		LEFT JOIN SCHEDULE_STAGE SS ON SS.SS_CODE = OU.OU_SS_CODE
+		LEFT JOIN SCHEDULE_STAGE SS ON
+		SS.SS_CODE = OU.OU_SS_CODE
 		ORDER BY SS_CODE
 	</select>
 
