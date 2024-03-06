@@ -20,14 +20,10 @@ String cp = request.getContextPath();
 	<div class="btn-group" role="group"
 		aria-label="Basic radio toggle button group"
 		style="border-radius: 500px;">
-		<input type="radio" class="btn-check" name="btnradio" id="분석"
-			autocomplete="off"> <label class="btn btn-light" for="분석">분석</label>
-		<input type="radio" class="btn-check" name="btnradio" id="설계"
-			autocomplete="off"> <label class="btn btn-light" for="설계">설계</label>
-		<input type="radio" class="btn-check" name="btnradio" id="구현"
-			autocomplete="off"> <label class="btn btn-light" for="구현">구현</label>
-		<input type="radio" class="btn-check" name="btnradio" id="테스트"
-			autocomplete="off"> <label class="btn btn-light" for="테스트">테스트</label>
+		<c:forEach var="reportSchedule" items="${scheduleList}">
+		<input type="radio" class="btn-check" name="btnradio" id="${reportSchedule.ssName}"
+			autocomplete="off"> <label class="btn btn-light" for="${reportSchedule.ssName}">${reportSchedule.ssName}</label>
+		</c:forEach>
 	</div>
 </div>
 <br>
@@ -64,9 +60,9 @@ String cp = request.getContextPath();
 		<select class="form-select" aria-label="담당자" title="담당자" id="si"
 			onchange="selectSi()">
 			<option selected>선택하세요</option>
-			<option value="1">문정환</option>
-			<option value="2">박나영</option>
-			<option value="3">엄재용</option>
+			<c:forEach var="person" items="${reportPersonList}">
+			<option value="${person.piNickName}">${person.piNickName}</option>
+			</c:forEach>
 		</select>
 	</div>
 </div>
