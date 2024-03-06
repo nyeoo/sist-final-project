@@ -52,32 +52,31 @@ String cp = request.getContextPath();
 <script src="<%=cp%>/asset/js/bootstrap.bundle.min.js"></script>
 <script src="<%=cp%>/asset/js/common.js"></script>
 <script type="text/javascript">
-	$(function()
-	{
-		$("#modifyTeamName").click(function()
-		{
-			// 데이터 검사(누락된 입력값이 있는지 없는지에 대한 여부 확인)
-			if ($("#teamName").val() == "")
-			{
-				$("#err").html("번호 항목이 누락되었습니다.");
-				$("#err").css("display", "inline");
-				$("#teamName").focus();
-				return; //-- submit 액션 처리 중단
-			}
+$(function() {
+    $("#modifyTeamName").click(function() {
+        // 데이터 검사(누락된 입력값이 있는지 없는지에 대한 여부 확인)
+        if ($("#teamName").val() == "") {
+            $("#err").html("팀명을 입력해주세요.");
+            $("#err").css("display", "inline");
+            $("#teamName").focus();
+            return; //-- submit 액션 처리 중단
+        }
 
-			var teamName = $("#teamName").val();
-			$.post("groupteamnamemodify.action",
-			{
-				teamName : teamName
-			}, function(data)
-			{
-				// 수정 성공 시 모달 닫기
-				$("#teamnameUpdate").modal("hide");
-				// 페이지 리로드 또는 필요한 작업 수행
-				window.location.href = "groupSetup.action";
-			});
-		});
-	});
+        var teamName = $("#teamName").val();
+        var opcode = "${sessionScope.loginDTO.piMemCode}"; // 수정된 부분
+        
+        
+        $.post("groupteamnamemodify.action", {
+            teamName: teamName,
+            opcode: opcode // 수정된 부분
+        }, function(data) {
+            // 수정 성공 시 모달 닫기
+            $("#teamnameUpdate").modal("hide");
+            // 페이지 리로드
+            location.reload();
+        });
+    });
+});
 </script>
 
 </html>

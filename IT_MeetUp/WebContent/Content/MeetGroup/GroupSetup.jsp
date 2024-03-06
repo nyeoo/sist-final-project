@@ -141,8 +141,7 @@
 		/* 수정을 할때 모달 불러오는 스크립트 */
 		function NameModify()
 		{
-			$(location).attr("href", "groupSetupUpdate.action?code=" + $(this).val());
-			$('#teamnameUpdate').load("../MeetGroup/M_GroupSetup.jsp");
+			$('#teamnameUpdate').load("/groupSetupUpdate.action");
 			$('#teamnameUpdate').modal();
 		}
 	</script>

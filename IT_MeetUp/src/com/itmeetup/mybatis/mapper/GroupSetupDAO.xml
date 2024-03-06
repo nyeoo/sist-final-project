@@ -10,29 +10,38 @@
  	<select id="groupSetupList" resultType="com.itmeetup.mybatis.GroupDTO">
 		SELECT ROWNUM "OPCODE", PI_NICKNAME "PINICKNAME", JOB_NAME "JOBNAME", CHARGERCOUNT "REPGRANT", COMPLETEDCOUNT "REPSUCCESS", LEAPCCODE "LEAPCCODE"
 		FROM GROUPSETUPVIEW
-		WHERE OP_CODE = #{opcode }
+		WHERE OP_CODE = (SELECT OP_CODE
+		FROM OPEN_PROJECT
+		WHERE OP_MEM_CODE = #{opcode })
  	</select>
  	
  	<!-- 프로젝트 그룹명 출력 -->
  	<select id="groupTeamName" resultType="com.itmeetup.mybatis.OpenProjectDTO">
-		SELECT OP_TEAM_NAME "teamName", OP_CODE "opcode"
-		FROM GROUPSETUPVIEW
-		WHERE OP_CODE = #{opcode }
+		SELECT OP_CODE "OPCODE", OP_TEAM_NAME "TEAMNAME"
+		FROM MEMBER M
+		LEFT JOIN OPEN_PROJECT OP ON M.MEM_CODE = OP.OP_MEM_CODE
+		WHERE OP_CODE = (SELECT OP_CODE
+		FROM OPEN_PROJECT
+		WHERE OP_MEM_CODE = #{opcode })
  	</select>
  	
  	<!-- 그룹명 수정을 위한 코드찾기 쿼리문 -->
  	<select id="GroupTeamNamesearchId" resultType="com.itmeetup.mybatis.OpenProjectDTO">
-		SELECT OP_CODE, OP_TEAM_NAME
+		SELECT OP_CODE "opCODE", OP_TEAM_NAME "TEAMNAME"
 		FROM OPEN_PROJECT OP
 		LEFT JOIN MEMBER M ON M.MEM_CODE = OP.OP_MEM_CODE
-		WHERE OP_CODE= #{opcode }
+		WHERE OP_CODE = (SELECT OP_CODE
+		FROM OPEN_PROJECT
+		WHERE OP_MEM_CODE = #{opcode })
  	</select>
  	
  	<!-- 그룹명 수정 -->
  	<update id="groupTeamNamemodify">
 		UPDATE OPEN_PROJECT
 		SET OP_TEAM_NAME= #{teamName}
-		WHERE OP_CODE= #{opcode }
+		WHERE OP_CODE = (SELECT OP_CODE
+		FROM OPEN_PROJECT
+		WHERE OP_MEM_CODE = #{opcode })
 	</update>
  	
  </mapper>

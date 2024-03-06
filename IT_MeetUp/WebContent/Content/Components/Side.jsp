@@ -55,7 +55,7 @@ String cp = request.getContextPath();
 						관리</span>
 			</a></li>
 
-			<li class="nav-item"><a class="nav-link" href="groupsetup.action?opcode=${sessionScope.loginDTO.piMemCode}">
+			<li class="nav-item"><a class="nav-link" href="groupSetup.action?opcode=${sessionScope.loginDTO.piMemCode}">
 					<i class="bi bi-person"></i> <span>그룹 정보</span>
 			</a></li>
 		</ul>

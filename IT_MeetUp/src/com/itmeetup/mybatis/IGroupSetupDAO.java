@@ -4,12 +4,27 @@ import java.util.ArrayList;
 
 public interface IGroupSetupDAO
 {
+//	// 그룹원 조회
+//		public ArrayList<GroupDTO> groupSetupList();
+//		
+//		// 팀명 조회
+//		public ArrayList<OpenProjectDTO> groupTeamName();
+//		
+//		// 팀명을 수정하기 위해 code검색
+//		public OpenProjectDTO GroupTeamNamesearchId(int code);
+//		
+//		// 팀명수정
+//		public int groupTeamNamemodify(String teamName);
+		
 	// 그룹원 조회
 	public ArrayList<GroupDTO> groupSetupList(String opcode);
 	
+	// 팀명 조회
 	public ArrayList<OpenProjectDTO> groupTeamName(String opcode);
 	
-	public OpenProjectDTO GroupTeamNamesearchId(int code, String opcode);
+	// 팀명을 수정하기 위해 code검색
+	public OpenProjectDTO GroupTeamNamesearchId(String opcode);
 	
-	public int groupTeamNamemodify(String teamName, String opcode); 
+	// 팀명수정
+	public int groupTeamNamemodify(String teamName, String opcode);
 }
