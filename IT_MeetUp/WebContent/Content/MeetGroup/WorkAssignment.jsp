@@ -4,6 +4,7 @@
 	request.setCharacterEncoding("UTF-8");
 String cp = request.getContextPath();
 %>
+
 <div id="#item-1" class="comp_tit">
 	제목(주제) <input type="text" class="form-control" id="title"
 		required="required" style="width: 450px;">
@@ -21,8 +22,9 @@ String cp = request.getContextPath();
 		aria-label="Basic radio toggle button group"
 		style="border-radius: 500px;">
 		<c:forEach var="reportSchedule" items="${assScheduleList}">
-		<input type="radio" class="btn-check" name="btnradio" id="${reportSchedule.ssName}"
-			autocomplete="off"> <label class="btn btn-light" for="${reportSchedule.ssName}">${reportSchedule.ssName}</label>
+			<input type="radio" class="btn-check" name="btnradio"
+				id="${reportSchedule.ssName}" autocomplete="off">
+			<label class="btn btn-light" for="${reportSchedule.ssName}">${reportSchedule.ssName}</label>
 		</c:forEach>
 	</div>
 </div>
@@ -34,9 +36,9 @@ String cp = request.getContextPath();
 		<select class="form-select" aria-label="업무분류" title="업무분류" id="si"
 			onchange="selectSi()">
 			<option selected>선택하세요</option>
-			<option value="1">회의록</option>
-			<option value="2">요구분석서</option>
-			<option value="3">최종보고서</option>
+			<c:forEach var="outputList" items="${assOutputList}">
+				<option value="3">${outputList.ouName}</option>
+			</c:forEach>
 		</select>
 	</div>
 </div>
@@ -61,7 +63,7 @@ String cp = request.getContextPath();
 			onchange="selectSi()">
 			<option selected>선택하세요</option>
 			<c:forEach var="person" items="${reportPersonList}">
-			<option value="${person.piNickName}">${person.piNickName}</option>
+				<option value="${person.piNickName}">${person.piNickName}</option>
 			</c:forEach>
 		</select>
 	</div>

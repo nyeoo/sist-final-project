@@ -24,6 +24,7 @@ public class WorkManageController
         model.addAttribute("scheduleList", scheduleDAO.scheduleList());
         model.addAttribute("assignmentList", assignmentDAO.assignmentList());
         model.addAttribute("assScheduleList", assignmentDAO.assScheduleList());
+        model.addAttribute("assOutputList", assignmentDAO.assOutputList());
         model.addAttribute("reportList", reportDAO.reportList());
         model.addAttribute("reportOutputList", reportDAO.reportOutputList());
         model.addAttribute("reportPersonList", reportDAO.reportPersonList());

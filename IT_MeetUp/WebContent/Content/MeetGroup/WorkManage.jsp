@@ -180,6 +180,7 @@ String cp = request.getContextPath();
 																		<thead>
 																			<tr>
 																				<th>주제</th>
+																				<th>제목</th>
 																				<th>할당일</th>
 																				<th>시작일</th>
 																				<th>종료일</th>
@@ -201,6 +202,7 @@ String cp = request.getContextPath();
 																							class="form-control form-control-plaintext"
 																							id="validationCustom01"
 																							value="${innerWorkAssignment.ouName}"></td>
+																						<td>${innerWorkAssignment.assName}</td>
 																						<td>${innerWorkAssignment.assDate}</td>
 																						<td>${innerWorkAssignment.assStartDate}</td>
 																						<td>${innerWorkAssignment.assEndDate}</td>
@@ -499,7 +501,10 @@ String cp = request.getContextPath();
 	<script src="<%=cp%>/asset/js/jquery-ui.js"></script>
 	<script src="<%=cp%>/asset/js/bootstrap.bundle.min.js"></script>
 	<script src="<%=cp%>/asset/js/common.js"></script>
-
+	<script type="text/javascript">
+	
+	
+	</script>
 
 
 </body>

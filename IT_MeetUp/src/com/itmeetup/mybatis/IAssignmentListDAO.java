@@ -6,4 +6,5 @@ public interface IAssignmentListDAO
 {
 	public ArrayList<AssignmentDTO> assignmentList();
 	public ArrayList<AssignmentDTO> assScheduleList();
+	public ArrayList<AssignmentDTO> assOutputList();
 }
