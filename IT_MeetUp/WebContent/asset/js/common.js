@@ -237,7 +237,7 @@ $(function () {
 	      },
 	    });
 	  
-	  //joinSwiper.slideTo(2, 0, true);
+	  joinSwiper.slideTo(2, 0, true);
 	  
 	  $(".join-step01").on('click', function(e) {
 		  joinSwiper.slideNext();

@@ -6,12 +6,14 @@
  <!-- mybatis 환경 설정 파일 활용 -->
  <mapper namespace="com.itmeetup.mybatis.IGroupSetupDAO">
  
+ 	<!-- 그룹원 설정에 보여질 그룹원 정보 출력 -->
  	<select id="groupSetupList" resultType="com.itmeetup.mybatis.GroupDTO">
 		SELECT ROWNUM "OPCODE", PI_NICKNAME "PINICKNAME", JOB_NAME "JOBNAME", CHARGERCOUNT "REPGRANT", COMPLETEDCOUNT "REPSUCCESS", LEAPCCODE "LEAPCCODE"
 		FROM GROUPSETUPVIEW
 		WHERE OP_CODE = 'OP_2'
  	</select>
  	
+ 	<!-- 프로젝트 그룹명 출력 -->
  	<select id="groupTeamName" resultType="com.itmeetup.mybatis.OpenProjectDTO">
 		SELECT OP_CODE "CODE", OP_TEAM_NAME "TEAMNAME"
 		FROM MEMBER M
@@ -19,6 +21,7 @@
 		WHERE MEM_CODE = 'MEM_2'
  	</select>
  	
+ 	<!-- 그룹명 수정을 위한 코드찾기 쿼리문 -->
  	<select id="GroupTeamNamesearchId" resultType="com.itmeetup.mybatis.OpenProjectDTO">
 		SELECT OP_CODE, OP_TEAM_NAME
 		FROM OPEN_PROJECT OP
@@ -26,6 +29,7 @@
 		WHERE OP_CODE= 'OP_2'
  	</select>
  	
+ 	<!-- 그룹명 수정 -->
  	<update id="groupTeamNamemodify">
 		UPDATE OPEN_PROJECT
 		SET OP_TEAM_NAME= #{teamName}

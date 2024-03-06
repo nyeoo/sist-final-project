@@ -5,13 +5,15 @@
  
  <!-- mybatis 환경 설정 파일 활용 -->
  <mapper namespace="com.itmeetup.mybatis.IGroupHomeDAO">
- 
+ 	
+ 	<!-- 그룹홈에 보여질 주간업무보고리스트 출력 -->
 	<select id="weeklyReportList" resultType="com.itmeetup.mybatis.WeeklyReportDTO">
 		SELECT ROWNUM "WRNUMBER", WR_TITLE "WRTITLE", WR_CONTENT "WRCONTENT", TO_CHAR(WR_DATE, 'YYYY-MM-DD') "WRDATE", PI_NICKNAME "WRPERSON"
 		FROM WEEKLYREPVIEW
 		WHERE ROWNUM  &lt;= 4 AND OP_CODE = 'OP_2'
  	</select>
  	
+ 	<!-- 프로젝트마다 나온 산출물 갯수 -->
  	<select id="meetCount" resultType="java.lang.Integer">
 		SELECT NVL(OUCOUNT,0) "MEETCOUNT"
 		FROM GROUPOUTPUTVIEW
@@ -33,54 +35,51 @@
 		WHERE OP_CODE = 'OP_2' AND ASS_OU_CODE = 'OU_3'	
 	</select>
 	
+	<!-- 맡은 직무마다 보여지는 닉네임 출력 -->
 	<select id="groupHomePlan" resultType="com.itmeetup.mybatis.GroupDTO">
 		SELECT PI_NICKNAME "PINICKNAME"
 		FROM GROUPSETVIEW
 		WHERE OP_CODE = 'OP_2' AND JOB_CODE = 'JOB_1'
  	</select>
- 	
  	<select id="groupHomeDesign" resultType="com.itmeetup.mybatis.GroupDTO">
 		SELECT PI_NICKNAME "PINICKNAME"
 		FROM GROUPSETVIEW
 		WHERE OP_CODE = 'OP_2' AND JOB_CODE = 'JOB_2'
  	</select>
- 	
  	<select id="groupHomeFront" resultType="com.itmeetup.mybatis.GroupDTO">
 		SELECT PI_NICKNAME "PINICKNAME"
 		FROM GROUPSETVIEW
 		WHERE OP_CODE = 'OP_2' AND JOB_CODE = 'JOB_3'
  	</select>
- 	
  	<select id="groupHomeBack" resultType="com.itmeetup.mybatis.GroupDTO">
 		SELECT PI_NICKNAME "PINICKNAME"
 		FROM GROUPSETVIEW
 		WHERE OP_CODE = 'OP_2' AND JOB_CODE = 'JOB_4'
  	</select>
  	
+ 	<!-- 프로젝트 진행기간 -->
  	<select id="progressPeriod" resultType="com.itmeetup.mybatis.OpenProjectDTO">
 		SELECT "START", END "END"
 		FROM PROJECT_INFO
 		WHERE CODE = 'OP_2'
  	</select>
  	
+ 	<!-- 일정단계별 진행기간 비율 -->
  	<select id="analyzePercent" resultType="java.lang.Double">
 		SELECT ROUND((ADJUSTED_DATE/DAY_OP)*100,1) AS "PERCENT"
 		FROM GROUPPERIODVIEW
 		WHERE CODE = 'OP_2' AND SD_SS_CODE = 'SS_1'
  	</select>
- 	
  	<select id="designPercent" resultType="java.lang.Double">
 		SELECT ROUND((ADJUSTED_DATE/DAY_OP)*100,1) AS "PERCENT"
 		FROM GROUPPERIODVIEW
 		WHERE CODE = 'OP_2' AND SD_SS_CODE = 'SS_2'
  	</select>
- 	
  	<select id="avatarPercent" resultType="java.lang.Double">
 		SELECT ROUND((ADJUSTED_DATE/DAY_OP)*100,1) AS "PERCENT"
 		FROM GROUPPERIODVIEW
 		WHERE CODE = 'OP_2' AND SD_SS_CODE = 'SS_3'
  	</select>
- 	
  	<select id="testPercent" resultType="java.lang.Double">
 		SELECT ROUND((ADJUSTED_DATE/DAY_OP)*100,1) AS "PERCENT"
 		FROM GROUPPERIODVIEW

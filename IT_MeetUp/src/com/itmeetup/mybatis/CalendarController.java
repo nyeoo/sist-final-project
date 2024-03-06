@@ -3,6 +3,8 @@ package com.itmeetup.mybatis;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpSession;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,12 +22,12 @@ public class CalendarController
 
 	// 캘린더
 	@RequestMapping(value = "/calendar.action", method = RequestMethod.GET)
-	public String CalendarList(ModelMap model)
+	public String CalendarList(ModelMap model, String sdOpCode)
 	{
 		ICalendarDAO dao = sqlSession.getMapper(ICalendarDAO.class);
 		
-		ArrayList<ScheduleDTO> allCalendar = dao.allCalendar();
-		ArrayList<AssignmentDTO> assCalendar = dao.assCalendar();
+		ArrayList<ScheduleDTO> allCalendar = dao.allCalendar(sdOpCode);
+		ArrayList<AssignmentDTO> assCalendar = dao.assCalendar(sdOpCode);
 		
 		// 캘린더 켜졌을 때 맨 처음 보이는 날짜
 		String initialDate = "";
@@ -62,8 +64,22 @@ public class CalendarController
 		calData += "]";
 		
 		//달력 시작 날짜
-		ArrayList<ScheduleDTO> dtos = dao.allCalendar();
+		ArrayList<ScheduleDTO> dtos = dao.allCalendar(sdOpCode);
 		initialDate += "'" + dtos.get(0).getSeStartDate() + "'";
+		
+		
+		if(assCalendar.size()!=0)
+		{
+			assCalendar.get(0).getPiNickName();
+			assCalendar.get(0).getAssName();
+			assCalendar.get(0).getAssDate();
+		}
+		else if(allCalendar.size()!=0)
+		{
+			allCalendar.get(0).getSsName();
+			allCalendar.get(0).getSeStartDate();
+			allCalendar.get(0).getSdEndDate();
+		}
 		
 		model.addAttribute("initialDate", initialDate);
 		model.addAttribute("calData", calData);
