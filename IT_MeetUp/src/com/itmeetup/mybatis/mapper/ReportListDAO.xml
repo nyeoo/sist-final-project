@@ -10,6 +10,7 @@
 		resultType="com.itmeetup.mybatis.ReportListDTO">
 		SELECT SD_OP_CODE "sdOpCode"
 		, ASS_NAME "assName"
+		, REP_ASS_CODE "repAssCode"
 		, PI_NICKNAME "piNickName"
 		, OU_NAME "ouName"
 		, SS_NAME "ssName"

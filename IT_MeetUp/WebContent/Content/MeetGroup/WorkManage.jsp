@@ -187,7 +187,6 @@ String cp = request.getContextPath();
 																				<th>담당자</th>
 																				<th>실제시작일</th>
 																				<th>실제종료일</th>
-																				<th>업무상태</th>
 																				<th>작성하기</th>
 																				<th>추가/조회</th>
 																			</tr>
@@ -217,9 +216,6 @@ String cp = request.getContextPath();
 																							<div class="m-input-cal">
 																								<input type="text" class="form-control date-to">
 																							</div>
-																						</td>
-																						<td>
-																							
 																						</td>
 																						<td>
 																							<div class="dropdown">
@@ -267,7 +263,7 @@ String cp = request.getContextPath();
 
 								</div>
 							</div>
-
+							<!--// 탭종료 -->
 							<!-- 세 번째 탭: 업무 보고 목록 -->
 							<div class="tab-pane fade" id="nav-contact" role="tabpanel"
 								aria-labelledby="nav-contact-tab">

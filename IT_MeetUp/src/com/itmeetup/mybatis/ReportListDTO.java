@@ -6,7 +6,7 @@ package com.itmeetup.mybatis;
 public class ReportListDTO
 {
 	private String repTitle, repDate, repFile;	// 업무보고 제목, 보고일 ,보고파일	
-	private String sdOpCode, assName, piNickName, ouName, ssName, ssCode; 	// 개설요청코드 , 업무명, 닉네임, 산출물명, 일정단계명, 일정단계코드
+	private String sdOpCode, assName, piNickName, ouName, ssName, ssCode, repAssCode; 	// 개설요청코드 , 업무명, 닉네임, 산출물명, 일정단계명, 일정단계코드, 업무할당 코드
 	private String wsName, appDate; 	// 업무결재 상태, 업무결재 일자
 	private int repNumber;		//업무보고 번호
 	
@@ -22,6 +22,14 @@ public class ReportListDTO
 	public String getRepDate()
 	{
 		return repDate;
+	}
+	public String getRepAssCode()
+	{
+		return repAssCode;
+	}
+	public void setRepAssCode(String repAssCode)
+	{
+		this.repAssCode = repAssCode;
 	}
 	public void setRepDate(String repDate)
 	{
