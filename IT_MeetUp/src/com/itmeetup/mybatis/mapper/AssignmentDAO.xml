@@ -2,24 +2,32 @@
 <!DOCTYPE mapper
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
- 
- <!-- mybatis 환경 설정 파일 활용 -->
- <mapper namespace="com.itmeetup.mybatis.IAssignmentListDAO">
- 
- 	<select id="assignmentList" resultType="com.itmeetup.mybatis.AssignmentDTO">
- 		SELECT SD_OP_CODE "sdOpCode"
- 		, ASS_NAME "assName"
- 		,CHARGER "charger"
- 		, PI_NICKNAME "piNickName"
- 		, ASS_START_DATE "assStartDate"
- 		, ASS_END_DATE "assEndDate"
- 		, ASS_DATE "assDate"
- 		, OU_NAME "ouName"
- 		, SS_NAME "ssName"
+
+<!-- mybatis 환경 설정 파일 활용 -->
+<mapper namespace="com.itmeetup.mybatis.IAssignmentListDAO">
+
+	<select id="assignmentList"
+		resultType="com.itmeetup.mybatis.AssignmentDTO">
+		SELECT SD_OP_CODE "sdOpCode"
+		, ASS_NAME "assName"
+		,CHARGER "charger"
+		, PI_NICKNAME "piNickName"
+		, ASS_START_DATE "assStartDate"
+		, ASS_END_DATE "assEndDate"
+		, ASS_DATE "assDate"
+		, OU_NAME "ouName"
+		, SS_NAME "ssName"
 		FROM VIEW_ASSIGNMENT
 		WHERE SD_OP_CODE = 'OP_2'
-        ORDER BY SS_CODE
- 	</select>
- 	
+		ORDER BY SS_CODE
+	</select>
 
- </mapper>
+	<select id="assScheduleList"
+		resultType="com.itmeetup.mybatis.AssignmentDTO">
+		SELECT DISTINCT SS_CODE "ssCode", SS_NAME "ssName"
+		FROM OUTPUTS OU
+		LEFT JOIN SCHEDULE_STAGE SS ON SS.SS_CODE = OU.OU_SS_CODE
+		ORDER BY SS_CODE
+	</select>
+
+</mapper>

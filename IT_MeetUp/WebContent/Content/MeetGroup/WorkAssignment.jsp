@@ -20,7 +20,7 @@ String cp = request.getContextPath();
 	<div class="btn-group" role="group"
 		aria-label="Basic radio toggle button group"
 		style="border-radius: 500px;">
-		<c:forEach var="reportSchedule" items="${scheduleList}">
+		<c:forEach var="reportSchedule" items="${assScheduleList}">
 		<input type="radio" class="btn-check" name="btnradio" id="${reportSchedule.ssName}"
 			autocomplete="off"> <label class="btn btn-light" for="${reportSchedule.ssName}">${reportSchedule.ssName}</label>
 		</c:forEach>
