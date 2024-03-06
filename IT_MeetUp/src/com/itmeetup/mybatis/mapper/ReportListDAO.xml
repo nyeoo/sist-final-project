@@ -10,14 +10,17 @@
 		resultType="com.itmeetup.mybatis.ReportListDTO">
 		SELECT SD_OP_CODE "sdOpCode"
 		, ASS_NAME "assName"
-		, PI_NICKNAME "piNickName"
+		,
+		PI_NICKNAME "piNickName"
 		, OU_NAME "ouName"
 		, SS_NAME "ssName"
-		, SS_CODE "ssCode"
+		, SS_CODE
+		"ssCode"
 		, REP_TITLE "repTitle"
 		, REP_NO "repNo"
 		, REP_DATE "repDate"
-		, REP_FILE "repFile"
+		,
+		REP_FILE "repFile"
 		FROM VIEW_REPORT
 		WHERE SD_OP_CODE = 'OP_2' AND REP_NO
 		IS NOT NULL
@@ -25,20 +28,10 @@
 
 	<select id="reportPersonList"
 		resultType="com.itmeetup.mybatis.ReportListDTO">
-		SELECT DISTINCT PI_NICKNAME
-		FROM MEMBER M
-		LEFT JOIN PART_APPLICANT PA ON PA.PA_MEM_CODE = M.MEM_CODE
-		LEFT JOIN PERSONAL_INFO PI ON PI_MEM_CODE = M.MEM_CODE
-		LEFT JOIN PART_CHECK PC ON PC.PC_PA_NO = PA.PA_NO
-		LEFT JOIN TEAM_JOB TJ ON PA.PA_TJ_NO = TJ.TJ_NO
-		WHERE TJ_OP_CODE = 'OP_2'
-	</select>
-
-	<select id="reportScheduleList"
-		resultType="com.itmeetup.mybatis.ReportListDTO">
-		SELECT DISTINCT SS_NAME
-		FROM SCHEDULE_DETAILS SD
-		LEFT JOIN SCHEDULE_STAGE SS ON SS.SS_CODE = SD.SD_SS_CODE
+		SELECT
+		DISTINCT PI_NICKNAME "piNickName"
+		FROM
+		VIEW_ASSIGNMENT
 		WHERE SD_OP_CODE = 'OP_2'
 	</select>
 

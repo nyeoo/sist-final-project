@@ -90,7 +90,6 @@ String cp = request.getContextPath();
 														<th>종료일</th>
 														<th>실제시작일</th>
 														<th>실제종료일</th>
-														<th>업무상태</th>
 													</tr>
 												</thead>
 												<tbody>
@@ -121,18 +120,6 @@ String cp = request.getContextPath();
 																<div class="m-input-cal">
 																	<input type="text" class="form-control date-to"
 																		disabled="disabled">
-																</div>
-															</td>
-															<td>
-																<div class="m-select">
-																	<select class="form-select"
-																		aria-label="Default select example"
-																		title="selectTitle01">
-																		<option selected="selected">업무상태를 선택하세요.</option>
-																		<option value="1">시작예정</option>
-																		<option value="2">진행중</option>
-																		<option value="3">완료</option>
-																	</select>
 																</div>
 															</td>
 														</tr>
@@ -196,7 +183,7 @@ String cp = request.getContextPath();
 																				<th>할당일</th>
 																				<th>시작일</th>
 																				<th>종료일</th>
-																				<th>작성자</th>
+																				<th>담당자</th>
 																				<th>실제시작일</th>
 																				<th>실제종료일</th>
 																				<th>업무상태</th>
@@ -295,10 +282,10 @@ String cp = request.getContextPath();
 											<ul class="d-flex">
 												<li>
 													<div class="m-select">
-														<select class="form-select" aria-label="업무단계" title="업무단계">
-															<option selected>업무단계</option>
-															<c:forEach var="schedule" items="${reportScheduleList}">
-																<option value="1">${schedule.ssName}</option>
+														<select class="form-select" aria-label="일정단계" title="일정단계">
+															<option selected>일정단계</option>
+															<c:forEach var="reportSchedule" items="${scheduleList}">
+																<option value="${reportSchedulee.ssName}">${reportSchedule.ssName}</option>
 															</c:forEach>
 														</select>
 													</div>
@@ -308,7 +295,7 @@ String cp = request.getContextPath();
 														<select class="form-select" aria-label="업무분류" title="업무분류">
 															<option selected>업무분류</option>
 															<c:forEach var="output" items="${reportOutputList}">
-																<option value="1">${output.ouName}</option>
+																<option value="${output.ouName}">${output.ouName}</option>
 															</c:forEach>
 														</select>
 													</div>
@@ -318,13 +305,15 @@ String cp = request.getContextPath();
 														<select class="form-select" aria-label="담당자" title="담당자">
 															<option selected>담당자</option>
 															<c:forEach var="person" items="${reportPersonList}">
-																<option value="1">${person.piNickName}</option>
+																<option value="${person.piNickName}">${person.piNickName}</option>
 															</c:forEach>
 														</select>
 													</div>
 												</li>
+												
 											</ul>
 										</div>
+										<!--// 필터 -->
 										<div class="table-responsive text-nowrap tbl-border">
 											<table class="table">
 												<colgroup>

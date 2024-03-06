@@ -23,7 +23,6 @@ public class WorkManageController {
         model.addAttribute("scheduleList", scheduleDAO.scheduleList());
         model.addAttribute("assignmentList", assignmentDAO.assignmentList());
         model.addAttribute("reportList", reportDAO.reportList());
-        model.addAttribute("reportScheduleList", reportDAO.reportScheduleList());
         model.addAttribute("reportOutputList", reportDAO.reportOutputList());
         model.addAttribute("reportPersonList", reportDAO.reportPersonList());
         
