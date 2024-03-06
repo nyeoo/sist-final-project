@@ -32,8 +32,7 @@ String cp = request.getContextPath();
 	<div class="wrapper">
 
 		<!-- 헤더영역 -->
-		<div role="header" data-include="../Components/Header.jsp"
-			class="sticky-top"></div>
+		<c:import url="../Components/Header.jsp"></c:import>
 		<!-- //헤더영역 -->
 
 		<!-- 사이드 영역 -->

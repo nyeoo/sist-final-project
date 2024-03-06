@@ -6,28 +6,16 @@
  <!-- mybatis 환경 설정 파일 활용 -->
  <mapper namespace="com.itmeetup.mybatis.ICalendarDAO">
  	
-	<select id="calProgress" resultType="com.itmeetup.mybatis.ScheduleDTO">
+	<select id="allCalendar" resultType="com.itmeetup.mybatis.ScheduleDTO">
 		SELECT TO_CHAR(SD_START_DATE, 'YYYY-MM-DD') "seStartDate", TO_CHAR(SD_END_DATE, 'YYYY-MM-DD') "sdEndDate", SS_NAME "SSNAME"
 		FROM CALENDARSCHEVIEW
-		WHERE CODE = 'OP_2' AND SD_SS_CODE = 'SS_1'
+		WHERE CODE = 'OP_2'
  	</select>
  	
- 	<select id="calDesign" resultType="com.itmeetup.mybatis.ScheduleDTO">
-		SELECT SD_START_DATE "seStartDate", SD_END_DATE "sdEndDate", SS_NAME "SSNAME"
-		FROM CALENDARSCHEVIEW
-		WHERE CODE = 'OP_2' AND SD_SS_CODE = 'SS_2'
- 	</select>
- 	
- 	<select id="calAvatar" resultType="com.itmeetup.mybatis.ScheduleDTO">
-		SELECT SD_START_DATE "seStartDate", SD_END_DATE "sdEndDate", SS_NAME "SSNAME"
-		FROM CALENDARSCHEVIEW
-		WHERE CODE = 'OP_2' AND SD_SS_CODE = 'SS_3'
- 	</select>
- 	
- 	<select id="calTest" resultType="com.itmeetup.mybatis.ScheduleDTO">
-		SELECT SD_START_DATE "seStartDate", SD_END_DATE "sdEndDate", SS_NAME "SSNAME"
-		FROM CALENDARSCHEVIEW
-		WHERE CODE = 'OP_2' AND SD_SS_CODE = 'SS_4'
+ 	<select id="assCalendar" resultType="com.itmeetup.mybatis.AssignmentDTO">
+		SELECT ASS_NAME "ASSNAME", TO_CHAR(ASS_DATE, 'YYYY-MM-DD') "ASSDATE", PI_NICKNAME "PINICKNAME"
+		FROM CALENDARASSVIEW
+		WHERE OP_CODE = 'OP_2'
  	</select>
  	
  	

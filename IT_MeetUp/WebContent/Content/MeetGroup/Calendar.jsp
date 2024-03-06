@@ -27,8 +27,7 @@ String cp = request.getContextPath();
 	<div class="wrapper">
 
 		<!-- 헤더영역 -->
-		<div role="header" data-include="../Components/Header.jsp"
-			class="sticky-top"></div>
+		<c:import url="../Components/Header.jsp"></c:import>
 		<!-- //헤더영역 -->
 
 		<!-- 바디영역 -->
@@ -44,7 +43,7 @@ String cp = request.getContextPath();
 					<hr>
 				</div>
 
-				<div class="workSet">
+				<!-- <div class="workSet">
 					<div class="form-check">
 						<label class="form-check-label" for="totWork"> <input
 							class="form-check-input" type="radio" name="work" id="totWork"
@@ -57,7 +56,7 @@ String cp = request.getContextPath();
 							개인 업무 보기
 						</label>
 					</div>
-				</div>
+				</div> -->
 
 
 			</div>
@@ -93,68 +92,11 @@ String cp = request.getContextPath();
 					center : 'title',
 					right : 'next'
 				},
-				initialDate : '2019-01-12',
+				initialDate : ${initialDate},
 				navLinks : true,
-				editable : true,
+				editable : false,
 				dayMaxEvents : true,
-				events : [
-				{
-					title : '분석',
-					start : '2019-01-15',
-					end : '2019-01-18'
-				}
-				 <c:forEach items="${calProgress}" var="calprogress">
-				{
-				    title: '분석',
-				    start: new Date('${calprogress.seStartDate}'),
-				    end: new Date('${calprogress.sdEndDate}')
-				},
-				</c:forEach>
-				<c:forEach items="${calDesign}" var="calDesign">
-				{
-				    title: '설계',
-				    start: new Date('${calDesign.seStartDate}'),
-				    end: new Date('${calDesign.sdEndDate}')
-				},
-				</c:forEach>
-				
-				<c:forEach items="${calAvatar}" var="calAvatar">
-				{
-				    title: '구현',
-				    start: new Date('${calAvatar.seStartDate}'),
-				    end: new Date('${calAvatar.sdEndDate}')
-				},
-				</c:forEach>
-				
-				<c:forEach items="${calTest}" var="calTest">
-				{
-				    title: '테스트',
-				    start: new Date('${calTest.seStartDate}'),
-				    end: new Date('${calTest.sdEndDate}')
-				},
-				</c:forEach>
-
-				{
-					title : '구현',
-					start : '2023-01-16',
-					end : '2023-01-20'
-				},
-				{
-					title : '테스트',
-					start : '2023-01-21',
-					end : '2023-01-30'
-				},
-				{
-					groupId : 999,
-					title : 'Repeating Event',
-					start : '2023-01-09T16:00:00'
-				},
-				{
-					groupId : 999,
-					title : 'Repeating Event',
-					start : '2023-01-16T16:00:00'
-				}
-				]
+				events : ${calData}
 			});
 
 			calendar.render();
