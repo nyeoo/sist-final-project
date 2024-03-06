@@ -15,18 +15,22 @@ public class GroupSetupController
 	@Autowired
 	private SqlSession sqlSession;
 
-	
+	// 그룹원설정
 	@RequestMapping(value = "/groupSetup.action", method = RequestMethod.GET)
 	public String groupSetupList(ModelMap model)
 	{
 		IGroupSetupDAO dao = sqlSession.getMapper(IGroupSetupDAO.class);
-
+		
+		// 그룹원 리스트
 		model.addAttribute("groupSetupList", dao.groupSetupList());
+		
+		// 그룹원 팀 이름
 		model.addAttribute("groupTeamName", dao.groupTeamName());
 
 		return "/Content/MeetGroup/GroupSetup.jsp";
 	}
 	
+	// 팀명 수정을 위한 모달 컨트롤러
 	@RequestMapping(value = "/groupSetupUpdate.action", method = RequestMethod.GET)
 	public String GroupTeamNamesearchId(int code, ModelMap model)
 	{
@@ -40,22 +44,14 @@ public class GroupSetupController
 
 		return "/Content/MeetGroup/M_GroupSetup.jsp";
 	}
-	/*
-	 * @RequestMapping(value = "/groupteamnamemodify.action", method =
-	 * RequestMethod.POST) public String groupTeamNamemodify(OpenProjectDTO opdto) {
-	 * IGroupSetupDAO dao = sqlSession.getMapper(IGroupSetupDAO.class);
-	 * 
-	 * dao.groupTeamNamemodify(opdto);
-	 * 
-	 * return "redirect:groupsetup.action"; }
-	 */
-
+	
+	// 팀명 수정
 	@RequestMapping(value = "/groupteamnamemodify.action", method = RequestMethod.POST)
 	public String groupTeamNamemodify(String teamName)
 	{
 		IGroupSetupDAO dao = sqlSession.getMapper(IGroupSetupDAO.class);
-		dao.groupTeamNamemodify(teamName); // 해당 메서드에 팀명 수정 로직 구현
-		return "redirect:/groupSetup.action"; // 수정 후 다시 그룹 설정 페이지로 이동
+		dao.groupTeamNamemodify(teamName);
+		return "redirect:/groupSetup.action";
 	}
 
 }

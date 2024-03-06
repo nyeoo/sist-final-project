@@ -15,22 +15,31 @@ public class GroupHomeController
 	@Autowired
 	private SqlSession sqlSession;
 
-	
+	//그룹홈 과정
 	@RequestMapping(value = "/grouphome.action", method = RequestMethod.GET)
 	public String weeklyReportList(ModelMap model)
 	{
 		IGroupHomeDAO dao = sqlSession.getMapper(IGroupHomeDAO.class);
-			
+		
+		// 산출물 갯수
 		model.addAttribute("meetCount", dao.meetCount());
 		model.addAttribute("planCount", dao.planCount());
 		model.addAttribute("flowchartCount", dao.flowchartCount());
 		model.addAttribute("requestCount", dao.requestCount());
+		
+		// 주간업무보고리스트
 		model.addAttribute("weeklyReportList", dao.weeklyReportList());
+		
+		// 그룹원
 		model.addAttribute("groupHomePlan", dao.groupHomePlan());
 		model.addAttribute("groupHomeDesign", dao.groupHomeDesign());
 		model.addAttribute("groupHomeFront", dao.groupHomeFront());
 		model.addAttribute("groupHomeBack", dao.groupHomeBack());
+		
+		// 진행기간
 		model.addAttribute("progressPeriod", dao.progressPeriod());
+		
+		// 진행기간별 막대그래프 비율
 		model.addAttribute("analyzePercent", dao.analyzePercent());
 		model.addAttribute("designPercent", dao.designPercent());
 		model.addAttribute("avatarPercent", dao.avatarPercent());

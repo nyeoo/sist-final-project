@@ -150,6 +150,7 @@ String cp = request.getContextPath();
 											</div>
 										</div>
 										<!-- //기획서 -->
+
 										<!-- 요구분석서 -->
 										<div class="col-3 level-con level-info">
 											<div class="card completebody">
@@ -182,9 +183,9 @@ String cp = request.getContextPath();
 										<!-- //요구분석서 -->
 									</div>
 								</div>
-								<!-- //레벨 & 점수 -->
+								<!-- //최소완료조건 -->
 
-
+								<!-- 주간업무보고현황 -->
 								<div class="col-md-12 my-user gh-weekwork">
 
 									<div class="card weekwork">
@@ -229,6 +230,7 @@ String cp = request.getContextPath();
 									</div>
 
 								</div>
+								<!-- //주간업무보고현황 -->
 
 							</div>
 							<!-- //대시보드 상단 왼쪽 -->
@@ -305,6 +307,8 @@ String cp = request.getContextPath();
 						</div>
 
 					</div>
+					
+					<!-- 진행기간 -->
 					<div class="row con-section level">
 						<div class="card">
 							<div class="intro-body-list progressbar">
@@ -329,19 +333,23 @@ String cp = request.getContextPath();
 									</div>
 									<div class="progress progress-bar-striped" role="progressbar"
 										aria-label="Segment three" aria-valuenow="40"
-										aria-valuemin="0" aria-valuemax="100" style="width: ${avatarPercent }%">
-										<div class="progress-bar bg-info text-dark">구현 ${avatarPercent }%</div>
+										aria-valuemin="0" aria-valuemax="100"
+										style="width: ${avatarPercent }%">
+										<div class="progress-bar bg-info text-dark">구현
+											${avatarPercent }%</div>
 									</div>
 									<div class="progress progress-bar-striped" role="progressbar"
 										aria-label="Segment four" aria-valuenow="15" aria-valuemin="0"
 										aria-valuemax="100" style="width: ${testPercent }%">
-										<div class="progress-bar bg-warning text-dark">테스트 ${testPercent }%</div>
+										<div class="progress-bar bg-warning text-dark">테스트
+											${testPercent }%</div>
 									</div>
 								</div>
 							</div>
 
 						</div>
 					</div>
+					<!-- 진행기간 -->
 				</div>
 			</div>
 		</section>

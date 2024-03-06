@@ -31,18 +31,20 @@ String cp = request.getContextPath();
 		<!-- //헤더영역 -->
 
 		<!-- 바디영역 -->
-
 		<!-- 사이드 영역 -->
 		<c:import url="../Components/Side.jsp"></c:import>
 		<!-- //사이드 영역 -->
+		
+		
 		<section class="m-body-area">
 			<div class="container-xl">
 
 				<div class="content_tit">
 					<p class="h3">MeetUp Calendar</p>
 					<hr>
-				</div>
-
+				</div><!-- close .content_tit -->
+				
+				<!-- 개인 보기, 전체 보기 누를 때마다 자기 것만 보이게 하는 기능 구현 불가.. -->
 				<!-- <div class="workSet">
 					<div class="form-check">
 						<label class="form-check-label" for="totWork"> <input
@@ -59,10 +61,13 @@ String cp = request.getContextPath();
 				</div> -->
 
 
-			</div>
+			</div><!-- close container-xl -->
+			
+			<!-- fullcalendar 불러오기 -->
 			<div class="calendarbox">
 				<div id="calendar"></div>
-			</div>
+			</div><!-- close .calendarbox -->
+			
 		</section>
 		<!-- //바디영역 -->
 

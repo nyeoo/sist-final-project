@@ -18,6 +18,7 @@ public class CalendarController
 	@Autowired
 	private SqlSession sqlSession;
 
+	// 캘린더
 	@RequestMapping(value = "/calendar.action", method = RequestMethod.GET)
 	public String CalendarList(ModelMap model)
 	{
@@ -26,7 +27,10 @@ public class CalendarController
 		ArrayList<ScheduleDTO> allCalendar = dao.allCalendar();
 		ArrayList<AssignmentDTO> assCalendar = dao.assCalendar();
 		
+		// 캘린더 켜졌을 때 맨 처음 보이는 날짜
 		String initialDate = "";
+		
+		// Calendar.jsp로 보낼 데이터
 		String calData = "";
 		calData += "[";
 
@@ -57,6 +61,7 @@ public class CalendarController
 
 		calData += "]";
 		
+		//달력 시작 날짜
 		ArrayList<ScheduleDTO> dtos = dao.allCalendar();
 		initialDate += "'" + dtos.get(0).getSeStartDate() + "'";
 		

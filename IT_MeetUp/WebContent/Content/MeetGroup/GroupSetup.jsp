@@ -44,10 +44,11 @@ String cp = request.getContextPath();
 					<div class="content_tit">
 						<h5 class="card-header">그룹원 설정</h5>
 					</div>
-
+					
 					<div class="row">
 						<div class="card tbl-card">
 
+							<!-- 팀명 수정 -->
 							<c:forEach var="groupTeamNameItem" items="${groupTeamName }">
 								<div class="h3">
 									<span>${groupTeamNameItem.teamName}</span>
@@ -58,10 +59,13 @@ String cp = request.getContextPath();
 									</button>
 								</div>
 							</c:forEach>
-
+							<!-- //팀명수정 -->
+							
+							<!-- 팀명수정을 위한 모달 -->
 							<c:import url="../MeetGroup/M_GroupSetup.jsp"></c:import>
-
-
+							<!-- //팀명수정을 위한 모달 -->
+							
+							<!-- 그룹원 리스트 -->
 							<div class="table-responsive text-nowrap">
 								<table class="table">
 									<thead>
@@ -110,6 +114,7 @@ String cp = request.getContextPath();
 									</tbody>
 								</table>
 							</div>
+							<!-- //그룹원 리스트 -->
 						</div>
 					</div>
 
@@ -133,7 +138,7 @@ String cp = request.getContextPath();
 	<script src="<%=cp%>/asset/js/bootstrap.bundle.min.js"></script>
 	<script src="<%=cp%>/asset/js/common.js"></script>
 	<script type="text/javascript">
-				
+		/* 수정을 할대 모달 불러오는 스크립트 */
 		function NameModify()
 		{
 			$(location).attr("href", "groupSetupUpdate.action?code=" + $(this).val());
