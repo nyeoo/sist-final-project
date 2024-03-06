@@ -136,6 +136,8 @@ select::-ms-expand{display:none;/* 화살표 없애기 for IE10, 11*/}
     --pt-lightpurple: #e2d3fa;
     --pt-lightgreen: #cde8bf;
     --pt-lightyellow: #ffeca7;
+    --bs-form-invalid-color-err: #dc3545;
+    --bs-form-invalid-border-color-err: #dc3545;
     
     
     --bd-purple: #4c0bce;

@@ -85,12 +85,12 @@ String cp = request.getContextPath();
 															<label for="piId" class="form-label h5">아이디</label>
 															<div class="row col-12">
 																<div class="col-12 col-md-7">
-																	<input type="text" class="form-control" value="sist"
+																	<input type="text" class="form-control" value="sist1234"
 																		id="piId" name="piId" required="required">
 																	<div class="invalid-feedback">아이디를 입력해주세요.</div>
 																</div>
 																<div class="col-12 col-md-5">
-																	<button class="btn btn-primary w-100" type="button">중복확인</button>
+																	<button class="btn btn-primary w-100" type="button" id="checkId">중복확인</button>
 																</div>
 															</div>
 														</div>
@@ -116,7 +116,7 @@ String cp = request.getContextPath();
 
 													<div class="col-12">
 														<div class="m-input-box">
-															<input type="text" id="piEmail" name="piEmail"> <label
+															<input type="text" id="piEmail" name="piEmail" value="sist1234@naver.com"> <label
 																for="joinEmail1" class="form-label h5">이메일</label>
 															<div class="row col-12">
 																<div class="col-12 col-md-7">
@@ -151,7 +151,7 @@ String cp = request.getContextPath();
 																	<div class="invalid-feedback">닉네임을 입력해주세요.</div>
 																</div>
 																<div class="col-12 col-md-5">
-																	<button class="btn btn-primary w-100" type="button">중복확인</button>
+																	<button class="btn btn-primary w-100" type="button" id="checkNickname">중복확인</button>
 																</div>
 															</div>
 
@@ -316,9 +316,9 @@ String cp = request.getContextPath();
 											<!-- 회원가입3 -->
 											<div class="swiper-slide">
 												<div class="row g-3 needs-validation">
-													<!-- 희망기술 -->
+													<!-- 보유기술 -->
 													<div id="item-2-3" class="col-12">
-														<p class="h5">희망기술</p>
+														<p class="h5">보유기술</p>
 														<div class="skill-box">
 															<nav>
 																<!-- <div class="nav nav-tabs mb-3" id="nav-tab" role="tablist">
@@ -367,7 +367,7 @@ String cp = request.getContextPath();
 																						</c:forEach>">
 																						<input class="form-check-input " type="checkbox"
 																							value="${skillItem.skCode }"
-																							id="${status.index +1}"> <label
+																							id="skill-item-value${status.index +1}" name=""> <label
 																							class="form-check-label">
 																							${skillItem.skName } </label>
 																					</div>
@@ -575,16 +575,16 @@ String cp = request.getContextPath();
 		// 경력추가
 		function addCareer()
 		{
-			const careerTag = document.querySelector(".career-col-box");
-			const careerAddTag = "<div class='row col-12'><div class='col-12 col-md-3'><div class='m-input-box'><label for='selectJoinCareer' class='form-label'>경력직무</label><div class='m-select'><select class='form-select' aria-label='Default select example' title='selectJoinCareer'><option>-선택-</option><option value='JOB_1'>기획자</option><option value='JOB_2'>디자이너</option><option value='JOB_3'>프론트엔드</option><option value='JOB_4'>백엔드</option></select></div><div class='invalid-feedback'>아이디를 입력해주세요.</div></div></div><div class='row col-10 col-md-7 range-datepicker'><div class='col-6 m-input-cal'><label for='job-date-from' class='form-label'>시작날짜</label><input type='text' class='form-control job-date-from' value='2024/02/02' id='date-from'></div><div class='col-6 m-input-cal'><label for='job-date-to' class='form-label'>종료날짜</label><input type='text' class='form-control job-date-to' value='2024/02/28' id='date-to'></div></div><div class='col-2'><span class='form-label no-txt'></span><button class='btn btn-primary w-100 btn-more-one' type='button' title='경력 추가' onclick='addCareer()'><i class='bi bi-plus-circle-dotted'></i></button></div></div>";
+			let careerTag = document.querySelector(".career-col-box");
+			let careerAddTag = "<div class='row col-12'><div class='col-12 col-md-3'><div class='m-input-box'><label for='selectJoinCareer' class='form-label'>경력직무</label><div class='m-select'><select class='form-select' aria-label='Default select example' title='selectJoinCareer'><option>-선택-</option><option value='JOB_1'>기획자</option><option value='JOB_2'>디자이너</option><option value='JOB_3'>프론트엔드</option><option value='JOB_4'>백엔드</option></select></div><div class='invalid-feedback'>아이디를 입력해주세요.</div></div></div><div class='row col-10 col-md-7 range-datepicker'><div class='col-6 m-input-cal'><label for='job-date-from' class='form-label'>시작날짜</label><input type='text' class='form-control job-date-from' value='2024/02/02' id='date-from'></div><div class='col-6 m-input-cal'><label for='job-date-to' class='form-label'>종료날짜</label><input type='text' class='form-control job-date-to' value='2024/02/28' id='date-to'></div></div><div class='col-2'><span class='form-label no-txt'></span><button class='btn btn-primary w-100 btn-more-one' type='button' title='경력 추가' onclick='addCareer()'><i class='bi bi-plus-circle-dotted'></i></button></div></div>";
 			careerTag.insertAdjacentHTML("beforeend", careerAddTag);
 		}
 
 		// 1단계 이메일
-		const btn = document.querySelector(".join-step01");
-		const inputEmail00 = document.querySelector("#piEmail");
-		const inputEmail01 = document.querySelector("#joinEmail1");
-		const inputEmail02 = document.querySelector("#joinEmail2");
+		let btn = document.querySelector(".join-step01");
+		let inputEmail00 = document.querySelector("#piEmail");
+		let inputEmail01 = document.querySelector("#joinEmail1");
+		let inputEmail02 = document.querySelector("#joinEmail2");
 
 		btn.addEventListener('click', function()
 		{
@@ -592,7 +592,73 @@ String cp = request.getContextPath();
 					+ inputEmail02.options[inputEmail02.selectedIndex].value;
 
 		});
-	</script>
-</body>
+		
+		$(function(){
+			// 아이디 중복체크
+			$("#checkId").click(function(){
+				let piIdStr = $("#piId");
+				let piId = $("#piId").val();
+				
+				var ajaxRequest = null;
+				
+				if (ajaxRequest !== null) {
+					ajaxRequest.abort();
+				}
 
+				ajaxRequest = $.ajax(
+				{
+					type: "GET"
+					, url: "checkId.action"
+					, data: { piId: piId }
+					, success: function(searchCount)
+					{
+						if(searchCount>0)
+						{
+							piIdStr.next(".invalid-feedback").text("아이디가 같습니다.");
+							piIdStr.removeClass("is-valid").addClass("is-invalid");
+							piIdStr.focus();
+						}else{
+							piIdStr.removeClass("is-invalid").addClass("is-valid");
+							
+						}
+					}
+					, error: function()
+					{
+						alert("아이디 중복체크에 문제가 있습니다.");
+					}
+				});
+			});
+			
+			// 닉네임 중복체크
+			$("#checkNickname").click(function(){
+				let piNicknameStr = $("#piNickname");
+				let piNickname = $("#piNickname").val();
+
+				var ajaxRequest02 = null;
+
+				if (ajaxRequest02 !== null) {
+					ajaxRequest02.abort();
+				}
+
+				ajaxRequest02 = $.ajax(
+				{
+					type : "GET"
+					, url : "checkNickname.action"
+					, data : { piNickname : piNickname }
+					, success : function(searchNicknameCount){
+						if (searchNicknameCount > 0) {
+							piNicknameStr.next(".invalid-feedback").text("닉네임이 같습니다.");
+							piNicknameStr.removeClass("is-valid").addClass("is-invalid");
+							piNicknameStr.focus();
+						} else {
+							piNicknameStr.removeClass("is-invalid").addClass("is-valid");
+						}
+					}, error : function()
+					{
+						alert("닉네임 중복체크에 문제가 있습니다.");
+					}
+				});
+			});
+		})
+	</script>
 </html>

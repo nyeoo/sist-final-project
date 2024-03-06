@@ -16,6 +16,7 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class MemberController
@@ -123,10 +124,23 @@ public class MemberController
 		return "redirect:/Content/ProjectLounge/PostList_ju.jsp";
 	}
 	
+	// 아이디 중복 검사
+	@RequestMapping(value="/checkId.action", method = RequestMethod.GET)
+	public String checkId(@RequestParam("piId") String piId, ModelMap model)
+	{
+		IMemberDAO checkIdDAO = sqlSession.getMapper(IMemberDAO.class);
+		model.addAttribute("searchCount", checkIdDAO.checkId(piId));
+		return "/Content/Site/SearchIdCount.jsp";
+	}
 	
-	
-	
-	
+	// 닉네임 중복 검사
+	@RequestMapping(value="/checkNickname.action", method = RequestMethod.GET)
+	public String checkNickname(@RequestParam("piNickname") String piNickname, ModelMap model)
+	{
+		IMemberDAO checkNicknameDAO = sqlSession.getMapper(IMemberDAO.class);
+		model.addAttribute("searchNicknameCount", checkNicknameDAO.checkNickname(piNickname));
+		return "/Content/Site/SearchNicknameCount.jsp";
+	}
 	
 	
 	

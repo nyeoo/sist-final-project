@@ -23,6 +23,7 @@
 	</select>
 	
 	<!-- ========================================[ 회원가입 ]======================================== -->
+	<!-- ==[ 조회 ]== -->
 	<!-- 직업 조회 쿼리문 -->
 	<select id="jobs" resultType="com.itmeetup.mybatis.JobDTO">
 		SELECT JOB_CODE "JOBCODE", JOB_NAME "JOBNAME"
@@ -35,7 +36,7 @@
 		FROM MEETING
 	</select>
 	
-	<!-- 희망기술 탭 조회 쿼리문 -->
+	<!-- 보유기술 탭 조회 쿼리문 -->
 	<select id="skillCategorys" resultType="com.itmeetup.mybatis.SkillCategoryDTO">
 		SELECT SC_CODE "SCCODE", SC_NAME "SCNAME"
 		FROM SKILL_CATEGORY
@@ -47,6 +48,7 @@
 		FROM SKILL
 	</select>
 	
+	<!-- ==[ 추가 ]== -->
 	<!-- 직업 추가 쿼리문 -->
 	<select id="addMember" parameterType="string" statementType="CALLABLE">
 		{call MEMBER_INSERT(
@@ -64,7 +66,23 @@
 		}
 	</select>
 	
+	<!-- ==[ 기능 ]== -->
+	<!-- 보유기술 추가 쿼리문 -->
+	<!-- 아이디 중복체크 쿼리문 -->
+	<select id="checkId" parameterType="java.lang.String" resultType="java.lang.Integer">
+		SELECT COUNT(*)
+		FROM MEMBER MB JOIN PERSONAL_INFO PI
+		ON PI.PI_MEM_CODE = MB.MEM_CODE
+		WHERE PI.PI_ID = #{piId}
+	</select>
 	
+	<!-- 닉네임 중복체크 쿼리문 -->
+	<select id="checkNickname" parameterType="java.lang.String" resultType="java.lang.Integer">
+		SELECT COUNT(*)
+		FROM MEMBER MB JOIN PERSONAL_INFO PI
+		ON PI.PI_MEM_CODE = MB.MEM_CODE
+		WHERE PI.PI_NICKNAME = #{piNickname}
+	</select>
 	
 	
 	
