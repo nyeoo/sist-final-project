@@ -14,6 +14,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 					 , #{meetcode}, #{carcode}, #{memcode}, #{catcode}, #{siggcode})
 	</insert>
 	
+	<!-- 상세 일정, 역할별 인원수 입력  쿼리문(프로시저) -->
+	<select id="addperiod" parameterType="com.itmeetup.mybatis.WriteFormDTO" statementType="CALLABLE">
+		{call INSERT_TEAM_JOB 
+			 (#{inwon1 } 
+			 ,#{inwon2 }
+			 ,#{inwon3 }
+			 ,#{inwon4 }
+			 ,'OP_'||TO_CHAR(OPEN_PROJECT_SEQ.NEXTVAL+49 )
+			 ,#{startdate1 ,jdbcType=DATE }
+			 ,#{startdate2 ,jdbcType=DATE}
+			 ,#{startdate3 ,jdbcType=DATE}
+			 ,#{startdate4 ,jdbcType=DATE}
+			 ,#{enddate1 ,jdbcType=DATE}
+			 ,#{enddate2 ,jdbcType=DATE}
+			 ,#{enddate3 ,jdbcType=DATE}
+			 ,#{enddate4 ,jdbcType=DATE}
+			 )
+			
+		}
+	</select>
 
 </mapper>
 

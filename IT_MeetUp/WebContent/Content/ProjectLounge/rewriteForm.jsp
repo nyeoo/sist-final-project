@@ -56,7 +56,7 @@ String cp = request.getContextPath();
 								</div>
 
 								<!-- 모집공고 Swiper -->
-								<form action="opProjectInsertController.action" method="get">
+								<form action="opProjectInsertController.action" id="f" method="get">
 								<div class="swiper join-swiper">
 									<div class="swiper-btn">
 										<button type="button" class="swiper-button-prev">
@@ -295,14 +295,14 @@ String cp = request.getContextPath();
 									<div class="row" id="item-2-3"> 
                                     <p class="h5">팀원 설정</p>
 									<c:forEach var="job" items="${jobs }">
-									
+									<c:set var ="i" value="${i+1 }"></c:set>
 	                                        <div class="col-5 m-select">
 	                                            <!-- 프론트 -->
 	                                            ${job.jobName }
 	                                        </div>
 
                                         <div class="col-5 m-select">
-                                            <select class="form-select inwon" aria-label="Default select example" id=""  title="selectTitle01" required="required">
+                                            <select class="form-select inwon" aria-label="Default select example" id="inwon${i}" name="inwon${i}" title="selectTitle01" required="required">
                                                 <option selected>인원수를 골라주세요</option>
                                                 <option value="0">0명</option>
                                                 <option value="1">1명</option>
@@ -315,7 +315,9 @@ String cp = request.getContextPath();
                                                 <option value="8">8명</option>
                                                 <option value="9">9명</option>
                                             </select>
+                                            <%-- <input type="hidden" id="inwon_${status.index +1}" value=""> --%>
                                         </div>
+                                        
 									</c:forEach>	
 									<input type="hidden" id="mojibsu" name="mojibsu" value="" />
                                         
@@ -507,7 +509,7 @@ String cp = request.getContextPath();
 												</div>
 
 												<div class="col-12">
-													<button class="btn btn-primary w-100" type="submit">개설 신청</button>
+													<button class="btn btn-primary w-100" id="shoot" type="button">개설 신청</button>
 												</div>
 											</div>
 										</div>
@@ -567,13 +569,14 @@ String cp = request.getContextPath();
   	{
   		
   		
-  		
+  		// 팀원 수 고를때 
   		$(".inwon").change(function() 
 	  	 {
 	            var sum = 0;
 	            // 모든 select 요소의 값을 합산
 	            $(".inwon").each(function() 
-	            {
+	            {	
+	            	
 	                sum += parseInt($(this).val());
 	            });
 
@@ -603,7 +606,7 @@ String cp = request.getContextPath();
   		// 시작 날짜 선택
         $( "#sdate" ).datepicker(
         {
-        	dateFormat: "yyyy-mm-dd" ,			
+        	dateFormat: "yy-mm-dd" ,			
           	onSelect: function(selectedDate) 
           	{
             	var startDate = $(this).datepicker('getDate'); 						// 시작 날짜 가져오기
@@ -627,7 +630,7 @@ String cp = request.getContextPath();
         // 종료 날짜 선택
         $( "#edate" ).datepicker(
         {
-        	 dateFormat: "yyyy-mm-dd",
+        	 dateFormat: "yy-mm-dd",
         	 
         	 onSelect: function(selectedDate) 
              {
@@ -656,26 +659,31 @@ String cp = request.getContextPath();
 			//alert(document.getElementById("startDate").value);
   			
   			
-  			var meetType = $("input[name=btnradio]:checked").val();			// 선호방식 담는 변수
+  			var meetType = $("input[name=meetcode]:checked").val();					// 선호방식 담는 변수
 			  				
 			if (meetType !="MEET_1")												// 선호방식이 온라인이 아니면 시군구 입력 폼 등장
 			{
-				
-				$(".sunho").css('display','inline');
 				$(".meetType").css('display','inline');  
 			} 
-			else															// 선호방식이 온라인이라면 선호지역 입력 폼 숨기기
+			else																	// 선호방식이 온라인이라면 선호지역 입력 폼 숨기기
 			{
-				$(".sunho").css('display','none');
 				$(".meetType").css('display','none');
-				$("#si").val("0").prop("selected", true);
+				$("#siggcode").val("0").prop("selected", true);
 				$("#do").val("0").prop("selected", true);
 			}
 			
-			
-						
 		});
   		
+	     
+		// 날짜를 'yyyy-mm-dd' 형식으로 변환하는 함수
+		function formatDate(date)
+		{
+		    var year = date.getFullYear();
+		    var month = ('0' + (date.getMonth() + 1)).slice(-2);
+		    var day = ('0' + date.getDate()).slice(-2);
+		    return year + '-' + month + '-' + day;
+		};
+		
   		// 시를 고르면 다음 지역 선택가능하게 해주는 함수
 		$("#siggcode").change(function()
 		{       
@@ -699,16 +707,14 @@ String cp = request.getContextPath();
 		         
 		});
   		
-	     
-	     
-		// 날짜를 'yyyy-mm-dd' 형식으로 변환하는 함수
-		function formatDate(date)
+	    $("#shoot").click(function()
 		{
-		    var year = date.getFullYear();
-		    var month = ('0' + (date.getMonth() + 1)).slice(-2);
-		    var day = ('0' + date.getDate()).slice(-2);
-		    return year + '-' + month + '-' + day;
-		};
+			
+	    	$("#startdate1").attr("disabled", false);
+	    	$("#enddate4").attr("disabled", false);
+	    	 $( '#f' ).submit();
+	    	//alert("gma..");
+		});
 	     
 /* 
 		// 기술 체크할떄마다 span 구역에 나오게 함수
@@ -747,19 +753,9 @@ String cp = request.getContextPath();
 	     
 	     
 		$("#startdate1, #startdate2, #startdate3, #startdate4, #enddate1, #enddate2, #enddate3, #enddate4").datepicker({
-            dateFormat: 'yy-mm-dd',
-            changeMonth: true,
-            changeYear: true,
-            onSelect: function (dateText, inst) {
-                var $picker = $(this);
-                var $relatedEnddate = $("#" + this.id.replace("startdate", "enddate"));
-                if ($relatedEnddate.val() !== "") {
-                    if (new Date(dateText) > new Date($relatedEnddate.val())) {
-                        $relatedEnddate.val("");
-                    }
-                }
-            }
-        });
+			dateFormat: "yy-mm-dd" 
+           
+        }); 
     
 	     
 	     

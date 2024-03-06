@@ -59,6 +59,7 @@ public class WriteFormControl
 		  IWriteFormDAO dao = sqlSession.getMapper(IWriteFormDAO.class);
 		  
 		  dao.addProject(dto);
+		  dao.addperiod(dto);
 		  
 		  result = "/projectList.action";
 		  
