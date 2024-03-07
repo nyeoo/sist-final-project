@@ -18,8 +18,8 @@ String cp = request.getContextPath();
 <meta name="keywords" content="IT 프로젝트 모집, 사이드 프로젝트 진행">
 
 <!-- css -->
-<link rel="stylesheet" href="../../asset/css/style.css">
-<link rel="stylesheet" href="../../asset/css/layout_bny.css">
+<link rel="stylesheet" href="<%=cp %>/asset/css/style.css">
+<link rel="stylesheet" href="<%=cp %>/asset/css/layout_bny.css">
 
 <!-- font-awesome -->
 <script src="https://kit.fontawesome.com/81ca059e0e.js"
@@ -276,10 +276,10 @@ String cp = request.getContextPath();
 	</div><!-- end wrapper -->
 
 	<!-- script -->
-	<script src="../../asset/js/jquery-3.5.1-min.js"></script>
-	<script src="../../asset/js/jquery-ui.js"></script>
-	<script src="../../asset/js/bootstrap.bundle.min.js"></script>
-	<script src="../../asset/js/common.js"></script>
+	<script src="<%=cp %>/asset/js/jquery-3.5.1-min.js"></script>
+	<script src="<%=cp %>/asset/js/jquery-ui.js"></script>
+	<script src="<%=cp %>/asset/js/bootstrap.bundle.min.js"></script>
+	<script src="<%=cp %>/asset/js/common.js"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 	<script>

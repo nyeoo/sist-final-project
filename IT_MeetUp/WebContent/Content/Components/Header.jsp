@@ -303,7 +303,7 @@ String cp = request.getContextPath();
 									data-bs-toggle="dropdown" aria-expanded="false"> <span
 									class="member-icon-box <c:if test='${sessionScope.admin==1}'> admin</c:if>">
 										<span class="member-icon-img"> <!-- <img
-										src="../../asset/images/img_sample00.jpg" alt="userImage"> -->
+										src="<%=cp%>/asset/images/img_sample00.jpg" alt="userImage"> -->
 									</span>
 
 

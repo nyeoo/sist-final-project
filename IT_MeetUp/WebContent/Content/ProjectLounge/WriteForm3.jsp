@@ -23,7 +23,7 @@
 	span {font-weight: bold; }
 </style>
 <!-- 컴포넌트 전용 css -->
-	<link rel="stylesheet" href="../../asset/css/component.css">
+	<link rel="stylesheet" href="<%=cp %>/asset/css/component.css">
 <!-- script -->
 	<script src="<%=cp %>/asset/js/jquery-3.5.1-min.js"></script>
 	<script src="<%=cp %>/asset/js/jquery-ui.js"></script>

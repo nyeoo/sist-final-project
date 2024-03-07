@@ -374,7 +374,7 @@ String cp = request.getContextPath();
 										</div>
 										<!-- 썸네일 이미지 -->
 										<div class="thumbnail-box img-box">
-											<img src="../../asset/images/img_sample00.jpg" alt="썸네일샘플" />
+											<img src="<%=cp%>/asset/images/img_sample00.jpg" alt="썸네일샘플" />
 										</div>
 									</div>
 									<div class="card-bottom">
@@ -500,7 +500,7 @@ String cp = request.getContextPath();
 																</div>
 																<!-- 썸네일 이미지 -->
 																<div class="thumbnail-box img-box">
-																	<img src="../../asset/images/img_sample00.jpg"
+																	<img src="<%=cp%>/asset/images/img_sample00.jpg"
 																		alt="썸네일샘플" />
 																</div>
 															</div>
@@ -596,7 +596,7 @@ String cp = request.getContextPath();
 																</div>
 																<!-- 썸네일 이미지 -->
 																<div class="thumbnail-box img-box">
-																	<img src="../../asset/images/img_sample00.jpg"
+																	<img src="<%=cp%>/asset/images/img_sample00.jpg"
 																		alt="썸네일샘플" />
 																</div>
 															</div>
@@ -692,7 +692,7 @@ String cp = request.getContextPath();
 																</div>
 																<!-- 썸네일 이미지 -->
 																<div class="thumbnail-box img-box">
-																	<img src="../../asset/images/img_sample00.jpg"
+																	<img src="<%=cp%>/asset/images/img_sample00.jpg"
 																		alt="썸네일샘플" />
 																</div>
 															</div>

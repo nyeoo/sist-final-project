@@ -18,8 +18,8 @@
   <meta name="keywords" content="IT 프로젝트 모집, 사이드 프로젝트 진행">
 
   <!-- css -->
-  <link rel="stylesheet" href="../../asset/css/style.css">
-  <link rel="stylesheet" href="../../asset/css/layout_bny.css">
+  <link rel="stylesheet" href="<%=cp %>/asset/css/style.css">
+  <link rel="stylesheet" href="<%=cp %>/asset/css/layout_bny.css">
 
 </head>
 
@@ -243,7 +243,7 @@
 						<div class="card-top">
 							썸네일 이미지
 							<div class="thumbnail-box img-box">
-								<img src="../../asset/images/img_sample00.jpg" alt="썸네일샘플" />
+								<img src="<%=cp%>/asset/images/img_sample00.jpg" alt="썸네일샘플" />
 							</div>
 						</div>
 						<div class="card-bottom">
@@ -411,11 +411,11 @@
   </div>
 
   <!-- script -->
-  <script src="../../asset/js/jquery-3.5.1-min.js"></script>
-  <script src="../../asset/js/jquery-ui.js"></script>
-  <script src="../../asset/js/bootstrap.bundle.min.js"></script>
-  <script src="../../asset/js/swiper-bundle.min.js"></script>
-  <script src="../../asset/js/common.js"></script>
+  <script src="<%=cp %>/asset/js/jquery-3.5.1-min.js"></script>
+  <script src="<%=cp %>/asset/js/jquery-ui.js"></script>
+  <script src="<%=cp %>/asset/js/bootstrap.bundle.min.js"></script>
+  <script src="<%=cp %>/asset/js/swiper-bundle.min.js"></script>
+  <script src="<%=cp %>/asset/js/common.js"></script>
   <script>
 
   </script>
