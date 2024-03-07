@@ -15,30 +15,30 @@ public class GroupHomeController
 	@Autowired
 	private SqlSession sqlSession;
 
-	//그룹홈 과정
+	// 그룹홈 과정
 	@RequestMapping(value = "/grouphome.action", method = RequestMethod.GET)
 	public String weeklyReportList(ModelMap model, String opCode)
 	{
 		IGroupHomeDAO dao = sqlSession.getMapper(IGroupHomeDAO.class);
-		
+
 		// 산출물 갯수
 		model.addAttribute("meetCount", dao.meetCount(opCode));
 		model.addAttribute("planCount", dao.planCount(opCode));
 		model.addAttribute("flowchartCount", dao.flowchartCount(opCode));
 		model.addAttribute("requestCount", dao.requestCount(opCode));
-		
+
 		// 주간업무보고리스트
 		model.addAttribute("weeklyReportList", dao.weeklyReportList(opCode));
-		
+
 		// 그룹원
 		model.addAttribute("groupHomePlan", dao.groupHomePlan(opCode));
 		model.addAttribute("groupHomeDesign", dao.groupHomeDesign(opCode));
 		model.addAttribute("groupHomeFront", dao.groupHomeFront(opCode));
 		model.addAttribute("groupHomeBack", dao.groupHomeBack(opCode));
-		
+
 		// 진행기간
 		model.addAttribute("progressPeriod", dao.progressPeriod(opCode));
-		
+
 		// 진행기간별 막대그래프 비율
 		model.addAttribute("analyzePercent", dao.analyzePercent(opCode));
 		model.addAttribute("designPercent", dao.designPercent(opCode));
@@ -47,5 +47,22 @@ public class GroupHomeController
 
 		return "/Content/MeetGroup/GroupHome.jsp";
 	}
+
+//	// 평가를 위한 모달 컨트롤러
+//	@RequestMapping(value = "/eval.action", method = RequestMethod.GET)
+//	public String evalSearchId(ModelMap model, String opcode)
+//	{
+//		IGroupHomeDAO dao = sqlSession.getMapper(IGroupHomeDAO.class);
+//
+//		EvaluationDTO evaldto = new EvaluationDTO();
+//
+//		evaldto = dao.evalSearchId(opcode);
+//
+//		model.addAttribute("evaldto", evaldto);
+//
+//		return "/Content/MeetGroup/M_evaluation.jsp";
+//	}
+
+
 
 }

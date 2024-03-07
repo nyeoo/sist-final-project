@@ -203,3 +203,7 @@ text-align: center;}
 .weeklyRepTable {    table-layout: fixed;
     width: 100%;
     word-wrap: break-word;}
+    
+.eval {text-align: center;
+padding-top: 20px;
+padding-bottom: 20px;}
