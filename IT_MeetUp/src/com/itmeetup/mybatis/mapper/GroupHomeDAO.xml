@@ -114,32 +114,22 @@
 		WHERE OP_MEM_CODE = #{opcode }) AND SD_SS_CODE = 'SS_4'
  	</select>
  	
- 	<!-- 평가를 위한 코드찾기 쿼리문 
- 	 	<select id="GroupTeamNamesearchId" resultType="com.itmeetup.mybatis.EvaluationDTO">
-		SELECT OP_CODE "opCODE"
-		FROM OPEN_PROJECT OP
-		LEFT JOIN MEMBER M ON M.MEM_CODE = OP.OP_MEM_CODE
-		WHERE OP_CODE = (SELECT OP_CODE
-		FROM OPEN_PROJECT
-		WHERE OP_MEM_CODE = #{opcode })
- 	</select> -->
- 	
- 	<!-- 팀장 평가명 목록
- 	<select id="leadrtEval" resultType="com.itmeetup.mybatis.EvaluationDTO">
-		SELECT QUE_NAME
+ 	<!-- 팀장 평가명 목록 -->
+ 	<select id="leaderEval" resultType="com.itmeetup.mybatis.EvaluationDTO">
+		SELECT QUE_NAME "QUENAME"
 		FROM EVALNAMEVIEW
 		WHERE OP_CODE = (SELECT OP_CODE
 		FROM OPEN_PROJECT
 		WHERE OP_MEM_CODE = #{opcode }) AND QI_CODE = 'QI_2'
- 	</select> -->
+ 	</select>
  	
- 	<!-- 팀원 평가명 목록 
- 	<select id="leadrtEval" resultType="com.itmeetup.mybatis.EvaluationDTO">
-		SELECT QUE_NAME
+ 	<!-- 팀원 평가명 목록  -->
+ 	<select id="teamEval" resultType="com.itmeetup.mybatis.EvaluationDTO">
+		SELECT QUE_NAME "QUENAME"
 		FROM EVALNAMEVIEW
 		WHERE OP_CODE = (SELECT OP_CODE
 		FROM OPEN_PROJECT
 		WHERE OP_MEM_CODE = #{opcode }) AND QI_CODE = 'QI_1'
- 	</select>-->
+ 	</select>
  	
  </mapper>

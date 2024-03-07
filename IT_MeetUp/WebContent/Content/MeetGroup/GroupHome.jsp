@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	request.setCharacterEncoding("UTF-8");
-	String cp = request.getContextPath();
+String cp = request.getContextPath();
 %>
 <!DOCTYPE html>
 <html lang="ko">
@@ -302,7 +302,7 @@
 						</div>
 
 					</div>
-					
+
 					<!-- 진행기간 -->
 					<div class="row con-section level">
 						<div class="card">
@@ -345,6 +345,67 @@
 						</div>
 					</div>
 					<!-- 진행기간 -->
+					
+					<!-- 평가하기 -->
+					<div class="eval">
+						<button type="button" id="evalInsertBtn" class="btn btn-primary"
+							data-bs-toggle="modal" data-bs-target="#evalInsert" value="평가버튼"
+							onclick="evaluate()">
+							<i class="bi bi-plus-lg"></i> 평가하기
+						</button>
+					</div>
+					<!-- 팀명수정을 위한 모달 -->
+					<form role="form" action="evalinsert.action" method="post"
+						id="evalForm">
+						<div class="modal fade" id="evalInsert" tabindex="-1"
+							aria-labelledby="#evalLabel" aria-hidden="true">
+							<div class="modal-dialog modal-dialog-centered">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h1 class="modal-title fs-5" id="evalLabel">그룹원 평가</h1>
+										<button type="button" class="btn-close"
+											data-bs-dismiss="modal" aria-label="Close"></button>
+									</div>
+									<div class="modal-body">
+										<div class="modal-contents">
+											<div class="con-section complete-list">
+
+												<div class="row">
+													<div class="col-md-8">
+														<div class="mb-3">
+															<table class="table">
+																<c:forEach var="leaderItem" items="${leaderEval }">
+																	<tr>
+																		<th>${leaderItem.quename }</th>
+																	</tr>
+																</c:forEach>
+																<c:forEach var="teamItem" items="${teamEval }">
+																	<tr>
+																		<td><label> 
+																		<input type="checkbox" 	name="obj01" value="${teamItem.quename }" />
+																				${teamItem.quename }
+																		</label></td>
+																	</tr>
+																</c:forEach>
+															</table>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary"
+											data-bs-dismiss="modal">나가기</button>
+										<button type="button" class="btn btn-primary" id="evalu">평가하기</button>
+
+										<span id="err"
+											style="color: red; font-weight: bold; display: none;"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
 				</div>
 			</div>
 		</section>
@@ -352,7 +413,7 @@
 	<!-- //바디영역 -->
 
 	<!-- 푸터영역 -->
-	<c:import url="../Components/Footer.jsp" ></c:import>
+	<c:import url="../Components/Footer.jsp"></c:import>
 	<!-- //푸터영역 -->
 
 	<!-- script -->
@@ -361,9 +422,22 @@
 	<script src="<%=cp%>/asset/js/bootstrap.bundle.min.js"></script>
 	<script src="<%=cp%>/asset/js/common.js"></script>
 	<script src="https://kit.fontawesome.com/81ca059e0e.js"
-	crossorigin="anonymous"></script>
+		crossorigin="anonymous"></script>
 	<script>
-		
+		function evaluate()
+		{
+			$('#evalInsert').load("/eval.action");
+			$('#evalInsert').modal();
+		}
+
+		$(function()
+		{
+			$("#evalu").click(function()
+			{
+				alert("ddd");
+
+			});
+		})
 	</script>
 </body>
 
