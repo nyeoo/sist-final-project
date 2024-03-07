@@ -2,6 +2,8 @@ package com.itmeetup.mybatis;
 
 import java.util.ArrayList;
 
+import org.apache.ibatis.annotations.Param;
+
 public interface IGroupSetupDAO
 {
 //	// 그룹원 조회
@@ -26,5 +28,5 @@ public interface IGroupSetupDAO
 	public OpenProjectDTO GroupTeamNamesearchId(String opcode);
 	
 	// 팀명수정
-	public int groupTeamNamemodify(String teamName, String opcode);
+	public int groupTeamNamemodify(@Param("teamName") String teamName, @Param("opcode") String opcode);
 }

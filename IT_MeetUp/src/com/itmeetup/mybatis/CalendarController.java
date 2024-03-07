@@ -64,7 +64,7 @@ public class CalendarController
 		ArrayList<ScheduleDTO> dtos = dao.allCalendar(sdOpCode);
 		initialDate += "'" + dtos.get(0).getSeStartDate() + "'";
 		
-		/*
+		
 		if(assCalendar.size()!=0)
 		{
 			assCalendar.get(0).getPiNickName();
@@ -77,7 +77,7 @@ public class CalendarController
 			allCalendar.get(0).getSeStartDate();
 			allCalendar.get(0).getSdEndDate();
 		}
-		*/
+		
 		
 		model.addAttribute("initialDate", initialDate);
 		model.addAttribute("calData", calData);

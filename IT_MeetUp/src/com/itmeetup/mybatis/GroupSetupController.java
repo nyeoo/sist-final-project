@@ -1,5 +1,6 @@
 package com.itmeetup.mybatis;
 
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -92,7 +93,7 @@ public class GroupSetupController
 	
 	// 팀명 수정
 	@RequestMapping(value = "/groupteamnamemodify.action", method = RequestMethod.POST)
-	public String groupTeamNamemodify(String teamName, String opcode)
+	public String groupTeamNamemodify(@Param("teamName") String teamName, @Param("opcode") String opcode)
 	{
 		IGroupSetupDAO dao = sqlSession.getMapper(IGroupSetupDAO.class);
 		dao.groupTeamNamemodify(teamName, opcode);

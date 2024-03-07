@@ -63,12 +63,12 @@ $(function() {
         }
 
         var teamName = $("#teamName").val();
-        var opcode = "${sessionScope.loginDTO.piMemCode}"; // 수정된 부분
+        var opcode = "${sessionScope.loginDTO.piMemCode}";
         
         
         $.post("groupteamnamemodify.action", {
             teamName: teamName,
-            opcode: opcode // 수정된 부분
+            opcode: opcode
         }, function(data) {
             // 수정 성공 시 모달 닫기
             $("#teamnameUpdate").modal("hide");
