@@ -73,6 +73,9 @@ String cp = request.getContextPath();
 										<div class="swiper-slide">
 											<div class="row g-3 needs-validation" novalidate>
 								<input type="hidden" name="memcode" id="memcode" value="${sessionScope.loginDTO.piMemCode}" />	<!-- 개설자 회원코드 -->
+								<!-- 새로추가 -->
+								<input type="text" name="lastCode" id="lastCode" value="${lastCode}" />	<!-- 가장 최근 만들어진 프로젝트 code -->
+								
 								<!-- 모집내용 -->
                                 <div id="item-1" class="col-12">
                                     <p class="h4">모집 내용</p>
@@ -321,44 +324,7 @@ String cp = request.getContextPath();
 									</c:forEach>	
 									<input type="hidden" id="mojibsu" name="mojibsu" value="" />
                                         
-<!--                                         <div class="col-5 m-select">
-                                            백엔드
-                                        </div>
-                                        <div class="col-5 m-select">
-                                            <select class="form-select" aria-label="Default select example"
-                                                title="selectTitle01">
-                                                <option selected>인원수를 골라주세요</option>
-                                                <option value="1">1명</option>
-                                                <option value="2">2명</option>
-                                                <option value="3">3명</option>
-                                                <option value="4">4명</option>
-                                                <option value="5">5명</option>
-                                                <option value="6">6명</option>
-                                                <option value="7">7명</option>
-                                                <option value="8">8명</option>
-                                                <option value="9">9명</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-5 m-select">
-                                            디자인
-                                        </div>
-                                        <div class="col-5 m-select">
-                                            <select class="form-select" aria-label="Default select example"
-                                                title="selectTitle01">
-                                                <option selected>인원수를 골라주세요</option>
-                                                <option value="0">0명</option>
-                                                <option value="1">1명</option>
-                                                <option value="2">2명</option>
-                                                <option value="3">3명</option>
-                                                <option value="4">4명</option>
-                                                <option value="5">5명</option>
-                                                <option value="6">6명</option>
-                                                <option value="7">7명</option>
-                                                <option value="8">8명</option>
-                                                <option value="9">9명</option>
-                                            </select>
-                                        </div>
- -->                          
+
  			          </div>
                                 </div>
                                 <!-- 팀원설정 끝 -->	

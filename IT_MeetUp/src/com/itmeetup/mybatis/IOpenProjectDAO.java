@@ -4,6 +4,9 @@ import java.util.ArrayList;
 
 public interface IOpenProjectDAO
 {
+	// 현재 생성된 프로젝트 출력
+	public ArrayList<OpenProjectDTO> openList();
+	
 	// 프로젝트 카테고리 출력
 	public ArrayList<String> cateList();
 	
@@ -14,15 +17,15 @@ public interface IOpenProjectDAO
 	// 커리어 출력
 	public ArrayList<String> carList();
 	
-	// 프로젝트의 해당하는 희망 기술 뽑기
-	public ArrayList<String> skillList(String code);
-	
-	// 현재 생성된 프로젝트 출력
-	public ArrayList<OpenProjectDTO> openList();
-	
 	// 사용자가 누른  프로젝트 출력
 	public OpenProjectDTO choiceProList(String code);
 
+	// 프로젝트의 해당하는 희망 기술 뽑기
+	public ArrayList<String> skillList(String code);
+	
+	// 새로 추가
+	// 가장 최근 프로젝트 코드 뽑기 
+	public String lastCode();
 	
 	
 }

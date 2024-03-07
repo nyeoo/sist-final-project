@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class ProjectController
+public class OpenProjectController
 {
 	// 주요 속성 구성
 	@Autowired
@@ -25,20 +25,29 @@ public class ProjectController
 		String result =null;
 		
 		IOpenProjectDAO dao = sqlSession.getMapper(IOpenProjectDAO.class);
-		IJobDAO jdao = sqlSession.getMapper(IJobDAO.class);
+		//IJobDAO jdao = sqlSession.getMapper(IJobDAO.class);
+		//IOpenProjectDAO jdao = sqlSession.getMapper(IOpenProjectDAO.class);
 		
 		// 프로젝트 해당하는 기술 담기
 		Map<String,ArrayList<String>> skills = new HashMap<String, ArrayList<String>>();
 		// 프로젝트 해당하는 직위 담기
-		Map<String,ArrayList<String>> jobs = new HashMap<String, ArrayList<String>>();
+		//Map<String,ArrayList<String>> jobs = new HashMap<String, ArrayList<String>>();
 		
 		ArrayList<OpenProjectDTO> project = dao.openList();		
 		
 		for (OpenProjectDTO dto : project)
 		{
 			skills.put(dto.getCode(), dao.skillList(dto.getCode()));
-			jobs.put(dto.getCode(), jdao.jobList((dto.getCode())));
+			//jobs.put(dto.getCode(), jdao.jobList((dto.getCode())));
 		}
+		
+		IMemberDAO skillCategoryDAO = sqlSession.getMapper(IMemberDAO.class);	// 스킬카테고리 select
+		IMemberDAO skillsDAO = sqlSession.getMapper(IMemberDAO.class);			// 스킬 리스트
+		SkillProcessor skProcessors = new SkillProcessor();						// 스킬 리스트 조회 및 처리
+		model.addAttribute("skProcessors", skProcessors.createSkillMapping());
+		model.addAttribute("skillCategorys", skillCategoryDAO.skillCategorys());
+		model.addAttribute("lastCode",dao.lastCode());							// 가장 최근 프로젝트 개설 코드 뽑기
+		model.addAttribute("skills", skillsDAO.skills());
 		
 		
 		
@@ -47,8 +56,10 @@ public class ProjectController
 		model.addAttribute("sidoList",dao.sidoList());
 		model.addAttribute("siggList",dao.siggList());
 		model.addAttribute("carList",dao.carList());
-		model.addAttribute("skills",skills);
-		model.addAttribute("jobs",jobs);
+		model.addAttribute("skill",skills);
+		//model.addAttribute("jobs",jobs);
+		
+		
 		
 		result = "/Content/ProjectLounge/PostList_ju.jsp";
 						   
@@ -72,12 +83,12 @@ public class ProjectController
 			recomments.put(cdto.getNumber() , cdao.recommentList((cdto.getNumber())));
 		}
 		
-		model.addAttribute("choicProList",dao.choiceProList(code));
-		model.addAttribute("skillList",dao.skillList(code));
-		model.addAttribute("jobs",jdao.jobList(code));
-		model.addAttribute("comments",cdao.commentList(code));
-		model.addAttribute("count",cdao.countComment(code));
-		model.addAttribute("recomments",recomments);
+		model.addAttribute("choicProList",dao.choiceProList(code));		// 해당 프로젝트 정보 뽑기
+		model.addAttribute("skillList",dao.skillList(code));			// 해당 프로젝트 기술 뽑기
+		model.addAttribute("jobs",jdao.jobList(code));					// 해당 프로젝트 직무 뽑기
+		model.addAttribute("comments",cdao.commentList(code));			// 댓글 뽑기
+		model.addAttribute("count",cdao.countComment(code));			// 댓글 개수 세기
+		model.addAttribute("recomments",recomments);					// 대댓글 뽑기
 		
 		
 		

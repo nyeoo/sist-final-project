@@ -10,13 +10,23 @@ public class WriteFormDTO
 	private String mojibsu , title, content
 			 	  , meetcode,catcode,memcode,carcode,siggcode , teamname ,startDate,endDate
 			 	  ,startdate1,enddate1,startdate2,enddate2,startdate3,enddate3,startdate4,enddate4
-			 	  ,inwon1,inwon2,inwon3,inwon4;
+			 	  ,inwon1,inwon2,inwon3,inwon4 ,lastCode;
 	
 	//private ArrayList<String> hopeskills;
 	private List<String> hopeskills;
 	
 	
 	
+	// setter /getter
+	public String getLastCode()
+	{
+		return lastCode;
+	}
+
+	public void setLastCode(String lastCode)
+	{
+		this.lastCode = lastCode;
+	}
 
 	public String getTeamname()
 	{

@@ -76,7 +76,7 @@
 											<p>
 												<strong>모집 분야:</strong> 
 												<c:forEach var="job" items="${jobs }">
-													${job }
+													${job.jobName }
 												</c:forEach>
 												
 											</p>
@@ -222,9 +222,11 @@
 								<div class="tab-content" id="nav-tabContent2">
 										<div class="tab-pane fade show active" id="nav-mojib"
 											role="tabpanel" aria-labelledby="nav-mojib-tab">
-											<h5>프론트 1/2</h5>
-											<h5>백엔드 0/3</h5>
-											<h5>디자인 1/1</h5>
+											<c:forEach var="job" items="${jobs }">
+													<h5>${job.jobName }  0 / ${job.inwon }</h5>
+											</c:forEach>
+												
+											
 										</div>
 									<div class="tab-pane fade" id="nav-comment" role="tabpanel" aria-labelledby="nav-comment-tab">
 							  	<!-- 댓글 -->

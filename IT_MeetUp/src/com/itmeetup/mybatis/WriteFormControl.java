@@ -37,7 +37,7 @@ public class WriteFormControl
 		model.addAttribute("carList",dao.carList());							// 경력 코드
 		model.addAttribute("jobs",jdao.jobs());									// 직무 뽑기
 		model.addAttribute("skillCategorys", skillCategoryDAO.skillCategorys());
-		
+		model.addAttribute("lastCode",dao.lastCode());							// 가장 최근 프로젝트 개설 코드 뽑기
 		model.addAttribute("skills", skillsDAO.skills());
 		
 		SkillProcessor skProcessors = new SkillProcessor();						// 스킬 리스트 조회 및 처리
@@ -53,7 +53,7 @@ public class WriteFormControl
 	
 	
 	
-	// 모집 입력 문 
+	// 프로젝트  입력 쿼리문 실행 
 	@RequestMapping(value = "/opProjectInsertController.action" , method = RequestMethod.GET)
 	public String InertOpProject (WriteFormDTO dto )
 	{
@@ -61,7 +61,32 @@ public class WriteFormControl
 		 String result = null;
 		 IWriteFormDAO dao = sqlSession.getMapper(IWriteFormDAO.class);
 		 List<String> hopeskills = dto.getHopeskills();
-
+		 
+		 String lastCode = dto.getLastCode();
+		 
+		 if(lastCode=="")
+		 {
+			 lastCode="op_1";
+			 System.out.println("hmm");
+		 }
+		 else
+		 {
+			String numcode= lastCode.substring(3);
+			String Stringcode= lastCode.substring(0,3);
+				
+			System.out.println("숫자만 뽑아 :"+numcode);
+			System.out.println("문자만 뽑아 :"+Stringcode);
+			
+			int numbercode= Integer.parseInt(numcode);
+			System.out.println("정수형으로 변환 :" +numbercode);
+			numbercode= numbercode+1;
+			System.out.println("+1 한 결과"+numbercode);
+			Integer.toString(numbercode);
+			lastCode = Stringcode+numbercode;
+			System.out.println("최종본"+lastCode);
+			
+		 }
+		 System.out.println("출력");
 		 // 테스트
 //		 for(String code : hopeskills)
 //		 {
@@ -71,12 +96,15 @@ public class WriteFormControl
 		 
 		 
 		 
-		  
-		  dao.addProject(dto);
-		 dao.addperiod(dto);
-		  dao.addSkill(hopeskills);
+		  // 프로젝트 정보 입력 쿼리
+		  //dao.addProject(dto);		
+		  // 프로젝트 상세일정, 역할별 인원수 입력
+		  dao.addperiod(dto);
+		  // 프로젝트 희망 기술 입력
+		  dao.addSkill(hopeskills,lastCode);
 		  	
 		  result = "/Content/ProjectLounge/PostList_ju.jsp";
+		  //result = "/projectList.action";
 		  
 		  return result;
 		 

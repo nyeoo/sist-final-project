@@ -56,7 +56,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			WHERE TS_OP_CODE = #{code}
 	</select>
 	
+	<!-- 가장 최근 프로젝트 코드 뽑기 -->
+	<select id="lastCode" resultType="java.lang.String" >
+			SELECT LAST_CODE
+			FROM (SELECT LAST_VALUE(OP_CODE) OVER() AS LAST_CODE
+			FROM OPEN_PROJECT) A
+			WHERE ROWNUM = 1
+	</select>
 	
+
 	
 	
 	
