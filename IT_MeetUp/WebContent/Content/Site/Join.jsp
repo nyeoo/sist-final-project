@@ -367,7 +367,7 @@ String cp = request.getContextPath();
 																						</c:forEach>">
 																						<input class="form-check-input " type="checkbox"
 																							value="${skillItem.skCode }"
-																							id="skill-item-value${status.index +1}" name=""> <label
+																							id="skill-item-value${status.index +1}" name="skillCheck"> <label
 																							class="form-check-label">
 																							${skillItem.skName } </label>
 																					</div>
@@ -398,7 +398,7 @@ String cp = request.getContextPath();
 																						</c:forEach>">
 																						<input class="form-check-input " type="checkbox"
 																							value="${skillItem.skCode }"
-																							id="${status.index +1}"> <label
+																							id="skill-item-value${status.index +1}" name="skillCheck"> <label
 																							class="form-check-label">
 																							${skillItem.skName } </label>
 																					</div>
@@ -430,7 +430,7 @@ String cp = request.getContextPath();
 																						</c:forEach>">
 																						<input class="form-check-input " type="checkbox"
 																							value="${skillItem.skCode }"
-																							id="${status.index +1}"> <label
+																							id="skill-item-value${status.index +1}" name="skillCheck"> <label
 																							class="form-check-label">
 																							${skillItem.skName } </label>
 																					</div>
@@ -659,6 +659,16 @@ String cp = request.getContextPath();
 					}
 				});
 			});
+			
+			// 체크박스 ArrayList;
+			/* var checkArr = new Array;
+			$("input[name='skillCheck']:checked").each(function(idx)
+			{
+				checkArr.push($(this).val());
+				
+				console.log(checkArr);
+			}); */
+			
 		})
 	</script>
 </html>

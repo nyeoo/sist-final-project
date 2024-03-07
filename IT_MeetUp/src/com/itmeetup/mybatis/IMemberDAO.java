@@ -20,5 +20,4 @@ public interface IMemberDAO
 	public int checkNickname(String piNickname);			// 닉네임 중복 체크
 	public int addSkill(SkillDTO skill);			// 스킬 insert
 	
-	
 }

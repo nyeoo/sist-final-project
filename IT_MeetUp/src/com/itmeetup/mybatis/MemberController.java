@@ -53,11 +53,13 @@ public class MemberController
 		{	// 일반멤버
 			member = new MemberDTO();
 			member = dao.getMember(piId, piPw);
+			session.removeAttribute("admin");
 			session.setAttribute("admin", "0");
 		} else
 		{	// 관리자
 			member = new MemberDTO();
 			member = dao.getAdmin(piId, piPw);
+			session.removeAttribute("admin");
 			session.setAttribute("admin", "1");
 		}
 
@@ -80,7 +82,7 @@ public class MemberController
 	@RequestMapping(value = "/logout.action")
 	public String logout(HttpSession session)
 	{
-		session.setAttribute("admin", "");
+		session.removeAttribute("admin");
 		session.removeAttribute("loginDTO");
 		session.invalidate();	// 세션제거
 

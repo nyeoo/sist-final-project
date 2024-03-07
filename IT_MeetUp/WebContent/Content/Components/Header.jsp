@@ -311,7 +311,7 @@ String cp = request.getContextPath();
 								</a>
 								<ul class="dropdown-menu dropdown-menu-end text-small shadow">
 									<li class="dropdown-header"><c:if
-											test='${sessionScope.loginDTO.admin!=null}'>
+											test='${sessionScope.admin==1}'>
 											<span class="badge text-bg-primary">관리자</span>
 										</c:if>
 										<h6>${sessionScope.loginDTO.piNickname }</h6> <span>@${sessionScope.loginDTO.piPw }</span>
