@@ -45,24 +45,13 @@ public class GroupHomeController
 		model.addAttribute("avatarPercent", dao.avatarPercent(opCode));
 		model.addAttribute("testPercent", dao.testPercent(opCode));
 
+		// 팀장 평가 목록
+		model.addAttribute("leaderEval", dao.leaderEval(opCode));
+
+		// 팀원 평가 목록
+		model.addAttribute("teamEval", dao.teamEval(opCode));
+
 		return "/Content/MeetGroup/GroupHome.jsp";
 	}
-
-//	// 평가를 위한 모달 컨트롤러
-//	@RequestMapping(value = "/eval.action", method = RequestMethod.GET)
-//	public String evalSearchId(ModelMap model, String opcode)
-//	{
-//		IGroupHomeDAO dao = sqlSession.getMapper(IGroupHomeDAO.class);
-//
-//		EvaluationDTO evaldto = new EvaluationDTO();
-//
-//		evaldto = dao.evalSearchId(opcode);
-//
-//		model.addAttribute("evaldto", evaldto);
-//
-//		return "/Content/MeetGroup/M_evaluation.jsp";
-//	}
-
-
 
 }

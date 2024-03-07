@@ -28,13 +28,9 @@ public interface IGroupHomeDAO
 	public Double avatarPercent(String opCode);
 	public Double testPercent(String opCode);
 	
-//	// 평가를 위한 모달
-//	public EvaluationDTO evalSearchId(String opcode);
+	// 팀장 평가 목록 조회
+	public ArrayList<EvaluationDTO> leaderEval(String opCode);
 	
-//	// 팀장 평가하기 목록
-//	public String leadrtEval(String opcode);
-//	
-//	// 팀원 평가하기 목록
-//	public ArrayList<EvaluationDTO> teamEval(String opcode);
-	
+	// 팀원 평가 목록 조회
+	public ArrayList<EvaluationDTO> teamEval(String opCode);
 }
