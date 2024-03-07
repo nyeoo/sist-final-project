@@ -18,7 +18,7 @@ String cp = request.getContextPath();
 <meta name="keywords" content="IT 프로젝트 모집, 사이드 프로젝트 진행">
 
 <!-- css -->
-<link rel="stylesheet" href="../../asset/css/style.css">
+<link rel="stylesheet" href="<%=cp %>/asset/css/style.css">
 <style type="text/css">
 .comp_box {
 	text-align: center;
@@ -39,8 +39,7 @@ String cp = request.getContextPath();
 	<div class="wrapper">
 
 		<!-- 헤더영역 -->
-		<div role="header" data-include="../Components/Header.jsp"
-			class="sticky-top"></div>
+		<c:import url="../Components/Header.jsp"></c:import>
 		<!-- //헤더영역 -->
 
 		<!-- 바디영역 -->
@@ -247,17 +246,16 @@ String cp = request.getContextPath();
 		<!-- //바디영역 -->
 
 		<!-- 푸터영역 -->
-		<div role="footer" data-include="../Components/Footer.jsp"
-			class="mt-auto"></div>
+		<c:import url="../Components/Footer.jsp" ></c:import>
 		<!-- //푸터영역 -->
 
 	</div>
 
 	<!-- script -->
-	<script src="../../asset/js/jquery-3.5.1-min.js"></script>
-	<script src="../../asset/js/jquery-ui.js"></script>
-	<script src="../../asset/js/bootstrap.bundle.min.js"></script>
-	<script src="../../asset/js/common.js"></script>
+	<script src="<%=cp %>/asset/js/jquery-3.5.1-min.js"></script>
+	<script src="<%=cp %>/asset/js/jquery-ui.js"></script>
+	<script src="<%=cp %>/asset/js/bootstrap.bundle.min.js"></script>
+	<script src="<%=cp %>/asset/js/common.js"></script>
 	<script>
 		
 	</script>

@@ -143,28 +143,5 @@ public class MemberController
 		model.addAttribute("searchNicknameCount", checkNicknameDAO.checkNickname(piNickname));
 		return "/Content/Site/SearchNicknameCount.jsp";
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 }
