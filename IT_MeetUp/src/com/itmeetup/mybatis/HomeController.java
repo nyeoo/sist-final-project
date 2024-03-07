@@ -18,7 +18,7 @@ public class HomeController {
     private SqlSession sqlSession;
 
     @RequestMapping(value = "/home.action", method = RequestMethod.GET)
-    public String Home(Model model) {
+    public String home(Model model) {
 
         // MyBatis Mapper 인터페이스를 이용하여 DAO 생성
         IHomeDAO dao = sqlSession.getMapper(IHomeDAO.class);

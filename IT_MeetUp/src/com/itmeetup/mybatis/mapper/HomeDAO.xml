@@ -5,7 +5,6 @@
  
  <!-- mybatis 환경 설정 파일 활용 -->
  <mapper namespace="com.itmeetup.mybatis.IHomeDAO">
- 
  	<select id="popList" resultType="com.itmeetup.mybatis.OpenProjectDTO">
  		SELECT "CODE", "START", "END", "PROFILE", "NICKNAME", "TITLE", "CONTENT", "VIEW", "DAY"
 		FROM POPULAR_VIEW
