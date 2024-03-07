@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="com.itmeetup.mybatis.IWriteFormDAO">
 
-	<!-- 프로젝트 해당하는 기술 출력 -->
+	<!-- 프로젝트 정보 입력 -->
 	<insert id="addProject" >
 		INSERT INTO OPEN_PROJECT(OP_CODE, OP_RECR_NUM, OP_TITLE, OP_CONTENT, OP_DATE, OP_VIEW
 								, OP_START_DATE, OP_END_DATE, OP_TEAM_NAME, OP_MEET_CODE, OP_CAR_CODE, OP_MEM_CODE, OP_CAT_CODE, OP_SIGG_CODE)
@@ -34,6 +34,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			
 		}
 	</select>
+
+
+	<!-- 프로젝트 희망 기술 입력 -->
+	<update id="addSkill" parameterType="java.util.List">
+		INSERT INTO TEAM_SKILL(TS_NO, TS_SK_CODE, TS_OP_CODE)
+		SELECT TEAM_SKILL_SEQ.NEXTVAL + 58, A.* FROM(
+	    <foreach collection="list" item="skill" index="index" separator="UNION ALL ">
+	    SELECT #{skill} AS TS_SK_CODE, 'OP_'||TO_CHAR(OPEN_PROJECT_SEQ.NEXTVAL+48 )
+	    FROM DUAL
+	    </foreach>) A
+	</update>
+
+
+
+
+
 
 </mapper>
 

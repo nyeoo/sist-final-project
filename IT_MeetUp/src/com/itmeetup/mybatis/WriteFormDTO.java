@@ -1,7 +1,8 @@
 package com.itmeetup.mybatis;
 
 
-import java.util.ArrayList;
+
+import java.util.List;
 
 public class WriteFormDTO
 {
@@ -11,7 +12,8 @@ public class WriteFormDTO
 			 	  ,startdate1,enddate1,startdate2,enddate2,startdate3,enddate3,startdate4,enddate4
 			 	  ,inwon1,inwon2,inwon3,inwon4;
 	
-	private ArrayList<String> hopeskills;
+	//private ArrayList<String> hopeskills;
+	private List<String> hopeskills;
 	
 	
 	
@@ -35,13 +37,14 @@ public class WriteFormDTO
 	{
 		this.teamname = teamname;
 	}
+	
 
-	public ArrayList<String> getHopeskills()
+	public List<String> getHopeskills()
 	{
 		return hopeskills;
 	}
 
-	public void setHopeskills(ArrayList<String> hopeskills)
+	public void setHopeskills(List<String> hopeskills)
 	{
 		this.hopeskills = hopeskills;
 	}

@@ -102,7 +102,7 @@ String cp = request.getContextPath();
                                         <label for="writePost01" class="form-label">
                                             <p class="h5">제목</p>
                                         </label>
-                                        <input type="text" class="form-control" id="title" name="title" required="required" style="width: 350px;">
+                                        <input type="text" class="form-control" id="title" name="title" required="required" style="width: 350px;" value="ljh1234">
                                         <div class="invalid-feedback">
                                             제목을 입력해주세요.
                                         </div>
@@ -115,7 +115,7 @@ String cp = request.getContextPath();
                                         <label for="exampleFormControlTextarea1" class="form-label"> 
                                             <p class="h5">내용</p>
                                         </label>
-                                        <textarea class="form-control" id="content" name="content" rows="15"  required="required" style="width: 700px;"></textarea>
+                                        <textarea class="form-control" id="content" name="content" rows="15"  required="required" style="width: 700px;" value="ljh1234"></textarea>
                                     </div>
                                     <div class="invalid-feedback">
                                           내용을 입력하세요
@@ -376,7 +376,7 @@ String cp = request.getContextPath();
 												<div id="item-2-3" class="col-12">
 														<p class="h5">희망기술</p>
 														<div class="skill-box">
-															<nav>
+														<nav>
 																<!-- <div class="nav nav-tabs mb-3" id="nav-tab" role="tablist">
 																	<button class="nav-link active" id="nav-skill1-tab" data-bs-toggle="tab" data-bs-target="#nav-skill1" type="button" role="tab"
 																		aria-controls="nav-skill1" aria-selected="true">프론트</button>
@@ -388,44 +388,38 @@ String cp = request.getContextPath();
 
 																<div class="nav nav-tabs mb-3" id="nav-tab"
 																	role="tablist">
-																	<c:forEach var="skill" items="${skillCategorys}"
-																		varStatus="status">
-																		<button
-																			class="nav-link <c:if test="${status.index == 0}">active</c:if>"
+																	<c:forEach var="skill" items="${skillCategorys}" varStatus="status">
+																		<button class="nav-link 
+																		<c:if test="${status.index == 0}">active</c:if>"
 																			id="nav-skill${status.index + 1}-tab"
 																			data-bs-toggle="tab"
 																			data-bs-target="#nav-skill${status.index + 1}"
 																			type="button" role="tab"
 																			aria-controls="nav-skill${status.index + 1}"
-																			aria-selected="true" value="${skill.scCode}">${skill.scName}</button>
+																			aria-selected="true" value="${skill.scCode}">${skill.scName}
+																		</button>
 																	</c:forEach>
 																</div>
 
-															</nav>
+														</nav>
 															<div class="tab-content" id="nav-tabContent">
 																<div class="tab-pane fade show active" id="nav-skill1"
 																	role="skill1" aria-labelledby="nav-skill1-tab">
 																	<ul class="skill-check">
-																		<c:forEach var="skillItem" items="${skills }"
-																			varStatus="status">
-
+																		<c:forEach var="skillItem" items="${skills }" varStatus="status">
 																			<c:if test="${skillItem.skScCode == 'SC_1' }">
 																				<li>
-																					<div
-																						class="form-check skill-item 
-																						<c:forEach var="entry" items="${skProcessors}">
-																							<c:set var="skillCode" value="${entry.key}" />
+																					<div class="form-check skill-item 
+																					<c:forEach var="entry" items="${skProcessors}">
+																						 <c:set var="skillCode" value="${entry.key}" />
 																							<c:set var="imageName" value="${entry.value}" />
 																							
 																							<c:if test="${skillCode == skillItem.skCode }">
 																								${imageName}
 																							</c:if>
 																						</c:forEach>">
-																						<input class="form-check-input " type="checkbox"
-																							value="${skillItem.skCode }"
-																							id="${status.index +1}"> <label
-																							class="form-check-label">
-																							${skillItem.skName } </label>
+																						<input class="form-check-input skill " type="checkbox" name="hopeskills" value="${skillItem.skCode }" id="${status.index +1}"> 
+																						<label class="form-check-label" > ${skillItem.skName } </label>
 																					</div>
 																				</li>
 																			</c:if>
@@ -452,11 +446,8 @@ String cp = request.getContextPath();
 																								${imageName}
 																							</c:if>
 																						</c:forEach>">
-																						<input class="form-check-input " type="checkbox"
-																							value="${skillItem.skCode }"
-																							id="${status.index +1}"> <label
-																							class="form-check-label">
-																							${skillItem.skName } </label>
+																						<input class="form-check-input skill " type="checkbox"  name="hopeskills" value="${skillItem.skCode }" id="${status.index +1}"> 
+																						<label class="form-check-label"> ${skillItem.skName } </label>
 																					</div>
 																				</li>
 																			</c:if>
@@ -484,11 +475,8 @@ String cp = request.getContextPath();
 																								${imageName}
 																							</c:if>
 																						</c:forEach>">
-																						<input class="form-check-input " type="checkbox"
-																							value="${skillItem.skCode }"
-																							id="${status.index +1}"> <label
-																							class="form-check-label">
-																							${skillItem.skName } </label>
+																						<input class="form-check-input skill " type="checkbox" name="hopeskills" value="${skillItem.skCode }"id="${status.index +1}"> 
+																						<label class="form-check-label"> ${skillItem.skName } </label>
 																					</div>
 																				</li>
 																			</c:if>
@@ -672,6 +660,7 @@ String cp = request.getContextPath();
 				$("#do").val("0").prop("selected", true);
 			}
 			
+			
 		});
   		
 	     
@@ -716,17 +705,29 @@ String cp = request.getContextPath();
 	    	//alert("gma..");
 		});
 	     
-/* 
+	    
+	    //var hopeskills = [];
+		
+	    var hopeskills = new Array;
+  
+		 $("#input:checkbox[name='hopeskills']:checked").each(function(idx)
+		 {
+			 hopeskills.push($(this).val());
+		 })
+	    
 		// 기술 체크할떄마다 span 구역에 나오게 함수
-		$(".skil").change(function() {
-			var skilArea = $("#skilArea"); 			  // div 영역 가져오기 
-			var skillName = $(this).attr("id") 		  // 기술이름가져오기
+		$(".skill").change(function() 
+		{
+			var skilArea = $("#skilArea"); 			  		// div 영역 가져오기 
+			/* var skillName = $(this).attr("id") 		  	// 기술이름가져오기 */
+			var skillName = $(this).val() 		  			// 기술이름가져오기
 			//alert(skillName);
-			  
+			   
 			// 체크된 기술 
 	        var checkSkill = skilArea.find("span");
 			if ($(this).is(":checked"))
-			{
+			{  
+				
 				// 선택된 기술이 5개 미만인 경우에만 추가
 				if (checkSkill.length < 5) {
 					skilArea.append("<span>" + skillName  + "&ensp; </span>"); 
@@ -747,10 +748,11 @@ String cp = request.getContextPath();
 						$(this).remove();
 				});
 			}
+			
 		});
-	   */
+
 	     
-	     
+		
 	     
 		$("#startdate1, #startdate2, #startdate3, #startdate4, #enddate1, #enddate2, #enddate3, #enddate4").datepicker({
 			dateFormat: "yy-mm-dd" 

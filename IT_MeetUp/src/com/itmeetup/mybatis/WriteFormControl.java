@@ -1,6 +1,10 @@
 package com.itmeetup.mybatis;
 
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -51,17 +55,28 @@ public class WriteFormControl
 	
 	// 모집 입력 문 
 	@RequestMapping(value = "/opProjectInsertController.action" , method = RequestMethod.GET)
-	public String InertOpProject (ModelMap model,WriteFormDTO dto)
+	public String InertOpProject (WriteFormDTO dto )
 	{
 		
-		  String result = null;
-		  
-		  IWriteFormDAO dao = sqlSession.getMapper(IWriteFormDAO.class);
+		 String result = null;
+		 IWriteFormDAO dao = sqlSession.getMapper(IWriteFormDAO.class);
+		 List<String> hopeskills = dto.getHopeskills();
+
+		 // 테스트
+//		 for(String code : hopeskills)
+//		 {
+//			 System.out.println(code);
+//		 }
+//		 
+		 
+		 
+		 
 		  
 		  dao.addProject(dto);
-		  dao.addperiod(dto);
-		  
-		  result = "/projectList.action";
+		 dao.addperiod(dto);
+		  dao.addSkill(hopeskills);
+		  	
+		  result = "/Content/ProjectLounge/PostList_ju.jsp";
 		  
 		  return result;
 		 
