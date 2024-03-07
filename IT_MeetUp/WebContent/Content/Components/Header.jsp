@@ -116,11 +116,12 @@ String cp = request.getContextPath();
 											</ul>
 										</div>
 									</nav>
+									
 									<!-- 알림 내용 -->
 									<div class="tab-content">
 										<div class="tab-pane fade show active" id="nav-applied"
 											role="tabpanel" aria-labelledby="nav-applied-tab">
-											<div class="tab-content">
+											<div class="tab-content" style="overflow-y: auto; max-height: 60vh;">
 												<div class="tab-pane fade show active" id="pick-alert"
 													role="tabpanel" aria-labelledby="pick-alert-tab">
 													<div class="tab-pane fade show active" id="pick-alert"
@@ -138,11 +139,11 @@ String cp = request.getContextPath();
 																<hr class="my-2">
 																<p>
 																	<strong> 
-																		"${pickNtfItem.job }" 로 신청하신 "${pickNtfItem.title }" 팀 개설 요청에 픽!되었습니다. 
+																		["${pickNtfItem.job }"] 로 신청하신 ["${pickNtfItem.title }"] 팀 개설 요청에 픽!되었습니다. 
 																	</strong> 
-																	(픽된 멤버로 프로젝트가 만들어집니다. 신청을 취소하실 경우 신고처리가 부여됩니다.) 
+																	(픽된 멤버로 프로젝트가 만들어집니다. 신청을 취소하실 경우 신고처리가 부여됩니다.) <br>
 																	<a href="#" class="alert-link"> 
-																		더보기<i class="bi bi-plus-square"></i>
+																		더보기 <i class="bi bi-plus-square"></i>
 																	</a>
 																</p>
 															</div>
@@ -168,14 +169,14 @@ String cp = request.getContextPath();
 															<hr class="my-2">
 															<p>
 																<strong>
-																	"${partCheckNtfItem.job }" 로 신청하신 "${partCheckNtfItem.title }" 팀 개설 요청 그룹이 개설될 예정입니다.
+																	["${partCheckNtfItem.job }"] 로 신청하신 ["${partCheckNtfItem.title }"] 팀 개설 요청 그룹이 개설될 예정입니다.
 																	프로젝트의 내용을 확인해주세요.
 																</strong>
 															</p>
 															<p>
 																(3일안에 확인하지 않으실 경우, 프로젝트가 실패됩니다.) 
 																<a href="#" class="alert-link"> 
-																	더보기<i class="bi bi-plus-square"></i>
+																	더보기 <i class="bi bi-plus-square"></i>
 																</a>
 															</p>
 														</div>
@@ -185,62 +186,81 @@ String cp = request.getContextPath();
 												<!-- 디데이 알림  -->
 												<div class="tab-pane fade" id="dday-alert" role="tabpanel"
 													aria-labelledby="dday-alert-tab">
-													<div class="alert" role="alert">
-														<strong>
-															<span class="badge text-bg-success">
-																디데이 알림
-															</span>
-														</strong> 
-														<span class="text-muted float-end small">
-															2024년 2월 26일 오후 3시 30분
-														</span>
-														<hr class="my-2">
-														<p>
-															<strong>회원님이 선호하는 "(직무)", "(모임방식)", "(지역)" 에 딱 맞는 팀 개설 요청입니다.</strong>
-														</p>
-														<p>
-															(게시물을 보실려면 플러스 버튼을 누르세요.)
-															<a href="#" class="alert-link">
-																더보기<i class="bi bi-plus-square"></i>
-															</a>
-														</p>
-													</div>
+													<c:forEach var="ddayNtfItem" items="${ddayNtfList }">
+														<div class="alert" role="alert">
+															<strong>
+																<span class="badge text-bg-success">
+																	디데이 알림
+																</span>
+															</strong> 
+															<span class="text-muted float-end small">
+																${ddayNtfItem.dnDate }
+															</span><hr class="my-2">
+															<p>
+																<!-- <strong>회원님이 선호하는 "(직무)", "(모임방식)", "(지역)" 에 딱 맞는 팀 개설 요청입니다.</strong> -->
+																<strong> 프로젝트 ["${ddayNtfItem.title }"] 에 딱 맞는 팀 개설 요청입니다.</strong>
+															</p>
+															<p>
+																(게시물을 보실려면 플러스 버튼을 누르세요.)
+																<a href="#" class="alert-link">
+																	더보기 <i class="bi bi-plus-square"></i>
+																</a>
+															</p>
+														</div>
+													</c:forEach>
 												</div>
 
 												<!-- 댓글 알림 -->
 												<div class="tab-pane fade" id="comment-alert"
 													role="tabpanel" aria-labelledby="comment-alert-tab">
-													<div class="alert" role="alert">
-														<strong><span class="badge text-bg-danger">댓글
-																알림</span></strong> <span class="text-muted float-end small">
-															2024년 2월 26일 오후 3시 30분 </span>
-														<hr class="my-2">
-														<p>
-															<strong>아아아앙님의 게시물에 댓글이 작성되었습니다.</strong>
-														</p>
-														<p>
-															(확인하실려면 플러스 버튼을 누르세요.) <a href="#" class="alert-link"><i
-																class="bi bi-plus-square"></i></a>
-														</p>
-													</div>
+													<c:forEach var="commentNtfItem" items="${commentNtfList }">
+														<div class="alert" role="alert">
+															<strong>
+																<span class="badge text-bg-danger">
+																	댓글알림
+																</span>
+															</strong> 
+															<span class="text-muted float-end small">
+																${commentNtfItem.comDate }
+															</span>
+															<hr class="my-2">
+															<p>
+																<strong> 작성한 ["${commentNtfItem.title }"] 프로젝트 게시물에 댓글이 작성되었습니다.</strong>
+															</p>
+															<p>
+																(댓글을 확인하실려면 플러스 버튼을 누르세요.) 
+																<a href="#" class="alert-link">
+																	더보기 <i class="bi bi-plus-square"></i>
+																</a>
+															</p>
+														</div>
+													</c:forEach>
 												</div>
+
 
 												<!-- 대댓글 알림 -->
 												<div class="tab-pane fade" id="reply-alert" role="tabpanel"
 													aria-labelledby="reply-alert-tab">
-													<div class="alert" role="alert">
-														<strong><span class="badge text-bg-warning">대댓글
-																알림</span></strong> <span class="text-muted float-end small">
-															2024년 2월 26일 오후 3시 30분 </span>
-														<hr class="my-2">
-														<p>
-															<strong>아아아앙님의 댓글에 답변이 작성되었습니다.</strong>
-														</p>
-														<p>
-															(확인하실려면 플러스 버튼을 누르세요.) <a href="#" class="alert-link"><i
-																class="bi bi-plus-square"></i></a>
-														</p>
-													</div>
+													<c:forEach var="recommentNtfItem" items="${recommentNtfList }">
+														<div class="alert" role="alert">
+															<strong>
+																<span class="badge text-bg-warning">대댓글알림</span>
+															</strong> 
+															<span class="text-muted float-end small">
+																${recommentNtfItem.rnDate } 
+															</span>
+															<hr class="my-2">
+															<p>
+																<strong>회원님이 작성한 댓글에 답변이 작성되었습니다.</strong>
+															</p>
+															<p>
+																(확인하실려면 플러스 버튼을 누르세요.) 
+																<a href="#" class="alert-link">
+																	더보기 <i class="bi bi-plus-square"></i>
+																</a>
+															</p>
+														</div>
+													</c:forEach>
 												</div>
 											</div>
 										</div>
@@ -270,12 +290,6 @@ String cp = request.getContextPath();
 												data-bs-target="#weekly-report-missing-alert" type="button"
 												role="tab" aria-controls="weekly-report-missing-alert"
 												aria-selected="false">주간업무보고 미작성</button>
-										</li>
-										<li class="nav-item" role="presentation">
-											<button class="nav-link" id="project-stop-alert-tab"
-												data-bs-toggle="tab" data-bs-target="#project-stop-alert"
-												type="button" role="tab" aria-controls="project-stop-alert"
-												aria-selected="false">프로젝트 중단</button>
 										</li>
 										<li class="nav-item" role="presentation">
 											<button class="nav-link" id="evaluation-missing-alert-tab"

@@ -15,8 +15,8 @@ public class NtfController
 	private SqlSession sqlSession;
 	
 	// 알림 리스트 보기
-	@RequestMapping(value = "/.action", method = RequestMethod.GET)
-	public String pickNtfList(Model model)
+	@RequestMapping(value = "/nft.action", method = RequestMethod.GET)
+	public String NtfList(Model model)
 	{
 		INtfDAO dao = sqlSession.getMapper(INtfDAO.class);
 		
@@ -25,6 +25,15 @@ public class NtfController
 		
 		// 참여지원 확인 알림
 		model.addAttribute("partCheckNtfList", dao.partCheckNtfList());
+		
+		// 디데이 알림
+		model.addAttribute("ddayNtfList", dao.ddayNtfList());
+		
+		// 댓글 알림
+		model.addAttribute("commentNtfList", dao.commentNtfList());
+		
+		// 대댓글 알림
+		model.addAttribute("recommentNtfList", dao.recommentNtfList());
 		
 		return "/Content/Site/Indict.jsp";
 	}

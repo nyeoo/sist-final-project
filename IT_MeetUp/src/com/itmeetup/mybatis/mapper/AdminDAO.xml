@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itmeetup.mybatis.IAdminDAO">
+	
+	<!-- mybatis 환경 설정 파일 활용 -->
+	<!-- IAdminDAO.xml -->
+
+	<!-- 관리자 리스트 조회 쿼리문 -->
+	<select id="adminList" resultType="com.itmeetup.mybatis.AdminDTO">
+		SELECT AD_NO  "ADNO"
+		     , AD_ID   "ADID"
+		     , AD_NICKNAME  "NICKNAME"
+		     , TO_CHAR(AD_DATE, 'YYYY-MM-DD') "DATE"
+		FROM ADMIN
+	</select>
+	
+</mapper>

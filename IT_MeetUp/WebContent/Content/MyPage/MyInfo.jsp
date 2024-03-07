@@ -18,7 +18,7 @@ String cp = request.getContextPath();
 <meta name="keywords" content="IT 프로젝트 모집, 사이드 프로젝트 진행">
 
 <!-- css -->
-<link rel="stylesheet" href="<%=cp %>/asset/css/style.css">
+<link rel="stylesheet" href="<%=cp%>/asset/css/style.css">
 <style type="text/css">
 .comp_box {
 	text-align: center;
@@ -47,7 +47,8 @@ String cp = request.getContextPath();
 			<div class="container-xl">
 
 				<div class="content_tit">
-					<p class="h3">Myinfo</p><br>
+					<p class="h3">Myinfo</p>
+					<br>
 					<!-- 브레드크럼블 -->
 					<!-- <div role="breadcrumb" data-include="../Components/Breadcrumb.jsp"></div> -->
 					<!-- //브레드크럼블 -->
@@ -181,42 +182,19 @@ String cp = request.getContextPath();
 												<th scope="col" class="category">차단 여부</th>
 											</tr>
 										</thead>
-										<tbody>
-											<tr>
-												<td class="num"><span class="tag_txt">1</span></td>
-												<td class="date">2023.02.06</td>
-												<td class="name">흑곰발바닥</td>
-												<td class="category"><button type="button"
-														class="btn btn-primary">차단 해제</button></td>
-											</tr>
-										</tbody>
-										<tbody>
-											<tr>
-												<td class="num"><span class="tag_txt">2</span></td>
-												<td class="date">2022.02.01</td>
-												<td class="name">이주형은 멋쟁이</td>
-												<td class="category"><button type="button"
-														class="btn btn-primary">차단 해제</button></td>
-											</tr>
-										</tbody>
-										<tbody>
-											<tr>
-												<td class="num"><span class="tag_txt">3</span></td>
-												<td class="date">2021.11.26</td>
-												<td class="name">2조 화이팅</td>
-												<td class="category"><button type="button"
-														class="btn btn-primary">차단 해제</button></td>
-											</tr>
-										</tbody>
-										<tbody>
-											<tr>
-												<td class="num"><span class="tag_txt">4</span></td>
-												<td class="date">2020.12.21</td>
-												<td class="name">하성이형 아웃</td>
-												<td class="category"><button type="button"
-														class="btn btn-primary">차단 해제</button></td>
-											</tr>
-										</tbody>
+										<c:forEach var="blockListItem" items="${blockList }">
+											<tbody>
+												<tr>
+													<td class="num"><span class="tag_txt">${blockListItem.bloNo }</span></td>
+													<td class="date">${blockListItem.bloDate }</td>
+													<td class="name">${blockListItem.nickname }</td>
+													<td class="category">
+														<button type="button" class="btn btn-secondary"
+															value="${blockListItem.bloNo }" id="unblock">차단 해제</button>
+													</td>
+												</tr>
+											</tbody>
+										</c:forEach>
 									</table>
 
 									<div class="comp_box">
@@ -235,7 +213,6 @@ String cp = request.getContextPath();
 										</nav>
 									</div>
 								</div>
-
 							</div>
 							<!-- //차단관리 -->
 						</div>
@@ -246,18 +223,32 @@ String cp = request.getContextPath();
 		<!-- //바디영역 -->
 
 		<!-- 푸터영역 -->
-		<c:import url="../Components/Footer.jsp" ></c:import>
+		<c:import url="../Components/Footer.jsp"></c:import>
 		<!-- //푸터영역 -->
 
 	</div>
 
 	<!-- script -->
-	<script src="<%=cp %>/asset/js/jquery-3.5.1-min.js"></script>
-	<script src="<%=cp %>/asset/js/jquery-ui.js"></script>
-	<script src="<%=cp %>/asset/js/bootstrap.bundle.min.js"></script>
-	<script src="<%=cp %>/asset/js/common.js"></script>
-	<script>
-		
+	<script src="<%=cp%>/asset/js/jquery-3.5.1-min.js"></script>
+	<script src="<%=cp%>/asset/js/jquery-ui.js"></script>
+	<script src="<%=cp%>/asset/js/bootstrap.bundle.min.js"></script>
+	<script src="<%=cp%>/asset/js/common.js"></script>
+	<script type="text/javascript">
+		$(function()
+		{
+			$(".btn-secondary").click(
+			function()
+			{
+				//alert("확인~!!");
+				if (confirm("해당 회원을 차단 해제 하시겠습니까?"))
+				{
+					
+					$(location).attr("href", "remove.action?bloNo=" + $(this).val());
+				}
+				
+
+			});
+		});
 	</script>
 </body>
 

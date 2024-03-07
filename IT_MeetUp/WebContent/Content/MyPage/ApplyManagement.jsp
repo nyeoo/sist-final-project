@@ -18,7 +18,7 @@ String cp = request.getContextPath();
 <meta name="keywords" content="IT 프로젝트 모집, 사이드 프로젝트 진행">
 
 <!-- css -->
-<link rel="stylesheet" href="<%=cp %>/asset/css/style.css">
+<link rel="stylesheet" href="../../asset/css/style.css">
 <style type="text/css">
 .comp_box {
 	text-align: center;
@@ -47,39 +47,39 @@ String cp = request.getContextPath();
 			<div class="container-xl">
 
 				<div class="content_tit">
-					<p class="h3">모집/신청 관리</p><br>
+					<p class="h3">모집/신청 관리</p>
+					<br>
 					<!-- 브레드크럼블 -->
 					<!-- <div role="breadcrumb" data-include="../Components/Breadcrumb.jsp"></div> -->
 					<!-- //브레드크럼블 -->
 				</div>
 
-				<!-- 모집/신청관리 & 차단관리 -->
+				<!-- 모집/신청관리 -->
 				<div class="row">
 					<div class="my-detail">
 						<div class="tab-content" id="nav-tabContent">
 							<!-- 탭상세 첫번째에는 show active 만 붙여줬어~ -->
 							<!-- 모집/신청 관리 탭 -->
-							<div class="tab-pane fade show active" id="nav-management"
-								role="tabpanel" aria-labelledby="nav-management-tab">
+							<div class="tab-box">
 								<nav>
-									<div class="nav nav-tabs nav-tabs-bordered mb-3"
-										id="nav-management-subtab" role="tablist">
+									<div class="nav nav-tabs nav-tabs-bordered mb-3" id="nav-tab"
+										role="tablist">
 										<button class="nav-link active" id="nav-applied-tab"
 											data-bs-toggle="tab" data-bs-target="#nav-applied"
 											type="button" role="tab" aria-controls="nav-applied"
 											aria-selected="true">신청한 모집공고</button>
-										<button class="nav-link" id="nav-created-tab"
-											data-bs-toggle="tab" data-bs-target="#nav-created"
-											type="button" role="tab" aria-controls="nav-created"
+										<button class="nav-link" id="nav-created-1dep-tab"
+											data-bs-toggle="tab" data-bs-target="#nav-created-1dep"
+											type="button" role="tab" aria-controls="nav-created-1dep"
 											aria-selected="false">작성한 모집공고</button>
 									</div>
 								</nav>
-								<div class="tab-content" id="nav-management-subtabContent">
-									<!-- 신청한 모집공고 탭 -->
+
+								<div class="tab-content" id="nav-tabContent">
+									<!-- 신청한 모집 공고 글 -->
 									<div class="tab-pane fade show active" id="nav-applied"
-										role="tabpanel" aria-labelledby="nav-applied-tab">
+										role="tabpanel" aria-labelledby="nav-applied-tab" tabindex="0">
 										<div class="board_list">
-											<!-- 신청한 모집공고 목록과 내용 -->
 											<table class="table table-hover">
 												<caption>목록 : 번호, 현재상태, 제목, 시작일, 종료일, 신청일자</caption>
 												<colgroup>
@@ -103,43 +103,13 @@ String cp = request.getContextPath();
 												<tbody>
 													<tr>
 														<td class="num"><span class="tag_txt">1</span></td>
-														<td class="category"><span class="badge text-bg-danger">모집중</span></td>
-														<td class="tit">
-															<a href="ProjectDetail.jsp"> 
-																어쩌고저쩌고 프로젝트 모집중입니다. 클릭시 상세한 내용이 나옵니다. 
-															</a>
-														</td>
+														<td class="category"><span
+															class="badge text-bg-danger">모집중</span></td>
+														<td class="tit"><a href="ProjectDetail.jsp">
+																어쩌고저쩌고 프로젝트 모집중입니다. 클릭시 상세한 내용이 나옵니다. </a></td>
 														<td class="start_date">2023.02.06</td>
 														<td class="end_date">2023.08.06</td>
 														<td class="join_date">2023.01.11</td>
-													</tr>
-												</tbody>
-												<tbody>
-													<tr>
-														<td class="num"><span class="tag_txt">2</span></td>
-														<td class="category"><span class="badge text-bg-success">모집완료</span></td>
-														<td class="tit">
-															<a href="ProjectDetail.jsp"> 
-																어쩌고저쩌고 프로젝트 모집중입니다. 클릭시 상세한 내용이 나옵니다. 
-															</a>
-														</td>
-														<td class="start_date">2022.04.06</td>
-														<td class="end_date">2022.10.06</td>
-														<td class="join_date">2022.03.20</td>
-													</tr>
-												</tbody>
-												<tbody>
-													<tr>
-														<td class="num"><span class="tag_txt">3</span></td>
-														<td class="category"><span class="badge text-bg-secondary">모집실패</span></td>
-														<td class="tit">
-															<a href="ProjectDetail.jsp">
-																어쩌고저쩌고 프로젝트 모집중입니다. 클릭시 상세한 내용이 나옵니다.
-															</a>
-														</td>
-														<td class="start_date">2021.02.06</td>
-														<td class="end_date">2021.08.06</td>
-														<td class="join_date">2021.01.21</td>
 													</tr>
 												</tbody>
 											</table>
@@ -160,14 +130,13 @@ String cp = request.getContextPath();
 												</nav>
 											</div>
 										</div>
-
-									</div>
-									<!-- //신청한 모집공고 탭 -->
-									<!-- 작성한 모집공고 탭 -->
-									<div class="tab-pane fade" id="nav-created" role="tabpanel"
-										aria-labelledby="nav-created-tab">
+									</div> <!-- // 신청한 모집 공고 글 -->
+									
+									<!-- 작성한 모집공고 글 -->
+									<div class="tab-pane fade" id="nav-created-1dep"
+										role="tabpanel" aria-labelledby="nav-created-1dep-tab"
+										tabindex="0">
 										<div class="board_list">
-											<!-- 작성한 모집공고 목록과 내용 -->
 											<table class="table table-hover">
 												<caption>목록 : 번호, 현재상태, 제목, 시작일, 종료일, 신청일자</caption>
 												<colgroup>
@@ -191,43 +160,13 @@ String cp = request.getContextPath();
 												<tbody>
 													<tr>
 														<td class="num"><span class="tag_txt">1</span></td>
-														<td class="category"><span class="badge text-bg-danger">모집중</span></td>
-														<td class="tit new">
-															<a href="WriteProjectDetail.jsp">
-																어쩌고저쩌고 프로젝트 모집중입니다. 클릭시 상세한 내용이 나옵니다. 
-															</a>
-														</td>
+														<td class="category"><span
+															class="badge text-bg-danger">모집중</span></td>
+														<td class="tit"><a href="ProjectDetail.jsp">
+																어쩌고저쩌고 프로젝트 모집중입니다. 클릭시 상세한 내용이 나옵니다. </a></td>
 														<td class="start_date">2023.02.06</td>
 														<td class="end_date">2023.08.06</td>
 														<td class="join_date">2023.01.11</td>
-													</tr>
-												</tbody>
-												<tbody>
-													<tr>
-														<td class="num"><span class="tag_txt">2</span></td>
-														<td class="category"><span class="badge text-bg-success">모집완료</span></td>
-														<td class="tit">
-															<a href="WriteProjectDetail.jsp"> 
-																어쩌고 저쩌고 프로젝트 모집중입니다. 클릭시 상세한 내용이 나옵니다. 
-															</a>
-														</td>
-														<td class="start_date">2022.04.06</td>
-														<td class="end_date">2022.10.06</td>
-														<td class="join_date">2022.03.20</td>
-													</tr>
-												</tbody>
-												<tbody>
-													<tr>
-														<td class="num"><span class="tag_txt">3</span></td>
-														<td class="category"><span class="badge text-bg-secondary">모집실패</span></td>
-														<td class="tit">
-															<a href="WriteProjectDetail.jsp"> 
-																어쩌고 저쩌고 프로젝트 모집중입니다. 클릭시 상세한 내용이 나옵니다. 
-															</a>
-														</td>
-														<td class="start_date">2021.02.06</td>
-														<td class="end_date">2021.08.06</td>
-														<td class="join_date">2021.01.21</td>
 													</tr>
 												</tbody>
 											</table>
@@ -248,30 +187,29 @@ String cp = request.getContextPath();
 												</nav>
 											</div>
 										</div>
-									</div> 
-									<!-- 작성한 모집공고 탭 -->
+									</div> <!-- //작성한 모집공고 글 -->
 								</div>
 							</div>
-							<!-- //모집/신청 관리 탭 -->
 						</div>
 					</div>
 				</div>
 			</div>
 		</section>
-		<!-- //바디영역 -->
-		
+	</div>
+	<!-- //바디영역 -->
+
 
 	<!-- 푸터영역 -->
-	<c:import url="../Components/Footer.jsp" ></c:import>
+	<div role="footer" data-include="../Components/Footer.jsp"
+		class="mt-auto"></div>
 	<!-- //푸터영역 -->
-	</div>
 
 
 	<!-- script -->
-	<script src="<%=cp %>/asset/js/jquery-3.5.1-min.js"></script>
-	<script src="<%=cp %>/asset/js/jquery-ui.js"></script>
-	<script src="<%=cp %>/asset/js/bootstrap.bundle.min.js"></script>
-	<script src="<%=cp %>/asset/js/common.js"></script>
+	<script src="<%=cp%>/asset/js/jquery-3.5.1-min.js"></script>
+	<script src="<%=cp%>/asset/js/jquery-ui.js"></script>
+	<script src="<%=cp%>/asset/js/bootstrap.bundle.min.js"></script>
+	<script src="<%=cp%>/asset/js/common.js"></script>
 	<script>
 		
 	</script>

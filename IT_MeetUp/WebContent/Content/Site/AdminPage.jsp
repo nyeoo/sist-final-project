@@ -11,7 +11,7 @@ String cp = request.getContextPath();
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>indict.jsp</title>
+<title>AdmainPage.jsp</title>
 <meta name="description" content="IT 프로젝트 모집·진행 웹 어플리케이션">
 <meta name="subject" content="IT 프로젝트 모집·진행 웹 어플리케이션">
 <meta name="title" content="IT MeetUp">
@@ -57,14 +57,12 @@ String cp = request.getContextPath();
 				<!-- 관리자 리스트 테이블 -->
 				<h3>관리자 리스트</h3>
 				<table class="table table-hover">
-					<caption>목록 : 번호, ID, 닉네임, 가입일자, 로그인 일자(마지막), 탈퇴여부</caption>
+					<caption>목록 : 번호, ID, 닉네임, 가입일자</caption>
 					<colgroup>
 						<col class="num">
 						<col class="id">
 						<col class="nickName">
 						<col class="joindate">
-						<col class="date">
-						<col class="category">
 					</colgroup>
 					<thead>
 						<tr>
@@ -72,67 +70,20 @@ String cp = request.getContextPath();
 							<th scope="col" class="id">ID</th>
 							<th scope="col" class="nickName">닉네임</th>
 							<th scope="col" class="joindate">가입일자</th>
-							<th scope="col" class="date">로그인 일자(마지막)</th>
-							<th scope="col" class="category">탈퇴 여부</th>
 						</tr>
 					</thead>
-					<tbody>
-						<tr>
-							<td class="num"><span class="tag_txt">1</span></td>
-							<td class="id">admin1234</td>
-							<td class="nickName">흑곰발바닥</td>
-							<td class="joindate">2022.12.01</td>
-							<td class="date">2023.01.11</td>
-							<td class="category">
-								<button type="button">
-									<span class="badge text-bg-secondary">탈퇴하기</span>
-								</button>
-							</td>
-						</tr>
-					</tbody>
-					<tbody>
-						<tr>
-							<td class="num"><span class="tag_txt">2</span></td>
-							<td class="id">hihihi</td>
-							<td class="nickName">멋쟁이 주형이</td>
-							<td class="joindate">2022.11.24</td>
-							<td class="date">2023.01.22</td>
-							<td class="category">
-								<button type="button">
-									<span class="badge text-bg-secondary">탈퇴하기</span>
-								</button>
-							</td>
-						</tr>
-					</tbody>
-					<tbody>
-						<tr>
-							<td class="num"><span class="tag_txt">3</span></td>
-							<td class="id">wjdghks123</td>
-							<td class="nickName">하성이형님</td>
-							<td class="joindate">2021.12.01</td>
-							<td class="date">2022.01.01</td>
-							<td class="category">
-								<button type="button">
-									<span class="badge text-bg-secondary">탈퇴하기</span>
-								</button>
-							</td>
-						</tr>
-					</tbody>
-					<tbody>
-						<tr>
-							<td class="num"><span class="tag_txt">4</span></td>
-							<td class="id">gd19973</td>
-							<td class="nickName">수경누나,나영이 면접 화이팅</td>
-							<td class="joindate">2022.12.01</td>
-							<td class="date">2023.01.01</td>
-							<td class="category">
-								<button type="button">
-									<span class="badge text-bg-secondary">탈퇴하기</span>
-								</button>
-							</td>
-						</tr>
-					</tbody>
+					<c:forEach var="adminListItem" items="${adminList }">
+						<tbody>
+							<tr>
+								<td class="num"><span class="tag_txt">${adminListItem.adNo }</span></td>
+								<td class="id">${adminListItem.adId }</td>
+								<td class="nickName">${adminListItem.nickName }</td>
+								<td class="joindate">${adminListItem.date }</td>
+							</tr>
+						</tbody>
+					</c:forEach>
 				</table>
+				<!-- //관리자 리스트 테이블 -->
 
 				<div class="comp_box">
 					<nav aria-label="Page navigation example">
@@ -149,25 +100,38 @@ String cp = request.getContextPath();
 						</ul>
 					</nav>
 				</div>
-				<!-- //관리자 리스트 테이블 -->
 			</div>
 		</section>
 	</div>
 	<!-- //바디영역 -->
 
 
+	
 	<!-- 푸터영역 -->
 	<c:import url="../Components/Footer.jsp" ></c:import>
 	<!-- //푸터영역 -->
 
 
 	<!-- script -->
-	<script src="<%=cp %>/asset/js/jquery-3.5.1-min.js"></script>
-	<script src="<%=cp %>/asset/js/jquery-ui.js"></script>
-	<script src="<%=cp %>/asset/js/bootstrap.bundle.min.js"></script>
-	<script src="<%=cp %>/asset/js/common.js"></script>
-	<script>
-		
+	<script src="<%=cp%>/asset/js/jquery-3.5.1-min.js"></script>
+	<script src="<%=cp%>/asset/js/jquery-ui.js"></script>
+	<script src="<%=cp%>/asset/js/bootstrap.bundle.min.js"></script>
+	<script src="<%=cp%>/asset/js/common.js"></script>
+	<script type="text/javascript">
+	
+		$(document).ready(function()
+		{
+			$(".btn-primary").click(function()
+			{
+				$('#deleteForm').modal('show');
+			});
+
+			$('#deleteForm').modal(
+			{
+				backdrop : 'static',
+				keyboard : false
+			});
+		});
 	</script>
 </body>
 
