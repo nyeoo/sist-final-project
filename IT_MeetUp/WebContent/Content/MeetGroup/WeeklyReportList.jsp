@@ -32,7 +32,7 @@ String cp = request.getContextPath();
 		<!-- 바디영역 -->
 		<section class="m-body-area">
 			<div class="container-xl">
-			
+
 				<!-- 사이드 영역 -->
 				<c:import url="../Components/Side.jsp"></c:import>
 				<!-- //사이드 영역 -->
@@ -40,7 +40,7 @@ String cp = request.getContextPath();
 				<div class="content_tit">
 					<p class="h3">
 						주간업무 보고서
-						<button type="button" class="btn btn-primary"
+						<button type="button" class="btn btn-primary" id="writeButton"
 							style="float: right;">작성하기</button>
 					</p>
 					<br>
@@ -108,13 +108,19 @@ String cp = request.getContextPath();
 	</div>
 
 	<!-- script -->
-	<script src="<%=cp %>/asset/js/jquery-3.5.1-min.js"></script>
-	<script src="<%=cp %>/asset/js/jquery-ui.js"></script>
-	<script src="<%=cp %>/asset/js/bootstrap.bundle.min.js"></script>
-	<script src="<%=cp %>/asset/js/common.js"></script>
+	<script src="<%=cp%>/asset/js/jquery-3.5.1-min.js"></script>
+	<script src="<%=cp%>/asset/js/jquery-ui.js"></script>
+	<script src="<%=cp%>/asset/js/bootstrap.bundle.min.js"></script>
+	<script src="<%=cp%>/asset/js/common.js"></script>
 	<script>
-		
-	</script>
+    $(document).ready(function()
+    {
+        $("#writeButton").click(function()
+        {
+            window.location.href = "<%=cp%>/weeklyReportWrite.action";
+        });
+    });
+</script>
 </body>
 
 </html>

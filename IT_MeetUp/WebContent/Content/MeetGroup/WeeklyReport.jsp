@@ -29,9 +29,6 @@ String cp = request.getContextPath();
   } */
 </style>
 <!-- script -->
-<script src="<%=cp%>/asset/js/jquery-3.5.1-min.js"></script>
-<script src="<%=cp%>/asset/js/bootstrap.bundle.min.js"></script>
-<script src="<%=cp%>/asset/js/common.js"></script>
 </head>
 <body>
 
@@ -58,10 +55,9 @@ String cp = request.getContextPath();
 									<!-- 제목 -->
 									<div id="item-1-1" class="comp_tit ">
 										<div class="m-input-box">
-											<label for="writePost01" class="form-label">
-												제목
-											</label> <input type="text" class="form-control" id="title"
-												name="title" required="required" style="width: 350px;">
+											<label for="writePost01" class="form-label"> 제목 </label> <input
+												type="text" class="form-control" id="title" name="title"
+												required="required" style="width: 350px;">
 											<div class="invalid-feedback">제목을 입력해주세요.</div>
 										</div>
 									</div>
@@ -71,8 +67,7 @@ String cp = request.getContextPath();
 									<div id="item-1-2" class="comp_tit ">
 										<div class="m-textarea">
 											<label for="exampleFormControlTextarea1" class="form-label">
-												내용
-											</label>
+												내용 </label>
 											<textarea class="form-control" id="content" name="content"
 												rows="15" required="required" style="width: 700px;"></textarea>
 										</div>
@@ -92,7 +87,7 @@ String cp = request.getContextPath();
 									<!-- 제출 및 취소 버튼 -->
 									<div style="text-align: center;">
 										<button class="btn btn-primary" type="submit">제출</button>
-										<button class="btn btn-secondary">취소</button>
+										<button class="btn btn-secondary" id="reSetButton">취소</button>
 									</div>
 									<!-- //제출 및 취소 버튼 -->
 
@@ -107,5 +102,24 @@ String cp = request.getContextPath();
 	<!-- 푸터영역 -->
 	<c:import url="../Components/Footer.jsp"></c:import>
 	<!-- //푸터영역 -->
+
+	<!-- script -->
+	<script src="<%=cp%>/asset/js/jquery-3.5.1-min.js"></script>
+	<script src="<%=cp%>/asset/js/jquery-ui.js"></script>
+	<script src="<%=cp%>/asset/js/bootstrap.bundle.min.js"></script>
+	<script src="<%=cp%>/asset/js/common.js"></script>
+	<script type="text/javascript">
+	
+	$(document).ready(function()
+	{
+        $("#reSetButton").click(function()
+        {
+            window.location.href = "<%=cp%>/weeklyReport.action";
+        });
+	});
+	
+	
+	</script>
+
 </body>
 </html>

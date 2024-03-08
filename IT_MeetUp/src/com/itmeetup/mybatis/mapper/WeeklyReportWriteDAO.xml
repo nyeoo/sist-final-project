@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- mybatis 환경 설정 파일 활용 -->
+<mapper namespace="com.itmeetup.mybatis.IWeeklyReportWriteDAO">
+
+	<select id="weeklyReportWrite"
+		resultType="com.itmeetup.mybatis.WeeklyReportDTO">
+		SELECT ROWNUM "countWeekly", TJ_OP_CODE "tjOpCode",
+		WR_TITLE "wrTitle", WR_DATE "wrDate", PC_CODE
+		"pcCode",PI_NICKNAME
+		"piNickName", WR_NO "wrNo", WR_CONTENT "wrContent"
+		FROM
+		VIEW_WEEKLY_REPORT
+		WHERE TJ_OP_CODE = 'OP_2'
+	</select>
+
+</mapper>

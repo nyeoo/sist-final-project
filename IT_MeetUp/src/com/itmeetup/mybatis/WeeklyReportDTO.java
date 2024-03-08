@@ -1,14 +1,14 @@
 /*=====================
-	WeeklyReportDTO.java
+	WeeklyReportWriteDTO.java
 =====================*/
 package com.itmeetup.mybatis;
 
 public class WeeklyReportDTO
 {
-	private String wrTitle, wrContent, wrPerson;	// 주간업무보고명, 주간업무보고내용, 주간업무보고자닉네임 
-	private String wrFile, wrDate;					// 첨부파일경로, 주간업무보고일
-	private int wrNumber;							// 주간업무보고번호
-
+	private String wrTitle, wrDate, wrContent;
+	private String tjOpCode, pcCode, piNickName;
+	private int countWeekly, wrNo;
+	
 	// getter / setter 구성
 	public String getWrTitle()
 	{
@@ -18,30 +18,6 @@ public class WeeklyReportDTO
 	{
 		this.wrTitle = wrTitle;
 	}
-	public String getWrContent()
-	{
-		return wrContent;
-	}
-	public void setWrContent(String wrContent)
-	{
-		this.wrContent = wrContent;
-	}
-	public String getWrPerson()
-	{
-		return wrPerson;
-	}
-	public void setWrPerson(String wrPerson)
-	{
-		this.wrPerson = wrPerson;
-	}
-	public String getWrFile()
-	{
-		return wrFile;
-	}
-	public void setWrFile(String wrFile)
-	{
-		this.wrFile = wrFile;
-	}
 	public String getWrDate()
 	{
 		return wrDate;
@@ -50,14 +26,57 @@ public class WeeklyReportDTO
 	{
 		this.wrDate = wrDate;
 	}
-	public int getWrNumber()
+	public String getWrContent()
 	{
-		return wrNumber;
+		return wrContent;
 	}
-	public void setWrNumber(int wrNumber)
+	public void setWrContent(String wrContent)
 	{
-		this.wrNumber = wrNumber;
+		this.wrContent = wrContent;
+	}
+	public String getTjOpCode()
+	{
+		return tjOpCode;
+	}
+	public void setTjOpCode(String tjOpCode)
+	{
+		this.tjOpCode = tjOpCode;
+	}
+	public String getPcCode()
+	{
+		return pcCode;
+	}
+	public void setPcCode(String pcCode)
+	{
+		this.pcCode = pcCode;
+	}
+	public String getPiNickName()
+	{
+		return piNickName;
+	}
+	public void setPiNickName(String piNickName)
+	{
+		this.piNickName = piNickName;
+	}
+	public int getCountWeekly()
+	{
+		return countWeekly;
+	}
+	public void setCountWeekly(int countWeekly)
+	{
+		this.countWeekly = countWeekly;
+	}
+	public int getWrNo()
+	{
+		return wrNo;
+	}
+	public void setWrNo(int wrNo)
+	{
+		this.wrNo = wrNo;
 	}
 	
+
+	
+
 	
 }
