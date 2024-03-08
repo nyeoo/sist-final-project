@@ -185,10 +185,8 @@ String cp = request.getContextPath();
 																				<th>시작일</th>
 																				<th>종료일</th>
 																				<th>담당자</th>
-																				<th>실제시작일</th>
-																				<th>실제종료일</th>
 																				<th>작성하기</th>
-																				<th>추가/조회</th>
+																				<th>조회</th>
 																			</tr>
 																		</thead>
 																		<tbody>
@@ -206,17 +204,6 @@ String cp = request.getContextPath();
 																						<td>${innerWorkAssignment.assStartDate}</td>
 																						<td>${innerWorkAssignment.assEndDate}</td>
 																						<td>${innerWorkAssignment.piNickName}</td>
-																						<td>
-																							<div class="m-input-cal">
-																								<input type="text"
-																									class="form-control date-from">
-																							</div>
-																						</td>
-																						<td>
-																							<div class="m-input-cal">
-																								<input type="text" class="form-control date-to">
-																							</div>
-																						</td>
 																						<td>
 																							<div class="dropdown">
 																								<button type="button"
