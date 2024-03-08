@@ -12,7 +12,7 @@
 		, SD_START_DATE "seStartDate"
 		, SD_END_DATE "sdEndDate"
 		FROM VIEW_SCHEDULE
-		WHERE SD_OP_CODE = 'OP_2'
+		WHERE SD_OP_CODE = 'OP_6'
  	</select> 	
  	
  </mapper>

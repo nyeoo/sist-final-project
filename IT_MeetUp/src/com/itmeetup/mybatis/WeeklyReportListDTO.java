@@ -5,8 +5,8 @@ package com.itmeetup.mybatis;
 
 public class WeeklyReportListDTO
 {
-	private String wrTitle, wrDate;					// 주간업무보고명, 주간업무보고일자 
-	private String tjOpCode, pcCode, piNickName;	// 개설모집코드, 참여지원코드, 닉네임
+	private String wrTitle, wrDate;							// 주간업무보고명, 주간업무보고일자 
+	private String tjOpCode, pcCode, piNickName, opCode;	// 개설모집코드, 참여지원코드, 닉네임
 	private int countWeekly;
 	
 	// getter / setter 구성
@@ -17,6 +17,14 @@ public class WeeklyReportListDTO
 	public int getCountWeekly()
 	{
 		return countWeekly;
+	}
+	public String getOpCode()
+	{
+		return opCode;
+	}
+	public void setOpCode(String opCode)
+	{
+		this.opCode = opCode;
 	}
 	public void setCountWeekly(int countWeekly)
 	{

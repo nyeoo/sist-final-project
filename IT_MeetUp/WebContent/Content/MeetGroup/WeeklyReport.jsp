@@ -54,13 +54,13 @@ String cp = request.getContextPath();
 									<hr>
 								</div>
 
-								<form action="">
+								<form role="form" action="weeklyReportInsert.action" method="post">
 									<!-- 제목 -->
 									<div id="item-1-1" class="comp_tit ">
 										<div class="m-input-box">
 											<label for="writePost01" class="form-label"> 제목 </label> <input
 												type="text" class="form-control" id="title" name="title"
-												required="required" style="width: 350px;">
+												required="required" style="width: 350px;" value="">
 											<div class="invalid-feedback">제목을 입력해주세요.</div>
 										</div>
 									</div>
@@ -79,6 +79,7 @@ String cp = request.getContextPath();
 									<!-- //내용 -->
 
 									<br>
+									<!-- 첨부파일 -->
 									<div id="#item-3" class="comp_tit ">
 										첨부파일
 										<div class="m-file">
@@ -86,6 +87,8 @@ String cp = request.getContextPath();
 												class="form-control" type="file" id="formFile">
 										</div>
 									</div>
+									<!-- //첨부파일 -->
+									
 									<br>
 									<!-- 제출 및 취소 버튼 -->
 									<div style="text-align: center;">

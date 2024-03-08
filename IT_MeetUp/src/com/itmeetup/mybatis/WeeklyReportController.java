@@ -1,5 +1,9 @@
 package com.itmeetup.mybatis;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,10 +19,12 @@ public class WeeklyReportController
 	private SqlSession sqlSession;
 
 	@RequestMapping(value = "/weeklyReport.action", method = RequestMethod.GET)
-	public String weeklyReport(ModelMap model)
+	public String weeklyReport(HttpSession session, HttpServletRequest request, HttpServletResponse response, ModelMap model)
 	{
 		IWeeklyReportDAO dao = sqlSession.getMapper(IWeeklyReportDAO.class);
 		model.addAttribute("weeklyReport", dao.weeklyReport()); // ssName 데이터를 모델에 추가
+		
+		String opCode = request.getParameter("opCode");
 		return "/Content/MeetGroup/WeeklyReportList.jsp";
 	}
 

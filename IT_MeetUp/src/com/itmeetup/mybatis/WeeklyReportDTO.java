@@ -6,13 +6,21 @@ package com.itmeetup.mybatis;
 public class WeeklyReportDTO
 {
 	private String wrTitle, wrDate, wrContent;
-	private String tjOpCode, pcCode, piNickName;
+	private String tjOpCode, pcCode, piNickName, opCode, memCode;
 	private int countWeekly, wrNo;
 	
 	// getter / setter 구성
 	public String getWrTitle()
 	{
 		return wrTitle;
+	}
+	public String getOpCode()
+	{
+		return opCode;
+	}
+	public void setOpCode(String opCode)
+	{
+		this.opCode = opCode;
 	}
 	public void setWrTitle(String wrTitle)
 	{

@@ -19,7 +19,7 @@
 		, OU_NAME "ouName"
 		, SS_NAME "ssName"
 		FROM VIEW_ASSIGNMENT
-		WHERE SD_OP_CODE = 'OP_2'
+		WHERE SD_OP_CODE = 'OP_6'
 		ORDER BY SS_CODE
 	</select>
 

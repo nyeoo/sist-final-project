@@ -22,7 +22,7 @@
 		, APP_DATE "appDate"
 		, WS_NAME "wsName"
 		FROM VIEW_REPORT
-		WHERE SD_OP_CODE = 'OP_2' AND REP_NO IS NOT NULL
+		WHERE SD_OP_CODE = 'OP_6' AND REP_NO IS NOT NULL
 	</select>
 
 	<select id="reportPersonList"
@@ -31,7 +31,7 @@
 		DISTINCT PI_NICKNAME "piNickName"
 		FROM
 		VIEW_ASSIGNMENT
-		WHERE SD_OP_CODE = 'OP_2'
+		WHERE SD_OP_CODE = 'OP_6'
 	</select>
 
 	<select id="reportOutputList"
@@ -45,7 +45,7 @@
 		ASS.ASS_OU_CODE = OU.OU_CODE
 		LEFT JOIN REPORT R ON R.REP_ASS_CODE =
 		ASS.ASS_CODE
-		WHERE SD_OP_CODE = 'OP_2'
+		WHERE SD_OP_CODE = 'OP_6'
 	</select>
 
 </mapper>

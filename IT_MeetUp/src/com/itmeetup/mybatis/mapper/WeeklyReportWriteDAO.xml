@@ -14,7 +14,7 @@
 		"piNickName", WR_NO "wrNo", WR_CONTENT "wrContent"
 		FROM
 		VIEW_WEEKLY_REPORT
-		WHERE TJ_OP_CODE = 'OP_2'
+		WHERE TJ_OP_CODE = 'OP_6'
 	</select>
 
 </mapper>
