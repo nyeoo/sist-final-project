@@ -20,6 +20,8 @@ public class WorkManageController
         IScheduleDAO scheduleDAO = sqlSession.getMapper(IScheduleDAO.class);
         IAssignmentListDAO assignmentDAO = sqlSession.getMapper(IAssignmentListDAO.class);
         IReportListDAO reportDAO = sqlSession.getMapper(IReportListDAO.class);
+		IMemberDAO skillCategoryDAO = sqlSession.getMapper(IMemberDAO.class);	// 스킬카테고리 select
+		IMemberDAO skillsDAO = sqlSession.getMapper(IMemberDAO.class);			// 스킬 리스트
         
         model.addAttribute("scheduleList", scheduleDAO.scheduleList());
         model.addAttribute("assignmentList", assignmentDAO.assignmentList());
@@ -28,6 +30,12 @@ public class WorkManageController
         model.addAttribute("reportList", reportDAO.reportList());
         model.addAttribute("reportOutputList", reportDAO.reportOutputList());
         model.addAttribute("reportPersonList", reportDAO.reportPersonList());
+        
+		model.addAttribute("skills", skillsDAO.skills());
+		model.addAttribute("skillCategorys", skillCategoryDAO.skillCategorys());
+		
+		SkillProcessor skProcessors = new SkillProcessor();						// 스킬 리스트 조회 및 처리
+		model.addAttribute("skProcessors", skProcessors.createSkillMapping());
         
         return "/Content/MeetGroup/WorkManage.jsp";
     }

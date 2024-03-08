@@ -503,6 +503,49 @@ String cp = request.getContextPath();
 	<script src="<%=cp%>/asset/js/jquery-ui.js"></script>
 	<script src="<%=cp%>/asset/js/bootstrap.bundle.min.js"></script>
 	<script src="<%=cp%>/asset/js/common.js"></script>
+	<script type="text/javascript">
+		var useskills = new Array;
+
+		$("#input:checkbox[name='useskills']:checked").each(function(idx)
+		{
+			useskills.push($(this).val());
+		})
+
+		// 기술 체크할떄마다 span 구역에 나오게 함수
+		$(".skill").change(function()
+		{
+			var skilArea = $("#skilArea"); // div 영역 가져오기 
+			/* var skillName = $(this).attr("id") 		  	// 기술이름가져오기 */
+			var skillName = $(this).val() // 기술이름가져오기
+			//alert(skillName);
+
+			// 체크된 기술 
+			var checkSkill = skilArea.find("span");
+			if ($(this).is(":checked"))
+			{
+
+				// 선택된 기술이 5개 미만인 경우에만 추가
+				if (checkSkill.length < 5)
+				{
+					skilArea.append("<span>" + skillName + "&ensp; </span>");
+
+				} else
+				{
+					$(this).prop("checked", false);
+					alert("최대 5개까지 선택 가능합니다.");
+				}
+			} else
+			{
+				// 체크를 해제 하면 해당 기술을 삭제
+				checkSkill.each(function()
+				{
+					if ($(this).text().indexOf(skillName) !== -1)
+						$(this).remove();
+				});
+			}
+
+		});
+	</script>
 
 
 </body>
