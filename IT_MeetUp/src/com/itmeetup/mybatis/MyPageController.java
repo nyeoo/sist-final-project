@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class BlockController
+public class MyPageController
 {
 	// 주요 속성 구성
 	@Autowired
