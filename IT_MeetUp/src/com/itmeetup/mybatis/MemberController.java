@@ -67,7 +67,10 @@ public class MemberController
 		{ // 로그인O
 			session.setMaxInactiveInterval(30*60);	// 세션 유효시간 30분 설정
 			session.setAttribute("loginDTO", member);
-			viewPage = "/Content/ProjectLounge/PostList_ju.jsp";
+			//viewPage = "/Content/ProjectLounge/PostList_ju.jsp";
+			
+			// 주형이가 추가함 
+			viewPage = "/projectList.action";
 
 		} else
 		{ // 로그인X

@@ -4,7 +4,7 @@ package com.itmeetup.mybatis;
 public class CommentDTO
 {
 	// 주요 속성 구성 
-	private String number, renuber , content , date, nickname,name ;
+	private String number, renuber , comContent , date, nickname,name ,code , memCode;
 
 	public String getNumber()
 	{
@@ -16,7 +16,6 @@ public class CommentDTO
 		this.number = number;
 	}
 
-	// getter / setter 
 	public String getRenuber()
 	{
 		return renuber;
@@ -27,14 +26,14 @@ public class CommentDTO
 		this.renuber = renuber;
 	}
 
-	public String getContent()
+	public String getComContent()
 	{
-		return content;
+		return comContent;
 	}
 
-	public void setContent(String content)
+	public void setComContent(String comContent)
 	{
-		this.content = content;
+		this.comContent = comContent;
 	}
 
 	public String getDate()
@@ -66,6 +65,31 @@ public class CommentDTO
 	{
 		this.name = name;
 	}
+
+	public String getCode()
+	{
+		return code;
+	}
+
+	public void setCode(String code)
+	{
+		this.code = code;
+	}
+
+	public String getMemCode()
+	{
+		return memCode;
+	}
+
+	public void setMemCode(String memCode)
+	{
+		this.memCode = memCode;
+	}
+
+	
+	// setter , getter 
+	
+	
 	
 	
 	

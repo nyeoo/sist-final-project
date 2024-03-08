@@ -6,11 +6,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.itmeetup.mybatis.ICommentDAO">
 
 			       
-	<!-- 댓글 -->
+	<!-- 댓글 출력 -->
 	<select id="commentList" resultType="com.itmeetup.mybatis.CommentDTO" >
 	   
 		SELECT COM_NO AS "NUMBER", COM_DATE "DATE" , PI_NAME AS "NAME"
-		, PI_NICKNAME AS "NICKNAME" ,COM_CONTENT "CONTENT"
+		, PI_NICKNAME AS "NICKNAME" ,COM_CONTENT "comContent"
 		FROM PROJECT_INFO PI
 		JOIN COMMENTS C ON PI.CODE = c.com_op_code
 		JOIN MEMBER_INFO MI ON mi.mem_code= c.com_mem_code
@@ -18,14 +18,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				
 	</select>
 	
-	<!-- 대댓글 -->
+	<!-- 대댓글 출력 -->
 	<select id="recommentList" resultType="com.itmeetup.mybatis.CommentDTO" >
 		
-		SELECT REC_NO AS "RENUMBER" , REC_COM_NO AS"NUMBER" ,REC_CONTENT AS"CONTENT" , PI_NAME AS"NAME" ,PI_NICKNAME AS "NICKNAME" ,REC_DATE AS "DATE"
+		SELECT REC_NO AS "RENUMBER" , REC_COM_NO AS"NUMBER" ,REC_CONTENT AS"comContent" , PI_NAME AS"NAME" ,PI_NICKNAME AS "NICKNAME" ,REC_DATE AS "DATE"
 		FROM RECOMENT RE
 		JOIN COMMENTS C ON RE.REC_COM_NO = C.COM_NO
 		JOIN MEMBER_INFO MI ON mi.mem_code= RE.REC_mem_code
 		WHERE REC_COM_NO =#{number}
+		order by 6
 	</select>
 	
 	<!-- 댓글 개수 세기 -->
@@ -36,8 +37,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		JOIN MEMBER_INFO MI ON MI.MEM_CODE= c.COM_MEM_CODE
 		WHERE PI.CODE = #{code}
 	</select>
-
 	
+	<insert id="insertComment">
+		INSERT INTO COMMENTS(COM_NO, COM_CONTENT, COM_DATE, COM_OP_CODE, COM_MEM_CODE)
+		VALUES(COMMENT_SEQ.NEXTVAL, #{comContent}, SYSDATE, #{code}, #{memCode})	
+	</insert>
+	
+	<!-- 
+	<insert id="">
+		INSERT INTO RECOMENT(REC_NO, REC_CONTENT, REC_DATE, REC_COM_NO, REC_MEM_CODE)
+		VALUES(RECOMENT_SEQ.NEXTVAL, 'ㅇㅈㅇㅈ', TO_DATE('2019-02-28', 'YYYY-MM-DD'), 1, 'MEM_12');
+	</insert> 
+	 -->
 </mapper>
 
 

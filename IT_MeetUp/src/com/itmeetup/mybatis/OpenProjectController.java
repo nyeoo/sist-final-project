@@ -38,7 +38,7 @@ public class OpenProjectController
 		for (OpenProjectDTO dto : project)
 		{
 			skills.put(dto.getCode(), dao.skillList(dto.getCode()));
-			//jobs.put(dto.getCode(), jdao.jobList((dto.getCode())));
+			//jobs.put(dto.getCode(), jdao.jobLists((dto.getCode())));
 		}
 		
 		IMemberDAO skillCategoryDAO = sqlSession.getMapper(IMemberDAO.class);	// 스킬카테고리 select
@@ -68,7 +68,7 @@ public class OpenProjectController
 	
 	// 사용자가 누른 프로젝트 상세 페이지로 이동
 	@RequestMapping(value = "/PostDetail.action" , method = RequestMethod.GET)
-	public String PostDeatil(ModelMap model ,String code)
+	public String PostDeatil(ModelMap model ,String code, String memcode)
 	{
 		String result =null;
 		
@@ -89,6 +89,7 @@ public class OpenProjectController
 		model.addAttribute("comments",cdao.commentList(code));			// 댓글 뽑기
 		model.addAttribute("count",cdao.countComment(code));			// 댓글 개수 세기
 		model.addAttribute("recomments",recomments);					// 대댓글 뽑기
+		
 		
 		
 		

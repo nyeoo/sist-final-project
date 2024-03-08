@@ -4,9 +4,8 @@ package com.itmeetup.mybatis;
 public class JobDTO
 {
 	// 주요 속성 구성 
-	private  String jobCode ,jobName ,inwon, tjno ; 	// 직무 코드 , 직무 이름
-										//   ----
-										//   구성직무 넘버
+	private  String jobCode ,jobName ,inwon, tjno , count; 	// 직무 코드 , 직무 이름, 구성직무번호
+
 	
 	//private int inwon;				// 인원수
 	
@@ -52,6 +51,14 @@ public class JobDTO
 	public void setTjno(String tjno)
 	{
 		this.tjno = tjno;
+	}
+	public String getCount()
+	{
+		return count;
+	}
+	public void setCount(String count)
+	{
+		this.count = count;
 	}
 
 	
