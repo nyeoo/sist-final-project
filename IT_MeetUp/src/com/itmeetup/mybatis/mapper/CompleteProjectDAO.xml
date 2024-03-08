@@ -11,18 +11,20 @@
 	    FROM
 	    (SELECT ROW_NUMBER() OVER(ORDER BY FINAL_DATE DESC) AS RNUM, F.FINAL_NAME AS TITLE, F.FINAL_INTRO AS CONTENT, O.OP_TEAM_NAME AS TEAMNAME, O.OP_CAT_CODE AS CATCODE
 	    FROM FINAL_INFO F JOIN OPEN_PROJECT O
-	                ON F.FI_OP_CODE = O.OP_CODE)
-	    WHERE RNUM >= #{start} AND #{end} >= RNUM
-	    <if test="checkedValue != null">
-	        AND CATCODE IN
-	        <foreach item="item" collection="checkedValue" open="(" separator="," close=")">
-	            #{item}
-	        </foreach>
+	                ON F.FI_OP_CODE = O.OP_CODE
+	    <if test="category != null and category != ''">
+	    WHERE O.OP_CAT_CODE = #{category}
 	    </if>
+	    )
+	    WHERE RNUM >= #{start} AND #{end} >= RNUM
 	</select>
  	<select id="getDataCount" resultType="java.lang.Integer">
  		SELECT COUNT(*) AS COUNT
-		FROM FINAL_INFO
+		FROM FINAL_INFO F JOIN OPEN_PROJECT O
+                  ON F.FI_OP_CODE = O.OP_CODE
+        <if test="category != null and category != ''">
+	    AND O.OP_CAT_CODE = #{category}
+	    </if>          
  	</select>
  	<select id="catList" resultType="com.itmeetup.mybatis.CategoryDTO">
 		SELECT CAT_CODE AS CATCODE, CAT_NAME AS CATNAME

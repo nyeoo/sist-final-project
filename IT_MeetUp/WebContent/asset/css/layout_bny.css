@@ -65,7 +65,8 @@
 
 /* CompleteProject.jsp */
 .c-body-section {
-	margin-top: 65px;
+	margin-top: 3.25rem;
+	margin-bottom: 3.25rem;
 }
 .col-lg-4 {
 	width: 25% !important;

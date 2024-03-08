@@ -8,7 +8,7 @@ String cp = request.getContextPath();
 	aria-label="Fifth navbar example">
 	<div class="container-xl">
 		<!-- 로고 -->
-		<a class="navbar-brand" href="#">IT-Meet<em>Up</em></a>
+		<a class="navbar-brand" href="home.action">IT-Meet<em>Up</em></a>
 
 		<!-- mob 메뉴 버튼 -->
 		<button class="navbar-toggler" type="button"
@@ -32,8 +32,6 @@ String cp = request.getContextPath();
 			<!-- (mob) 사이드 메뉴 & (pc) 대메뉴 -->
 			<div class="offcanvas-body">
 				<ul class="navbar-nav me-auto mb-lg-0 m-head-gnb">
-					<li class="nav-item"><a class="nav-link" aria-current="page"
-						href="#">홈</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="WriteFormControl.action">모집공고작성</a></li>
 					<li class="nav-item dropdown"><a
@@ -41,7 +39,7 @@ String cp = request.getContextPath();
 						data-bs-toggle="dropdown" aria-expanded="false">프로젝트 라운지</a>
 						<ul class="dropdown-menu">
 							<li><a class="dropdown-item" href="#">모집공고보기</a></li>
-							<li><a class="dropdown-item" href="#">완료된 프로젝트</a></li>
+							<li><a class="dropdown-item" href="completeproject.action">완료된 프로젝트</a></li>
 						</ul></li>
 					<li class="nav-item"><a class="nav-link" href="grouphome.action?opCode=${sessionScope.loginDTO.piMemCode}">Meet 그룹</a></li>
 					

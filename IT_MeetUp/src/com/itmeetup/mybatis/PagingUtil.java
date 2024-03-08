@@ -1,6 +1,6 @@
 package com.itmeetup.mybatis;
 
-public class Test
+public class PagingUtil
 {
 	// ■ 전체 페이지 수를 구하는 메소드
 	// numPerPage : 한 페이지에 표시할 데이터(게시물)의 수
@@ -57,8 +57,8 @@ public class Test
 		{
 			listUrl = listUrl + "?";	// listUrl += "?";
 		}
-		//-- 예를 들어, 검색값이 존재하면
-		//	이미 request 값이 searchKey 와 searchValue 가 들어있는 상황이므로
+		//-- 예를 들어, 카테고리를 선택한 상태라면,
+		//	이미 카테고리 값이 url 에 들어가있는 상태이므로
 		//	『&』를 붙여서 속성값에 추가해 주어야 한다.
 		
 		// ※ currentPageSetup = 표시할 첫 페이지 - 1
