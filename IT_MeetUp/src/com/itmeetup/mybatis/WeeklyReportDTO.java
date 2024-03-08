@@ -14,6 +14,17 @@ public class WeeklyReportDTO
 	{
 		return wrTitle;
 	}
+	
+	public String getMemCode()
+	{
+		return memCode;
+	}
+
+	public void setMemCode(String memCode)
+	{
+		this.memCode = memCode;
+	}
+
 	public String getOpCode()
 	{
 		return opCode;
