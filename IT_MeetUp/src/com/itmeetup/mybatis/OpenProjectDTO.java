@@ -5,13 +5,14 @@ import java.util.ArrayList;
 public class OpenProjectDTO
 {
 	// 주요 속성 구성
-	private String code, start, end, profile, nickname, title, content, sigg, sido ,meet, teamName ,category ;   //,categorys;
+	private String code, start, end, profile, nickname, title, content, sigg, sido ,meet, teamName ,category, memCode;   //,categorys;
 																								    
 	private int view, day ,mojibsu;
 	private ArrayList<String> skill;
 	private ArrayList<JobDTO> jobList;
 	
 	// getter / setter 구성
+	
 	public String getCode()
 	{
 		return code;
@@ -68,6 +69,54 @@ public class OpenProjectDTO
 	{
 		this.content = content;
 	}
+	public String getSigg()
+	{
+		return sigg;
+	}
+	public void setSigg(String sigg)
+	{
+		this.sigg = sigg;
+	}
+	public String getSido()
+	{
+		return sido;
+	}
+	public void setSido(String sido)
+	{
+		this.sido = sido;
+	}
+	public String getMeet()
+	{
+		return meet;
+	}
+	public void setMeet(String meet)
+	{
+		this.meet = meet;
+	}
+	public String getTeamName()
+	{
+		return teamName;
+	}
+	public void setTeamName(String teamName)
+	{
+		this.teamName = teamName;
+	}
+	public String getCategory()
+	{
+		return category;
+	}
+	public void setCategory(String category)
+	{
+		this.category = category;
+	}
+	public String getMemCode()
+	{
+		return memCode;
+	}
+	public void setMemCode(String memCode)
+	{
+		this.memCode = memCode;
+	}
 	public int getView()
 	{
 		return view;
@@ -84,13 +133,13 @@ public class OpenProjectDTO
 	{
 		this.day = day;
 	}
-	public String getSigg()
+	public int getMojibsu()
 	{
-		return sigg;
+		return mojibsu;
 	}
-	public void setSigg(String sigg)
+	public void setMojibsu(int mojibsu)
 	{
-		this.sigg = sigg;
+		this.mojibsu = mojibsu;
 	}
 	public ArrayList<String> getSkill()
 	{
@@ -100,48 +149,6 @@ public class OpenProjectDTO
 	{
 		this.skill = skill;
 	}
-	public String getMeet()
-	{
-		return meet;
-	}
-	public void setMeet(String meet)
-	{
-		this.meet = meet;
-	}
-	
-	public String getTeamName()
-	{
-		return teamName;
-	}
-	public void setTeamName(String teamName)
-	{
-		this.teamName = teamName;
-	}
-	
-	public String getCategory()
-	{
-		return category;
-	}
-	public void setCategory(String category)
-	{
-		this.category = category;
-	}
-	public String getSido()
-	{
-		return sido;
-	}
-	public void setSido(String sido)
-	{
-		this.sido = sido;
-	}
-	public int getMojibsu()
-	{
-		return mojibsu;
-	}
-	public void setMojibsu(int mojibsu)
-	{
-		this.mojibsu = mojibsu;
-	}
 	public ArrayList<JobDTO> getJobList()
 	{
 		return jobList;
@@ -150,6 +157,8 @@ public class OpenProjectDTO
 	{
 		this.jobList = jobList;
 	}
+	
+	
 	/*
 	// 현재 진행중인 프로젝트 리스트에 필요한 카테고리
 	public String getCategorys()

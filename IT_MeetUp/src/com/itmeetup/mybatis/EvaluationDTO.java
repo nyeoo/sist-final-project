@@ -3,18 +3,10 @@ package com.itmeetup.mybatis;
 public class EvaluationDTO
 {
 	private int evano, quePoint;									// 평가번호, 벌점
-	private String erpcCode, evapcCode, quename, opcode;			// 피평가자, 평가자, 평가명, 개설코드
+	private String erpcCode, evapcCode, quename, memCode;			// 피평가자, 평가자, 평가명, 회원코드
+	
 	
 	// getter / setter 구성
-	
-	public String getOpcode()
-	{
-		return opcode;
-	}
-	public void setOpcode(String opcode)
-	{
-		this.opcode = opcode;
-	}
 	public int getEvano()
 	{
 		return evano;
@@ -55,6 +47,17 @@ public class EvaluationDTO
 	{
 		this.quename = quename;
 	}
+	public String getMemCode()
+	{
+		return memCode;
+	}
+	public void setMemCode(String memCode)
+	{
+		this.memCode = memCode;
+	}
+
+	
+	
 	
 	
 }

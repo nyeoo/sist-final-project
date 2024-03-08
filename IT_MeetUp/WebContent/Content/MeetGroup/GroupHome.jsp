@@ -233,14 +233,14 @@ String cp = request.getContextPath();
 												<tbody style="text-align: center;">
 													<c:forEach var="weeklyList" items="${weeklyReportList }">
 														<tr>
-															<td><strong>${weeklyList.wrNumber }</strong></td>
+															<td><strong>${weeklyList.wrNo }</strong></td>
 															<td>
 																<div class="user-info-container">${weeklyList.wrTitle }</div>
 															</td>
 															<td
 																style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${weeklyList.wrContent }</td>
 															<td>${weeklyList.wrDate }</td>
-															<td><span class="badge bg-label-primary me-1">${weeklyList.wrPerson }</span>
+															<td><span class="badge bg-label-primary me-1">${weeklyList.piNickName }</span>
 														</tr>
 													</c:forEach>
 												</tbody>
