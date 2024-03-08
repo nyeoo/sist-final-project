@@ -5,32 +5,39 @@ import java.util.ArrayList;
 public interface IGroupHomeDAO
 {
 	// 주간업무보고서 리스트
-	public ArrayList<WeeklyReportDTO> weeklyReportList(String opCode);
+	public ArrayList<WeeklyReportDTO> weeklyReportList(String memCode);
 	
 	// 산출물 갯수
-	public Integer meetCount(String opCode);
-	public Integer planCount(String opCode);
-	public Integer flowchartCount(String opCode);
-	public Integer requestCount(String opCode);
+	public Integer meetAnalCount(String memCode);
+	public Integer meetDesignCount(String memCode);
+	public Integer meetAvatarCount(String memCode);
+	public Integer meetTestCount(String memCode);
+	public Integer meetTotalCount(String memCode);
+	public Integer planCount(String memCode);
+	public Integer flowchartCount(String memCode);
+	public Integer requestCount(String memCode);
 	
 	// 직무별 그룹원 목록
-	public ArrayList<GroupDTO> groupHomePlan(String opCode);
-	public ArrayList<GroupDTO> groupHomeDesign(String opCode);
-	public ArrayList<GroupDTO> groupHomeFront(String opCode);
-	public ArrayList<GroupDTO> groupHomeBack(String opCode);
+	public ArrayList<GroupDTO> groupHomePlan(String memCode);
+	public ArrayList<GroupDTO> groupHomeDesign(String memCode);
+	public ArrayList<GroupDTO> groupHomeFront(String memCode);
+	public ArrayList<GroupDTO> groupHomeBack(String memCode);
 	
 	// 프로젝트 진행기간
-	public ArrayList<OpenProjectDTO> progressPeriod(String opCode);
+	public ArrayList<OpenProjectDTO> progressPeriod(String memCode);
 	
 	// 프로젝트 진행기간별 비율
-	public Double analyzePercent(String opCode);
-	public Double designPercent(String opCode);
-	public Double avatarPercent(String opCode);
-	public Double testPercent(String opCode);
+	public Double analyzePercent(String memCode);
+	public Double designPercent(String memCode);
+	public Double avatarPercent(String memCode);
+	public Double testPercent(String memCode);
 	
 	// 팀장 평가 목록 조회
-	public ArrayList<EvaluationDTO> leaderEval(String opCode);
+	public ArrayList<EvaluationDTO> leaderEval(String memCode);
 	
 	// 팀원 평가 목록 조회
-	public ArrayList<EvaluationDTO> teamEval(String opCode);
+	public ArrayList<EvaluationDTO> teamEval(String memCode);
+	
+	// 그룹원 리스트 조회
+	public ArrayList<GroupDTO> groupPersonnel(String memCode);
 }

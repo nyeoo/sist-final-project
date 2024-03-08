@@ -36,7 +36,7 @@ String cp = request.getContextPath();
 			<li class="nav-heading">Pages</li>
 
 			<li class="nav-item"><a class="nav-link collapsed"
-				href="grouphome.action?opCode=${sessionScope.loginDTO.piMemCode}"> <i class="bi bi-grid"></i> <span>그룹홈</span>
+				href="grouphome.action?memCode=${sessionScope.loginDTO.piMemCode}"> <i class="bi bi-grid"></i> <span>그룹홈</span>
 			</a></li>
 
 			<li class="nav-item"><a class="nav-link collapsed"

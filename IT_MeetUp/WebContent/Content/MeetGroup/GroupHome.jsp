@@ -54,10 +54,10 @@ String cp = request.getContextPath();
 							<div class="row">
 
 								<!-- 최소완료조건 -->
-								<div class="col-12 gh-min-completion">
+								<div class="col-12 gh-min-completion group-complet">
 									<div class="row">
 										<!-- 회의록 -->
-										<div class="col-3 level-con level-info">
+										<div class="col-12 level-con level-info report">
 											<div class="card completebody">
 												<div class="card-body">
 													<div
@@ -65,20 +65,45 @@ String cp = request.getContextPath();
 														<div class="avatar flex-shrink-0">
 															<span class="fw-semibold d-block mb-1"><span
 																data-bs-toggle="tooltip" data-bs-placement="top"
-																data-bs-title="최소 4건">회의록 <i
+																data-bs-title="최소 4건">단계별회의록 <i
 																	class="bi bi-question-circle"></i></span></span>
 															<div class="card-title mb-2">
-																<span>${meetCount == null ? 0 : meetCount}</span>/4
+																<span>총 회의록 ${meetTotalCount == null ? 0 : meetTotalCount}</span>/4
 															</div>
 														</div>
 													</div>
-													<div class="level-bottom">
+													<div class="level-bottom report-box">
 														<div class="progress" role="progressbar"
 															aria-label="Danger example" aria-valuenow="100"
 															aria-valuemin="0" aria-valuemax="100">
+															<span>분석 회의록</span>${meetAnalCount == null ? 0 : meetAnalCount}/1
 															<div class="progress-bars bg-primary"
-																style="width: ${(meetCount >= 1 ? 25 : 0) + (meetCount >= 2 ? 25 : 0) + (meetCount >= 3 ? 25 : 0) + (meetCount >= 4 ? 25 : 0)}%">
-																회의록 ${meetCount >= 1 ? '25%' : '0%'}</div>
+																style="width: ${(meetAnalCount >= 1 ? 100 : 0)}%;">
+																</div>
+														</div>
+														<div class="progress" role="progressbar"
+															aria-label="Danger example" aria-valuenow="100"
+															aria-valuemin="0" aria-valuemax="100">
+															<span>설계 회의록</span>${meetDesignCount == null ? 0 : meetDesignCount}/1
+															<div class="progress-bars bg-primary"
+																style="width: ${(meetDesignCount >= 1 ? 100 : 0)}%;">
+																</div>
+														</div>
+														<div class="progress" role="progressbar"
+															aria-label="Danger example" aria-valuenow="100"
+															aria-valuemin="0" aria-valuemax="100">
+															<span>구현 회의록</span>${meetAvatarCount == null ? 0 : meetAvatarCount}/1
+															<div class="progress-bars bg-primary"
+																style="width: ${(meetAvatarCount >= 1 ? 100 : 0)}%;">
+																</div>
+														</div>
+														<div class="progress" role="progressbar"
+															aria-label="Danger example" aria-valuenow="100"
+															aria-valuemin="0" aria-valuemax="100">
+															<span>테스트 회의록</span>${meetTestCount == null ? 0 : meetTestCount}/1
+															<div class="progress-bars bg-primary"
+																style="width: ${(meetTestCount >= 1 ? 100 : 0)}%;">
+																</div>
 														</div>
 													</div>
 												</div>
@@ -87,7 +112,7 @@ String cp = request.getContextPath();
 										<!-- //회의록 -->
 
 										<!-- 순서도 -->
-										<div class="col-3 level-con level-info">
+										<div class="col-4 level-con level-info">
 											<div class="card completebody">
 												<div class="card-body">
 													<div
@@ -117,7 +142,7 @@ String cp = request.getContextPath();
 										<!-- //순서도 -->
 
 										<!-- 기획서 -->
-										<div class="col-3 level-con level-info">
+										<div class="col-4 level-con level-info">
 											<div class="card completebody">
 												<div class="card-body">
 													<div
@@ -147,7 +172,7 @@ String cp = request.getContextPath();
 										<!-- //기획서 -->
 
 										<!-- 요구분석서 -->
-										<div class="col-3 level-con level-info">
+										<div class="col-4 level-con level-info">
 											<div class="card completebody">
 												<div class="card-body">
 													<div
@@ -185,7 +210,7 @@ String cp = request.getContextPath();
 
 									<div class="card weekwork">
 										<div class="addsee">
-											<a class="icon" href="WeeklyReportList.jsp">더보기</a>
+											<a class="icon" href="weeklyReport.action">더보기</a>
 										</div>
 										<div class="card-body">
 											<div class="card-title">
@@ -345,7 +370,7 @@ String cp = request.getContextPath();
 						</div>
 					</div>
 					<!-- 진행기간 -->
-					
+
 					<!-- 평가하기 -->
 					<div class="eval">
 						<button type="button" id="evalInsertBtn" class="btn btn-primary"
@@ -360,7 +385,7 @@ String cp = request.getContextPath();
 						<div class="modal fade" id="evalInsert" tabindex="-1"
 							aria-labelledby="#evalLabel" aria-hidden="true">
 							<div class="modal-dialog modal-dialog-centered">
-								<div class="modal-content">
+								<div class="modal-content groupPer">
 									<div class="modal-header">
 										<h1 class="modal-title fs-5" id="evalLabel">그룹원 평가</h1>
 										<button type="button" class="btn-close"
@@ -371,9 +396,9 @@ String cp = request.getContextPath();
 											<div class="con-section complete-list">
 
 												<div class="row">
-													<div class="col-md-8">
+													<div class="col-md-12">
 														<div class="mb-3">
-															<table class="table">
+															<table class="table groupPerTbl">
 																<c:forEach var="leaderItem" items="${leaderEval }">
 																	<tr>
 																		<th>${leaderItem.quename }</th>
@@ -381,10 +406,13 @@ String cp = request.getContextPath();
 																</c:forEach>
 																<c:forEach var="teamItem" items="${teamEval }">
 																	<tr>
-																		<td><label> 
-																		<input type="checkbox" 	name="obj01" value="${teamItem.quename }" />
-																				${teamItem.quename }
-																		</label></td>
+																		<th>${teamItem.quename }</th>
+																		<c:forEach var="groupPersonItem"
+																			items="${groupPersonnel }">
+																			<td><input class="form-check-input groupPerson" type="checkbox" name="grPersonnel"
+																				value="${groupPersonItem.piNickName }" />
+																				${groupPersonItem.piNickName }</td>
+																		</c:forEach>
 																	</tr>
 																</c:forEach>
 															</table>

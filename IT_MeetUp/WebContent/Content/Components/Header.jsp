@@ -32,6 +32,8 @@ String cp = request.getContextPath();
 			<!-- (mob) 사이드 메뉴 & (pc) 대메뉴 -->
 			<div class="offcanvas-body">
 				<ul class="navbar-nav me-auto mb-lg-0 m-head-gnb">
+					<li class="nav-item"><a class="nav-link" aria-current="page"
+						href="#">홈</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="WriteFormControl.action">모집공고작성</a></li>
 					<li class="nav-item dropdown"><a
@@ -41,7 +43,7 @@ String cp = request.getContextPath();
 							<li><a class="dropdown-item" href="#">모집공고보기</a></li>
 							<li><a class="dropdown-item" href="completeproject.action">완료된 프로젝트</a></li>
 						</ul></li>
-					<li class="nav-item"><a class="nav-link" href="grouphome.action?opCode=${sessionScope.loginDTO.piMemCode}">Meet 그룹</a></li>
+					<li class="nav-item"><a class="nav-link" href="grouphome.action?memCode=${sessionScope.loginDTO.piMemCode}">Meet 그룹</a></li>
 					
 				</ul>
 

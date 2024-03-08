@@ -1,6 +1,5 @@
 @charset "UTF-8";
 /* test입니다 */
-
 .modal-content {
 	width: 350px;
 }
@@ -21,12 +20,15 @@
 	height: 100%
 }
 
-.h3 {padding: 20px;}
+.h3 {
+	padding: 20px;
+}
 
-.content_tit {padding-bottom: 20px;}
+.content_tit {
+	padding-bottom: 20px;
+}
 
 /* ----------------------------------------------- */
-
 .intro-body-list {
 	margin-bottom: 20px;
 	background: white;
@@ -50,19 +52,18 @@
 
 .progress-bars {
 	width: 100%;
-    display: block;
-    flex-direction: column;
-    justify-content: center;
-    overflow: hidden;
-    color: var(--bs-progress-bar-color);
-    text-align: center;
-    white-space: nowrap;
-    background-color: var(--bs-progress-bar-bg);
-    transition: var(--bs-progress-bar-transition);
-    margin: 10px 5px 10px 5px;
+	display: block;
+	flex-direction: column;
+	justify-content: center;
+	overflow: hidden;
+	color: var(- -bs-progress-bar-color);
+	text-align: center;
+	white-space: nowrap;
+	background-color: var(- -bs-progress-bar-bg);
+	transition: var(- -bs-progress-bar-transition);
+	margin: 10px 5px 10px 5px;
 	height: 40px;
 }
-
 
 .weekwork .addsee {
 	position: absolute;
@@ -75,7 +76,10 @@
 	margin-top: 10px;
 	flex-flow: wrap;
 }
-.job-list > li{margin-top: 0.5rem;}
+
+.job-list>li {
+	margin-top: 0.5rem;
+}
 
 .job {
 	align-items: center;
@@ -166,14 +170,10 @@
 	border-radius: 50%;
 }
 
-
-
-
-
 /* ------------------------------------------ */
-
-.calendarbox{
-text-align: center;}
+.calendarbox {
+	text-align: center;
+}
 
 #calendar {
 	display: inline-block;
@@ -188,22 +188,68 @@ text-align: center;}
 }
 
 /* 그룹홈 ------------------------------------------ */
-.grouphome {}
-.grouphome .gh-min-completion{}
-.grouphome .gh-weekwork{margin-top: 1.5rem;}
-.grouphome .gh-namecard{}
-.grouphome .gh-namecard .intro-body-list {
-    padding: 0;
-    margin: 0.5rem;
+.grouphome {
+	
 }
-.grouphome {}
-.grouphome {}
 
+.grouphome .gh-min-completion {
+	
+}
 
-.weeklyRepTable {    table-layout: fixed;
-    width: 100%;
-    word-wrap: break-word;}
-    
-.eval {text-align: center;
-padding-top: 20px;
-padding-bottom: 20px;}
+.grouphome .gh-weekwork {
+	margin-top: 1.5rem;
+}
+
+.grouphome .gh-namecard {
+	
+}
+
+.grouphome .gh-namecard .intro-body-list {
+	padding: 0;
+	margin: 0.5rem;
+}
+
+.grouphome {
+	
+}
+
+.grouphome {
+	
+}
+
+.weeklyRepTable {
+	table-layout: fixed;
+	width: 100%;
+	word-wrap: break-word;
+}
+
+.eval {
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.groupPer {
+	width: 800px;
+}
+
+.groupPerTbl {
+	width: 750px;
+}
+
+.groupPerTbl th {
+	width: 200px;
+}
+
+/* 그룹 프로그래스바 */
+.group-complet .progress {
+	display: flex;
+	flex-direction: column;
+}
+.group-complet .level-bottom.report-box {
+    display: flex;
+}
+.group-complet .level-bottom.report-box .progress-bars{height: 10px;}
+.group-complet .level-info.report .progress {
+    width: 25%;
+}
