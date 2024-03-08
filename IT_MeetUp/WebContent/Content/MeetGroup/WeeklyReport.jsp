@@ -45,6 +45,9 @@ String cp = request.getContextPath();
 					<div
 						class="col-md-10 col-lg-6 d-flex flex-column align-items-center justify-content-center">
 						<div class="card mb-3 join-area">
+						<!-- 사이드 영역 -->
+						<c:import url="../Components/Side.jsp"></c:import>
+						<!-- //사이드 영역 -->
 							<div class="card-body">
 								<div class="pt-4 pb-2">
 									<div class="h3 card-title text-center pb-0">주간업무보고</div>
