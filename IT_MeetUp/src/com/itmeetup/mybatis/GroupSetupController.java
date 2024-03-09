@@ -18,28 +18,28 @@ public class GroupSetupController
 
 	// 그룹원설정
 	@RequestMapping(value = "/groupSetup.action", method = RequestMethod.GET)
-	public String groupSetupList(ModelMap model, String opcode)
+	public String groupSetupList(ModelMap model, String memCode)
 	{
 		IGroupSetupDAO dao = sqlSession.getMapper(IGroupSetupDAO.class);
 		
 		// 그룹원 리스트
-		model.addAttribute("groupSetupList", dao.groupSetupList(opcode));
+		model.addAttribute("groupSetupList", dao.groupSetupList(memCode));
 		
 		// 그룹원 팀 이름
-		model.addAttribute("groupTeamName", dao.groupTeamName(opcode));
+		model.addAttribute("groupTeamName", dao.groupTeamName(memCode));
 
 		return "/Content/MeetGroup/GroupSetup.jsp";
 	}
 	
 	// 팀명 수정을 위한 모달 컨트롤러
 	@RequestMapping(value = "/groupSetupUpdate.action", method = RequestMethod.GET)
-	public String GroupTeamNamesearchId(ModelMap model, String opcode)
+	public String GroupTeamNamesearchId(ModelMap model, String memCode)
 	{
 		IGroupSetupDAO dao = sqlSession.getMapper(IGroupSetupDAO.class);
 
 		OpenProjectDTO opdto = new OpenProjectDTO();
 
-		opdto = dao.GroupTeamNamesearchId(opcode);
+		opdto = dao.GroupTeamNamesearchId(memCode);
 		
 		
 		model.addAttribute("opdto", opdto);
@@ -49,10 +49,10 @@ public class GroupSetupController
 	
 	// 팀명 수정
 	@RequestMapping(value = "/groupteamnamemodify.action", method = RequestMethod.POST)
-	public String groupTeamNamemodify(@Param("teamName") String teamName, @Param("opcode") String opcode)
+	public String groupTeamNamemodify(@Param("teamName") String teamName, @Param("opcode") String memCode)
 	{
 		IGroupSetupDAO dao = sqlSession.getMapper(IGroupSetupDAO.class);
-		dao.groupTeamNamemodify(teamName, opcode);
-		return "redirect:/groupSetup.action?opcode=" + opcode;
+		dao.groupTeamNamemodify(teamName, memCode);
+		return "redirect:/groupSetup.action?memCode=" + memCode;
 	}
 }

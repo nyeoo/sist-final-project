@@ -12,7 +12,7 @@
 		FROM CALENDARSCHEVIEW
 		WHERE CODE = (SELECT OP_CODE
 		FROM OPEN_PROJECT
-		WHERE OP_MEM_CODE = #{sdOpCode })
+		WHERE OP_MEM_CODE = #{memCode })
  	</select>
  	
  	<!-- 할당된 업무 업무명, 할당된 날짜, 할당 받은 닉네임 출력 -->
@@ -21,7 +21,7 @@
 		FROM CALENDARASSVIEW
 		WHERE OP_CODE = (SELECT OP_CODE
 		FROM OPEN_PROJECT
-		WHERE OP_MEM_CODE = #{sdOpCode })
+		WHERE OP_MEM_CODE = #{memCode })
  	</select>
  	
  	

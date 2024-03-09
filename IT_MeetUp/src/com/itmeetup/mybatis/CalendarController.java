@@ -19,12 +19,12 @@ public class CalendarController
 
 	// 캘린더
 	@RequestMapping(value = "/calendar.action", method = RequestMethod.GET)
-	public String CalendarList(ModelMap model, String sdOpCode)
+	public String CalendarList(ModelMap model, String memCode)
 	{
 		ICalendarDAO dao = sqlSession.getMapper(ICalendarDAO.class);
 		
-		ArrayList<ScheduleDTO> allCalendar = dao.allCalendar(sdOpCode);
-		ArrayList<AssignmentDTO> assCalendar = dao.assCalendar(sdOpCode);
+		ArrayList<ScheduleDTO> allCalendar = dao.allCalendar(memCode);
+		ArrayList<AssignmentDTO> assCalendar = dao.assCalendar(memCode);
 		
 		// 캘린더 켜졌을 때 맨 처음 보이는 날짜
 		String initialDate = "";
@@ -61,7 +61,7 @@ public class CalendarController
 		calData += "]";
 		
 		//달력 시작 날짜
-		ArrayList<ScheduleDTO> dtos = dao.allCalendar(sdOpCode);
+		ArrayList<ScheduleDTO> dtos = dao.allCalendar(memCode);
 		initialDate += "'" + dtos.get(0).getSeStartDate() + "'";
 		
 		

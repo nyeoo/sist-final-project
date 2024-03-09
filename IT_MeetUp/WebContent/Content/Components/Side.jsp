@@ -40,7 +40,7 @@ String cp = request.getContextPath();
 			</a></li>
 
 			<li class="nav-item"><a class="nav-link collapsed"
-				href="calendar.action?sdOpCode=${sessionScope.loginDTO.piMemCode}"> <i class="bi bi-grid"></i> <span>캘린더</span>
+				href="calendar.action?memCode=${sessionScope.loginDTO.piMemCode}"> <i class="bi bi-grid"></i> <span>캘린더</span>
 				
 			</a></li>
 
@@ -55,8 +55,8 @@ String cp = request.getContextPath();
 						관리</span>
 			</a></li>
 
-			<li class="nav-item"><a class="nav-link" href="groupSetup.action?opcode=${sessionScope.loginDTO.piMemCode}">
-					<i class="bi bi-person"></i> <span>그룹 정보</span>
+			<li class="nav-item"><a class="nav-link" href="groupSetup.action?memCode=${sessionScope.loginDTO.piMemCode}">
+					<i class="bi bi-person"></i> <span>그룹원 정보</span>
 			</a></li>
 		</ul>
 	</div>

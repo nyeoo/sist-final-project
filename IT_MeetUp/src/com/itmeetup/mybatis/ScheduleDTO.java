@@ -5,7 +5,7 @@ package com.itmeetup.mybatis;
 
 public class ScheduleDTO
 {
-	private String ssName, sdOpCode, seStartDate, sdEndDate; 		// 단계명, 개설요청코드, 시작예정일, 종료예정일
+	private String ssName, sdOpCode, seStartDate, sdEndDate, memCode; 		// 단계명, 개설요청코드, 시작예정일, 종료예정일, 회원코드
 
 	// getter / setter 구성
 	public String getSsName()
@@ -47,6 +47,18 @@ public class ScheduleDTO
 	{
 		this.sdEndDate = sdEndDate;
 	}
+
+	public String getMemCode()
+	{
+		return memCode;
+	}
+
+	public void setMemCode(String memCode)
+	{
+		this.memCode = memCode;
+	}
+
+
 	
 
 		

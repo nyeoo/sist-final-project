@@ -159,12 +159,12 @@
 				}
 
 				var teamName = $("#teamName").val();
-				var opcode = "${sessionScope.loginDTO.piMemCode}";
+				var memCode = "${sessionScope.loginDTO.piMemCode}";
 
 				$.post("groupteamnamemodify.action",
 				{
 					teamName : teamName,
-					opcode : opcode
+					memCode : memCode
 				}, function(data)
 				{
 					// 수정 성공 시 모달 닫기

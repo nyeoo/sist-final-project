@@ -12,7 +12,7 @@
 		FROM GROUPSETUPVIEW
 		WHERE OP_CODE = (SELECT OP_CODE
 		FROM OPEN_PROJECT
-		WHERE OP_MEM_CODE = #{opcode })
+		WHERE OP_MEM_CODE = #{memCode })
  	</select>
  	
  	<!-- 프로젝트 그룹명 출력 -->
@@ -22,7 +22,7 @@
 		LEFT JOIN OPEN_PROJECT OP ON M.MEM_CODE = OP.OP_MEM_CODE
 		WHERE OP_CODE = (SELECT OP_CODE
 		FROM OPEN_PROJECT
-		WHERE OP_MEM_CODE = #{opcode })
+		WHERE OP_MEM_CODE = #{memCode })
  	</select>
  	
  	<!-- 그룹명 수정을 위한 코드찾기 쿼리문 -->
@@ -32,7 +32,7 @@
 		LEFT JOIN MEMBER M ON M.MEM_CODE = OP.OP_MEM_CODE
 		WHERE OP_CODE = (SELECT OP_CODE
 		FROM OPEN_PROJECT
-		WHERE OP_MEM_CODE = #{opcode })
+		WHERE OP_MEM_CODE = #{memCode })
  	</select>
  	
  	<!-- 그룹명 수정 -->
@@ -41,7 +41,7 @@
 		SET OP_TEAM_NAME= #{teamName}
 		WHERE OP_CODE = (SELECT OP_CODE
 		FROM OPEN_PROJECT
-		WHERE OP_MEM_CODE = #{opcode })
+		WHERE OP_MEM_CODE = #{memCode })
 	</update>
  	
  </mapper>
