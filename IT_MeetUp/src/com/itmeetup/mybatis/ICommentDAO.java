@@ -1,9 +1,7 @@
 package com.itmeetup.mybatis;
 
 import java.util.ArrayList;
-import java.util.List;
 
-import org.apache.ibatis.annotations.Param;
 
 public interface ICommentDAO
 {	

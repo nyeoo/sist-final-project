@@ -26,7 +26,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		JOIN COMMENTS C ON RE.REC_COM_NO = C.COM_NO
 		JOIN MEMBER_INFO MI ON mi.mem_code= RE.REC_mem_code
 		WHERE REC_COM_NO =#{number}
-		order by 6
+		order by 6 asc
 	</select>
 	
 	<!-- 댓글 개수 세기 -->
@@ -38,17 +38,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE PI.CODE = #{code}
 	</select>
 	
+	<!-- 댓글 입력쿼리문 -->
 	<insert id="insertComment">
 		INSERT INTO COMMENTS(COM_NO, COM_CONTENT, COM_DATE, COM_OP_CODE, COM_MEM_CODE)
 		VALUES(COMMENT_SEQ.NEXTVAL, #{comContent}, SYSDATE, #{code}, #{memCode})	
 	</insert>
 	
-	<!-- 
-	<insert id="">
+	
+	<!-- 대댓글 입력쿼리문 -->
+	<insert id="insertRecomment">
 		INSERT INTO RECOMENT(REC_NO, REC_CONTENT, REC_DATE, REC_COM_NO, REC_MEM_CODE)
-		VALUES(RECOMENT_SEQ.NEXTVAL, 'ㅇㅈㅇㅈ', TO_DATE('2019-02-28', 'YYYY-MM-DD'), 1, 'MEM_12');
+		VALUES(RECOMENT_SEQ.NEXTVAL, #{comContent}, SYSDATE, #{number}, #{memCode})
 	</insert> 
-	 -->
+
 </mapper>
 
 

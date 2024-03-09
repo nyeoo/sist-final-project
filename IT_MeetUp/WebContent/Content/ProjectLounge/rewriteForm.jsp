@@ -74,7 +74,7 @@ String cp = request.getContextPath();
 											<div class="row g-3 needs-validation" novalidate>
 								<input type="hidden" name="memcode" id="memcode" value="${sessionScope.loginDTO.piMemCode}" />	<!-- 개설자 회원코드 -->
 								<!-- 새로추가 -->
-								<input type="text" name="lastCode" id="lastCode" value="${lastCode}" />	<!-- 가장 최근 만들어진 프로젝트 code -->
+								<input type="hidden" name="lastCode" id="lastCode" value="${lastCode}" />	<!-- 가장 최근 만들어진 프로젝트 code -->
 								
 								<!-- 모집내용 -->
                                 <div id="item-1" class="col-12">

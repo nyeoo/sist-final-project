@@ -253,12 +253,10 @@ String cp = request.getContextPath();
 						<nav>
 							<div class="nav nav-tabs nav-tabs-bordered mb-3" id="nav-tab"
 								role="tablist">
-								<button class="nav-link active" id="nav-mojib-tab"
-									data-bs-toggle="tab" data-bs-target="#nav-mojib" type="button"
+								<button class="nav-link active" id="nav-mojib-tab" 	data-bs-toggle="tab" data-bs-target="#nav-mojib" type="button"
 									role="tab" aria-controls="nav-mojib" aria-selected="true">모집현항</button>
 
-								<button class="nav-link" id="nav-comment-tab"
-									data-bs-toggle="tab" data-bs-target="#nav-comment"
+								<button class="nav-link" id="nav-comment-tab" 	data-bs-toggle="tab" data-bs-target="#nav-comment"
 									type="button" role="tab" aria-controls="nav-comment"
 									aria-selected="false">댓글</button>
 							</div>
@@ -270,6 +268,7 @@ String cp = request.getContextPath();
 								<c:forEach var="job" items="${jobs }">
 									<h5>${job.jobName }0/${job.inwon }</h5>
 								</c:forEach>
+								<br>
 
 							</div>
 							<div class="tab-pane fade" id="nav-comment" role="tabpanel"
@@ -285,8 +284,7 @@ String cp = request.getContextPath();
 												name="memCode" />
 											<div class="col-12">
 												<div class="textarea_wrap">
-													<textarea rows="2" cols="30" placeholder="댓글을 작성하세요"
-														name="comContent" data-textarea="txt_cnt"></textarea>
+													<textarea rows="2" cols="30" placeholder="댓글을 작성하세요" name="comContent" data-textarea="txt_cnt"></textarea>
 												</div>
 											</div>
 											<div class="col-12 d-flex justify-content-between mt-2">
@@ -294,8 +292,9 @@ String cp = request.getContextPath();
 													<div class="txt">※ 글자수는 1000자 이내로 제한됩니다.</div>
 												</div>
 												<div class="right-box">
-													<span class="me-3"><strong
-														data-textarea-cnt="txt_cnt">29</strong>/1000</span>
+													<span class="me-3">
+														<strong data-textarea-cnt="txt_cnt">29</strong>/1000
+													</span>
 													<button type="submit" class="btn btn-primary">등록하기</button>
 												</div>
 											</div>
@@ -305,10 +304,15 @@ String cp = request.getContextPath();
 									<div class="comment_area_wrap open">
 
 										<button class="comment_more">
-											${count } 개 <span class="cmnt_txt ty01"><i
-												class="bi bi-arrow-down-circle"></i>펼치기</span><span
-												class="cmnt_txt ty02"><i
-												class="bi bi-arrow-up-circle"></i>접기</span>
+											${count } 개
+											<span class="cmnt_txt ty01">
+												<i class="bi bi-arrow-down-circle"></i>
+												펼치기
+											</span>
+											<span class="cmnt_txt ty02">
+												<i class="bi bi-arrow-up-circle">
+												</i>접기
+											</span>
 										</button>
 
 										<ul class="comment_area">
@@ -321,23 +325,26 @@ String cp = request.getContextPath();
 															<div class="tbl_box">
 																<div class="tbl_cont_area ty2">
 																	<div class="cont"> ${comment.comContent } </div>
+																	
 																</div>
 																<div class="more_area">
 																	<div class="dropdown">
-																		<button type="button"
-																			class="btn p-0 dropdown-toggle hide-arrow"
-																			data-bs-toggle="dropdown">
+																		<button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
 																			<i class="bi bi-three-dots-vertical"></i>
 																		</button>
 																		<div class="dropdown-menu">
-																			<a class="dropdown-item" href="javascript:void(0);"><i
-																				class="bi bi-pencil-square"></i> 수정</a> <a
-																				class="dropdown-item" href="javascript:void(0);"><i
-																				class="bi bi-trash3"></i> 삭제</a> <a
-																				class="dropdown-item" href="javascript:void(0);"><i
-																				class="bi bi-tencent-qq"></i>신고</a> <a
-																				class="dropdown-item" href="javascript:void(0);"><i
-																				class="bi bi-person-circle"></i>정보 보기</a>
+																			<a class="dropdown-item" href="javascript:void(0);">
+																				<i class="bi bi-pencil-square"></i> 수정
+																			</a> 
+																			<a class="dropdown-item" href="javascript:void(0);">
+																				<i class="bi bi-trash3"></i> 삭제
+																			</a>
+																			<a class="dropdown-item" href="javascript:void(0);">
+																				<i class="bi bi-tencent-qq"></i>신고
+																			</a> 
+																			<a class="dropdown-item" href="javascript:void(0);">
+																				<i class="bi bi-person-circle"></i>정보 보기
+																			</a>
 																		</div>
 																	</div>
 																</div>
@@ -357,12 +364,15 @@ String cp = request.getContextPath();
 															</div>
 														</div>
 
-														<!-- 댓글 입력 -->
+														<!-- 대댓글 입력 -->
 														<div class="row comment_reg reply">
+														<form action="insertRecomment.action" method="get">
 															<div class="col-12">
 																<div class="textarea_wrap">
-																	<textarea rows="2" cols="30" placeholder="댓글을 작성하세요"
-																		class="" data-textarea="txt_cnt"></textarea>
+																	<input type="hidden" value="${choicProList.code}" name="code" />
+																	<input type="hidden" value="${comment.number }" name="number" />
+																	<input type="text" value="${sessionScope.loginDTO.piMemCode}"  name="memCode">
+																	<textarea rows="2" cols="30" placeholder="댓글을 작성하세요" class="" data-textarea="txt_cnt" name="comContent"></textarea>
 																</div>
 															</div>
 															<div class="col-12 d-flex justify-content-between mt-2">
@@ -370,18 +380,19 @@ String cp = request.getContextPath();
 																	<div class="txt">※ 글자수는 1000자 이내로 제한됩니다.</div>
 																</div>
 																<div class="right-box">
-																	<span class="me-3"><strong
-																		data-textarea-cnt="txt_cnt">29</strong>/1000</span>
-																	<button type="button" class="btn btn-primary">Primary</button>
+																	<span class="me-3">
+																		<strong data-textarea-cnt="txt_cnt">29</strong>/1000
+																	</span>
+																	<button type="submit" class="btn btn-primary">등록하기</button>
 																</div>
 															</div>
+														</form>
 														</div>
-														<!-- 댓글 입력 -->
+														<!-- 대댓글 입력 -->
 
 													</div> <!-- // 원댓글 --> <!-- 답글 -->
 													<ul class="reply_group">
-														<c:forEach var="recomment"
-															items="${recomments[comment.number] }">
+														<c:forEach var="recomment" items="${recomments[comment.number] }">
 															<li class="comment_group">
 																<div class="comment reply">
 																	<div class="tbl_box">
@@ -394,9 +405,7 @@ String cp = request.getContextPath();
 																	<div class="info">
 																		<ul class="reg_info">
 																			<li>${recomment.nickname }</li>
-																			<li><span class="ico_date">
-																					${recomment.date } </span></li>
-
+																			<li><span class="ico_date">${recomment.date }</span></li>
 																		</ul>
 																	</div>
 																</div>
@@ -416,7 +425,9 @@ String cp = request.getContextPath();
 
 					</div>
 					<!--부가정보 끝  -->
-
+					<div>
+					<br><BR><br><br><br><br>
+					</div>
 				</div>
 				<!-- .col-12 col-sm-8 col-lg-9 write-content end -->
 			</div>

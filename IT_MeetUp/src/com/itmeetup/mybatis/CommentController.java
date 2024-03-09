@@ -35,7 +35,24 @@ public class CommentController
 		return result; 
 	}
 	
-	
+	// 댓글 입력 쿼리문 실행  
+	@RequestMapping(value = "/insertRecomment.action" , method = RequestMethod.GET)
+	public String insertRecomment(CommentDTO dto)
+	{
+		String result = null;
+		
+		String op_code = dto.getCode();
+		ICommentDAO cdao = sqlSession.getMapper(ICommentDAO.class);		
+		cdao.insertRecomment(dto);
+		
+		
+		
+		result = "redirect:PostDetail.action?code="+op_code;
+		//result = "/projectList.action";
+		
+		
+		return result; 
+	}
 	
 		
 
