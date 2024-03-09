@@ -95,23 +95,18 @@ public class MemberController
 	// ========================================[ 회원가입 ]========================================
 	// 회원가입 폼
 	@RequestMapping(value = "/join.action", method = RequestMethod.GET)
-	public String joinForm(ModelMap model)
+	public String joinForm(Model model)
 	{
-		IMemberDAO jobDAO = sqlSession.getMapper(IMemberDAO.class);		// 직업 select
-		model.addAttribute("jobs", jobDAO.jobs());
-		
-		IMemberDAO meetDAO = sqlSession.getMapper(IMemberDAO.class);	// 모임방식 select
-		model.addAttribute("meets", meetDAO.meets());
+		IMemberDAO memberDao = sqlSession.getMapper(IMemberDAO.class);
+		model.addAttribute("jobs", memberDao.jobs());		// 직업 select
+		model.addAttribute("meets", memberDao.meets());	// 모임방식 select
 		
 		IOpenProjectDAO odao = sqlSession.getMapper(IOpenProjectDAO.class); // 지역 select
 		model.addAttribute("sidoList",odao.sidoList());
 		model.addAttribute("siggList",odao.siggList());
 		
-		IMemberDAO skillCategoryDAO = sqlSession.getMapper(IMemberDAO.class);	// 스킬카테고리 select
-		model.addAttribute("skillCategorys", skillCategoryDAO.skillCategorys());
-		
-		IMemberDAO skillsDAO = sqlSession.getMapper(IMemberDAO.class);	// 스킬 리스트
-		model.addAttribute("skills", skillsDAO.skills());
+		model.addAttribute("skillCategorys", memberDao.skillCategorys());	// 스킬카테고리 select
+		model.addAttribute("skills", memberDao.skills());	// 스킬 리스트
 		
 		SkillProcessor skProcessors = new SkillProcessor();				// 스킬 리스트 조회 및 처리
 		model.addAttribute("skProcessors", skProcessors.createSkillMapping());
@@ -123,28 +118,37 @@ public class MemberController
 	@RequestMapping(value = "/joininsert.action", method = RequestMethod.GET)
 	public String join(MemberDTO member)
 	{
-		IMemberDAO joinDAO = sqlSession.getMapper(IMemberDAO.class);
-		joinDAO.addMember(member);
+		IMemberDAO dao = sqlSession.getMapper(IMemberDAO.class);
+		dao.addMember(member);
 		
 		return "redirect:/Content/ProjectLounge/PostList_ju.jsp";
 	}
 	
 	// 아이디 중복 검사
 	@RequestMapping(value="/checkId.action", method = RequestMethod.GET)
-	public String checkId(@RequestParam("piId") String piId, ModelMap model)
+	public String checkId(@RequestParam("piId") String piId, Model model)
 	{
-		IMemberDAO checkIdDAO = sqlSession.getMapper(IMemberDAO.class);
-		model.addAttribute("searchCount", checkIdDAO.checkId(piId));
+		IMemberDAO dao = sqlSession.getMapper(IMemberDAO.class);
+		model.addAttribute("searchCount", dao.checkId(piId));
 		return "/Content/Site/SearchIdCount.jsp";
 	}
 	
 	// 닉네임 중복 검사
 	@RequestMapping(value="/checkNickname.action", method = RequestMethod.GET)
-	public String checkNickname(@RequestParam("piNickname") String piNickname, ModelMap model)
+	public String checkNickname(@RequestParam("piNickname") String piNickname, Model model)
 	{
-		IMemberDAO checkNicknameDAO = sqlSession.getMapper(IMemberDAO.class);
-		model.addAttribute("searchNicknameCount", checkNicknameDAO.checkNickname(piNickname));
+		IMemberDAO dao = sqlSession.getMapper(IMemberDAO.class);
+		model.addAttribute("searchNicknameCount", dao.checkNickname(piNickname));
 		return "/Content/Site/SearchNicknameCount.jsp";
 	}
-
+	
+	// ========================================[ 회원가입 ]========================================
+	// 회원가입 폼
+	@RequestMapping(value = "/searchid.action", method = RequestMethod.GET)
+	public String searchId(@RequestParam("piEmail") String piEmail, Model model)
+	{
+		
+		
+		return "";
+	}
 }

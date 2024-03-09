@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itmeetup.mybatis.IMypageDAO">
+	 <!-- ========================================[ 마이페이지 ]======================================== -->
+	 
+	 <!--  -->
+	 <select id="getMyinfo"  resultType="com.itmeetup.mybatis.MemberDTO">
+	 	SELECT PI_MEM_CODE "PIMEMCODE", PI_ID "PIID", PI_PW "PIPW", PI_NICKNAME "PINICKNAME", PI_EMAIL "PIEMAIL", PI_NAME "PINAME"
+		FROM PERSONAL_INFO
+		WHERE PI_MEM_CODE = #{piMemCode}
+	 </select>
+	 
+</mapper>

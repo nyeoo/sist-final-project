@@ -81,7 +81,7 @@ String cp = request.getContextPath();
 											<label for="myId" class="col-md-4 col-lg-3 col-form-label">비밀번호</label>
 											<div class="col-md-8 col-lg-9">
 												<input name="myPassword" type="password"
-													class="form-control" disabled="" id="myPassword">
+													class="form-control" disabled="disabled" id="myPassword">
 											</div>
 										</div>
 
@@ -97,7 +97,7 @@ String cp = request.getContextPath();
 											<label for="Email" class="col-md-4 col-lg-3 col-form-label">이메일</label>
 											<div class="col-md-8 col-lg-9">
 												<input name="email" type="email" class="form-control"
-													readonly="" id="Email" value="meetup@example.com">
+													disabled="disabled" id="Email" value="meetup@example.com">
 											</div>
 										</div>
 

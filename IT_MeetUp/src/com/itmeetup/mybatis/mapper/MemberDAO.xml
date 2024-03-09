@@ -84,7 +84,13 @@
 		WHERE PI.PI_NICKNAME = #{piNickname}
 	</select>
 	
-	
+	<!-- 비밀번호 일치여부 쿼리문 -->
+	<select id="checkPw" parameterType="map" resultType="java.lang.Integer">
+		SELECT COUNT(*)
+		FROM MEMBER MB JOIN PERSONAL_INFO PI
+		ON PI.PI_MEM_CODE = MB.MEM_CODE
+		WHERE PI.PI_MEM_CODE = #{piMemCode} AND PI.PI_PW = #{piPw}
+	</select>
 	
 	
 	

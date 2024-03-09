@@ -146,8 +146,8 @@ String cp = request.getContextPath();
 
 						<div class="col-12">
 							<div class="m-input-box">
-								<label for="loginId02" class="form-label">가입이메일</label> <input
-									type="text" class="form-control" id="loginId02"
+								<label for="piEmail" class="form-label">가입이메일</label> <input
+									type="text" class="form-control" id="piEmail" name="piEmail"
 									required="required">
 								<div class="invalid-feedback">가입이메일을 입력해주세요.</div>
 							</div>
@@ -181,15 +181,15 @@ String cp = request.getContextPath();
 
 						<div class="col-12">
 							<div class="m-input-box">
-								<label for="loginId02" class="form-label">가입이메일</label> <input
-									type="text" class="form-control" id="loginId02"
+								<label for="piEmail" class="form-label">가입이메일</label> <input
+									type="text" class="form-control" id="piEmail"
 									required="required">
 								<div class="invalid-feedback">가입이메일을 입력해주세요.</div>
 							</div>
 						</div>
 
 						<div class="col-12">
-							<button class="btn btn-primary w-100" type="submit">아이디찾기</button>
+							<button class="btn btn-primary w-100" id="btn-findId" type="button">아이디찾기</button>
 						</div>
 					</form>
 
@@ -213,7 +213,7 @@ String cp = request.getContextPath();
 						가입한 이메일을 작성해주세요. <br>비밀번호 재설정 메일을 보내드립니다.
 					</p>
 					<form class="row g-3 needs-validation" novalidate>
-
+						
 						<div class="col-12">
 							<div class="m-input-box">
 								<label for="loginId02" class="form-label">가입이메일</label> <input
@@ -250,7 +250,37 @@ String cp = request.getContextPath();
 	<script src="<%=cp%>/asset/js/bootstrap.bundle.min.js"></script>
 	<script src="<%=cp%>/asset/js/common.js"></script>
 	<script>
+	$(function(){
+		$("#btn-findId").click(function(){
+			let piId = "";
+
+			var ajaxRequest03 = null;
+
+			if (ajaxRequest03 !== null) {
+				ajaxRequest03.abort();
+			}
+
+			ajaxRequest03 = $.ajax(
+			{
+				type : "GET"
+				, url : ""
+				, data : { piNickname : piNickname }
+				, success : function(searchNicknameCount){
+					if (searchNicknameCount > 0) {
+						piNicknameStr.next(".invalid-feedback").text("닉네임이 같습니다.");
+						piNicknameStr.removeClass("is-valid").addClass("is-invalid");
+						piNicknameStr.focus();
+					} else {
+						piNicknameStr.removeClass("is-invalid").addClass("is-valid");
+					}
+				}, error : function()
+				{
+					alert("닉네임 중복체크에 문제가 있습니다.");
+				}
+			});
+		});
 		
+	});
 	</script>
 </body>
 

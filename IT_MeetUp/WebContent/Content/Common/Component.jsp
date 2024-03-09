@@ -136,7 +136,7 @@ String cp = request.getContextPath();
 							<li>보조컬러 C: <span style="background: var(--pt-yellow);">--pt-yellow: #fbdf53;</span></li>
 							<li>라인컬러 A: <span style="background: var(--pt-lightgray);">--pt-lightgray: #edf1f6;</span></li>
 							<li>배경영역 컬러 A: <span style="background: var(--bs-tertiary-bg-rgb);">--bs-tertiary-bg-rgb: 248,249,250;</span></li>
-						</ul>
+						</ol>
 					</div>
 
 					<!-- 타이틀 -->

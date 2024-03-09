@@ -72,8 +72,8 @@ String cp = request.getContextPath();
 												title="Remove my profile image"><i class="bi bi-trash"></i></a>
 										</div>
 									</div>
-									<p class="h2">닉네임</p>
-									<p class="h5">@아이디</p>
+									<p class="h2">${member.piNickname }</p>
+									<p class="h5">@${member.piId }</p>
 								</div>
 							</div>
 
@@ -85,42 +85,43 @@ String cp = request.getContextPath();
 								<div class="card-body pt-3">
 									<!-- Profile Edit Form -->
 									<form>
-
+										<input type="text" id="piMemCode" value="${member.piMemCode }">
 										<div class="row mb-3">
 											<label for="myId" class="col-md-4 col-lg-3 col-form-label">아이디</label>
 											<div class="col-md-8 col-lg-9">
-												<input name="myId" type="text" class="form-control"
-													id="myId" value="Kevin Anderson">
+												<input name="myId" type="text" class="form-control form-control-plaintext"
+													id="myId" value="${member.piId }" disabled="disabled">
 											</div>
 										</div>
 
 										<div class="row mb-3">
-											<label for="myId" class="col-md-4 col-lg-3 col-form-label">비밀번호</label>
+											<label for="piPw" class="col-md-4 col-lg-3 col-form-label">비밀번호</label>
 											<div class="col-md-8 col-lg-9">
-												<input name="myPassword" type="password"
-													class="form-control" disabled="" id="myPassword">
+												<input name="piPw" type="password"
+													class="form-control" id="piPw" value="${member.piPw }">
 											</div>
 										</div>
 
 										<div class="row mb-3">
-											<label for="myId" class="col-md-4 col-lg-3 col-form-label">이름</label>
+											<label for="piName" class="col-md-4 col-lg-3 col-form-label">이름</label>
 											<div class="col-md-8 col-lg-9">
-												<input name="myId" type="text" class="form-control"
-													id="myId" value="Kevin Anderson">
+												<input name="piName" type="text" class="form-control"
+													id="piName" value="${member.piName }">
 											</div>
 										</div>
 
 										<div class="row mb-3">
 											<label for="Email" class="col-md-4 col-lg-3 col-form-label">이메일</label>
 											<div class="col-md-8 col-lg-9">
-												<input name="email" type="email" class="form-control"
-													readonly="" id="Email" value="meetup@example.com">
+												<input name="piEmail" type="text" class="form-control"
+													id="piEmail" value="${member.piEmail }">
 											</div>
 										</div>
 
 										<div class="col-12 btn-box">
 											<div class="btn-center">
 												<button type="button" class="btn btn-primary">저장하기</button>
+												<button type="button" class="btn btn-secondary btn-modify" data-bs-toggle="modal" data-bs-target="#modifyModal">수정하기</button>
 											</div>
 										</div>
 
@@ -189,7 +190,7 @@ String cp = request.getContextPath();
 													<td class="date">${blockListItem.bloDate }</td>
 													<td class="name">${blockListItem.nickname }</td>
 													<td class="category">
-														<button type="button" class="btn btn-secondary"
+														<button type="button" class="btn btn-secondary btn-block"
 															value="${blockListItem.bloNo }" id="unblock">차단 해제</button>
 													</td>
 												</tr>
@@ -226,6 +227,30 @@ String cp = request.getContextPath();
 		<c:import url="../Components/Footer.jsp"></c:import>
 		<!-- //푸터영역 -->
 
+		<!-- 본인확인 팝업 -->
+		<div class="modal fade" id="modifyModal" tabindex="-1" aria-labelledby="modifyModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<div class="modal-title fs-5 h1" id="modifyModalLabel">본인확인</div>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<div class="row">
+							<label for="piPwCheck" class="col-md-4 col-lg-3 col-form-label">비밀번호</label>
+							<div class="col-md-8 col-lg-9">
+								<input name="piPwCheck" type="text" class="form-control" id="piPwCheck" value="ljh1234">
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary" id="btn-modify-check">확인</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
 	</div>
 
 	<!-- script -->
@@ -236,7 +261,7 @@ String cp = request.getContextPath();
 	<script type="text/javascript">
 		$(function()
 		{
-			$(".btn-secondary").click(
+			$(".btn-block").click(
 			function()
 			{
 				//alert("확인~!!");
@@ -248,6 +273,47 @@ String cp = request.getContextPath();
 				
 
 			});
+			
+			// 비밀번호 확인
+		$("#btn-modify-check").click(function(){
+			let piMemCode = $("#piMemCode").val();
+			let piPwCheckStr = $("#piPwCheck");
+			let piPwCheck = $("#piPwCheck").val();
+			
+			var ajaxRequest = null;
+			
+			if (ajaxRequest !== null) {
+				ajaxRequest.abort();
+			}
+			var params = "piMemCode=" + piMemCode + "&piPw=" + piPwCheck;
+			ajaxRequest = $.ajax(
+			{
+				type: "get"
+				, url: "checkPw.action"
+				, data: params
+				, success: function(searchPwCount)
+				{
+					if(searchPwCount<0)
+					{
+						piPwCheckStr.next(".invalid-feedback").text("비밀번호가 맞지 않습니다.");
+						piPwCheckStr.removeClass("is-valid").addClass("is-invalid");
+						piPwCheckStr.focus();
+					}else{
+						piPwCheckStr.removeClass("is-invalid").addClass("is-valid");
+						$("#modifyModal .btn-close").trigger("click");
+					}
+				}
+				, error: function()
+				{
+					alert("비밀번호 확인에 문제가 있습니다.");
+				}
+				/* ,error:function(request, status, error){
+
+					console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+
+				} */
+			});
+		});
 		});
 	</script>
 </body>
