@@ -86,19 +86,27 @@ String cp = request.getContextPath();
 									<!-- Profile Edit Form -->
 									<form>
 										<input type="text" id="piMemCode" value="${member.piMemCode }">
+										<input type="text" id="modifyFlag" name="modifyFlag" value="0">
+
 										<div class="row mb-3">
 											<label for="myId" class="col-md-4 col-lg-3 col-form-label">아이디</label>
 											<div class="col-md-8 col-lg-9">
-												<input name="myId" type="text" class="form-control form-control-plaintext"
-													id="myId" value="${member.piId }" disabled="disabled">
+												<div class="input-group">
+													<input name="myId" type="text"
+														class="form-control form-control-plaintext" id="myId"
+														value="${member.piId }" disabled="disabled">
+													<button class="input-group-text btn btn-primary hidden" type="button" id="checkId">중복확인</button>
+												</div>
 											</div>
 										</div>
+
+
 
 										<div class="row mb-3">
 											<label for="piPw" class="col-md-4 col-lg-3 col-form-label">비밀번호</label>
 											<div class="col-md-8 col-lg-9">
-												<input name="piPw" type="password"
-													class="form-control" id="piPw" value="${member.piPw }">
+												<input name="piPw" type="password" class="form-control"
+													id="piPw" value="${member.piPw }">
 											</div>
 										</div>
 
@@ -120,8 +128,12 @@ String cp = request.getContextPath();
 
 										<div class="col-12 btn-box">
 											<div class="btn-center">
-												<button type="button" class="btn btn-primary">저장하기</button>
-												<button type="button" class="btn btn-secondary btn-modify" data-bs-toggle="modal" data-bs-target="#modifyModal">수정하기</button>
+												<button type="button" class="btn btn-primary"
+													id="btn-myinfo-save" disabled="disabled">저장하기</button>
+												<button type="button"
+													class="btn btn-secondary btn-myinfo-modify"
+													id="btn-myinfo-modify" data-bs-toggle="modal"
+													data-bs-target="#modifyModal">수정하기</button>
 											</div>
 										</div>
 
@@ -191,7 +203,8 @@ String cp = request.getContextPath();
 													<td class="name">${blockListItem.nickname }</td>
 													<td class="category">
 														<button type="button" class="btn btn-secondary btn-block"
-															value="${blockListItem.bloNo }" id="unblock">차단 해제</button>
+															value="${blockListItem.bloNo }" id="unblock">차단
+															해제</button>
 													</td>
 												</tr>
 											</tbody>
@@ -228,24 +241,27 @@ String cp = request.getContextPath();
 		<!-- //푸터영역 -->
 
 		<!-- 본인확인 팝업 -->
-		<div class="modal fade" id="modifyModal" tabindex="-1" aria-labelledby="modifyModalLabel" aria-hidden="true">
+		<div class="modal fade" id="modifyModal" tabindex="-1"
+			aria-labelledby="modifyModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered">
 				<div class="modal-content">
 					<div class="modal-header">
 						<div class="modal-title fs-5 h1" id="modifyModalLabel">본인확인</div>
-						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"
+							aria-label="Close"></button>
 					</div>
 					<div class="modal-body">
 						<div class="row">
 							<label for="piPwCheck" class="col-md-4 col-lg-3 col-form-label">비밀번호</label>
 							<div class="col-md-8 col-lg-9">
-								<input name="piPwCheck" type="text" class="form-control" id="piPwCheck" value="ljh1234">
+								<input name="piPwCheck" type="text" class="form-control"
+									id="piPwCheck" value="ljh1234">
 							</div>
 						</div>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-						<button type="button" class="btn btn-primary" id="btn-modify-check">확인</button>
+						<button type="button" class="btn btn-primary"
+							id="btn-myinfo-modify-action">확인</button>
 					</div>
 				</div>
 			</div>
@@ -262,58 +278,107 @@ String cp = request.getContextPath();
 		$(function()
 		{
 			$(".btn-block").click(
-			function()
-			{
-				//alert("확인~!!");
-				if (confirm("해당 회원을 차단 해제 하시겠습니까?"))
-				{
-					
-					$(location).attr("href", "remove.action?bloNo=" + $(this).val());
-				}
-				
-
-			});
-			
-			// 비밀번호 확인
-		$("#btn-modify-check").click(function(){
-			let piMemCode = $("#piMemCode").val();
-			let piPwCheckStr = $("#piPwCheck");
-			let piPwCheck = $("#piPwCheck").val();
-			
-			var ajaxRequest = null;
-			
-			if (ajaxRequest !== null) {
-				ajaxRequest.abort();
-			}
-			var params = "piMemCode=" + piMemCode + "&piPw=" + piPwCheck;
-			ajaxRequest = $.ajax(
-			{
-				type: "get"
-				, url: "checkPw.action"
-				, data: params
-				, success: function(searchPwCount)
-				{
-					if(searchPwCount<0)
+					function()
 					{
-						piPwCheckStr.next(".invalid-feedback").text("비밀번호가 맞지 않습니다.");
-						piPwCheckStr.removeClass("is-valid").addClass("is-invalid");
-						piPwCheckStr.focus();
-					}else{
-						piPwCheckStr.removeClass("is-invalid").addClass("is-valid");
-						$("#modifyModal .btn-close").trigger("click");
-					}
-				}
-				, error: function()
+						//alert("확인~!!");
+						if (confirm("해당 회원을 차단 해제 하시겠습니까?"))
+						{
+
+							$(location).attr("href",
+									"remove.action?bloNo=" + $(this).val());
+						}
+
+					});
+
+			// 비밀번호 확인
+			$("#btn-myinfo-modify-action").click(
+					function()
+					{
+						alert("확인");
+						let piMemCode = $("#piMemCode").val();
+						let piPwCheckStr = $("#piPwCheck");
+						let piPwCheck = $("#piPwCheck").val();
+						piPwCheckStr.removeClass("is-valid");
+
+						var ajaxRequest = null;
+
+						if (ajaxRequest !== null)
+						{
+							ajaxRequest.abort();
+						}
+						var params = "piMemCode=" + piMemCode + "&piPw="
+								+ piPwCheck;
+						ajaxRequest = $.ajax(
+						{
+							type : "get",
+							url : "checkPw.action",
+							data : params,
+							success : function(searchPwCount)
+							{
+								if (searchPwCount < 0)
+								{
+									piPwCheckStr.next(".invalid-feedback")
+											.text("비밀번호가 맞지 않습니다.");
+									piPwCheckStr.removeClass("is-valid")
+											.addClass("is-invalid");
+									piPwCheckStr.focus();
+								} else
+								{
+									piPwCheckStr.removeClass("is-invalid")
+											.addClass("is-valid");
+									$("#modifyFlag").val("1");
+									$("#modifyModal .btn-close").trigger(
+											"click");
+									modifyCheck();
+								}
+							},
+							error : function()
+							{
+								alert("비밀번호 확인에 문제가 있습니다.");
+							}
+						});
+					});
+
+			// 비밀번호 확인 되었을 경우 html 처리
+			function modifyCheck()
+			{
+				var modifyFlag = $("#modifyFlag").val();
+				var myId = $("#myId");
+				var piPw = $("#piPw");
+				var piName = $("#piName");
+				var piEmail = $("#piEmail");
+				var btnModify = $("#btn-myinfo-modify");
+				var btnSave = $("#btn-myinfo-save");
+				var btnCheckId = $("#checkId");
+
+				if (modifyFlag == 0)
 				{
-					alert("비밀번호 확인에 문제가 있습니다.");
+					myId.addClass("form-control-plaintext").attr("disabled",
+							true);
+					piPw.addClass("form-control-plaintext").attr("disabled",
+							true).attr("type", "password");
+					;
+					piName.addClass("form-control-plaintext").attr("disabled",
+							true);
+					piEmail.addClass("form-control-plaintext").attr("disabled",
+							true);
+				} else if (modifyFlag == 1)
+				{
+					myId.removeClass("form-control-plaintext").attr("disabled",
+							false);
+					piPw.removeClass("form-control-plaintext").attr("disabled",
+							false).attr("type", "text");
+					;
+					piName.removeClass("form-control-plaintext").attr(
+							"disabled", false);
+					piEmail.removeClass("form-control-plaintext").attr(
+							"disabled", false);
+					btnModify.attr("disabled", true);
+					btnSave.attr("disabled", false);
 				}
-				/* ,error:function(request, status, error){
+			}
 
-					console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-
-				} */
-			});
-		});
+			modifyCheck();
 		});
 	</script>
 </body>

@@ -32,7 +32,8 @@ html, body { height: 100%; }
 .m-header-area .navbar-brand em { font-family: "Bangers", system-ui; color: var(--bd-main); } 
 .m-body-area > .section:last-child { /*padding-bottom: 0px; */ } 
 .wrapper .container-xl > .h1 { margin-bottom: 3.25rem; } 
-.m-body-area { margin-top: 2.5rem } 
+.m-body-area { margin-top: 2.5rem }
+.hidden{display:none;}
 
 /* ---------------------- 메인 ---------------------- */
 /* 헤더 ---------------------------------------- */
