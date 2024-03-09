@@ -17,7 +17,7 @@
  	
  	<!-- 할당된 업무 업무명, 할당된 날짜, 할당 받은 닉네임 출력 -->
  	<select id="assCalendar" resultType="com.itmeetup.mybatis.AssignmentDTO">
-		SELECT ASS_NAME "ASSNAME", TO_CHAR(ASS_DATE, 'YYYY-MM-DD') "ASSDATE", PI_NICKNAME "PINICKNAME"
+		SELECT ASS_NAME "ASSNAME", TO_CHAR(ASS_START_DATE, 'YYYY-MM-DD') "ASSSTARTDATE", PI_NICKNAME "PINICKNAME"
 		FROM CALENDARASSVIEW
 		WHERE OP_CODE = (SELECT OP_CODE
 		FROM OPEN_PROJECT

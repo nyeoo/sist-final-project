@@ -48,7 +48,7 @@ public class CalendarController
 		{
 			calData += "{";
 			calData += "title: '" + dtoass.getPiNickName() + " - " + dtoass.getAssName() + "', ";
-			calData += "start: '" + dtoass.getAssDate() + "', ";
+			calData += "start: '" + dtoass.getAssStartDate() + "', ";
 			calData += "color: 'blue' ";
 			calData += "},";
 		}
@@ -69,7 +69,7 @@ public class CalendarController
 		{
 			assCalendar.get(0).getPiNickName();
 			assCalendar.get(0).getAssName();
-			assCalendar.get(0).getAssDate();
+			assCalendar.get(0).getAssStartDate();
 		}
 		else if(allCalendar.size()!=0)
 		{
