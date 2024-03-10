@@ -9,7 +9,8 @@ public class AssignmentDTO
 	private String indicator, charger, piNickName;				// 업무지시자, 업무담당자, 업무 담당자 닉네임
 	private String assStartDate, assEndDate, assDate;			// 업무시작지시일, 업무종료지시일, 업무할당일
 	private String assFile, assOuCode, ouName;					// 할당첨무파일경로, 산출물 코드, 할당산출물 명
-	private String assSdNo, ssName, memCode;					// 기간 상세 코드, 일정단계명, 회원코드
+	private String assSdNo, ssName, memCode, leaPcCode;			// 기간 상세 코드, 일정단계명, 회원코드, 이탈여부코드
+	
 	
 	// getter / setter 구성
 	public String getSdOpCode()
@@ -132,6 +133,25 @@ public class AssignmentDTO
 	{
 		this.ssName = ssName;
 	}
+	public String getMemCode()
+	{
+		return memCode;
+	}
+	public void setMemCode(String memCode)
+	{
+		this.memCode = memCode;
+	}
+	public String getLeaPcCode()
+	{
+		return leaPcCode;
+	}
+	public void setLeaPcCode(String leaPcCode)
+	{
+		this.leaPcCode = leaPcCode;
+	}
+	
+
+	
 	
 
 	

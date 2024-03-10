@@ -53,12 +53,20 @@
 							<c:forEach var="groupTeamNameItem" items="${groupTeamName }">
 								<div class="h3">
 									<span>${groupTeamNameItem.teamName}</span>
+									
+									<c:choose>
+									<c:when test="${sessionScope.loginDTO.piMemCode == groupTeamNameItem.memCode}">
 									<button type="button" id="teamnameUpdateButton"
 										class="btn btn-primary" data-bs-toggle="modal"
 										data-bs-target="#teamnameUpdate"
 										value="${groupTeamNameItem.teamName}" onclick="NameModify()">
 										<i class="bi bi-plus-lg"></i> 팀명 수정
 									</button>
+									</c:when>
+									<c:otherwise>
+										
+									</c:otherwise>
+									</c:choose>
 								</div>
 							</c:forEach>
 							<!-- //팀명수정 -->

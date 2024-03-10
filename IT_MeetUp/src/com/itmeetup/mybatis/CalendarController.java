@@ -1,6 +1,5 @@
 package com.itmeetup.mybatis;
 
-
 import java.util.ArrayList;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,63 +21,91 @@ public class CalendarController
 	public String CalendarList(ModelMap model, String memCode)
 	{
 		ICalendarDAO dao = sqlSession.getMapper(ICalendarDAO.class);
-		
+
 		ArrayList<ScheduleDTO> allCalendar = dao.allCalendar(memCode);
 		ArrayList<AssignmentDTO> assCalendar = dao.assCalendar(memCode);
-		
+
 		// 캘린더 켜졌을 때 맨 처음 보이는 날짜
 		String initialDate = "";
-		
+
 		// Calendar.jsp로 보낼 데이터
 		String calData = "";
 		calData += "[";
 
-		for (ScheduleDTO dto : allCalendar) {
-		    calData += "{";
-		    calData += "title: '" + dto.getSsName() + "', ";
-		    calData += "start: '" + dto.getSeStartDate() + "', ";
-		    calData += "end: '" + dto.getSdEndDate() + "', ";
-		    calData += "color: 'red' ";
-		    calData += "},";
-		    
-		       
-		  
+		for (ScheduleDTO dto : allCalendar)
+		{
+			calData += "{";
+			calData += "title: '" + dto.getSsName() + "', ";
+			calData += "start: '" + dto.getSeStartDate() + "', ";
+			calData += "end: '" + dto.getSdEndDate() + "', ";
+			/* calData += "color: 'blue' "; */
+			String color;
+			switch (dto.getSsName())
+			{
+			case "분석":
+				color = "green";
+				break;
+			case "설계":
+				color = "orange";
+				break;
+			case "구현":
+				color = "purple";
+				break;
+			case "테스트":
+				color = "blue";
+				break;
+			default:
+				color = "blue";
+				break;
+			}
+			calData += "color: '" + color + "' ";
+			calData += "},";
+
 		}
 		for (AssignmentDTO dtoass : assCalendar)
 		{
-			calData += "{";
-			calData += "title: '" + dtoass.getPiNickName() + " - " + dtoass.getAssName() + "', ";
-			calData += "start: '" + dtoass.getAssStartDate() + "', ";
-			calData += "color: 'blue' ";
-			calData += "},";
+			if (dtoass.getAssStartDate() != null)
+			{
+				if (dtoass.getAssStartDate() != null)
+				{
+					String nickName = dtoass.getPiNickName();
+					if (dtoass.getLeaPcCode().equals("이탈자"))
+					{
+						nickName = "이탈자";
+					}
+					calData += "{";
+					calData += "title: '" + nickName + " - " + dtoass.getAssName() + "', ";
+					calData += "start: '" + dtoass.getAssStartDate() + "', ";
+					calData += "color: 'red' ";
+					calData += "},";
+				}
+			}
 		}
 
 		// 마지막 항목 뒤에는 쉼표를 붙이지 않도록 처리
-		if (!allCalendar.isEmpty()) {
+		if (!allCalendar.isEmpty())
+		{
 			calData = calData.substring(0, calData.length() - 1);
 		}
 
 		calData += "]";
-		
-		//달력 시작 날짜
+
+		// 달력 시작 날짜
 		ArrayList<ScheduleDTO> dtos = dao.allCalendar(memCode);
 		initialDate += "'" + dtos.get(0).getSeStartDate() + "'";
-		
-		
-		if(assCalendar.size()!=0)
+
+		if (assCalendar.size() != 0)
 		{
 			assCalendar.get(0).getPiNickName();
 			assCalendar.get(0).getAssName();
 			assCalendar.get(0).getAssStartDate();
-		}
-		else if(allCalendar.size()!=0)
+		} else if (allCalendar.size() != 0)
 		{
 			allCalendar.get(0).getSsName();
 			allCalendar.get(0).getSeStartDate();
 			allCalendar.get(0).getSdEndDate();
 		}
-		
-		
+
 		model.addAttribute("initialDate", initialDate);
 		model.addAttribute("calData", calData);
 

@@ -41,7 +41,6 @@ public class GroupSetupController
 
 		opdto = dao.GroupTeamNamesearchId(memCode);
 		
-		
 		model.addAttribute("opdto", opdto);
 
 		return "/Content/MeetGroup/M_GroupSetup.jsp";
