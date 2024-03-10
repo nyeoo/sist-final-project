@@ -3,7 +3,7 @@ package com.itmeetup.mybatis;
 public class AdminDTO
 {
 	private int adNo;								// 관리자 번호
-	private String adId, nickName, date ;			// 관리자 아이디, 관리자 닉네임, 등록일자
+	private String adId, nickname, date ;			// 관리자 아이디, 관리자 닉네임, 등록일자
 	
 	
 	// setter / getter
@@ -23,13 +23,13 @@ public class AdminDTO
 	{
 		this.adId = adId;
 	}
-	public String getNickName()
+	public String getNickname()
 	{
-		return nickName;
+		return nickname;
 	}
-	public void setNickName(String nickName)
+	public void setNickName(String nickname)
 	{
-		this.nickName = nickName;
+		this.nickname = nickname;
 	}
 	public String getDate()
 	{

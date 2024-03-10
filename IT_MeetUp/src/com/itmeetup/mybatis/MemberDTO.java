@@ -12,8 +12,10 @@ public class MemberDTO
 	private String piMemCode, piName, piEmail, piImgFile, piId, piPw, piNickname, piSelfment;	// 회원코드, 이름, 이메일, 이미지 파일명, 아이디, 비밀번호, 닉네임, 짧은 한마디
 	private String mJobCode, mMetCode, mSiggCode;	// 직무코드, 모임방식 코드, 시군구 코드
 	private Date mDate;// 등록일자
+
 	
 	// getter / setter 
+		
 	public int getAdmin()
 	{
 		return admin;
@@ -118,6 +120,4 @@ public class MemberDTO
 	{
 		this.mDate = mDate;
 	}
-	
-	
 }

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itmeetup.mybatis.ICareerDAO">
+
+	<!-- mybatis 환경 설정 파일 활용 -->
+	<!-- CareerDAO.xml -->
+	
+	<select id="careerList" resultType="com.itmeetup.mybatis.CareerDTO">
+		SELECT "STARTDATE", "ENDDATE", "COMNAME", "JOBNAME", "YEARS", "MONTHS"
+		FROM VIEW_MY_CAREER
+	</select>
+	
+	
+
+</mapper>

@@ -18,7 +18,7 @@ String cp = request.getContextPath();
 <meta name="keywords" content="IT 프로젝트 모집, 사이드 프로젝트 진행">
 
 <!-- css -->
-<link rel="stylesheet" href="../../asset/css/style.css">
+<link rel="stylesheet" href="<%=cp %>/asset/css/style.css">
 <style type="text/css">
 .comp_box {
 	text-align: center;
@@ -193,65 +193,33 @@ String cp = request.getContextPath();
 
 								<div class="card-body">
 									<div class="card-title">
+									<c:forEach var="totalCareerItem" items="${totalCareer }">
 										<p class="h5">
-											경력 <span>4년 5개월 </span>
+											경력 <span>${totalCareerItem.totalYear }년 ${totalCareerItem.totalMonth }개월 </span>
 										</p>
+									</c:forEach>
 									</div>
 
 									<ul class="activity">
-
-										<li class="activity-item d-flex">
-											<div class="activite-label">
-												<p class="career-from">2019/12/09</p>
-												<p>
-													~ <span class="career-to">2023/03/10</span>
-												</p>
-											</div> <i
-											class="bi bi-circle-fill activity-badge text-primary align-self-start"></i>
-											<div class="activity-content">
-												<p href="#" class="fw-bold text-dark">회사C</p>
-												<p class="career-text">
-													<span class="badge rounded-pill bg-primary">프론트</span> <span
-														class="career-sub-year">3년 2개월</span>
-												</p>
-											</div>
-										</li>
-
-										<li class="activity-item d-flex">
-											<div class="activite-label">
-												<p class="career-from">2018/03/01</p>
-												<p>
-													~ <span class="career-to">2019/03/31</span>
-												</p>
-											</div> <i
-											class="bi bi-circle-fill activity-badge text-primary align-self-start"></i>
-											<div class="activity-content">
-												<p href="#" class="fw-bold text-dark">회사B</p>
-												<p class="career-text">
-													<span class="badge rounded-pill bg-success">기획</span> <span
-														class="career-sub-year">1년 1개월</span>
-												</p>
-											</div>
-										</li>
-
-										<li class="activity-item d-flex">
-											<div class="activite-label">
-												<p class="career-from">2018/01/01</p>
-												<p>
-													~ <span class="career-to">2018/03/01</span>
-												</p>
-											</div> <i
-											class="bi bi-circle-fill activity-badge text-primary align-self-start"></i>
-											<div class="activity-content">
-												<p href="#" class="fw-bold text-dark">회사A</p>
-												<p class="career-text">
-													<span class="badge rounded-pill bg-danger">디자인</span> <span
-														class="career-sub-year">3개월</span>
-												</p>
-											</div>
-										</li>
+										<c:forEach var="careerItem" items="${careerList }">
+											<li class="activity-item d-flex">
+												<div class="activite-label">
+													<p class="career-from">${careerItem.startDate }</p>
+													<p>
+														~ <span class="career-to">${careerItem.endDate }</span>
+													</p>
+												</div> <i
+												class="bi bi-circle-fill activity-badge text-primary align-self-start"></i>
+												<div class="activity-content">
+													<p href="#" class="fw-bold text-dark">${careerItem.comName }</p>
+													<p class="career-text">
+														<span class="badge rounded-pill bg-primary">${careerItem.jobName }</span> <span
+															class="career-sub-year">${careerItem.years }년 ${careerItem.months }개월</span>
+													</p>
+												</div>
+											</li>
+										</c:forEach>
 									</ul>
-
 								</div>
 							</div>
 
@@ -818,10 +786,10 @@ String cp = request.getContextPath();
 
 
 	<!-- script -->
-	<script src="../../asset/js/jquery-3.5.1-min.js"></script>
-	<script src="../../asset/js/jquery-ui.js"></script>
-	<script src="../../asset/js/bootstrap.bundle.min.js"></script>
-	<script src="../../asset/js/common.js"></script>
+	<script src="<%=cp%>/asset/js/jquery-3.5.1-min.js"></script>
+	<script src="<%=cp%>/asset/js/jquery-ui.js"></script>
+	<script src="<%=cp%>/asset/js/bootstrap.bundle.min.js"></script>
+	<script src="<%=cp%>/asset/js/common.js"></script>
 	<script>
 		
 	</script>
