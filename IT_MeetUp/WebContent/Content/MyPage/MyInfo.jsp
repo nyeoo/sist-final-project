@@ -88,9 +88,10 @@ String cp = request.getContextPath();
 											<label for="piId" class="col-md-4 col-lg-3 col-form-label">아이디</label>
 											<div class="col-md-8 col-lg-9">
 												<div class="input-group">
-													<input name="piId" type="text" class="form-control form-control-plaintext" id="piId" value="${member.piId }" disabled="disabled" oninput="inputOninput(this)">
+													<input name="piId" type="text" class="form-control form-control-plaintext" id="piId" value="${member.piId }" disabled="disabled" oninput="regexCheck(this,id_check);modifyConfirm();">
 													<button class="input-group-text btn btn-primary hidden" type="button" id="myinfoCheckId">중복확인</button>
 													<div class="invalid-feedback">아이디를 입력해주세요.</div>
+													<div class="invalid-regx">영문 소문자, 숫자 6~12자리 / 특수문자X, 한글X</div>
 												</div>
 											</div>
 										</div>
@@ -99,31 +100,35 @@ String cp = request.getContextPath();
 											<label for="piId" class="col-md-4 col-lg-3 col-form-label">닉네임</label>
 											<div class="col-md-8 col-lg-9">
 												<div class="input-group">
-													<input name="piNickname" type="text" class="form-control form-control-plaintext" id="piNickname" value="${member.piNickname }" disabled="disabled" oninput="inputOninput(this)">
+													<input name="piNickname" type="text" class="form-control form-control-plaintext" id="piNickname" value="${member.piNickname }" disabled="disabled" oninput="regexCheck(this,nickname_check);modifyConfirm();">
 													<button class="input-group-text btn btn-primary hidden" type="button" id="myInfoCheckNickname">중복확인</button>
 													<div class="invalid-feedback">닉네임을 입력해주세요.</div>
+													<div class="invalid-regx">한글 2~8자리</div>
 												</div>
 											</div>
 										</div>
 
 										<div class="row mb-3">
-											<label for="piPw" class="col-md-4 col-lg-3 col-form-label">비밀번호</label>
+											<label for="piPw" class="col-md-4 col-lg-3 col-form-label" oninput="pwCheck(this)">비밀번호</label>
 											<div class="col-md-8 col-lg-9">
-												<input name="piPw" type="password" class="form-control" id="piPw" value="${member.piPw }">
+												<input name="piPw" type="password" class="form-control" id="piPw" value="${member.piPw }" oninput="regexCheck(this,pw_check);modifyConfirm();">
+												<div class="invalid-regx">영문 소문자, 숫자 6~12자리 / 특수문자O, 한글X</div>
 											</div>
 										</div>
 
 										<div class="row mb-3">
 											<label for="piName" class="col-md-4 col-lg-3 col-form-label">이름</label>
 											<div class="col-md-8 col-lg-9">
-												<input name="piName" type="text" class="form-control" id="piName" value="${member.piName }">
+												<input name="piName" type="text" class="form-control" id="piName" value="${member.piName }" oninput="regexCheck(this,name_check);modifyConfirm();">
+												<div class="invalid-regx">한글 2~8자리</div>
 											</div>
 										</div>
 
 										<div class="row mb-3">
 											<label for="Email" class="col-md-4 col-lg-3 col-form-label">이메일</label>
 											<div class="col-md-8 col-lg-9">
-												<input name="piEmail" type="text" class="form-control" id="piEmail" value="${member.piEmail }">
+												<input name="piEmail" type="text" class="form-control" id="piEmail" value="${member.piEmail }" oninput="regexCheck(this,email_check);modifyConfirm();">
+												<div class="invalid-regx">이메일형식</div>
 											</div>
 										</div>
 
@@ -272,14 +277,73 @@ String cp = request.getContextPath();
 	<script src="<%=cp%>/asset/js/common.js"></script>
 	<script type="text/javascript">
 	
+	let get_piId = document.querySelector("#piId");
+	let get_piNickName = document.querySelector("#piNickname");
+	let get_piPw = document.querySelector("#piPw");
+	let get_piName = document.querySelector("#piName");
+	let get_piEmail = document.querySelector("#piEmail");
+	let btn_myinfo_save = document.querySelector("#btn-myinfo-save");
+	
 	// input 중복체크후 입력시
 	function inputOninput(target)
 	{
 		target.classList.remove("is-valid");
 	}
 	
+	/* 정규표현식 ---------------------------------------------------------------- */
+	// 아이디 - 영문 소문자, 숫자 6~12자리 / 특수문자X
+	const id_check = /^[a-z0-9\S][^[#?!@$ %^&*가-힣ㄱ-ㅎ]{5,11}$/;
+	// 비밀번호 - 영문 소문자, 숫자 6~12자리 / 특수문자O
+	const pw_check = /^[a-z0-9\S*?[#?!@$ %^&*][^가-힣A-Z]{5,11}$/;
+	///[^?a-zA-Z0-9/]/
+	//const password =/^.*(?=.{6,20})(?=.*[0-9])(?=.*[a-zA-Z]).*$/;
+	// 특문
+	const special_char = /[\{\}\[\]\/?.,;:|\)*~`!^\-+<>@\#$%&\\\=\(\'\"]/;
+	const comma_char = /,/g;
+	const blank = /[\s]/g;
+	// 닉네임 - 2~8자리
+	const nickname_check =/^[가-힣a-zA-Z]{1,8}$/;
+	// 이름 - 한글 2~8자리
+	const name_check =/^[가-힣]{1,7}$/;
+	// 이메일 형식
+	var email_check =/([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+	
+	// 정규화 체크
+	function regexCheck(target, checkname)
+	{
+		let text = target.value;
+		if(checkname.test(text)){
+			target.classList.remove("is-uncheck");
+			target.classList.add("is-check");
+		}else{
+			target.classList.remove("is-check");
+			target.classList.add("is-uncheck");
+		}
+	}
+	
+	// 수정가능 여부
+	function modifyConfirm()
+	{
+		if(get_piId.classList.contains("is-check")
+			&& 	get_piNickName.classList.contains("is-check")
+			&& 	get_piPw.classList.contains("is-check")
+			&& 	get_piName.classList.contains("is-check")
+			&& 	get_piEmail.classList.contains("is-check")
+		){
+			btn_myinfo_save.disabled=false;
+		}else{
+			btn_myinfo_save.disabled=true;
+		}
+	}
+	
 	$(function()
 	{
+		let piId = $("#piId");
+		let piNickName = $("#piNickname");
+		let piPw = $("#piPw");
+		let piName = $("#piName");
+		let piEmail = $("#piEmail");
+		
 		$(".btn-block").click(
 			function()
 			{
@@ -290,9 +354,7 @@ String cp = request.getContextPath();
 			}
 		);
 		
-		let piId = $("#piId");
-		let piNickName = $("#piNickname");
-		
+		/* ajax 관련 ---------------------------------------------------------------- */
 		// 수정안내 팝업
 		$("#btn-myinfo-save").click(function(){
 			let checkIdFlag = false;
@@ -366,9 +428,6 @@ String cp = request.getContextPath();
 		function modifyCheck()
 		{
 			let modifyFlag = $("#modifyFlag").val();
-			let piPw = $("#piPw");
-			let piName = $("#piName");
-			let piEmail = $("#piEmail");
 			let btnModify = $("#btn-myinfo-modify");
 			let btnSave = $("#btn-myinfo-save");
 			let btnCheckId = $("#myinfoCheckId");
@@ -376,18 +435,18 @@ String cp = request.getContextPath();
 
 			if (modifyFlag == 0) // 조회
 			{
-				piId.addClass("form-control-plaintext").attr("disabled",true);
-				piNickName.addClass("form-control-plaintext").attr("disabled",true);
-				piPw.addClass("form-control-plaintext").attr("disabled",true).attr("type", "password");
-				piName.addClass("form-control-plaintext").attr("disabled",true);
-				piEmail.addClass("form-control-plaintext").attr("disabled",true);
+				piId.addClass("form-control-plaintext").removeClass("is-check").attr("disabled",true);
+				piNickName.addClass("form-control-plaintext").removeClass("is-check").attr("disabled",true);
+				piPw.addClass("form-control-plaintext").removeClass("is-check").attr("disabled",true).attr("type", "password");
+				piName.addClass("form-control-plaintext").removeClass("is-check").attr("disabled",true);
+				piEmail.addClass("form-control-plaintext").removeClass("is-check").attr("disabled",true);
 			} else if (modifyFlag == 1) // 수정
 			{
-				piId.removeClass("form-control-plaintext").attr("disabled",false);
-				piNickName.removeClass("form-control-plaintext").attr("disabled",false).attr("type", "text");
-				piPw.removeClass("form-control-plaintext").attr("disabled",false).attr("type", "text");
-				piName.removeClass("form-control-plaintext").attr("disabled", false);
-				piEmail.removeClass("form-control-plaintext").attr("disabled", false);
+				piId.removeClass("form-control-plaintext").addClass("is-check").attr("disabled",false);
+				piNickName.removeClass("form-control-plaintext").addClass("is-check").attr("disabled",false).attr("type", "text");
+				piPw.removeClass("form-control-plaintext").addClass("is-check").attr("disabled",false).attr("type", "text");
+				piName.removeClass("form-control-plaintext").addClass("is-check").attr("disabled", false);
+				piEmail.removeClass("form-control-plaintext").addClass("is-check").attr("disabled", false);
 				btnModify.attr("disabled", true);
 				btnSave.attr("disabled", false);
 				btnCheckId.removeClass("hidden");
@@ -420,7 +479,7 @@ String cp = request.getContextPath();
 						piIdStr.removeClass("is-valid").addClass("is-invalid");
 						piIdStr.focus();
 					}else{
-						piIdStr.removeClass("is-invalid").addClass("is-valid");
+						piIdStr.removeClass("is-invalid").addClass("is-valid").attr("readonly",true);
 					}
 				}
 				, error:function(request,status,error){
@@ -449,7 +508,7 @@ String cp = request.getContextPath();
 						piNicknameStr.removeClass("is-valid").addClass("is-invalid");
 						piNicknameStr.focus();
 					} else {
-						piNicknameStr.removeClass("is-invalid").addClass("is-valid");
+						piNicknameStr.removeClass("is-invalid").addClass("is-valid").attr("readonly",true);
 					}
 				}, error:function(request,status,error){
 					console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
