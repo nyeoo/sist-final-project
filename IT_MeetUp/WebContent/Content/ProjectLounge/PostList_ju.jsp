@@ -49,365 +49,133 @@
 								<i class="bi bi-arrow-right-circle"></i> <span class="blind">이후</span>
 							</button>
 						</div>
+							
 						<div class="swiper deadlineSwiper">
 							<ul class="swiper-wrapper card-list">
-								<li class="swiper-slide">
+						<c:choose>
+						<c:when test="${empty deadlineList}">
+							<li class="swiper-slide">
 									<div class="card p-4 d-flex flex-column">
 										<div class="card-top">
 											<!-- 찜하기 -->
 											<div class="form-check zzim">
-												<label class="form-check-label"> <input
-													class="form-check-input" type="checkbox" value="" id=""
-													title="찜하기"> <span class="icon-box"><i
-														class="bi bi-heart"></i><i class="bi bi-heart-fill"></i></span>
-												</label>
+												
 											</div>
 											<!-- 데드라인/ 시작예정일 - 예상기간 -->
 											<div class="mb-1 text-body-secondary">
-												<span class="deadline" style="color: red;">(D-3)</span>2.4 -
-												3.19
+												
 											</div>
 											<!-- 직무 -->
 											<div class="d-flex job-box">
-												<span class="badge rounded-pill bg-primary">프론트</span> <span
-													class="badge rounded-pill bg-secondary">백</span> <span
-													class="badge rounded-pill bg-success">기획</span> <span
-													class="badge rounded-pill bg-danger">디자인</span>
+												
 											</div>
 										</div>
 										<div class="card-bottom">
 											<!-- 작성자 -->
-											<strong class="mb-2 text-primary-emphasis writer"><span
-												class="leader-level"></span>작성자닉네임</strong>
+											
 											<!-- 제목 -->
-											<a href="javascript:;" class="card-tit mb-2">
-												<span class="h3">
-													제목입니다.제목입니다.<br>제목입니다.제목입니다.
-												</span>
+											<a href="javascript:;" class="card-tit mb-2"> <span class="h3">마감 임박</span>
 											</a>
 											<!-- 상세내용 -->
-											<p class="card-text text-truncate mb-2">내용입니다. 내용입니다.
-												내용입니다. 내용입니다. 내용입니다.</p>
-											<div
-												class="d-flex justify-content-between align-items-center">
-												<!-- 사용언어 -->
-												<div class="language-box">
-													<span class="badge-language"><span class="blind">파이썬</span></span>
-													<span class="badge-language"><span class="blind">파이썬</span></span>
-													<span class="badge-language"><span class="blind">파이썬</span></span>
-												</div>
-												<!-- 조회수 -->
-												<small class="text-body-secondary">view 10</small>
+											<p class="card-text text-truncate mb-2"> 프로젝트가 없네요</p>
+											<div class="d-flex justify-content-between align-items-center">
+												
 											</div>
 										</div>
 									</div>
 								</li>
-								<li class="swiper-slide">
-									<div class="card p-4 d-flex flex-column">
-										<div class="card-top">
-											<!-- 찜하기 -->
-											<div class="form-check zzim">
-												<label class="form-check-label"> <input
-													class="form-check-input" type="checkbox" value="" id=""
-													title="찜하기"> <span class="icon-box"><i
-														class="bi bi-heart"></i><i class="bi bi-heart-fill"></i></span>
-												</label>
-											</div>
-											<!-- 데드라인/ 시작예정일 - 예상기간 -->
-											<div class="mb-1 text-body-secondary">
-												<span class="deadline" style="color: red;">(D-4)</span>2.4 -
-												3.19
-											</div>
-											<!-- 직무 -->
-											<div class="d-flex job-box">
-												<span class="badge rounded-pill bg-primary">프론트</span> <span
-													class="badge rounded-pill bg-secondary">백</span> <span
-													class="badge rounded-pill bg-success">기획</span> <span
-													class="badge rounded-pill bg-danger">디자인</span>
-											</div>
-										</div>
-										<div class="card-bottom">
-											<!-- 작성자 -->
-											<strong class="mb-2 text-primary-emphasis writer"><span
-												class="leader-level"></span>작성자닉네임</strong>
-											<!-- 제목 -->
-											<a href="javascript:;" class="card-tit mb-2">
-												<span class="h3">
-													제목입니다.제목입니다.<br>제목입니다.제목입니다.
-												</span>
-											</a>
-											<!-- 상세내용 -->
-											<p class="card-text text-truncate mb-2">내용입니다. 내용입니다.
-												내용입니다. 내용입니다. 내용입니다.</p>
-											<div
-												class="d-flex justify-content-between align-items-center">
-												<!-- 사용언어 -->
-												<div class="language-box">
-													<span class="badge-language"><span class="blind">파이썬</span></span>
-													<span class="badge-language"><span class="blind">파이썬</span></span>
-													<span class="badge-language"><span class="blind">파이썬</span></span>
-												</div>
-												<!-- 조회수 -->
-												<small class="text-body-secondary">view 10</small>
-											</div>
-										</div>
+						</c:when>
+						<c:otherwise>
+						<c:forEach var ="deadlineList" items="${deadlineList }">
+						<li class="swiper-slide">
+							<div class="card p-4 d-flex flex-column">
+								<div class="card-top">
+									<!-- 찜하기 -->
+									<div class="form-check zzim">
+										<label class="form-check-label"> 
+										<input class="form-check-input" type="checkbox" value="${deadlineList.code }" id="wish" title="찜하기">
+										<span class="icon-box">
+											<i class="bi bi-heart"></i><i class="bi bi-heart-fill"></i>
+										</span>
+										</label>
 									</div>
-								</li>
-								<li class="swiper-slide">
-									<div class="card p-4 d-flex flex-column">
-										<div class="card-top">
-											<!-- 찜하기 -->
-											<div class="form-check zzim">
-												<label class="form-check-label"> <input
-													class="form-check-input" type="checkbox" value="" id=""
-													title="찜하기"> <span class="icon-box"><i
-														class="bi bi-heart"></i><i class="bi bi-heart-fill"></i></span>
-												</label>
-											</div>
-											<!-- 데드라인/ 시작예정일 - 예상기간 -->
-											<div class="mb-1 text-body-secondary">
-												<span class="deadline" style="color: red;">(D-6)</span>2.4 -
-												3.19
-											</div>
-											<!-- 직무 -->
-											<div class="d-flex job-box">
-												<span class="badge rounded-pill bg-primary">프론트</span> <span
-													class="badge rounded-pill bg-secondary">백</span> <span
-													class="badge rounded-pill bg-success">기획</span> <span
-													class="badge rounded-pill bg-danger">디자인</span>
-											</div>
-										</div>
-										<div class="card-bottom">
-											<!-- 작성자 -->
-											<strong class="mb-2 text-primary-emphasis writer"><span
-												class="leader-level"></span>작성자닉네임</strong>
-											<!-- 제목 -->
-											<a href="javascript:;" class="card-tit mb-2">
-												<span class="h3">
-													제목입니다.제목입니다.<br>제목입니다.제목입니다.
-												</span>
-											</a>
-											<!-- 상세내용 -->
-											<p class="card-text text-truncate mb-2">내용입니다. 내용입니다.
-												내용입니다. 내용입니다. 내용입니다.</p>
-											<div
-												class="d-flex justify-content-between align-items-center">
-												<!-- 사용언어 -->
-												<div class="language-box">
-													<span class="badge-language"><span class="blind">파이썬</span></span>
-													<span class="badge-language"><span class="blind">파이썬</span></span>
-													<span class="badge-language"><span class="blind">파이썬</span></span>
-												</div>
-												<!-- 조회수 -->
-												<small class="text-body-secondary">view 10</small>
-											</div>
-										</div>
+									<!-- 데드라인/ 시작예정일 - 예상기간 -->
+									<div class="mb-1 text-body-secondary">
+										<span class="deadline" style="color: red;"> D - ${deadlineList.day} 일 </span>${deadlineList.start} - ${deadlineList.end}
 									</div>
-								</li>
-								<li class="swiper-slide">
-									<div class="card p-4 d-flex flex-column">
-										<div class="card-top">
-											<!-- 찜하기 -->
-											<div class="form-check zzim">
-												<label class="form-check-label"> <input
-													class="form-check-input" type="checkbox" value="" id=""
-													title="찜하기"> <span class="icon-box"><i
-														class="bi bi-heart"></i><i class="bi bi-heart-fill"></i></span>
-												</label>
-											</div>
-											<!-- 데드라인/ 시작예정일 - 예상기간 -->
-											<div class="mb-1 text-body-secondary">
-												<span class="deadline" style="color: red;">(D-7)</span>2.4 -
-												3.19
-											</div>
-											<!-- 직무 -->
-											<div class="d-flex job-box">
-												<span class="badge rounded-pill bg-primary">프론트</span> 
-												<span class="badge rounded-pill bg-secondary">백</span> 
-												<span class="badge rounded-pill bg-success">기획</span> 
-												<span class="badge rounded-pill bg-danger">디자인</span>
-											</div>
-										</div>
-										<div class="card-bottom">
-											<!-- 작성자 -->
-											<strong class="mb-2 text-primary-emphasis writer"><span
-												class="leader-level"></span>작성자닉네임</strong>
-											<!-- 제목 -->
-											<a href="javascript:;" class="card-tit mb-2">
-												<span class="h3">
-													제목입니다.제목입니다.<br>제목입니다.제목입니다.
-												</span>
-											</a>
-											<!-- 상세내용 -->
-											<p class="card-text text-truncate mb-2">내용입니다. 내용입니다.
-												내용입니다. 내용입니다. 내용입니다.</p>
-											<div
-												class="d-flex justify-content-between align-items-center">
-												<!-- 사용언어 -->
-												<div class="language-box">
-													<span class="badge-language"><span class="blind">파이썬</span></span>
-													<span class="badge-language"><span class="blind">파이썬</span></span>
-													<span class="badge-language"><span class="blind">파이썬</span></span>
-												</div>
-												<!-- 조회수 -->
-												<small class="text-body-secondary">view 10</small>
-											</div>
-										</div>
+									<!-- 직무 -->
+									<div class="d-flex job-box">
+								    <c:forEach var="jobItem" items="${jobInfo[deadlineList.code]}">
+								        <c:set var="jobNames" value="${fn:split(jobItem.jobName, ' ')}" />
+								        <c:forEach var="jobName" items="${jobNames}">
+								            <c:choose>
+								                <c:when test="${jobName eq '기획자'}">
+								                    <span class="badge rounded-pill bg-success">기획자</span> 
+								                </c:when>
+								                <c:when test="${jobName eq '디자이너'}">
+								                    <span class="badge rounded-pill bg-danger">디자이너</span> 
+								                </c:when>
+								                <c:when test="${jobName eq '프론트엔드'}">
+								                    <span class="badge rounded-pill bg-primary">프론트엔드</span> 
+								                </c:when>
+								                <c:when test="${jobName eq '백엔드'}">
+								                    <span class="badge rounded-pill bg-secondary">백엔드</span> 
+								                </c:when>   
+								                <c:otherwise>
+								                    <span class="badge rounded-pill bg-primary">${jobName}</span>   
+								                </c:otherwise>                                   
+								            </c:choose>
+								        </c:forEach>
+								    </c:forEach>
 									</div>
-								</li>
-								<li class="swiper-slide">
-									<div class="card p-4 d-flex flex-column">
-										<div class="card-top">
-											<!-- 찜하기 -->
-											<div class="form-check zzim">
-												<label class="form-check-label"> <input
-													class="form-check-input" type="checkbox" value="" id=""
-													title="찜하기"> <span class="icon-box"><i
-														class="bi bi-heart"></i><i class="bi bi-heart-fill"></i></span>
-												</label>
-											</div>
-											<!-- 데드라인/ 시작예정일 - 예상기간 -->
-											<div class="mb-1 text-body-secondary">
-												<span class="deadline" style="color: red;">(D-1)</span>2.4 -
-												3.19
-											</div>
-											<!-- 직무 -->
-											<div class="d-flex job-box">
-												<span class="badge rounded-pill bg-primary">프론트</span> <span
-													class="badge rounded-pill bg-secondary">백</span> <span
-													class="badge rounded-pill bg-success">기획</span> <span
-													class="badge rounded-pill bg-danger">디자인</span>
-											</div>
-										</div>
-										<div class="card-bottom">
-											<!-- 작성자 -->
-											<strong class="mb-2 text-primary-emphasis writer"><span
-												class="leader-level"></span>작성자닉네임</strong>
-											<!-- 제목 -->
-											<a href="javascript:;" class="card-tit mb-2">
-												<span class="h3">
-													제목입니다.제목입니다.<br>제목입니다.제목입니다.
-												</span>
-											</a>
-											<!-- 상세내용 -->
-											<p class="card-text text-truncate mb-2">내용입니다. 내용입니다.
-												내용입니다. 내용입니다. 내용입니다.</p>
-											<div
-												class="d-flex justify-content-between align-items-center">
-												<!-- 사용언어 -->
-												<div class="language-box">
-													<span class="badge-language"><span class="blind">파이썬</span></span>
-													<span class="badge-language"><span class="blind">파이썬</span></span>
-													<span class="badge-language"><span class="blind">파이썬</span></span>
-												</div>
-												<!-- 조회수 -->
-												<small class="text-body-secondary">view 10</small>
-											</div>
-										</div>
+								</div> <!-- card-top -->
+								<div class="card-bottom">
+									<!-- 작성자 -->
+									<strong class="mb-2 text-primary-emphasis writer">
+										<span class="leader-level"></span>${deadlineList.nickname}
+									</strong>
+									<!-- 카테고리 -->
+									<strong class="mb-2 text-primary-emphasis writer">
+										${opList.category} 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  ${deadlineList.sido} ${deadlineList.sigg} 
+									</strong>
+									<!-- 지역 -->
+									
+									
+									
+									<!-- 제목 -->
+									<a href="PostDetail.action?code=${deadlineList.code}"   class="card-tit mb-2">
+									
+									 
+										<span class="h3"> ${deadlineList.title} </span>
+									</a>   
+									<!-- 상세내용 -->
+									<p class="card-text text-truncate mb-2"> ${deadlineList.content}</p>
+									<div class="d-flex justify-content-between align-items-center">
+										<!-- 사용언어 -->
+										<%-- <div class="language-box">
+												<span class="badge-language"><span class="blind">${skills[opList.code] }</span></span> 
+										</div> --%>
+										<c:forEach var ="skill" items="${skill[deadlineList.code] }">
+										<%-- <c:set var="skillName" value="${fn:split(skill, ' ')}" /> --%> 
+										<%-- <c:set var="i" value="0" /> --%>
+											 ${skill } 
+										<%-- 	 <c:forEach var="skills" items="${skillName}">
+										        <span class="badge-language">${skills[i]}<span class="blind"></span></span> 
+										        <c:set var="i" value="${i + 1}" /> <!-- i를 1씩 증가 -->
+										    </c:forEach> --%>
+											 
+										</c:forEach>
+										<!-- 조회수 -->
+										<small class="text-body-secondary">${deadlineList.view}</small>
 									</div>
-								</li>
-								<li class="swiper-slide">
-									<div class="card p-4 d-flex flex-column">
-										<div class="card-top">
-											<!-- 찜하기 -->
-											<div class="form-check zzim">
-												<label class="form-check-label"> <input
-													class="form-check-input" type="checkbox" value="" id=""
-													title="찜하기"> <span class="icon-box"><i
-														class="bi bi-heart"></i><i class="bi bi-heart-fill"></i></span>
-												</label>
-											</div>
-											<!-- 데드라인/ 시작예정일 - 예상기간 -->
-											<div class="mb-1 text-body-secondary">
-												<span class="deadline" style="color: red;">(D-2)</span>2.4 -
-												3.19
-											</div>
-											<!-- 직무 -->
-											<div class="d-flex job-box">
-												<span class="badge rounded-pill bg-primary">프론트</span> <span
-													class="badge rounded-pill bg-secondary">백</span> <span
-													class="badge rounded-pill bg-success">기획</span> <span
-													class="badge rounded-pill bg-danger">디자인</span>
-											</div>
-										</div>
-										<div class="card-bottom">
-											<!-- 작성자 -->
-											<strong class="mb-2 text-primary-emphasis writer"><span
-												class="leader-level"></span>작성자닉네임</strong>
-											<!-- 제목 -->
-											<a href="javascript:;" class="card-tit mb-2">
-												<span class="h3">
-													제목입니다.제목입니다.<br>제목입니다.제목입니다.
-												</span>
-											</a>
-											<!-- 상세내용 -->
-											<p class="card-text text-truncate mb-2">내용입니다. 내용입니다.
-												내용입니다. 내용입니다. 내용입니다.</p>
-											<div
-												class="d-flex justify-content-between align-items-center">
-												<!-- 사용언어 -->
-												<div class="language-box">
-													<span class="badge-language"><span class="blind">파이썬</span></span>
-													<span class="badge-language"><span class="blind">파이썬</span></span>
-													<span class="badge-language"><span class="blind">파이썬</span></span>
-												</div>
-												<!-- 조회수 -->
-												<small class="text-body-secondary">view 10</small>
-											</div>
-										</div>
-									</div>
-								</li>
-								<li class="swiper-slide">
-									<div class="card p-4 d-flex flex-column">
-										<div class="card-top">
-											<!-- 찜하기 -->
-											<div class="form-check zzim">
-												<label class="form-check-label"> <input
-													class="form-check-input" type="checkbox" value="" id=""
-													title="찜하기"> <span class="icon-box"><i
-														class="bi bi-heart"></i><i class="bi bi-heart-fill"></i></span>
-												</label>
-											</div>
-											<!-- 데드라인/ 시작예정일 - 예상기간 -->
-											<div class="mb-1 text-body-secondary">
-												<span class="deadline">(D-100)</span>2.4 - 3.19
-											</div>
-											<!-- 직무 -->
-											<div class="d-flex job-box">
-												<span class="badge rounded-pill bg-primary">프론트</span> <span
-													class="badge rounded-pill bg-secondary">백</span> <span
-													class="badge rounded-pill bg-success">기획</span> <span
-													class="badge rounded-pill bg-danger">디자인</span>
-											</div>
-										</div>
-										<div class="card-bottom">
-											<!-- 작성자 -->
-											<strong class="mb-2 text-primary-emphasis writer"><span
-												class="leader-level"></span>작성자닉네임</strong>
-											<!-- 제목 -->
-											<a href="javascript:;" class="card-tit mb-2">
-												<span class="h3">
-													제목입니다.제목입니다.<br>제목입니다.제목입니다.
-												</span>
-											</a>
-											<!-- 상세내용 -->
-											<p class="card-text text-truncate mb-2">내용입니다. 내용입니다.
-												내용입니다. 내용입니다. 내용입니다.</p>
-											<div
-												class="d-flex justify-content-between align-items-center">
-												<!-- 사용언어 -->
-												<div class="language-box">
-													<span class="badge-language"><span class="blind">파이썬</span></span>
-													<span class="badge-language"><span class="blind">파이썬</span></span>
-													<span class="badge-language"><span class="blind">파이썬</span></span>
-												</div>
-												<!-- 조회수 -->
-												<small class="text-body-secondary">view 10</small>
-											</div>
-										</div>
-									</div>
-								</li>
-							</ul>
+								</div>
+								</div>
+						</li>
+						
+						</c:forEach>
+						</c:otherwise>
+						</c:choose>
+						</ul>
 							<div class="swiper-pagination"></div>
 						</div>
 					</div>

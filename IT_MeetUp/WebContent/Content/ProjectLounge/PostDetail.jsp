@@ -113,7 +113,7 @@ String cp = request.getContextPath();
 									</div>
 								</div>
 							</div>
-						</div>
+						</div> 
 						<hr>
 						<div>
 							<span style="font-size: 30px;"> ${choicProList.content} </span> <br>
@@ -133,12 +133,23 @@ String cp = request.getContextPath();
 					<!-- 버튼영역 -->
 					<div class="btn-box">
 						<div class="btn-center">
-							<button type="button" class="btn btn-primary">수정하기</button>
-							<button type="button" class="btn btn-primary"
-								data-bs-toggle="modal" data-bs-target="#sinchungpeople">신청한
-								사람보기</button>
-							<button type="button" class="btn btn-secondary" id="prolist">
-								목록으로</button>
+
+
+							<c:choose>
+								<c:when test="${sessionScope.loginDTO.piMemCode eq choicProList.memCode}">
+									<button type="button" class="btn btn-primary">수정하기</button>
+									<button type="button" class="btn btn-primary"
+										data-bs-toggle="modal" data-bs-target="#sinchungpeople">신청한
+										사람보기</button>
+								</c:when>
+								<c:otherwise>
+									<button type="button" class="btn btn-primary"
+										data-bs-toggle="modal" data-bs-target="#sinchung">신청하기</button>
+									<button type="button" class="btn btn-secondary" id="prolist">목록으로</button>
+								</c:otherwise>
+							</c:choose>
+
+
 						</div>
 					</div>
 					<!-- 버튼// -->
@@ -215,6 +226,72 @@ String cp = request.getContextPath();
 						</div>
 					</div>
 
+
+					<!-- 신청하기 모달 -->
+					<div class="modal fade" id="sinchung" tabindex="-1"
+							aria-labelledby="sinchungLabel" aria-hidden="true">
+							<div class="modal-dialog modal-dialog-centered">
+								<div class="modal-content">
+									<div class="modal-header">
+										<div class="modal-title fs-5 h1" id="sinchungLabel">신청하기</div>
+										<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+									</div>
+									<div class="modal-body">
+									<table class="table">
+										<tr>
+											<th>직무</th>
+											<th>모집 수</th>
+											
+											<th>신청 여부</th>
+										</tr>
+										<c:forEach var="job" items="${jobs }">
+										<tr>
+											<td>${job.jobName }</td>
+											<td>${job.inwon } 명</td>
+											<td>
+											<!-- <button type="button" class="btn btn-primary sign" id="back" >신청</button>  -->
+											<button type="button" class="btn btn-primary" id="sinchung"
+														data-bs-target="#sinchungCheck" data-bs-toggle="modal">
+														신청
+											</button>																			
+											<!-- <button type="button" class="btn btn-secondary canel" id="back" >취소</button> --> 																			
+											</td>
+										</tr>
+										</c:forEach>
+										
+									</table> 
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+										
+									</div>
+								</div>
+							</div>
+					</div>
+					
+					<!-- 신청 확인  -->
+					<div class="modal fade" id="sinchungCheck" aria-hidden="true"
+						aria-labelledby="sinchungCheckLabel" tabindex="-1">
+						<div class="modal-dialog modal-dialog-centered">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h1 class="modal-title fs-5" id="sinchungCheckLabel">신청</h1>
+									<button type="button" class="btn-close" data-bs-dismiss="modal"
+										aria-label="아니오"></button>
+								</div>
+								<div class="modal-body">정말 이 프로젝트에 신청하시겠습니까?</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-primary"
+										data-bs-target="#sinchung" data-bs-toggle="modal">네</button>
+									<button type="button" class="btn btn-secondary"
+										data-bs-target="#sinchung" data-bs-toggle="modal">아니오</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+
+
 					<!-- 신고모달 시작 -->
 					<div class="modal fade" id="exampleModal01" tabindex="-1"
 						aria-labelledby="exampleModal01Label" aria-hidden="true">
@@ -283,8 +360,8 @@ String cp = request.getContextPath();
 
 									<div class="row comment_reg">
 										<form action="commentInsert.action" method="get">
-											<input type="text" value="${choicProList.code}" name="code" />
-											<input type="text" value="${sessionScope.loginDTO.piMemCode}"
+											<input type="hidden" value="${choicProList.code}" name="code" />
+											<input type="hidden" value="${sessionScope.loginDTO.piMemCode}"
 												name="memCode" />
 											<div class="col-12">
 												<div class="textarea_wrap">

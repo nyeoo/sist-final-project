@@ -15,6 +15,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		
 	</select>
 	
+	<select id="deadlineList" resultType="com.itmeetup.mybatis.OpenProjectDTO" >
+	
+		SELECT "CODE", "CATEGORY", "TITLE", "MOJIBSU", "CONTENT"
+        	  ,"VIEW", "START", "END" ,"TEAMNAME", "SIDO"
+       		  ,"SIGG", "NICKNAME", "CAREER", "REGDATE" ,"DAY"
+		FROM DEADLINE_INFO
+		
+		
+	</select>
+	<update id="viewUpdate">
+		UPDATE OPEN_PROJECT
+		SET OP_VIEW = OP_VIEW + 1
+		WHERE OP_CODE = #{code}
+	</update>
+	
 	<!-- 카테고리 정보 출력 -->
 	<select id="cateList" resultType="java.lang.String" >
 			SELECT CAT_NAME AS"CATEGORY"
@@ -43,7 +58,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="choiceProList" resultType="com.itmeetup.mybatis.OpenProjectDTO" >
 			SELECT "CODE", "CATEGORY", "TITLE", "MOJIBSU", "CONTENT"
        		,"VIEW", "START", "END" ,"TEAMNAME", "SIDO"
-       		,"SIGG", "NICKNAME", "MEET","CAREER", "REGDATE" ,"DAY"
+       		,"SIGG", "NICKNAME", "MEET","CAREER", "REGDATE" ,"DAY","MEMCODE"
 			FROM PROJECT_INFO
 			WHERE CODE = #{code}
 	</select>

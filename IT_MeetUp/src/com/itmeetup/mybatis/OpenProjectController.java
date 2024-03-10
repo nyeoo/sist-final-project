@@ -49,9 +49,10 @@ public class OpenProjectController
 		model.addAttribute("lastCode",dao.lastCode());							// 가장 최근 프로젝트 개설 코드 뽑기
 		model.addAttribute("skills", skillsDAO.skills());
 		
-		
+
 		
 		model.addAttribute("openList",dao.openList());
+		model.addAttribute("deadlineList",dao.deadlineList());
 		model.addAttribute("cateList",dao.cateList());
 		model.addAttribute("sidoList",dao.sidoList());
 		model.addAttribute("siggList",dao.siggList());
@@ -84,6 +85,7 @@ public class OpenProjectController
 			recomments.put(cdto.getNumber() , cdao.recommentList((cdto.getNumber())));
 		}
 		
+		dao.viewUpdate(code);
 		model.addAttribute("choicProList",dao.choiceProList(code));		// 해당 프로젝트 정보 뽑기
 		model.addAttribute("skillList",dao.skillList(code));			// 해당 프로젝트 기술 뽑기
 		model.addAttribute("jobs",jdao.jobList(code));					// 해당 프로젝트 직무 뽑기

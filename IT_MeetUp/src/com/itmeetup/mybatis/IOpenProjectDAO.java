@@ -7,6 +7,9 @@ public interface IOpenProjectDAO
 	// 현재 생성된 프로젝트 출력
 	public ArrayList<OpenProjectDTO> openList();
 	
+	// 마감 임박 프로젝트 출력 
+	public ArrayList<OpenProjectDTO> deadlineList();
+	
 	// 프로젝트 카테고리 출력
 	public ArrayList<String> cateList();
 	
@@ -22,6 +25,9 @@ public interface IOpenProjectDAO
 
 	// 프로젝트의 해당하는 희망 기술 뽑기
 	public ArrayList<String> skillList(String code);
+	
+	// 프로젝트 조회수 증가 
+	public int viewUpdate(String code);
 	
 	// 새로 추가
 	// 가장 최근 프로젝트 코드 뽑기 
