@@ -25,20 +25,20 @@ public class OpenProjectController
 		String result =null;
 		
 		IOpenProjectDAO dao = sqlSession.getMapper(IOpenProjectDAO.class);
-		//IJobDAO jdao = sqlSession.getMapper(IJobDAO.class);
-		//IOpenProjectDAO jdao = sqlSession.getMapper(IOpenProjectDAO.class);
+		IJobDAO jdao = sqlSession.getMapper(IJobDAO.class);
+		
 		
 		// 프로젝트 해당하는 기술 담기
 		Map<String,ArrayList<String>> skills = new HashMap<String, ArrayList<String>>();
 		// 프로젝트 해당하는 직위 담기
-		//Map<String,ArrayList<String>> jobs = new HashMap<String, ArrayList<String>>();
+		Map<String,ArrayList<JobDTO>> jobInfo = new HashMap<String, ArrayList<JobDTO>>();
 		
 		ArrayList<OpenProjectDTO> project = dao.openList();		
 		
 		for (OpenProjectDTO dto : project)
 		{
 			skills.put(dto.getCode(), dao.skillList(dto.getCode()));
-			//jobs.put(dto.getCode(), jdao.jobLists((dto.getCode())));
+			//jobInfo.put(dto.getCode(), jdao.jobList((dto.getCode())));
 		}
 		
 		IMemberDAO skillCategoryDAO = sqlSession.getMapper(IMemberDAO.class);	// 스킬카테고리 select
@@ -57,7 +57,7 @@ public class OpenProjectController
 		model.addAttribute("siggList",dao.siggList());
 		model.addAttribute("carList",dao.carList());
 		model.addAttribute("skill",skills);
-		//model.addAttribute("jobs",jobs);
+		//model.addAttribute("jobInfo",jobInfo);
 		
 		
 		
@@ -75,6 +75,7 @@ public class OpenProjectController
 		IOpenProjectDAO dao = sqlSession.getMapper(IOpenProjectDAO.class);
 		IJobDAO jdao = sqlSession.getMapper(IJobDAO.class);
 		ICommentDAO cdao = sqlSession.getMapper(ICommentDAO.class);
+		IPickDAO pdao = sqlSession.getMapper(IPickDAO.class);
 		
 		Map<String,ArrayList<CommentDTO>> recomments = new HashMap<String, ArrayList<CommentDTO>>();
 		ArrayList<CommentDTO> recomment = cdao.commentList(code);
@@ -89,7 +90,7 @@ public class OpenProjectController
 		model.addAttribute("comments",cdao.commentList(code));			// 댓글 뽑기
 		model.addAttribute("count",cdao.countComment(code));			// 댓글 개수 세기
 		model.addAttribute("recomments",recomments);					// 대댓글 뽑기
-		
+		model.addAttribute("pickList",pdao.sinchungList(code));			// 댓글 개수 세기
 		
 		
 		

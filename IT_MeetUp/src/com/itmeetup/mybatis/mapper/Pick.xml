@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+
+<mapper namespace="com.itmeetup.mybatis.IPickDAO">
+
+	<!-- 해당 직무의 지원한 사람 보여주기 -->
+	<select id="sinchungList" resultType="com.itmeetup.mybatis.PickDTO">
+		SELECT PI.PI_NICKNAME AS "NICKNAME"
+			, TO_CHAR( PA.PA_DATE,'YYYY-MM-DD') AS "RegDate"
+			, TO_CHAR(PA.PA_CHECK_DATE,'YYYY-MM-DD')  AS "CHECKDATE"
+			, PA.PA_MEM_CODE AS "MEMCODE"
+			, PA.PA_TJ_NO AS "TJNO"
+			, TJ.TJ_JOB_CODE AS "JCode"
+			, J.JOB_NAME  AS "JName"
+		FROM OPEN_PROJECT OP
+		JOIN TEAM_JOB TJ ON OP.OP_CODE = TJ.TJ_OP_CODE
+		JOIN JOB J ON TJ.TJ_JOB_CODE = J.JOB_CODE
+		JOIN PART_APPLICANT PA ON TJ.TJ_NO = PA.PA_TJ_NO
+		JOIN MEMBER M ON PA.PA_MEM_CODE = M.MEM_CODE
+		JOIN PERSONAL_INFO PI ON M.MEM_CODE = PI.PI_MEM_CODE
+		WHERE OP.OP_CODE = #{code}
+	</select>
+	 
+	
+	
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -153,32 +153,36 @@ String cp = request.getContextPath();
 						<div class="modal-dialog modal-dialog-centered">
 							<div class="modal-content">
 								<div class="modal-header">
-									<div class="modal-title fs-5 h1" id="sinchungpeopleLabel">신청한
-										사람들</div>
+									<div class="modal-title fs-5 h1" id="sinchungpeopleLabel">신청한 사람들</div>
 									<button type="button" class="btn-close" data-bs-dismiss="modal"
 										aria-label="닫기"></button>
 								</div>
 								<div class="modal-body">
 									<table class="table">
-										<tr>
-											<th>이름?닉네임?</th>
-											<th>지원한 직무</th>
-											<th>경력</th>
-											<th>지원한 날짜</th>
-											<th>픽 여부</th>
-										</tr>
-										<tr>
-											<td>홍길동</td>
-											<td>백엔드</td>
-											<td>3년</td>
-											<td>2024-02-18</td>
-											<td>
-												<button type="button" class="btn btn-primary" id="pick"
-													data-bs-target="#PickCheck" data-bs-toggle="modal">
-													<i class="bi bi-arrow-through-heart"></i>
-												</button>
-											</td>
-										</tr>
+										<c:forEach var="pick" items="${pickList }">
+											<tr>
+												<th>닉네임</th>
+												<th>지원한 직무</th>
+												<th>신청한 날짜</th>
+												<th>정보 보기</th>
+												<th>픽 여부</th>
+											</tr>
+											<tr>
+												<td>${pick.nickName }</td>
+												<td>${pick.jName }</td>
+												<td>${pick.getRegDate() }</td>
+												<td><button type="button" class="btn btn-primary" id="sinchunInfo"
+														data-bs-target="#PickCheck" data-bs-toggle="modal">
+														<i class="bi bi-person-square"></i>
+													</button></td>
+												<td>
+													<button type="button" class="btn btn-primary" id="pick"
+														data-bs-target="#PickCheck" data-bs-toggle="modal">
+														<i class="bi bi-arrow-through-heart"></i>
+													</button>
+												</td>
+											</tr>
+										</c:forEach>
 									</table>
 								</div>
 								<!-- 1파업바디 엔드 -->
@@ -266,7 +270,7 @@ String cp = request.getContextPath();
 							<div class="tab-pane fade show active" id="nav-mojib"
 								role="tabpanel" aria-labelledby="nav-mojib-tab">
 								<c:forEach var="job" items="${jobs }">
-									<h5>${job.jobName }0/${job.inwon }</h5>
+									<h5>${job.jobName }      ${job.count} / ${job.inwon }</h5>
 								</c:forEach>
 								<br>
 
@@ -284,12 +288,12 @@ String cp = request.getContextPath();
 												name="memCode" />
 											<div class="col-12">
 												<div class="textarea_wrap">
-													<textarea rows="2" cols="30" placeholder="댓글을 작성하세요" name="comContent" data-textarea="txt_cnt"></textarea>
+													<textarea  rows="2" cols="30" placeholder="댓글을 작성하세요"  class="comment-textarea" name="comContent" data-textarea="txt_cnt"></textarea>
 												</div>
 											</div>
 											<div class="col-12 d-flex justify-content-between mt-2">
 												<div class="left-box">
-													<div class="txt">※ 글자수는 1000자 이내로 제한됩니다.</div>
+													<div class="txt" >※ 글자수는 1000자 이내로 제한됩니다.</div>
 												</div>
 												<div class="right-box">
 													<span class="me-3">
@@ -371,8 +375,8 @@ String cp = request.getContextPath();
 																<div class="textarea_wrap">
 																	<input type="hidden" value="${choicProList.code}" name="code" />
 																	<input type="hidden" value="${comment.number }" name="number" />
-																	<input type="text" value="${sessionScope.loginDTO.piMemCode}"  name="memCode">
-																	<textarea rows="2" cols="30" placeholder="댓글을 작성하세요" class="" data-textarea="txt_cnt" name="comContent"></textarea>
+																	<input type="hidden" value="${sessionScope.loginDTO.piMemCode}"  name="memCode">
+																	<textarea rows="2" cols="30" placeholder="댓글을 작성하세요" class="comment-textarea" data-textarea="txt_cnt" name="comContent"></textarea>
 																</div>
 															</div>
 															<div class="col-12 d-flex justify-content-between mt-2">
@@ -473,6 +477,34 @@ String cp = request.getContextPath();
 			{
 				$(location).attr("href", "projectList.action");
 			});
+			 
+			 // 댓글 입력 막기
+			 var textarea = $('.comment-textarea');
+			 var message = $('.txt');
+			 var count = $('[data-textarea-cnt="txt_cnt"]');
+		    
+			 textarea.on('input', function() 
+			 {
+	        var text = $(this).val();
+	        var textLength = text.length;
+	        
+	        if (textLength > 1000) {
+	            $(this).val(text.slice(0, 1000)); 
+	            textLength = 1000;
+	        }
+	        
+	        count.text(textLength);
+	        
+	        if (textLength >= 1000) 
+	        {
+	            message.show(); 
+	            message.css({'color': 'red', 'font-weight': 'bold'});
+	        } else
+	        {
+	            message.hide(); 
+	        }
+	    });
+			 
 		});
 	</script>
 </body>

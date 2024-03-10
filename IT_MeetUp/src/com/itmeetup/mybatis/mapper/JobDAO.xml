@@ -10,38 +10,27 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="jobList" resultType="com.itmeetup.mybatis.JobDTO" >
 	
-		<!-- SELECT J.JOB_NAME "JOB"
-		FROM TEAM_JOB TE_J
-		JOIN JOB J  ON J.JOB_CODE = TE_J.TJ_JOB_CODE
-		WHERE TJ_OP_CODE = #{code} -->
-		
-		SELECT TJ_NUM AS"INWON", JOB_NAME AS "JOBNAME", tj_no  AS "TJNO"
-		FROM TEAM_JOB TJ
-		JOIN JOB J ON J.JOB_CODE=Tj.Tj_Job_Code
-		WHERE TJ_NUM &gt; 0 AND TJ_OP_CODE= #{code}  
+		SELECT TJ.TJ_JOB_CODE AS "JOBCODE"
+				, J.JOB_NAME  AS "JOBNAME"
+				, COUNT(PA.PA_NO) AS "COUNT"
+				, TJ.TJ_NUM AS "INWON"
+		FROM OPEN_PROJECT OP
+		JOIN TEAM_JOB TJ ON OP.OP_CODE = TJ.TJ_OP_CODE
+		JOIN JOB J ON TJ.TJ_JOB_CODE = J.JOB_CODE
+		JOIN PART_APPLICANT PA ON TJ.TJ_NO = PA.PA_TJ_NO
+		WHERE OP.OP_CODE = #{code}
+		GROUP BY TJ.TJ_JOB_CODE, J.JOB_NAME, TJ.TJ_NUM
 		
 	</select>
 	 
 	
 	<!-- 직위 출력  -->
-
 	<select id="jobs" resultType="com.itmeetup.mybatis.JobDTO" >
 	SELECT JOB_CODE "JOBCODE" , JOB_NAME "JOBNAME" 
 	FROM JOB
 	</select>
-
-
-	<!-- 해당 프로젝트 희망 직위 출력 -->
-	<select id="jobLists" resultType="java.lang.String" >
 	
-		SELECT J.JOB_NAME "JOBNAME"
-		FROM TEAM_JOB TE_J
-		JOIN JOB J  ON J.JOB_CODE = TE_J.TJ_JOB_CODE
-		WHERE TJ_OP_CODE = #{code} 
-		
-	</select>
-		
-
+	
 </mapper>
 
 

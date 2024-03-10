@@ -654,28 +654,28 @@
 									</div>
 									<!-- 직무 -->
 									<div class="d-flex job-box">
-									<c:forEach var="jobString" items="${jobs[opList.code]}">
-									    	<c:set var="jobList" value="${fn:split(jobString, ' ')}" />
-									    		<c:forEach var="job" items="${jobList}">
-									        		<c:choose>
-									           			<c:when test="${job eq '기획자'}">
-									                		<span class="badge rounded-pill bg-success">기획자</span> 
-									            		</c:when>
-									            		<c:when test="${job eq '디자이너'}">
-									                		<span class="badge rounded-pill bg-danger">디자인</span> 
-									            		</c:when>
-									            		<c:when test="${job eq '프론트엔드'}">
-									                		<span class="badge rounded-pill bg-primary">프론트엔드</span> 
-									            		</c:when>
-									            		<c:when test="${job eq '백엔드'}">
-									                		<span class="badge rounded-pill bg-secondary">백엔드</span> 
-									            		</c:when>   
-									            		<c:otherwise>
-									                		<span class="badge rounded-pill bg-primary">${job}</span>   
-									            		</c:otherwise>                                   
-									        		</c:choose>
-												</c:forEach>
-									</c:forEach>
+								    <c:forEach var="jobItem" items="${jobInfo[opList.code]}">
+								        <c:set var="jobNames" value="${fn:split(jobItem.jobName, ' ')}" />
+								        <c:forEach var="jobName" items="${jobNames}">
+								            <c:choose>
+								                <c:when test="${jobName eq '기획자'}">
+								                    <span class="badge rounded-pill bg-success">기획자</span> 
+								                </c:when>
+								                <c:when test="${jobName eq '디자이너'}">
+								                    <span class="badge rounded-pill bg-danger">디자이너</span> 
+								                </c:when>
+								                <c:when test="${jobName eq '프론트엔드'}">
+								                    <span class="badge rounded-pill bg-primary">프론트엔드</span> 
+								                </c:when>
+								                <c:when test="${jobName eq '백엔드'}">
+								                    <span class="badge rounded-pill bg-secondary">백엔드</span> 
+								                </c:when>   
+								                <c:otherwise>
+								                    <span class="badge rounded-pill bg-primary">${jobName}</span>   
+								                </c:otherwise>                                   
+								            </c:choose>
+								        </c:forEach>
+								    </c:forEach>
 									</div>
 								</div> <!-- card-top -->
 								<div class="card-bottom">
@@ -705,8 +705,14 @@
 												<span class="badge-language"><span class="blind">${skills[opList.code] }</span></span> 
 										</div> --%>
 										<c:forEach var ="skill" items="${skill[opList.code] }">
-											${skill }
-										<%-- <span class="badge-language"><span class="blind"></span></span> --%>
+										<%-- <c:set var="skillName" value="${fn:split(skill, ' ')}" /> --%> 
+										<%-- <c:set var="i" value="0" /> --%>
+											 ${skill } 
+										<%-- 	 <c:forEach var="skills" items="${skillName}">
+										        <span class="badge-language">${skills[i]}<span class="blind"></span></span> 
+										        <c:set var="i" value="${i + 1}" /> <!-- i를 1씩 증가 -->
+										    </c:forEach> --%>
+											 
 										</c:forEach>
 										<!-- 조회수 -->
 										<small class="text-body-secondary">${opList.view}</small>
