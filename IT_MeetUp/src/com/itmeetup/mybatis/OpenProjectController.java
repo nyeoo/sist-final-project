@@ -92,10 +92,11 @@ public class OpenProjectController
 		model.addAttribute("comments",cdao.commentList(code));			// 댓글 뽑기
 		model.addAttribute("count",cdao.countComment(code));			// 댓글 개수 세기
 		model.addAttribute("recomments",recomments);					// 대댓글 뽑기
-		model.addAttribute("pickList",pdao.sinchungList(code));			// 댓글 개수 세기
+
+		model.addAttribute("pickList",pdao.sinchungList(code));			//  해당 직무의 지원한 사람 보여주기 
+		model.addAttribute("sinchung",pdao.sinchung(code));			// 신청할 정보 뿌려주기
 		
-		
-		
+	
 		result = "/Content/ProjectLounge/PostDetail.jsp";
 						   
 		return result;

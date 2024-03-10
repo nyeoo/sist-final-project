@@ -22,9 +22,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		JOIN PERSONAL_INFO PI ON M.MEM_CODE = PI.PI_MEM_CODE
 		WHERE OP.OP_CODE = #{code}
 	</select>
-	 
-	
-	
+	 <select id="sinchung" resultType="com.itmeetup.mybatis.PickDTO">
+	SELECT J.JOB_NAME AS "jName"
+			, TJ.TJ_NO AS "tjno"
+			, TJ.TJ_NUM AS "tjnum"
+	FROM OPEN_PROJECT OP
+	JOIN TEAM_JOB TJ ON OP.OP_CODE = TJ.TJ_OP_CODE
+	JOIN JOB J ON TJ.TJ_JOB_CODE = J.JOB_CODE
+	WHERE OP.OP_CODE = #{code}
+	</select>
 	
 </mapper>
 

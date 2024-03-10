@@ -4,13 +4,25 @@ public class PickDTO
 {
 	//주요속성
 	private String tjno ,nickName , RegDate,CheckDate,memCode
-	  ,jCode ,jName;
+	  ,jCode ,jName,tjnum;
 
 
-	// getter /setter 
+	// getter /setter
+	
+	
 	public String getTjno()
 	{
 		return tjno;
+	}
+
+	public String getTjnum()
+	{
+		return tjnum;
+	}
+
+	public void setTjnum(String tjnum)
+	{
+		this.tjnum = tjnum;
 	}
 
 	public void setTjno(String tjno)

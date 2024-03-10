@@ -243,19 +243,25 @@ String cp = request.getContextPath();
 											<th>모집 수</th>
 											
 											<th>신청 여부</th>
+											
 										</tr>
-										<c:forEach var="job" items="${jobs }">
+										<c:forEach var="sinchung" items="${sinchung }">
 										<tr>
-											<td>${job.jobName }</td>
-											<td>${job.inwon } 명</td>
+										
+											<td>${sinchung.jName }</td>
+											<td>${sinchung.tjnum } 명</td>
 											<td>
+											<form action="" method="get">
 											<!-- <button type="button" class="btn btn-primary sign" id="back" >신청</button>  -->
+											<input type="hidden" name ="tjno" value="${sinchung.tjno } ">
 											<button type="button" class="btn btn-primary" id="sinchung"
 														data-bs-target="#sinchungCheck" data-bs-toggle="modal">
 														신청
-											</button>																			
+											</button>					
+											</form>														
 											<!-- <button type="button" class="btn btn-secondary canel" id="back" >취소</button> --> 																			
 											</td>
+										
 										</tr>
 										</c:forEach>
 										
