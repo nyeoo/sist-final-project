@@ -3,13 +3,50 @@
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.itmeetup.mybatis.IMypageDAO">
-	 <!-- ========================================[ 마이페이지 ]======================================== -->
-	 
-	 <!--  -->
-	 <select id="getMyinfo"  resultType="com.itmeetup.mybatis.MemberDTO">
-	 	SELECT PI_MEM_CODE "PIMEMCODE", PI_ID "PIID", PI_PW "PIPW", PI_NICKNAME "PINICKNAME", PI_EMAIL "PIEMAIL", PI_NAME "PINAME"
+	<!-- ========================================[ 마이페이지 ]======================================== -->
+
+	<!-- 나의정보 조회 쿼리문 -->
+	<select id="getMyinfo"
+		resultType="com.itmeetup.mybatis.MemberDTO">
+		SELECT PI_MEM_CODE "PIMEMCODE", PI_ID "PIID", PI_PW "PIPW", PI_NICKNAME
+		"PINICKNAME", PI_EMAIL "PIEMAIL", PI_NAME "PINAME"
 		FROM PERSONAL_INFO
 		WHERE PI_MEM_CODE = #{piMemCode}
-	 </select>
-	 
+	</select>
+
+	<!-- ==[ 기능 ]== -->
+	<!-- 아이디 중복체크 쿼리문(나 자신 제외) -->
+	<select id="myInfoCheckId" parameterType="java.lang.String"
+		resultType="java.lang.Integer">		
+		SELECT COUNT(*)
+		FROM (SELECT *
+			FROM MEMBER MB JOIN PERSONAL_INFO PI
+			ON PI.PI_MEM_CODE = MB.MEM_CODE
+			WHERE MB.MEM_CODE NOT IN(#{piMemCode})) TEMP
+		WHERE TEMP.PI_ID = #{piId}
+	</select>
+
+	<!-- 닉네임 중복체크 쿼리문(나 자신 제외) -->
+	<select id="myInfoCeckNickname" parameterType="java.lang.String" resultType="java.lang.Integer">
+		SELECT COUNT(*)
+		FROM (SELECT *
+			FROM MEMBER MB JOIN PERSONAL_INFO PI
+			ON PI.PI_MEM_CODE = MB.MEM_CODE
+			WHERE MB.MEM_CODE NOT IN(#{piMemCode})) TEMP
+		WHERE TEMP.PI_NICKNAME = #{piNickname}
+	</select>
+	
+	<!-- 내정보수정 -->
+	<update id="myInfoModify">
+		UPDATE PERSONAL_INFO
+		SET PI_ID=#{piId}, PI_PW=#{piPw}, PI_NICKNAME=#{piNickname}, PI_NAME=#{piName}, PI_EMAIL=#{piEmail} 
+		WHERE PI_MEM_CODE = #{piMemCode}
+	</update>
+	
+	<insert id="cancelMember">
+		INSERT INTO CANCEL_MEMBER(CM_MEM_CODE, CM_DATE)
+		VALUES(#{piMemCode},SYSDATE);
+	</insert>	
+	
+	
 </mapper>

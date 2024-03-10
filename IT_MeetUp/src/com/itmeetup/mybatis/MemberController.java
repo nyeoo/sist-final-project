@@ -25,7 +25,7 @@ public class MemberController
 	@Autowired
 	private SqlSession sqlSession;
 
-	// ========================================[ 로그인 ]========================================
+	// ========================================[로그인]========================================
 	
 	// 로그인 폼
 	// 일반멤버 - ljh1234 / ljh1234
@@ -92,7 +92,7 @@ public class MemberController
 		return "redirect:/Content/ProjectLounge/PostList_ju.jsp";
 	}
 	
-	// ========================================[ 회원가입 ]========================================
+	// ========================================[회원가입]========================================
 	// 회원가입 폼
 	@RequestMapping(value = "/join.action", method = RequestMethod.GET)
 	public String joinForm(Model model)
@@ -142,7 +142,7 @@ public class MemberController
 		return "/Content/Site/SearchNicknameCount.jsp";
 	}
 	
-	// ========================================[ 회원가입 ]========================================
+	// ========================================[회원가입]========================================
 	// 회원가입 폼
 	@RequestMapping(value = "/searchid.action", method = RequestMethod.GET)
 	public String searchId(@RequestParam("piEmail") String piEmail, Model model)

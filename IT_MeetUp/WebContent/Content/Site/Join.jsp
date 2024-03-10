@@ -669,6 +669,6 @@ String cp = request.getContextPath();
 				console.log(checkArr);
 			}); */
 			
-		})
+		});
 	</script>
 </html>
