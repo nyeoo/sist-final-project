@@ -88,7 +88,7 @@ String cp = request.getContextPath();
 											<label for="piId" class="col-md-4 col-lg-3 col-form-label">아이디</label>
 											<div class="col-md-8 col-lg-9">
 												<div class="input-group">
-													<input name="piId" type="text" class="form-control form-control-plaintext" id="piId" value="${member.piId }" disabled="disabled">
+													<input name="piId" type="text" class="form-control form-control-plaintext" id="piId" value="${member.piId }" disabled="disabled" oninput="inputOninput(this)">
 													<button class="input-group-text btn btn-primary hidden" type="button" id="myinfoCheckId">중복확인</button>
 													<div class="invalid-feedback">아이디를 입력해주세요.</div>
 												</div>
@@ -99,7 +99,7 @@ String cp = request.getContextPath();
 											<label for="piId" class="col-md-4 col-lg-3 col-form-label">닉네임</label>
 											<div class="col-md-8 col-lg-9">
 												<div class="input-group">
-													<input name="piNickname" type="text" class="form-control form-control-plaintext" id="piNickname" value="${member.piNickname }" disabled="disabled">
+													<input name="piNickname" type="text" class="form-control form-control-plaintext" id="piNickname" value="${member.piNickname }" disabled="disabled" oninput="inputOninput(this)">
 													<button class="input-group-text btn btn-primary hidden" type="button" id="myInfoCheckNickname">중복확인</button>
 													<div class="invalid-feedback">닉네임을 입력해주세요.</div>
 												</div>
@@ -271,186 +271,193 @@ String cp = request.getContextPath();
 	<script src="<%=cp%>/asset/js/bootstrap.bundle.min.js"></script>
 	<script src="<%=cp%>/asset/js/common.js"></script>
 	<script type="text/javascript">
-		$(function()
-		{
-			$(".btn-block").click(
-				function()
-				{
-					if (confirm("해당 회원을 차단 해제 하시겠습니까?"))
-					{
-						$(location).attr("href","remove.action?bloNo=" + $(this).val());
-					}
-				}
-			);
-			
-			// 수정안내 팝업
-			$("#btn-myinfo-save").click(function(){
-				//$('#infoModal').modal('show');
-				let piId = $("#piId");
-				let piNickName = $("#piNickname");
-				let checkIdFlag = false;
-				let checkNicknameFlag = false;
-				
-				// 아이디 중복체크 여부
-				if(piId.hasClass("is-valid"))
-				{
-					checkIdFlag = true;
-				}else{
-					piId.next().next(".invalid-feedback").text("중복체크 확인해주세요");
-					piId.addClass("is-invalid").focus();
-				}
-				
-				// 비밀번호 중복체크 여부
-				if(piNickName.hasClass("is-valid"))
-				{
-					checkNicknameFlag = true;
-				}else{
-					piNickName.next().next(".invalid-feedback").text("중복체크 확인해주세요");
-					piNickName.addClass("is-invalid").focus();
-				}
-
-					//myinfoForm.action="myinfomodify.action";
-				if(checkIdFlag==true && checkNicknameFlag==true){
-					$('#infoModal').modal('show');
-					let f = document.myinfoForm;
-					f.action = "<%=cp%>/myinfomodify.action";
-					f.submit();
-				}
-			});
-			
-			// 비밀번호 확인
-			$("#btn-myinfo-modify-action").click(function(){
-				let piMemCode = $("#piMemCode").val();
-				let piPwCheckStr = $("#piPwCheck");
-				let piPwCheck = $("#piPwCheck").val();
-				piPwCheckStr.removeClass("is-valid");
-				let params = "piMemCode=" + piMemCode + "&piPw=" + piPwCheck;
-
-				let ajaxRequest = null;
-				if (ajaxRequest !== null){ ajaxRequest.abort();}
-				ajaxRequest = $.ajax(
-				{
-					type : "get",
-					url : "checkPw.action",
-					data : params,
-					success : function(searchPwCount)
-					{
-						if (searchPwCount <= 0)
-						{
-							piPwCheckStr.next(".invalid-feedback").text("비밀번호가 맞지 않습니다.");
-							piPwCheckStr.removeClass("is-valid").addClass("is-invalid");
-							piPwCheckStr.focus();
-						} else
-						{
-							piPwCheckStr.removeClass("is-invalid").addClass("is-valid");
-							$("#modifyFlag").val("1");
-							$("#modifyModal .btn-close").trigger("click");
-							modifyCheck();
-						}
-					}, error:function(request,status,error){
-						console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-					}
-				});
-			});
-
-			// 비밀번호 확인 되었을 경우 html 처리
-			function modifyCheck()
+	
+	// input 중복체크후 입력시
+	function inputOninput(target)
+	{
+		target.classList.remove("is-valid");
+	}
+	
+	$(function()
+	{
+		$(".btn-block").click(
+			function()
 			{
-				let modifyFlag = $("#modifyFlag").val();
-				let piId = $("#piId");
-				let piNickName = $("#piNickname");
-				let piPw = $("#piPw");
-				let piName = $("#piName");
-				let piEmail = $("#piEmail");
-				let btnModify = $("#btn-myinfo-modify");
-				let btnSave = $("#btn-myinfo-save");
-				let btnCheckId = $("#myinfoCheckId");
-				let btnCheckNickname = $("#myInfoCheckNickname");
-
-				if (modifyFlag == 0) // 조회
+				if (confirm("해당 회원을 차단 해제 하시겠습니까?"))
 				{
-					piId.addClass("form-control-plaintext").attr("disabled",true);
-					piNickName.addClass("form-control-plaintext").attr("disabled",true);
-					piPw.addClass("form-control-plaintext").attr("disabled",true).attr("type", "password");
-					piName.addClass("form-control-plaintext").attr("disabled",true);
-					piEmail.addClass("form-control-plaintext").attr("disabled",true);
-				} else if (modifyFlag == 1) // 수정
-				{
-					piId.removeClass("form-control-plaintext").attr("disabled",false);
-					piNickName.removeClass("form-control-plaintext").attr("disabled",false).attr("type", "text");
-					piPw.removeClass("form-control-plaintext").attr("disabled",false).attr("type", "text");
-					piName.removeClass("form-control-plaintext").attr("disabled", false);
-					piEmail.removeClass("form-control-plaintext").attr("disabled", false);
-					btnModify.attr("disabled", true);
-					btnSave.attr("disabled", false);
-					btnCheckId.removeClass("hidden");
-					btnCheckNickname.removeClass("hidden");
+					$(location).attr("href","remove.action?bloNo=" + $(this).val());
 				}
 			}
-
-			modifyCheck();
+		);
+		
+		let piId = $("#piId");
+		let piNickName = $("#piNickname");
+		
+		// 수정안내 팝업
+		$("#btn-myinfo-save").click(function(){
+			let checkIdFlag = false;
+			let checkNicknameFlag = false;
 			
+			// 아이디 중복체크 여부
+			if(piId.hasClass("is-valid"))
+			{
+				checkIdFlag = true;
+			}else{
+				piId.next().next(".invalid-feedback").text("중복체크 확인해주세요");
+				piId.addClass("is-invalid").focus();
+			}
 			
-			// 아이디 중복체크
-			$("#myinfoCheckId").click(function(){
-				let piIdStr = $("#piId");
-				let piId = $("#piId").val();
-				let piMemCode = $("#piMemCode").val();
-				let params = "piMemCode=" + piMemCode + "&piId=" + piId;
-				
-				let ajaxRequest = null;
-				if (ajaxRequest !== null) {ajaxRequest.abort();}
-				ajaxRequest = $.ajax(
-				{
-					type: "GET"
-					, url: "myinfocheckid.action"
-					, data: params
-					, success: function(searchCount)
-					{
-						if(searchCount>0)
-						{
-							piIdStr.next(".invalid-feedback").text("아이디가 같습니다.");
-							piIdStr.removeClass("is-valid").addClass("is-invalid");
-							piIdStr.focus();
-						}else{
-							piIdStr.removeClass("is-invalid").addClass("is-valid");
-						}
-					}
-					, error:function(request,status,error){
-						console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-					}
-				});
-			});
-			
-			// 닉네임 중복체크
-			$("#myInfoCheckNickname").click(function(){
-				let piNicknameStr = $("#piNickname");
-				let piNickname = $("#piNickname").val();
-				let piMemCode = $("#piMemCode").val();
-				let params = "piMemCode=" + piMemCode + "&piNickname=" + piNickname;
+			// 비밀번호 중복체크 여부
+			if(piNickName.hasClass("is-valid"))
+			{
+				checkNicknameFlag = true;
+			}else{
+				piNickName.next().next(".invalid-feedback").text("중복체크 확인해주세요");
+				piNickName.addClass("is-invalid").focus();
+			}
 
-				let ajaxRequest02 = null;
-				if (ajaxRequest02 !== null) {ajaxRequest02.abort();}
-				ajaxRequest02 = $.ajax(
-				{
-					type : "GET"
-					, url : "myinfochecknickname.action"
-					, data : params
-					, success : function(searchNicknameCount){
-						if (searchNicknameCount > 0) {
-							piNicknameStr.next(".invalid-feedback").text("닉네임이 같습니다.");
-							piNicknameStr.removeClass("is-valid").addClass("is-invalid");
-							piNicknameStr.focus();
-						} else {
-							piNicknameStr.removeClass("is-invalid").addClass("is-valid");
-						}
-					}, error:function(request,status,error){
-						console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-					}
-				});
-			});
-
+			if(checkIdFlag==true && checkNicknameFlag==true){
+				$('#infoModal').modal('show');
+			}
 		});
+		
+		$("#btn-myinfo-confirm").click(function(){
+			let f = document.myinfoForm;
+			f.action = "<%=cp%>/myinfomodify.action";
+			f.submit();				
+		});
+		
+		// 비밀번호 확인
+		$("#btn-myinfo-modify-action").click(function(){
+			let piMemCode = $("#piMemCode").val();
+			let piPwCheckStr = $("#piPwCheck");
+			let piPwCheck = $("#piPwCheck").val();
+			piPwCheckStr.removeClass("is-valid");
+			let params = "piMemCode=" + piMemCode + "&piPw=" + piPwCheck;
+
+			let ajaxRequest = null;
+			if (ajaxRequest !== null){ ajaxRequest.abort();}
+			ajaxRequest = $.ajax(
+			{
+				type : "get",
+				url : "checkPw.action",
+				data : params,
+				success : function(searchPwCount)
+				{
+					if (searchPwCount <= 0)
+					{
+						piPwCheckStr.next(".invalid-feedback").text("비밀번호가 맞지 않습니다.");
+						piPwCheckStr.removeClass("is-valid").addClass("is-invalid");
+						piPwCheckStr.focus();
+					} else
+					{
+						piPwCheckStr.removeClass("is-invalid").addClass("is-valid");
+						$("#modifyFlag").val("1");
+						$("#modifyModal .btn-close").trigger("click");
+						modifyCheck();
+					}
+				}, error:function(request,status,error){
+					console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+				}
+			});
+		});
+
+		// 비밀번호 확인 되었을 경우 html 처리
+		function modifyCheck()
+		{
+			let modifyFlag = $("#modifyFlag").val();
+			let piPw = $("#piPw");
+			let piName = $("#piName");
+			let piEmail = $("#piEmail");
+			let btnModify = $("#btn-myinfo-modify");
+			let btnSave = $("#btn-myinfo-save");
+			let btnCheckId = $("#myinfoCheckId");
+			let btnCheckNickname = $("#myInfoCheckNickname");
+
+			if (modifyFlag == 0) // 조회
+			{
+				piId.addClass("form-control-plaintext").attr("disabled",true);
+				piNickName.addClass("form-control-plaintext").attr("disabled",true);
+				piPw.addClass("form-control-plaintext").attr("disabled",true).attr("type", "password");
+				piName.addClass("form-control-plaintext").attr("disabled",true);
+				piEmail.addClass("form-control-plaintext").attr("disabled",true);
+			} else if (modifyFlag == 1) // 수정
+			{
+				piId.removeClass("form-control-plaintext").attr("disabled",false);
+				piNickName.removeClass("form-control-plaintext").attr("disabled",false).attr("type", "text");
+				piPw.removeClass("form-control-plaintext").attr("disabled",false).attr("type", "text");
+				piName.removeClass("form-control-plaintext").attr("disabled", false);
+				piEmail.removeClass("form-control-plaintext").attr("disabled", false);
+				btnModify.attr("disabled", true);
+				btnSave.attr("disabled", false);
+				btnCheckId.removeClass("hidden");
+				btnCheckNickname.removeClass("hidden");
+			}
+		}
+
+		modifyCheck();
+		
+		
+		// 아이디 중복체크
+		$("#myinfoCheckId").click(function(){
+			let piIdStr = $("#piId");
+			let piId = $("#piId").val();
+			let piMemCode = $("#piMemCode").val();
+			let params = "piMemCode=" + piMemCode + "&piId=" + piId;
+			
+			let ajaxRequest = null;
+			if (ajaxRequest !== null) {ajaxRequest.abort();}
+			ajaxRequest = $.ajax(
+			{
+				type: "GET"
+				, url: "myinfocheckid.action"
+				, data: params
+				, success: function(searchCount)
+				{
+					if(searchCount>0)
+					{
+						piIdStr.next(".invalid-feedback").text("아이디가 같습니다.");
+						piIdStr.removeClass("is-valid").addClass("is-invalid");
+						piIdStr.focus();
+					}else{
+						piIdStr.removeClass("is-invalid").addClass("is-valid");
+					}
+				}
+				, error:function(request,status,error){
+					console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+				}
+			});
+		});
+		
+		// 닉네임 중복체크
+		$("#myInfoCheckNickname").click(function(){
+			let piNicknameStr = $("#piNickname");
+			let piNicknameVal = $("#piNickname").val();
+			let piMemCode = $("#piMemCode").val();
+			let params = "piMemCode=" + piMemCode + "&piNickname=" + piNicknameVal;
+
+			let ajaxRequest02 = null;
+			if (ajaxRequest02 !== null) {ajaxRequest02.abort();}
+			ajaxRequest02 = $.ajax(
+			{
+				type : "GET"
+				, url : "myinfochecknickname.action"
+				, data : params
+				, success : function(searchNicknameCount){
+					if (searchNicknameCount > 0) {
+						piNicknameStr.next(".invalid-feedback").text("닉네임이 같습니다.");
+						piNicknameStr.removeClass("is-valid").addClass("is-invalid");
+						piNicknameStr.focus();
+					} else {
+						piNicknameStr.removeClass("is-invalid").addClass("is-valid");
+					}
+				}, error:function(request,status,error){
+					console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+				}
+			});
+		});
+
+	});
 	</script>
 </body>
 
