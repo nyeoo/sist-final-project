@@ -15,16 +15,18 @@ public class WorkManageController
     private SqlSession sqlSession;
 
     @RequestMapping(value = "/workManage.action", method = RequestMethod.GET)
-    public String workManage(ModelMap model)
+    public String workManage(ModelMap model, String memCode)
     {
         IScheduleDAO scheduleDAO = sqlSession.getMapper(IScheduleDAO.class);
         IAssignmentListDAO assignmentDAO = sqlSession.getMapper(IAssignmentListDAO.class);
         IReportListDAO reportDAO = sqlSession.getMapper(IReportListDAO.class);
 		IMemberDAO skillCategoryDAO = sqlSession.getMapper(IMemberDAO.class);	// 스킬카테고리 select
 		IMemberDAO skillsDAO = sqlSession.getMapper(IMemberDAO.class);			// 스킬 리스트
+		
+		String opCode = assignmentDAO.searchOpCode(memCode);
         
         model.addAttribute("scheduleList", scheduleDAO.scheduleList());
-        model.addAttribute("assignmentList", assignmentDAO.assignmentList());
+        model.addAttribute("assignmentList", assignmentDAO.assignmentList(opCode));
         model.addAttribute("assScheduleList", assignmentDAO.assScheduleList());
         model.addAttribute("assOutputList", assignmentDAO.assOutputList());
         model.addAttribute("reportList", reportDAO.reportList());

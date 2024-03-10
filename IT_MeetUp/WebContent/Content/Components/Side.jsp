@@ -51,7 +51,7 @@ String cp = request.getContextPath();
 
 
 			<li class="nav-item"><a class="nav-link collapsed"
-				href="workManage.action"> <i class="bi bi-grid"></i> <span>업무
+				href="workManage.action?memCode=${sessionScope.loginDTO.piMemCode}"> <i class="bi bi-grid"></i> <span>업무
 						관리</span>
 			</a></li>
 
