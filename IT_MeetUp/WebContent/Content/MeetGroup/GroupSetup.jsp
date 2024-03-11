@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	request.setCharacterEncoding("UTF-8");
-	String cp = request.getContextPath();
+String cp = request.getContextPath();
 %>
 <!DOCTYPE html>
 <html lang="ko">
@@ -53,20 +53,37 @@
 							<c:forEach var="groupTeamNameItem" items="${groupTeamName }">
 								<div class="h3">
 									<span>${groupTeamNameItem.teamName}</span>
-									
+
+									<%-- <c:forEach var="groupLeaderItem" items="${groupLeaders}">
+										<!-- 그룹 설정 항목에서 memCode 가져오기 -->
+										<c:set var="setupItemMemCode"
+											value="${groupLeaderItem.memCode}" />
+										<!-- 그룹 팀 이름 루프 -->
+										<c:forEach var="groupTeamNameItem" items="${groupTeamName}">
+											<!-- memCode 비교 -->
+											<c:if
+												test="${sessionScope.loginDTO.piMemCode == setupItemMemCode}">
+												<!-- 원하는 작업 수행 -->
+											</c:if>
+										</c:forEach>
+									</c:forEach> --%>
+
+									<c:forEach var="groupLeaderItem" items="${groupLeaders}">
 									<c:choose>
-									<c:when test="${sessionScope.loginDTO.piMemCode == groupTeamNameItem.memCode}">
-									<button type="button" id="teamnameUpdateButton"
-										class="btn btn-primary" data-bs-toggle="modal"
-										data-bs-target="#teamnameUpdate"
-										value="${groupTeamNameItem.teamName}" onclick="NameModify()">
-										<i class="bi bi-plus-lg"></i> 팀명 수정
-									</button>
-									</c:when>
-									<c:otherwise>
-										
-									</c:otherwise>
+										<c:when
+											test="${sessionScope.loginDTO.piMemCode == groupLeaderItem.memCode}">
+											<button type="button" id="teamnameUpdateButton"
+												class="btn btn-primary" data-bs-toggle="modal"
+												data-bs-target="#teamnameUpdate"
+												value="${groupTeamNameItem.teamName}" onclick="NameModify()">
+												<i class="bi bi-plus-lg"></i> 팀명 수정
+											</button>
+										</c:when>
+										<c:otherwise>
+
+										</c:otherwise>
 									</c:choose>
+									</c:forEach>
 								</div>
 							</c:forEach>
 							<!-- //팀명수정 -->

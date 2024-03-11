@@ -69,5 +69,20 @@
 		WHERE PA_MEM_CODE = #{memCode }
         AND OP_END_DATE > SYSDATE)
 	</update>
+	
+	<!-- 평가에 쓰일 팀장 -->
+ 	<select id="groupLeaders" resultType="com.itmeetup.mybatis.EvaluationDTO">
+ 		SELECT OP_MEM_CODE "MEMCODE"
+		FROM TEAMLEADERVIEW
+		WHERE OP_CODE = (SELECT OP_CODE
+		FROM PERSONAL_INFO PI
+        LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
+        LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
+        LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
+        LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
+        LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
+		WHERE PA_MEM_CODE = #{memCode }
+        AND OP_END_DATE > SYSDATE) AND PA_MEM_CODE = OP_MEM_CODE
+	</select>
  	
  </mapper>

@@ -22,6 +22,9 @@ public class GroupSetupController
 	{
 		IGroupSetupDAO dao = sqlSession.getMapper(IGroupSetupDAO.class);
 		
+		// 팀장 닉네임 출력
+		model.addAttribute("groupLeaders", dao.groupLeaders(memCode));
+		
 		// 그룹원 리스트
 		model.addAttribute("groupSetupList", dao.groupSetupList(memCode));
 		

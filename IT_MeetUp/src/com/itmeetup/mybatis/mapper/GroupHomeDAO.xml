@@ -258,23 +258,22 @@
  	
  	<!-- 팀장 평가명 목록 -->
  	<select id="leaderEval" resultType="com.itmeetup.mybatis.EvaluationDTO">
-		SELECT QUE_NAME "QUENAME"
+		SELECT DISTINCT(QUE_NAME) "QUENAME"
 		FROM EVALNAMEVIEW
-		WHERE OP_CODE = (SELECT OP_CODE
-		FROM PERSONAL_INFO PI
-        LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
-        LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
-        LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
-        LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
-        LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
-		WHERE PA_MEM_CODE = #{memCode }
-        AND OP_END_DATE > SYSDATE) AND QI_CODE = 'QI_2'
+        WHERE QI_CODE = 'QI_2'
  	</select>
  	
  	<!-- 팀원 평가명 목록  -->
  	<select id="teamEval" resultType="com.itmeetup.mybatis.EvaluationDTO">
-		SELECT QUE_NAME "QUENAME"
+		SELECT DISTINCT(QUE_NAME) "QUENAME"
 		FROM EVALNAMEVIEW
+        WHERE QI_CODE = 'QI_1'
+ 	</select>
+ 	
+ 	<!-- 평가에 쓰일 팀장 -->
+ 	<select id="groupLeader" resultType="com.itmeetup.mybatis.EvaluationDTO">
+ 		SELECT PI_NICKNAME "PINICKNAME"
+		FROM TEAMLEADERVIEW
 		WHERE OP_CODE = (SELECT OP_CODE
 		FROM PERSONAL_INFO PI
         LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
@@ -283,8 +282,8 @@
         LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
         LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
 		WHERE PA_MEM_CODE = #{memCode }
-        AND OP_END_DATE > SYSDATE) AND QI_CODE = 'QI_1'
- 	</select>
+        AND OP_END_DATE > SYSDATE) AND PA_MEM_CODE = OP_MEM_CODE
+	</select>
  	
  	<!-- 평가에 쓰일 그룹원 리스트 -->
  	<select id="groupPersonnel" resultType="com.itmeetup.mybatis.GroupDTO">
@@ -301,5 +300,25 @@
         AND OP_END_DATE > SYSDATE)
  	</select>
  	
-	 	
+ 	<!-- 평가 프로시저 -->
+	<update id="evalInsert">
+		DECLARE
+	        VV_EVA_NO   EVALUATION.EVA_NO%TYPE;
+	        VV_ER_NO    EVALUATION_RESULT.ER_NO%TYPE;
+	    BEGIN
+	        VV_EVA_NO := EVALUATION_SEQ.NEXTVAL;
+	        VV_ER_NO := EVALUATION_RESULT_SEQ.NEXTVAL; -- 시퀀스 값을 변수에 저장
+	        
+	        INSERT INTO EVALUATION(EVA_NO, EVA_DATE, EVA_QUE_NO, EVA_PC_CODE)
+	        VALUES(VV_EVA_NO, SYSDATE, 1, 'PC_14');
+	            
+	        INSERT ALL
+	            INTO EVALUATION_RESULT(ER_NO, ER_EVA_NO, ER_PC_CODE) 
+	            VALUES (VV_ER_NO, VV_EVA_NO, 'PC_15') 
+	            INTO EVALUATION_RESULT(ER_NO, ER_EVA_NO, ER_PC_CODE) 
+	            VALUES (VV_ER_NO+1, VV_EVA_NO, 'PC_16') 
+	        SELECT * FROM DUAL;
+	        
+	    END;
+	</update>
  </mapper>

@@ -55,10 +55,21 @@ public class GroupHomeController
 		// 팀원 평가 목록
 		model.addAttribute("teamEval", dao.teamEval(memCode));
 		
+		// 팀장 닉네임 출력
+		model.addAttribute("groupLeader", dao.groupLeader(memCode));
+		
 		// 그룹원 리스트 목록
 		model.addAttribute("groupPersonnel", dao.groupPersonnel(memCode));
 
 		return "/Content/MeetGroup/GroupHome.jsp";
 	}
 
+	// 평가 입력
+	@RequestMapping(value = "/evalinsert.action", method = RequestMethod.GET)
+	public String evalInsert()
+	{
+		IGroupHomeDAO dao = sqlSession.getMapper(IGroupHomeDAO.class);
+		dao.evalInsert();
+		return "/Content/ProjectLounge/PostList_ju.jsp";
+	}
 }

@@ -17,5 +17,8 @@ public interface IGroupSetupDAO
 	
 	// 팀명수정
 	public int groupTeamNamemodify(@Param("teamName") String teamName, @Param("memCode") String memCode);
+	
+	// 팀장 리스트 조회
+	public ArrayList<EvaluationDTO> groupLeaders(String memCode);
 
 }

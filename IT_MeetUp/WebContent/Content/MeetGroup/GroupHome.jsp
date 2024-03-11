@@ -379,12 +379,12 @@ String cp = request.getContextPath();
 					<div class="eval">
 						<button type="button" id="evalInsertBtn" class="btn btn-primary"
 							data-bs-toggle="modal" data-bs-target="#evalInsert" value="평가버튼"
-							onclick="evaluate()">
+							onclick="evaluate01()">
 							<i class="bi bi-plus-lg"></i> 평가하기
 						</button>
 					</div>
-					<!-- 팀명수정을 위한 모달 -->
-					<form role="form" action="evalinsert.action" method="post"
+					<!-- 평가 모달 -->
+					<form role="form" action="evalinsert.action" method="get"
 						id="evalForm">
 						<div class="modal fade" id="evalInsert" tabindex="-1"
 							aria-labelledby="#evalLabel" aria-hidden="true">
@@ -406,17 +406,33 @@ String cp = request.getContextPath();
 																<c:forEach var="leaderItem" items="${leaderEval }">
 																	<tr>
 																		<th>${leaderItem.quename }</th>
+																		<c:forEach var="groupLeaderItem"
+																			items="${groupLeader }">
+																			<td><input class="form-check-input groupLeader"
+																				type="radio" name="grLeader"
+																				value="${groupLeaderItem.pinickname }" />
+																				네.</td>
+																			<td><input class="form-check-input groupLeader"
+																			type="radio" name="grLeader"
+																			value=0 />
+																			아니요.</td>
+																		</c:forEach>
 																	</tr>
 																</c:forEach>
 																<c:forEach var="teamItem" items="${teamEval }">
 																	<tr>
 																		<th>${teamItem.quename }</th>
-																		<c:forEach var="groupPersonItem"
-																			items="${groupPersonnel }">
-																			<td><input class="form-check-input groupPerson"
-																				type="checkbox" name="grPersonnel"
+																		<c:forEach var="groupPersonItem" items="${groupPersonnel }">
+																			<td>
+																			<%-- <c:set var="i" value="${i+1 }" >
+																			<form action="evalinsert.action" method="get" id="evalinsertBtn"> 
+																			<input type="hidden" value="${i }" name="${i }">--%>
+																			<input class="form-check-input groupPerson" type="checkbox" name="que_${status.index +1 }"
 																				value="${groupPersonItem.piNickName }" />
-																				${groupPersonItem.piNickName }</td>
+																				${groupPersonItem.piNickName }
+																			<%-- </form>
+																			</c:set> --%>
+																			</td>
 																		</c:forEach>
 																	</tr>
 																</c:forEach>
@@ -430,7 +446,7 @@ String cp = request.getContextPath();
 									<div class="modal-footer">
 										<button type="button" class="btn btn-secondary"
 											data-bs-dismiss="modal">나가기</button>
-										<button type="button" class="btn btn-primary" id="evalu">평가하기</button>
+										<button type="submit" class="btn btn-primary" id="evalu">평가하기</button>
 
 										<span id="err"
 											style="color: red; font-weight: bold; display: none;"></span>
@@ -457,19 +473,21 @@ String cp = request.getContextPath();
 	<script src="https://kit.fontawesome.com/81ca059e0e.js"
 		crossorigin="anonymous"></script>
 	<script>
-		function evaluate()
+		function evaluate01()
 		{
-			$('#evalInsert').load("/eval.action");
-			$('#evalInsert').modal();
+			/* $('#evalInsert').load("/eval.action");
+			$('#evalInsert').modal(); */
 		}
 
 		$(function()
 		{
 			$("#evalu").click(function()
 			{
-				alert("ddd");
+				//alert("ddd");
+				//evalinsertBtn.submit();
 
 			});
+			
 		})
 	</script>
 </body>

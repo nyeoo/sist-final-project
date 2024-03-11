@@ -1,10 +1,17 @@
 package com.itmeetup.mybatis;
 
+import java.util.ArrayList;
+
 public class EvaluationDTO
 {
-	private int evano, quePoint;									// 평가번호, 벌점
-	private String erpcCode, evapcCode, quename, memCode;			// 피평가자, 평가자, 평가명, 회원코드
+	private int evano, quePoint, evaqueno;									// 평가번호, 벌점, 평가질문번호
 	
+	private String erpcCode, evapcCode, quename, memCode, pinickname;		// 피평가자, 평가자, 평가명, 회원코드
+	
+	private ArrayList<String> que1;											// 첫번째 질문
+	private ArrayList<String> que2;											// 두번째 질문
+	private ArrayList<String> que3;											// 세번째 질문
+	private ArrayList<String> que4;											// 네번째 질문
 	
 	// getter / setter 구성
 	public int getEvano()
@@ -55,9 +62,54 @@ public class EvaluationDTO
 	{
 		this.memCode = memCode;
 	}
-
-	
-	
+	public String getPinickname()
+	{
+		return pinickname;
+	}
+	public void setPinickname(String pinickname)
+	{
+		this.pinickname = pinickname;
+	}
+	public ArrayList<String> getQue1()
+	{
+		return que1;
+	}
+	public void setQue1(ArrayList<String> que1)
+	{
+		this.que1 = que1;
+	}
+	public ArrayList<String> getQue2()
+	{
+		return que2;
+	}
+	public void setQue2(ArrayList<String> que2)
+	{
+		this.que2 = que2;
+	}
+	public ArrayList<String> getQue3()
+	{
+		return que3;
+	}
+	public void setQue3(ArrayList<String> que3)
+	{
+		this.que3 = que3;
+	}
+	public ArrayList<String> getQue4()
+	{
+		return que4;
+	}
+	public void setQue4(ArrayList<String> que4)
+	{
+		this.que4 = que4;
+	}
+	public int getEvaqueno()
+	{
+		return evaqueno;
+	}
+	public void setEvaqueno(int evaqueno)
+	{
+		this.evaqueno = evaqueno;
+	}
 	
 	
 }
