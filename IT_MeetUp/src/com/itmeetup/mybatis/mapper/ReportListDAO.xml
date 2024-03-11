@@ -21,6 +21,7 @@
 		, REP_FILE "repFile"
 		, APP_DATE "appDate"
 		, WS_NAME "wsName"
+		, CHARGER "charger"
 		FROM VIEW_REPORT
 		WHERE SD_OP_CODE = #{opCode} AND REP_NO IS NOT NULL
 	</select>
