@@ -192,13 +192,12 @@ String cp = request.getContextPath();
 								</div>
 
 								<div class="card-body">
-									<div class="card-title">
-									<c:forEach var="totalCareerItem" items="${totalCareer }">
-										<p class="h5">
-											경력 <span>${totalCareerItem.totalYear }년 ${totalCareerItem.totalMonth }개월 </span>
-										</p>
-									</c:forEach>
-									</div>
+										<div class="card-title">
+											<p class="h5">
+												경력 <span>${totalCareer.totalYear }년
+													${totalCareer.totalMonth }개월 </span>
+											</p>
+										</div>
 
 									<ul class="activity">
 										<c:forEach var="careerItem" items="${careerList }">
@@ -245,15 +244,10 @@ String cp = request.getContextPath();
 													data-bs-title="프로젝트경험횟수">계정레벨 <i
 														class="bi bi-question-circle"></i></span></span>
 												<div class="card-title mb-2">
-													<span style="vertical-align: inherit;">10건</span>
+													<span style="vertical-align: inherit;">${count }건</span>
 												</div>
 												<small class="text-success fw-semibold"><i
-													class="bx bx-up-arrow-alt"></i>레벨1</small>
-												<!-- <div class="progress progress-sm mr-2">
-								<div class="progress-bar bg-success" role="progressbar"
-									style="width: 10%" aria-valuenow="10" aria-valuemin="0"
-									aria-valuemax="100"></div>
-							</div> -->
+													class="bx bx-up-arrow-alt"></i>${level }</small>
 											</div>
 										</div>
 									</div>

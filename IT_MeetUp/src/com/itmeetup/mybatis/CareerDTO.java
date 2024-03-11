@@ -7,16 +7,11 @@ public class CareerDTO
 	private String jobName;										// 직무명
 	private String years, months, totalYear, totalMonth;		// 한 회사 경력 년, 월, 총 경력 년, 월
 	private String memCode;										// 회원 코드
+	private int count;											// 프로젝트 건수 
+	private String level;										// 레벨
 	
 	// getter / setter 
-	public String getMemCode()
-	{
-		return memCode;
-	}
-	public void setMemCode(String memCode)
-	{
-		this.memCode = memCode;
-	}
+	
 	public String getStartDate()
 	{
 		return startDate;
@@ -81,8 +76,30 @@ public class CareerDTO
 	{
 		this.totalMonth = totalMonth;
 	}
-	
-	
+	public String getMemCode()
+	{
+		return memCode;
+	}
+	public void setMemCode(String memCode)
+	{
+		this.memCode = memCode;
+	}
+	public int getCount()
+	{
+		return count;
+	}
+	public void setCount(int count)
+	{
+		this.count = count;
+	}
+	public String getLevel()
+	{
+		return level;
+	}
+	public void setLevel(String level)
+	{
+		this.level = level;
+	}
 	
 	
 }

@@ -7,11 +7,74 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- mybatis 환경 설정 파일 활용 -->
 	<!-- CareerDAO.xml -->
 	
+	<!-- 경력 리스트 조회 쿼리문 -->
 	<select id="careerList" resultType="com.itmeetup.mybatis.CareerDTO">
 		SELECT "STARTDATE", "ENDDATE", "COMNAME", "JOBNAME", "YEARS", "MONTHS"
-		FROM VIEW_MY_CAREER
+		FROM VIEW_MY_CAREER VMC JOIN MEMBER M
+		ON VMC.MEMCODE = M.MEM_CODE
+		WHERE MEM_CODE = #{memCode}
 	</select>
 	
+	<!-- 총 경력 조회 쿼리문 -->
+	<select id="totalCareer" resultType="com.itmeetup.mybatis.CareerDTO">
+		SELECT FLOOR(SUM(MONTHS) / 12) + TRUNC(SUM(YEARS)) AS "TOTALYEAR"
+		     , SUM(MONTHS) - (FLOOR(SUM(MONTHS) / 12) * 12) AS "TOTALMONTH"
+		FROM 
+		(
+		    SELECT MC_MEM_CODE AS MEMCODE
+		         , TRUNC(MONTHS_BETWEEN(MC_END_DATE, MC_START_DATE) / 12) AS YEARS
+		         , TRUNC(MOD(MONTHS_BETWEEN(MC_END_DATE, MC_START_DATE), 12)) AS MONTHS
+		    FROM MY_CAREER
+		    WHERE MC_MEM_CODE = #{memCode}
+		)
+	</select>
 	
-
+	<!-- 프로젝트 횟수 조회 쿼리문 -->
+	<select id="count" resultType="java.lang.Integer">
+		SELECT COUNT(*) AS "COUNT"
+		FROM (
+		    SELECT DISTINCT OP_CODE "OP_CODE", MEM_CODE "MEM_CODE" , PI_NICKNAME "PI_NICKNAME", OP_START_DATE "OP_START_DATE", OP_END_DATE "OP_END_DATE", PC_CODE "PC_CODE"
+		    FROM PERSONAL_INFO PI
+		    LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
+		    LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE           
+		    LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
+		    LEFT JOIN TEAM_JOB TJ ON PA.PA_TJ_NO = TJ.TJ_NO
+		    LEFT JOIN OPEN_PROJECT OP ON TJ.TJ_OP_CODE = OP.OP_CODE
+		    WHERE OP_CODE IN ( SELECT DISTINCT OP_CODE 
+		                       FROM VIEW_END_PROJECT_PEOPLE03
+		                       WHERE OU_1 > 0 AND OU_2 > 0 AND OU_4 > 0 AND OU_11 > 0 AND OU_12 > 0 AND OU_13 > 0 AND OU_14 > 0 
+		                       GROUP BY OP_CODE
+		                    )
+		    AND MEM_CODE = #{memCode}
+		) TEMP2
+	</select>
+	
+	<!-- 해당 회원 레벨 조회 쿼리문 -->
+	<select id="level" resultType="java.lang.String">
+		SELECT 
+		    CASE 
+		        WHEN "COMPLET_PROJECT" >= 7 THEN '레벨3'
+		        WHEN "COMPLET_PROJECT" >= 5 THEN '레벨2'
+		        ELSE '레벨1'
+		    END AS "LEVEL"
+		FROM (
+		    SELECT COUNT(*) AS "COMPLET_PROJECT"
+		    FROM (
+		        SELECT DISTINCT OP_CODE, MEM_CODE, PI_NICKNAME, OP_START_DATE, OP_END_DATE, PC_CODE
+		        FROM PERSONAL_INFO PI
+		        LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
+		        LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
+		        LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
+		        LEFT JOIN TEAM_JOB TJ ON PA.PA_TJ_NO = TJ.TJ_NO
+		        LEFT JOIN OPEN_PROJECT OP ON TJ.TJ_OP_CODE = OP.OP_CODE
+		        WHERE OP_CODE IN (
+		            SELECT DISTINCT OP_CODE
+		            FROM VIEW_END_PROJECT_PEOPLE03
+		            WHERE OU_1 > 0 AND OU_2 > 0 AND OU_4 > 0 AND OU_11 > 0 AND OU_12 > 0 AND OU_13 > 0 AND OU_14 > 0 
+		            GROUP BY OP_CODE
+		        )
+		        AND MEM_CODE = #{memCode}
+		    )
+		)
+	</select>
 </mapper>

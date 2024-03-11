@@ -89,8 +89,22 @@ public class MyPageController
 
 	// ========================================[네임카드]========================================
 	@RequestMapping(value = "/namecard.action", method = RequestMethod.GET)
-	public String namecardForm()
+	public String namecardForm(HttpSession session, Model model)
 	{
+		//
+		
+		// 경력
+		MemberDTO memberStr = (MemberDTO) session.getAttribute("loginDTO"); // 세션에서 가져온 멤버
+		String memCode = memberStr.getPiMemCode();
+		
+		System.out.println(memCode);
+	    ICareerDAO careerDAO = sqlSession.getMapper(ICareerDAO.class);
+	    model.addAttribute("careerList", careerDAO.careerList(memCode));
+	    
+	    model.addAttribute("totalCareer", careerDAO.totalCareer(memCode));
+	    model.addAttribute("count", careerDAO.count(memCode));
+	    model.addAttribute("level", careerDAO.level(memCode));
+	    
 		return "/Content/MyPage/NameCard.jsp";
 	}
 
