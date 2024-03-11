@@ -4,15 +4,36 @@ public class PickDTO
 {
 	//주요속성
 	private String tjno ,nickName , RegDate,CheckDate,memCode
-	  ,jCode ,jName,tjnum;
+	  ,jCode ,jName,tjnum,  pano , code;
 
 
 	// getter /setter
 	
 	
+	
 	public String getTjno()
 	{
 		return tjno;
+	}
+
+	public String getPano()
+	{
+		return pano;
+	}
+
+	public void setPano(String pano)
+	{
+		this.pano = pano;
+	}
+
+	public String getCode()
+	{
+		return code;
+	}
+
+	public void setCode(String code)
+	{
+		this.code = code;
 	}
 
 	public String getTjnum()

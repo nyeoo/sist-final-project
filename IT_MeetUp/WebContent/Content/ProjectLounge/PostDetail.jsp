@@ -179,18 +179,23 @@ String cp = request.getContextPath();
 												<th>픽 여부</th>
 											</tr>
 											<tr>
+												
 												<td>${pick.nickName }</td>
 												<td>${pick.jName }</td>
 												<td>${pick.getRegDate() }</td>
+												
 												<td><button type="button" class="btn btn-primary" id="sinchunInfo"
 														data-bs-target="#PickCheck" data-bs-toggle="modal">
 														<i class="bi bi-person-square"></i>
 													</button></td>
 												<td>
-													<button type="button" class="btn btn-primary" id="pick"
+													<form action="updatePick.action" method="get" id="pickForm">
+													<input type="hidden" value="${pick.getPano() }" name="pano">
+													<button type="submit" class="btn btn-primary" id="pick"
 														data-bs-target="#PickCheck" data-bs-toggle="modal">
 														<i class="bi bi-arrow-through-heart"></i>
 													</button>
+													</form>
 												</td>
 											</tr>
 										</c:forEach>
@@ -251,13 +256,13 @@ String cp = request.getContextPath();
 											<td>${sinchung.jName }</td>
 											<td>${sinchung.tjnum } 명</td>
 											<td>
-											<form action="" method="get">
+											<form action="sinchung.action?code=${choicProList.code}" id="sinchungForm" method="get">
 											<!-- <button type="button" class="btn btn-primary sign" id="back" >신청</button>  -->
-											<input type="hidden" name ="tjno" value="${sinchung.tjno } ">
-											<button type="button" class="btn btn-primary" id="sinchung"
-														data-bs-target="#sinchungCheck" data-bs-toggle="modal">
-														신청
-											</button>					
+											<input type="hidden" name ="tjno" value="${sinchung.tjno }" name="tjno">
+											<input type="hidden" value="${sessionScope.loginDTO.piMemCode}"  name="memCode">
+												<button type="button" class="btn btn-primary" id="sinchung" data-bs-target="#sinchungCheck" data-bs-toggle="modal">
+															신청
+												</button>					
 											</form>														
 											<!-- <button type="button" class="btn btn-secondary canel" id="back" >취소</button> --> 																			
 											</td>
@@ -287,10 +292,8 @@ String cp = request.getContextPath();
 								</div>
 								<div class="modal-body">정말 이 프로젝트에 신청하시겠습니까?</div>
 								<div class="modal-footer">
-									<button type="button" class="btn btn-primary"
-										data-bs-target="#sinchung" data-bs-toggle="modal">네</button>
-									<button type="button" class="btn btn-secondary"
-										data-bs-target="#sinchung" data-bs-toggle="modal">아니오</button>
+									<button type="button" class="btn btn-primary"  id="yes" data-bs-target="#sinchung" data-bs-toggle="modal">네</button>
+									<button type="button" class="btn btn-secondary" id="no" data-bs-target="#sinchung" data-bs-toggle="modal">아니오</button>
 								</div>
 							</div>
 						</div>
@@ -353,6 +356,7 @@ String cp = request.getContextPath();
 							<div class="tab-pane fade show active" id="nav-mojib"
 								role="tabpanel" aria-labelledby="nav-mojib-tab">
 								<c:forEach var="job" items="${jobs }">
+									
 									<h5>${job.jobName }      ${job.count} / ${job.inwon }</h5>
 								</c:forEach>
 								<br>
@@ -542,19 +546,12 @@ String cp = request.getContextPath();
 				alert("신고했습니다. 😁");
 
 			});
-			/* 
-			$("#pick").click(function()
+			
+			$("#yes").click(function()
 			{
-				if(confirm("이 사람을 정말정말 진짜루다가 픽하시겠습니까?"))
-				{
-					alert("픽 보내기 성공.");
-				}else
-				{
-					alert("픽 보내기 보류!");
-				}
+				$("#sinchungForm").submit();
 			    	
 			});
-			 */
 
 			$("#prolist").click(function()
 			{

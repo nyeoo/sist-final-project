@@ -12,6 +12,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			, TO_CHAR(PA.PA_CHECK_DATE,'YYYY-MM-DD')  AS "CHECKDATE"
 			, PA.PA_MEM_CODE AS "MEMCODE"
 			, PA.PA_TJ_NO AS "TJNO"
+			, PA.PA_NO  AS "PANO"
 			, TJ.TJ_JOB_CODE AS "JCode"
 			, J.JOB_NAME  AS "JName"
 		FROM OPEN_PROJECT OP
@@ -22,15 +23,30 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		JOIN PERSONAL_INFO PI ON M.MEM_CODE = PI.PI_MEM_CODE
 		WHERE OP.OP_CODE = #{code}
 	</select>
+
+	<!-- 신청한 사람 보여주기 -->
 	 <select id="sinchung" resultType="com.itmeetup.mybatis.PickDTO">
-	SELECT J.JOB_NAME AS "jName"
-			, TJ.TJ_NO AS "tjno"
-			, TJ.TJ_NUM AS "tjnum"
-	FROM OPEN_PROJECT OP
-	JOIN TEAM_JOB TJ ON OP.OP_CODE = TJ.TJ_OP_CODE
-	JOIN JOB J ON TJ.TJ_JOB_CODE = J.JOB_CODE
-	WHERE OP.OP_CODE = #{code}
+		SELECT J.JOB_NAME AS "jName"
+				, TJ.TJ_NO AS "tjno"
+				, TJ.TJ_NUM AS "tjnum"
+		FROM OPEN_PROJECT OP
+		JOIN TEAM_JOB TJ ON OP.OP_CODE = TJ.TJ_OP_CODE
+		JOIN JOB J ON TJ.TJ_JOB_CODE = J.JOB_CODE
+		WHERE OP.OP_CODE = #{code} and TJ.TJ_NUM  &gt; 0  
 	</select>
+	
+	<!-- 참여하기 -->
+	<insert id="projectJoin">
+		INSERT INTO PART_APPLICANT(PA_NO, PA_DATE, PA_CHECK_DATE, PA_MEM_CODE, PA_TJ_NO, PA_AS_CODE)
+		VALUES(PART_APPLICANT_SEQ.NEXTVAL, SYSDATE, SYSDATE, #{memCode}, #{tjno}, 'AS_3')
+	</insert>
+	
+	<update id="pickUpdate">
+		update PART_APPLICANT
+		set pa_as_code ='AS_1'
+		where pa_no=#{pano}
+	</update>
+	
 	
 </mapper>
 
