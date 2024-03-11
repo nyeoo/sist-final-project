@@ -140,12 +140,11 @@ String cp = request.getContextPath();
 									<!-- 업무할당표  -->
 
 									<div class="card tbl-card">
-										<div class="card-header">
+										<div
+											class="card-header d-flex justify-content-between align-items-center">
 											<h5 style="display: inline;">업무할당표</h5>
 											<button type="button" class="btn btn-primary" id="assBtn"
 												data-bs-toggle="modal" data-bs-target="#staticBackdrop">업무할당</button>
-
-
 										</div>
 										<div class="accordion" id="accordionExample">
 											<c:set var="seenTopics" value="" />
