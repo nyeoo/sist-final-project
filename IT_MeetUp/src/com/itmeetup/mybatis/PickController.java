@@ -17,27 +17,41 @@ public class PickController
 
 	// 신청하기
 	@RequestMapping(value = "/sinchung.action" , method = RequestMethod.GET)
-	public String pickInsert(PickDTO dto ,String code)
+	public String pickInsert(PickDTO dto )
 	{
 		String result = null;
 		IPickDAO  dao = sqlSession.getMapper(IPickDAO.class);
+		String code = dto.getCode();
+		try
+		{
+			System.out.println("신청시작");
+			dao.projectJoin(dto);
+			
+			System.out.println("신청끝");
+			
+		} catch (Exception e)
+		{
+			// TODO: handle exception
+			System.out.println(e.toString());
+		}
 		
-		dao.projectJoin(dto);
-		
-		result = "redirect:PostDetail.action?code="+code;
+		result = "redirect:/PostDetail.action?code="+code;
 							
 		return result;
 	}
+	
 	// 픽하기  
 	@RequestMapping(value = "/updatePick.action" , method = RequestMethod.GET)
-	public String pickUpdate(PickDTO dto ,String code)
+	public String pickUpdate(PickDTO dto )
 	{
 		String result = null;
+		String code = dto.getCode();
 		IPickDAO  dao = sqlSession.getMapper(IPickDAO.class);
-		
+		System.out.println("픽 시작");
 		dao.pickUpdate(dto);
+		System.out.println("픽 끝");
 		
-		result = "redirect:PostDetail.action?code="+code;
+		result = "redirect:/PostDetail.action?code="+code;
 		
 							
 							

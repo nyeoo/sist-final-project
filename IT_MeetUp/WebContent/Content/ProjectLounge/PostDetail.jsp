@@ -170,7 +170,7 @@ String cp = request.getContextPath();
 								</div>
 								<div class="modal-body">
 									<table class="table">
-										<c:forEach var="pick" items="${pickList }">
+										<c:forEach var="pick" items="${pickList }" varStatus="status">
 											<tr>
 												<th>닉네임</th>
 												<th>지원한 직무</th>
@@ -189,9 +189,10 @@ String cp = request.getContextPath();
 														<i class="bi bi-person-square"></i>
 													</button></td>
 												<td>
-													<form action="updatePick.action" method="get" id="pickForm">
+													<form action="updatePick.action" method="get" id="pickForm${status.index +1}">
 													<input type="hidden" value="${pick.getPano() }" name="pano">
-													<button type="submit" class="btn btn-primary" id="pick"
+													<input type="hidden" name ="code" value="${choicProList.code}" >
+													<button type="button" class="btn btn-primary pickSubmit" id="pick"
 														data-bs-target="#PickCheck" data-bs-toggle="modal">
 														<i class="bi bi-arrow-through-heart"></i>
 													</button>
@@ -223,9 +224,9 @@ String cp = request.getContextPath();
 								<div class="modal-body">이 사람을 정말 픽하시 겠습니까?</div>
 								<div class="modal-footer">
 									<button type="button" class="btn btn-primary"
-										data-bs-target="#sinchungpeople" data-bs-toggle="modal">네</button>
+										data-bs-target="#sinchungpeople" data-bs-toggle="modal" id="ok">네</button>
 									<button type="button" class="btn btn-secondary"
-										data-bs-target="#sinchungpeople" data-bs-toggle="modal">아니오</button>
+										data-bs-target="#sinchungpeople" data-bs-toggle="modal" id="n">아니오</button>
 								</div>
 							</div>
 						</div>
@@ -250,19 +251,21 @@ String cp = request.getContextPath();
 											<th>신청 여부</th>
 											
 										</tr>
-										<c:forEach var="sinchung" items="${sinchung }">
+										<c:forEach var="sinchung" items="${sinchung }" varStatus="status">
 										<tr>
 										
 											<td>${sinchung.jName }</td>
 											<td>${sinchung.tjnum } 명</td>
 											<td>
-											<form action="sinchung.action?code=${choicProList.code}" id="sinchungForm" method="get">
-											<!-- <button type="button" class="btn btn-primary sign" id="back" >신청</button>  -->
-											<input type="hidden" name ="tjno" value="${sinchung.tjno }" name="tjno">
-											<input type="hidden" value="${sessionScope.loginDTO.piMemCode}"  name="memCode">
-												<button type="button" class="btn btn-primary" id="sinchung" data-bs-target="#sinchungCheck" data-bs-toggle="modal">
-															신청
-												</button>					
+											<form action="sinchung.action" id="sinchungForm${status.index +1}" method="get">
+												<!-- <button type="button" class="btn btn-primary sign" id="back" >신청</button>  -->
+												<input type="hidden" name ="tjno" value="${sinchung.tjno }" >
+												<input type="hidden" name ="code" value="${choicProList.code}" >
+												
+												<input type="hidden" value="${sessionScope.loginDTO.piMemCode}"  name="memCode">
+													<button type="button" class="btn btn-primary sinchung" id="sinchungForm" data-bs-target="#sinchungCheck" data-bs-toggle="modal">
+																신청
+													</button>					
 											</form>														
 											<!-- <button type="button" class="btn btn-secondary canel" id="back" >취소</button> --> 																			
 											</td>
@@ -547,12 +550,33 @@ String cp = request.getContextPath();
 
 			});
 			
-			$("#yes").click(function()
-			{
-				$("#sinchungForm").submit();
-			    	
+			
+			
+			// 픽 보내기
+			$('.pickSubmit').click(function() {
+			  
+				var pickFormId = $(this).closest('form').attr('id');
+			    // alert(pickFormId);
+			    $('#ok').click(function() {
+			        // 해당 폼을 서브밋합니다.
+			        $('#' + pickFormId).submit();
+			    });
 			});
-
+			
+			// 신청하기
+			$('.sinchung').click(function() {
+			   
+			    var sinchungFormId = $(this).closest('form').attr('id');
+			    //alert(sinchungFormId);
+			  
+			    $('#yes').click(function() {
+			        // 해당 폼을 서브밋합니다.
+			        $('#' + sinchungFormId).submit();
+			    });
+			});
+			
+			
+			// 목록 버튼 눌렀을 때
 			$("#prolist").click(function()
 			{
 				$(location).attr("href", "projectList.action");
@@ -563,27 +587,28 @@ String cp = request.getContextPath();
 			 var message = $('.txt');
 			 var count = $('[data-textarea-cnt="txt_cnt"]');
 		    
-			 textarea.on('input', function() 
-			 {
-	        var text = $(this).val();
-	        var textLength = text.length;
+			textarea.on('input', function() 
+			{
+		        var text = $(this).val();
+		        var textLength = text.length;
+		        
+		        if (textLength > 1000) 
+		        {
+		            $(this).val(text.slice(0, 1000)); 
+		            textLength = 1000;
+	        	}
 	        
-	        if (textLength > 1000) {
-	            $(this).val(text.slice(0, 1000)); 
-	            textLength = 1000;
-	        }
-	        
-	        count.text(textLength);
-	        
-	        if (textLength >= 1000) 
-	        {
-	            message.show(); 
-	            message.css({'color': 'red', 'font-weight': 'bold'});
-	        } else
-	        {
-	            message.hide(); 
-	        }
-	    });
+		        count.text(textLength);
+		        
+		        if (textLength >= 1000) 
+		        {
+		            message.show(); 
+		            message.css({'color': 'red', 'font-weight': 'bold'});
+		        } else
+		        {
+		            message.hide(); 
+		        }
+	    	});
 			 
 		});
 	</script>
