@@ -4,5 +4,5 @@ import java.util.ArrayList;
 
 public interface IWeeklyReportDAO
 {
-	public ArrayList<WeeklyReportListDTO> weeklyReport();
+	public ArrayList<WeeklyReportListDTO> weeklyReport(String opCode);
 }

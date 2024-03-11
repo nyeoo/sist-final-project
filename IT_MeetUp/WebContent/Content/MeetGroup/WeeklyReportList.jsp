@@ -117,7 +117,7 @@ String cp = request.getContextPath();
     {
         $("#writeButton").click(function()
         {
-            window.location.href = "<%=cp%>/weeklyReportWrite.action";
+            window.location.href = "<%=cp%>/weeklyReportWrite.action?memCode=${sessionScope.loginDTO.piMemCode}";
         });
     });
 </script>

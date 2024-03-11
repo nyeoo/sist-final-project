@@ -11,7 +11,7 @@
 		SELECT ROWNUM "countWeekly", TJ_OP_CODE "tjOpCode", WR_TITLE "wrTitle", WR_DATE "wrDate", PC_CODE
 		"pcCode",PI_NICKNAME "piNickName"
 		FROM VIEW_WEEKLY_REPORT
-		WHERE TJ_OP_CODE = 'OP_6'
+		WHERE TJ_OP_CODE = #{opCode}
 	</select>
 
 </mapper>

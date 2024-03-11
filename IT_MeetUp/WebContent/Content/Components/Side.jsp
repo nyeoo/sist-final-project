@@ -45,7 +45,7 @@ String cp = request.getContextPath();
 			</a></li>
 
 			<li class="nav-item"><a class="nav-link collapsed"
-				href="weeklyReport.action"> <i class="bi bi-grid"></i> <span>주간업무
+				href="weeklyReport.action?memCode=${sessionScope.loginDTO.piMemCode}"> <i class="bi bi-grid"></i> <span>주간업무
 						보고</span>
 			</a></li>
 

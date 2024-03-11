@@ -25,13 +25,13 @@ public class WorkManageController
 		
 		String opCode = assignmentDAO.searchOpCode(memCode);
         
-        model.addAttribute("scheduleList", scheduleDAO.scheduleList());
+        model.addAttribute("scheduleList", scheduleDAO.scheduleList(opCode));
         model.addAttribute("assignmentList", assignmentDAO.assignmentList(opCode));
         model.addAttribute("assScheduleList", assignmentDAO.assScheduleList());
         model.addAttribute("assOutputList", assignmentDAO.assOutputList());
-        model.addAttribute("reportList", reportDAO.reportList());
-        model.addAttribute("reportOutputList", reportDAO.reportOutputList());
-        model.addAttribute("reportPersonList", reportDAO.reportPersonList());
+        model.addAttribute("reportList", reportDAO.reportList(opCode));
+        model.addAttribute("reportOutputList", reportDAO.reportOutputList(opCode));
+        model.addAttribute("reportPersonList", reportDAO.reportPersonList(opCode));
         
 		model.addAttribute("skills", skillsDAO.skills());
 		model.addAttribute("skillCategorys", skillCategoryDAO.skillCategorys());

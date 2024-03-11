@@ -15,10 +15,13 @@ public class WeeklyReportWriteController
 	private SqlSession sqlSession;
 
 	@RequestMapping(value = "/weeklyReportWrite.action", method = RequestMethod.GET)
-	public String weeklyReportWrite(ModelMap model)
+	public String weeklyReportWrite(ModelMap model, String memCode)
 	{
 		IWeeklyReportWriteDAO dao = sqlSession.getMapper(IWeeklyReportWriteDAO.class);
-		model.addAttribute("weeklyReportWrite", dao.weeklyReportWrite()); // ssName 데이터를 모델에 추가
+		IAssignmentListDAO assignmentDAO = sqlSession.getMapper(IAssignmentListDAO.class);
+		
+		String opCode = assignmentDAO.searchOpCode(memCode);
+		model.addAttribute("weeklyReportWrite", dao.weeklyReportWrite(opCode)); // ssName 데이터를 모델에 추가
 		return "/Content/MeetGroup/WeeklyReport.jsp";
 	}
 
