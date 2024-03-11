@@ -143,8 +143,7 @@ String cp = request.getContextPath();
 										<div
 											class="card-header d-flex justify-content-between align-items-center">
 											<h5 style="display: inline;">업무할당표</h5>
-											<button type="button" class="btn btn-primary" id="assBtn"
-												data-bs-toggle="modal" data-bs-target="#staticBackdrop">업무할당</button>
+											<button type="button" class="btn btn-primary" id="assBtn">업무할당</button>
 										</div>
 										<div class="accordion" id="accordionExample">
 											<c:set var="seenTopics" value="" />
@@ -396,13 +395,6 @@ String cp = request.getContextPath();
 				</div>
 				<!-- 탭 -->
 
-				<!-- Modal -->
-				<div class="modal fade" id="staticBackdrop"
-					data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-					aria-labelledby="staticBackdropLabel" aria-hidden="true">
-					<c:import url="../MeetGroup/WorkAssignment.jsp"></c:import>
-				</div>
-				<!--// Modal  -->
 
 				<!-- Modal2 -->
 				<div class="modal fade" id="staticBackdrop2"
@@ -478,87 +470,100 @@ String cp = request.getContextPath();
 	<script src="<%=cp%>/asset/js/bootstrap.bundle.min.js"></script>
 	<script src="<%=cp%>/asset/js/common.js"></script>
 	<script type="text/javascript">
-		var useskills = new Array;
 
-		$("#input:checkbox[name='useskills']:checked").each(function(idx)
+		// 방장일 경우에만 가능한 업무 기능 노출 처리
+		$(document).ready(
+		function()
 		{
-			useskills.push($(this).val());
-		})
+			// 방장일 경우 회원 업무할당가능
+			var PcCode = "${pcCode}"; // 개인의 참여확인코드
+			var leaderPcCode = "${leaderPcCode}"; // 방장의 참여확인코드
+			var leavePcCode = "${leavePcCode}"; // 이탈ㅈ의 참여확인코드
+			var changeleaderPcCode = "${changeLeaderPcCode}"; // 변경된 방장의 회원코드
 
-		// 기술 체크할떄마다 span 구역에 나오게 함수
-		$(".skill").change(function()
-		{
-			var skilArea = $("#skilArea"); // div 영역 가져오기 
-			/* var skillName = $(this).attr("id") 		  	// 기술이름가져오기 */
-			var skillName = $(this).val() // 기술이름가져오기
-			//alert(skillName);
+			var assBtn = document.getElementById('assBtn');
 
-			// 체크된 기술 
-			var checkSkill = skilArea.find("span");
-			if ($(this).is(":checked"))
+			// 업무 처리 버튼을 모두 선택합니다.
+			var dropDownItems = document
+					.querySelectorAll('[id^="workProcess"]');
+
+			// 각 업무 처리 버튼에 대해 처리합니다.
+			dropDownItems.forEach(function(dropDownItem)
 			{
-
-				// 선택된 기술이 5개 미만인 경우에만 추가
-				if (checkSkill.length < 5)
+				// 업무 할당 처리
+				// 메모코드가 방장의 회원코드와 동일하고, leavePcCode가 null인 경우에만 버튼을 보이도록 한다.
+				if (PcCode == leaderPcCode && leavePcCode == '')
 				{
-					skilArea.append("<span>" + skillName + "&ensp; </span>");
-
-				} else
-				{
-					$(this).prop("checked", false);
-					alert("최대 5개까지 선택 가능합니다.");
+					assBtn.style.display = 'block'; // 버튼을 보이게 설정한다.
+					dropDownItem.style.display = 'block'; // "업무처리" 메뉴를 보이게 설정한다.
 				}
-			} else
-			{
-				// 체크를 해제 하면 해당 기술을 삭제
-				checkSkill.each(function()
+				// 메모코드가 변경된 방장의 회원코드와 동일한 경우에도 버튼을 보이도록 한다.
+				else if (PcCode == changeleaderPcCode)
 				{
-					if ($(this).text().indexOf(skillName) !== -1)
-						$(this).remove();
-				});
-			}
+					assBtn.style.display = 'block'; // 버튼을 보이게 설정한다.
+					dropDownItem.style.display = 'block'; // "업무처리" 메뉴를 보이게 설정한다.
+				}
+				// 그 외의 경우에는 버튼을 숨깁니다.
+				else
+				{
+					assBtn.style.display = 'none'; // 버튼을 숨긴다.
+					dropDownItem.style.display = 'none'; // "업무처리" 메뉴를 숨긴다.
+				}
+			});
+			
+			
+			$("#assBtn").click(function()
+			{
+				window.location.href = "<%=cp%>/assignment.action?memCode=${sessionScope.loginDTO.piMemCode}";
+			});
+			
+			$("#input:checkbox[name='useskills']:checked").each(function(idx)
+					{
+						useskills.push($(this).val());
+					})
+
+					// 기술 체크할떄마다 span 구역에 나오게 함수
+					$(".skill").change(function()
+					{
+						var skilArea = $("#skilArea"); // div 영역 가져오기 
+						/* var skillName = $(this).attr("id") 		  	// 기술이름가져오기 */
+						var skillName = $(this).val() // 기술이름가져오기
+						//alert(skillName);
+
+						// 체크된 기술 
+						var checkSkill = skilArea.find("span");
+						if ($(this).is(":checked"))
+						{
+
+							// 선택된 기술이 5개 미만인 경우에만 추가
+							if (checkSkill.length < 5)
+							{
+								skilArea.append("<span>" + skillName + "&ensp; </span>");
+
+							} else
+							{
+								$(this).prop("checked", false);
+								alert("최대 5개까지 선택 가능합니다.");
+							}
+						} else
+						{
+							// 체크를 해제 하면 해당 기술을 삭제
+							checkSkill.each(function()
+							{
+								if ($(this).text().indexOf(skillName) !== -1)
+									$(this).remove();
+							});
+						}
+						
+
+					});
+			
 
 		});
-
-		$(document).ready(
-				function()
-				{
-					// 방장일 경우 회원 업무할당가능
-					var PcCode = "${pcCode}"; // 개인의 참여확인코드
-					var leaderPcCode = "${leaderPcCode}"; // 방장의 참여확인코드
-					var leavePcCode = "${leavePcCode}"; // 이탈ㅈ의 참여확인코드
-					var changeleaderPcCode = "${changeLeaderPcCode}"; // 변경된 방장의 회원코드
-
-					var assBtn = document.getElementById('assBtn');
-
-					// 업무 처리 버튼을 모두 선택합니다.
-					var dropDownItems = document
-							.querySelectorAll('[id^="workProcess"]');
-
-					// 각 업무 처리 버튼에 대해 처리합니다.
-					dropDownItems.forEach(function(dropDownItem)
-					{
-						// 업무 할당 처리
-						// 메모코드가 방장의 회원코드와 동일하고, leavePcCode가 null인 경우에만 버튼을 보이도록 한다.
-						if (PcCode == leaderPcCode && leavePcCode == '')
-						{
-							assBtn.style.display = 'block'; // 버튼을 보이게 설정한다.
-							dropDownItem.style.display = 'block'; // "업무처리" 메뉴를 보이게 설정한다.
-						}
-						// 메모코드가 변경된 방장의 회원코드와 동일한 경우에도 버튼을 보이도록 한다.
-						else if (PcCode == changeleaderPcCode)
-						{
-							assBtn.style.display = 'block'; // 버튼을 보이게 설정한다.
-							dropDownItem.style.display = 'block'; // "업무처리" 메뉴를 보이게 설정한다.
-						}
-						// 그 외의 경우에는 버튼을 숨깁니다.
-						else
-						{
-							assBtn.style.display = 'none'; // 버튼을 숨긴다.
-							dropDownItem.style.display = 'none'; // "업무처리" 메뉴를 숨긴다.
-						}
-					});
-				});
+		
+		
+				 
+		 
 	</script>
 
 

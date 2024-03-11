@@ -30,9 +30,8 @@
 		resultType="com.itmeetup.mybatis.ReportListDTO">
 		SELECT
 		DISTINCT PI_NICKNAME "piNickName"
-		FROM
-		VIEW_ASSIGNMENT
-		WHERE SD_OP_CODE = #{opCode}
+		FROM VIEW_PROCEEDING_PROJECT_PEOPLE
+		WHERE OP_CODE = #{opCode}
 	</select>
 
 	<select id="reportOutputList"

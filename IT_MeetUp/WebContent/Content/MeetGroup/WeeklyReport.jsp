@@ -120,7 +120,7 @@ String cp = request.getContextPath();
 	{
         $("#reSetButton").click(function()
         {
-            window.location.href = "<%=cp%>/weeklyReport.action";
+            window.location.href = "<%=cp%>/weeklyReport.action?memCode=${sessionScope.loginDTO.piMemCode}";
         });
 	});
 	
