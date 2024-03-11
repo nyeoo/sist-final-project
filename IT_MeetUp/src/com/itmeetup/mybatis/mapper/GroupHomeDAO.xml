@@ -256,6 +256,135 @@
         AND OP_END_DATE > SYSDATE) AND SD_SS_CODE = 'SS_4'
  	</select>
  	
+ 	<!-- 회원의 참여코드 / 개설요청코드 -->
+	<select id="teamPcCode" resultType="java.lang.String">
+		SELECT PC_CODE "PCCODE"
+		FROM
+		GROUPTEAMVIEW
+		WHERE MEM_CODE = #{memCode }
+	</select>
+	<select id="teamOpCode" resultType="java.lang.String">
+		SELECT OP_CODE "OPCODE"
+		FROM GROUPTEAMVIEW
+		WHERE MEM_CODE = #{memCode }
+	</select>
+	
+	<!-- 팀장 이탈자 참여코드 -->
+	<select id="leaveLeader" resultType="java.lang.String">
+		SELECT LEA_PC_CODE "LEAPCCODE"
+		FROM LEAVE
+		WHERE LEA_PC_CODE = #{leavePcCode}
+	</select>
+	
+	<!-- 팀장 참여코드 / 개설요청코드 -->
+	<select id="leaderPcCode" resultType="java.lang.String">
+		SELECT PC_CODE "PCCODE"
+		FROM
+		GROUPTEAMVIEW
+		WHERE MEM_CODE = #{leaderMemCode}
+	</select>
+	<select id="leaderMemCode" resultType="java.lang.String">
+		SELECT DISTINCT
+		OP_MEM_CODE
+		FROM OPEN_PROJECT OP
+		LEFT JOIN TEAM_JOB TJ ON TJ.TJ_OP_CODE
+		= OP.OP_CODE
+		LEFT JOIN PART_APPLICANT PA ON PA.PA_MEM_CODE =
+		OP.OP_MEM_CODE
+		LEFT JOIN PART_CHECK PC ON PC.PC_PA_NO = PA.PA_NO
+		WHERE
+		OP_CODE = #{opCode}
+	</select>
+
+	<!-- 팀장 교체 참여코드 / 팀장 교체 개설요청코드 -->
+	<select id="changeLeaderPcCode"
+		resultType="java.lang.String">
+		SELECT LC_PC_CODE
+		FROM (
+		SELECT LC_PC_CODE, PA_MEM_CODE, LC_DATE,
+		ROW_NUMBER() OVER (ORDER BY LC_DATE DESC) AS row_num
+		FROM LEADER_CHANGE LC
+		LEFT JOIN PART_CHECK PC ON LC.LC_PC_CODE = PC.PC_CODE
+		LEFT JOIN PART_APPLICANT PA ON PA.PA_NO = PC.PC_PA_NO
+		LEFT JOIN TEAM_JOB TJ ON PA.PA_TJ_NO = TJ.TJ_NO
+		WHERE TJ_OP_CODE = #{opCode}
+		)
+		WHERE row_num = 1
+	</select>
+	<select id="changeLeaderMemCode"
+		resultType="java.lang.String">
+		SELECT PA_MEM_CODE
+		FROM (
+		SELECT PA_MEM_CODE, LC_DATE,
+		ROW_NUMBER() OVER (ORDER BY LC_DATE DESC) AS row_num
+		FROM LEADER_CHANGE
+		LC
+		LEFT JOIN PART_CHECK PC ON LC.LC_PC_CODE = PC.PC_CODE
+		LEFT JOIN
+		PART_APPLICANT PA ON PA.PA_NO = PC.PC_PA_NO
+		LEFT JOIN TEAM_JOB TJ ON
+		PA.PA_TJ_NO = TJ.TJ_NO
+		WHERE TJ_OP_CODE = #{opCode}
+		)
+		WHERE row_num = 1
+	</select>
+	
+	<!-- 팀장 닉네임 -->
+	<select id="leaderNickNames" resultType="java.lang.String">
+	SELECT PI_NICKNAME "PINICKNAME"
+		FROM
+		GROUPTEAMVIEW
+		WHERE MEM_CODE = (SELECT OP_MEM_CODE
+		FROM PERSONAL_INFO PI
+        LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
+        LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
+        LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
+        LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
+        LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
+		WHERE PA_MEM_CODE = #{memCode }
+        AND OP_END_DATE > SYSDATE)
+    </select>
+    
+    <!-- 이탈자 닉네임 -->
+    <select id="leaveNickNames" resultType="java.lang.String">        
+		SELECT PI_NICKNAME "PINICKNAME"
+		FROM GROUPSETUPVIEW
+		WHERE OP_CODE = (SELECT OP_CODE
+		FROM PERSONAL_INFO PI
+        LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
+        LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
+        LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
+        LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
+        LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
+        LEFT JOIN LEAVE LE ON PC.PC_CODE = LE.LEA_PC_CODE
+		WHERE PA_MEM_CODE = #{memCode }
+        AND OP_END_DATE > SYSDATE)
+        AND LEAPCCODE = '이탈자'
+    </select>
+    
+    <select id="changeNickNames" resultType="java.lang.String">
+    	SELECT PI_NICKNAME
+		FROM LEADER_CHANGE LC
+		LEFT JOIN PART_CHECK PC ON LC.LC_PC_CODE = PC.PC_CODE
+		LEFT JOIN PART_APPLICANT PA ON PA.PA_NO = PC.PC_PA_NO
+		LEFT JOIN TEAM_JOB TJ ON PA.PA_TJ_NO = TJ.TJ_NO
+        LEFT JOIN OPEN_PROJECT OP ON TJ.TJ_OP_CODE = OP.OP_CODE
+        LEFT JOIN MEMBER M ON OP.OP_MEM_CODE = M.MEM_CODE
+        LEFT JOIN PERSONAL_INFO PI ON M.MEM_CODE = PI.PI_MEM_CODE
+		WHERE TJ_OP_CODE = (SELECT OP_CODE
+		FROM PERSONAL_INFO PI
+        LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
+        LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
+        LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
+        LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
+        LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
+        LEFT JOIN LEAVE LE ON PC.PC_CODE = LE.LEA_PC_CODE
+		WHERE PA_MEM_CODE = 'MEM_10'
+        AND OP_END_DATE > SYSDATE
+        AND LEA_NO IS NOT NULL)
+    
+    </select>
+ 	
  	<!-- 팀장 평가명 목록 -->
  	<select id="leaderEval" resultType="com.itmeetup.mybatis.EvaluationDTO">
 		SELECT DISTINCT(QUE_NAME) "QUENAME"

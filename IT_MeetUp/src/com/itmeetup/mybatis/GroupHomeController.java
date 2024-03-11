@@ -20,6 +20,17 @@ public class GroupHomeController
 	public String weeklyReportList(ModelMap model, String memCode)
 	{
 		IGroupHomeDAO dao = sqlSession.getMapper(IGroupHomeDAO.class);
+		
+		String opCode = dao.teamOpCode(memCode); // 회원의 개설요청 코드
+		String pcCode = dao.teamPcCode(memCode); // 회원의 개설요청 코드
+		String leaderMemCode = dao.leaderMemCode(opCode); // 방장의 회원코드
+		String leaderPcCode = dao.leaderPcCode(leaderMemCode); // 방장의 참여확인코드
+		String leavePcCode = dao.leaveLeader(leaderPcCode); // 이탈한 방장의 참여확인코드
+		String changeLeaderMemCode = dao.changeLeaderMemCode(opCode); // 변경된 방장의 회원코드
+		String changeLeaderPcCode = dao.changeLeaderPcCode(opCode); // 변경된 방장의 참여확인코드
+		String leaderNickNames = dao.leaderNickNames(memCode);		//방장닉네임
+		String leaveNickNames = dao.leaveNickNames(memCode);		//이탈자 닉네임
+		String changeNickNames = dao.changeNickNames(memCode);		//교체된 팀장의 닉네임
 
 		// 산출물 갯수
 		model.addAttribute("meetAnalCount", dao.meetAnalCount(memCode));
@@ -48,6 +59,18 @@ public class GroupHomeController
 		model.addAttribute("designPercent", dao.designPercent(memCode));
 		model.addAttribute("avatarPercent", dao.avatarPercent(memCode));
 		model.addAttribute("testPercent", dao.testPercent(memCode));
+		
+		// 크라운 옮기기 위한 함수
+		model.addAttribute("opCode", opCode);
+		model.addAttribute("pcCode", pcCode);
+		model.addAttribute("leaderMemCode", leaderMemCode);
+		model.addAttribute("leaderPcCode", leaderPcCode);
+		model.addAttribute("leavePcCode", leavePcCode);
+		model.addAttribute("changeLeaderMemCode", changeLeaderMemCode);
+		model.addAttribute("changeLeaderPcCode", changeLeaderPcCode);
+		model.addAttribute("leaderNickNames", leaderNickNames);
+		model.addAttribute("leaveNickNames", leaveNickNames);
+		model.addAttribute("changeNickNames", changeNickNames);
 
 		// 팀장 평가 목록
 		model.addAttribute("leaderEval", dao.leaderEval(memCode));

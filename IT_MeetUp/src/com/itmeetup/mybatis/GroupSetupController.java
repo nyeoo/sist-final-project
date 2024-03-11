@@ -22,6 +22,14 @@ public class GroupSetupController
 	{
 		IGroupSetupDAO dao = sqlSession.getMapper(IGroupSetupDAO.class);
 		
+		String opCode = dao.teamOpCode(memCode); // 회원의 개설요청 코드
+		String pcCode = dao.teamPcCode(memCode); // 회원의 개설요청 코드
+		String leaderMemCode = dao.leaderMemCode(opCode); // 방장의 회원코드
+		String leaderPcCode = dao.leaderPcCode(leaderMemCode); // 방장의 참여확인코드
+		String leavePcCode = dao.leaveLeader(leaderPcCode); // 이탈한 방장의 참여확인코드
+		String changeLeaderMemCode = dao.changeLeaderMemCode(opCode); // 변경된 방장의 회원코드
+		String changeLeaderPcCode = dao.changeLeaderPcCode(opCode); // 변경된 방장의 참여확인코드
+		
 		// 팀장 닉네임 출력
 		model.addAttribute("groupLeaders", dao.groupLeaders(memCode));
 		
@@ -31,6 +39,14 @@ public class GroupSetupController
 		// 그룹원 팀 이름
 		model.addAttribute("groupTeamName", dao.groupTeamName(memCode));
 
+		model.addAttribute("opCode", opCode);
+		model.addAttribute("pcCode", pcCode);
+		model.addAttribute("leaderMemCode", leaderMemCode);
+		model.addAttribute("leaderPcCode", leaderPcCode);
+		model.addAttribute("leavePcCode", leavePcCode);
+		model.addAttribute("changeLeaderMemCode", changeLeaderMemCode);
+		model.addAttribute("changeLeaderPcCode", changeLeaderPcCode);
+		
 		return "/Content/MeetGroup/GroupSetup.jsp";
 	}
 	

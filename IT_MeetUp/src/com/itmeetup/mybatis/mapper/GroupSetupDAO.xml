@@ -84,5 +84,79 @@
 		WHERE PA_MEM_CODE = #{memCode }
         AND OP_END_DATE > SYSDATE) AND PA_MEM_CODE = OP_MEM_CODE
 	</select>
+	
+	
+	<!-- 회원의 참여코드 / 개설요청코드 -->
+	<select id="teamPcCode" resultType="java.lang.String">
+		SELECT PC_CODE "PCCODE"
+		FROM
+		GROUPTEAMVIEW
+		WHERE MEM_CODE = #{memCode }
+	</select>
+	<select id="teamOpCode" resultType="java.lang.String">
+		SELECT OP_CODE "OPCODE"
+		FROM GROUPTEAMVIEW
+		WHERE MEM_CODE = #{memCode }
+	</select>
+	
+	<!-- 팀장 이탈자 참여코드 -->
+	<select id="leaveLeader" resultType="java.lang.String">
+		SELECT LEA_PC_CODE "LEAPCCODE"
+		FROM LEAVE
+		WHERE LEA_PC_CODE = #{leavePcCode}
+	</select>
+	
+	<!-- 팀장 참여코드 / 개설요청코드 -->
+	<select id="leaderPcCode" resultType="java.lang.String">
+		SELECT PC_CODE "PCCODE"
+		FROM
+		GROUPTEAMVIEW
+		WHERE MEM_CODE = #{leaderMemCode}
+	</select>
+	<select id="leaderMemCode" resultType="java.lang.String">
+		SELECT DISTINCT
+		OP_MEM_CODE
+		FROM OPEN_PROJECT OP
+		LEFT JOIN TEAM_JOB TJ ON TJ.TJ_OP_CODE
+		= OP.OP_CODE
+		LEFT JOIN PART_APPLICANT PA ON PA.PA_MEM_CODE =
+		OP.OP_MEM_CODE
+		LEFT JOIN PART_CHECK PC ON PC.PC_PA_NO = PA.PA_NO
+		WHERE
+		OP_CODE = #{opCode}
+	</select>
+
+	<!-- 팀장 교체 참여코드 / 팀장 교체 개설요청코드 -->
+	<select id="changeLeaderPcCode"
+		resultType="java.lang.String">
+		SELECT LC_PC_CODE
+		FROM (
+		SELECT LC_PC_CODE, PA_MEM_CODE, LC_DATE,
+		ROW_NUMBER() OVER (ORDER BY LC_DATE DESC) AS row_num
+		FROM LEADER_CHANGE LC
+		LEFT JOIN PART_CHECK PC ON LC.LC_PC_CODE = PC.PC_CODE
+		LEFT JOIN PART_APPLICANT PA ON PA.PA_NO = PC.PC_PA_NO
+		LEFT JOIN TEAM_JOB TJ ON PA.PA_TJ_NO = TJ.TJ_NO
+		WHERE TJ_OP_CODE = #{opCode}
+		)
+		WHERE row_num = 1
+	</select>
+	<select id="changeLeaderMemCode"
+		resultType="java.lang.String">
+		SELECT PA_MEM_CODE
+		FROM (
+		SELECT PA_MEM_CODE, LC_DATE,
+		ROW_NUMBER() OVER (ORDER BY LC_DATE DESC) AS row_num
+		FROM LEADER_CHANGE
+		LC
+		LEFT JOIN PART_CHECK PC ON LC.LC_PC_CODE = PC.PC_CODE
+		LEFT JOIN
+		PART_APPLICANT PA ON PA.PA_NO = PC.PC_PA_NO
+		LEFT JOIN TEAM_JOB TJ ON
+		PA.PA_TJ_NO = TJ.TJ_NO
+		WHERE TJ_OP_CODE = #{opCode}
+		)
+		WHERE row_num = 1
+	</select>
  	
  </mapper>

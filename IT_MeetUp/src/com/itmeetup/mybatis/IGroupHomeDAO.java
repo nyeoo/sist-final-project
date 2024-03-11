@@ -1,9 +1,6 @@
 package com.itmeetup.mybatis;
 
 import java.util.ArrayList;
-import java.util.List;
-
-import org.apache.ibatis.annotations.Param;
 
 public interface IGroupHomeDAO
 {
@@ -47,8 +44,30 @@ public interface IGroupHomeDAO
 	// 그룹원 리스트 조회
 	public ArrayList<GroupDTO> groupPersonnel(String memCode);
 	
+	// 회원의 참여코드 / 개설요청코드
+	public String teamPcCode(String memCode);
+	public String teamOpCode(String memCode);
+	
+	// 팀장 참여코드 / 개설요청코드
+	public String leaderPcCode(String leaderMemCode);
+	public String leaderMemCode(String opCode);
+	
+	// 팀장 이탈자 참여코드
+	public String leaveLeader(String leaderPcCode);
+	
+	// 팀장 교체 참여코드 / 팀장 교체 개설요청코드
+	public String changeLeaderPcCode(String opCode);
+	public String changeLeaderMemCode(String opCode);
+	
+	//팀장 닉네임
+	public String leaderNickNames(String memCode);
+	//이탈자 닉네임
+	public String leaveNickNames(String memCode);
+	//교체된 팀장의 닉네임
+	public String changeNickNames(String memCode);
+	
 	// 평가 질문
-	public Integer evalQue(@Param("que") ArrayList<String> que, @Param("memCode") String memCode);
+	//public Integer evalQue(@Param("que") ArrayList<String> que, @Param("memCode") String memCode);
 
 	// 테스트
 	public Integer evalInsert();

@@ -68,22 +68,22 @@ String cp = request.getContextPath();
 										</c:forEach>
 									</c:forEach> --%>
 
-									<c:forEach var="groupLeaderItem" items="${groupLeaders}">
+									<%-- <c:forEach var="groupLeaderItem" items="${groupLeaders}">
 									<c:choose>
 										<c:when
-											test="${sessionScope.loginDTO.piMemCode == groupLeaderItem.memCode}">
+											test="${sessionScope.loginDTO.piMemCode == groupLeaderItem.memCode}"> --%>
 											<button type="button" id="teamnameUpdateButton"
 												class="btn btn-primary" data-bs-toggle="modal"
 												data-bs-target="#teamnameUpdate"
 												value="${groupTeamNameItem.teamName}" onclick="NameModify()">
 												<i class="bi bi-plus-lg"></i> 팀명 수정
 											</button>
-										</c:when>
+										<%-- </c:when>
 										<c:otherwise>
 
 										</c:otherwise>
 									</c:choose>
-									</c:forEach>
+									</c:forEach> --%>
 								</div>
 							</c:forEach>
 							<!-- //팀명수정 -->
@@ -199,6 +199,36 @@ String cp = request.getContextPath();
 				});
 			});
 		});
+		
+		$(document).ready(
+				function()
+				{
+					// 방장일 경우 회원 업무할당가능
+					var PcCode = "${pcCode}"; // 개인의 참여확인코드
+					var leaderPcCode = "${leaderPcCode}"; // 방장의 참여확인코드
+					var leavePcCode = "${leavePcCode}"; // 이탈자의 참여확인코드
+					var changeleaderPcCode = "${changeLeaderPcCode}"; // 변경된 방장의 회원코드
+
+					var teamBtn = document.getElementById('teamnameUpdateButton');
+
+
+					// 업무 할당 처리
+					// 메모코드가 방장의 회원코드와 동일하고, leavePcCode가 null인 경우에만 버튼을 보이도록 한다.
+					if (PcCode == leaderPcCode && leavePcCode == '')
+					{
+						teamBtn.style.display = 'block'; // 버튼을 보이게 설정한다.
+					}
+					// 메모코드가 변경된 방장의 회원코드와 동일한 경우에도 버튼을 보이도록 한다.
+					else if (PcCode == changeleaderPcCode)
+					{
+						teamBtn.style.display = 'block'; // 버튼을 보이게 설정한다.
+					}
+					// 그 외의 경우에는 버튼을 숨깁니다.
+					else
+					{
+						teamBtn.style.display = 'none'; // 버튼을 숨긴다.
+					}
+				});
 	</script>
 </body>
 

@@ -274,8 +274,7 @@ String cp = request.getContextPath();
 															<div class="d-flex member-box">
 																<c:forEach var="groupHomeItem" items="${groupHomePlan }">
 																	<div class="d-flex member">
-																		<a href="../MyPage/NameCard.jsp"><i
-																			class="fa-solid fa-crown crown"></i> <img
+																		<a href="../MyPage/NameCard.jsp"> <img
 																			src="<%=cp%>/asset/images/sub/img_profile.jpg"
 																			class="member-img" /> <span class="nickname">${groupHomeItem.piNickName }</span>
 																		</a>
@@ -473,6 +472,39 @@ String cp = request.getContextPath();
 	<script src="https://kit.fontawesome.com/81ca059e0e.js"
 		crossorigin="anonymous"></script>
 	<script>
+	
+	$(document).ready(function() {
+	    // 개설 요청자 닉네임
+	    var leaderNickName = "${leaderNickNames}";
+	    // 이탈자 닉네임
+	    var leaveNickNames = "${leaveNickNames}";
+	    // 바뀐 팀장 닉네임
+	    var changeNickNames = "${changeNickNames}";
+
+	    // 만약 leaderNickName이 존재한다면 해당 요소에 아이콘 추가
+	    if (leaderNickName !== "") {
+	        // 각 닉네임 요소에 접근하여 leaderNickName인 경우 아이콘 추가
+	        $(".nickname").each(function() {
+	            if ($(this).text() === leaderNickName) {
+	                $(this).prepend('<i class="fa-solid fa-crown crown"></i>');
+	            }
+	        });
+	    }
+	    else if (leaderNickName === leaveNickNames) 
+	    {
+	    	$(this).find(".crown").remove();
+		}
+	    else if (changeNickNames !== "") {
+	    	if ($(this).text() === changeNickNames) {
+                $(this).prepend('<i class="fa-solid fa-crown crown"></i>');
+            }
+		}
+	    else
+	    {
+	    	$(this).find(".crown").remove();
+	   	}
+	});
+	
 		function evaluate01()
 		{
 			/* $('#evalInsert').load("/eval.action");
