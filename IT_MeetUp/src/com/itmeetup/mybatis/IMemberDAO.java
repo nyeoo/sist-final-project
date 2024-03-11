@@ -9,7 +9,9 @@ public interface IMemberDAO
 	// 로그인
 	public MemberDTO getMember(@Param("piId") String piId, @Param("piPw") String piPw);	// 일반회원 로그인 조회
 	public MemberDTO getAdmin(@Param("piId") String piId, @Param("piPw") String piPw); // 관리자 로그인 조회
-
+	// 비밀번호 찾기
+	//public int checkMail(String piEmail);						// 이메일 존재여부 체크
+	
 	// 회원가입
 	public ArrayList<JobDTO> jobs();						// 직업 select
 	public ArrayList<MeetDTO> meets();						// 모임방식 select

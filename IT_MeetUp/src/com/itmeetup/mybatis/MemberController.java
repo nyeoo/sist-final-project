@@ -92,6 +92,16 @@ public class MemberController
 		return "redirect:/Content/ProjectLounge/PostList_ju.jsp";
 	}
 	
+	// 아이디 찾기>이메일 확인
+	/*
+	 * @RequestMapping(value="/checkmail.action", method = RequestMethod.GET) public
+	 * String checkMail(@RequestParam("piEmail") String piEmail, Model model) {
+	 * System.out.println(piEmail); IMemberDAO dao =
+	 * sqlSession.getMapper(IMemberDAO.class); model.addAttribute("searchCount",
+	 * dao.checkMail(piEmail)); System.out.println("2"+dao.checkMail(piEmail));
+	 * return "/Content/Site/SearchIdCount.jsp"; }
+	 */
+	
 	// ========================================[회원가입]========================================
 	// 회원가입 폼
 	@RequestMapping(value = "/join.action", method = RequestMethod.GET)

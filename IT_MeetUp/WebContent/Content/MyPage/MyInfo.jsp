@@ -103,7 +103,7 @@ String cp = request.getContextPath();
 													<input name="piNickname" type="text" class="form-control form-control-plaintext" id="piNickname" value="${member.piNickname }" disabled="disabled" oninput="regexCheck(this,nickname_check);modifyConfirm();">
 													<button class="input-group-text btn btn-primary hidden" type="button" id="myInfoCheckNickname">중복확인</button>
 													<div class="invalid-feedback">닉네임을 입력해주세요.</div>
-													<div class="invalid-regx">한글 2~8자리</div>
+													<div class="invalid-regx">한글, 영문 2~8자리</div>
 												</div>
 											</div>
 										</div>
@@ -291,9 +291,9 @@ String cp = request.getContextPath();
 	}
 	
 	/* 정규표현식 ---------------------------------------------------------------- */
-	// 아이디 - 영문 소문자, 숫자 6~12자리 / 특수문자X
+	// 아이디 - 영문 소문자, 숫자 6~12자리 / 특수문자X, 한글X
 	const id_check = /^[a-z0-9\S][^[#?!@$ %^&*가-힣ㄱ-ㅎ]{5,11}$/;
-	// 비밀번호 - 영문 소문자, 숫자 6~12자리 / 특수문자O
+	// 비밀번호 - 영문 소문자, 숫자 6~12자리 / 특수문자O, 한글X
 	const pw_check = /^[a-z0-9\S*?[#?!@$ %^&*][^가-힣A-Z]{5,11}$/;
 	///[^?a-zA-Z0-9/]/
 	//const password =/^.*(?=.{6,20})(?=.*[0-9])(?=.*[a-zA-Z]).*$/;
@@ -301,7 +301,7 @@ String cp = request.getContextPath();
 	const special_char = /[\{\}\[\]\/?.,;:|\)*~`!^\-+<>@\#$%&\\\=\(\'\"]/;
 	const comma_char = /,/g;
 	const blank = /[\s]/g;
-	// 닉네임 - 2~8자리
+	// 닉네임 - 한글, 영문 2~8자리
 	const nickname_check =/^[가-힣a-zA-Z]{1,8}$/;
 	// 이름 - 한글 2~8자리
 	const name_check =/^[가-힣]{1,7}$/;

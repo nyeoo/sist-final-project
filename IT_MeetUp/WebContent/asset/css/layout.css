@@ -28,8 +28,10 @@ html, body { height: 100%; }
 .con-section + .con-section { margin-top: 1.25rem; } 
 .section { padding-top: 5rem; padding-bottom: 5rem; } 
 .content_tit + .section { padding-top: 0; } 
-.m-header-area .navbar-brand { font-family: "Bangers", system-ui; font-size: 36px; line-height: 16px; letter-spacing: 1px; color: var(--bs-black); } 
-.m-header-area .navbar-brand em { font-family: "Bangers", system-ui; color: var(--bd-main); } 
+.m-header-area .navbar-brand,
+.logo-meetup { font-family: "Bangers", system-ui; font-size: 36px; line-height: 16px; letter-spacing: 1px; color: var(--bs-black); } 
+.m-header-area .navbar-brand em,
+.logo-meetup em { font-family: "Bangers", system-ui; color: var(--bd-main); } 
 .m-body-area > .section:last-child { /*padding-bottom: 0px; */ } 
 .wrapper .container-xl > .h1 { margin-bottom: 3.25rem; } 
 .m-body-area { margin-top: 2.5rem }

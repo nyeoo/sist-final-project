@@ -34,17 +34,15 @@ String cp = request.getContextPath();
       <div class="container-xl"> -->
 
 		<!-- 콘텐츠 내용 -->
-		<div
-			class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+		<div class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
 			<div class="container">
 				<div class="row justify-content-center">
-					<div
-						class="col-lg-4 col-md-8 d-flex flex-column align-items-center justify-content-center">
+					<div class="col-lg-4 col-md-8 d-flex flex-column align-items-center justify-content-center">
 
 						<div class="d-flex justify-content-center py-4">
-							<a href="index.jsp" class="logo d-flex align-items-center w-auto">
-								<span class="d-none d-lg-block">IT-MeetUp</span>
-							</a>
+							<a class="navbar-brand logo-meetup d-none d-lg-block" href="home.action">IT-Meet<em>Up</em></a>
+							<!-- <a href="index.jsp" class="logo d-flex align-items-center w-auto"> <span class="d-none d-lg-block">IT-MeetUp</span>
+							</a> -->
 						</div>
 						<!-- End Logo -->
 
@@ -56,30 +54,23 @@ String cp = request.getContextPath();
 									<div class="h5 card-title text-center pb-0 fs-4">로그인</div>
 								</div>
 
-								<form action="loginok.action" method="get" id="loginForm"
-									class="row g-3 needs-validation" novalidate>
+								<form action="loginok.action" method="get" id="loginForm" class="row g-3 needs-validation" novalidate>
 									<div class="col-12 d-flex justify-content-end">
 										<div class="form-check">
-											<label class="form-check-label"> <input
-												class="form-check-input" type="checkbox" value="admin" id="admin" name="admin">
-												관리자
+											<label class="form-check-label"> <input class="form-check-input" type="checkbox" value="admin" id="admin" name="admin"> 관리자
 											</label>
 										</div>
 									</div>
 									<div class="col-12">
 										<div class="m-input-box">
-											<label for="piId" class="form-label">아이디</label> <input
-												type="text" class="form-control" id="piId" name="piId"
-												required="required">
+											<label for="piId" class="form-label">아이디</label> <input type="text" class="form-control" id="piId" name="piId" required="required"<%-- value="ljh1234" --%>>
 											<div class="invalid-feedback">아이디를 입력해주세요.</div>
 										</div>
 									</div>
 
 									<div class="col-12">
 										<div class="m-input-box">
-											<label for="piPw" class="form-label">비밀번호</label> <input
-												type="text" class="form-control" id="piPw" name="piPw"
-												required="required">
+											<label for="piPw" class="form-label">비밀번호</label> <input type="text" class="form-control" id="piPw" name="piPw" required="required"<%-- value="ljh1234" --%>>
 											<div class="invalid-feedback">비밀번호를 입력해주세요.</div>
 										</div>
 									</div>
@@ -90,11 +81,9 @@ String cp = request.getContextPath();
 
 									<div class="col-12 login-search-box list-bar">
 										<ul>
-											<li><a href="javascript:;">회원가입</a></li>
-											<li><a href="javascript:;" data-bs-toggle="modal"
-												data-bs-target="#FindId">아이디찾기</a></li>
-											<li><a href="javascript:;" data-bs-toggle="modal"
-												data-bs-target="#ResetPassword">비밀번호찾기</a></li>
+											<li><a href="join.action">회원가입</a></li>
+											<li><a href="javascript:;" data-bs-toggle="modal" data-bs-target="#FindId">아이디찾기</a></li>
+											<li><a href="javascript:;" data-bs-toggle="modal" data-bs-target="#ResetPassword">비밀번호찾기</a></li>
 										</ul>
 									</div>
 
@@ -127,51 +116,13 @@ String cp = request.getContextPath();
 		<!-- //푸터영역 -->
 
 	</div>
-
-	<!-- 회원가입 -->
-	<div class="modal fade" id="Join" tabindex="-1"
-		aria-labelledby="FindIdLabel" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered">
-			<div class="modal-content">
-				<div class="modal-header">
-					<div class="modal-title fs-5 h1" id="FindIdLabel">아이디찾기</div>
-					<button type="button" class="btn-close" data-bs-dismiss="modal"
-						aria-label="Close"></button>
-				</div>
-				<div class="modal-body">
-					<p class="mb-4">
-						가입한 이메일을 작성해주세요. <br>아이디를 메일로 보내드립니다.
-					</p>
-					<form class="row g-3 needs-validation" novalidate>
-
-						<div class="col-12">
-							<div class="m-input-box">
-								<label for="piEmail" class="form-label">가입이메일</label> <input
-									type="text" class="form-control" id="piEmail" name="piEmail"
-									required="required">
-								<div class="invalid-feedback">가입이메일을 입력해주세요.</div>
-							</div>
-						</div>
-
-						<div class="col-12">
-							<button class="btn btn-primary w-100" type="submit">아이디찾기</button>
-						</div>
-					</form>
-
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- //회원가입 -->
 	<!-- 아이디찾기 -->
-	<div class="modal fade" id="FindId" tabindex="-1"
-		aria-labelledby="FindIdLabel" aria-hidden="true">
+	<div class="modal fade" id="FindId" tabindex="-1" aria-labelledby="FindIdLabel" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered">
 			<div class="modal-content">
 				<div class="modal-header">
 					<div class="modal-title fs-5 h1" id="FindIdLabel">아이디찾기</div>
-					<button type="button" class="btn-close" data-bs-dismiss="modal"
-						aria-label="Close"></button>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
 					<p class="mb-4">
@@ -181,15 +132,14 @@ String cp = request.getContextPath();
 
 						<div class="col-12">
 							<div class="m-input-box">
-								<label for="piEmail" class="form-label">가입이메일</label> <input
-									type="text" class="form-control" id="piEmail"
-									required="required">
+								<label for="piEmail" class="form-label">가입이메일</label> <input type="text" class="form-control" id="piEmail" required="required" value="dhtnrud42@gmail.com">
 								<div class="invalid-feedback">가입이메일을 입력해주세요.</div>
 							</div>
 						</div>
 
 						<div class="col-12">
 							<button class="btn btn-primary w-100" id="btn-findId" type="button">아이디찾기</button>
+							<button class="btn btn-primary w-100" id="btn-sendEmailwidthPw" type="button">아이디찾기메일전송</button>
 						</div>
 					</form>
 
@@ -199,42 +149,35 @@ String cp = request.getContextPath();
 	</div>
 	<!-- //아이디찾기 -->
 	<!-- 비밀번호찾기 -->
-	<div class="modal fade" id="ResetPassword" tabindex="-1"
-		aria-labelledby="ResetPasswordLabel" aria-hidden="true">
+	<div class="modal fade" id="ResetPassword" tabindex="-1" aria-labelledby="ResetPasswordLabel" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered">
 			<div class="modal-content">
 				<div class="modal-header">
 					<div class="modal-title fs-5 h1" id="ResetPasswordLabel">비밀번호</div>
-					<button type="button" class="btn-close" data-bs-dismiss="modal"
-						aria-label="Close"></button>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
 					<p class="mb-4">
 						가입한 이메일을 작성해주세요. <br>비밀번호 재설정 메일을 보내드립니다.
 					</p>
 					<form class="row g-3 needs-validation" novalidate>
-						
+
 						<div class="col-12">
 							<div class="m-input-box">
-								<label for="loginId02" class="form-label">가입이메일</label> <input
-									type="text" class="form-control" id="loginId02"
-									required="required">
+								<label for="loginId02" class="form-label">가입이메일</label> <input type="text" class="form-control" id="loginId02" required="required">
 								<div class="invalid-feedback">가입이메일을 입력해주세요.</div>
 							</div>
 						</div>
 
 						<div class="col-12">
 							<div class="m-input-box">
-								<label for="loginId02" class="form-label">아이디</label> <input
-									type="text" class="form-control" id="loginId02"
-									required="required">
+								<label for="loginId02" class="form-label">아이디</label> <input type="text" class="form-control" id="loginId02" required="required">
 								<div class="invalid-feedback">아이디를 입력해주세요.</div>
 							</div>
 						</div>
 
 						<div class="col-12">
-							<button class="btn btn-primary w-100" type="submit">비밀번호
-								찾기</button>
+							<button class="btn btn-primary w-100" type="submit">비밀번호 찾기</button>
 						</div>
 					</form>
 
@@ -250,37 +193,75 @@ String cp = request.getContextPath();
 	<script src="<%=cp%>/asset/js/bootstrap.bundle.min.js"></script>
 	<script src="<%=cp%>/asset/js/common.js"></script>
 	<script>
-	$(function(){
-		$("#btn-findId").click(function(){
-			let piId = "";
-
-			var ajaxRequest03 = null;
-
-			if (ajaxRequest03 !== null) {
-				ajaxRequest03.abort();
-			}
-
-			ajaxRequest03 = $.ajax(
-			{
-				type : "GET"
-				, url : ""
-				, data : { piNickname : piNickname }
-				, success : function(searchNicknameCount){
-					if (searchNicknameCount > 0) {
-						piNicknameStr.next(".invalid-feedback").text("닉네임이 같습니다.");
-						piNicknameStr.removeClass("is-valid").addClass("is-invalid");
-						piNicknameStr.focus();
-					} else {
-						piNicknameStr.removeClass("is-invalid").addClass("is-valid");
-					}
-				}, error : function()
+		$(function()
+		{
+			$("#btn-findId").click(function(){
+				let piEmailStr = $("#piEmail");
+				let piEmail = $("#piEmail").val();
+				let btnSendEmail = $("#btn-sendEmailwidthPw");
+				
+				var ajaxRequest = null;
+				if (ajaxRequest !== null)	{ ajaxRequest03.abort(); }
+				
+				console.log(piEmail);
+				ajaxRequest = $.ajax(
 				{
-					alert("닉네임 중복체크에 문제가 있습니다.");
-				}
+					type : "GET"
+					, url : "checkmail.action"
+					, data :
+					{
+						piEmail : piEmail
+					}
+					, success: function(searchCount)
+					{
+						if(searchCount<=0)
+						{
+							piEmailStr.next(".invalid-feedback").text("이메일이 없습니다.");
+							piEmailStr.removeClass("is-valid").addClass("is-invalid");
+							piEmailStr.focus();
+						}else{
+							piEmailStr.removeClass("is-invalid").addClass("is-valid");
+							btnSendEmail.trigger("click");
+							
+						}
+					}, error:function(request,status,error){
+						console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+					}
+				});
+			});
+			$("#btn-sendEmailwidthPw").click(function(){
+				let piEmailStr = $("#piEmail");
+				let piEmail = $("#piEmail").val();
+				
+				var ajaxRequest = null;
+				if (ajaxRequest !== null)	{ ajaxRequest03.abort(); }
+				
+				console.log(piEmail);
+				ajaxRequest = $.ajax(
+				{
+					type : "GET"
+					, url : "mailsendwidthpassword.action"
+					, data :
+					{
+						piEmail : piEmail
+					}
+					, success: function(searchCount)
+					{
+						if(searchCount<=0)
+						{
+							piEmailStr.next(".invalid-feedback").text("이메일이 없습니다.");
+							piEmailStr.removeClass("is-valid").addClass("is-invalid");
+							piEmailStr.focus();
+						}else{
+							piEmailStr.removeClass("is-invalid").addClass("is-valid");
+							
+						}
+					}, error:function(request,status,error){
+						console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+					}
+				});
 			});
 		});
-		
-	});
 	</script>
 </body>
 

@@ -22,6 +22,13 @@
 		WHERE AD_ID=#{piId} AND AD_PW=#{piPw}
 	</select>
 	
+	<!-- 메일 존재여부 조회 쿼리문 -->
+	<select id="checkMail" parameterType="java.lang.String" resultType="java.lang.Integer">
+		SELECT COUNT(*)
+		FROM PERSONAL_INFO
+		WHERE PI_EMAIL=#{piEmail}
+	</select>
+	
 	<!-- ========================================[ 회원가입 ]======================================== -->
 	<!-- ==[ 조회 ]== -->
 	<!-- 직업 조회 쿼리문 -->
