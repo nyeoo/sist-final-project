@@ -5,6 +5,7 @@
 	request.setCharacterEncoding("UTF-8");
 String cp = request.getContextPath();
 %>
+
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -141,9 +142,10 @@ String cp = request.getContextPath();
 									<div class="card tbl-card">
 										<div class="card-header">
 											<h5 style="display: inline;">업무할당표</h5>
-											<button type="button" class="btn btn-primary"
-												data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-												style="float: right;">업무할당</button>
+											<button type="button" class="btn btn-primary" id="assBtn"
+												data-bs-toggle="modal" data-bs-target="#staticBackdrop">업무할당</button>
+
+
 										</div>
 										<div class="accordion" id="accordionExample">
 											<c:set var="seenTopics" value="" />
@@ -515,6 +517,35 @@ String cp = request.getContextPath();
 				});
 			}
 
+		});
+
+		$(document).ready(function()
+		{
+			// 문서가 로드되었을 때 실행되는 코드
+
+			// 방장일 경우 회원 업무할당가능
+			var PcCode = "${pcCode}"; // 개인의 참여확인코드
+			var leaderPcCode = "${leaderPcCode}"; // 방장의 참여확인코드
+			var leavePcCode = "${leavePcCode}"; // 이탈ㅈ의 참여확인코드
+			var changeleaderPcCode = "${changeLeaderPcCode}"; // 변경된 방장의 회원코드
+
+			// 버튼 요소를 가져옵니다.
+			var assBtn = document.getElementById('assBtn');
+			// 메모코드가 방장의 회원코드와 동일하고, leavePcCode가 null인 경우에만 버튼을 보이도록 합니다.
+			if (PcCode == leaderPcCode && leavePcCode == '')
+			{
+				assBtn.style.display = 'block'; // 버튼을 보이게 설정합니다.
+			}
+			// 메모코드가 변경된 방장의 회원코드와 동일한 경우에도 버튼을 보이도록 합니다.
+			else if (PcCode == changeleaderPcCode)
+			{
+				assBtn.style.display = 'block'; // 버튼을 보이게 설정합니다.
+			}
+			// 그 외의 경우에는 버튼을 숨깁니다.
+			else
+			{
+				assBtn.style.display = 'none'; // 버튼을 숨깁니다.
+			}
 		});
 	</script>
 
