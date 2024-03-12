@@ -274,9 +274,8 @@ String cp = request.getContextPath();
 															<div class="d-flex member-box">
 																<c:forEach var="groupHomeItem" items="${groupHomePlan }">
 																	<div class="d-flex member">
-																		<a href="../MyPage/NameCard.jsp"> <img
-																			src="<%=cp%>/asset/images/sub/img_profile.jpg"
-																			class="member-img" /> <span class="nickname">${groupHomeItem.piNickName }</span>
+																		<a href="../MyPage/NameCard.jsp"> <i class="fa-solid fa-circle-user no-profile"></i>
+																		<span class="nickname">${groupHomeItem.piNickName }</span>
 																		</a>
 																	</div>
 																</c:forEach>
