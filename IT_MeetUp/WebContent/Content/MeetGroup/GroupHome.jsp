@@ -401,38 +401,101 @@ String cp = request.getContextPath();
 													<div class="col-md-12">
 														<div class="mb-3">
 															<table class="table groupPerTbl">
+															
+															<!-- 팀장 -->
 																<c:forEach var="leaderItem" items="${leaderEval }">
+																<c:if test="${leaderItem.evaqueno == '5' }">
 																	<tr>
 																		<th>${leaderItem.quename }</th>
-																		<c:forEach var="groupLeaderItem"
-																			items="${groupLeader }">
+																		<c:forEach var="leaPcCode"
+																			items="${leaderPcCodes }">
 																			<td><input class="form-check-input groupLeader"
 																				type="radio" name="grLeader"
-																				value="${groupLeaderItem.pinickname }" />
+																				value="${leaPcCode.lederPcCode }" />
 																				네.</td>
 																			<td><input class="form-check-input groupLeader"
 																			type="radio" name="grLeader"
-																			value=0 />
+																			value="null" />
 																			아니요.</td>
 																		</c:forEach>
 																	</tr>
+																	</c:if>
 																</c:forEach>
-																<c:forEach var="teamItem" items="${teamEval }">
+																
+																
+																<%-- <c:forEach var="teamItem" items="${teamEval }">
 																	<tr>
 																		<th>${teamItem.quename }</th>
-																		<c:forEach var="groupPersonItem" items="${groupPersonnel }">
+																		<c:forEach var="groupPersonItem" items="${groupPersonnel }" varStatus="status">
 																			<td>
-																			<%-- <c:set var="i" value="${i+1 }" >
+																			<c:set var="i" value="${i+1 }" >
 																			<form action="evalinsert.action" method="get" id="evalinsertBtn"> 
-																			<input type="hidden" value="${i }" name="${i }">--%>
-																			<input class="form-check-input groupPerson" type="checkbox" name="evalua", id="que_${status.index +1 }"
+																			<input type="hidden" value="${i }" name="${i }">
+																			<input class="form-check-input groupPerson" type="checkbox" name="evalua" id="${status.index +1 }"
 																				value="${groupPersonItem.pcCode }" />
 																				${groupPersonItem.piNickName }
-																			<%-- </form>
-																			</c:set> --%>
+																			</form>
+																			</c:set>
 																			</td>
 																		</c:forEach>
 																	</tr>
+																</c:forEach> --%>
+																
+																<c:forEach var="teamItem" items="${teamEval }">
+																	<c:if test="${teamItem.evaqueno == '1' }">
+																		<tr>
+																			<th>${teamItem.quename }</th>
+																			<c:forEach var="groupPersonItem" items="${groupPersonnel }" varStatus="status">
+																				<td>
+																				<input class="form-check-input groupPerson" type="checkbox" name="evalQue1" id="que01_${status.index +1 }"
+																					value="${groupPersonItem.pcCode }" />
+																					${groupPersonItem.piNickName }
+																				</td>
+																			</c:forEach>
+																		</tr>
+																	</c:if>
+																</c:forEach>
+																<c:forEach var="teamItem" items="${teamEval }">
+																	<c:if test="${teamItem.evaqueno == '2' }">
+																		<tr>
+																			<th>${teamItem.quename }</th>
+																			<c:forEach var="groupPersonItem" items="${groupPersonnel }" varStatus="status">
+																				<td>
+																				<input class="form-check-input groupPerson" type="checkbox" name="evalQue2" id="que02_${status.index +1 }"
+																					value="${groupPersonItem.pcCode }" />
+																					${groupPersonItem.piNickName }
+																				</td>
+																			</c:forEach>
+																		</tr>
+																	</c:if>
+																</c:forEach>
+																<c:forEach var="teamItem" items="${teamEval }">
+																	<c:if test="${teamItem.evaqueno == '3' }">
+																		<tr>
+																			<th>${teamItem.quename }</th>
+																			<c:forEach var="groupPersonItem" items="${groupPersonnel }" varStatus="status">
+																				<td>
+																				<input class="form-check-input groupPerson" type="checkbox" name="evalQue3" id="que03_${status.index +1 }"
+																					value="${groupPersonItem.pcCode }" />
+																					${groupPersonItem.piNickName }
+																				</td>
+																			</c:forEach>
+																		</tr>
+																	</c:if>
+																</c:forEach>
+																<c:forEach var="teamItem" items="${teamEval }">
+																	<c:if test="${teamItem.evaqueno == '4' }">
+																		<tr>
+																			<th>${teamItem.quename }</th>
+																			<c:forEach var="groupPersonItem" items="${groupPersonnel }" varStatus="status">
+																				<td>
+																				<input class="form-check-input groupPerson" type="checkbox" name="evalQue4" id="que04_${status.index +1 }"
+																					value="${groupPersonItem.pcCode }" />
+																					${groupPersonItem.piNickName }
+																				</td>
+																			</c:forEach>
+																		</tr>
+																	</c:if>
 																</c:forEach>
 															</table>
 														</div>
@@ -444,7 +507,7 @@ String cp = request.getContextPath();
 									<div class="modal-footer">
 										<button type="button" class="btn btn-secondary"
 											data-bs-dismiss="modal">나가기</button>
-										<button type="submit" class="btn btn-primary" id="evalu">평가하기</button>
+										<button type="submit" class="btn btn-primary" id="evalInsert">평가하기</button>
 
 										<span id="err"
 											style="color: red; font-weight: bold; display: none;"></span>
@@ -473,6 +536,9 @@ String cp = request.getContextPath();
 	<script>
 	
 	$(document).ready(function() {
+		/* $(".groupPerson").on("click",function(){
+			console.log($(this).val());
+		}) */
 	    // 개설 요청자 닉네임
 	    var leaderNickName = "${leaderNickNames}";
 	    // 이탈자 닉네임
