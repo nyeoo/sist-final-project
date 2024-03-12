@@ -62,6 +62,7 @@ public class CompleteProjectController
 	  
 		String pageIndexList = pu.pageIndexList(currentPage, totalPage, listUrl);
 	  
+		
         
         // 모델에 데이터 추가
 		model.addAttribute("cpList", dao.cpList(start, end, category));
@@ -71,5 +72,12 @@ public class CompleteProjectController
 
         // CompleteProject.jsp로 이동
         return "/Content/ProjectLounge/CompleteProject.jsp";
+    }
+    
+    @RequestMapping(value = "/completeprojectdetail.action", method = RequestMethod.GET)
+    public String completeProjectDetail(@RequestParam(required = false) String cpCode,
+            Model model) {
+    	
+    	return "/Content/ProjectLounge/CompleteProjectDetail.jsp";
     }
 }

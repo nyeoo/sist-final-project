@@ -7,11 +7,13 @@
  <mapper namespace="com.itmeetup.mybatis.ICompleteProjectDAO">
  
 	<select id="cpList" resultType="com.itmeetup.mybatis.CompleteProjectDTO">
-	    SELECT RNUM, TITLE, CONTENT, TEAMNAME, CATCODE
-	    FROM
-	    (SELECT ROW_NUMBER() OVER(ORDER BY FINAL_DATE DESC) AS RNUM, F.FINAL_NAME AS TITLE, F.FINAL_INTRO AS CONTENT, O.OP_TEAM_NAME AS TEAMNAME, O.OP_CAT_CODE AS CATCODE
-	    FROM FINAL_INFO F JOIN OPEN_PROJECT O
-	                ON F.FI_OP_CODE = O.OP_CODE
+	    SELECT RNUM, TITLE, CONTENT, TEAMNAME, CATCODE, CATNAME, CPCODE
+		FROM
+		(SELECT ROW_NUMBER() OVER(ORDER BY FINAL_DATE DESC) AS RNUM, F.FINAL_NAME AS TITLE, F.FINAL_INTRO AS CONTENT, O.OP_TEAM_NAME AS TEAMNAME, O.OP_CAT_CODE AS CATCODE, C.CAT_NAME AS CATNAME, O.OP_CODE AS CPCODE
+		FROM FINAL_INFO F JOIN OPEN_PROJECT O
+                  ON F.FI_OP_CODE = O.OP_CODE
+                    JOIN CATEGORY C
+                    ON O.OP_CAT_CODE = C.CAT_CODE
 	    <if test="category != null and category != ''">
 	    WHERE O.OP_CAT_CODE = #{category}
 	    </if>
@@ -24,7 +26,7 @@
                   ON F.FI_OP_CODE = O.OP_CODE
         <if test="category != null and category != ''">
 	    AND O.OP_CAT_CODE = #{category}
-	    </if>          
+	    </if>
  	</select>
  	<select id="catList" resultType="com.itmeetup.mybatis.CategoryDTO">
 		SELECT CAT_CODE AS CATCODE, CAT_NAME AS CATNAME

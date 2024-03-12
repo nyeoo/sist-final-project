@@ -4,9 +4,6 @@
 .h-body-section {
 	margin: 0;
 }
-.section {
-	/* padding-bottom: 0 !important; */
-}
 
 .intro {
 	position: relative;
@@ -63,7 +60,10 @@
 	margin-right: .25rem;
 }
 
+
+
 /* CompleteProject.jsp */
+
 .c-body-section {
 	margin-top: 3.25rem;
 	margin-bottom: 3.25rem;
@@ -72,26 +72,11 @@
 	width: 25% !important;
 }
 
-/* 카테고리 */
-.mb-3 {margin-bottom: 4px;}
-.category {display: flex; justify-content: space-between;}
-.category-box { } 
-.category-dropdown { } 
-.category-dropdown .dropdown-menu { width: 600px;} 
-.category-check { display: flex;flex-wrap: wrap;column-gap: 0.25rem;row-gap: 0.25rem;} 
-.category-check .category-item { position: relative;padding: 0.25rem;border: 1px solid gray;border-radius: 10px;} 
-.category-check .category-item .form-check-input[type=checkbox] { } 
-.category-check .category-item .form-check-input[type=checkbox]:checked{border: 1px solid blue;}
-.category-check .category-item .form-check-input { position: relative;top:0;left:0;width: 100%;height: 100%;margin:0;;background-color: transparent;border:transparent;position: absolute;right: 1.5rem;} 
-.category-check .category-item .form-check-input:checked[type=checkbox] { --bs-form-check-bg-image: none;} 
-.category-check .category-item .form-check-input:focus { box-shadow: none;} 
-/* .category-check .category-item .add-category { border-color: blueviolet;} */
-.category-check .category-item .category-input {margin-right: 6px;}
-
 .card-list .card .thumbnail-box {min-height: 230px !important;}
-
-
-
+.cp-card {
+	cursor: pointer;
+	min-height: 350px !important;
+}
 
 /* CompleteProjectDetail.jsp */
 
@@ -169,28 +154,28 @@
 }
 .tag {
 	border-radius: 30px;
-	text-align: center;
-	display: inline-flex;
-	justify-content: center;
-	align-items: center;
-	height: 29px;
-	margin-right: 4px;
-	padding-right: 13px;
-	padding-left: 13px;
-	color: #121213;
-	font-size: 15px;
-	line-height: 1.13em;
-	letter-spacing: -.4px;
-	border: 1px solid #d0d1d4;
-	background-color: #fff;
-	margin-bottom: 5px;
+    text-align: center;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 25px;
+    margin-right: 4px;
+    padding-right: 5px;
+    padding-left: 5px;
+    color: #121213;
+    font-size: 15px;
+    /* line-height: 1.13em; */
+    letter-spacing: -.4px;
+    border: 1px solid #d0d1d4;
+    background-color: #fff;
+    margin-bottom: 5px;
 }
 .job-tag {
 	font-size: 14px;
     color: white;
     font-weight: 500;
     border: none;
-    min-width: 67px;
+    min-width: 56px;
 }
 .job-1 {
 	--bs-bg-opacity: 1;
@@ -282,7 +267,7 @@
 .intro-body-list {
     margin-bottom: 20px;
     background: white;
-    padding: 35px 45px 35px 45px;
+    padding: 40px 45px 35px 45px;
     border-radius: 8px;
 }
 .team {
@@ -458,11 +443,26 @@
 }
 
 /* 통계 분석 */
+.analyze {
+	display: flex;
+    flex-flow: wrap;
+    padding: 15px;
+}
 .analyze-title {
 	border-left: 4px solid #0d6efd;
     padding-left: 13px;
-    margin-bottom: 10px;
+    margin-bottom: 11px;
 }
-.analyze-card {
-	display: inline-block !important;
+.bi-question-circle-fill::before{
+	margin-left: 8px;
+    color: gray;
+}
+.statistics-card {
+	width: 100%;
+	max-width: 280px;
+}
+.chart {
+	display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
 }

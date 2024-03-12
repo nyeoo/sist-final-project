@@ -54,7 +54,7 @@
 						<!-- 텍스트 썸네일 -->
 						<c:forEach var="cp" items="${cpList }">
 							<li class="col-12 col-sm-6 col-md-4 col-lg-4">
-								<div class="card p-3 d-flex flex-column  add-zzim">
+								<div class="card p-3 d-flex flex-column add-zzim cp-card">
 									<div class="card-top">
 										<!-- 썸네일 텍스트 -->
 										<div class="thumbnail-box thumnail-txt">
@@ -65,11 +65,12 @@
 									<div class="card-bottom">
 										<!-- 제목 -->
 										<a href="javascript:;" class="card-tit mb-2"> <span
-											class="h3"> ${cp.title } </span>
+											class="h4">[${cp.catName}] ${cp.title }</span>
 										</a>
 										<!-- 상세내용 -->
 										<p class="card-text text-truncate mb-2">${cp.content }</p>
 									</div>
+									<input type="hidden" id="code" value="${cp.cpCode }">
 								</div>
 							</li>
 						</c:forEach>
@@ -105,12 +106,23 @@
 	<script type="text/javascript">
 		$(document).ready(function()
 		{
-			$('select.form-select').change(function () {
+			$('select.form-select').change(function ()
+			{
 	            // 선택된 값 가져오기
 	            var selectedValue = $(this).val();
+	            
 	            // 생성한 URL로 이동
 	            $(location).attr("href", "completeproject.action?category=" + selectedValue);
 	        });
+			
+			$('.cp-card').click(function()
+			{
+				// 각 프로젝트의 op_code 가져오기
+				var cpCode = $('#code').val();
+				
+				// 완료 프로젝트 상세 페이지로 이동할 때 코드를 넘겨주기
+				$(location).attr("href", "completeprojectdetail.action?cpCode=" + cpCode);
+			});
 		});
 	</script>
 </body>

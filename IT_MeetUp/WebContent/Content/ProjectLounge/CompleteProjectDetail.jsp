@@ -125,17 +125,28 @@ String cp = request.getContextPath();
 										<i class="fa-solid fa-circle-user no-profile-lg"></i> <span
 											class="nickname">닉네임</span>
 									</div>
-								</div>
-							</li>
+								</div></li>
 						</ul>
 					</div>
 					<!-- // 팀원 소개 -->
-					
+
+					<!-- 사용한 스킬 -->
+					<div class="intro-body-list skill">
+						<span class="intro-title">사용 스킬</span>
+						<hr>
+						<div class="skill-check not-action">
+							<div class="form-check skill-item ico_React">
+								<label class="form-check-label skill-label">React</label>
+							</div>
+						</div>
+					</div>
+					<!-- //사용한 스킬 -->
+
 					<!-- 진행기간 -->
 					<div class="intro-body-list">
 						<div class="period-title">
-							<span class="intro-title">진행 기간</span>
-							<span class="period">｜2023-01-15 ~ 2023-04-04</span>
+							<span class="intro-title">진행 기간</span> <span class="period">｜2023-01-15
+								~ 2023-04-04</span>
 						</div>
 						<hr>
 						<!-- 간트차트 -->
@@ -234,46 +245,164 @@ String cp = request.getContextPath();
 					</div>
 					<!-- //진행기간 -->
 
-					<!-- 사용한 스킬 -->
-					<div class="intro-body-list skill">
-						<span class="intro-title">사용 스킬</span>
-						<hr>
-						<div class="skill-check not-action">
-							<div class="form-check skill-item ico_React">
-								<label class="form-check-label skill-label"> React </label>
-							</div>
-						</div>
-					</div>
-					<!-- //사용한 스킬 -->
-					
+
 					<!-- 프로젝트 분석 -->
 					<div class="intro-body-list">
-						<span class="intro-title">프로젝트 분석</span>
+						<span class="intro-title">프로젝트 분석 및 통계</span>
 						<hr>
-						<!-- 산출물 분포 -->						
-						<h5 class="analyze-title">산출물 분포</h5>
-						<div class="card shadow analyze-card">
-							<div class="card-body">
-								<div style="width: 400px; height: 400px; margin-top: 10px;">
-									<canvas id="myChart" width="300" height="300"
-										style="display: block; box-sizing: border-box; height: 713px; width: 713px;"></canvas>
+						<div class="analyze">
+							<!-- 통계 -->
+							<div class="w-100 mb-5 mt-1">
+								<h5 class="analyze-title">
+									통계<i class="bi bi-question-circle-fill"
+										data-bs-toggle="tooltip" data-bs-placement="top"
+										data-bs-custom-class="custom-tooltip"
+										data-bs-title="프로젝트 활동에 대한 통계자료"></i>
+								</h5>
+								<div class="d-flex justify-content-between flex-nowrap">
+									<div class="card shadow py-2 statistics-card">
+										<div class="card-body col">
+											<div
+												class="text-xs font-weight-bold text-success text-uppercase mb-1 text-center">산출물</div>
+											<div class="mb-0 h3 text-center">21개</div>
+										</div>
+									</div>
+									<div class="card shadow py-2 statistics-card">
+										<div class="card-body col">
+											<div
+												class="text-xs font-weight-bold text-success text-uppercase mb-1 text-center">회의</div>
+											<div class="mb-0 h3 text-center">10회</div>
+										</div>
+									</div>
+									<div class="card shadow py-2 statistics-card">
+										<div class="card-body col">
+											<div
+												class="text-xs font-weight-bold text-success text-uppercase mb-1 text-center">업무할당</div>
+											<div class="mb-0 h3 text-center">10건</div>
+										</div>
+									</div>
+									<div class="card shadow py-2 statistics-card">
+										<div class="card-body col">
+											<div
+												class="text-xs font-weight-bold text-success text-uppercase mb-1 text-center">완료된
+												업무</div>
+											<div class="mb-0 h3 text-center">9건</div>
+										</div>
+									</div>
 								</div>
 							</div>
+							<div class="w-100 mb-5 mt-1 chart">
+								<!-- 산출물 분포 -->
+								<div class="analyze-box">
+									<h5 class="analyze-title">
+										산출물 분포<i class="bi bi-question-circle-fill"
+											data-bs-toggle="tooltip" data-bs-placement="top"
+											data-bs-custom-class="custom-tooltip"
+											data-bs-title="업무완료에 따른 산출물 개수"></i>
+									</h5>
+									<div class="card shadow analyze-card">
+										<div class="card-body"
+											style="max-width: 600px; height: 100%; margin-top: 10px;">
+											<canvas id="outputChart" width="540" height="370"
+												style="display: block; box-sizing: border-box; height: 100%; width: 100%;"></canvas>
+										</div>
+									</div>
+								</div>
+								<div class="analyze-box">
+									<h5 class="analyze-title">
+										업무 기여도<i class="bi bi-question-circle-fill"
+											data-bs-toggle="tooltip" data-bs-placement="top"
+											data-bs-custom-class="custom-tooltip"
+											data-bs-title="팀원별 완료한 업무 개수"></i>
+									</h5>
+									<div class="card shadow analyze-card">
+										<div class="card-body"
+											style="max-width: 600px; height: 100%; margin-top: 10px;">
+											<canvas id="contributionChart" width="540" height="370"
+												style="display: block; box-sizing: border-box; height: 100%; width: 100%;"></canvas>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="w-100 mb-5 mt-1">
+								<h5 class="analyze-title">
+									업무 현황<i class="bi bi-question-circle-fill"
+										data-bs-toggle="tooltip" data-bs-placement="top"
+										data-bs-custom-class="custom-tooltip"
+										data-bs-title="일정단계별 업무표"></i>
+								</h5>
+								<table class="table">
+									<thead>
+										<tr>
+											<th width="12%"></th>
+											<th scope="col" width="22%" class="text-center">산출물</th>
+											<th scope="col" width="22%" class="text-center">기간</th>
+											<th scope="col" width="22%" class="text-center">담당자</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<th rowspan="2" scope="row" class="text-center">분석</th>
+											<td class="text-center">산출물1</td>
+											<td class="text-center">2024.03.15 ~ 2024.03.17</td>
+											<td class="text-center">팀원1</td>
+										</tr>
+										<tr>
+											<td class="text-center">산출물1</td>
+											<td class="text-center">2024.03.15 ~ 2024.03.17</td>
+											<td class="text-center">팀원2</td>
+										</tr>
+										<tr>
+											<th rowspan="2" scope="row" class="text-center">설계</th>
+											<td class="text-center">산출물2</td>
+											<td class="text-center">2024.03.15 ~ 2024.03.17</td>
+											<td class="text-center">팀원3</td>
+										</tr>
+										<tr>
+											<td class="text-center">산출물2</td>
+											<td class="text-center">2024.03.15 ~ 2024.03.17</td>
+											<td class="text-center">팀원1</td>
+										</tr>
+										<tr>
+											<th rowspan="2" scope="row" class="text-center">구현</th>
+											<td class="text-center">산출물3</td>
+											<td class="text-center">2024.03.15 ~ 2024.03.17</td>
+											<td class="text-center">팀원2</td>
+										</tr>
+										<tr>
+											<td class="text-center">산출물3</td>
+											<td class="text-center">2024.03.15 ~ 2024.03.17</td>
+											<td class="text-center">팀원3</td>
+										</tr>
+										<tr>
+											<th rowspan="2" scope="row" class="text-center">테스트</th>
+											<td class="text-center">산출물4</td>
+											<td class="text-center">2024.03.15 ~ 2024.03.17</td>
+											<td class="text-center">팀원1</td>
+										</tr>
+										<tr>
+											<td class="text-center">산출물4</td>
+											<td class="text-center">2024.03.15 ~ 2024.03.17</td>
+											<td class="text-center">팀원2</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
 						</div>
-						
-						<span class="statistics-title">업무 현황(표로 보여주기)</span>
-						<span class="statistics-title">업무 기여도(업무완료 갯수를 차트)</span>
 					</div>
 					<!-- //프로젝트 분석 -->
-				</div><!-- end container-md -->
-			</div><!-- end section intro-body -->
+				</div>
+				<!-- end container-md -->
+			</div>
+			<!-- end section intro-body -->
 		</section>
 		<!-- //바디영역 -->
-		
+
 		<!-- 푸터영역 -->
 		<c:import url="../Components/Footer.jsp"></c:import>
 		<!-- //푸터영역 -->
-	</div><!-- end wrapper -->
+	</div>
+	<!-- end wrapper -->
 
 	<!-- script -->
 	<script src="../../asset/js/jquery-3.5.1-min.js"></script>
@@ -294,9 +423,10 @@ String cp = request.getContextPath();
 	</script>
 	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	<script>
-		const ctx = document.getElementById('myChart');
+		const opc = document.getElementById('outputChart');
+		const cc = document.getElementById('contributionChart');
 
-		var myChart = new Chart(ctx,
+		var outputChart = new Chart(opc,
 		{
 			type : 'doughnut',
 			data :
@@ -304,7 +434,7 @@ String cp = request.getContextPath();
 				labels : [ '산출물1', '산출물2', '산출물3' ],
 				datasets : [
 				{
-					data : [ 40, 60, 70 ],
+					data : [ 30, 60, 40 ],
 					backgroundColor : [ '#9DCEFF', '#F2F3F6', 'blue' ],
 					borderWidth : 0,
 					scaleBeginAtZero : true,
@@ -313,14 +443,14 @@ String cp = request.getContextPath();
 			},
 			options :
 			{
-				cutoutPercentage: 80,
+				responsive : false,
+				cutoutPercentage : 80,
 				plugins :
 				{
 					legend :
 					{
 						labels :
 						{
-							// This more specific font property overrides the global property
 							font :
 							{
 								size : 14
@@ -334,8 +464,48 @@ String cp = request.getContextPath();
 				}
 			}
 		});
-		
+
 		Chart.defaults.elements.arc.borderWidth = 1;
+
+		var contributionChart = new Chart(cc,
+		{
+			type : 'polarArea',
+			data :
+			{
+				labels : [ '팀원1', '팀원2', '팀원3', '팀원4', '팀원5', '팀원6' ],
+				datasets : [
+				{
+					data : [ 25, 14, 16, 21, 21, 12 ],
+					backgroundColor : [ '#FF9AA2', '#FFB7B2', '#FFDAC1',
+							'#E2F0CB', '#B5EAD7', '#C7CEEA' ],
+				//borderWidth : 0,
+				//scaleBeginAtZero : true,
+				} ],
+				type : 'pointLabel',
+			},
+			options :
+			{
+				responsive : false,
+				cutoutPercentage : 80,
+				plugins :
+				{
+					legend :
+					{
+						labels :
+						{
+							font :
+							{
+								size : 14
+							},
+							usePointStyle : true,
+							padding : 30,
+						},
+						position : "bottom",
+
+					}
+				}
+			}
+		});
 	</script>
 </body>
 
