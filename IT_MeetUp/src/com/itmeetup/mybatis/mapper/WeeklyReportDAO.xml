@@ -8,10 +8,15 @@
 
 	<select id="weeklyReport"
 		resultType="com.itmeetup.mybatis.WeeklyReportListDTO">
-		SELECT ROWNUM "countWeekly", TJ_OP_CODE "tjOpCode", WR_TITLE "wrTitle", WR_DATE "wrDate", PC_CODE
-		"pcCode",PI_NICKNAME "piNickName"
+		SELECT ROWNUM "countWeekly", TJ_OP_CODE "tjOpCode",
+		WR_TITLE "wrTitle", WR_DATE "wrDate", PC_CODE
+		"pcCode",PI_NICKNAME
+		"piNickName"
 		FROM VIEW_WEEKLY_REPORT
 		WHERE TJ_OP_CODE = #{opCode}
+		ORDER BY WR_DATE DESC
 	</select>
+
+	
 
 </mapper>

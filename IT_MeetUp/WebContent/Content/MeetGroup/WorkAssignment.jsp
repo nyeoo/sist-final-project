@@ -162,11 +162,13 @@
 	<script src="<%=cp%>/asset/js/common.js"></script>
 	<script type="text/javascript">
 	
-	$(document).ready(function() {
+	$(document).ready(function() 
+	{
 	    $("#reSetButton").click(function() {
 	        var url = "<%=cp%>/workManage.action?memCode=${sessionScope.loginDTO.piMemCode}";
 	        window.location.href = url;
 	    });
+	    
 	});
 
 	

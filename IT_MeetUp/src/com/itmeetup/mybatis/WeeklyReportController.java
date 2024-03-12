@@ -30,5 +30,6 @@ public class WeeklyReportController
 		
 		return "/Content/MeetGroup/WeeklyReportList.jsp";
 	}
+	
 
 }

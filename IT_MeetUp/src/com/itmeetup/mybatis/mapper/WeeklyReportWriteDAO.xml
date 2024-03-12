@@ -5,7 +5,6 @@
 
 <!-- mybatis 환경 설정 파일 활용 -->
 <mapper namespace="com.itmeetup.mybatis.IWeeklyReportWriteDAO">
-
 	<select id="weeklyReportWrite"
 		resultType="com.itmeetup.mybatis.WeeklyReportDTO">
 		SELECT ROWNUM "countWeekly", TJ_OP_CODE "tjOpCode",
@@ -16,5 +15,10 @@
 		VIEW_WEEKLY_REPORT
 		WHERE TJ_OP_CODE = #{opCode}
 	</select>
+
+	<insert id="insertWeeklyReport"	parameterType="com.itmeetup.mybatis.WeeklyReportDTO">
+		INSERT INTO WEEKLY_REPORT(WR_NO, WR_TITLE, WR_CONTENT, WR_DATE, WR_PC_CODE)
+		VALUES(WEEKLY_REPORT_SEQ.NEXTVAL, #{wrTitle}, #{wrContent}, SYSDATE, #{pcCode})
+	</insert>
 
 </mapper>

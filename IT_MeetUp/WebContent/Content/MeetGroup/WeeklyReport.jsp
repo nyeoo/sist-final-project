@@ -54,12 +54,12 @@ String cp = request.getContextPath();
 									<hr>
 								</div>
 
-								<form role="form" action="weeklyReportInsert.action" method="post">
+								<form role="form" action="insertWeeklyReport.action" method="post">
 									<!-- 제목 -->
 									<div id="item-1-1" class="comp_tit ">
 										<div class="m-input-box">
 											<label for="writePost01" class="form-label"> 제목 </label> <input
-												type="text" class="form-control" id="title" name="title"
+												type="text" class="form-control" id="wrTitle" name="wrTitle"
 												required="required" style="width: 350px;" value="">
 											<div class="invalid-feedback">제목을 입력해주세요.</div>
 										</div>
@@ -71,7 +71,7 @@ String cp = request.getContextPath();
 										<div class="m-textarea">
 											<label for="exampleFormControlTextarea1" class="form-label">
 												내용 </label>
-											<textarea class="form-control" id="content" name="content"
+											<textarea class="form-control" id="wrContent" name="wrContent"
 												rows="15" required="required" style="width: 700px;"></textarea>
 										</div>
 										<div class="invalid-feedback">내용을 입력하세요</div>
@@ -88,7 +88,7 @@ String cp = request.getContextPath();
 										</div>
 									</div>
 									<!-- //첨부파일 -->
-									
+									<input type="hidden" name="memCode" value="${sessionScope.loginDTO.piMemCode}">
 									<br>
 									<!-- 제출 및 취소 버튼 -->
 									<div style="text-align: center;">
@@ -122,6 +122,7 @@ String cp = request.getContextPath();
         {
             window.location.href = "<%=cp%>/weeklyReport.action?memCode=${sessionScope.loginDTO.piMemCode}";
         });
+        
 	});
 	
 	
