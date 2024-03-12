@@ -18,7 +18,7 @@ String cp = request.getContextPath();
 <meta name="keywords" content="IT 프로젝트 모집, 사이드 프로젝트 진행">
 
 <!-- css -->
-<link rel="stylesheet" href="../../asset/css/style.css">
+<link rel="stylesheet" href="<%=cp %>/asset/css/style.css">
 <style type="text/css">
 .comp_box {
 	text-align: center;
@@ -64,9 +64,9 @@ String cp = request.getContextPath();
 								<nav>
 									<div class="nav nav-tabs nav-tabs-bordered mb-3" id="nav-tab"
 										role="tablist">
-										<button class="nav-link active" id="nav-applied-tab"
-											data-bs-toggle="tab" data-bs-target="#nav-applied"
-											type="button" role="tab" aria-controls="nav-applied"
+										<button class="nav-link active" id="nav-applied-1dep-tab"
+											data-bs-toggle="tab" data-bs-target="#nav-applied-1dep"
+											type="button" role="tab" aria-controls="nav-applied-1dep"
 											aria-selected="true">신청한 모집공고</button>
 										<button class="nav-link" id="nav-created-1dep-tab"
 											data-bs-toggle="tab" data-bs-target="#nav-created-1dep"
@@ -77,8 +77,9 @@ String cp = request.getContextPath();
 
 								<div class="tab-content" id="nav-tabContent">
 									<!-- 신청한 모집 공고 글 -->
-									<div class="tab-pane fade show active" id="nav-applied"
-										role="tabpanel" aria-labelledby="nav-applied-tab" tabindex="0">
+									<div class="tab-pane fade show active" id="nav-applied-1dep"
+										role="tabpanel" aria-labelledby="nav-applied-1dep-tab"
+										tabindex="0">
 										<div class="board_list">
 											<table class="table table-hover">
 												<caption>목록 : 번호, 현재상태, 제목, 시작일, 종료일, 신청일자</caption>
@@ -100,18 +101,21 @@ String cp = request.getContextPath();
 														<th scope="col" class="join_date">신청일자</th>
 													</tr>
 												</thead>
+												<c:forEach var="applyProjectItem" items="${applyProject }">
+												<c:set var ="i" value="${i+1 }"></c:set>
 												<tbody>
 													<tr>
-														<td class="num"><span class="tag_txt">1</span></td>
+														<td class="num"><span class="tag_txt">${i}</span></td>
 														<td class="category"><span
 															class="badge text-bg-danger">모집중</span></td>
 														<td class="tit"><a href="ProjectDetail.jsp">
-																어쩌고저쩌고 프로젝트 모집중입니다. 클릭시 상세한 내용이 나옵니다. </a></td>
-														<td class="start_date">2023.02.06</td>
-														<td class="end_date">2023.08.06</td>
-														<td class="join_date">2023.01.11</td>
+																${applyProjectItem.title }</a></td>
+														<td class="start_date">${applyProjectItem.startDate }</td>
+														<td class="end_date">${applyProjectItem.endDate }</td>
+														<td class="join_date">${applyProjectItem.paDate }</td>
 													</tr>
 												</tbody>
+												</c:forEach>
 											</table>
 
 											<div class="comp_box">
@@ -138,7 +142,7 @@ String cp = request.getContextPath();
 										tabindex="0">
 										<div class="board_list">
 											<table class="table table-hover">
-												<caption>목록 : 번호, 현재상태, 제목, 시작일, 종료일, 신청일자</caption>
+												<caption>목록 : 번호, 현재상태, 제목, 시작일, 종료일, 작성일자</caption>
 												<colgroup>
 													<col class="num" style="width: 70px">
 													<col class="category">
@@ -154,21 +158,27 @@ String cp = request.getContextPath();
 														<th scope="col" class="tit">제목</th>
 														<th scope="col" class="start_date">시작일</th>
 														<th scope="col" class="end_date">종료일</th>
-														<th scope="col" class="join_date">신청일자</th>
+														<th scope="col" class="join_date">작성일자</th>
 													</tr>
 												</thead>
+												<c:forEach var="writeProjectItem" items="${writeProject }">
+												<c:set var ="j" value="${j+1 }"></c:set>
 												<tbody>
 													<tr>
-														<td class="num"><span class="tag_txt">1</span></td>
+														<td class="num"><span class="tag_txt">${j}</span></td>
 														<td class="category"><span
 															class="badge text-bg-danger">모집중</span></td>
-														<td class="tit"><a href="ProjectDetail.jsp">
-																어쩌고저쩌고 프로젝트 모집중입니다. 클릭시 상세한 내용이 나옵니다. </a></td>
-														<td class="start_date">2023.02.06</td>
-														<td class="end_date">2023.08.06</td>
-														<td class="join_date">2023.01.11</td>
+														<td class="tit">
+															<a href="PostDetail.action?op_code = ${writeProjectItem.opCode}">
+																${writeProjectItem.title }
+															</a>
+														</td>
+														<td class="start_date">${writeProjectItem.startDate }</td>
+														<td class="end_date">${writeProjectItem.endDate }</td>
+														<td class="join_date">${writeProjectItem.opDate }</td>
 													</tr>
 												</tbody>
+												</c:forEach>
 											</table>
 
 											<div class="comp_box">
@@ -200,8 +210,7 @@ String cp = request.getContextPath();
 
 
 	<!-- 푸터영역 -->
-	<div role="footer" data-include="../Components/Footer.jsp"
-		class="mt-auto"></div>
+		<c:import url="../Components/Footer.jsp" ></c:import> 
 	<!-- //푸터영역 -->
 
 
@@ -210,7 +219,7 @@ String cp = request.getContextPath();
 	<script src="<%=cp%>/asset/js/jquery-ui.js"></script>
 	<script src="<%=cp%>/asset/js/bootstrap.bundle.min.js"></script>
 	<script src="<%=cp%>/asset/js/common.js"></script>
-	<script>
+	<script type="text/javascript">
 		
 	</script>
 </body>

@@ -331,7 +331,7 @@ String cp = request.getContextPath();
 										<h6>${sessionScope.loginDTO.piNickname }</h6> <span>@${sessionScope.loginDTO.piPw }</span>
 									</li>
 									<li><a class="dropdown-item" href="myinfo.action">마이페이지</a></li>
-									<li><a class="dropdown-item" href="Content/MyPage/ApplyManagement.jsp">모집/신청
+									<li><a class="dropdown-item" href="projectmanagement.action">모집/신청
 											관리</a></li>
 									<li><a class="dropdown-item" href="namecard.action">네임카드</a></li>
 									<li>
