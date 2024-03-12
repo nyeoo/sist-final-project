@@ -1,5 +1,6 @@
 package com.itmeetup.mybatis;
 
+
 import org.apache.ibatis.annotations.Param;
 
 public interface IMypageDAO
