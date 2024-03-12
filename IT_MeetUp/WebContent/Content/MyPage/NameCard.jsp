@@ -18,7 +18,7 @@ String cp = request.getContextPath();
 <meta name="keywords" content="IT 프로젝트 모집, 사이드 프로젝트 진행">
 
 <!-- css -->
-<link rel="stylesheet" href="<%=cp %>/asset/css/style.css">
+<link rel="stylesheet" href="<%=cp%>/asset/css/style.css">
 <style type="text/css">
 .comp_box {
 	text-align: center;
@@ -57,7 +57,23 @@ String cp = request.getContextPath();
 						<div class="col-md-4 my-user">
 
 							<!-- 프로필영역 -->
-							<c:import url="../MyPage/Profile.jsp"></c:import>
+							<div class="card">
+								<div
+									class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+
+									<div class="profile-img rounded-circle">
+										<img src="" alt="Profile">
+										<div class="pt-2">
+											<a href="#" class="btn btn-primary btn-sm"
+												title="Upload new profile image"><i class="bi bi-upload"></i></a>
+											<a href="#" class="btn btn-danger btn-sm"
+												title="Remove my profile image"><i class="bi bi-trash"></i></a>
+										</div>
+									</div>
+									<p class="h2">${getNameCard.nickname}</p>
+									<p class="h5">@${getNameCard.piId }</p>
+								</div>
+							</div>
 							<!-- //프로필영역 -->
 
 						</div>
@@ -71,54 +87,32 @@ String cp = request.getContextPath();
 										<div class="row mb-3">
 											<label for="myId" class="col-md-3 col-lg-2 col-form-label">직무</label>
 											<div class="col-md-9 col-lg-10">
-												<span class="badge rounded-pill bg-secondary">백엔드</span>
+												<span class="badge rounded-pill bg-secondary">${getNameCard.jobName }</span>
 											</div>
 										</div>
 
 										<div class="row mb-3">
-											<label for="myId" class="col-md-3 col-lg-2 col-form-label">희망기술</label>
+											<label for="myId" class="col-md-3 col-lg-2 col-form-label">보유기술</label>
 											<div class="col-md-9 col-lg-10">
 												<ul class="skill-check">
-													<li>
-														<div class="form-check skill-item">
-															<label class="form-check-label"> <input
-																class="form-check-input" type="checkbox" value="" id="">
-																Default checkbox
-															</label>
-														</div>
-													</li>
-													<li>
-														<div class="form-check skill-item">
-															<label class="form-check-label"> <input
-																class="form-check-input" type="checkbox" value="" id="">
-																Default checkbox
-															</label>
-														</div>
-													</li>
-													<li>
-														<div class="form-check skill-item">
-															<label class="form-check-label"> <input
-																class="form-check-input" type="checkbox" value="" id="">
-																Default checkbox
-															</label>
-														</div>
-													</li>
-													<li>
-														<div class="form-check skill-item">
-															<label class="form-check-label"> <input
-																class="form-check-input" type="checkbox" value="" id="">
-																Default checkbox
-															</label>
-														</div>
-													</li>
-													<li>
-														<div class="form-check skill-item">
-															<label class="form-check-label"> <input
-																class="form-check-input" type="checkbox" value="" id="">
-																Default checkbox
-															</label>
-														</div>
-													</li>
+													<c:forEach var="skillListItem" items="${skillList }" varStatus="status">
+														<li>
+															<div
+																class="form-check skill-item <c:forEach var="entry" items="${skProcessors}">
+																							<c:set var="skillCode" value="${entry.key}" />
+																							<c:set var="imageName" value="${entry.value}" />
+																							
+																							<c:if test="${skillCode == skillListItem.skCode }">
+																								${imageName}
+																							</c:if>
+																						</c:forEach>">
+																<label class="form-check-label"> <input
+																	class="form-check-input" type="checkbox" value="${skillListItem.skCode }" id="${status.index +1}">
+																	${skillListItem.skName }
+																</label>
+															</div>
+														</li>
+													</c:forEach>
 												</ul>
 											</div>
 										</div>
@@ -153,14 +147,14 @@ String cp = request.getContextPath();
 											<label for="about" class="col-md-3 col-lg-2 col-form-label">자기소개</label>
 											<div class="col-md-9 col-lg-10">
 												<textarea name="about" class="form-control" id="about"
-													style="height: 100px">Sunt est soluta temporibus accusantium neque nam maiores cumque temporibus. Tempora libero non est unde veniam est qui dolor. Ut sunt iure rerum quae quisquam autem eveniet perspiciatis odit. Fuga sequi sed ea saepe at unde.</textarea>
+													style="height: 100px">${getNameCard.intro }</textarea>
 											</div>
 										</div>
 
 										<div class="col-12 btn-box">
 											<div class="btn-center">
 												<button type="button" class="btn btn-primary">수정하기</button>
-												<button type="button" class="btn btn-primary">저장하기</button>
+												<button type="button" class="btn btn-secondary">저장하기</button>
 											</div>
 										</div>
 
@@ -192,12 +186,12 @@ String cp = request.getContextPath();
 								</div>
 
 								<div class="card-body">
-										<div class="card-title">
-											<p class="h5">
-												경력 <span>${totalCareer.totalYear }년
-													${totalCareer.totalMonth }개월 </span>
-											</p>
-										</div>
+									<div class="card-title">
+										<p class="h5">
+											경력 <span>${totalCareer.totalYear }년
+												${totalCareer.totalMonth }개월 </span>
+										</p>
+									</div>
 
 									<ul class="activity">
 										<c:forEach var="careerItem" items="${careerList }">
@@ -210,10 +204,11 @@ String cp = request.getContextPath();
 												</div> <i
 												class="bi bi-circle-fill activity-badge text-primary align-self-start"></i>
 												<div class="activity-content">
-													<p href="#" class="fw-bold text-dark">${careerItem.comName }</p>
+													<p class="fw-bold text-dark">${careerItem.comName }</p>
 													<p class="career-text">
-														<span class="badge rounded-pill bg-primary">${careerItem.jobName }</span> <span
-															class="career-sub-year">${careerItem.years }년 ${careerItem.months }개월</span>
+														<span class="badge rounded-pill bg-primary">${careerItem.jobName }</span>
+														<span class="career-sub-year">${careerItem.years }년
+															${careerItem.months }개월</span>
 													</p>
 												</div>
 											</li>
@@ -221,7 +216,6 @@ String cp = request.getContextPath();
 									</ul>
 								</div>
 							</div>
-
 						</div>
 						<!-- //경력 -->
 
@@ -320,100 +314,41 @@ String cp = request.getContextPath();
 						<!-- //레벨 & 점수 -->
 					</div>
 					<div class="con-section complete-list">
-
 						<ul
 							class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 card-list">
-							<!-- 이미지 썸네일 -->
-							<li class="col-12 col-sm-6 col-md-4 col-lg-4">
-								<div class="card p-4 d-flex flex-column">
-									<div class="card-top">
-										<!-- 고정하기 -->
-										<div class="form-check zzim fixed">
-											<label class="form-check-label"> <input
-												class="form-check-input" type="checkbox" value="" id=""
-												title="고정하기"> <span class="icon-box"><i
-													class="bi bi-pin-angle"></i><i class="bi bi-pin-angle-fill"></i></span>
-											</label>
-										</div>
-										<!-- 썸네일 이미지 -->
-										<div class="thumbnail-box img-box">
-											<img src="../../asset/images/img_sample00.jpg" alt="썸네일샘플" />
-										</div>
-									</div>
-									<div class="card-bottom">
-										<!-- 제목 -->
-										<a href="javascript:;" class="card-tit mb-2"> <span
-											class="h3"> 제목입니다.제목입니다.<br>제목입니다.제목입니다.
-										</span>
-										</a>
-										<!-- 상세내용 -->
-										<p class="card-text text-truncate mb-2">내용입니다. 내용입니다.
-											내용입니다. 내용입니다. 내용입니다.</p>
-									</div>
-								</div>
-							</li>
-							<!-- //이미지 썸네일 -->
 							<!-- 텍스트 썸네일 -->
-							<li class="col-12 col-sm-6 col-md-4 col-lg-4">
-								<div class="card p-4 d-flex flex-column">
-									<div class="card-top">
-										<!-- 고정하기 -->
-										<div class="form-check zzim fixed">
-											<label class="form-check-label"> <input
-												class="form-check-input" type="checkbox" value="" id=""
-												title="고정하기"> <span class="icon-box"><i
-													class="bi bi-pin-angle"></i><i class="bi bi-pin-angle-fill"></i></span>
-											</label>
+							<c:forEach var="projectListItem" items="${projectList}">
+								<li class="col-12 col-sm-6 col-md-4 col-lg-4">
+									<div class="card p-4 d-flex flex-column">
+										<div class="card-top">
+											<!-- 고정하기 -->
+											<div class="form-check zzim fixed">
+												<label class="form-check-label"> <input
+													class="form-check-input" type="checkbox" value="" id=""
+													title="고정하기"> <span class="icon-box"><i
+														class="bi bi-pin-angle"></i><i
+														class="bi bi-pin-angle-fill"></i></span>
+												</label>
+											</div>
+											<!-- 썸네일 텍스트 -->
+											<div class="thumbnail-box thumnail-txt">
+												<div class="thumbnail-tit text-truncate">${projectListItem.title }</div>
+												<div class="thumbnail-txt text-truncate">#${projectListItem.teamName
+													}</div>
+											</div>
 										</div>
-										<!-- 썸네일 텍스트 -->
-										<div class="thumbnail-box thumnail-txt">
-											<div class="thumbnail-tit text-truncate">제목입니다.제목입니다.</div>
-											<div class="thumbnail-txt text-truncate">#팀이름팀이름</div>
-										</div>
-									</div>
-									<div class="card-bottom">
-										<!-- 제목 -->
-										<a href="javascript:;" class="card-tit mb-2"> <span
-											class="h3"> 제목입니다.제목입니다.<br>제목입니다.제목입니다.
-										</span>
-										</a>
-										<!-- 상세내용 -->
-										<p class="card-text text-truncate mb-2">내용입니다. 내용입니다.
-											내용입니다. 내용입니다. 내용입니다.</p>
-									</div>
-								</div>
-							</li>
-							<!-- //텍스트 썸네일 -->
-							<!-- 텍스트 썸네일 -->
-							<li class="col-12 col-sm-6 col-md-4 col-lg-4">
-								<div class="card p-4 d-flex flex-column">
-									<div class="card-top">
-										<!-- 고정하기 -->
-										<div class="form-check zzim fixed">
-											<label class="form-check-label"> <input
-												class="form-check-input" type="checkbox" value="" id=""
-												title="고정하기"> <span class="icon-box"><i
-													class="bi bi-pin-angle"></i><i class="bi bi-pin-angle-fill"></i></span>
-											</label>
-										</div>
-										<!-- 썸네일 텍스트 -->
-										<div class="thumbnail-box thumnail-txt">
-											<div class="thumbnail-tit text-truncate">제목입니다.제목입니다.</div>
-											<div class="thumbnail-txt text-truncate">#팀이름팀이름</div>
+										<div class="card-bottom">
+											<!-- 제목 -->
+											<a href="javascript:;" class="card-tit mb-2"> <span
+												class="h3">${projectListItem.title }<br>
+											</span>
+											</a>
+											<!-- 상세내용 -->
+											<p class="card-text text-truncate mb-2">${projectListItem.content }</p>
 										</div>
 									</div>
-									<div class="card-bottom">
-										<!-- 제목 -->
-										<a href="javascript:;" class="card-tit mb-2"> <span
-											class="h3"> 제목입니다.제목입니다.<br>제목입니다.제목입니다.
-										</span>
-										</a>
-										<!-- 상세내용 -->
-										<p class="card-text text-truncate mb-2">내용입니다. 내용입니다.
-											내용입니다. 내용입니다. 내용입니다.</p>
-									</div>
-								</div>
-							</li>
+								</li>
+							</c:forEach>
 							<!-- //텍스트 썸네일 -->
 						</ul>
 

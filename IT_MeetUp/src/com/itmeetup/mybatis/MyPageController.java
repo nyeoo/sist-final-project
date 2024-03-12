@@ -91,13 +91,23 @@ public class MyPageController
 	@RequestMapping(value = "/namecard.action", method = RequestMethod.GET)
 	public String namecardForm(HttpSession session, Model model)
 	{
-		//
-		
-		// 경력
 		MemberDTO memberStr = (MemberDTO) session.getAttribute("loginDTO"); // 세션에서 가져온 멤버
 		String memCode = memberStr.getPiMemCode();
 		
-		System.out.println(memCode);
+		// 회원 아이디, 회원 닉네임, 짧은 소개글, 직무명
+		INameCardDAO namCardDAO = sqlSession.getMapper(INameCardDAO.class);
+		model.addAttribute("getNameCard", namCardDAO.getNameCard(memCode));
+		
+		// 회원 스킬 리스트 조회
+		model.addAttribute("skillList", namCardDAO.skillList(memCode));
+		
+		// 회원 완료된 프로젝트 조회
+		model.addAttribute("projectList", namCardDAO.projectList(memCode));
+		
+		SkillProcessor skProcessors = new SkillProcessor();				// 스킬 리스트 조회 및 처리
+		model.addAttribute("skProcessors", skProcessors.createSkillMapping());
+		
+		// 경력
 	    ICareerDAO careerDAO = sqlSession.getMapper(ICareerDAO.class);
 	    model.addAttribute("careerList", careerDAO.careerList(memCode));
 	    

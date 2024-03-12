@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itmeetup.mybatis.INameCardDAO">
+
+	<!-- 네임카드 조회 쿼리문 -->
+	<select id="getNameCard" resultType="com.itmeetup.mybatis.NameCardDTO"> 
+		SELECT MEM_CODE "MEMCODE"
+		     , PI_ID "PIID"
+		     , PI_NICKNAME "NICKNAME"
+		     , JOB_NAME "JOBNAME"
+		     , PI_SELF_INTRO "INTRO"
+		FROM MEMBER M JOIN PERSONAL_INFO PI
+		ON M.MEM_CODE = PI.PI_MEM_CODE
+		JOIN JOB J ON M.MEM_JOB_CODE = J.JOB_CODE
+		WHERE M.MEM_CODE = #{memCode}
+	</select>
+	<!-- 스킬 조회 쿼리문 -->
+	<select id="skillList" resultType="com.itmeetup.mybatis.NameCardDTO">
+		SELECT MEM_CODE "MEMCODE"
+		     , SK_CODE  "SKCODE"
+		     , SK_NAME  "SKNAME"
+		FROM MEMBER M JOIN MY_SKILL MS 
+		ON M.MEM_CODE = MS.MS_MEM_CODE
+		JOIN SKILL SK ON SK.SK_CODE = MS.MS_SK_CODE
+		WHERE M.MEM_CODE = #{memCode}
+	</select>
+	
+	<!-- 완료된 프로젝트 조회 쿼리문 -->
+	<select id="projectList" resultType="com.itmeetup.mybatis.NameCardDTO">
+		SELECT DISTINCT 
+		       OP_CODE "OPCODE"
+		     , OP_TITLE "TITLE"
+		     , OP_CONTENT "CONTENT"
+		     , OP_TEAM_NAME "TEAMNAME"
+		FROM PERSONAL_INFO PI
+		LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
+		LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
+		LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
+		LEFT JOIN TEAM_JOB TJ ON PA.PA_TJ_NO = TJ.TJ_NO
+		LEFT JOIN OPEN_PROJECT OP ON TJ.TJ_OP_CODE = OP.OP_CODE
+		WHERE OP.OP_CODE IN 
+		    (
+		        SELECT DISTINCT OP_CODE
+		        FROM VIEW_END_PROJECT
+		        WHERE OU_1 > 0 AND OU_2 > 0 AND OU_4 > 0 AND OU_11 > 0 AND OU_12 > 0 AND OU_13 > 0 AND OU_14 > 0 
+		        GROUP BY OP_CODE
+		    )
+		AND M.MEM_CODE = #{memCode}
+	</select>
+	
+	
+	
+</mapper>
