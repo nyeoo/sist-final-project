@@ -425,8 +425,8 @@ String cp = request.getContextPath();
 																			<%-- <c:set var="i" value="${i+1 }" >
 																			<form action="evalinsert.action" method="get" id="evalinsertBtn"> 
 																			<input type="hidden" value="${i }" name="${i }">--%>
-																			<input class="form-check-input groupPerson" type="checkbox" name="que_${status.index +1 }"
-																				value="${groupPersonItem.piNickName }" />
+																			<input class="form-check-input groupPerson" type="checkbox" name="evalua", id="que_${status.index +1 }"
+																				value="${groupPersonItem.pcCode }" />
 																				${groupPersonItem.piNickName }
 																			<%-- </form>
 																			</c:set> --%>

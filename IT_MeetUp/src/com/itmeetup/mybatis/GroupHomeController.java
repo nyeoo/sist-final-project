@@ -1,5 +1,7 @@
 package com.itmeetup.mybatis;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -89,10 +91,14 @@ public class GroupHomeController
 
 	// 평가 입력
 	@RequestMapping(value = "/evalinsert.action", method = RequestMethod.GET)
-	public String evalInsert()
+	public String evalInsert(EvaluationDTO dto)
 	{
 		IGroupHomeDAO dao = sqlSession.getMapper(IGroupHomeDAO.class);
-		dao.evalInsert();
+		List<String> evalua = dto.getEvalQue();
+		
+		String memCode = dto.getMemCode();
+		
+		dao.evalQue(evalua, memCode);
 		return "/Content/ProjectLounge/PostList_ju.jsp";
 	}
 }

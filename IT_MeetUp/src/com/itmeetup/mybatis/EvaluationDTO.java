@@ -1,6 +1,7 @@
 package com.itmeetup.mybatis;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class EvaluationDTO
 {
@@ -8,6 +9,7 @@ public class EvaluationDTO
 	
 	private String erpcCode, evapcCode, quename, memCode, pinickname;		// 피평가자, 평가자, 평가명, 회원코드
 	
+	private List<String> evalQue;											// 첫번째 질문
 	private ArrayList<String> que1;											// 첫번째 질문
 	private ArrayList<String> que2;											// 두번째 질문
 	private ArrayList<String> que3;											// 세번째 질문
@@ -29,6 +31,14 @@ public class EvaluationDTO
 	public void setQuePoint(int quePoint)
 	{
 		this.quePoint = quePoint;
+	}
+	public int getEvaqueno()
+	{
+		return evaqueno;
+	}
+	public void setEvaqueno(int evaqueno)
+	{
+		this.evaqueno = evaqueno;
 	}
 	public String getErpcCode()
 	{
@@ -70,6 +80,14 @@ public class EvaluationDTO
 	{
 		this.pinickname = pinickname;
 	}
+	public List<String> getEvalQue()
+	{
+		return evalQue;
+	}
+	public void setEvalQue(List<String> evalQue)
+	{
+		this.evalQue = evalQue;
+	}
 	public ArrayList<String> getQue1()
 	{
 		return que1;
@@ -102,14 +120,9 @@ public class EvaluationDTO
 	{
 		this.que4 = que4;
 	}
-	public int getEvaqueno()
-	{
-		return evaqueno;
-	}
-	public void setEvaqueno(int evaqueno)
-	{
-		this.evaqueno = evaqueno;
-	}
+	
+
+	
 	
 	
 }
