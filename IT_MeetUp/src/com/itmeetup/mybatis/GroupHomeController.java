@@ -2,6 +2,8 @@ package com.itmeetup.mybatis;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -91,14 +93,29 @@ public class GroupHomeController
 
 	// 평가 입력
 	@RequestMapping(value = "/evalinsert.action", method = RequestMethod.GET)
-	public String evalInsert(EvaluationDTO dto)
+	public String evalInsert(HttpSession session, EvaluationDTO dto)
 	{
 		IGroupHomeDAO dao = sqlSession.getMapper(IGroupHomeDAO.class);
-		List<String> evalua = dto.getEvalQue();
+		List<String> evalua1 = dto.getEvalQue1();	//선택한 사람(피평가자)
+		List<String> evalua2 = dto.getEvalQue2();	//선택한 사람(피평가자)
+		List<String> evalua3 = dto.getEvalQue3();	//선택한 사람(피평가자)
+		List<String> evalua4 = dto.getEvalQue4();	//선택한 사람(피평가자)
+		List<String> evalua5 = dto.getGrLeader();	//선택한 사람(피평가자)
 		
-		String memCode = dto.getMemCode();
+		 
+		MemberDTO memberStr = (MemberDTO) session.getAttribute("loginDTO"); // 세션에서 가져온 멤버
+		String memCode = memberStr.getPiMemCode();
+		//dao.evalInsert();
 		
-		dao.evalQue(evalua, memCode);
+		
+		String evapcCode = dao.evalGroupPcCode(memCode);
+		
+		dao.evalAdd1(evalua1, evapcCode);
+		dao.evalAdd2(evalua2, evapcCode);
+		dao.evalAdd3(evalua3, evapcCode);
+		dao.evalAdd4(evalua4, evapcCode);
+		dao.evalAdd5(evalua5, evapcCode);
+		
 		return "/Content/ProjectLounge/PostList_ju.jsp";
 	}
 }

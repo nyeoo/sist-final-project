@@ -69,9 +69,16 @@ public interface IGroupHomeDAO
 	//교체된 팀장의 닉네임
 	public String changeNickNames(String memCode);
 	
+	// 평가자 pc코드
+	public String evalGroupPcCode(String memCode);
+	
+	// 리더 pc코드
+	public String leaderPcCodes(String memCode);
+	
 	// 평가 질문
-	public Integer evalQue(@Param("evalua") List<String> evalua, @Param("memCode") String memCode);
-
-	// 테스트
-	public Integer evalInsert();
+	public Integer evalAdd1(@Param("evalua") List<String> evalQue1, @Param("evapcCode") String memCode);
+	public Integer evalAdd2(@Param("evalua") List<String> evalQue2, @Param("evapcCode") String memCode);
+	public Integer evalAdd3(@Param("evalua") List<String> evalQue3, @Param("evapcCode") String memCode);
+	public Integer evalAdd4(@Param("evalua") List<String> evalQue4, @Param("evapcCode") String memCode);
+	public Integer evalAdd5(@Param("evalua") List<String> grLeader, @Param("evapcCode") String memCode);
 }
