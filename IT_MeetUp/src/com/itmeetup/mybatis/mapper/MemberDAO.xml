@@ -73,6 +73,21 @@
 		}
 	</select>
 	
+	<!-- 보유기술 추가 쿼리문 -->
+	<!-- /MS_MEM_CODE: 마지막 번호조회하여 부여 -->
+	<update id="addSkill" parameterType="java.util.List">
+		INSERT INTO MY_SKILL(MS_NO, MS_SK_CODE, MS_MEM_CODE)
+		SELECT MY_SKILL_SEQ.NEXTVAL, TEMP.* FROM(
+		<foreach collection="hopeskills" item="skill" index="index" separator="UNION ALL ">
+		SELECT #{skill} AS MS_SK_CODE, (SELECT NVL(MAX(MEM_CODE), 0)
+										FROM (SELECT * 
+										    FROM MEMBER
+										    ORDER BY ROWNUM DESC)
+										WHERE ROWNUM = 1) AS MS_MEM_CODE
+		FROM DUAL
+		</foreach>) TEMP
+	</update>
+	
 	<!-- ==[ 기능 ]== -->
 	<!-- 보유기술 추가 쿼리문 -->
 	<!-- 아이디 중복체크 쿼리문 -->

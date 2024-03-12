@@ -1,6 +1,7 @@
 package com.itmeetup.mybatis;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
@@ -21,6 +22,7 @@ public interface IMemberDAO
 	public int checkId(String piId);						// 아이디 중복 체크
 	public int checkPw(@Param("piMemCode") String piMemCode, @Param("piPw") String piPw);		// 수정 비밀번호 체크
 	public int checkNickname(String piNickname);			// 닉네임 중복 체크
-	public int addSkill(SkillDTO skill);			// 스킬 insert
-	
+	public int addSkill(@Param("hopeskills") List<String> hopeskills);			// 스킬 insert
+	public int addCareer(@Param("careerList") ArrayList<CareerDTO> careerList);	// 경력 insert
+	 
 }

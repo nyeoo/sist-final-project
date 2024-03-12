@@ -40,7 +40,7 @@ String cp = request.getContextPath();
 					<div class="col-lg-4 col-md-8 d-flex flex-column align-items-center justify-content-center">
 
 						<div class="d-flex justify-content-center py-4">
-							<a class="navbar-brand logo-meetup d-none d-lg-block" href="home.action">IT-Meet<em>Up</em></a>
+							<a class="navbar-brand logo-meetup d-none d-lg-block" href="projectList.action">IT-Meet<em>Up</em></a>
 							<!-- <a href="index.jsp" class="logo d-flex align-items-center w-auto"> <span class="d-none d-lg-block">IT-MeetUp</span>
 							</a> -->
 						</div>
@@ -195,6 +195,8 @@ String cp = request.getContextPath();
 	<script>
 		$(function()
 		{
+			
+			// 팝업
 			$("#btn-findId").click(function(){
 				let piEmailStr = $("#piEmail");
 				let piEmail = $("#piEmail").val();

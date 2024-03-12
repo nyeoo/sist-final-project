@@ -5,6 +5,7 @@
 package com.itmeetup.mybatis;
 
 import java.util.Date;
+import java.util.List;
 
 public class MemberDTO
 {
@@ -13,6 +14,7 @@ public class MemberDTO
 	private String mJobCode, mMetCode, mSiggCode;	// 직무코드, 모임방식 코드, 시군구 코드
 	private Date mDate;// 등록일자
 
+	private List<String> hopeskills;	//나의 스킬
 	
 	// getter / setter 
 		
@@ -120,4 +122,14 @@ public class MemberDTO
 	{
 		this.mDate = mDate;
 	}
+	public List<String> getHopeskills()
+	{
+		return hopeskills;
+	}
+	public void setHopeskills(List<String> hopeskills)
+	{
+		this.hopeskills = hopeskills;
+	}
+	
+	
 }

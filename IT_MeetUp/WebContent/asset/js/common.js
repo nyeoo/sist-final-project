@@ -169,6 +169,47 @@ $(function () {
     });
   }
   
+  // 회원가입 달력
+  if($(".range-datepicker02").length){
+    $.each($( ".range-datepicker02" ),function () {
+      var dateFrom = $(this).find(".job-date-from");
+      var dateTo = $(this).find(".job-date-to");
+      var format = "yy-mm-dd",
+      from = dateFrom
+        .datepicker({
+          defaultDate: "+1w",
+          // changeMonth: true,
+          numberOfMonths: 1,
+          language: 'kr',
+          dateFormat: "yy-mm-dd"
+        })
+        .on( "change", function() {
+          to.datepicker( "option", "minDate", getDate( this ) );
+        }),
+      to = dateTo.datepicker({
+        defaultDate: "+1w",
+        // changeMonth: true,
+        numberOfMonths: 1,
+        language: 'kr',
+        dateFormat: "yy-mm-dd"
+      })
+      .on( "change", function() {
+        from.datepicker( "option", "maxDate", getDate( this ) );
+      });
+
+      function getDate( element ) {
+        var date;
+        try {
+          date = $.datepicker.parseDate( dateFormat, element.value );
+        } catch( error ) {
+          date = null;
+        }
+
+        return date;
+      }
+    });
+  }
+  
   // MeetGroup 사이드 토글
   if ($('.toggle-sidebar-btn')) {
       $('.toggle-sidebar-btn').on('click', function(e) {
@@ -237,7 +278,7 @@ $(function () {
 	      },
 	    });
 	  
-	  joinSwiper.slideTo(2, 0, true);
+	  joinSwiper.slideTo(1, 0, true);
 	  
 	  /*$(".join-step01").on('click', function(e) {
 		  joinSwiper.slideNext();

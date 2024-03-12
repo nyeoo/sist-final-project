@@ -4,6 +4,7 @@
 package com.itmeetup.mybatis;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -130,6 +131,14 @@ public class MemberController
 	{
 		IMemberDAO dao = sqlSession.getMapper(IMemberDAO.class);
 		dao.addMember(member);
+		
+		// 프로젝트 희망 기술 입력
+		List<String> hopeskills = member.getHopeskills();
+				
+		/*
+		 * for(String code : hopeskills) { System.out.println(code); }
+		 */
+		dao.addSkill(hopeskills);
 		
 		return "redirect:/Content/ProjectLounge/PostList_ju.jsp";
 	}
