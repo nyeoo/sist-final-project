@@ -362,6 +362,7 @@
         AND LEAPCCODE = '이탈자'
     </select>
     
+    <!-- 교체된 팀장 닉네임 -->
     <select id="changeNickNames" resultType="java.lang.String">
     	SELECT PI_NICKNAME
 		FROM LEADER_CHANGE LC
@@ -387,21 +388,21 @@
  	
  	<!-- 팀장 평가명 목록 -->
  	<select id="leaderEval" resultType="com.itmeetup.mybatis.EvaluationDTO">
-		SELECT DISTINCT(QUE_NAME) "QUENAME", QUE_NO "evaqueno"
+		SELECT DISTINCT(QUE_NAME) "QUENAME", QUE_NO "EVAQUENO"
 		FROM EVALNAMEVIEW
         WHERE QI_CODE = 'QI_2'
  	</select>
  	
  	<!-- 팀원 평가명 목록  -->
  	<select id="teamEval" resultType="com.itmeetup.mybatis.EvaluationDTO">
-		SELECT DISTINCT(QUE_NAME) "QUENAME", QUE_NO "evaqueno"
+		SELECT DISTINCT(QUE_NAME) "QUENAME", QUE_NO "EVAQUENO"
 		FROM EVALNAMEVIEW
         WHERE QI_CODE = 'QI_1'
  	</select>
  	
- 	<!-- 평가에 쓰일 팀장 -->
+ 	<!-- 평가에 쓰일 팀장 / 닉네임이랑 PC코드 -->
  	<select id="groupLeader" resultType="com.itmeetup.mybatis.EvaluationDTO">
- 		SELECT PI_NICKNAME "PINICKNAME"
+ 		SELECT PI_NICKNAME "PINICKNAME", PC_CODE "lederPcCode"
 		FROM TEAMLEADERVIEW
 		WHERE OP_CODE = (SELECT OP_CODE
 		FROM PERSONAL_INFO PI
@@ -428,21 +429,6 @@
 		WHERE PA_MEM_CODE = #{memCode }
         AND OP_END_DATE > SYSDATE)
  	</select>
- 	
- 	<!-- 팀장 PC코드 -->
- 	<select id="leaderPcCodes" resultType="java.lang.String">
- 		SELECT PC_CODE "lederPcCode"
-		FROM TEAMLEADERVIEW
-		WHERE OP_CODE = (SELECT OP_CODE
-		FROM PERSONAL_INFO PI
-        LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
-        LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
-        LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
-        LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
-        LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
-		WHERE PA_MEM_CODE = #{memCode }
-        AND OP_END_DATE > SYSDATE) AND PA_MEM_CODE = OP_MEM_CODE
-	</select>
  	
  	<!-- 평가자 pc코드 -->
  	<select id="evalGroupPcCode" resultType="java.lang.String">
@@ -474,7 +460,7 @@
 	        <!-- 평가수행결과(평가결과번호,수행번호,피평가자) -->
 	    	INSERT INTO EVALUATION_RESULT(ER_NO, ER_EVA_NO, ER_PC_CODE) 
 	    	SELECT EVALUATION_RESULT_SEQ.NEXTVAL, A.* FROM(
-	    	<foreach collection="evalua" item="skill" index="index"  separator="UNION ALL ">
+	    	<foreach collection="evalua1" item="skill" index="index"  separator="UNION ALL ">
 	        SELECT VV_EVA_NO AS ER_EVA_NO, #{skill}
 	        FROM DUAL
 	        </foreach>) A;
@@ -496,7 +482,7 @@
 	        <!-- 평가수행결과(평가결과번호,수행번호,피평가자) -->
 	    	INSERT INTO EVALUATION_RESULT(ER_NO, ER_EVA_NO, ER_PC_CODE) 
 	    	SELECT EVALUATION_RESULT_SEQ.NEXTVAL, A.* FROM(
-	    	<foreach collection="evalua" item="skill" index="index"  separator="UNION ALL ">
+	    	<foreach collection="evalua2" item="skill" index="index"  separator="UNION ALL ">
 	        SELECT VV_EVA_NO AS ER_EVA_NO, #{skill}
 	        FROM DUAL
 	        </foreach>) A;
@@ -518,7 +504,7 @@
 	        <!-- 평가수행결과(평가결과번호,수행번호,피평가자) -->
 	    	INSERT INTO EVALUATION_RESULT(ER_NO, ER_EVA_NO, ER_PC_CODE) 
 	    	SELECT EVALUATION_RESULT_SEQ.NEXTVAL, A.* FROM(
-	    	<foreach collection="evalua" item="skill" index="index"  separator="UNION ALL ">
+	    	<foreach collection="evalua3" item="skill" index="index"  separator="UNION ALL ">
 	        SELECT VV_EVA_NO AS ER_EVA_NO, #{skill}
 	        FROM DUAL
 	        </foreach>) A;
@@ -540,7 +526,7 @@
 	        <!-- 평가수행결과(평가결과번호,수행번호,피평가자) -->
 	    	INSERT INTO EVALUATION_RESULT(ER_NO, ER_EVA_NO, ER_PC_CODE) 
 	    	SELECT EVALUATION_RESULT_SEQ.NEXTVAL, A.* FROM(
-	    	<foreach collection="evalua" item="skill" index="index"  separator="UNION ALL ">
+	    	<foreach collection="evalua4" item="skill" index="index"  separator="UNION ALL ">
 	        SELECT VV_EVA_NO AS ER_EVA_NO, #{skill}
 	        FROM DUAL
 	        </foreach>) A;
@@ -548,7 +534,7 @@
 	    END;
 	</update>
 	
-	<!-- 평가 프로시저 질문4 -->
+	<!-- 평가 프로시저 질문5(팀장) -->
 	<update id="evalAdd5" parameterType="java.util.List">
 		DECLARE
 	        VV_EVA_NO   EVALUATION.EVA_NO%TYPE;
@@ -562,7 +548,7 @@
 	        <!-- 평가수행결과(평가결과번호,수행번호,피평가자) -->
 	    	INSERT INTO EVALUATION_RESULT(ER_NO, ER_EVA_NO, ER_PC_CODE) 
 	    	SELECT EVALUATION_RESULT_SEQ.NEXTVAL, A.* FROM(
-	    	<foreach collection="evalua" item="skill" index="index"  separator="UNION ALL ">
+	    	<foreach collection="evalua5" item="skill" index="index"  separator="UNION ALL ">
 	        SELECT VV_EVA_NO AS ER_EVA_NO, #{skill}
 	        FROM DUAL
 	        </foreach>) A;

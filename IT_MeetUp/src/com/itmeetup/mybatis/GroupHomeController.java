@@ -104,9 +104,7 @@ public class GroupHomeController
 		
 		 
 		MemberDTO memberStr = (MemberDTO) session.getAttribute("loginDTO"); // 세션에서 가져온 멤버
-		String memCode = memberStr.getPiMemCode();
-		//dao.evalInsert();
-		
+		String memCode = memberStr.getPiMemCode();		
 		
 		String evapcCode = dao.evalGroupPcCode(memCode);
 		
@@ -114,7 +112,18 @@ public class GroupHomeController
 		dao.evalAdd2(evalua2, evapcCode);
 		dao.evalAdd3(evalua3, evapcCode);
 		dao.evalAdd4(evalua4, evapcCode);
-		dao.evalAdd5(evalua5, evapcCode);
+		
+		if (!evalua5.contains("없음")) {
+	        dao.evalAdd5(evalua5, evapcCode);
+	    }
+		
+//		if (!evalua5.equals("없음")) 
+//		{
+//	        dao.evalAdd5(evalua5, evapcCode);
+//	    }
+		
+		
+		//dao.evalAdd5(evalua5, evapcCode);
 		
 		return "/Content/ProjectLounge/PostList_ju.jsp";
 	}

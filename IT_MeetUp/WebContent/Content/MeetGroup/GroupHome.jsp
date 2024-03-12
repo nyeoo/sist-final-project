@@ -407,39 +407,18 @@ String cp = request.getContextPath();
 																<c:if test="${leaderItem.evaqueno == '5' }">
 																	<tr>
 																		<th>${leaderItem.quename }</th>
-																		<c:forEach var="leaPcCode"
-																			items="${leaderPcCodes }">
+																		<c:forEach var="leaderItems" items="${groupLeader }">
 																			<td><input class="form-check-input groupLeader"
 																				type="radio" name="grLeader"
-																				value="${leaPcCode.lederPcCode }" />
+																				value="${leaderItems.lederPcCode }" />
 																				네.</td>
 																			<td><input class="form-check-input groupLeader"
-																			type="radio" name="grLeader"
-																			value="null" />
+																			type="radio" name="grLeader" value="없음"/>
 																			아니요.</td>
 																		</c:forEach>
 																	</tr>
 																	</c:if>
 																</c:forEach>
-																
-																
-																<%-- <c:forEach var="teamItem" items="${teamEval }">
-																	<tr>
-																		<th>${teamItem.quename }</th>
-																		<c:forEach var="groupPersonItem" items="${groupPersonnel }" varStatus="status">
-																			<td>
-																			<c:set var="i" value="${i+1 }" >
-																			<form action="evalinsert.action" method="get" id="evalinsertBtn"> 
-																			<input type="hidden" value="${i }" name="${i }">
-																			<input class="form-check-input groupPerson" type="checkbox" name="evalua" id="${status.index +1 }"
-																				value="${groupPersonItem.pcCode }" />
-																				${groupPersonItem.piNickName }
-																			</form>
-																			</c:set>
-																			</td>
-																		</c:forEach>
-																	</tr>
-																</c:forEach> --%>
 																
 																<c:forEach var="teamItem" items="${teamEval }">
 																	<c:if test="${teamItem.evaqueno == '1' }">
@@ -497,6 +476,23 @@ String cp = request.getContextPath();
 																		</tr>
 																	</c:if>
 																</c:forEach>
+																<%-- <c:forEach var="teamItem" items="${teamEval }">
+																	<tr>
+																		<th>${teamItem.quename }</th>
+																		<c:forEach var="groupPersonItem" items="${groupPersonnel }" varStatus="status">
+																			<td>
+																			<c:set var="i" value="${i+1 }" >
+																			<form action="evalinsert.action" method="get" id="evalinsertBtn"> 
+																			<input type="hidden" value="${i }" name="${i }">
+																			<input class="form-check-input groupPerson" type="checkbox" name="evalua" id="${status.index +1 }"
+																				value="${groupPersonItem.pcCode }" />
+																				${groupPersonItem.piNickName }
+																			</form>
+																			</c:set>
+																			</td>
+																		</c:forEach>
+																	</tr>
+																</c:forEach> --%>
 															</table>
 														</div>
 													</div>
@@ -570,22 +566,7 @@ String cp = request.getContextPath();
 	   	}
 	});
 	
-		function evaluate01()
-		{
-			/* $('#evalInsert').load("/eval.action");
-			$('#evalInsert').modal(); */
-		}
 
-		$(function()
-		{
-			$("#evalu").click(function()
-			{
-				//alert("ddd");
-				//evalinsertBtn.submit();
-
-			});
-			
-		})
 	</script>
 </body>
 

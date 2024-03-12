@@ -76,9 +76,9 @@ public interface IGroupHomeDAO
 	public String leaderPcCodes(String memCode);
 	
 	// 평가 질문
-	public Integer evalAdd1(@Param("evalua") List<String> evalQue1, @Param("evapcCode") String memCode);
-	public Integer evalAdd2(@Param("evalua") List<String> evalQue2, @Param("evapcCode") String memCode);
-	public Integer evalAdd3(@Param("evalua") List<String> evalQue3, @Param("evapcCode") String memCode);
-	public Integer evalAdd4(@Param("evalua") List<String> evalQue4, @Param("evapcCode") String memCode);
-	public Integer evalAdd5(@Param("evalua") List<String> grLeader, @Param("evapcCode") String memCode);
+	public Integer evalAdd1(@Param("evalua1") List<String> evalQue1, @Param("evapcCode") String memCode);
+	public Integer evalAdd2(@Param("evalua2") List<String> evalQue2, @Param("evapcCode") String memCode);
+	public Integer evalAdd3(@Param("evalua3") List<String> evalQue3, @Param("evapcCode") String memCode);
+	public Integer evalAdd4(@Param("evalua4") List<String> evalQue4, @Param("evapcCode") String memCode);
+	public Integer evalAdd5(@Param("evalua5") List<String> grLeader, @Param("evapcCode") String memCode);
 }
