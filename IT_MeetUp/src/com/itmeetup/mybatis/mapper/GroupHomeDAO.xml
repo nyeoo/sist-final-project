@@ -436,17 +436,25 @@
 	        VV_ER_NO    EVALUATION_RESULT.ER_NO%TYPE;
 	    BEGIN
 	        VV_EVA_NO := EVALUATION_SEQ.NEXTVAL;
-	        VV_ER_NO := EVALUATION_RESULT_SEQ.NEXTVAL; -- 시퀀스 값을 변수에 저장
+	        VV_ER_NO := EVALUATION_RESULT_SEQ.NEXTVAL;
 	        
 	        INSERT INTO EVALUATION(EVA_NO, EVA_DATE, EVA_QUE_NO, EVA_PC_CODE)
 	        VALUES(VV_EVA_NO, SYSDATE, 1, 'PC_14');
 	            
-	        INSERT ALL
+	       <!--  INSERT ALL
 	            INTO EVALUATION_RESULT(ER_NO, ER_EVA_NO, ER_PC_CODE) 
 	            VALUES (VV_ER_NO, VV_EVA_NO, 'PC_15') 
 	            INTO EVALUATION_RESULT(ER_NO, ER_EVA_NO, ER_PC_CODE) 
 	            VALUES (VV_ER_NO+1, VV_EVA_NO, 'PC_16') 
-	        SELECT * FROM DUAL;
+	        SELECT * FROM DUAL; -->
+	        
+	        INSERT INTO EVALUATION_RESULT(ER_NO, ER_EVA_NO, ER_PC_CODE)
+	        SELECT EVALUATION_RESULT_SEQ.NEXTVAL, A.* FROM(
+	        <foreach collection="evalua" item="eval" separator="UNION ALL ">
+	        SELECT VV_EVA_NO AS ER_EVA_NO, 'PC_15' AS ER_PC_CODE
+	        FROM DUAL
+	        </foreach>) A
+	        
 	        
 	    END;
 	</update>
