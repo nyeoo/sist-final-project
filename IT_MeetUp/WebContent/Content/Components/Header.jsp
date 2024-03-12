@@ -8,7 +8,7 @@ String cp = request.getContextPath();
 	aria-label="Fifth navbar example">
 	<div class="container-xl">
 		<!-- 로고 -->
-		<a class="navbar-brand logo-meetup" href="home.action">IT-Meet<em>Up</em></a>
+		<a class="navbar-brand logo-meetup" href="projectList.action">IT-Meet<em>Up</em></a>
 
 		<!-- mob 메뉴 버튼 -->
 		<button class="navbar-toggler" type="button"

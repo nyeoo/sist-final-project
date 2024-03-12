@@ -42,7 +42,7 @@ String cp = request.getContextPath();
 					<div
 						class="col-md-10 col-lg-6 d-flex flex-column align-items-center justify-content-center">
 						<div class="d-flex justify-content-center py-4">
-							<a class="navbar-brand logo-meetup d-none d-lg-block" href="home.action">IT-Meet<em>Up</em></a>
+							<a class="navbar-brand logo-meetup d-none d-lg-block" href="projectList.action">IT-Meet<em>Up</em></a>
 							<!-- <a href="index.jsp" class="logo d-flex align-items-center w-auto">
 								<span class="d-none d-lg-block">IT-MeetUp</span>
 							</a> -->
@@ -74,9 +74,7 @@ String cp = request.getContextPath();
 
 													<div class="col-12">
 														<div class="m-input-box">
-															<label for="piName" class="form-label h5">이름</label>
-															<input type="text" class="form-control" value="김쌍용"
-																id="piName" name="piName" required="required">
+															<label for="piName" class="form-label h5">이름</label> <input type="text" class="form-control" value="김쌍용" id="piName" name="piName" required="required">
 															<div class="invalid-feedback">이름을 입력해주세요.</div>
 														</div>
 													</div>
@@ -86,8 +84,7 @@ String cp = request.getContextPath();
 															<label for="piId" class="form-label h5">아이디</label>
 															<div class="row col-12">
 																<div class="col-12 col-md-7">
-																	<input type="text" class="form-control" value="sist1234"
-																		id="piId" name="piId" required="required">
+																	<input type="text" class="form-control" value="sist1234" id="piId" name="piId" required="required">
 																	<div class="invalid-feedback">아이디를 입력해주세요.</div>
 																</div>
 																<div class="col-12 col-md-5">
@@ -99,37 +96,29 @@ String cp = request.getContextPath();
 
 													<div class="col-12">
 														<div class="m-input-box">
-															<label for="piPw" class="form-label h5">비밀번호</label>
-															<input type="text" class="form-control" value="sist1234"
-																id="piPw" name="piPw" required="required">
+															<label for="piPw" class="form-label h5">비밀번호</label> <input type="text" class="form-control" value="sist1234" id="piPw" name="piPw" required="required">
 															<div class="invalid-feedback">비밀번호를 입력해주세요.</div>
 														</div>
 													</div>
 
 													<div class="col-12">
 														<div class="m-input-box">
-															<label for="joinPwCheck01" class="form-label h5">비밀번호
-																확인</label> <input type="text" class="form-control"
-																value="sist1234" id="joinPwCheck01" required="required">
+															<label for="joinPwCheck01" class="form-label h5">비밀번호 확인</label> <input type="text" class="form-control" value="sist1234" id="joinPwCheck01" required="required">
 															<div class="invalid-feedback">비밀번호 확인값을 입력해주세요.</div>
 														</div>
 													</div>
 
 													<div class="col-12">
 														<div class="m-input-box">
-															<input type="text" id="piEmail" name="piEmail" value="sist1234@naver.com"> <label
-																for="joinEmail1" class="form-label h5">이메일</label>
+															<input type="text" id="piEmail" name="piEmail" value="sist1234@naver.com"> <label for="joinEmail1" class="form-label h5">이메일</label>
 															<div class="row col-12">
 																<div class="col-12 col-md-7">
-																	<input type="text" class="form-control"
-																		value="sist1234" id="joinEmail1" required="required">
+																	<input type="text" class="form-control" value="sist1234" id="joinEmail1" required="required">
 																	<div class="invalid-feedback">이메일을 입력해주세요.</div>
 																</div>
 																<div class="col-12 col-md-5">
 																	<div class="m-select">
-																		<select class="form-select"
-																			aria-label="Default select example" title="email"
-																			id="joinEmail2">
+																		<select class="form-select" aria-label="Default select example" title="email" id="joinEmail2">
 																			<option>-선택-</option>
 																			<option value="@naver.com" selected="selected">@naver.com</option>
 																			<option value="@gmail.com">@gmail.com</option>
@@ -147,8 +136,7 @@ String cp = request.getContextPath();
 															<label for="piNickname" class="form-label h5">닉네임</label>
 															<div class="row col-12">
 																<div class="col-12 col-md-7">
-																	<input type="text" class="form-control" value="쌍용"
-																		id="piNickname" name="piNickname" required="required">
+																	<input type="text" class="form-control" value="쌍용" id="piNickname" name="piNickname" required="required">
 																	<div class="invalid-feedback">닉네임을 입력해주세요.</div>
 																</div>
 																<div class="col-12 col-md-5">
@@ -160,8 +148,7 @@ String cp = request.getContextPath();
 													</div>
 
 													<div class="col-12">
-														<button class="btn btn-primary w-100 join-step01"
-															type="button">다음단계</button>
+														<button class="btn btn-primary w-100 join-step01" type="button">다음단계</button>
 													</div>
 												</div>
 											</div>
@@ -176,9 +163,7 @@ String cp = request.getContextPath();
 															<div class="row col-12">
 																<div class="col-4">
 																	<div class="m-select">
-																		<select class="form-select"
-																			aria-label="Default select example"
-																			title="selectJoinJob" id="mJobCode" name="mJobCode">
+																		<select class="form-select" aria-label="Default select example" title="selectJoinJob" id="mJobCode" name="mJobCode">
 																			<option>-선택-</option>
 																			<c:forEach var="jobItem" items="${jobs}">
 																				<option value="${jobItem.jobCode }">${jobItem.jobName }</option>
@@ -200,9 +185,7 @@ String cp = request.getContextPath();
 																		<div class="m-input-box">
 																			<label for="selectJoinCareer" class="form-label">경력직무</label>
 																			<div class="m-select">
-																				<select class="form-select"
-																					aria-label="Default select example"
-																					title="selectJoinCareer">
+																				<select class="form-select" aria-label="Default select example" title="selectJoinCareer">
 																					<option>-선택-</option>
 																					<c:forEach var="jobItem" items="${jobs}">
 																						<option value="${jobItem.jobCode }">${jobItem.jobName }</option>
@@ -212,23 +195,21 @@ String cp = request.getContextPath();
 																			<div class="invalid-feedback">아이디를 입력해주세요.</div>
 																		</div>
 																	</div>
-																	<div class="row col-10 col-md-7 range-datepicker">
+																	<div class="row col-10 col-md-7 range-datepicker02">
 																		<div class="col-6 m-input-cal">
-																			<label for="job-date-from" class="form-label">시작날짜</label>
-																			<input type="text" class="form-control job-date-from"
-																				value="2024/02/02" id="date-from">
+																			<label for="job-date-from" class="form-label">시작날짜</label> <input type="text" class="form-control job-date-from" value="2024-02-02" id="date-from">
 																		</div>
 																		<div class="col-6 m-input-cal">
-																			<label for="job-date-to" class="form-label">종료날짜</label>
-																			<input type="text" class="form-control job-date-to"
-																				value="2024/02/28" id="date-to">
+																			<label for="job-date-to" class="form-label">종료날짜</label> <input type="text" class="form-control job-date-to" value="2024-02-28" id="date-to">
 																		</div>
 																	</div>
-																	<div class="col-2">
+																	<div class="col-2 btn-addOn">
 																		<span class="form-label no-txt"></span>
-																		<button class="btn btn-primary w-100 btn-more-one"
-																			type="button" title="경력 추가" onclick="addCareer()">
+																		<button class="btn btn-primary w-100 btn-more-one add" type="button" title="경력 추가" onclick="btnCareer(this,'addbtn');">
 																			<i class="bi bi-plus-circle-dotted"></i>
+																		</button>
+																		<button class="btn btn-secondary w-100 btn-more-one remove" type="button" title="경력 추가" onclick="btnCareer(this,'removebtn');">
+																			<i class="bi bi-dash-circle-dotted"></i>
 																		</button>
 																	</div>
 																</div>
@@ -242,12 +223,9 @@ String cp = request.getContextPath();
 															<div class="row col-12">
 																<div class="col-6">
 																	<div class="m-select">
-																		<select class="form-select"
-																			aria-label="Default select example" id="jobArea01"
-																			title="jobArea01">
+																		<select class="form-select" aria-label="Default select example" id="jobArea01" title="jobArea01">
 																			<option selected="selected">-선택-</option>
-																			<c:forEach var="sidoList" items="${sidoList }"
-																				varStatus="status">
+																			<c:forEach var="sidoList" items="${sidoList }" varStatus="status">
 																				<option value="SIDO_${status.index +1}">${sidoList }</option>
 																			</c:forEach>
 																			<!-- 
@@ -262,12 +240,9 @@ String cp = request.getContextPath();
 																</div>
 																<div class="col-6">
 																	<div class="m-select">
-																		<select class="form-select"
-																			aria-label="Default select example" id="mSiggCode" name="mSiggCode"
-																			title="jobArea02">
+																		<select class="form-select" aria-label="Default select example" id="mSiggCode" name="mSiggCode" title="jobArea02">
 																			<option selected="selected">-선택-</option>
-																			<c:forEach var="siggList" items="${siggList }"
-																				varStatus="status">
+																			<c:forEach var="siggList" items="${siggList }" varStatus="status">
 																				<option value="SIGG_${status.index +1}">${siggList }</option>
 																			</c:forEach>
 																			<!-- 																			
@@ -288,17 +263,11 @@ String cp = request.getContextPath();
 														<div class="m-input-box">
 															<label for="joinMeet" class="form-label h5">모임방식</label>
 															<div class="row col-12">
-																<div class="btn-group" role="group"
-																	aria-label="Basic radio toggle button group">
+																<div class="btn-group" role="group" aria-label="Basic radio toggle button group">
 
-																	<c:forEach var="meetItem" items="${meets }"
-																		varStatus="status">
-																		<input type="radio" class="btn-check" name="mMetCode"
-																			id="joinMeet${status.index + 1}" autocomplete="off"
-																			value="${meetItem.meetCode }"
-																			<c:if test="${status.index == 0}">checked="checked"</c:if>>
-																		<label class="btn btn-outline-primary"
-																			for="joinMeet${status.index + 1}">${meetItem.meetName }</label>
+																	<c:forEach var="meetItem" items="${meets }" varStatus="status">
+																		<input type="radio" class="btn-check" name="mMetCode" id="joinMeet${status.index + 1}" autocomplete="off" value="${meetItem.meetCode }" <c:if test="${status.index == 0}">checked="checked"</c:if>>
+																		<label class="btn btn-outline-primary" for="joinMeet${status.index + 1}">${meetItem.meetName }</label>
 																	</c:forEach>
 
 																</div>
@@ -308,8 +277,7 @@ String cp = request.getContextPath();
 													</div>
 
 													<div class="col-12">
-														<button class="btn btn-primary w-100 join-step02"
-															type="button">다음단계</button>
+														<button class="btn btn-primary w-100 join-step02" type="button">다음단계</button>
 													</div>
 												</div>
 											</div>
@@ -331,33 +299,21 @@ String cp = request.getContextPath();
 																		aria-controls="nav-skill3" aria-selected="false">기획, 디자인, 개발툴</button>
 																</div> -->
 
-																<div class="nav nav-tabs mb-3" id="nav-tab"
-																	role="tablist">
-																	<c:forEach var="skill" items="${skillCategorys}"
-																		varStatus="status">
-																		<button
-																			class="nav-link <c:if test="${status.index == 0}">active</c:if>"
-																			id="nav-skill${status.index + 1}-tab"
-																			data-bs-toggle="tab"
-																			data-bs-target="#nav-skill${status.index + 1}"
-																			type="button" role="tab"
-																			aria-controls="nav-skill${status.index + 1}"
-																			aria-selected="true" value="${skill.scCode}">${skill.scName}</button>
+																<div class="nav nav-tabs mb-3" id="nav-tab" role="tablist">
+																	<c:forEach var="skill" items="${skillCategorys}" varStatus="status">
+																		<button class="nav-link <c:if test="${status.index == 0}">active</c:if>" id="nav-skill${status.index + 1}-tab" data-bs-toggle="tab" data-bs-target="#nav-skill${status.index + 1}" type="button" role="tab" aria-controls="nav-skill${status.index + 1}" aria-selected="true" value="${skill.scCode}">${skill.scName}</button>
 																	</c:forEach>
 																</div>
 
 															</nav>
 															<div class="tab-content" id="nav-tabContent">
-																<div class="tab-pane fade show active" id="nav-skill1"
-																	role="skill1" aria-labelledby="nav-skill1-tab">
+																<div class="tab-pane fade show active" id="nav-skill1" role="skill1" aria-labelledby="nav-skill1-tab">
 																	<ul class="skill-check">
-																		<c:forEach var="skillItem" items="${skills }"
-																			varStatus="status">
+																		<c:forEach var="skillItem" items="${skills }" varStatus="status">
 
 																			<c:if test="${skillItem.skScCode == 'SC_1' }">
 																				<li>
-																					<div
-																						class="form-check skill-item 
+																					<div class="form-check skill-item 
 																						<c:forEach var="entry" items="${skProcessors}">
 																							<c:set var="skillCode" value="${entry.key}" />
 																							<c:set var="imageName" value="${entry.value}" />
@@ -366,11 +322,7 @@ String cp = request.getContextPath();
 																								${imageName}
 																							</c:if>
 																						</c:forEach>">
-																						<input class="form-check-input " type="checkbox"
-																							value="${skillItem.skCode }"
-																							id="skill-item-value${status.index +1}" name="skillCheck"> <label
-																							class="form-check-label">
-																							${skillItem.skName } </label>
+																						<input class="form-check-input skill" type="checkbox" name="hopeskills" value="${skillItem.skCode }" id="${status.index +1}" name="skillCheck"> <label class="form-check-label"> ${skillItem.skName } </label>
 																					</div>
 																				</li>
 																			</c:if>
@@ -379,16 +331,13 @@ String cp = request.getContextPath();
 																	</ul>
 
 																</div>
-																<div class="tab-pane fade" id="nav-skill2" role="skill2"
-																	aria-labelledby="nav-skill2-tab">
+																<div class="tab-pane fade" id="nav-skill2" role="skill2" aria-labelledby="nav-skill2-tab">
 																	<ul class="skill-check">
-																		<c:forEach var="skillItem" items="${skills }"
-																			varStatus="status">
+																		<c:forEach var="skillItem" items="${skills }" varStatus="status">
 
 																			<c:if test="${skillItem.skScCode == 'SC_2' }">
 																				<li>
-																					<div
-																						class="form-check skill-item 
+																					<div class="form-check skill-item 
 																						<c:forEach var="entry" items="${skProcessors}">
 																							<c:set var="skillCode" value="${entry.key}" />
 																							<c:set var="imageName" value="${entry.value}" />
@@ -397,11 +346,7 @@ String cp = request.getContextPath();
 																								${imageName}
 																							</c:if>
 																						</c:forEach>">
-																						<input class="form-check-input " type="checkbox"
-																							value="${skillItem.skCode }"
-																							id="skill-item-value${status.index +1}" name="skillCheck"> <label
-																							class="form-check-label">
-																							${skillItem.skName } </label>
+																						<input class="form-check-input skill" type="checkbox" name="hopeskills" value="${skillItem.skCode }" id="${status.index +1}" name="skillCheck"> <label class="form-check-label"> ${skillItem.skName } </label>
 																					</div>
 																				</li>
 																			</c:if>
@@ -410,17 +355,14 @@ String cp = request.getContextPath();
 																	</ul>
 
 																</div>
-																<div class="tab-pane fade" id="nav-skill3" role="skill3"
-																	aria-labelledby="nav-skill3-tab">
+																<div class="tab-pane fade" id="nav-skill3" role="skill3" aria-labelledby="nav-skill3-tab">
 																	<ul class="skill-check">
 
-																		<c:forEach var="skillItem" items="${skills }"
-																			varStatus="status">
+																		<c:forEach var="skillItem" items="${skills }" varStatus="status">
 
 																			<c:if test="${skillItem.skScCode == 'SC_3' }">
 																				<li>
-																					<div
-																						class="form-check skill-item 
+																					<div class="form-check skill-item 
 																						<c:forEach var="entry" items="${skProcessors}">
 																							<c:set var="skillCode" value="${entry.key}" />
 																							<c:set var="imageName" value="${entry.value}" />
@@ -429,11 +371,7 @@ String cp = request.getContextPath();
 																								${imageName}
 																							</c:if>
 																						</c:forEach>">
-																						<input class="form-check-input " type="checkbox"
-																							value="${skillItem.skCode }"
-																							id="skill-item-value${status.index +1}" name="skillCheck"> <label
-																							class="form-check-label">
-																							${skillItem.skName } </label>
+																						<input class="form-check-input skill" type="checkbox" name="hopeskills" value="${skillItem.skCode }" id="${status.index +1}" name="skillCheck"> <label class="form-check-label"> ${skillItem.skName } </label>
 																					</div>
 																				</li>
 																			</c:if>
@@ -444,7 +382,7 @@ String cp = request.getContextPath();
 															</div>
 														</div>
 													</div>
-													<!-- //희망기술 -->
+													<!-- //보유기술 -->
 
 													<div class="col-12">
 														<div class="sikll-box" id="skilArea">
@@ -453,8 +391,7 @@ String cp = request.getContextPath();
 													</div>
 
 													<div class="col-12">
-														<button class="btn btn-primary w-100 join-step03"
-															type="submit">회원가입</button>
+														<button class="btn btn-primary w-100 join-step03" type="submit">회원가입</button>
 													</div>
 												</div>
 											</div>
@@ -574,12 +511,48 @@ String cp = request.getContextPath();
 	<script src="<%=cp%>/asset/js/common.js"></script>
 	<script type="text/javascript">
 		// 경력추가
-		function addCareer()
+		let btnMoreOne = document.querySelector(".btn-more-one");
+		function btnToggle(target){
+			//console.log(target);
+		};
+		
+		function btnCareer(target,flag)
 		{
-			let careerTag = document.querySelector(".career-col-box");
-			let careerAddTag = "<div class='row col-12'><div class='col-12 col-md-3'><div class='m-input-box'><label for='selectJoinCareer' class='form-label'>경력직무</label><div class='m-select'><select class='form-select' aria-label='Default select example' title='selectJoinCareer'><option>-선택-</option><option value='JOB_1'>기획자</option><option value='JOB_2'>디자이너</option><option value='JOB_3'>프론트엔드</option><option value='JOB_4'>백엔드</option></select></div><div class='invalid-feedback'>아이디를 입력해주세요.</div></div></div><div class='row col-10 col-md-7 range-datepicker'><div class='col-6 m-input-cal'><label for='job-date-from' class='form-label'>시작날짜</label><input type='text' class='form-control job-date-from' value='2024/02/02' id='date-from'></div><div class='col-6 m-input-cal'><label for='job-date-to' class='form-label'>종료날짜</label><input type='text' class='form-control job-date-to' value='2024/02/28' id='date-to'></div></div><div class='col-2'><span class='form-label no-txt'></span><button class='btn btn-primary w-100 btn-more-one' type='button' title='경력 추가' onclick='addCareer()'><i class='bi bi-plus-circle-dotted'></i></button></div></div>";
-			careerTag.insertAdjacentHTML("beforeend", careerAddTag);
-		}
+			// 토글
+			let btnMoreOneParent = target.parentElement;	//.col-2.btn-addOn
+			if(btnMoreOneParent.classList.contains('btn-addOn')){
+				btnMoreOneParent.classList.remove('btn-addOn');
+			}else{
+				  btnMoreOneParent.classList.add('btn-addOn');
+			};
+			
+			// add, remove
+			let btnMoreOneAdd = target;
+			let careerTag = target.parentElement.parentElement.parentElement.parentElement; //document.querySelector(".career-col-box");
+			console.log(flag);
+			let cnt = careerTag.children.length;
+			
+			if(flag == 'addbtn'){
+				if(cnt<4){
+					let careerAddTag = "<li><div class='row col-12'><div class='col-12 col-md-3'><div class='m-input-box'><label for='selectJoinCareer' class='form-label'>경력직무</label><div class='m-select'><select class='form-select' aria-label='Default select example' title='selectJoinCareer' name=''><option>-선택-</option><option value='JOB_1'>기획자</option><option value='JOB_2'>디자이너</option><option value='JOB_3'>프론트엔드</option><option value='JOB_4'>백엔드</option></select></div><div class='invalid-feedback'>아이디를 입력해주세요.</div></div></div><div class='row col-10 col-md-7 range-datepicker02'><div class='col-6 m-input-cal'><label for='job-date-from' class='form-label'>시작날짜</label><input type='text' class='form-control job-date-from' value='2024/02/02' id='date-from'></div><div class='col-6 m-input-cal'><label for='job-date-to' class='form-label'>종료날짜</label><input type='text' class='form-control job-date-to' value='2024/02/28' id='date-to'></div></div><div class='col-2  btn-addOn'><span class='form-label no-txt'></span>"
+										+"<button class='btn btn-primary w-100 btn-more-one add' type='button' title='경력 추가' onclick='btnCareer(this,\"addbtn\");'><i class='bi bi-plus-circle-dotted'></i></button>"
+										+"<button class='btn btn-secondary w-100 btn-more-one remove' type='button' title='경력 추가' onclick='btnCareer(this,\"removebtn\");'><i class='bi bi-dash-circle-dotted'></i></button></div></div></li>";
+					careerTag.insertAdjacentHTML("beforeend", careerAddTag);
+				};
+				if()
+				if(cnt<1){
+					
+				}
+			}else if(flag == 'removebtn'){
+				if(cnt>1){
+					target.parentNode.parentNode.remove();
+				};
+					
+			}else{
+				
+			}
+		};
+		
 
 		// 1단계 이메일
 		let btn = document.querySelector(".join-step01");
@@ -595,6 +568,42 @@ String cp = request.getContextPath();
 		});
 		
 		$(function(){
+			// 기술 체크할떄마다 span 구역에 나오게 함수
+			$(".skill").change(function() 
+			{
+				var skilArea = $("#skilArea"); 			  		// div 영역 가져오기 
+				/* var skillName = $(this).attr("id") 		  	// 기술이름가져오기 */
+				var skillName = $(this).val() 		  			// 기술이름가져오기
+				//alert(skillName);
+				   
+				// 체크된 기술 
+		        var checkSkill = skilArea.find("span");
+				if ($(this).is(":checked"))
+				{  
+					
+					// 선택된 기술이 5개 미만인 경우에만 추가
+					if (checkSkill.length < 5) {
+						skilArea.append("<span>" + skillName  + "&ensp; </span>"); 
+						
+					}
+					else 
+					{
+						$(this).prop("checked", false);
+						alert("최대 5개까지 선택 가능합니다.");
+					}
+				} 
+				else
+				{
+					// 체크를 해제 하면 해당 기술을 삭제
+					checkSkill.each(function()
+					{
+						if ($(this).text().indexOf(skillName) !== -1) 
+							$(this).remove();
+					});
+				}
+				
+			});
+			
 			// 아이디 중복체크
 			$("#checkId").click(function(){
 				let piIdStr = $("#piId");
