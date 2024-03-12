@@ -18,8 +18,8 @@ String cp = request.getContextPath();
 <meta name="keywords" content="IT 프로젝트 모집, 사이드 프로젝트 진행">
 
 <!-- css -->
-<link rel="stylesheet" href="../../asset/css/style.css">
-<link rel="stylesheet" href="../../asset/css/layout_bny.css">
+<link rel="stylesheet" href="<%=cp %>/asset/css/style.css">
+<link rel="stylesheet" href="<%=cp %>/asset/css/layout_bny.css">
 
 <!-- font-awesome -->
 <script src="https://kit.fontawesome.com/81ca059e0e.js"
@@ -263,15 +263,8 @@ String cp = request.getContextPath();
 									<div class="card shadow py-2 statistics-card">
 										<div class="card-body col">
 											<div
-												class="text-xs font-weight-bold text-success text-uppercase mb-1 text-center">산출물</div>
-											<div class="mb-0 h3 text-center">21개</div>
-										</div>
-									</div>
-									<div class="card shadow py-2 statistics-card">
-										<div class="card-body col">
-											<div
 												class="text-xs font-weight-bold text-success text-uppercase mb-1 text-center">회의</div>
-											<div class="mb-0 h3 text-center">10회</div>
+											<div class="mb-0 h3 text-center">14회</div>
 										</div>
 									</div>
 									<div class="card shadow py-2 statistics-card">
@@ -284,9 +277,16 @@ String cp = request.getContextPath();
 									<div class="card shadow py-2 statistics-card">
 										<div class="card-body col">
 											<div
+												class="text-xs font-weight-bold text-success text-uppercase mb-1 text-center">업무보고</div>
+											<div class="mb-0 h3 text-center">16건</div>
+										</div>
+									</div>
+									<div class="card shadow py-2 statistics-card">
+										<div class="card-body col">
+											<div
 												class="text-xs font-weight-bold text-success text-uppercase mb-1 text-center">완료된
 												업무</div>
-											<div class="mb-0 h3 text-center">9건</div>
+											<div class="mb-0 h3 text-center">10건</div>
 										</div>
 									</div>
 								</div>
@@ -335,55 +335,80 @@ String cp = request.getContextPath();
 									<thead>
 										<tr>
 											<th width="12%"></th>
-											<th scope="col" width="22%" class="text-center">산출물</th>
-											<th scope="col" width="22%" class="text-center">기간</th>
-											<th scope="col" width="22%" class="text-center">담당자</th>
+											<th scope="col" width="24%" class="text-center">산출물</th>
+											<th scope="col" width="30%" class="text-center">기간</th>
+											<th scope="col" width="18%" class="text-center">담당자</th>
+											<th scope="col" width="18%" class="text-center">사용스킬</th>
 										</tr>
 									</thead>
 									<tbody>
 										<tr>
 											<th rowspan="2" scope="row" class="text-center">분석</th>
-											<td class="text-center">산출물1</td>
+											<td class="text-center">기획안</td>
 											<td class="text-center">2024.03.15 ~ 2024.03.17</td>
 											<td class="text-center">팀원1</td>
+											<td><div class="language-box justify-content-center"><div class="badge-language ico_Svelte" data-bs-toggle="tooltip" data-bs-placement="top"
+											data-bs-custom-class="custom-tooltip"
+											data-bs-title="스킬이름"></div></div></td>
 										</tr>
 										<tr>
-											<td class="text-center">산출물1</td>
+											<td class="text-center">요구분석</td>
 											<td class="text-center">2024.03.15 ~ 2024.03.17</td>
 											<td class="text-center">팀원2</td>
+											<td><div class="language-box justify-content-center"><div class="badge-language ico_Svelte" data-bs-toggle="tooltip" data-bs-placement="top"
+											data-bs-custom-class="custom-tooltip"
+											data-bs-title="스킬이름"></div></div></td>
 										</tr>
 										<tr>
 											<th rowspan="2" scope="row" class="text-center">설계</th>
-											<td class="text-center">산출물2</td>
+											<td class="text-center">스토리보드</td>
 											<td class="text-center">2024.03.15 ~ 2024.03.17</td>
 											<td class="text-center">팀원3</td>
+											<td><div class="language-box justify-content-center"><div class="badge-language ico_Svelte" data-bs-toggle="tooltip" data-bs-placement="top"
+											data-bs-custom-class="custom-tooltip"
+											data-bs-title="스킬이름"></div></div></td>
 										</tr>
 										<tr>
-											<td class="text-center">산출물2</td>
+											<td class="text-center">순서도</td>
 											<td class="text-center">2024.03.15 ~ 2024.03.17</td>
 											<td class="text-center">팀원1</td>
+											<td><div class="language-box justify-content-center"><div class="badge-language ico_Svelte" data-bs-toggle="tooltip" data-bs-placement="top"
+											data-bs-custom-class="custom-tooltip"
+											data-bs-title="스킬이름"></div></div></td>
 										</tr>
 										<tr>
 											<th rowspan="2" scope="row" class="text-center">구현</th>
-											<td class="text-center">산출물3</td>
+											<td class="text-center">프론트개발</td>
 											<td class="text-center">2024.03.15 ~ 2024.03.17</td>
 											<td class="text-center">팀원2</td>
+											<td><div class="language-box justify-content-center"><div class="badge-language ico_Svelte" data-bs-toggle="tooltip" data-bs-placement="top"
+											data-bs-custom-class="custom-tooltip"
+											data-bs-title="스킬이름"></div></div></td>
 										</tr>
 										<tr>
-											<td class="text-center">산출물3</td>
+											<td class="text-center">백엔드개발</td>
 											<td class="text-center">2024.03.15 ~ 2024.03.17</td>
 											<td class="text-center">팀원3</td>
+											<td><div class="language-box justify-content-center"><div class="badge-language ico_Svelte" data-bs-toggle="tooltip" data-bs-placement="top"
+											data-bs-custom-class="custom-tooltip"
+											data-bs-title="스킬이름"></div></div></td>
 										</tr>
 										<tr>
 											<th rowspan="2" scope="row" class="text-center">테스트</th>
-											<td class="text-center">산출물4</td>
+											<td class="text-center">피드백</td>
 											<td class="text-center">2024.03.15 ~ 2024.03.17</td>
 											<td class="text-center">팀원1</td>
+											<td><div class="language-box justify-content-center"><div class="badge-language ico_Svelte" data-bs-toggle="tooltip" data-bs-placement="top"
+											data-bs-custom-class="custom-tooltip"
+											data-bs-title="스킬이름"></div></div></td>
 										</tr>
 										<tr>
-											<td class="text-center">산출물4</td>
+											<td class="text-center">QA</td>
 											<td class="text-center">2024.03.15 ~ 2024.03.17</td>
 											<td class="text-center">팀원2</td>
+											<td><div class="language-box justify-content-center"><div class="badge-language ico_Svelte" data-bs-toggle="tooltip" data-bs-placement="top"
+											data-bs-custom-class="custom-tooltip"
+											data-bs-title="스킬이름"></div></div></td>
 										</tr>
 									</tbody>
 								</table>
@@ -405,10 +430,10 @@ String cp = request.getContextPath();
 	<!-- end wrapper -->
 
 	<!-- script -->
-	<script src="../../asset/js/jquery-3.5.1-min.js"></script>
-	<script src="../../asset/js/jquery-ui.js"></script>
-	<script src="../../asset/js/bootstrap.bundle.min.js"></script>
-	<script src="../../asset/js/common.js"></script>
+	<script src="<%=cp %>/asset/js/jquery-3.5.1-min.js"></script>
+	<script src="<%=cp %>/asset/js/jquery-ui.js"></script>
+	<script src="<%=cp %>/asset/js/bootstrap.bundle.min.js"></script>
+	<script src="<%=cp %>/asset/js/common.js"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 	<script>
