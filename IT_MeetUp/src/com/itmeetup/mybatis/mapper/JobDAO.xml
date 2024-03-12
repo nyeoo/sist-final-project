@@ -9,7 +9,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 해당 프로젝트 희망 직위 및 인원  출력 -->
 	
 	<select id="jobList" resultType="com.itmeetup.mybatis.JobDTO" >
-		SELECT TJ.TJ_JOB_CODE AS "JOBCODE"
+		SELECT TJ.TJ_JOB_CODE AS "jobCode"
 		        , J.JOB_NAME  AS "JOBNAME"
 		        , COUNT(PA.PA_NO) AS "COUNT"        
 		        , TJ.TJ_NUM AS "INWON"

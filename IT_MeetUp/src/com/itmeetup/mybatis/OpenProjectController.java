@@ -85,7 +85,7 @@ public class OpenProjectController
 			recomments.put(cdto.getNumber() , cdao.recommentList((cdto.getNumber())));
 		}
 		
-		dao.viewUpdate(code);
+		dao.viewUpdate(code);											// 해당 프로젝트 조회수 증가 
 		model.addAttribute("choicProList",dao.choiceProList(code));		// 해당 프로젝트 정보 뽑기
 		model.addAttribute("skillList",dao.skillList(code));			// 해당 프로젝트 기술 뽑기
 		model.addAttribute("jobs",jdao.jobList(code));					// 해당 프로젝트 직무 뽑기

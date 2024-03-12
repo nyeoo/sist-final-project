@@ -74,7 +74,7 @@ String cp = request.getContextPath();
 											<div class="row g-3 needs-validation" novalidate>
 								<input type="hidden" name="memcode" id="memcode" value="${sessionScope.loginDTO.piMemCode}" />	<!-- 개설자 회원코드 -->
 								<!-- 새로추가 -->
-								<input type="hidden" name="lastCode" id="lastCode" value="${lastCode}" />	<!-- 가장 최근 만들어진 프로젝트 code -->
+								<input type="text" name="lastCode" id="lastCode" value="${lastCode}" />	<!-- 가장 최근 만들어진 프로젝트 code -->
 								
 								<!-- 모집내용 -->
                                 <div id="item-1" class="col-12">
@@ -294,11 +294,21 @@ String cp = request.getContextPath();
 					                  	</c:forEach>
 					                </select>
 				                  	</div>
-				                  	
-									<div class="row" id="item-2-3"> 
+				                  	<div id="item-2-3">
+				                  	<p class="h5">내가 할 직군 </p>
+									
+										<c:forEach var="job" items="${jobs }">
+		                                                <label class="form-check-label"> 
+															<input class="form-check-input" type="radio" value="${job.jobCode }"  name ="jobcode" id="jobcode">	${job.jobName }					
+														</label>
+											
+										</c:forEach> 
+									</div>
+									<div class="row" id="item-2-4">
                                     <p class="h5">팀원 설정</p>
 									<c:forEach var="job" items="${jobs }">
 									<c:set var ="i" value="${i+1 }"></c:set>
+									
 	                                        <div class="col-5 m-select">
 	                                            <!-- 프론트 -->
 	                                            ${job.jobName }
@@ -339,7 +349,7 @@ String cp = request.getContextPath();
 										<div class="swiper-slide">
 											<div class="row g-3 needs-validation" novalidate>
 												<!-- 희망기술 -->
-												<div id="item-2-3" class="col-12">
+												<div id="item-2-5" class="col-12">
 														<p class="h5">희망기술</p>
 														<div class="skill-box">
 														<nav>

@@ -10,7 +10,7 @@ public class WriteFormDTO
 	private String mojibsu , title, content
 			 	  , meetcode,catcode,memcode,carcode,siggcode , teamname ,startDate,endDate
 			 	  ,startdate1,enddate1,startdate2,enddate2,startdate3,enddate3,startdate4,enddate4
-			 	  ,inwon1,inwon2,inwon3,inwon4 ,lastCode;
+			 	  ,inwon1,inwon2,inwon3,inwon4 ,lastCode ,jobcode;
 	
 	//private ArrayList<String> hopeskills;
 	private List<String> hopeskills;
@@ -270,6 +270,18 @@ public class WriteFormDTO
 	{
 		this.inwon4 = inwon4;
 	}
+
+	public String getJobcode()
+	{
+		return jobcode;
+	}
+
+	public void setJobcode(String jobcode)
+	{
+		this.jobcode = jobcode;
+	}
+
+	
 
 	
 	
