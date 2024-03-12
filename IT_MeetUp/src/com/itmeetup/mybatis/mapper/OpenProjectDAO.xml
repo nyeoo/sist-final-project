@@ -82,9 +82,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 
+	<!-- 찜하기 -->
+	<insert id="addWish">
+		INSERT INTO WISH(WISH_NO, WISH_DATE, WISH_OP_CODE, WISH_MEM_CODE)
+		VALUES(WISH_SEQ.NEXTVAL,SYSDATE,#{code},#{memCode})
+	</insert>
+	<!-- 찜삭제 -->
+	<delete id="removeWish" >
+        DELETE 
+        FROM WISH
+        WHERE WISH_OP_CODE = #{code} AND WISH_MEM_CODE = #{memCode}
+    </delete>
 	
-	
-	
+	<!-- 사용자의 찜목록 구하기 -->
+	<select id="wishList" resultType="java.lang.String">
+		SELECT WISH_OP_CODE AS "CODE"
+		FROM WISH
+		WHERE WISH_MEM_CODE = #{memCode}
+	</select>
 </mapper>
 
 

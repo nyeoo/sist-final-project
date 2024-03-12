@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,7 +22,7 @@ public class OpenProjectController
 
 	// 프로젝트 리스트 출력으로 이동  
 	@RequestMapping(value = "/projectList.action" , method = RequestMethod.GET)
-	public String projectList(ModelMap model)
+	public String projectList(ModelMap model,HttpSession session)
 	{
 		String result =null;
 		
@@ -32,6 +34,11 @@ public class OpenProjectController
 		Map<String,ArrayList<String>> skills = new HashMap<String, ArrayList<String>>();
 		// 프로젝트 해당하는 직위 담기
 		Map<String,ArrayList<JobDTO>> jobInfo = new HashMap<String, ArrayList<JobDTO>>();
+		
+		
+		MemberDTO member = (MemberDTO)session.getAttribute("loginDTO");
+		
+		ArrayList<String> wishList = dao.wishList(member.getPiMemCode());
 		
 		ArrayList<OpenProjectDTO> project = dao.openList();		
 		
@@ -49,7 +56,7 @@ public class OpenProjectController
 		model.addAttribute("lastCode",dao.lastCode());							// 가장 최근 프로젝트 개설 코드 뽑기
 		model.addAttribute("skills", skillsDAO.skills());
 		
-
+		model.addAttribute("wishList", wishList);								// 사용자 찜목록 
 		
 		model.addAttribute("openList",dao.openList());
 		model.addAttribute("deadlineList",dao.deadlineList());
@@ -102,6 +109,66 @@ public class OpenProjectController
 		return result;
 	}
 	
+	// 사용자가 누른 프로젝트 찜하기
+	@RequestMapping(value = "/addWish.action" , method = RequestMethod.GET)
+	public String InsertWish(OpenProjectDTO dto ,HttpSession session)
+	{
+		String result =null;
+		
+		
+		MemberDTO member = (MemberDTO)session.getAttribute("loginDTO");
+		IOpenProjectDAO dao = sqlSession.getMapper(IOpenProjectDAO.class);
+		String memCode = member.getPiMemCode();
+		
+		// 테스트 
+		System.out.println(memCode);
+		dto.setMemCode(memCode);
+		
+		int a= dao.addWish(dto);	
+		
+		if(a>0)
+		{
+			
+			result = "/projectList.action";
+		}
+		else
+		{
+			System.out.println("에러 발생");
+		}
+		
+						   
+		return result;
+	}
 	
+	// 사용자가 누른 프로젝트 찜  삭제
+	@RequestMapping(value = "/removeWish.action" , method = RequestMethod.GET)
+	public String removeWish(OpenProjectDTO dto ,HttpSession session)
+	{
+		String result =null;
+		
+		
+		MemberDTO member = (MemberDTO)session.getAttribute("loginDTO");
+		IOpenProjectDAO dao = sqlSession.getMapper(IOpenProjectDAO.class);
+		String memCode = member.getPiMemCode();
+		
+		// 테스트 
+		System.out.println(memCode);
+		dto.setMemCode(memCode);
+		
+		int a= dao.removeWish(dto);	
+		
+		if(a>0)
+		{
+			
+			result = "/projectList.action";
+		}
+		else
+		{
+			System.out.println("에러 발생");
+		}
+		
+						   
+		return result;
+	}
 	
 }

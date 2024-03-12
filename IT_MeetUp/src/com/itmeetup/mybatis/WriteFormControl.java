@@ -100,11 +100,15 @@ public class WriteFormControl
 		  //dao.addProject(dto);		
 		  // 프로젝트 상세일정, 역할별 인원수 입력
 		  dao.addperiod(dto);
+		  System.out.println("스킬 입력 전");
 		  // 프로젝트 희망 기술 입력
 		  dao.addSkill(hopeskills,lastCode);
+		  
+		  System.out.println("스킬 입력 후");
 		  	
-		  result = "/Content/ProjectLounge/PostList_ju.jsp";
-		  //result = "/projectList.action";
+		  //result = "/Content/ProjectLounge/PostList_ju.jsp";
+		 // result = "redirect:/projectList.action";
+		  result = "redirect:/PostDetail.action?code="+lastCode;
 		  
 		  return result;
 		 

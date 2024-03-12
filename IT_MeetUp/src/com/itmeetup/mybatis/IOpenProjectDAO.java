@@ -29,9 +29,18 @@ public interface IOpenProjectDAO
 	// 프로젝트 조회수 증가 
 	public int viewUpdate(String code);
 	
-	// 새로 추가
+	
 	// 가장 최근 프로젝트 코드 뽑기 
 	public String lastCode();
+	
+	// 찜 추가
+	public int addWish(OpenProjectDTO dto);
+	
+	// 찜 제거
+	public int removeWish(OpenProjectDTO dto);
+	
+	// 사용자 찜 목록
+	public ArrayList<String> wishList(String memCode);
 	
 	
 }

@@ -408,13 +408,17 @@
 							<div class="card p-4 d-flex flex-column">
 								<div class="card-top">
 									<!-- 찜하기 -->
+									<input type="hidden" name="memcode" id="memcode" value="${sessionScope.loginDTO.piMemCode}" />
 									<div class="form-check zzim">
-										<label class="form-check-label"> 
-										<input class="form-check-input" type="checkbox" value="${opList.code }" id="wish" title="찜하기">
+										<label class="form-check-label">
+										
+											<input class="form-check-input wish" type="checkbox" value="${opList.code }" id="wish" title="찜하기" 
+											 ${wishList.contains(opList.code) ? 'checked' : ''} >
 										<span class="icon-box">
 											<i class="bi bi-heart"></i><i class="bi bi-heart-fill"></i>
 										</span>
 										</label>
+										
 									</div>
 									<!-- 데드라인/ 시작예정일 - 예상기간 -->
 									<div class="mb-1 text-body-secondary">
@@ -531,9 +535,48 @@
 		$(function()
 		{
 			//alert("hmm");
-		
 			
-
+			$('.wish').change(function() 
+			{
+				//alert("hmm");
+				
+			    var isChecked = $(this).prop('checked');     // 체크 여부 확인
+			    var code = $(this).val(); 					 // 프로젝트 코드 가져오기
+				
+			    if (isChecked)
+			    {
+				    $.ajax({
+			            url: 'addWish.action',
+			            type: 'GET',
+			            data: { isChecked: isChecked, code: code },
+			            success: function(response) {
+			                console.log(response);				// 성공시
+			            },
+			            error: function(xhr, status, error) {
+			                console.error(error); 				//  실패시 오류 메시지를 콘솔에 출력
+			               
+			            }
+			        });
+				}
+			    else
+			    {
+			    	$.ajax({
+			            url: 'removeWish.action',
+			            type: 'GET',
+			            data: { isChecked: isChecked, code: code },
+			            success: function(response) {
+			                console.log(response); 				// 성공시
+			            },
+			            error: function(xhr, status, error) {
+			                console.error(error); 				//  실패시 오류 메시지를 콘솔에 출력
+			            }
+			        });
+			    }
+			});
+			    
+			    
+			    
+			
 		});
 
 		function selectSi()
@@ -541,6 +584,8 @@
 			$("#do").attr("disabled", false)
 
 		}
+		
+		
 	</script>
 </body>
 
