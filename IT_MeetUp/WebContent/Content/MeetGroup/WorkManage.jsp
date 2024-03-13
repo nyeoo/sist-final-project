@@ -277,7 +277,7 @@ String cp = request.getContextPath();
 													<div class="m-select">
 														<select class="form-select" aria-label="업무분류" title="업무분류">
 															<option selected>업무분류</option>
-															<c:forEach var="output" items="${searchOutputList}">
+															<c:forEach var="output" items="${assOutputList}">
 																<option value="${output.ouName}">${output.ouName}</option>
 															</c:forEach>
 														</select>
