@@ -8,22 +8,15 @@ public class AssignmentDTO
 	private String sdOpCode, assCode, assName, assContent; 		// 팀코드, 업무할당 코드, 업무할당명, 업무할당 내용 
 	private String indicator, charger, piNickName;				// 업무지시자, 업무담당자, 업무 담당자 닉네임
 	private String assStartDate, assEndDate, assDate;			// 업무시작지시일, 업무종료지시일, 업무할당일
-	private String assFile, assOuCode, ouName, ssCode;					// 할당첨무파일경로, 산출물 코드, 할당산출물 명
+	private String assFile, ouCode, ouName, ssCode;					// 할당첨무파일경로, 산출물 코드, 할당산출물 명
 	private String assSdNo, ssName, memCode, leaPcCode;			// 기간 상세 코드, 일정단계명, 회원코드, 이탈여부코드
+	
 	
 	
 	// getter / setter 구성
 	public String getSdOpCode()
 	{
 		return sdOpCode;
-	}
-	public String getSsCode()
-	{
-		return ssCode;
-	}
-	public void setSsCode(String ssCode)
-	{
-		this.ssCode = ssCode;
 	}
 	public void setSdOpCode(String sdOpCode)
 	{
@@ -109,13 +102,13 @@ public class AssignmentDTO
 	{
 		this.assFile = assFile;
 	}
-	public String getAssOuCode()
+	public String getOuCode()
 	{
-		return assOuCode;
+		return ouCode;
 	}
-	public void setAssOuCode(String assOuCode)
+	public void setOuCode(String ouCode)
 	{
-		this.assOuCode = assOuCode;
+		this.ouCode = ouCode;
 	}
 	public String getOuName()
 	{
@@ -124,6 +117,14 @@ public class AssignmentDTO
 	public void setOuName(String ouName)
 	{
 		this.ouName = ouName;
+	}
+	public String getSsCode()
+	{
+		return ssCode;
+	}
+	public void setSsCode(String ssCode)
+	{
+		this.ssCode = ssCode;
 	}
 	public String getAssSdNo()
 	{
@@ -158,6 +159,8 @@ public class AssignmentDTO
 		this.leaPcCode = leaPcCode;
 	}
 	
+	
+
 
 	
 	

@@ -29,7 +29,7 @@
 	<select id="reportPersonList"
 		resultType="com.itmeetup.mybatis.ReportListDTO">
 		SELECT
-		DISTINCT PI_NICKNAME "piNickName"
+		DISTINCT PI_NICKNAME "piNickName", PC_CODE "pcCode"
 		FROM VIEW_PROCEEDING_PROJECT_PEOPLE
 		WHERE OP_CODE = #{opCode}
 	</select>

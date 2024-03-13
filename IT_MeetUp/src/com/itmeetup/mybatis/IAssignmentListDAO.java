@@ -7,6 +7,7 @@ public interface IAssignmentListDAO
 	public ArrayList<AssignmentDTO> assignmentList(String opCode);
 	public ArrayList<AssignmentDTO> assScheduleList();
 	public ArrayList<AssignmentDTO> assOutputList();
+	public ArrayList<AssignmentDTO> searchOutputList(String ssCode);
 	public String searchOpCode(String memCode);
 	public String searchPcCode(String memCode);
 	public String searchLeaveLeader(String leaderPcCode);
@@ -14,6 +15,6 @@ public interface IAssignmentListDAO
 	public String searchLeaderPcCode(String leaderMemCode);
 	public String searchChangeLeaderMemCode(String opCode);
 	public String searchChangeLeaderPcCode(String opCode);
-	public void insertAssignment(AssignmentDTO dto);
+	public int insertAssignment(AssignmentDTO dto);
 	
 }

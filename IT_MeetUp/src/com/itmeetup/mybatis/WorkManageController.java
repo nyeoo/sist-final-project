@@ -59,7 +59,7 @@ public class WorkManageController
 	public String insertAssignmentView(ModelMap model, String memCode)
 	{
 		IAssignmentListDAO assignmentDAO = sqlSession.getMapper(IAssignmentListDAO.class);
-		
+		IReportListDAO reportDAO = sqlSession.getMapper(IReportListDAO.class);
 		
 		String opCode = assignmentDAO.searchOpCode(memCode); // 회원의 개설요청 코드
 		String pcCode = assignmentDAO.searchPcCode(memCode); // 회원의 참여확인 코드 -- 할당자
@@ -70,7 +70,7 @@ public class WorkManageController
 		model.addAttribute("assignmentList", assignmentDAO.assignmentList(opCode));
 		model.addAttribute("assScheduleList", assignmentDAO.assScheduleList());
 		model.addAttribute("assOutputList", assignmentDAO.assOutputList());
-		
+		model.addAttribute("reportPersonList", reportDAO.reportPersonList(opCode));
 
 		return "/Content/MeetGroup/WorkAssignment.jsp";
 	}

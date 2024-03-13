@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	request.setCharacterEncoding("UTF-8");
-	String cp = request.getContextPath();
+String cp = request.getContextPath();
 %>
 <!DOCTYPE html>
 <html>
@@ -52,13 +52,13 @@
 									<div class="h3 card-title text-center pb-0">업무할당</div>
 									<hr>
 								</div>
+								<form role="form" action="assignmentInsert.action" method="post">
 									<!-- 제목 -->
 									<div id="item-1" class="comp_tit ">
 										<div class="m-input-box">
 											<label for="assignmentTitle" class="form-label"> 제목 </label>
 											<input type="text" class="form-control" id="title"
-												name="title" style="width: 350px;"
-												value="">
+												name="title" style="width: 350px;" value="">
 											<div class="invalid-feedback">제목을 입력해주세요.</div>
 										</div>
 									</div>
@@ -83,23 +83,23 @@
 											style="border-radius: 500px;">
 											<c:forEach var="reportSchedule" items="${assScheduleList}">
 												<input type="radio" class="btn-check" name="btnradio"
-													id="${reportSchedule.ssName}" autocomplete="off">
+													id="${reportSchedule.ssName}" autocomplete="off" value="${reportSchedule.ssCode}">
 												<label class="btn btn-light" for="${reportSchedule.ssName}">${reportSchedule.ssName}</label>
 											</c:forEach>
 										</div>
 									</div>
 									<br>
 									<div id="#item-4" class="d-flex comp_tit">
-										업무 분류 :
-										<div class="m-select">
-											<select class="form-select" aria-label="업무분류" title="업무분류"
-												id="si" onchange="selectSi()">
-												<option selected>선택하세요</option>
-												<c:forEach var="outputList" items="${assOutputList}">
-													<option value="3">${outputList.ouName}</option>
-												</c:forEach>
-											</select>
-										</div>
+									    업무 분류 :
+									    <div class="m-select">
+									        <select class="form-select" aria-label="업무분류" title="업무분류" id="si">
+									            <option selected>선택하세요</option>
+									            <!-- 서버에서 받아온 업무 분류 옵션을 넣음 -->
+									            <c:forEach var="output" items="${searchOutputList}">
+									                <option value="${output.ouCode}">${output.ouName}</option>
+									            </c:forEach>
+									        </select>
+									    </div>
 									</div>
 									<br>
 									<div id="#item-5" class="comp_tit">
@@ -120,7 +120,7 @@
 											<select class="form-select" aria-label="담당자" title="담당자"
 												id="si" onchange="selectSi()">
 												<option selected>선택하세요</option>
-												<c:forEach var="person" items="${assignmentList}">
+												<c:forEach var="person" items="${reportPersonList}">
 													<option value="${person.piNickName}">${person.piNickName}</option>
 												</c:forEach>
 											</select>
@@ -144,6 +144,7 @@
 										<button class="btn btn-secondary" id="reSetButton">취소</button>
 									</div>
 									<!-- //제출 및 취소 버튼 -->
+								</form>
 							</div>
 						</div>
 					</div>
@@ -162,17 +163,67 @@
 	<script src="<%=cp%>/asset/js/common.js"></script>
 	<script type="text/javascript">
 	
-	$(document).ready(function() 
-	{
-	    $("#reSetButton").click(function() {
-	        var url = "<%=cp%>/workManage.action?memCode=${sessionScope.loginDTO.piMemCode}";
-	        window.location.href = url;
-	    });
-	    
-	});
+	
+	$(document).ready(function()
+    {
+        $("#writeButton").click(function()
+        {
+            window.location.href = "<%=cp%>/workManage.action?memCode=${sessionScope.loginDTO.piMemCode}";
+        });
+        
+        <%-- $('input[name="btnradio"]').change(function() {
+            // 선택된 업무 단계의 코드 가져오기
+            var ssCode = $(this).val();
+            var memCode = "${sessionScope.loginDTO.piMemCode}";
+            // AJAX를 이용하여 서버로 ssCode 전송
+            $.ajax({
+                type: 'GET',
+                url: '<%=cp%>/selectAssignment.action',
+                data: { ssCode: ssCode, memCode: memCode },
+                success: function(response) {
+                    // 서버로부터 받은 데이터 처리
+                    
+                    alert(response);
+                    /* var options = '';
+                    for (var i = 0; i < response.length; i++) {
+                        options += '<option value="' + response[i].ouCode + '">' + response[i].ouName + '</option>';
+                    }
+                    $('#si').html(options); // 셀렉트박스에 옵션 추가 */
+                },
+                error: function(xhr, status, error) {
+                    // 에러 처리
+                    console.error(xhr.responseText);
+                }
+            });
+        }); --%>
+        $('input[name="btnradio"]').change(function() {
+            // 선택된 업무 단계의 코드 가져오기
+            var ssCode = $(this).val();
+            var memCode = "${sessionScope.loginDTO.piMemCode}";
+            
+            // AJAX를 이용하여 서버로 ssCode 전송
+            $.ajax({
+                type: 'GET',
+                url: '<%=cp%>/selectAssignment.action',
+                data: { ssCode: ssCode, memCode: memCode },
+                success: function(response) {
+                    // 서버로부터 받은 데이터로 셀렉트 박스의 내용을 변경
+                    $('#si').empty(); // 기존 옵션 제거
+                    $('#si').append('<option value="">선택하세요</option>'); // 기본 선택 옵션 추가
+                    
+                    // 받은 데이터(response)를 반복하여 옵션 추가
+                    for (var i = 0; i < response.length; i++) {
+                        $('#si').append('<option value="' + response[i].ouCode + '">' + response[i].ouName + '</option>');
+                    }
+                },
+                error: function(xhr, status, error) {
+                    // 에러 처리
+                    console.error(xhr.responseText);
+                }
+            });
+        });
 
-	
-	
+    });
 	</script>
 
 </body>
