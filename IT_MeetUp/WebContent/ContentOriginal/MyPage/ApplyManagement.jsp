@@ -263,8 +263,7 @@ String cp = request.getContextPath();
 		
 
 	<!-- 푸터영역 -->
-	<div role="footer" data-include="../Components/Footer.jsp"
-		class="mt-auto"></div>
+	<div role="footer" data-include="../Components/Footer.jsp" class="mt-auto"></div>
 	<!-- //푸터영역 -->
 	</div>
 

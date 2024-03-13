@@ -13,12 +13,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		     , TO_CHAR(OP_START_DATE, 'YYYY-MM-DD') "STARTDATE"
 		     , TO_CHAR(OP_END_DATE, 'YYYY-MM-DD') "ENDDATE"
 		     , TO_CHAR(PA_DATE, 'YYYY-MM-DD') "PADATE"
-		     , MEM_CODE "MEMCODE"
+		     , PA_MEM_CODE "MEMCODE"
 		FROM MEMBER M JOIN OPEN_PROJECT OP
 		ON M.MEM_CODE = OP.OP_MEM_CODE 
 		JOIN TEAM_JOB TJ ON OP.OP_CODE = TJ.TJ_OP_CODE
 		JOIN PART_APPLICANT PA ON TJ.TJ_NO = PA.PA_NO
-		WHERE M.MEM_CODE = #{memCode}
+		WHERE PA.PA_MEM_CODE = #{memCode}
 	</select>
 	
 	<select id="writeProject" resultType="com.itmeetup.mybatis.ProjectManagementDTO">
