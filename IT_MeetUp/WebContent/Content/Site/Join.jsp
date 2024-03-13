@@ -177,16 +177,29 @@ String cp = request.getContextPath();
 													</div>
 
 													<div class="col-12">
-														<div class="form-label label-tit h5">경력</div>
+														<div class="row">
+															<div class="col-6">
+																<div class="form-label label-tit h5">경력</div>
+															</div>
+															<div class="col-6 btn-more-box">
+																<button class="btn btn-primary w-100 btn-more-one add" type="button" title="경력 추가" onclick="btnCareer(this,'addbtn');">
+																	추가 <i class="bi bi-plus-circle-dotted"></i>
+																</button>
+																<button disabled="disabled" class="btn btn-secondary w-100 btn-more-one remove" type="button" title="경력 삭제" onclick="btnCareer(this,'removebtn');">
+																	삭제 <i class="bi bi-dash-circle-dotted"></i>
+																</button>
+															</div>
+														</div>
 														<ul class="career-col-box">
 															<li>
+																<% int carrboxNumStr = 0; %>
 																<div class="row col-12">
-																	<div class="col-12 col-md-3">
+																	<div class="col-6">
 																		<div class="m-input-box">
+																			<%= carrboxNumStr%>
 																			<label for="selectJoinCareer" class="form-label">경력직무</label>
 																			<div class="m-select">
-																			<% int carrboxNum = 0; %>
-																				<select class="form-select" aria-label="Default select example" title="selectJoinCareer" name="jobNames" id="jobName_<%=carrboxNum %>">
+																				<select class="form-select" aria-label="Default select example" title="selectJoinCareer" name="jobNames" id="jobName_<%=carrboxNumStr %>">
 																					<option>-선택-</option>
 																					<c:forEach var="jobItem" items="${jobs}">
 																						<option value="${jobItem.jobCode }">${jobItem.jobName }</option>
@@ -196,22 +209,17 @@ String cp = request.getContextPath();
 																			<div class="invalid-feedback">아이디를 입력해주세요.</div>
 																		</div>
 																	</div>
-																	<div class="row col-10 col-md-7 range-datepicker02">
-																		<div class="col-6 m-input-cal">
-																			<label for="job-date-from" class="form-label">시작날짜</label> <input type="text" class="form-control job-date-from" value="2024-02-02" name="startDates" id="startDate_<%=carrboxNum %>">
-																		</div>
-																		<div class="col-6 m-input-cal">
-																			<label for="job-date-to" class="form-label">종료날짜</label> <input type="text" class="form-control job-date-to" value="2024-02-28" name="endDates" id="endDate_<%=carrboxNum %>">
-																		</div>
+																	<div class="col-6">
+																		<label for="comNames" class="form-label">회사명</label>
+																		<input type="text" class="form-control join-comName" name="comNames" id="comName_<%=carrboxNumStr %>">
 																	</div>
-																	<div class="col-2 btn-addOn">
-																		<span class="form-label no-txt"></span>
-																		<button class="btn btn-primary w-100 btn-more-one add" type="button" title="경력 추가" onclick="btnCareer(this,'addbtn');">
-																			<i class="bi bi-plus-circle-dotted"></i>
-																		</button>
-																		<button class="btn btn-secondary w-100 btn-more-one remove" type="button" title="경력 삭제" onclick="btnCareer(this,'removebtn');">
-																			<i class="bi bi-dash-circle-dotted"></i>
-																		</button>
+																</div>
+																<div class="row range-datepicker02">
+																	<div class="col-6 m-input-cal">
+																		<label for="job-date-from" class="form-label">시작날짜</label> <input type="text" class="form-control job-date-from" value="2024-02-02" name="startDates" id="startDate_<%=carrboxNumStr %>">
+																	</div>
+																	<div class="col-6 m-input-cal">
+																		<label for="job-date-to" class="form-label">종료날짜</label> <input type="text" class="form-control job-date-to" value="2024-02-28" name="endDates" id="endDate_<%=carrboxNumStr %>">
 																	</div>
 																</div>
 															</li>
@@ -512,64 +520,67 @@ String cp = request.getContextPath();
 	<script src="<%=cp%>/asset/js/common.js"></script>
 	<script type="text/javascript">
 		// 경력추가
-		let btnMoreOne = document.querySelector(".btn-more-one");
-		function btnToggle(target){
-			//console.log(target);
-		};
-		
-		let carrboxNum = <%=carrboxNum %>
+		let carrboxNum = <%=carrboxNumStr %>;
 		function btnCareer(target,flag)
 		{
-			// 토글
-			let btnMoreOneParent = target.parentElement;	//.col-2.btn-addOn
-			if(btnMoreOneParent.classList.contains('btn-addOn')){
-				btnMoreOneParent.classList.remove('btn-addOn');
-			}else{
-				  btnMoreOneParent.classList.add('btn-addOn');
-			};
-			
 			// add, remove
-			let btnMoreOneAdd = target;
-			let careerTag = target.parentElement.parentElement.parentElement.parentElement; //document.querySelector(".career-col-box");
-			//console.log(flag);
+			let careerTag = target.parentElement.parentElement.nextElementSibling; //document.querySelector(".career-col-box");
 			let cnt = careerTag.children.length;
+			let addBtn = document.querySelector(".btn-more-one.add");
+			let removeBtn = document.querySelector(".btn-more-one.remove");
 			
-			let className = "";
-			let careerAddTag = "";
-			
+			console.log(<%= carrboxNumStr%>);
 			if(flag == 'addbtn'){
 				carrboxNum = carrboxNum+1;
-				if(cnt<4){
-					
-					careerAddTag = "<li><div class='row col-12'><div class='col-12 col-md-3'><div class='m-input-box'><label for='selectJoinCareer' class='form-label'>경력직무</label>"
-						+"<div class='m-select'><select class='form-select' aria-label='Default select example' title='selectJoinCareer' name='jobNames' id='jobName_"+ carrboxNum +"'><option>-선택-</option><option value='JOB_1'>기획자</option><option value='JOB_2'>디자이너</option><option value='JOB_3'>프론트엔드</option><option value='JOB_4'>백엔드</option></select></div><div class='invalid-feedback'>아이디를 입력해주세요.</div></div></div>"
-						+"<div class='row col-10 col-md-7 range-datepicker02'><div class='col-6 m-input-cal'><label for='job-date-from' class='form-label'>시작날짜</label><input type='text' class='form-control job-date-from' value='2024-02-02' name='startDates' id='startDate_"+ carrboxNum +"'></div>"
-						+"<div class='col-6 m-input-cal'><label for='job-date-to' class='form-label'>종료날짜</label><input type='text' class='form-control job-date-to' value='2024-02-28' name='endDates' id='endDate_"+ carrboxNum +"'></div></div>"
-						+"<div class='col-2  btn-addOn'><span class='form-label no-txt'></span>"
-							+"<button class='btn btn-primary w-100 btn-more-one add' type='button' title='경력 추가' onclick='btnCareer(this,\"addbtn\");'><i class='bi bi-plus-circle-dotted'></i></button>"
-							+"<button class='btn btn-secondary w-100 btn-more-one remove' type='button' title='경력 삭제' onclick='btnCareer(this,\"removebtn\");'><i class='bi bi-dash-circle-dotted'></i></button></div></div></li>";
-							
+				<%carrboxNumStr++; %>
+				if(cnt<3){
+					let careerAddTag = "<li>"
+									+ "<div class='row col-12'>"
+									+     "<div class='col-6'>"
+									+         "<div class='m-input-box'>"
+									+             "<label for='selectJoinCareer' class='form-label'>경력직무</label>"
+									+             "<div class='m-select'>"
+									+                 "<select class='form-select' aria-label='Default select example' title='selectJoinCareer' name='jobNames' id='jobName_"+carrboxNum+"'>"
+									+                     "<option>-선택-</option><option value='JOB_1'>기획자</option><option value='JOB_2'>디자이너</option><option value='JOB_3'>프론트엔드</option><option value='JOB_4'>백엔드</option>"
+									+                 "</select>"
+									+             "</div>"
+									+             "<div class='invalid-feedback'>아이디를 입력해주세요.</div>"
+									+         "</div>"
+									+     "</div>"
+									+     "<div class='col-6'>"
+									+         "<label for='comNames' class='form-label'>회사명</label>"
+									+         "<input type='text' class='form-control join-comName' name='comNames' id='comName_"+carrboxNum+"'>"
+									+     "</div>"
+									+ "</div>"
+									+ "<div class='row range-datepicker02'>"
+									+     "<div class='col-6 m-input-cal'>"
+									+         "<label for='job-date-from' class='form-label'>시작날짜</label> <input type='text' class='form-control job-date-from hasDatepicker' value='2024-02-02' name='startDates' id='startDate_"+carrboxNum+"'>"
+									+     "</div>"
+									+     "<div class='col-6 m-input-cal'>"
+									+         "<label for='job-date-to' class='form-label'>종료날짜</label> <input type='text' class='form-control job-date-to hasDatepicker' value='2024-02-28' name='endDates' id='endDate_"+carrboxNum+"'>"
+									+     "</div>"
+									+ "</div>"
+								  + "</li>";
 					careerTag.insertAdjacentHTML("beforeend", careerAddTag);
 				};
-					/* let careerAddTag = "<li><div class='row col-12'><div class='col-12 col-md-3'><div class='m-input-box'><label for='selectJoinCareer' class='form-label'>경력직무</label><div class='m-select'><select class='form-select' aria-label='Default select example' title='selectJoinCareer' name=''><option>-선택-</option><option value='JOB_1'>기획자</option><option value='JOB_2'>디자이너</option><option value='JOB_3'>프론트엔드</option><option value='JOB_4'>백엔드</option></select></div><div class='invalid-feedback'>아이디를 입력해주세요.</div></div></div><div class='row col-10 col-md-7 range-datepicker02'><div class='col-6 m-input-cal'><label for='job-date-from' class='form-label'>시작날짜</label><input type='text' class='form-control job-date-from' value='2024/02/02' id='date-from'></div><div class='col-6 m-input-cal'><label for='job-date-to' class='form-label'>종료날짜</label><input type='text' class='form-control job-date-to' value='2024/02/28' id='date-to'></div></div><div class='col-2  btn-addOn'><span class='form-label no-txt'></span>"
-						+"<button class='btn btn-primary w-100 btn-more-one add' type='button' title='경력 추가' onclick='btnCareer(this,\"addbtn\");'><i class='bi bi-plus-circle-dotted'></i></button>"
-						+"<button class='btn btn-secondary w-100 btn-more-one remove' type='button' title='경력 삭제' onclick='btnCareer(this,\"removebtn\");'><i class='bi bi-dash-circle-dotted'></i></button></div></div></li>"; */
-				
-				if(cnt<1){
-					
-				}
 			}else if(flag == 'removebtn'){
-				if(cnt>1){
-					<%carrboxNum--; %>
-					target.parentNode.parentNode.remove();
-				};
-					
-			}else{
-				
-			}
+				<%carrboxNumStr--; %>
+				careerTag.lastElementChild.remove();
+			}else{}
 			
-			if(cnt == 3){
-				let btnRemove = document.querySelector(".btn-more-one.remove");//.disabled=true;
+			cnt = careerTag.children.length;
+			// 버튼 disabled 처리
+			let btnMoreOneParent = target.parentElement;	//.col-2.btn-addOn
+			if(cnt>0){
+				btnMoreOneParent.classList.add('btn-addOn');
+				addBtn.disabled=false;
+				removeBtn.disabled=false;
+			}
+			if(cnt==3){
+				addBtn.disabled=true;
+			}
+			if(cnt==1){
+				removeBtn.disabled=true;
 			}
 			
 			//동적 생성된 요소에 datepicker 사용하기
@@ -699,16 +710,6 @@ String cp = request.getContextPath();
 					}
 				});
 			});
-			
-			// 체크박스 ArrayList;
-			/* var checkArr = new Array;
-			$("input[name='skillCheck']:checked").each(function(idx)
-			{
-				checkArr.push($(this).val());
-				
-				console.log(checkArr);
-			}); */
-			
 		});
 	</script>
 </html>

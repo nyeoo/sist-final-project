@@ -18,8 +18,9 @@ public class MemberDTO
 	private List<CareerDTO> careers;	//나의 경력
 	
 	private List<String> jobNames; 		// 직무명
-	private List<String> startDates;		// 시작일
+	private List<String> startDates;	// 시작일
 	private List<String> endDates;		// 종료일
+	private List<String> comNames;		// 회사명
 	
 	
 	// getter / setter 
@@ -167,6 +168,14 @@ public class MemberDTO
 	public void setEndDates(List<String> endDates)
 	{
 		this.endDates = endDates;
+	}
+	public List<String> getComNames()
+	{
+		return comNames;
+	}
+	public void setComNames(List<String> comNames)
+	{
+		this.comNames = comNames;
 	}
 	
 	

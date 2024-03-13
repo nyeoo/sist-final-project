@@ -11,7 +11,6 @@ public class CareerDTO
 	private String level;										// 레벨
 	
 	// getter / setter 
-	
 	public String getStartDate()
 	{
 		return startDate;

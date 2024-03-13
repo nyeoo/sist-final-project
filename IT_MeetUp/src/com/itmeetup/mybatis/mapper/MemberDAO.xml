@@ -80,26 +80,33 @@
 		SELECT MY_SKILL_SEQ.NEXTVAL, TEMP.* FROM(
 		<foreach collection="hopeskills" item="skill" index="index" separator="UNION ALL ">
 		SELECT #{skill} AS MS_SK_CODE, (SELECT NVL(MAX(MEM_CODE), 0)
-										FROM (SELECT * 
-										    FROM MEMBER
-										    ORDER BY ROWNUM DESC)
+										FROM (SELECT *
+										      FROM (SELECT *
+										            FROM MEMBER
+										            ORDER BY TO_NUMBER(SUBSTR(MEM_CODE,5)))
+										      ORDER BY ROWNUM DESC
+										    )
 										WHERE ROWNUM = 1) AS MS_MEM_CODE
 		FROM DUAL
 		</foreach>) TEMP
 	</update>
 	
 	<!-- 나의경력 추가 쿼리문 -->
+	<!-- /MS_MEM_CODE: 마지막 번호조회하여 부여 -->
 	<update id="addCareer" parameterType="java.util.List">
-		INSERT INTO MY_CAREER(MC_NO, MC_START_DATE, MC_END_DATE, MC_CERTIFICATE, MC_REG_DATE, MC_JOB_CODE, MC_MEM_CODE)
+		INSERT INTO MY_CAREER(MC_NO, MC_START_DATE, MC_END_DATE, MC_CERTIFICATE, MC_REG_DATE, MC_COM_NAME, MC_JOB_CODE, MC_MEM_CODE)
 		SELECT MY_CAREER_SEQ.NEXTVAL, TEMP.* FROM(
 		<foreach collection="careerList" item="career" index="index" separator="UNION ALL ">
 		SELECT TO_DATE(#{career.startDate}, 'YYYY-MM-DD')
 		, TO_DATE(#{career.endDate}, 'YYYY-MM-DD'), NULL
-		, SYSDATE, #{career.jobName}, (SELECT NVL(MAX(MEM_CODE), 0)
-										FROM (SELECT * 
-										    FROM MEMBER
-										    ORDER BY ROWNUM DESC)
-										WHERE ROWNUM = 1) AS MS_MEM_CODE
+		, SYSDATE, #{career.comName} AS MC_COM_NAME, #{career.jobName} AS MC_JOB_CODE, (SELECT NVL(MAX(MEM_CODE), 0)
+																						FROM (SELECT *
+																						      FROM (SELECT *
+																						            FROM MEMBER
+																						            ORDER BY TO_NUMBER(SUBSTR(MEM_CODE,5)))
+																						      ORDER BY ROWNUM DESC
+																						    )
+																						WHERE ROWNUM = 1) AS MS_MEM_CODE
 		FROM DUAL
 		</foreach>) TEMP
 	</update>
@@ -130,22 +137,6 @@
 		ON PI.PI_MEM_CODE = MB.MEM_CODE
 		WHERE PI.PI_MEM_CODE = #{piMemCode} AND PI.PI_PW = #{piPw}
 	</select>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 </mapper>
