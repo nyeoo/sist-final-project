@@ -4,6 +4,7 @@
 package com.itmeetup.mybatis;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -129,18 +130,39 @@ public class MemberController
 	@RequestMapping(value = "/joininsert.action", method = RequestMethod.GET)
 	public String join(MemberDTO member)
 	{
+		// 개인정보 입력
 		IMemberDAO dao = sqlSession.getMapper(IMemberDAO.class);
 		dao.addMember(member);
 		
 		// 프로젝트 희망 기술 입력
 		List<String> hopeskills = member.getHopeskills();
-				
-		/*
-		 * for(String code : hopeskills) { System.out.println(code); }
-		 */
+		for(String code : hopeskills) { System.out.println(code); }
 		dao.addSkill(hopeskills);
+
+		//System.out.println("1. 경력 입력 시작");
+		List<CareerDTO> careerList = new ArrayList<CareerDTO>();
+		List<String> jobNames = member.getJobNames();
+		List<String> startDates = member.getStartDates();
+		List<String> endDates = member.getEndDates();
 		
-		return "redirect:/Content/ProjectLounge/PostList_ju.jsp";
+		for(int i=0; i<jobNames.size(); i++) {
+			//System.out.println("1-2. 경력 입력 배열구성 중: " + i);
+			CareerDTO careerItem = new CareerDTO();
+			careerItem.setJobName(jobNames.get(i));
+			careerItem.setStartDate(startDates.get(i));
+			careerItem.setEndDate(endDates.get(i));
+			
+			//System.out.println(jobNames.get(i) + " " + startDates.get(i) + " " + endDates.get(i));
+			careerList.add(careerItem);
+		}
+		//System.out.println("2. 경력 입력을 위한 배열구성 완료");
+		dao.addCareer(careerList);
+		
+		//for(CareerDTO code : careerList) { System.out.println(code.getJobName() + " / " + code.getStartDate() + " / " +  code.getEndDate()); }
+		//System.out.println("3. 완료");
+		
+		//return "redirect:/Content/ProjectLounge/PostList_ju.jsp";
+		return "/projectList.action";
 	}
 	
 	// 아이디 중복 검사

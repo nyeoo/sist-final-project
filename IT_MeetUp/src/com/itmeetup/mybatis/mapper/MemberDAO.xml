@@ -22,7 +22,7 @@
 		WHERE AD_ID=#{piId} AND AD_PW=#{piPw}
 	</select>
 	
-	<!-- 메일 존재여부 조회 쿼리문 -->
+	<!-- 매일 존재여부 조회 쿼리문 -->
 	<select id="checkMail" parameterType="java.lang.String" resultType="java.lang.Integer">
 		SELECT COUNT(*)
 		FROM PERSONAL_INFO
@@ -87,6 +87,23 @@
 		FROM DUAL
 		</foreach>) TEMP
 	</update>
+	
+	<!-- 나의경력 추가 쿼리문 -->
+	<update id="addCareer" parameterType="java.util.List">
+		INSERT INTO MY_CAREER(MC_NO, MC_START_DATE, MC_END_DATE, MC_CERTIFICATE, MC_REG_DATE, MC_JOB_CODE, MC_MEM_CODE)
+		SELECT MY_CAREER_SEQ.NEXTVAL, TEMP.* FROM(
+		<foreach collection="careerList" item="career" index="index" separator="UNION ALL ">
+		SELECT TO_DATE(#{career.startDate}, 'YYYY-MM-DD')
+		, TO_DATE(#{career.endDate}, 'YYYY-MM-DD'), NULL
+		, SYSDATE, #{career.jobName}, (SELECT NVL(MAX(MEM_CODE), 0)
+										FROM (SELECT * 
+										    FROM MEMBER
+										    ORDER BY ROWNUM DESC)
+										WHERE ROWNUM = 1) AS MS_MEM_CODE
+		FROM DUAL
+		</foreach>) TEMP
+	</update>
+	
 	
 	<!-- ==[ 기능 ]== -->
 	<!-- 보유기술 추가 쿼리문 -->
