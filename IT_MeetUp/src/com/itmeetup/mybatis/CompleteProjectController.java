@@ -20,7 +20,7 @@ public class CompleteProjectController
                                   @RequestParam(required = false) String category,
                                   Model model) {
 
-        // MyBatis Mapper 인터페이스를 이용하여 DAO 생성
+    	// MyBatis Mapper 인터페이스를 이용하여 DAO 생성
         ICompleteProjectDAO dao = sqlSession.getMapper(ICompleteProjectDAO.class);
         
         //System.out.println("pageNum: " + pageNum);
@@ -77,6 +77,11 @@ public class CompleteProjectController
     @RequestMapping(value = "/completeprojectdetail.action", method = RequestMethod.GET)
     public String completeProjectDetail(@RequestParam(required = false) String cpCode,
             Model model) {
+    	
+    	// MyBatis Mapper 인터페이스를 이용하여 DAO 생성
+        ICompleteProjectDAO dao = sqlSession.getMapper(ICompleteProjectDAO.class);
+        
+        model.addAttribute("project", dao.projectDetail(cpCode));
     	
     	return "/Content/ProjectLounge/CompleteProjectDetail.jsp";
     }

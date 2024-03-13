@@ -18,8 +18,8 @@ String cp = request.getContextPath();
 <meta name="keywords" content="IT 프로젝트 모집, 사이드 프로젝트 진행">
 
 <!-- css -->
-<link rel="stylesheet" href="<%=cp %>/asset/css/style.css">
-<link rel="stylesheet" href="<%=cp %>/asset/css/layout_bny.css">
+<link rel="stylesheet" href="<%=cp%>/asset/css/style.css">
+<link rel="stylesheet" href="<%=cp%>/asset/css/layout_bny.css">
 
 <!-- font-awesome -->
 <script src="https://kit.fontawesome.com/81ca059e0e.js"
@@ -38,36 +38,44 @@ String cp = request.getContextPath();
 			<!-- 프로젝트 안내 -->
 			<div class="section">
 				<div class="container-xl">
-					<span class="project-title">지역 기반의 거래로 안전하고 편리한 중고 물품 거래 서비스</span>
+					<span class="project-title">${project.title }</span>
 					<hr class="title-hr">
 					<div class="intro-head">
 						<div class="intro-detail">
 							<!-- 스와이퍼 -->
 							<div class="swiper mySwiper intro-imgbox monitor">
 								<div class="swiper-wrapper">
-									<div class="swiper-slide">
-										<img src="../../asset/images/sub/img_project.PNG" alt="웹 이미지"
-											class="intro-img">
-									</div>
-									<div class="swiper-slide">
-										<img src="../../asset/images/sub/img_project2.PNG" alt="웹 이미지"
-											class="intro-img">
-									</div>
-									<div class="swiper-slide">
-										<img src="../../asset/images/sub/img_project3.PNG" alt="웹 이미지"
-											class="intro-img">
-									</div>
+									<c:if test="${not empty project.img1}">
+										<div class="swiper-slide">
+											<img src="<%=cp %>/${project.img1}" alt="웹 이미지"
+												class="intro-img">
+										</div>
+									</c:if>
+									<c:if test="${not empty project.img2}">
+										<div class="swiper-slide">
+											<img src="<%=cp %>/${project.img2}" alt="웹 이미지"
+												class="intro-img">
+										</div>
+									</c:if>
+									<c:if test="${not empty project.img3}">
+										<div class="swiper-slide">
+											<img src="<%=cp %>/${project.img3}" alt="웹 이미지"
+												class="intro-img">
+										</div>
+									</c:if>
+									<c:if
+										test="${empty project.img1 && empty project.img2 && empty project.img3}">
+										<div class="swiper-slide">
+											<img src="<%=cp %>/asset/images/sub/img_noImg.png" alt="웹 이미지"
+												class="intro-img">
+										</div>
+									</c:if>
 								</div>
 								<div class="swiper-button-next"></div>
 								<div class="swiper-button-prev"></div>
 							</div>
 							<div class="intro-detail-description">
-								<p>국가원로자문회의의 조직·직무범위 기타 필요한 사항은 법률로 정한다. 대통령은 내우·외환·천재·지변 또는
-									중대한 재정·경제상의 위기에 있어서 국가의 안전보장 또는 공공의 안녕질서를 유지하기 위하여 긴급한 조치가 필요하고
-									국회의 집회를 기다릴 여유가 없을 때에 한하여 최소한으로 필요한 재정·경제상의 처분을 하거나 이에 관하여 법률의
-									효력을 가지는 명령을 발할 수 있다. 헌법개정은 국회재적의원 과반수 또는 대통령의 발의로 제안된다. 재의의 요구가
-									있을 때에는 국회는 재의에 붙이고, 재적의원과반수의 출석과 출석의원 3분의 2 이상의 찬성으로 전과 같은 의결을
-									하면 그 법률안은 법률로서 확정된다.</p>
+								<p>${project.content }</p>
 							</div>
 						</div>
 					</div>
@@ -89,7 +97,7 @@ String cp = request.getContextPath();
 								<div class="d-flex member-box">
 									<div class="d-flex member">
 										<i class="fa-solid fa-crown crown"></i> <img
-											src="../../asset/images/sub/img_profile.jpg"
+											src="<%=cp%>/asset/images/sub/img_profile.jpg"
 											class="member-img" /> <span class="nickname">닉네임이길면어떻</span>
 									</div>
 									<div class="d-flex member">
@@ -119,7 +127,7 @@ String cp = request.getContextPath();
 								<div class="d-flex member-box">
 									<div class="d-flex member none-event">
 										<i class="fa-solid fa-circle-user no-profile-lg no-eva"></i> <span
-											class="nickname">평가안함</span>
+											class="nickname">팀원</span>
 									</div>
 									<div class="d-flex member">
 										<i class="fa-solid fa-circle-user no-profile-lg"></i> <span
@@ -347,68 +355,84 @@ String cp = request.getContextPath();
 											<td class="text-center">기획안</td>
 											<td class="text-center">2024.03.15 ~ 2024.03.17</td>
 											<td class="text-center">팀원1</td>
-											<td><div class="language-box justify-content-center"><div class="badge-language ico_Svelte" data-bs-toggle="tooltip" data-bs-placement="top"
-											data-bs-custom-class="custom-tooltip"
-											data-bs-title="스킬이름"></div></div></td>
+											<td><div class="language-box justify-content-center">
+													<div class="badge-language ico_Svelte"
+														data-bs-toggle="tooltip" data-bs-placement="top"
+														data-bs-custom-class="custom-tooltip" data-bs-title="스킬이름"></div>
+												</div></td>
 										</tr>
 										<tr>
 											<td class="text-center">요구분석</td>
 											<td class="text-center">2024.03.15 ~ 2024.03.17</td>
 											<td class="text-center">팀원2</td>
-											<td><div class="language-box justify-content-center"><div class="badge-language ico_Svelte" data-bs-toggle="tooltip" data-bs-placement="top"
-											data-bs-custom-class="custom-tooltip"
-											data-bs-title="스킬이름"></div></div></td>
+											<td><div class="language-box justify-content-center">
+													<div class="badge-language ico_Svelte"
+														data-bs-toggle="tooltip" data-bs-placement="top"
+														data-bs-custom-class="custom-tooltip" data-bs-title="스킬이름"></div>
+												</div></td>
 										</tr>
 										<tr>
 											<th rowspan="2" scope="row" class="text-center">설계</th>
 											<td class="text-center">스토리보드</td>
 											<td class="text-center">2024.03.15 ~ 2024.03.17</td>
 											<td class="text-center">팀원3</td>
-											<td><div class="language-box justify-content-center"><div class="badge-language ico_Svelte" data-bs-toggle="tooltip" data-bs-placement="top"
-											data-bs-custom-class="custom-tooltip"
-											data-bs-title="스킬이름"></div></div></td>
+											<td><div class="language-box justify-content-center">
+													<div class="badge-language ico_Svelte"
+														data-bs-toggle="tooltip" data-bs-placement="top"
+														data-bs-custom-class="custom-tooltip" data-bs-title="스킬이름"></div>
+												</div></td>
 										</tr>
 										<tr>
 											<td class="text-center">순서도</td>
 											<td class="text-center">2024.03.15 ~ 2024.03.17</td>
 											<td class="text-center">팀원1</td>
-											<td><div class="language-box justify-content-center"><div class="badge-language ico_Svelte" data-bs-toggle="tooltip" data-bs-placement="top"
-											data-bs-custom-class="custom-tooltip"
-											data-bs-title="스킬이름"></div></div></td>
+											<td><div class="language-box justify-content-center">
+													<div class="badge-language ico_Svelte"
+														data-bs-toggle="tooltip" data-bs-placement="top"
+														data-bs-custom-class="custom-tooltip" data-bs-title="스킬이름"></div>
+												</div></td>
 										</tr>
 										<tr>
 											<th rowspan="2" scope="row" class="text-center">구현</th>
 											<td class="text-center">프론트개발</td>
 											<td class="text-center">2024.03.15 ~ 2024.03.17</td>
 											<td class="text-center">팀원2</td>
-											<td><div class="language-box justify-content-center"><div class="badge-language ico_Svelte" data-bs-toggle="tooltip" data-bs-placement="top"
-											data-bs-custom-class="custom-tooltip"
-											data-bs-title="스킬이름"></div></div></td>
+											<td><div class="language-box justify-content-center">
+													<div class="badge-language ico_Svelte"
+														data-bs-toggle="tooltip" data-bs-placement="top"
+														data-bs-custom-class="custom-tooltip" data-bs-title="스킬이름"></div>
+												</div></td>
 										</tr>
 										<tr>
 											<td class="text-center">백엔드개발</td>
 											<td class="text-center">2024.03.15 ~ 2024.03.17</td>
 											<td class="text-center">팀원3</td>
-											<td><div class="language-box justify-content-center"><div class="badge-language ico_Svelte" data-bs-toggle="tooltip" data-bs-placement="top"
-											data-bs-custom-class="custom-tooltip"
-											data-bs-title="스킬이름"></div></div></td>
+											<td><div class="language-box justify-content-center">
+													<div class="badge-language ico_Svelte"
+														data-bs-toggle="tooltip" data-bs-placement="top"
+														data-bs-custom-class="custom-tooltip" data-bs-title="스킬이름"></div>
+												</div></td>
 										</tr>
 										<tr>
 											<th rowspan="2" scope="row" class="text-center">테스트</th>
 											<td class="text-center">피드백</td>
 											<td class="text-center">2024.03.15 ~ 2024.03.17</td>
 											<td class="text-center">팀원1</td>
-											<td><div class="language-box justify-content-center"><div class="badge-language ico_Svelte" data-bs-toggle="tooltip" data-bs-placement="top"
-											data-bs-custom-class="custom-tooltip"
-											data-bs-title="스킬이름"></div></div></td>
+											<td><div class="language-box justify-content-center">
+													<div class="badge-language ico_Svelte"
+														data-bs-toggle="tooltip" data-bs-placement="top"
+														data-bs-custom-class="custom-tooltip" data-bs-title="스킬이름"></div>
+												</div></td>
 										</tr>
 										<tr>
 											<td class="text-center">QA</td>
 											<td class="text-center">2024.03.15 ~ 2024.03.17</td>
 											<td class="text-center">팀원2</td>
-											<td><div class="language-box justify-content-center"><div class="badge-language ico_Svelte" data-bs-toggle="tooltip" data-bs-placement="top"
-											data-bs-custom-class="custom-tooltip"
-											data-bs-title="스킬이름"></div></div></td>
+											<td><div class="language-box justify-content-center">
+													<div class="badge-language ico_Svelte"
+														data-bs-toggle="tooltip" data-bs-placement="top"
+														data-bs-custom-class="custom-tooltip" data-bs-title="스킬이름"></div>
+												</div></td>
 										</tr>
 									</tbody>
 								</table>
@@ -430,10 +454,10 @@ String cp = request.getContextPath();
 	<!-- end wrapper -->
 
 	<!-- script -->
-	<script src="<%=cp %>/asset/js/jquery-3.5.1-min.js"></script>
-	<script src="<%=cp %>/asset/js/jquery-ui.js"></script>
-	<script src="<%=cp %>/asset/js/bootstrap.bundle.min.js"></script>
-	<script src="<%=cp %>/asset/js/common.js"></script>
+	<script src="<%=cp%>/asset/js/jquery-3.5.1-min.js"></script>
+	<script src="<%=cp%>/asset/js/jquery-ui.js"></script>
+	<script src="<%=cp%>/asset/js/bootstrap.bundle.min.js"></script>
+	<script src="<%=cp%>/asset/js/common.js"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 	<script>

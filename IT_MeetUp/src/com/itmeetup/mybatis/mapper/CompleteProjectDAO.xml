@@ -32,5 +32,13 @@
 		SELECT CAT_CODE AS CATCODE, CAT_NAME AS CATNAME
 		FROM CATEGORY
  	</select>
+ 	<!-- 완료 프로젝트 상세 페이지 -->
+ 	<select id="projectDetail" resultType="com.itmeetup.mybatis.CompleteProjectDTO">
+		SELECT F.FINAL_NAME AS TITLE, F.FINAL_INTRO AS CONTENT, F.FINAL_IMG_1 AS IMG1, F.FINAL_IMG_2 AS IMG2, F.FINAL_IMG_3 IMG3, O.OP_TEAM_NAME AS TEAMNAME
+		FROM FINAL_INFO F JOIN OPEN_PROJECT O
+                  ON F.FI_OP_CODE = O.OP_CODE
+		WHERE F.FI_OP_CODE = #{cpCode}
+ 	</select>
+
  	
  </mapper>

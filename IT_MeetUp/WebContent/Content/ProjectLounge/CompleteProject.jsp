@@ -115,10 +115,13 @@
 	            $(location).attr("href", "completeproject.action?category=" + selectedValue);
 	        });
 			
+			
+			
+			
 			$('.cp-card').click(function()
 			{
 				// 각 프로젝트의 op_code 가져오기
-				var cpCode = $('#code').val();
+				var cpCode = $(this).find('#code').val();
 				
 				// 완료 프로젝트 상세 페이지로 이동할 때 코드를 넘겨주기
 				$(location).attr("href", "completeprojectdetail.action?cpCode=" + cpCode);
