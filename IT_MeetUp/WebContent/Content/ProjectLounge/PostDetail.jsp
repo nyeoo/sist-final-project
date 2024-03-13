@@ -108,7 +108,7 @@ String cp = request.getContextPath();
 											<strong>종료일:</strong> ${choicProList.end}
 										</p>
 										<p>
-											<strong>예상 기간:</strong> hmm
+											<strong>예상 기간:</strong> ${choicProList.day}개월
 										</p>
 									</div>
 								</div>
@@ -184,10 +184,12 @@ String cp = request.getContextPath();
 												<td>${pick.jName }</td>
 												<td>${pick.getRegDate() }</td>
 												
-												<td><button type="button" class="btn btn-primary" id="sinchunInfo"
+												<td><button type="button" class="btn btn-primary sinchunInfo" id="sinchunInfo"
 														data-bs-target="#nameCard" data-bs-toggle="modal">
 														<i class="bi bi-person-square"></i>
-													</button></td>
+													</button>
+													<input type="hidden" id="memberCode" name ="memberCode" value="${pick.memCode}" >
+													</td>
 												<td>
 													<form action="updatePick.action" method="get" id="pickForm${status.index +1}">
 													<input type="hidden" value="${pick.getPano() }" name="pano">
@@ -199,6 +201,7 @@ String cp = request.getContextPath();
 													</form>
 												</td>
 											</tr>
+										
 										</c:forEach>
 									</table>
 								</div>
@@ -245,7 +248,7 @@ String cp = request.getContextPath();
 								</div>
 								<div class="modal-body">이 사람의 정보를 보시겠습니까?</div>
 								<div class="modal-footer">
-									<button type="button" class="btn btn-primary"
+									<button type="button" class="btn btn-primary-nameCard"
 										data-bs-target="#sinchungpeople" data-bs-toggle="modal" id="ok">네</button>
 									<button type="button" class="btn btn-secondary"
 										data-bs-target="#sinchungpeople" data-bs-toggle="modal" id="n">아니오</button>
@@ -550,7 +553,6 @@ String cp = request.getContextPath();
 		</section>
 		<!-- //바디영역 -->
 
-
 		<!-- 푸터영역 -->
 		<c:import url="../Components/Footer.jsp"></c:import>
 		<!-- //푸터영역 -->
@@ -565,6 +567,20 @@ String cp = request.getContextPath();
 	<script>
 		$(function()
 		{
+			var memCode = "";
+			$(".sinchunInfo").on("click",function(){
+				memCode = $(this).next("input").val();
+			});
+
+			
+			$(".btn-primary-nameCard").click(function()
+			{
+				//var memCode = $('#memberCode').val();
+				
+				$(location).attr("href", "namecard.action?memCode=" + memCode);
+			});
+	
+	//-------------------------------------------------------------------------		
 			$("#singo").click(function()
 			{
 				alert("신고했습니다. 😁");
@@ -630,6 +646,7 @@ String cp = request.getContextPath();
 		            message.hide(); 
 		        }
 	    	});
+			
 			 
 		});
 	</script>

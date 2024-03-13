@@ -3,14 +3,11 @@ package com.itmeetup.mybatis;
 public class PickDTO
 {
 	//주요속성
-	private String tjno ,nickName , RegDate,CheckDate,memCode
+	private String tjno ,nickName , RegDate,CheckDate, memCode
 	  ,jCode ,jName,tjnum,  pano , code;
 
 
 	// getter /setter
-	
-	
-	
 	public String getTjno()
 	{
 		return tjno;

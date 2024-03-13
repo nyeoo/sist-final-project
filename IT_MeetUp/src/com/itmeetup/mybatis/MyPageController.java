@@ -89,10 +89,10 @@ public class MyPageController
 
 	// ========================================[네임카드]========================================
 	@RequestMapping(value = "/namecard.action", method = RequestMethod.GET)
-	public String namecardForm(HttpSession session, Model model)
+	public String namecardForm(HttpSession session, Model model, String memCode)
 	{
-		MemberDTO memberStr = (MemberDTO) session.getAttribute("loginDTO"); // 세션에서 가져온 멤버
-		String memCode = memberStr.getPiMemCode();
+		//MemberDTO memberStr = (MemberDTO) session.getAttribute("loginDTO"); // 세션에서 가져온 멤버
+		//String memCode = memberStr.getPiMemCode();
 		
 		// 회원 아이디, 회원 닉네임, 짧은 소개글, 직무명
 		INameCardDAO namCardDAO = sqlSession.getMapper(INameCardDAO.class);

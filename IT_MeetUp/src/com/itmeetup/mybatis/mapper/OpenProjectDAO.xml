@@ -58,7 +58,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="choiceProList" resultType="com.itmeetup.mybatis.OpenProjectDTO" >
 			SELECT "CODE", "CATEGORY", "TITLE", "MOJIBSU", "CONTENT"
        		,"VIEW", "START", "END" ,"TEAMNAME", "SIDO"
-       		,"SIGG", "NICKNAME", "MEET","CAREER", "REGDATE" ,"DAY","MEMCODE"
+       		,"SIGG", "NICKNAME", "MEET","CAREER", "REGDATE"
+       		, TRUNC(MONTHS_BETWEEN("END", "START"), 0) "DAY"
+       		,"MEMCODE"
 			FROM PROJECT_INFO
 			WHERE CODE = #{code}
 	</select>
