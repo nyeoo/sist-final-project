@@ -5,8 +5,8 @@ package com.itmeetup.mybatis;
 
 public class ReportListDTO
 {
-	private String repTitle, repDate, repFile;	// 업무보고 제목, 보고일 ,보고파일	
-	private String sdOpCode, assName, piNickName, ouName, ssName, ssCode, repAssCode; 	// 개설요청코드 , 업무명, 닉네임, 산출물명, 일정단계명, 일정단계코드, 업무할당 코드
+	private String repTitle, repDate, repFile, memCode;	// 업무보고 제목, 보고일 ,보고파일	
+	private String sdOpCode, assName, piNickName, ouName, ssName, ssCode, assCode; 	// 개설요청코드 , 업무명, 닉네임, 산출물명, 일정단계명, 일정단계코드, 업무할당 코드
 	private String wsName, appDate, pcCode; 	// 업무결재 상태, 업무결재 일자
 	private int repNumber;		//업무보고 번호
 	
@@ -23,13 +23,21 @@ public class ReportListDTO
 	{
 		return repDate;
 	}
-	public String getRepAssCode()
+	public String getMemCode()
 	{
-		return repAssCode;
+		return memCode;
 	}
-	public void setRepAssCode(String repAssCode)
+	public void setMemCode(String memCode)
 	{
-		this.repAssCode = repAssCode;
+		this.memCode = memCode;
+	}
+	public String getassCode()
+	{
+		return assCode;
+	}
+	public void setassCode(String repAssCode)
+	{
+		this.assCode = repAssCode;
 	}
 	public void setRepDate(String repDate)
 	{

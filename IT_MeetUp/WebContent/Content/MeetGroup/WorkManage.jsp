@@ -195,10 +195,7 @@ String cp = request.getContextPath();
 																				<c:if
 																					test="${workAssignment.ssName eq innerWorkAssignment.ssName}">
 																					<tr class="range-datepicker">
-																						<td><input type="button"
-																							class="form-control form-control-plaintext"
-																							id="validationCustom01"
-																							value="${innerWorkAssignment.ouName}"></td>
+																						<td>${innerWorkAssignment.ouName}</td>
 																						<td>${innerWorkAssignment.assName}</td>
 																						<td>${innerWorkAssignment.assDate}</td>
 																						<td>${innerWorkAssignment.assStartDate}</td>
@@ -212,11 +209,8 @@ String cp = request.getContextPath();
 																									<i class="bi bi-three-dots-vertical"></i>
 																								</button>
 																								<div class="dropdown-menu">
-																									<a class="dropdown-item"
-																										href="javascript:void(0);"
-																										data-bs-toggle="modal"
-																										data-bs-target="#staticBackdrop2"> <i
-																										class="bi bi-pencil-square"></i> 업무보고
+																									<a class="dropdown-item" id="repBtn"> 
+																									<i class="bi bi-pencil-square"></i> 업무보고
 																									</a> <a class="dropdown-item"
 																										href="javascript:void(0);"> <i
 																										class="bi bi-trash3"></i>할당삭제
@@ -396,30 +390,6 @@ String cp = request.getContextPath();
 				<!-- 탭 -->
 
 
-				<!-- Modal2 -->
-				<div class="modal fade" id="staticBackdrop2"
-					data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-					aria-labelledby="staticBackdropLabel" aria-hidden="true">
-					<div class="modal-dialog">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title" id="staticBackdropLabel">업무보고</h5>
-								<button type="button" class="btn-close" data-bs-dismiss="modal"
-									aria-label="Close"></button>
-							</div>
-							<div class="modal-body">
-								<c:import url="../MeetGroup/WorkReport.jsp"></c:import>
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary"
-									data-bs-dismiss="modal">취소</button>
-								<button type="button" class="btn btn-primary">제출</button>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- //Modal2 -->
-
 				<!-- Modal3 -->
 				<div class="modal fade" id="staticBackdrop3"
 					data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
@@ -515,6 +485,11 @@ String cp = request.getContextPath();
 			$("#assBtn").click(function()
 			{
 				window.location.href = "<%=cp%>/assignment.action?memCode=${sessionScope.loginDTO.piMemCode}";
+			});
+			
+			$("#repBtn").click(function()
+			{
+				window.location.href = "<%=cp%>/report.action?memCode=${sessionScope.loginDTO.piMemCode}";
 			});
 			
 			$("#input:checkbox[name='useskills']:checked").each(function(idx)

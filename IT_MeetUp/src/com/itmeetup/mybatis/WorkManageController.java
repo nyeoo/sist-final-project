@@ -21,8 +21,7 @@ public class WorkManageController
 		IScheduleDAO scheduleDAO = sqlSession.getMapper(IScheduleDAO.class);
 		IAssignmentListDAO assignmentDAO = sqlSession.getMapper(IAssignmentListDAO.class);
 		IReportListDAO reportDAO = sqlSession.getMapper(IReportListDAO.class);
-		IMemberDAO skillCategoryDAO = sqlSession.getMapper(IMemberDAO.class); // 스킬카테고리 select
-		IMemberDAO skillsDAO = sqlSession.getMapper(IMemberDAO.class); // 스킬 리스트
+
 		
 		String opCode = assignmentDAO.searchOpCode(memCode); // 회원의 개설요청 코드
 		String pcCode = assignmentDAO.searchPcCode(memCode); // 회원의 참여확인 코드
@@ -47,11 +46,6 @@ public class WorkManageController
 		model.addAttribute("reportOutputList", reportDAO.reportOutputList(opCode));
 		model.addAttribute("reportPersonList", reportDAO.reportPersonList(opCode));
 		
-		SkillProcessor skillProcessor = new SkillProcessor(); // 스킬 리스트 조회 및 처리
-		model.addAttribute("skills", skillsDAO.skills());
-		model.addAttribute("skillCategorys", skillCategoryDAO.skillCategorys());
-		model.addAttribute("skillProcessor", skillProcessor.createSkillMapping());
-
 		return "/Content/MeetGroup/WorkManage.jsp";
 	}
 	
@@ -73,6 +67,28 @@ public class WorkManageController
 		model.addAttribute("reportPersonList", reportDAO.reportPersonList(opCode));
 
 		return "/Content/MeetGroup/WorkAssignment.jsp";
+	}
+	
+	@SuppressWarnings("static-access")
+	@RequestMapping(value = "/report.action", method = { RequestMethod.GET, RequestMethod.POST })
+	public String insertReportView(ModelMap model, String memCode)
+	{
+		IAssignmentListDAO assignmentDAO = sqlSession.getMapper(IAssignmentListDAO.class);
+		
+		IMemberDAO skillCategoryDAO = sqlSession.getMapper(IMemberDAO.class); // 스킬카테고리 select
+		IMemberDAO skillsDAO = sqlSession.getMapper(IMemberDAO.class); // 스킬 리스트
+
+		String opCode = assignmentDAO.searchOpCode(memCode); // 회원의 개설요청 코드
+		
+		model.addAttribute("opCode", opCode);
+		
+		model.addAttribute("skills", skillsDAO.skills());
+		model.addAttribute("skillCategorys", skillCategoryDAO.skillCategorys());
+		
+		SkillProcessor skProcessors = new SkillProcessor();						// 스킬 리스트 조회 및 처리
+		model.addAttribute("skProcessors", skProcessors.createSkillMapping());
+		
+		return "/Content/MeetGroup/WorkReport.jsp";
 	}
 	
 	
