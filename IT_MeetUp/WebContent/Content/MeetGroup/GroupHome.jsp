@@ -274,8 +274,9 @@ String cp = request.getContextPath();
 															<div class="d-flex member-box">
 																<c:forEach var="groupHomeItem" items="${groupHomePlan }">
 																	<div class="d-flex member">
-																		<a href="../MyPage/NameCard.jsp"> <i class="fa-solid fa-circle-user no-profile"></i>
-																		<span class="nickname">${groupHomeItem.piNickName }</span>
+																		<a href="../MyPage/NameCard.jsp"> <i
+																			class="fa-solid fa-circle-user no-profile"></i> <span
+																			class="nickname">${groupHomeItem.piNickName }</span>
 																		</a>
 																	</div>
 																</c:forEach>
@@ -376,8 +377,7 @@ String cp = request.getContextPath();
 					<!-- 평가하기 -->
 					<div class="eval">
 						<button type="button" id="evalInsertBtn" class="btn btn-primary"
-							data-bs-toggle="modal" data-bs-target="#evalInsert" value="평가버튼"
-							onclick="evaluate01()">
+							data-bs-toggle="modal" data-bs-target="#evalInsert" value="평가버튼">
 							<i class="bi bi-plus-lg"></i> 평가하기
 						</button>
 					</div>
@@ -401,35 +401,34 @@ String cp = request.getContextPath();
 													<div class="col-md-12">
 														<div class="mb-3">
 															<table class="table groupPerTbl">
-															
-															<!-- 팀장 -->
+
+																<!-- 팀장 -->
 																<c:forEach var="leaderItem" items="${leaderEval }">
-																<c:if test="${leaderItem.evaqueno == '5' }">
-																	<tr>
-																		<th>${leaderItem.quename }</th>
-																		<c:forEach var="leaderItems" items="${groupLeader }">
-																			<td><input class="form-check-input groupLeader"
-																				type="radio" name="grLeader"
-																				value="${leaderItems.lederPcCode }" />
-																				네.</td>
-																			<td><input class="form-check-input groupLeader"
-																			type="radio" name="grLeader" value="없음"/>
-																			아니요.</td>
-																		</c:forEach>
-																	</tr>
+																	<c:if test="${leaderItem.evaqueno == '5' }">
+																		<tr>
+																			<th>${leaderItem.quename }</th>
+																			<c:forEach var="leaderItems" items="${groupLeader }">
+																				<td><input class="form-check-input groupLeader"
+																					type="radio" name="grLeader"
+																					value="${leaderItems.lederPcCode }" /> 네.</td>
+																				<td><input class="form-check-input groupLeader"
+																					type="radio" name="grLeader" value="없음" /> 아니요.</td>
+																			</c:forEach>
+																		</tr>
 																	</c:if>
 																</c:forEach>
-																
+
 																<c:forEach var="teamItem" items="${teamEval }">
 																	<c:if test="${teamItem.evaqueno == '1' }">
 																		<tr>
 																			<th>${teamItem.quename }</th>
-																			<c:forEach var="groupPersonItem" items="${groupPersonnel }" varStatus="status">
-																				<td>
-																				<input class="form-check-input groupPerson" type="checkbox" name="evalQue1" id="que01_${status.index +1 }"
+																			<c:forEach var="groupPersonItem"
+																				items="${groupPersonnel }" varStatus="status">
+																				<td><input class="form-check-input groupPerson"
+																					type="checkbox" name="evalQue1"
+																					id="que01_${status.index +1 }"
 																					value="${groupPersonItem.pcCode }" />
-																					${groupPersonItem.piNickName }
-																				</td>
+																					${groupPersonItem.piNickName }</td>
 																			</c:forEach>
 																		</tr>
 																	</c:if>
@@ -438,12 +437,13 @@ String cp = request.getContextPath();
 																	<c:if test="${teamItem.evaqueno == '2' }">
 																		<tr>
 																			<th>${teamItem.quename }</th>
-																			<c:forEach var="groupPersonItem" items="${groupPersonnel }" varStatus="status">
-																				<td>
-																				<input class="form-check-input groupPerson" type="checkbox" name="evalQue2" id="que02_${status.index +1 }"
+																			<c:forEach var="groupPersonItem"
+																				items="${groupPersonnel }" varStatus="status">
+																				<td><input class="form-check-input groupPerson"
+																					type="checkbox" name="evalQue2"
+																					id="que02_${status.index +1 }"
 																					value="${groupPersonItem.pcCode }" />
-																					${groupPersonItem.piNickName }
-																				</td>
+																					${groupPersonItem.piNickName }</td>
 																			</c:forEach>
 																		</tr>
 																	</c:if>
@@ -452,12 +452,13 @@ String cp = request.getContextPath();
 																	<c:if test="${teamItem.evaqueno == '3' }">
 																		<tr>
 																			<th>${teamItem.quename }</th>
-																			<c:forEach var="groupPersonItem" items="${groupPersonnel }" varStatus="status">
-																				<td>
-																				<input class="form-check-input groupPerson" type="checkbox" name="evalQue3" id="que03_${status.index +1 }"
+																			<c:forEach var="groupPersonItem"
+																				items="${groupPersonnel }" varStatus="status">
+																				<td><input class="form-check-input groupPerson"
+																					type="checkbox" name="evalQue3"
+																					id="que03_${status.index +1 }"
 																					value="${groupPersonItem.pcCode }" />
-																					${groupPersonItem.piNickName }
-																				</td>
+																					${groupPersonItem.piNickName }</td>
 																			</c:forEach>
 																		</tr>
 																	</c:if>
@@ -466,12 +467,13 @@ String cp = request.getContextPath();
 																	<c:if test="${teamItem.evaqueno == '4' }">
 																		<tr>
 																			<th>${teamItem.quename }</th>
-																			<c:forEach var="groupPersonItem" items="${groupPersonnel }" varStatus="status">
-																				<td>
-																				<input class="form-check-input groupPerson" type="checkbox" name="evalQue4" id="que04_${status.index +1 }"
+																			<c:forEach var="groupPersonItem"
+																				items="${groupPersonnel }" varStatus="status">
+																				<td><input class="form-check-input groupPerson"
+																					type="checkbox" name="evalQue4"
+																					id="que04_${status.index +1 }"
 																					value="${groupPersonItem.pcCode }" />
-																					${groupPersonItem.piNickName }
-																				</td>
+																					${groupPersonItem.piNickName }</td>
 																			</c:forEach>
 																		</tr>
 																	</c:if>
@@ -530,43 +532,82 @@ String cp = request.getContextPath();
 	<script src="https://kit.fontawesome.com/81ca059e0e.js"
 		crossorigin="anonymous"></script>
 	<script>
-	
-	$(document).ready(function() {
-		/* $(".groupPerson").on("click",function(){
-			console.log($(this).val());
-		}) */
-	    // 개설 요청자 닉네임
-	    var leaderNickName = "${leaderNickNames}";
-	    // 이탈자 닉네임
-	    var leaveNickNames = "${leaveNickNames}";
-	    // 바뀐 팀장 닉네임
-	    var changeNickNames = "${changeNickNames}";
+		$(document)
+				.ready(
+						function()
+						{
 
-	    // 만약 leaderNickName이 존재한다면 해당 요소에 아이콘 추가
-	    if (leaderNickName !== "") {
-	        // 각 닉네임 요소에 접근하여 leaderNickName인 경우 아이콘 추가
-	        $(".nickname").each(function() {
-	            if ($(this).text() === leaderNickName) {
-	                $(this).prepend('<i class="fa-solid fa-crown crown"></i>');
-	            }
-	        });
-	    }
-	    else if (leaderNickName === leaveNickNames) 
-	    {
-	    	$(this).find(".crown").remove();
-		}
-	    else if (changeNickNames !== "") {
-	    	if ($(this).text() === changeNickNames) {
-                $(this).prepend('<i class="fa-solid fa-crown crown"></i>');
-            }
-		}
-	    else
-	    {
-	    	$(this).find(".crown").remove();
-	   	}
-	});
-	
+							// 개설 요청자 닉네임
+							var leaderNickName = "${leaderNickNames}";
+							// 이탈자 닉네임
+							var leaveNickNames = "${leaveNickNames}";
+							// 바뀐 팀장 닉네임
+							var changeNickNames = "${changeNickNames}";
 
+							// 만약 leaderNickName이 존재한다면 해당 요소에 아이콘 추가
+							if (leaderNickName !== "")
+							{
+								// 각 닉네임 요소에 접근하여 leaderNickName인 경우 아이콘 추가
+								$(".nickname")
+										.each(
+												function()
+												{
+													if ($(this).text() === leaderNickName)
+													{
+														$(this)
+																.prepend(
+																		'<i class="fa-solid fa-crown crown"></i>');
+													}
+												});
+							} else if (leaderNickName === leaveNickNames)
+							{
+								$(this).find(".crown").remove();
+							} else if (changeNickNames !== "")
+							{
+								if ($(this).text() === changeNickNames)
+								{
+									$(this)
+											.prepend(
+													'<i class="fa-solid fa-crown crown"></i>');
+								}
+							} else
+							{
+								$(this).find(".crown").remove();
+							}
+
+						});
+
+		/* $(document).ready(function() {
+			 // 평가자
+			var evalGroupPcCode = "${evalGroupPcCode}";
+			
+			// 평가원 리스트
+			var groupPersonPcCode = "${groupPersonnel}";
+			
+			// input 태그
+			
+			if (evalGroupPcCode == groupPersonPcCode.val())
+			{
+				$('td').attr('disabled', 'disabled');
+			}
+		});
+		 */
+
+		/* $(document).ready(function()
+		{
+			var evalGroupPcCode = "${evalGroupPcCode }";
+
+			alert(evalGroupPcCode);
+			$(".groupPerson").each(function()
+			{
+				var groupPersonPcCode = $(this).val(); // 현재 체크박스의 value 값을 가져옵니다, 즉 groupPersonItem의 pcCode입니다.
+				if (groupPersonPcCode === evalGroupPcCode)
+				{
+					// pcCode가 사용자의 pcCode와 일치하면, 해당 사용자의 닉네임을 숨깁니다.
+					$(this).closest('td').text('').hide(); // 닉네임을 숨기기 위해 해당 td의 텍스트를 지우고 숨깁니다.
+				}
+			});
+		}); */
 	</script>
 </body>
 

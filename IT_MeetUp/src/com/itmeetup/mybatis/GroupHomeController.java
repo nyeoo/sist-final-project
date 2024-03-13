@@ -113,6 +113,7 @@ public class GroupHomeController
 		dao.evalAdd3(evalua3, evapcCode);
 		dao.evalAdd4(evalua4, evapcCode);
 		
+		// 아니오 눌렀을 때는 함수 안보이게 하기
 		if (!evalua5.contains("없음")) {
 	        dao.evalAdd5(evalua5, evapcCode);
 	    }
