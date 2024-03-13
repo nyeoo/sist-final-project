@@ -52,7 +52,7 @@ String cp = request.getContextPath();
 									<div class="h3 card-title text-center pb-0">업무보고</div>
 									<hr>
 								</div>
-								<!-- <form role="form" action="insertReport.action" method="post"> -->
+								<form role="form" action="insertReport.action" method="post">
 									<!-- 제목 -->
 									<div id="item-1" class="comp_tit ">
 										<div class="m-input-box">
@@ -219,7 +219,7 @@ String cp = request.getContextPath();
 									<button class="btn btn-secondary" id="reSetButton">취소</button>
 								</div>
 								<!-- //제출 및 취소 버튼 -->
-								<!-- </form> -->
+								</form>
 							</div>
 						</div>
 					</div>

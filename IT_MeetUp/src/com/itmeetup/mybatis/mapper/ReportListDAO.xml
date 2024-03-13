@@ -10,26 +10,30 @@
 		resultType="com.itmeetup.mybatis.ReportListDTO">
 		SELECT SD_OP_CODE "sdOpCode"
 		, ASS_NAME "assName"
-		, REP_ASS_CODE "repAssCode"
+		,
+		REP_ASS_CODE "repAssCode"
 		, PI_NICKNAME "piNickName"
 		, OU_NAME "ouName"
 		, SS_NAME "ssName"
 		, SS_CODE "ssCode"
 		, REP_TITLE "repTitle"
-		, REP_NO "repNo"
+		, REP_NO
+		"repNo"
 		, REP_DATE "repDate"
 		, REP_FILE "repFile"
 		, APP_DATE "appDate"
-		, WS_NAME "wsName"
+		,
+		WS_NAME "wsName"
 		, CHARGER "charger"
 		FROM VIEW_REPORT
-		WHERE SD_OP_CODE = #{opCode} AND REP_NO IS NOT NULL
+		WHERE SD_OP_CODE =
+		#{opCode} AND REP_NO IS NOT NULL
 	</select>
 
 	<select id="reportPersonList"
 		resultType="com.itmeetup.mybatis.ReportListDTO">
 		SELECT
-		DISTINCT PI_NICKNAME "piNickName", PC_CODE "pcCode"
+		DISTINCT PI_NICKNAME "piNickName", PC_CODE "pcCode", MEM_CODE "memCode"
 		FROM VIEW_PROCEEDING_PROJECT_PEOPLE
 		WHERE OP_CODE = #{opCode}
 	</select>
@@ -47,5 +51,22 @@
 		ASS.ASS_CODE
 		WHERE SD_OP_CODE = #{opCode}
 	</select>
+
+	<insert id="insertReport"
+		parameterType="com.itmeetup.mybatis.ReportListDTO">
+		INSERT INTO REPORT(REP_NO, REP_TITLE, REP_CONTENT,
+		REP_START_DATE, REP_END_DATE, REP_DATE, REP_ASS_CODE)
+		VALUES(REPORT_SEQ.NEXTVAL, #{repTitle}, #{repContent},
+		TO_DATE(#{repStartDate}, 'YYYY-MM-DD'), TO_DATE(#{repEndDate},
+		'YYYY-MM-DD'), SYSDATE, #{assCode})
+	</insert>
+
+	<insert id="insertActualTech"
+		parameterType="com.itmeetup.mybatis.ReportListDTO">
+		INSERT INTO ACTUAL_TECH(AT_NO, AT_SK_CODE, AT_REP_NO)
+		VALUES(ACTUAL_TECH_SEQ.NEXTVAL, #{skCode}, #{repNumber})
+	</insert>
+
+
 
 </mapper>

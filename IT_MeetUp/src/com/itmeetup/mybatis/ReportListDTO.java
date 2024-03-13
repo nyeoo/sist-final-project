@@ -7,8 +7,8 @@ public class ReportListDTO
 {
 	private String repTitle, repDate, repFile, memCode;	// 업무보고 제목, 보고일 ,보고파일	
 	private String sdOpCode, assName, piNickName, ouName, ssName, ssCode, assCode; 	// 개설요청코드 , 업무명, 닉네임, 산출물명, 일정단계명, 일정단계코드, 업무할당 코드
-	private String wsName, appDate, pcCode; 	// 업무결재 상태, 업무결재 일자
-	private int repNumber;		//업무보고 번호
+	private String wsName, appDate, pcCode, skCode; 	// 업무결재 상태, 업무결재 일자
+	private int repNumber, atNo;		//업무보고 번호
 	
 	// getter / setter 구성
 	public String getRepTitle()
@@ -23,22 +23,6 @@ public class ReportListDTO
 	{
 		return repDate;
 	}
-	public String getMemCode()
-	{
-		return memCode;
-	}
-	public void setMemCode(String memCode)
-	{
-		this.memCode = memCode;
-	}
-	public String getassCode()
-	{
-		return assCode;
-	}
-	public void setassCode(String repAssCode)
-	{
-		this.assCode = repAssCode;
-	}
 	public void setRepDate(String repDate)
 	{
 		this.repDate = repDate;
@@ -50,6 +34,14 @@ public class ReportListDTO
 	public void setRepFile(String repFile)
 	{
 		this.repFile = repFile;
+	}
+	public String getMemCode()
+	{
+		return memCode;
+	}
+	public void setMemCode(String memCode)
+	{
+		this.memCode = memCode;
 	}
 	public String getSdOpCode()
 	{
@@ -99,6 +91,14 @@ public class ReportListDTO
 	{
 		this.ssCode = ssCode;
 	}
+	public String getAssCode()
+	{
+		return assCode;
+	}
+	public void setAssCode(String assCode)
+	{
+		this.assCode = assCode;
+	}
 	public String getWsName()
 	{
 		return wsName;
@@ -115,14 +115,6 @@ public class ReportListDTO
 	{
 		this.appDate = appDate;
 	}
-	public int getRepNumber()
-	{
-		return repNumber;
-	}
-	public void setRepNumber(int repNumber)
-	{
-		this.repNumber = repNumber;
-	}
 	public String getPcCode()
 	{
 		return pcCode;
@@ -131,12 +123,21 @@ public class ReportListDTO
 	{
 		this.pcCode = pcCode;
 	}
-	
-	
-
-	
-	
-		
-	
+	public int getRepNumber()
+	{
+		return repNumber;
+	}
+	public void setRepNumber(int repNumber)
+	{
+		this.repNumber = repNumber;
+	}
+	public int getAtNo()
+	{
+		return atNo;
+	}
+	public void setAtNo(int atNo)
+	{
+		this.atNo = atNo;
+	}
 	
 }

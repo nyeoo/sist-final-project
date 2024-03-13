@@ -203,18 +203,19 @@ String cp = request.getContextPath();
 																						<td>${innerWorkAssignment.piNickName}</td>
 																						<td>
 																							<div class="dropdown">
-																								<button type="button"
-																									class="btn p-0 dropdown-toggle hide-arrow"
-																									data-bs-toggle="dropdown">
-																									<i class="bi bi-three-dots-vertical"></i>
+																								<button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown" id="dropdownToggle_${innerWorkAssignment.charger}">
+																								    <i class="bi bi-three-dots-vertical"></i>
 																								</button>
 																								<div class="dropdown-menu">
-																									<a class="dropdown-item" id="repBtn"> 
-																									<i class="bi bi-pencil-square"></i> 업무보고
-																									</a> <a class="dropdown-item"
+																									<a class="dropdown-item repBtn" id="reportWrite${loop.index}">
+																									    <i class="bi bi-pencil-square"></i> 업무보고
+																									</a>
+																									<a class="dropdown-item"
 																										href="javascript:void(0);"> <i
 																										class="bi bi-trash3"></i>할당삭제
 																									</a>
+																									<input type="hidden" name="assCode" value="${innerWorkAssignment.assCode}">
+																									<input type="hidden" name="assPcCode" value="${innerWorkAssignment.charger}">
 																								</div>
 																							</div>
 																						</td>
@@ -282,7 +283,7 @@ String cp = request.getContextPath();
 														<select class="form-select" aria-label="담당자" title="담당자">
 															<option selected>담당자</option>
 															<c:forEach var="person" items="${reportPersonList}">
-																<option value="${person.piNickName}">${person.piNickName}</option>
+																<option value="${person.pcCode}">${person.piNickName}</option>
 															</c:forEach>
 														</select>
 													</div>
@@ -448,7 +449,7 @@ String cp = request.getContextPath();
 			// 방장일 경우 회원 업무할당가능
 			var PcCode = "${pcCode}"; // 개인의 참여확인코드
 			var leaderPcCode = "${leaderPcCode}"; // 방장의 참여확인코드
-			var leavePcCode = "${leavePcCode}"; // 이탈ㅈ의 참여확인코드
+			var leavePcCode = "${leavePcCode}"; // 이탈자의 참여확인코드
 			var changeleaderPcCode = "${changeLeaderPcCode}"; // 변경된 방장의 회원코드
 
 			var assBtn = document.getElementById('assBtn');
@@ -481,64 +482,36 @@ String cp = request.getContextPath();
 				}
 			});
 			
-			
+			// 업무할당 페이지 이동
 			$("#assBtn").click(function()
 			{
 				window.location.href = "<%=cp%>/assignment.action?memCode=${sessionScope.loginDTO.piMemCode}";
 			});
 			
-			$("#repBtn").click(function()
-			{
-				window.location.href = "<%=cp%>/report.action?memCode=${sessionScope.loginDTO.piMemCode}";
-			});
 			
-			$("#input:checkbox[name='useskills']:checked").each(function(idx)
-					{
-						useskills.push($(this).val());
-					})
-
-					// 기술 체크할떄마다 span 구역에 나오게 함수
-					$(".skill").change(function()
-					{
-						var skilArea = $("#skilArea"); // div 영역 가져오기 
-						/* var skillName = $(this).attr("id") 		  	// 기술이름가져오기 */
-						var skillName = $(this).val() // 기술이름가져오기
-						//alert(skillName);
-
-						// 체크된 기술 
-						var checkSkill = skilArea.find("span");
-						if ($(this).is(":checked"))
-						{
-
-							// 선택된 기술이 5개 미만인 경우에만 추가
-							if (checkSkill.length < 5)
-							{
-								skilArea.append("<span>" + skillName + "&ensp; </span>");
-
-							} else
-							{
-								$(this).prop("checked", false);
-								alert("최대 5개까지 선택 가능합니다.");
-							}
-						} else
-						{
-							// 체크를 해제 하면 해당 기술을 삭제
-							checkSkill.each(function()
-							{
-								if ($(this).text().indexOf(skillName) !== -1)
-									$(this).remove();
-							});
-						}
-						
-
-					});
+			// 업무보고 페이지 이동
+			$(".repBtn").click(function()
+			{
+		        var assCode = $(this).siblings("input[name='assCode']").val(); // 해당 버튼의 assCode 가져오기
+		        var assPcCode = $(this).siblings("input[name='assPcCode']").val();
+		        var memCode = "${sessionScope.loginDTO.piMemCode}"; // 세션에서 memCode 가져오기
+		        console.log(PcCode);
+		        console.log(assPcCode);
+		        if (PcCode == assPcCode)
+				{
+			        window.location.href = "<%=cp%>/report.action?memCode=" + memCode + "&assCode=" + assCode;
+				}
+		        else
+		        {
+		        	alert("사용자에게 할당된 업무가 아닙니다.");
+		        }
+		        
+		        
+		    });
 			
 
 		});
 		
-		
-				 
-		 
 	</script>
 
 
