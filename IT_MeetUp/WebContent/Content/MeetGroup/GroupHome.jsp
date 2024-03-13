@@ -405,7 +405,7 @@ String cp = request.getContextPath();
 																<!-- 팀장 -->
 																<c:forEach var="leaderItem" items="${leaderEval }">
 																	<c:if test="${leaderItem.evaqueno == '5' }">
-																		<tr>
+																		<tr class="leaderTr">
 																			<th>${leaderItem.quename }</th>
 																			<c:forEach var="leaderItems" items="${groupLeader }">
 																				<td><input class="form-check-input groupLeader"
@@ -478,23 +478,6 @@ String cp = request.getContextPath();
 																		</tr>
 																	</c:if>
 																</c:forEach>
-																<%-- <c:forEach var="teamItem" items="${teamEval }">
-																	<tr>
-																		<th>${teamItem.quename }</th>
-																		<c:forEach var="groupPersonItem" items="${groupPersonnel }" varStatus="status">
-																			<td>
-																			<c:set var="i" value="${i+1 }" >
-																			<form action="evalinsert.action" method="get" id="evalinsertBtn"> 
-																			<input type="hidden" value="${i }" name="${i }">
-																			<input class="form-check-input groupPerson" type="checkbox" name="evalua" id="${status.index +1 }"
-																				value="${groupPersonItem.pcCode }" />
-																				${groupPersonItem.piNickName }
-																			</form>
-																			</c:set>
-																			</td>
-																		</c:forEach>
-																	</tr>
-																</c:forEach> --%>
 															</table>
 														</div>
 													</div>
@@ -532,82 +515,74 @@ String cp = request.getContextPath();
 	<script src="https://kit.fontawesome.com/81ca059e0e.js"
 		crossorigin="anonymous"></script>
 	<script>
-		$(document)
-				.ready(
-						function()
-						{
+		$(document).ready(function(){
+				// 개설 요청자 닉네임
+				var leaderNickName = "${leaderNickNames}";
+				// 이탈자 닉네임
+				var leaveNickNames = "${leaveNickNames}";
+				// 바뀐 팀장 닉네임
+				var changeNickNames = "${changeNickNames}";
 
-							// 개설 요청자 닉네임
-							var leaderNickName = "${leaderNickNames}";
-							// 이탈자 닉네임
-							var leaveNickNames = "${leaveNickNames}";
-							// 바뀐 팀장 닉네임
-							var changeNickNames = "${changeNickNames}";
-
-							// 만약 leaderNickName이 존재한다면 해당 요소에 아이콘 추가
-							if (leaderNickName !== "")
-							{
-								// 각 닉네임 요소에 접근하여 leaderNickName인 경우 아이콘 추가
-								$(".nickname")
-										.each(
-												function()
-												{
-													if ($(this).text() === leaderNickName)
-													{
-														$(this)
-																.prepend(
-																		'<i class="fa-solid fa-crown crown"></i>');
-													}
-												});
-							} else if (leaderNickName === leaveNickNames)
-							{
-								$(this).find(".crown").remove();
-							} else if (changeNickNames !== "")
-							{
-								if ($(this).text() === changeNickNames)
-								{
-									$(this)
-											.prepend(
-													'<i class="fa-solid fa-crown crown"></i>');
-								}
-							} else
-							{
-								$(this).find(".crown").remove();
-							}
-
-						});
-
-		/* $(document).ready(function() {
-			 // 평가자
-			var evalGroupPcCode = "${evalGroupPcCode}";
-			
-			// 평가원 리스트
-			var groupPersonPcCode = "${groupPersonnel}";
-			
-			// input 태그
-			
-			if (evalGroupPcCode == groupPersonPcCode.val())
-			{
-				$('td').attr('disabled', 'disabled');
-			}
-		});
-		 */
-
-		/* $(document).ready(function()
-		{
-			var evalGroupPcCode = "${evalGroupPcCode }";
-
-			alert(evalGroupPcCode);
-			$(".groupPerson").each(function()
-			{
-				var groupPersonPcCode = $(this).val(); // 현재 체크박스의 value 값을 가져옵니다, 즉 groupPersonItem의 pcCode입니다.
-				if (groupPersonPcCode === evalGroupPcCode)
+				// 만약 leaderNickName이 존재한다면 해당 요소에 아이콘 추가
+				if (leaderNickName !== "")
 				{
-					// pcCode가 사용자의 pcCode와 일치하면, 해당 사용자의 닉네임을 숨깁니다.
-					$(this).closest('td').text('').hide(); // 닉네임을 숨기기 위해 해당 td의 텍스트를 지우고 숨깁니다.
+					// 각 닉네임 요소에 접근하여 leaderNickName인 경우 아이콘 추가
+					$(".nickname")
+							.each(
+									function()
+									{
+										if ($(this).text() === leaderNickName)
+										{
+											$(this)
+													.prepend(
+															'<i class="fa-solid fa-crown crown"></i>');
+										}
+									});
+				} else if (leaderNickName === leaveNickNames)
+				{
+					$(this).find(".crown").remove();
+				} else if (changeNickNames !== "")
+				{
+					if ($(this).text() === changeNickNames)
+					{
+						$(this)
+								.prepend(
+										'<i class="fa-solid fa-crown crown"></i>');
+					}
+				} else
+				{
+					$(this).find(".crown").remove();
 				}
+				
+				var userPcCode = "${evapcCode}";
+				
+			    // 평가하기 버튼 클릭 시
+			    $("#evalInsertBtn").click(function() {
+			        // 각 평가 대상 입력 태그를 순회하며 비교
+			        $(".groupPerson").each(function() {
+			            // 입력 태그의 값을 가져옴
+			            var groupPersonPcCode = $(this).val();
+			            // 사용자 PC 코드와 입력 태그의 값이 일치하는지 확인
+			            if (userPcCode === groupPersonPcCode) {
+			                // 일치하는 경우 해당 입력 태그의 부모 요소를 숨김 처리
+			                $(this).closest("td").hide();
+			            }
+			        });
+			        
+			        $(".groupLeader").each(function()
+					{
+						var groupLeader = $(this).val();
+						
+						if (userPcCode === groupLeader) {
+			                // 일치하는 경우 해당 입력 태그의 부모 요소를 숨김 처리
+			                $(this).closest("tr").hide();
+			            }
+					})
+			    });
 			});
-		}); */
+		
+		    
+		    
 	</script>
 </body>
 
