@@ -36,8 +36,6 @@ public class GroupHomeController
 		String leaveNickNames = dao.leaveNickNames(memCode);		//이탈자 닉네임
 		String changeNickNames = dao.changeNickNames(memCode);		//교체된 팀장의 닉네임
 		
-
-		
 		MemberDTO memberStr = (MemberDTO) session.getAttribute("loginDTO"); // 세션에서 가져온 멤버
 		String memCodes = memberStr.getPiMemCode();		
 		

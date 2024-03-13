@@ -135,7 +135,7 @@
 	
 	<!-- 맡은 직무마다 보여지는 닉네임 출력 -->
 	<select id="groupHomePlan" resultType="com.itmeetup.mybatis.GroupDTO">
-		SELECT PI_NICKNAME "PINICKNAME", MEM_CODE "memCode"
+		SELECT PI_NICKNAME "PINICKNAME", MEM_CODE "memCode", LEA_PC_CODE "leaPcCode"
 		FROM GROUPSETVIEW
 		WHERE OP_CODE = (SELECT OP_CODE
 		FROM PERSONAL_INFO PI
@@ -148,7 +148,7 @@
         AND OP_END_DATE > SYSDATE) AND JOB_CODE = 'JOB_1'
  	</select>
  	<select id="groupHomeDesign" resultType="com.itmeetup.mybatis.GroupDTO">
-		SELECT PI_NICKNAME "PINICKNAME"
+		SELECT PI_NICKNAME "PINICKNAME", MEM_CODE "memCode", LEA_PC_CODE "leaPcCode"
 		FROM GROUPSETVIEW
 		WHERE OP_CODE = (SELECT OP_CODE
 		FROM PERSONAL_INFO PI
@@ -161,7 +161,7 @@
         AND OP_END_DATE > SYSDATE) AND JOB_CODE = 'JOB_2'
  	</select>
  	<select id="groupHomeFront" resultType="com.itmeetup.mybatis.GroupDTO">
-		SELECT PI_NICKNAME "PINICKNAME"
+		SELECT PI_NICKNAME "PINICKNAME", MEM_CODE "memCode", LEA_PC_CODE "leaPcCode"
 		FROM GROUPSETVIEW
 		WHERE OP_CODE = (SELECT OP_CODE
 		FROM PERSONAL_INFO PI
@@ -174,7 +174,7 @@
         AND OP_END_DATE > SYSDATE) AND JOB_CODE = 'JOB_3'
  	</select>
  	<select id="groupHomeBack" resultType="com.itmeetup.mybatis.GroupDTO">
-		SELECT PI_NICKNAME "PINICKNAME"
+		SELECT PI_NICKNAME "PINICKNAME", MEM_CODE "memCode", LEA_PC_CODE "leaPcCode"
 		FROM GROUPSETVIEW
 		WHERE OP_CODE = (SELECT OP_CODE
 		FROM PERSONAL_INFO PI

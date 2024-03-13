@@ -210,7 +210,7 @@ String cp = request.getContextPath();
 
 									<div class="card weekwork">
 										<div class="addsee">
-											<a class="icon" href="weeklyReport.action">더보기</a>
+											<a class="icon" href="weeklyReport.action?memCode=${sessionScope.loginDTO.piMemCode} ">더보기</a>
 										</div>
 										<div class="card-body">
 											<div class="card-title">
@@ -273,12 +273,24 @@ String cp = request.getContextPath();
 															class="tag bg-success job-tag">기획</span>
 															<div class="d-flex member-box">
 																<c:forEach var="groupHomeItem" items="${groupHomePlan }">
-																	<div class="d-flex member">
-																		<a href="/namecard.action?memCode=${groupHomeItem.memCode }" > <i
-																			class="fa-solid fa-circle-user no-profile"></i> <span
-																			class="nickname">${groupHomeItem.piNickName }</span>
-																		</a>
-																	</div>
+																	<c:choose>
+																		<c:when test="${groupHomeItem.leaPcCode eq '진행중' }">
+																			<div class="d-flex member">
+																				<a
+																					href="namecard.action?memCode=${groupHomeItem.memCode }">
+																					<i class="fa-solid fa-circle-user no-profile"></i>
+																					<span class="nickname">${groupHomeItem.piNickName }</span>
+																				</a>
+																			</div>
+																		</c:when>
+																		<c:otherwise>
+																			<div class="d-flex member none-events">
+																				<i class="fa-solid fa-circle-user no-profile"
+																					style="color: #F2F2F2; text-shadow: none;"></i> <span
+																					class="nickname">이탈자</span>
+																			</div>
+																		</c:otherwise>
+																	</c:choose>
 																</c:forEach>
 															</div></li>
 
@@ -288,8 +300,24 @@ String cp = request.getContextPath();
 																<c:forEach var="groupHomeItem"
 																	items="${groupHomeDesign }">
 																	<div class="d-flex member">
-																		<i class="fa-solid fa-circle-user no-profile"></i> <span
-																			class="nickname">${groupHomeItem.piNickName }</span>
+																		<c:choose>
+																			<c:when test="${groupHomeItem.leaPcCode eq '진행중' }">
+																				<div class="d-flex member">
+																					<a
+																						href="namecard.action?memCode=${groupHomeItem.memCode }">
+																						<i class="fa-solid fa-circle-user no-profile"></i>
+																						<span class="nickname">${groupHomeItem.piNickName }</span>
+																					</a>
+																				</div>
+																			</c:when>
+																			<c:otherwise>
+																				<div class="d-flex member none-events">
+																					<i class="fa-solid fa-circle-user no-profile"
+																						style="color: #F2F2F2; text-shadow: none;"></i> <span
+																						class="nickname">이탈자</span>
+																				</div>
+																			</c:otherwise>
+																		</c:choose>
 																	</div>
 																</c:forEach>
 															</div></li>
@@ -299,8 +327,24 @@ String cp = request.getContextPath();
 																<c:forEach var="groupHomeItem"
 																	items="${groupHomeFront }">
 																	<div class="d-flex member">
-																		<i class="fa-solid fa-circle-user no-profile"></i> <span
-																			class="nickname">${groupHomeItem.piNickName }</span>
+																		<c:choose>
+																			<c:when test="${groupHomeItem.leaPcCode eq '진행중' }">
+																				<div class="d-flex member">
+																					<a
+																						href="namecard.action?memCode=${groupHomeItem.memCode }">
+																						<i class="fa-solid fa-circle-user no-profile"></i>
+																						<span class="nickname">${groupHomeItem.piNickName }</span>
+																					</a>
+																				</div>
+																			</c:when>
+																			<c:otherwise>
+																				<div class="d-flex member none-events">
+																					<i class="fa-solid fa-circle-user no-profile"
+																						style="color: #F2F2F2; text-shadow: none;"></i> <span
+																						class="nickname">이탈자</span>
+																				</div>
+																			</c:otherwise>
+																		</c:choose>
 																	</div>
 																</c:forEach>
 															</div></li>
@@ -309,8 +353,24 @@ String cp = request.getContextPath();
 															<div class="d-flex member-box">
 																<c:forEach var="groupHomeItem" items="${groupHomeBack }">
 																	<div class="d-flex member">
-																		<i class="fa-solid fa-circle-user no-profile"></i> <span
-																			class="nickname">${groupHomeItem.piNickName }</span>
+																		<c:choose>
+																			<c:when test="${groupHomeItem.leaPcCode eq '진행중' }">
+																				<div class="d-flex member">
+																					<a
+																						href="namecard.action?memCode=${groupHomeItem.memCode }">
+																						<i class="fa-solid fa-circle-user no-profile"></i>
+																						<span class="nickname">${groupHomeItem.piNickName }</span>
+																					</a>
+																				</div>
+																			</c:when>
+																			<c:otherwise>
+																				<div class="d-flex member none-events">
+																					<i class="fa-solid fa-circle-user no-profile"
+																						style="color: #F2F2F2; text-shadow: none;"></i> <span
+																						class="nickname">이탈자</span>
+																				</div>
+																			</c:otherwise>
+																		</c:choose>
 																	</div>
 																</c:forEach>
 															</div></li>
@@ -515,74 +575,78 @@ String cp = request.getContextPath();
 	<script src="https://kit.fontawesome.com/81ca059e0e.js"
 		crossorigin="anonymous"></script>
 	<script>
-		$(document).ready(function(){
-				// 개설 요청자 닉네임
-				var leaderNickName = "${leaderNickNames}";
-				// 이탈자 닉네임
-				var leaveNickNames = "${leaveNickNames}";
-				// 바뀐 팀장 닉네임
-				var changeNickNames = "${changeNickNames}";
+		$(document)
+				.ready(
+						function()
+						{
+							// 개설 요청자 닉네임
+							var leaderNickName = "${leaderNickNames}";
+							// 이탈자 닉네임
+							var leaveNickNames = "${leaveNickNames}";
+							// 바뀐 팀장 닉네임
+							var changeNickNames = "${changeNickNames}";
 
-				// 만약 leaderNickName이 존재한다면 해당 요소에 아이콘 추가
-				if (leaderNickName !== "")
-				{
-					// 각 닉네임 요소에 접근하여 leaderNickName인 경우 아이콘 추가
-					$(".nickname")
-							.each(
-									function()
+							// 만약 leaderNickName이 존재한다면 해당 요소에 아이콘 추가
+							if (leaderNickName !== "")
+							{
+								// 각 닉네임 요소에 접근하여 leaderNickName인 경우 아이콘 추가
+								$(".nickname")
+										.each(
+												function()
+												{
+													if ($(this).text() === leaderNickName)
+													{
+														$(this)
+																.prepend(
+																		'<i class="fa-solid fa-crown crown"></i>');
+													}
+												});
+							} else if (leaderNickName === leaveNickNames)
+							{
+								$(this).find(".crown").remove();
+							} else if (changeNickNames !== "")
+							{
+								if ($(this).text() === changeNickNames)
+								{
+									$(this)
+											.prepend(
+													'<i class="fa-solid fa-crown crown"></i>');
+								}
+							} else
+							{
+								$(this).find(".crown").remove();
+							}
+
+							var userPcCode = "${evapcCode}";
+
+							// 평가하기 버튼 클릭 시
+							$("#evalInsertBtn").click(function()
+							{
+								// 각 평가 대상 입력 태그를 순회하며 비교
+								$(".groupPerson").each(function()
+								{
+									// 입력 태그의 값을 가져옴
+									var groupPersonPcCode = $(this).val();
+									// 사용자 PC 코드와 입력 태그의 값이 일치하는지 확인
+									if (userPcCode === groupPersonPcCode)
 									{
-										if ($(this).text() === leaderNickName)
-										{
-											$(this)
-													.prepend(
-															'<i class="fa-solid fa-crown crown"></i>');
-										}
-									});
-				} else if (leaderNickName === leaveNickNames)
-				{
-					$(this).find(".crown").remove();
-				} else if (changeNickNames !== "")
-				{
-					if ($(this).text() === changeNickNames)
-					{
-						$(this)
-								.prepend(
-										'<i class="fa-solid fa-crown crown"></i>');
-					}
-				} else
-				{
-					$(this).find(".crown").remove();
-				}
-				
-				var userPcCode = "${evapcCode}";
-				
-			    // 평가하기 버튼 클릭 시
-			    $("#evalInsertBtn").click(function() {
-			        // 각 평가 대상 입력 태그를 순회하며 비교
-			        $(".groupPerson").each(function() {
-			            // 입력 태그의 값을 가져옴
-			            var groupPersonPcCode = $(this).val();
-			            // 사용자 PC 코드와 입력 태그의 값이 일치하는지 확인
-			            if (userPcCode === groupPersonPcCode) {
-			                // 일치하는 경우 해당 입력 태그의 부모 요소를 숨김 처리
-			                $(this).closest("td").hide();
-			            }
-			        });
-			        
-			        $(".groupLeader").each(function()
-					{
-						var groupLeader = $(this).val();
-						
-						if (userPcCode === groupLeader) {
-			                // 일치하는 경우 해당 입력 태그의 부모 요소를 숨김 처리
-			                $(this).closest("tr").hide();
-			            }
-					})
-			    });
-			});
-		
-		    
-		    
+										// 일치하는 경우 해당 입력 태그의 부모 요소를 숨김 처리
+										$(this).closest("td").hide();
+									}
+								});
+
+								$(".groupLeader").each(function()
+								{
+									var groupLeader = $(this).val();
+
+									if (userPcCode === groupLeader)
+									{
+										// 일치하는 경우 해당 입력 태그의 부모 요소를 숨김 처리
+										$(this).closest("tr").hide();
+									}
+								})
+							});
+						});
 	</script>
 </body>
 

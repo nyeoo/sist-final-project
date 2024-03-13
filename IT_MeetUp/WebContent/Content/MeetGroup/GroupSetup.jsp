@@ -116,7 +116,7 @@ String cp = request.getContextPath();
 															class="list-unstyled users-list m-0 avatar-group d-flex justify-content-center align-items-center">
 															<li data-bs-toggle="tooltip" data-popup="tooltip-custom"
 																data-bs-placement="top" class="avatar avatar-xs pull-up"
-																title=""><a href="../MyPage/NameCard.jsp"
+																title=""><a href="namecard.action?memCode=${groupSetupItem.memCode }"
 																role="button" class="layer_bottom"> <i
 																	class="bi bi-person">${groupSetupItem.piNickName }</i>
 															</a></li>
