@@ -21,7 +21,7 @@ public class GroupHomeController
 
 	// 그룹홈 과정
 	@RequestMapping(value = "/grouphome.action", method = RequestMethod.GET)
-	public String weeklyReportList(ModelMap model, String memCode)
+	public String weeklyReportList(HttpSession session, ModelMap model, String memCode)
 	{
 		IGroupHomeDAO dao = sqlSession.getMapper(IGroupHomeDAO.class);
 		
@@ -36,6 +36,14 @@ public class GroupHomeController
 		String leaveNickNames = dao.leaveNickNames(memCode);		//이탈자 닉네임
 		String changeNickNames = dao.changeNickNames(memCode);		//교체된 팀장의 닉네임
 
+		
+		MemberDTO memberStr = (MemberDTO) session.getAttribute("loginDTO"); // 세션에서 가져온 멤버
+		String memCodes = memberStr.getPiMemCode();		
+		
+		String evapcCode = dao.evalGroupPcCode(memCodes);
+		
+		model.addAttribute("evapcCode", evapcCode);
+		
 		// 산출물 갯수
 		model.addAttribute("meetAnalCount", dao.meetAnalCount(memCode));
 		model.addAttribute("meetDesignCount", dao.meetDesignCount(memCode));
@@ -93,7 +101,7 @@ public class GroupHomeController
 
 	// 평가 입력
 	@RequestMapping(value = "/evalinsert.action", method = RequestMethod.GET)
-	public String evalInsert(HttpSession session, EvaluationDTO dto)
+	public String evalInsert(HttpSession session, EvaluationDTO dto, ModelMap model)
 	{
 		IGroupHomeDAO dao = sqlSession.getMapper(IGroupHomeDAO.class);
 		List<String> evalua1 = dto.getEvalQue1();	//선택한 사람(피평가자)
@@ -107,6 +115,8 @@ public class GroupHomeController
 		String memCode = memberStr.getPiMemCode();		
 		
 		String evapcCode = dao.evalGroupPcCode(memCode);
+		
+		model.addAttribute("evapcCode", evapcCode);
 		
 		dao.evalAdd1(evalua1, evapcCode);
 		dao.evalAdd2(evalua2, evapcCode);
@@ -125,6 +135,7 @@ public class GroupHomeController
 		
 		
 		//dao.evalAdd5(evalua5, evapcCode);
+		
 		
 		return "/Content/ProjectLounge/PostList_ju.jsp";
 	}
