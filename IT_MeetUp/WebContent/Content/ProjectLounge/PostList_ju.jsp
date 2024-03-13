@@ -192,7 +192,7 @@
 						<ul class="d-flex">
 							<li>
 								<div class="m-select">
-									<select class="form-select category" aria-label="카테고리" title="카테고리">
+									<select class="form-select category" aria-label="카테고리" title="카테고리" id="cate">
 										<option selected>카테고리</option>
 										<c:forEach var ="categorys" items="${cateList }" varStatus="status"  >
 										 
@@ -361,15 +361,7 @@
 											<c:forEach var ="siggList" items="${siggList }" varStatus="status"  >
 												<option value="SIGG_${status.index +1}">${siggList }</option>
 											</c:forEach>
-											<!-- 
-											<option value="1">수원특례시</option>
-											<option value="2">고양시</option>
-											<option value="3">의정부시</option>
-											<option value="3">부천시</option>
-											<option value="3">부평시</option>
-											<option value="3">하남시</option>
-											<option value="3">화성시</option>
-											 -->
+											
 										</select>
 									</div>
 								</div>
@@ -402,6 +394,7 @@
 						</ul>
 					</div>
 
+					<!-- 프로젝트 정보 -->
 					<ul class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 card-list">
 						<c:forEach var ="opList" items="${openList }">
 						<li class="col-12 col-sm-6 col-md-4 col-lg-3">
@@ -422,7 +415,8 @@
 									</div>
 									<!-- 데드라인/ 시작예정일 - 예상기간 -->
 									<div class="mb-1 text-body-secondary">
-										<span class="deadline"> D - ${opList.day} 일 </span>${opList.start} - ${opList.end}
+										<span class="deadline"> D  ${opList.day} 일 </span>
+										<div>${opList.start} - ${opList.end}</div>
 									</div>
 									<!-- 직무 -->
 									<div class="d-flex job-box">
@@ -532,58 +526,83 @@
 	<script src="<%=cp %>/asset/js/swiper-bundle.min.js"></script>
 	<script src="<%=cp %>/asset/js/common.js"></script>
 	<script>
-		$(function()
+	$(function()
+	{
+		//alert("hmm");
+		
+		// 찜하기 버튼 눌렀을 때 
+		$('.wish').change(function() 
 		{
 			//alert("hmm");
 			
-			$('.wish').change(function() 
-			{
-				//alert("hmm");
-				
-			    var isChecked = $(this).prop('checked');     // 체크 여부 확인
-			    var code = $(this).val(); 					 // 프로젝트 코드 가져오기
-				
-			    if (isChecked)
-			    {
-				    $.ajax({
-			            url: 'addWish.action',
-			            type: 'GET',
-			            data: { isChecked: isChecked, code: code },
-			            success: function(response) {
-			                console.log(response);				// 성공시
-			            },
-			            error: function(xhr, status, error) {
-			                console.error(error); 				//  실패시 오류 메시지를 콘솔에 출력
-			               
-			            }
-			        });
-				}
-			    else
-			    {
-			    	$.ajax({
-			            url: 'removeWish.action',
-			            type: 'GET',
-			            data: { isChecked: isChecked, code: code },
-			            success: function(response) {
-			                console.log(response); 				// 성공시
-			            },
-			            error: function(xhr, status, error) {
-			                console.error(error); 				//  실패시 오류 메시지를 콘솔에 출력
-			            }
-			        });
-			    }
-			});
-			    
-			    
-			    
+		    var isChecked = $(this).prop('checked');     // 체크 여부 확인
+		    var code = $(this).val(); 					 // 프로젝트 코드 가져오기
 			
-		});
-
-		function selectSi()
+		    if (isChecked)
+		    {
+			    $.ajax({
+		            url: 'addWish.action',
+		            type: 'GET',
+		            data: { isChecked: isChecked, code: code },
+		            success: function(response) {
+		                console.log(response);				// 성공시
+		            },
+		            error: function(xhr, status, error) {
+		                console.error(error); 				//  실패시 오류 메시지를 콘솔에 출력
+		               
+		            }
+		        });
+			}
+		    else
+		    {
+		    	$.ajax({
+		            url: 'removeWish.action',
+		            type: 'GET',
+		            data: { isChecked: isChecked, code: code },
+		            success: function(response) {
+		                console.log(response); 				// 성공시
+		            },
+		            error: function(xhr, status, error) {
+		                console.error(error); 				//  실패시 오류 메시지를 콘솔에 출력
+		            }
+		        });
+		    }
+		}); 	// 찜하기 ajax 끝 
+		
+		// 카테고리 눌렀을때
+		$("#cate").change(function()
 		{
-			$("#do").attr("disabled", false)
+			//alert("흠..");
+		    var catecode = $(this).val(); 					 // 해당 카테고리 code 가져오기
+			
+		    alert(catecode);
+		    
+		    $.ajax({
+	            url: 'searchCate.action',
+	            type: 'GET',
+	            data: {  catecode: catecode },
+	            success: function(response) {
+	                console.log(response);				// 성공시
+	            },
+	            error: function(xhr, status, error) {
+	                console.error(error); 				//  실패시 오류 메시지를 콘솔에 출력
+	               
+	            }
+	        });
+		    
+		    
+		});
+		    
+		
+		
+		
+	});
 
-		}
+	function selectSi()
+	{
+		$("#do").attr("disabled", false)
+
+	}
 		
 		
 	</script>

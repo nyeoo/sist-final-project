@@ -27,13 +27,13 @@ public class OpenProjectController
 		String result =null;
 		
 		IOpenProjectDAO dao = sqlSession.getMapper(IOpenProjectDAO.class);
-		IJobDAO jdao = sqlSession.getMapper(IJobDAO.class);
+		//IJobDAO jdao = sqlSession.getMapper(IJobDAO.class);
 		
 		
 		// 프로젝트 해당하는 기술 담기
 		Map<String,ArrayList<String>> skills = new HashMap<String, ArrayList<String>>();
 		// 프로젝트 해당하는 직위 담기
-		Map<String,ArrayList<JobDTO>> jobInfo = new HashMap<String, ArrayList<JobDTO>>();
+		//Map<String,ArrayList<JobDTO>> jobInfo = new HashMap<String, ArrayList<JobDTO>>();
 		
 		
 		MemberDTO member = (MemberDTO)session.getAttribute("loginDTO");
@@ -70,7 +70,6 @@ public class OpenProjectController
 		
 		
 		result = "/Content/ProjectLounge/PostList_ju.jsp";
-						   
 		return result;
 	}
 	
@@ -170,5 +169,71 @@ public class OpenProjectController
 						   
 		return result;
 	}
+	
+	
+	// 필터 적용 프로젝트 출력 
+	@RequestMapping(value = "/filterList.action" , method = RequestMethod.GET)
+	public String filterList(ModelMap model, OpenProjectDTO dto ,HttpSession session)
+	{
+		String result =null;
+		IOpenProjectDAO dao = sqlSession.getMapper(IOpenProjectDAO.class);
+		//IJobDAO jdao = sqlSession.getMapper(IJobDAO.class);
+		
+//		
+//		// 프로젝트 해당하는 기술 담기
+//		Map<String,ArrayList<String>> skills = new HashMap<String, ArrayList<String>>();
+//		// 프로젝트 해당하는 직위 담기
+//		//Map<String,ArrayList<JobDTO>> jobInfo = new HashMap<String, ArrayList<JobDTO>>();
+//		
+//		
+//		MemberDTO member = (MemberDTO)session.getAttribute("loginDTO");
+//		
+//		ArrayList<String> wishList = dao.wishList(member.getPiMemCode());
+//		
+//		ArrayList<OpenProjectDTO> project = dao.openList();		
+//		
+//		for (OpenProjectDTO dto : project)
+//		{
+//			skills.put(dto.getCode(), dao.skillList(dto.getCode()));
+//			//jobInfo.put(dto.getCode(), jdao.jobList((dto.getCode())));
+//		}
+//		
+//		IMemberDAO skillCategoryDAO = sqlSession.getMapper(IMemberDAO.class);	// 스킬카테고리 select
+//		IMemberDAO skillsDAO = sqlSession.getMapper(IMemberDAO.class);			// 스킬 리스트
+//		SkillProcessor skProcessors = new SkillProcessor();						// 스킬 리스트 조회 및 처리
+//		model.addAttribute("skProcessors", skProcessors.createSkillMapping());
+//		model.addAttribute("skillCategorys", skillCategoryDAO.skillCategorys());
+//		model.addAttribute("lastCode",dao.lastCode());							// 가장 최근 프로젝트 개설 코드 뽑기
+//		model.addAttribute("skills", skillsDAO.skills());
+//		
+//		model.addAttribute("wishList", wishList);								// 사용자 찜목록 
+//		
+//		model.addAttribute("openList",dao.openList());
+//		model.addAttribute("deadlineList",dao.deadlineList());
+//		model.addAttribute("cateList",dao.cateList());
+//		model.addAttribute("sidoList",dao.sidoList());
+//		model.addAttribute("siggList",dao.siggList());
+//		model.addAttribute("carList",dao.carList());
+//		model.addAttribute("skill",skills);
+//		//model.addAttribute("jobInfo",jobInfo);
+//		
+//		
+//		
+//		result = "/Content/ProjectLounge/PostList_ju.jsp";
+//		 
+//		if(a>0)
+//		{
+//			
+//			result = "/projectList.action";
+//		}
+//		else
+//		{
+//			System.out.println("에러 발생");
+//		}
+		
+						   
+		return result;
+	}
+	
 	
 }

@@ -10,8 +10,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 		SELECT "CODE", "CATEGORY", "TITLE", "MOJIBSU", "CONTENT"
         	  ,"VIEW", "START", "END" ,"TEAMNAME", "SIDO"
-       		  ,"SIGG", "NICKNAME", "CAREER", "REGDATE" ,"DAY"
+       		  ,"SIGG", "NICKNAME", "CAREER", "REGDATE" ,"DAY","MEET", "CAREER"
 		FROM PROJECT_INFO
+        ORDER BY 14 DESC 
 		
 	</select>
 	
@@ -19,11 +20,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 		SELECT "CODE", "CATEGORY", "TITLE", "MOJIBSU", "CONTENT"
         	  ,"VIEW", "START", "END" ,"TEAMNAME", "SIDO"
-       		  ,"SIGG", "NICKNAME", "CAREER", "REGDATE" ,"DAY"
+       		  ,"SIGG", "NICKNAME", "CAREER", "REGDATE" ,"DAY","MEET", "CAREER"
 		FROM DEADLINE_INFO
 		
 		
 	</select>
+	
+	<!-- 조회수 증가 -->
 	<update id="viewUpdate">
 		UPDATE OPEN_PROJECT
 		SET OP_VIEW = OP_VIEW + 1
@@ -102,6 +105,33 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		FROM WISH
 		WHERE WISH_MEM_CODE = #{memCode}
 	</select>
+	
+	<!-- 필터 검색 -->
+	
+	<select id="filterList" resultType="com.itmeetup.mybatis.OpenProjectDTO" >
+		SELECT "CODE", "CATEGORY", "TITLE", "MOJIBSU", "CONTENT"
+        	  ,"VIEW", "START", "END" ,"TEAMNAME", "SIDO"
+       		  ,"SIGG", "NICKNAME", "CAREER", "REGDATE" ,"DAY","MEET"
+		FROM PROJECT_INFO
+        WHERE <if test="category != null">
+        	   category=#{category}
+        	  </if>
+        	  <if test="CAREER != null">
+        	   AND category=#{career}
+        	  </if>
+        	  <if test="SIDO != null">
+        	   AND SIDO =#{sido}
+        	  </if>
+        	  <if test="SIGG != null">
+        	   AND SIGG =#{sigg}
+        	  </if>
+        	  <if test="SIGG != null">
+        	   AND MEET =#{meet}
+        	  </if>
+         
+        ORDER BY 14 DESC
+	</select>
+	
 </mapper>
 
 

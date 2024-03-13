@@ -66,7 +66,7 @@ public class WriteFormControl
 		 
 		 if(lastCode=="")
 		 {
-			 lastCode="op_1";
+			 lastCode="OP_1";
 			 System.out.println("hmm");
 		 }
 		 else
@@ -86,7 +86,6 @@ public class WriteFormControl
 			System.out.println("최종본"+lastCode);
 			
 		 }
-		 System.out.println("출력");
 		 // 테스트
 //		 for(String code : hopeskills)
 //		 {
@@ -100,6 +99,8 @@ public class WriteFormControl
 		  //dao.addProject(dto);		
 		  // 프로젝트 상세일정, 역할별 인원수 입력
 		  dao.addperiod(dto);
+		  System.out.println("스킬뺴고 다 입력 성공~");
+		  
 		  System.out.println("스킬 입력 전");
 		  // 프로젝트 희망 기술 입력
 		  dao.addSkill(hopeskills,lastCode);

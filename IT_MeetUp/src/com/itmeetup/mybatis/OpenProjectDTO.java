@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class OpenProjectDTO
 {
 	// 주요 속성 구성
-	private String code, start, end, profile, nickname, title, content, sigg, sido ,meet, teamName ,category, memCode;   //,categorys;
+	private String code, start, end, profile, nickname, title, content, sigg, sido ,meet, teamName ,category, memCode ,career;   //,categorys;
 																								    
 	private int view, day ,mojibsu;
 	private ArrayList<String> skill;
@@ -157,6 +157,15 @@ public class OpenProjectDTO
 	{
 		this.jobList = jobList;
 	}
+	public String getCareer()
+	{
+		return career;
+	}
+	public void setCareer(String career)
+	{
+		this.career = career;
+	}
+	
 	
 	
 	/*

@@ -42,5 +42,8 @@ public interface IOpenProjectDAO
 	// 사용자 찜 목록
 	public ArrayList<String> wishList(String memCode);
 	
+	// 프로젝트 필터 리스트
+	public ArrayList<OpenProjectDTO>filterList(OpenProjectDTO dto);
+	
 	
 }
