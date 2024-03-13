@@ -135,7 +135,7 @@
 	
 	<!-- 맡은 직무마다 보여지는 닉네임 출력 -->
 	<select id="groupHomePlan" resultType="com.itmeetup.mybatis.GroupDTO">
-		SELECT PI_NICKNAME "PINICKNAME"
+		SELECT PI_NICKNAME "PINICKNAME", MEM_CODE "MEMCODE"
 		FROM GROUPSETVIEW
 		WHERE OP_CODE = (SELECT OP_CODE
 		FROM PERSONAL_INFO PI

@@ -51,6 +51,7 @@ public interface IGroupHomeDAO
 	public String teamPcCode(String memCode);
 	public String teamOpCode(String memCode);
 	
+	
 	// 팀장 참여코드 / 개설요청코드
 	public String leaderPcCode(String leaderMemCode);
 	public String leaderMemCode(String opCode);

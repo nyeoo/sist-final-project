@@ -274,7 +274,8 @@ String cp = request.getContextPath();
 															<div class="d-flex member-box">
 																<c:forEach var="groupHomeItem" items="${groupHomePlan }">
 																	<div class="d-flex member">
-																		<a href="../MyPage/NameCard.jsp"> <i
+																	<input type="hidden" id="memCode" name="memCode" value="${indiMemCode }">
+																		<a href="/namecard.action?memCode=" > <i
 																			class="fa-solid fa-circle-user no-profile"></i> <span
 																			class="nickname">${groupHomeItem.piNickName }</span>
 																		</a>

@@ -35,6 +35,7 @@ public class GroupHomeController
 		String leaderNickNames = dao.leaderNickNames(memCode);		//방장닉네임
 		String leaveNickNames = dao.leaveNickNames(memCode);		//이탈자 닉네임
 		String changeNickNames = dao.changeNickNames(memCode);		//교체된 팀장의 닉네임
+		
 
 		
 		MemberDTO memberStr = (MemberDTO) session.getAttribute("loginDTO"); // 세션에서 가져온 멤버
@@ -43,6 +44,7 @@ public class GroupHomeController
 		String evapcCode = dao.evalGroupPcCode(memCodes);
 		
 		model.addAttribute("evapcCode", evapcCode);
+		
 		
 		// 산출물 갯수
 		model.addAttribute("meetAnalCount", dao.meetAnalCount(memCode));
@@ -97,6 +99,8 @@ public class GroupHomeController
 		model.addAttribute("groupPersonnel", dao.groupPersonnel(memCode));
 
 		return "/Content/MeetGroup/GroupHome.jsp";
+		
+		//return "redirect:/grouphome.action?memCode=" + memCode;
 	}
 
 	// 평가 입력
@@ -132,9 +136,7 @@ public class GroupHomeController
 //		{
 //	        dao.evalAdd5(evalua5, evapcCode);
 //	    }
-		
-		
-		//dao.evalAdd5(evalua5, evapcCode);
+//		dao.evalAdd5(evalua5, evapcCode);
 		
 		
 		return "/Content/ProjectLounge/PostList_ju.jsp";
