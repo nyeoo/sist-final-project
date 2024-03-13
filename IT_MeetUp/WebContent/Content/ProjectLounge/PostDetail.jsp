@@ -567,7 +567,9 @@ String cp = request.getContextPath();
 	<script>
 		$(function()
 		{
+			// 신청한 사람의 네임카드로 이동
 			var memCode = "";
+			
 			$(".sinchunInfo").on("click",function(){
 				memCode = $(this).next("input").val();
 			});
