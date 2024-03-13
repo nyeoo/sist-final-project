@@ -38,7 +38,7 @@ String cp = request.getContextPath();
 						class="nav-link dropdown-toggle" href="#"
 						data-bs-toggle="dropdown" aria-expanded="false">프로젝트 라운지</a>
 						<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="#">모집공고보기</a></li>
+							<li><a class="dropdown-item" href="projectList.action">모집공고보기</a></li>
 							<li><a class="dropdown-item" href="completeproject.action">완료된 프로젝트</a></li>
 						</ul></li>
 					<li class="nav-item"><a class="nav-link" href="grouphome.action?memCode=${sessionScope.loginDTO.piMemCode}">Meet 그룹</a></li>
