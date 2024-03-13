@@ -123,7 +123,7 @@
 		SS.SS_CODE = OU.OU_SS_CODE
 		ORDER BY SS_CODE
 	</select>
-	
+
 	<select id="searchOutputList"
 		resultType="com.itmeetup.mybatis.AssignmentDTO">
 		SELECT SS_CODE "ssCode", SS_NAME "ssName", OU_CODE
@@ -132,14 +132,25 @@
 		FROM OUTPUTS OU
 		LEFT JOIN SCHEDULE_STAGE SS ON
 		SS.SS_CODE = OU.OU_SS_CODE
-        WHERE SS_CODE = #{ssCode}
+		WHERE SS_CODE = #{ssCode}
 		ORDER BY SS_CODE
 	</select>
 
+	<select id="searchSdNo" resultType="java.lang.Integer">
+		SELECT SD_NO
+		FROM SCHEDULE_DETAILS
+		WHERE SD_OP_CODE = #{opCode} AND SD_SS_CODE = #{ssCode}
+	</select>
 
-	<insert id="insertAssignment" parameterType="com.itmeetup.mybatis.AssignmentDTO">
-		INSERT INTO	ASSIGNMENT(ASS_CODE,ASS_NAME,ASS_START_DATE,ASS_END_DATE,ASS_FILE,ASS_DATE,INDICATOR,CHARGER,ASS_SD_NO,ASS_OU_CODE,ASSCONTENT)
-		VALUES('ASS_'||TO_CHAR(ASSIGNMENT_SEQ.NEXTVAL), #{ASS_NAME},TO_DATE(#{ASS_START_DATE}, 'YYYY-MM-DD'), TO_DATE(#{ASS_END_DATE},'YYYY-MM-DD'), #{ASS_FILE}, SYSDATE, #{INDICATOR}, #{CHARGER}	,#{ASS_SD_NO}, #{ASS_OU_CODE}, #{ASSCONTENT})
+
+	<insert id="insertAssignment"
+		parameterType="com.itmeetup.mybatis.AssignmentDTO">
+		INSERT INTO
+		ASSIGNMENT(ASS_CODE,ASS_NAME,ASS_START_DATE,ASS_END_DATE,ASS_DATE,INDICATOR,CHARGER,ASS_SD_NO,ASS_OU_CODE,ASS_CONTENT)
+		VALUES('ASS_'||TO_CHAR(ASSIGNMENT_SEQ.NEXTVAL),
+		#{assName},TO_DATE(#{assStartDate}, 'YYYY-MM-DD'),
+		TO_DATE(#{assEndDate},'YYYY-MM-DD'), SYSDATE, #{indicator},
+		#{pcCode},#{sdNo}, #{ouCode}, #{assContent})
 	</insert>
 
 
