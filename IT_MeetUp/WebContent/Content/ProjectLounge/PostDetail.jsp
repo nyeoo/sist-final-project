@@ -185,7 +185,7 @@ String cp = request.getContextPath();
 												<td>${pick.getRegDate() }</td>
 												
 												<td><button type="button" class="btn btn-primary" id="sinchunInfo"
-														data-bs-target="#PickCheck" data-bs-toggle="modal">
+														data-bs-target="#nameCard" data-bs-toggle="modal">
 														<i class="bi bi-person-square"></i>
 													</button></td>
 												<td>
@@ -231,7 +231,28 @@ String cp = request.getContextPath();
 							</div>
 						</div>
 					</div>
-
+					
+					
+					<!-- 네임카드 이동// -->
+					<div class="modal fade" id="nameCard" aria-hidden="true"
+						aria-labelledby="PickCheckLabel" tabindex="-1">
+						<div class="modal-dialog modal-dialog-centered">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h1 class="modal-title fs-5" id="PickCheckLabel">네임카드</h1>
+									<button type="button" class="btn-close" data-bs-dismiss="modal"
+										aria-label="아니오"></button>
+								</div>
+								<div class="modal-body">이 사람의 정보를 보시겠습니까?</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-primary"
+										data-bs-target="#sinchungpeople" data-bs-toggle="modal" id="ok">네</button>
+									<button type="button" class="btn btn-secondary"
+										data-bs-target="#sinchungpeople" data-bs-toggle="modal" id="n">아니오</button>
+								</div>
+							</div>
+						</div>
+					</div>
 
 					<!-- 신청하기 모달 -->
 					<div class="modal fade" id="sinchung" tabindex="-1"
