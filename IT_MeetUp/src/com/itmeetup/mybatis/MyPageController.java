@@ -107,6 +107,10 @@ public class MyPageController
 		SkillProcessor skProcessors = new SkillProcessor();				// 스킬 리스트 조회 및 처리
 		model.addAttribute("skProcessors", skProcessors.createSkillMapping());
 		
+		// 시군구 리스트 조회
+		model.addAttribute("sidoList", namCardDAO.sidoList());
+		model.addAttribute("siggList", namCardDAO.siggList());
+		
 		// 경력
 	    ICareerDAO careerDAO = sqlSession.getMapper(ICareerDAO.class);
 	    model.addAttribute("careerList", careerDAO.careerList(memCode));

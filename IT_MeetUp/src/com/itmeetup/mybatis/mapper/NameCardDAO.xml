@@ -51,5 +51,18 @@
 	</select>
 	
 	
+	<!-- 시 도 정보 출력 -->
+	<select id="sidoList" resultType="java.lang.String" >
+		SELECT SIDO_NAME AS "SIDO"
+		FROM SIDO
+	</select>
+	
+	<!-- 군 구 정보 출력 -->
+	<select id="siggList" resultType="java.lang.String" >
+		SELECT SIGG_NAME AS "SIGG"
+		FROM SIGG
+	</select>
+	
+	
 	
 </mapper>

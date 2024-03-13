@@ -95,7 +95,8 @@ String cp = request.getContextPath();
 											<label for="myId" class="col-md-3 col-lg-2 col-form-label">보유기술</label>
 											<div class="col-md-9 col-lg-10">
 												<ul class="skill-check">
-													<c:forEach var="skillListItem" items="${skillList }" varStatus="status">
+													<c:forEach var="skillListItem" items="${skillList }"
+														varStatus="status">
 														<li>
 															<div
 																class="form-check skill-item <c:forEach var="entry" items="${skProcessors}">
@@ -107,8 +108,9 @@ String cp = request.getContextPath();
 																							</c:if>
 																						</c:forEach>">
 																<label class="form-check-label"> <input
-																	class="form-check-input" type="checkbox" value="${skillListItem.skCode }" id="${status.index +1}">
-																	${skillListItem.skName }
+																	class="form-check-input" type="checkbox"
+																	value="${skillListItem.skCode }"
+																	id="${status.index +1}"> ${skillListItem.skName }
 																</label>
 															</div>
 														</li>
@@ -122,21 +124,24 @@ String cp = request.getContextPath();
 											<div class="col-md-9 col-lg-10 m-select">
 												<div class="row">
 													<div class="col-6 m-select">
-														<select class="form-select"
-															aria-label="Default select example" title="selectTitle01">
-															<option selected>Open this select menu</option>
-															<option value="1">One</option>
-															<option value="2">Two</option>
-															<option value="3">Three</option>
+														<select class="form-select" aria-label="선호지역 1단계(시)"
+															title="선호지역 1단계(시)" id="si" onchange="selectSi()">
+															<option selected="selected">선호지역(시)</option>
+															<c:forEach var="sidoList" items="${sidoList }"
+																varStatus="status">
+																<option value="SIDO_${status.index +1}">${sidoList }</option>
+															</c:forEach>
+
 														</select>
 													</div>
 													<div class="col-6 m-select">
-														<select class="form-select"
-															aria-label="Default select example" title="selectTitle01">
-															<option selected>Open this select menu</option>
-															<option value="1">One</option>
-															<option value="2">Two</option>
-															<option value="3">Three</option>
+														<select class="form-select" aria-label="선호지역 1단계(도)"
+															title="선호지역 1단계(도)" id="do" disabled="disabled">
+															<option selected="selected">선호지역(도)</option>
+															<c:forEach var="siggList" items="${siggList }"
+																varStatus="status">
+																<option value="SIGG_${status.index +1}">${siggList }</option>
+															</c:forEach>
 														</select>
 													</div>
 												</div>
@@ -346,7 +351,8 @@ String cp = request.getContextPath();
 											<!-- 상세내용 -->
 											<p class="card-text text-truncate mb-2">${projectListItem.content }</p>
 										</div>
-										<input type="hidden" id="opCode" value="${projectListItem.opCode }">
+										<input type="hidden" id="opCode"
+											value="${projectListItem.opCode }">
 									</div>
 								</li>
 							</c:forEach>
@@ -399,7 +405,7 @@ String cp = request.getContextPath();
 																</div>
 																<!-- 썸네일 이미지 -->
 																<div class="thumbnail-box img-box">
-																	<img src="<%=cp %>/asset/images/img_sample00.jpg"
+																	<img src="<%=cp%>/asset/images/img_sample00.jpg"
 																		alt="썸네일샘플" />
 																</div>
 															</div>
@@ -495,7 +501,7 @@ String cp = request.getContextPath();
 																</div>
 																<!-- 썸네일 이미지 -->
 																<div class="thumbnail-box img-box">
-																	<img src="<%=cp %>/asset/images/img_sample00.jpg"
+																	<img src="<%=cp%>/asset/images/img_sample00.jpg"
 																		alt="썸네일샘플" />
 																</div>
 															</div>
@@ -591,7 +597,7 @@ String cp = request.getContextPath();
 																</div>
 																<!-- 썸네일 이미지 -->
 																<div class="thumbnail-box img-box">
-																	<img src="<%=cp %>/asset/images/img_sample00.jpg"
+																	<img src="<%=cp%>/asset/images/img_sample00.jpg"
 																		alt="썸네일샘플" />
 																</div>
 															</div>
@@ -721,17 +727,28 @@ String cp = request.getContextPath();
 	<script src="<%=cp%>/asset/js/bootstrap.bundle.min.js"></script>
 	<script src="<%=cp%>/asset/js/common.js"></script>
 	<script type="text/javascript">
-		$(document).ready(function()
+		$(document).ready(
+				function()
+				{
+					$('.mb-2').click(
+							function()
+							{
+								// 각 프로젝트의 op_code 가져오기
+								var opCode = $('#opCode').val();
+
+								// 완료 프로젝트 상세 페이지로 이동할 때 코드를 넘겨주기
+								$(location).attr(
+										"href",
+										"completeprojectdetail.action?opCode="
+												+ opCode);
+							});
+				});
+
+		function selectSi()
 		{
-			$('.mb-2').click(function()
-			{
-				// 각 프로젝트의 op_code 가져오기
-				var opCode = $('#opCode').val();
-				
-				// 완료 프로젝트 상세 페이지로 이동할 때 코드를 넘겨주기
-				$(location).attr("href", "completeprojectdetail.action?opCode=" + opCode);
-			});
-		});
+			$("#do").attr("disabled", false);
+			
+		}
 	</script>
 </body>
 

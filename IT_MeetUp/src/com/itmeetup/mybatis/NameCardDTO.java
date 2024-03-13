@@ -4,9 +4,10 @@ public class NameCardDTO
 {
 	private String memCode, piId, nickname, jobName, intro;		// 회원 코드, 회원 아이디, 회원 닉네임, 직무명, 짧은 소개글
 	private String skCode, skName;								// 스킬 코드, 스킬 명
-	private String opCode, title, content, teamName;			// 개설요청 코드, 제목, 내용, 팀명					
+	private String opCode, title, content, teamName;			// 개설요청 코드, 제목, 내용, 팀명	
+	private String sigg, sido;									// 시/도, 군/구
 	
-	// getter / setter 
+	// getter / setter
 	public String getMemCode()
 	{
 		return memCode;
@@ -95,6 +96,25 @@ public class NameCardDTO
 	{
 		this.teamName = teamName;
 	}
+	public String getSigg()
+	{
+		return sigg;
+	}
+	public void setSigg(String sigg)
+	{
+		this.sigg = sigg;
+	}
+	public String getSido()
+	{
+		return sido;
+	}
+	public void setSido(String sido)
+	{
+		this.sido = sido;
+	}
+	
+	 
+	
 	
 	
 	
