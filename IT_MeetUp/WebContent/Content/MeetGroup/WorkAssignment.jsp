@@ -137,8 +137,8 @@ String cp = request.getContextPath();
 									<br>
 									<!-- 제출 및 취소 버튼 -->
 									<div style="text-align: center;">
-										<button class="btn btn-primary" type="submit">제출</button>
-										<button class="btn btn-secondary" id="reSetButton">취소</button>
+										<button class="btn btn-primary" type="submit" id="writeButton">제출</button>
+										<button type="button" class="btn btn-secondary" id="returnButton">취소</button>
 									</div>
 									<!-- //제출 및 취소 버튼 -->
 								</form>
@@ -163,7 +163,8 @@ String cp = request.getContextPath();
 	
 	$(document).ready(function()
     {
-        $("#writeButton").click(function()
+        
+        $("#returnButton").click(function()
         {
             window.location.href = "<%=cp%>/workManage.action?memCode=${sessionScope.loginDTO.piMemCode}";
         });
