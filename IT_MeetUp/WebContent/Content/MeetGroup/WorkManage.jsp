@@ -324,7 +324,7 @@ String cp = request.getContextPath();
 															<td><input type="button"
 																class="form-control form-control-plaintext"
 																id="validationCustom01" value="${reportList.repTitle}"></td>
-															<td>${reportList.piNickName}</td>
+															<td>${reportList.piNickName}<input type="hidden" name="charger" value="${reportList.charger}"></td>
 															<td>${reportList.repDate}</td>
 															<td>${reportList.appDate}</td>
 															<td><c:choose>
@@ -348,10 +348,10 @@ String cp = request.getContextPath();
 																	<div class="dropdown-menu">
 																		<a class="dropdown-item" href="javascript:void(0);"
 																			data-bs-toggle="modal"
-																			data-bs-target="#staticBackdrop3_${loop.index}"
+																			data-bs-target="#staticBackdrop3${loop.index}"
 																			id="workProcess${loop.index}"><i
 																			class="bi bi-pencil-square"></i> 업무처리</a> <a
-																			class="dropdown-item" href="javascript:void(0);"><i
+																			class="dropdown-item reportDeleteBtn" href="javascript:void(0);"><i
 																			class="bi bi-trash3"></i>보고삭제</a>
 																	</div>
 
@@ -451,8 +451,7 @@ String cp = request.getContextPath();
 			var leaderPcCode = "${leaderPcCode}"; // 방장의 참여확인코드
 			var leavePcCode = "${leavePcCode}"; // 이탈자의 참여확인코드
 			var changeleaderPcCode = "${changeLeaderPcCode}"; // 변경된 방장의 회원코드
-
-			var assBtn = document.getElementById('assBtn');
+			var assBtn = document.getElementById('assBtn');		// 버튼의 id
 
 			// 업무 처리 버튼을 모두 선택합니다.
 			var dropDownItems = document
@@ -495,8 +494,7 @@ String cp = request.getContextPath();
 		        var assCode = $(this).siblings("input[name='assCode']").val(); // 해당 버튼의 assCode 가져오기
 		        var assPcCode = $(this).siblings("input[name='assPcCode']").val();
 		        var memCode = "${sessionScope.loginDTO.piMemCode}"; // 세션에서 memCode 가져오기
-		        console.log(PcCode);
-		        console.log(assPcCode);
+
 		        if (PcCode == assPcCode)
 				{
 			        window.location.href = "<%=cp%>/report.action?memCode=" + memCode + "&assCode=" + assCode;
@@ -508,6 +506,25 @@ String cp = request.getContextPath();
 		        
 		        
 		    });
+			
+			// 업무보고삭제
+			$(".reportDeleteBtn").click(function()
+			{
+		        var charger = $(this).siblings("input[name='charger']").val(); // 해당 버튼의 charger 가져오기
+		        
+		        if (PcCode == charger)
+				{
+		        	reportDeleteBtn.style.display = 'block';
+				}
+		        else
+		        {
+		        	reportDeleteBtn.style.display = 'none';
+		        }
+		        
+		    });
+			
+			
+			
 			
 
 		});

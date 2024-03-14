@@ -7,7 +7,7 @@ public class ReportListDTO
 {
 	private String repTitle, repDate, repFile, memCode;	// 업무보고 제목, 보고일 ,보고파일	
 	private String sdOpCode, assName, piNickName, ouName, ssName, ssCode, assCode; 	// 개설요청코드 , 업무명, 닉네임, 산출물명, 일정단계명, 일정단계코드, 업무할당 코드
-	private String wsName, appDate, pcCode, skCode; 	// 업무결재 상태, 업무결재 일자
+	private String wsName, appDate, pcCode, skCode, charger; 	// 업무결재 상태, 업무결재 일자
 	private int repNumber, atNo;		//업무보고 번호
 	
 	// getter / setter 구성
@@ -18,6 +18,22 @@ public class ReportListDTO
 	public void setRepTitle(String repTitle)
 	{
 		this.repTitle = repTitle;
+	}
+	public String getSkCode()
+	{
+		return skCode;
+	}
+	public void setSkCode(String skCode)
+	{
+		this.skCode = skCode;
+	}
+	public String getCharger()
+	{
+		return charger;
+	}
+	public void setCharger(String charger)
+	{
+		this.charger = charger;
 	}
 	public String getRepDate()
 	{

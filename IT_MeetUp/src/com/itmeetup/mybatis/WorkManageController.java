@@ -38,13 +38,13 @@ public class WorkManageController
 		model.addAttribute("leavePcCode", leavePcCode);
 		model.addAttribute("changeLeaderMemCode", changeLeaderMemCode);
 		model.addAttribute("changeLeaderPcCode", changeLeaderPcCode);
-		model.addAttribute("scheduleList", scheduleDAO.scheduleList(opCode));
-		model.addAttribute("assignmentList", assignmentDAO.assignmentList(opCode));
-		model.addAttribute("assScheduleList", assignmentDAO.assScheduleList());
-		model.addAttribute("assOutputList", assignmentDAO.assOutputList());
-		model.addAttribute("reportList", reportDAO.reportList(opCode));
-		model.addAttribute("reportOutputList", reportDAO.reportOutputList(opCode));
-		model.addAttribute("reportPersonList", reportDAO.reportPersonList(opCode));
+		model.addAttribute("scheduleList", scheduleDAO.scheduleList(opCode));		// 팀의 일정을 조회하는 메소드
+		model.addAttribute("assignmentList", assignmentDAO.assignmentList(opCode));	// 팀의 업무할당을 조회하는 메소드
+		model.addAttribute("assScheduleList", assignmentDAO.assScheduleList());		// 일정목록을 조회하는 메소드
+		model.addAttribute("assOutputList", assignmentDAO.assOutputList());			// 산출물을 조회하는 메소드
+		model.addAttribute("reportList", reportDAO.reportList(opCode));				// 팀의 업무보고를 조회하는 메소드
+		model.addAttribute("reportOutputList", reportDAO.reportOutputList(opCode));	// 팀의 산출물을 조회하는 메소드
+		model.addAttribute("reportPersonList", reportDAO.reportPersonList(opCode));	// 팀의 인원을 조회하는 메소드
 		
 		return "/Content/MeetGroup/WorkManage.jsp";
 	}
