@@ -83,6 +83,6 @@ public interface IGroupHomeDAO
 	public Integer evalAdd4(@Param("evalua4") List<String> evalQue4, @Param("evapcCode") String memCode);
 	public Integer evalAdd5(@Param("evalua5") List<String> grLeader, @Param("evapcCode") String memCode);
 	
-	public ArrayList<MemberDTO> partCheckTeamMem(String memCode);
+	public List<MemberDTO> partCheckTeamMem(String memCode);
 	
 }
