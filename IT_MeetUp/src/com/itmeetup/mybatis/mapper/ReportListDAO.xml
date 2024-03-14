@@ -51,6 +51,17 @@
 		ASS.ASS_CODE
 		WHERE SD_OP_CODE = #{opCode}
 	</select>
+	
+	<select id="searchRepNo" resultType="java.lang.Integer">
+		SELECT REP_NO
+		FROM (
+		    SELECT REP_NO
+		    FROM VIEW_REPORT
+		    WHERE SD_OP_CODE = #{opCode} AND REP_NO IS NOT NULL
+		    ORDER BY REP_NO DESC
+		)
+		WHERE ROWNUM = 1
+	</select>
 
 	<insert id="insertReport"
 		parameterType="com.itmeetup.mybatis.ReportListDTO">
@@ -62,10 +73,12 @@
 	</insert>
 
 	<insert id="insertActualTech"
-		parameterType="com.itmeetup.mybatis.ReportListDTO">
-		INSERT INTO ACTUAL_TECH(AT_NO, AT_SK_CODE, AT_REP_NO)
-		VALUES(ACTUAL_TECH_SEQ.NEXTVAL, #{skCode}, #{repNumber})
+        parameterType="com.itmeetup.mybatis.ReportListDTO">
+        INSERT INTO ACTUAL_TECH(AT_NO, AT_SK_CODE, AT_REP_NO)
+        VALUES(ACTUAL_TECH_SEQ.NEXTVAL, #{skCode}, #{repNumber})
 	</insert>
+	
+	
 
 
 

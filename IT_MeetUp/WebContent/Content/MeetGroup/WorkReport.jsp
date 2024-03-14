@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	request.setCharacterEncoding("UTF-8");
-String cp = request.getContextPath();
+	String cp = request.getContextPath();
 %>
 <!DOCTYPE html>
 <html>
@@ -58,7 +58,7 @@ String cp = request.getContextPath();
 										<div class="m-input-box">
 											<label for="reportTitle" class="form-label"> 제목 </label>
 											<input type="text" class="form-control" id="repTitle"
-												name="assName" style="width: 350px;" value="">
+												name="repTitle" style="width: 350px;" value="">
 											<div class="invalid-feedback">제목을 입력해주세요.</div>
 										</div>
 									</div>
@@ -69,7 +69,7 @@ String cp = request.getContextPath();
 										<div class="m-textarea">
 											<label for="reportContent" class="form-label"> 내용
 											</label>
-											<textarea class="form-control" id="assContent" name="repContent"
+											<textarea class="form-control" id="repContent" name="repContent"
 												rows="15" style="width: 700px;"></textarea>
 										</div>
 										<div class="invalid-feedback">내용을 입력하세요</div>
@@ -80,10 +80,10 @@ String cp = request.getContextPath();
 										업무 수행 기간
 										<div style="display: flex;">
 											<span>시작일 <input type="date" class="form-control"
-												id="repStartDate" name="assStartDate" onchange="startDateCheck()"
+												id="repStartDate" name="repStartDate" onchange="startDateCheck()"
 												style="width: 150px;">
 											</span> <span>종료일 <input type="date" class="form-control"
-												id="repEndDate" name="assEndDate" onchange="endDateCheck()" style="width: 150px;">
+												id="repEndDate" name="repEndDate" onchange="endDateCheck()" style="width: 150px;">
 											</span>
 										</div>
 									</div>
@@ -212,6 +212,7 @@ String cp = request.getContextPath();
 								</div>
 								<!-- //첨부파일 -->
 								<input type="hidden" name="memCode" value="${sessionScope.loginDTO.piMemCode}">
+								<input type="hidden" name="assCode" value="${assCode}">
 								<br>
 								<!-- 제출 및 취소 버튼 -->
 								<div style="text-align: center;">
@@ -241,7 +242,7 @@ String cp = request.getContextPath();
 	
 	$(document).ready(function()
     {
-        $("#writeButton").click(function()
+        $("#reSetButton").click(function()
         {
             window.location.href = "<%=cp%>/workManage.action?memCode=${sessionScope.loginDTO.piMemCode}";
         });

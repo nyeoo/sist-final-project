@@ -71,7 +71,7 @@ public class WorkManageController
 	
 	@SuppressWarnings("static-access")
 	@RequestMapping(value = "/report.action", method = { RequestMethod.GET, RequestMethod.POST })
-	public String insertReportView(ModelMap model, String memCode)
+	public String insertReportView(ModelMap model, String memCode, String assCode)
 	{
 		IAssignmentListDAO assignmentDAO = sqlSession.getMapper(IAssignmentListDAO.class);
 		
@@ -81,6 +81,7 @@ public class WorkManageController
 		String opCode = assignmentDAO.searchOpCode(memCode); // 회원의 개설요청 코드
 		
 		model.addAttribute("opCode", opCode);
+		model.addAttribute("assCode", assCode);
 		
 		model.addAttribute("skills", skillsDAO.skills());
 		model.addAttribute("skillCategorys", skillCategoryDAO.skillCategorys());
