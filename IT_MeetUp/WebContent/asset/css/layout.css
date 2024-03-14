@@ -447,6 +447,8 @@ b. 이미지명 ++,# 인식X -> plus, sharp
 
 .ico_att_new { display: inline-block; font-size: 14px; line-height: 17px; position: absolute; top: 2px; padding: 0px 3px; right: 0; background-size: contain; background: #ed6959; border-radius: 12px; color:#fff; } 
 
+.comp_box{margin-bottom:3.25rem;}
+
 /* 게시글 등록 ---------------------------------*/
 .board_table { margin-top:12px; } 
 .board_table table { width:100%; table-layout:fixed; border-top:1px solid #555; } 
