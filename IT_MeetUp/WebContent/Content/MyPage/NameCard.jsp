@@ -140,7 +140,7 @@ String cp = request.getContextPath();
 															<option selected="selected">선호지역(도)</option>
 															<c:forEach var="siggList" items="${siggList }"
 																varStatus="status">
-																<option value="SIGG_${status.index +1}">${siggList }</option>
+											 					<option value="SIGG_${status.index +1}">${siggList }</option>
 															</c:forEach>
 														</select>
 													</div>
@@ -727,27 +727,44 @@ String cp = request.getContextPath();
 	<script src="<%=cp%>/asset/js/bootstrap.bundle.min.js"></script>
 	<script src="<%=cp%>/asset/js/common.js"></script>
 	<script type="text/javascript">
-		$(document).ready(
-				function()
-				{
-					$('.mb-2').click(
-							function()
-							{
-								// 각 프로젝트의 op_code 가져오기
-								var opCode = $('#opCode').val();
+		$(document).ready(function()
+		{
+			$('.mb-2').click(function()
+			{
+				// 각 프로젝트의 op_code 가져오기
+				var opCode = $('#opCode').val();
 
-								// 완료 프로젝트 상세 페이지로 이동할 때 코드를 넘겨주기
-								$(location).attr(
-										"href",
-										"completeprojectdetail.action?opCode="
-												+ opCode);
-							});
-				});
+				// 완료 프로젝트 상세 페이지로 이동할 때 코드를 넘겨주기
+				$(location).attr(
+						"href",
+						"completeprojectdetail.action?opCode="
+								+ opCode);
+			});
+		});
 
 		function selectSi()
 		{
-			$("#do").attr("disabled", false);
+			$("#do").attr("disabled", false)
 			
+			var selectedSi = document.getElementById("si").value; // 선택된 선호지역(시)
+
+			// Ajax 요청
+			$.ajax({
+				type : 'GET',
+				url : '<%=cp%>/namecard.action',
+				data :{si : selectedSi}, // 선택된 선호지역(시)를 서버에 전달
+				success : function(response)
+				{
+					// 선호지역(구) 셀렉트 박스 업데이트
+					var siggSelect = document.getElementById("do");
+					siggSelect.innerHTML = "<option selected=\"selected\">선호지역(구)</option>";
+					
+				},
+				error : function(xhr, status, error)
+				{
+					console.error(error);
+				}
+			});
 		}
 	</script>
 </body>
