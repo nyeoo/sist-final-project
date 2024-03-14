@@ -324,7 +324,7 @@ String cp = request.getContextPath();
 															<td><input type="button"
 																class="form-control form-control-plaintext"
 																id="validationCustom01" value="${reportList.repTitle}"></td>
-															<td>${reportList.piNickName}<input type="hidden" name="charger" value="${reportList.charger}"></td>
+															<td>${reportList.piNickName}</td>
 															<td>${reportList.repDate}</td>
 															<td>${reportList.appDate}</td>
 															<td><c:choose>
@@ -351,8 +351,9 @@ String cp = request.getContextPath();
 																			data-bs-target="#staticBackdrop3${loop.index}"
 																			id="workProcess${loop.index}"><i
 																			class="bi bi-pencil-square"></i> 업무처리</a> <a
-																			class="dropdown-item reportDeleteBtn" href="javascript:void(0);"><i
+																			class="dropdown-item delBtn" href="javascript:void(0);" id="reportDeleteBtn${loop.index}"><i
 																			class="bi bi-trash3"></i>보고삭제</a>
+																			<input type="hidden" name="chaPcCode" value="${reportList.chaPcCode}">
 																	</div>
 
 																</div>
@@ -507,21 +508,21 @@ String cp = request.getContextPath();
 		        
 		    });
 			
-			// 업무보고삭제
-			$(".reportDeleteBtn").click(function()
+			
+			$(".delBtn").click(function()
 			{
-		        var charger = $(this).siblings("input[name='charger']").val(); // 해당 버튼의 charger 가져오기
-		        
-		        if (PcCode == charger)
-				{
-		        	reportDeleteBtn.style.display = 'block';
-				}
-		        else
-		        {
-		        	reportDeleteBtn.style.display = 'none';
-		        }
-		        
-		    });
+			    var chaPcCode = $(this).siblings("input[name='chaPcCode']").val();
+			    console.log(chaPcCode);
+			    if (PcCode == chaPcCode) {
+			        // 사용자가 확인한 경우 보고를 삭제합니다.
+			        // 삭제하는 코드를 여기에 추가하세요.
+			    } else {
+			        alert("사용자가 보고한 업무가 아닙니다.");
+			    }
+			});
+
+
+
 			
 			
 			
