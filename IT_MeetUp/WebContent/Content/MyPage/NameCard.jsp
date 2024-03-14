@@ -61,9 +61,11 @@ String cp = request.getContextPath();
 								<div
 									class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
-									<div class="profile-img rounded-circle">
-										<img src="" alt="Profile">
-										<div class="pt-2">
+									<div class="profile-img-box">
+										<div class="profile-img">
+											<img src="<%=cp %>/asset/images/img_sample00.jpg" alt="썸네일샘플">
+										</div>
+										<div class="pt-2 profile-img-btn">
 											<a href="#" class="btn btn-primary btn-sm"
 												title="Upload new profile image"><i class="bi bi-upload"></i></a>
 											<a href="#" class="btn btn-danger btn-sm"

@@ -47,7 +47,7 @@ html, body { height: 100%; }
 .member-icon-box{position: relative;display:inline-block;}
 .member-icon-box.admin:after {content: "\f3e2";position: absolute;bottom: -10px;right: -7px;/* margin-bottom: -8px; */font-size: 14px;display: inline-block;border: var(--bs-border-width) solid var(--bs-border-color);border-radius: 50%;background: var(--pt-white);padding: 3px 3px 2px 2px;font-family: bootstrap-icons !important;font-style: normal;font-weight: normal !important;font-variant: normal;text-transform: none;line-height: 1;vertical-align: -0.125em;-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;} 
 .member-icon-img { position:relative; display:inline-block; height: 30px; width:30px; border-radius: 50%;border: var(--bs-border-width) solid var(--bs-border-color);text-align: center; vertical-align: middle; overflow:hidden; background: var(--pt-white);} 
-.member-icon-img img { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); } 
+.member-icon-img img { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 100%; } 
 .member-icon-img:before {content: "\f4da";position: absolute; left: 0; bottom: 0;margin-bottom: -3px;font-size: 29px; display: inline-block; font-family: bootstrap-icons !important; font-style: normal; font-weight: normal !important; font-variant: normal; text-transform: none; line-height: 1; vertical-align: -0.125em; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; } 
 .member-icon-img.admin:before {content: "\f8a2";}
 /* 폰트 */
@@ -569,10 +569,13 @@ b. 이미지명 ++,# 인식X -> plus, sharp
 
 /* 마이페이지 ---------------------------------*/
 /* 프로필 */
-.profile-img { width: 100px; height: 100px; background: lightgray; } 
+.profile-img-box{}
+.profile-img-box .profile-img { position:relative;width: 100px; height: 100px; overflow:hidden;background: lightgray; border-radius: 50%; } 
+.profile-img-box .profile-img img{position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%;}
+.profile-img-btn{display: flex; gap: 0.25rem;justify-content: center;}
 /* 내정보 & 네임카드 */
 .mypage .my-user { } 
-.mypage .my-info-card { margin-top: -40px; } 
+.mypage .my-info-card { margin-top: -40px;} 
 
 
 /* 경력 ---------------------------------*/
