@@ -290,7 +290,24 @@ $(function () {
 	  
   }
     
-  
+  //그룹홈 이동
+  // grouphome.action?memCode=${sessionScope.loginDTO.piMemCode}
+  if($("#groupHomeLink").length) {
+     var sessionScopePiMemCode = $("#sessionScopePiMemCode").val();
+     var partCheckTeamMem = $("#partCheckTeamMem").val();
+     $("#groupHomeLink").on("click", function(){
+        if(sessionScopePiMemCode !== "" ){
+           $(location).attr("href", "grouphome.action?memCode=" + sessionScopePiMemCode);
+        }
+     })/*
+     $(document).ready(function() {
+    	 var partCheckTeamMem = $("#partCheckTeamMem").val();
+    	 if (partCheckTeamMem.includes(sessionScopePiMemCode))
+		{
+    		 $(location).attr("href", "grouphome.action?memCode=" + sessionScopePiMemCode)
+		}
+    	});*/
+  };
   
   
   

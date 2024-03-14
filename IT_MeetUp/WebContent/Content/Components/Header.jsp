@@ -42,7 +42,10 @@ String cp = request.getContextPath();
 							<li><a class="dropdown-item" href="completeproject.action">완료된 프로젝트</a></li>
 						</ul></li>
 					<li class="nav-item">
-						<a class="nav-link" href="grouphome.action?memCode=${sessionScope.loginDTO.piMemCode}">Meet 그룹</a>
+						<input type="hidden" id="sessionScopePiMemCode" value="${sessionScope.loginDTO.piMemCode}">
+						<input type="hidden" id="partCheckTeamMem" value="${partCheckTeamMem }">
+						<%-- <a class="nav-link" href="grouphome.action?memCode=${sessionScope.loginDTO.piMemCode}">Meet 그룹</a> --%>
+						<a class="nav-link" id="groupHomeLink" href="javascript:;">Meet 그룹</a>
 					</li>
 				</ul>
 
