@@ -630,7 +630,8 @@ String cp = request.getContextPath();
 										$(this).closest("td").hide();
 									}
 								});
-
+								
+								// 팀장일 시 팀장 질문 안보이게 하기
 								$(".groupLeader").each(function()
 								{
 									var groupLeader = $(this).val();

@@ -117,7 +117,6 @@ public class GroupHomeController
 		String memCode = memberStr.getPiMemCode();		
 		
 		String evapcCode = dao.evalGroupPcCode(memCode);
-		
 		model.addAttribute("evapcCode", evapcCode);
 		
 		dao.evalAdd1(evalua1, evapcCode);
@@ -125,8 +124,8 @@ public class GroupHomeController
 		dao.evalAdd3(evalua3, evapcCode);
 		dao.evalAdd4(evalua4, evapcCode);
 		
-		// 아니오 눌렀을 때는 함수 안보이게 하기
-		if (!evalua5.contains("없음")) {
+		// 아니오 눌렀을 때는 함수 작동 x
+		if (evalua5 != null && !evalua5.contains("없음")) {
 	        dao.evalAdd5(evalua5, evapcCode);
 	    }
 		
@@ -136,7 +135,7 @@ public class GroupHomeController
 //	    }
 //		dao.evalAdd5(evalua5, evapcCode);
 		
-		
-		return "/Content/ProjectLounge/PostList_ju.jsp";
+		//return "/Content/ProjectLounge/PostList.jsp";
+		return "redirect:/projectList.action";
 	}
 }
