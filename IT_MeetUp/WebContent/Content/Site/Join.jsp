@@ -110,7 +110,7 @@ String cp = request.getContextPath();
 
 													<div class="col-12">
 														<div class="m-input-box">
-															<input type="text" id="piEmail" name="piEmail" value="sist1234@naver.com"> <label for="joinEmail1" class="form-label h5">이메일</label>
+															<input type="hidden" id="piEmail" name="piEmail" value="sist1234@naver.com"> <label for="joinEmail1" class="form-label h5">이메일</label>
 															<div class="row col-12">
 																<div class="col-12 col-md-7">
 																	<input type="text" class="form-control" value="sist1234" id="joinEmail1" required="required">
@@ -196,7 +196,6 @@ String cp = request.getContextPath();
 																<div class="row col-12">
 																	<div class="col-6">
 																		<div class="m-input-box">
-																			<%= carrboxNumStr%>
 																			<label for="selectJoinCareer" class="form-label">경력직무</label>
 																			<div class="m-select">
 																				<select class="form-select" aria-label="Default select example" title="selectJoinCareer" name="jobNames" id="jobName_<%=carrboxNumStr %>">
@@ -609,7 +608,7 @@ String cp = request.getContextPath();
 		});
 		
 		$(function(){
-			// 기술 체크할떄마다 span 구역에 나오게 함수
+			// 기술 체크할때마다 span 구역에 나오게 함수
 			$(".skill").change(function() 
 			{
 				var skilArea = $("#skilArea"); 			  		// div 영역 가져오기 

@@ -196,7 +196,7 @@ String cp = request.getContextPath();
 		$(function()
 		{
 			
-			// 팝업
+			// 이메일 중복 체크
 			$("#btn-findId").click(function(){
 				let piEmailStr = $("#piEmail");
 				let piEmail = $("#piEmail").val();
@@ -231,6 +231,7 @@ String cp = request.getContextPath();
 					}
 				});
 			});
+			// 이메일 중복 확인
 			$("#btn-sendEmailwidthPw").click(function(){
 				let piEmailStr = $("#piEmail");
 				let piEmail = $("#piEmail").val();

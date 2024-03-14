@@ -58,7 +58,7 @@ String cp = request.getContextPath();
 
 					<!-- 내정보 -->
 					<div class="row">
-						<div class="col-xl-4">
+						<div class="col-md-4">
 							<div class="card">
 								<div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
@@ -75,7 +75,7 @@ String cp = request.getContextPath();
 
 						</div>
 
-						<div class="col-xl-8">
+						<div class="col-md-8">
 
 							<div class="card">
 								<div class="card-body pt-3">
@@ -321,7 +321,7 @@ String cp = request.getContextPath();
 		}
 	}
 	
-	// 수정가능 여부
+	// 수정가능 여부에 따른 버튼 노출
 	function modifyConfirm()
 	{
 		if(get_piId.classList.contains("is-check")
