@@ -1,5 +1,6 @@
 package com.itmeetup.mybatis;
 
+//import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -36,12 +37,20 @@ public class GroupHomeController
 		String leaveNickNames = dao.leaveNickNames(memCode);		//이탈자 닉네임
 		String changeNickNames = dao.changeNickNames(memCode);		//교체된 팀장의 닉네임
 		
+		
 		MemberDTO memberStr = (MemberDTO) session.getAttribute("loginDTO"); // 세션에서 가져온 멤버
 		String memCodes = memberStr.getPiMemCode();		
 		
 		String evapcCode = dao.evalGroupPcCode(memCodes);
 		
 		model.addAttribute("evapcCode", evapcCode);
+//		ArrayList<MemberDTO> partCheckTeamMem = dao.partCheckTeamMem(memCode);
+//		
+//		if (partCheckTeamMem.contains(memCodes))
+//		{
+//			
+//		}
+		
 		
 		
 		// 산출물 갯수
