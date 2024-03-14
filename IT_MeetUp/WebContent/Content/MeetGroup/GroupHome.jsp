@@ -374,10 +374,6 @@ String cp = request.getContextPath();
 																	</div>
 																</c:forEach>
 															</div></li>
-														<!-- <div class="d-flex member none-event">
-															<i class="fa-solid fa-circle-user no-profile-lg no-eva"></i>
-															<span class="nickname">평가안함</span>
-														</div> -->
 													</ul>
 												</div>
 											</div>

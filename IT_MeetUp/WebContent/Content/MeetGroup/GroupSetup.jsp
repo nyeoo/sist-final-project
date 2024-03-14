@@ -53,37 +53,12 @@ String cp = request.getContextPath();
 							<c:forEach var="groupTeamNameItem" items="${groupTeamName }">
 								<div class="h3">
 									<span>${groupTeamNameItem.teamName}</span>
-
-									<%-- <c:forEach var="groupLeaderItem" items="${groupLeaders}">
-										<!-- 그룹 설정 항목에서 memCode 가져오기 -->
-										<c:set var="setupItemMemCode"
-											value="${groupLeaderItem.memCode}" />
-										<!-- 그룹 팀 이름 루프 -->
-										<c:forEach var="groupTeamNameItem" items="${groupTeamName}">
-											<!-- memCode 비교 -->
-											<c:if
-												test="${sessionScope.loginDTO.piMemCode == setupItemMemCode}">
-												<!-- 원하는 작업 수행 -->
-											</c:if>
-										</c:forEach>
-									</c:forEach> --%>
-
-									<%-- <c:forEach var="groupLeaderItem" items="${groupLeaders}">
-									<c:choose>
-										<c:when
-											test="${sessionScope.loginDTO.piMemCode == groupLeaderItem.memCode}"> --%>
 											<button type="button" id="teamnameUpdateButton"
 												class="btn btn-primary" data-bs-toggle="modal"
 												data-bs-target="#teamnameUpdate"
 												value="${groupTeamNameItem.teamName}" onclick="NameModify()">
 												<i class="bi bi-plus-lg"></i> 팀명 수정
 											</button>
-										<%-- </c:when>
-										<c:otherwise>
-
-										</c:otherwise>
-									</c:choose>
-									</c:forEach> --%>
 								</div>
 							</c:forEach>
 							<!-- //팀명수정 -->
@@ -203,7 +178,7 @@ String cp = request.getContextPath();
 		$(document).ready(
 			function()
 			{
-				// 방장일 경우 회원 업무할당가능
+				
 				var PcCode = "${pcCode}"; // 개인의 참여확인코드
 				var leaderPcCode = "${leaderPcCode}"; // 방장의 참여확인코드
 				var leavePcCode = "${leavePcCode}"; // 이탈자의 참여확인코드
@@ -212,7 +187,7 @@ String cp = request.getContextPath();
 				var teamBtn = document.getElementById('teamnameUpdateButton');
 
 
-				// 업무 할당 처리
+				
 				// 메모코드가 방장의 회원코드와 동일하고, leavePcCode가 null인 경우에만 버튼을 보이도록 한다.
 				if (PcCode == leaderPcCode && leavePcCode == '')
 				{
