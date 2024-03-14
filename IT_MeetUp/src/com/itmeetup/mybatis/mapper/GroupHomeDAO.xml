@@ -361,6 +361,21 @@
         AND OP_END_DATE > SYSDATE)
         AND LEAPCCODE = '이탈자'
     </select>
+     <select id="leavePcCodes" resultType="java.lang.String">        
+		SELECT LEA_PC_CODE
+		FROM GROUPSETUPVIEW
+		WHERE OP_CODE = (SELECT OP_CODE
+		FROM PERSONAL_INFO PI
+        LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
+        LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
+        LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
+        LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
+        LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
+        LEFT JOIN LEAVE LE ON PC.PC_CODE = LE.LEA_PC_CODE
+		WHERE PA_MEM_CODE = #{memCode }
+        AND OP_END_DATE > SYSDATE)
+        AND LEAPCCODE = '이탈자'
+    </select>
     
     <!-- 교체된 팀장 닉네임 -->
     <select id="changeNickNames" resultType="java.lang.String">

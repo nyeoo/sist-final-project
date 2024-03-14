@@ -35,6 +35,7 @@ public class GroupHomeController
 		String changeLeaderPcCode = dao.changeLeaderPcCode(opCode); // 변경된 방장의 참여확인코드
 		String leaderNickNames = dao.leaderNickNames(memCode);		//방장닉네임
 		String leaveNickNames = dao.leaveNickNames(memCode);		//이탈자 닉네임
+		String leavePcCodes = dao.leavePcCodes(memCode);		//이탈자 참여코드
 		String changeNickNames = dao.changeNickNames(memCode);		//교체된 팀장의 닉네임
 		
 		model.addAttribute("partCheckTeamMem", dao.partCheckTeamMem(memCode));
@@ -84,6 +85,7 @@ public class GroupHomeController
 		model.addAttribute("changeLeaderPcCode", changeLeaderPcCode);
 		model.addAttribute("leaderNickNames", leaderNickNames);
 		model.addAttribute("leaveNickNames", leaveNickNames);
+		model.addAttribute("leavePcCodes", leavePcCodes);
 		model.addAttribute("changeNickNames", changeNickNames);
 
 		// 팀장 평가 목록

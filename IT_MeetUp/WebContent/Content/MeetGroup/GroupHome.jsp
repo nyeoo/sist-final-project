@@ -433,7 +433,7 @@ String cp = request.getContextPath();
 					<!-- 평가하기 -->
 					<div class="eval">
 						<button type="button" id="evalInsertBtn" class="btn btn-primary"
-							data-bs-toggle="modal" data-bs-target="#evalInsert" value="평가버튼">
+							data-bs-toggle="modal" data-bs-target="#evalInsert" value="평가버튼" disabled>
 							<i class="bi bi-plus-lg"></i> 평가하기
 						</button>
 					</div>
@@ -614,6 +614,7 @@ String cp = request.getContextPath();
 							}
 
 							var userPcCode = "${evapcCode}";
+							var leavePcCodes = "${leavePcCodes}"
 
 							// 평가하기 버튼 클릭 시
 							$("#evalInsertBtn").click(function()
@@ -627,6 +628,10 @@ String cp = request.getContextPath();
 									if (userPcCode === groupPersonPcCode)
 									{
 										// 일치하는 경우 해당 입력 태그의 부모 요소를 숨김 처리
+										$(this).closest("td").hide();
+									}
+									if (groupPersonPcCode === leavePcCodes)
+									{
 										$(this).closest("td").hide();
 									}
 								});
@@ -643,6 +648,7 @@ String cp = request.getContextPath();
 									}
 								})
 							});
+							
 						});
 	</script>
 </body>
