@@ -12,6 +12,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         	  ,"VIEW", "START", "END" ,"TEAMNAME", "SIDO"
        		  ,"SIGG", "NICKNAME", "CAREER", "REGDATE" ,"DAY","MEET", "CAREER"
 		FROM PROJECT_INFO
+		where "START" >sysdate
         ORDER BY 14 DESC 
 		
 	</select>

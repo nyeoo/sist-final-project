@@ -28,13 +28,13 @@ public class OpenProjectController
 		String result =null;
 		
 		IOpenProjectDAO dao = sqlSession.getMapper(IOpenProjectDAO.class);
-		//IJobDAO jdao = sqlSession.getMapper(IJobDAO.class);
+		IJobDAO jdao = sqlSession.getMapper(IJobDAO.class);
 		
 		
 		// 프로젝트 해당하는 기술 담기
 		Map<String,ArrayList<String>> skills = new HashMap<String, ArrayList<String>>();
 		// 프로젝트 해당하는 직위 담기
-		//Map<String,ArrayList<JobDTO>> jobInfo = new HashMap<String, ArrayList<JobDTO>>();
+		Map<String,ArrayList<JobDTO>> jobInfo = new HashMap<String, ArrayList<JobDTO>>();
 		
 		
 		MemberDTO member = (MemberDTO)session.getAttribute("loginDTO");
@@ -46,7 +46,7 @@ public class OpenProjectController
 		for (OpenProjectDTO dto : project)
 		{
 			skills.put(dto.getCode(), dao.skillList(dto.getCode()));
-			//jobInfo.put(dto.getCode(), jdao.jobList((dto.getCode())));
+			jobInfo.put(dto.getCode(), jdao.jobList((dto.getCode())));
 		}
 		
 		IMemberDAO skillCategoryDAO = sqlSession.getMapper(IMemberDAO.class);	// 스킬카테고리 select
@@ -66,7 +66,7 @@ public class OpenProjectController
 		model.addAttribute("siggList",dao.siggList());
 		model.addAttribute("carList",dao.carList());
 		model.addAttribute("skill",skills);
-		//model.addAttribute("jobInfo",jobInfo);
+		model.addAttribute("jobInfo",jobInfo);
 		
 		
 		
@@ -159,7 +159,6 @@ public class OpenProjectController
 		
 		if(a>0)
 		{
-			
 			result = "/projectList.action";
 		}
 		else

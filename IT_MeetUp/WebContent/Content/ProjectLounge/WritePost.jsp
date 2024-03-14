@@ -74,7 +74,7 @@ String cp = request.getContextPath();
 											<div class="row g-3 needs-validation" novalidate>
 								<input type="hidden" name="memcode" id="memcode" value="${sessionScope.loginDTO.piMemCode}" />	<!-- 개설자 회원코드 -->
 								<!-- 새로추가 -->
-								<input type="text" name="lastCode" id="lastCode" value="${lastCode}" />	<!-- 가장 최근 만들어진 프로젝트 code -->
+								<input type="hidden" name="lastCode" id="lastCode" value="${lastCode}" />	<!-- 가장 최근 만들어진 프로젝트 code -->
 								
 								<!-- 모집내용 -->
                                 <div id="item-1" class="col-12">
@@ -105,7 +105,7 @@ String cp = request.getContextPath();
                                         <label for="writePost01" class="form-label">
                                             <p class="h5">제목</p>
                                         </label>
-                                        <input type="text" class="form-control" id="title" name="title" required="required" style="width: 350px;" value="ljh1234">
+                                        <input type="text" class="form-control" id="title" name="title" required="required" style="width: 350px;" value="">
                                         <div class="invalid-feedback">
                                             제목을 입력해주세요.
                                         </div>
