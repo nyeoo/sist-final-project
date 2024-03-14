@@ -83,8 +83,8 @@ String cp = request.getContextPath();
 								<div class="card-body pt-3">
 									<!-- Profile Edit Form -->
 									<form method="get" name="myinfoForm">
-										<input type="hidden" id="piMemCode" name="piMemCode" value="${member.piMemCode }">
-										<input type="hidden" id="modifyFlag" name="modifyFlag" value="0">
+										<input type="text" id="piMemCode" name="piMemCode" value="${member.piMemCode }">
+										<input type="text" id="modifyFlag" name="modifyFlag" value="0">
 
 										<div class="row mb-3">
 											<label for="piId" class="col-md-4 col-lg-3 col-form-label">아이디</label>

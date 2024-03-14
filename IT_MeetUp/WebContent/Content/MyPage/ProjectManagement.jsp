@@ -109,14 +109,13 @@ String cp = request.getContextPath();
 														<td class="category">
 															<span class="badge text-bg-danger">모집중</span>
 														</td>
-														<td class="title"><a href="javascript:;">
+														<td class="title"><a href="PostDetail.action?code=${applyProjectItem.opCode }">
 																${applyProjectItem.title }</a></td>
 														<td class="start_date">${applyProjectItem.startDate }</td>
 														<td class="end_date">${applyProjectItem.endDate }</td>
 														<td class="join_date">${applyProjectItem.paDate }</td>
 													</tr>
 												</tbody>
-												<input type="hidden" id="code" value="${applyProjectItem.opCode }">
 												</c:forEach>
 											</table>
 
@@ -172,7 +171,7 @@ String cp = request.getContextPath();
 															<span class="badge text-bg-danger">모집중</span>
 														</td>
 														<td class="title">
-															<a href="javascript:;">
+															<a href="PostDetail.action?code=${writeProjectItem.opCode }">
 																${writeProjectItem.title }
 															</a>
 														</td>
@@ -181,7 +180,6 @@ String cp = request.getContextPath();
 														<td class="join_date">${writeProjectItem.opDate }</td>
 													</tr>
 												</tbody>
-												<input type="hidden" id="code" value="${writeProjectItem.opCode }">
 												</c:forEach>
 											</table>
 
@@ -224,17 +222,7 @@ String cp = request.getContextPath();
 	<script src="<%=cp%>/asset/js/bootstrap.bundle.min.js"></script>
 	<script src="<%=cp%>/asset/js/common.js"></script>
 	<script type="text/javascript">
-		$(document).ready(function()
-		{
-			$('.title').click(function()
-			{
-				// 각 프로젝트의 op_code 가져오기
-				var opCode = $('#code').val();
-				
-				// 프로젝트 상세 페이지로 이동할 때 코드를 넘겨주기
-				$(location).attr("href", "PostDetail.action?code=" + opCode);
-			});
-		});
+		
 	</script>
 </body>
 
