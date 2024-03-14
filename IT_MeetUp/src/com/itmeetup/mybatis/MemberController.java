@@ -91,7 +91,7 @@ public class MemberController
 		session.removeAttribute("loginDTO");
 		session.invalidate();	// 세션제거
 
-		return "redirect:/Content/ProjectLounge/PostList_ju.jsp";
+		return "redirect:/Content/ProjectLounge/PostList.jsp";
 	}
 	
 	// 아이디 찾기>이메일 확인

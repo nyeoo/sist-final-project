@@ -45,7 +45,7 @@ public class WriteFormControl
 		
 		
 		
-		result = "/Content/ProjectLounge/rewriteForm.jsp";
+		result = "/Content/ProjectLounge/WritePost.jsp";
 		
 		return result; 
 	}
