@@ -372,7 +372,7 @@ String cp = request.getContextPath();
 
 						<!-- Scrollable modal -->
 						<!-- 완료목록팝업 -->
-						<div class="modal fade completeList-popup" id="completeList"
+						<div class="modal fade" id="completeList"
 							tabindex="-1" aria-labelledby="completeListLabel"
 							aria-hidden="true">
 							<div class="modal-dialog modal-dialog-scrollable">

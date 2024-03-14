@@ -10,7 +10,7 @@ String cp = request.getContextPath();
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ApplyManagement.jsp</title>
+<title>ProjectManagement.jsp</title>
 <meta name="description" content="IT 프로젝트 모집·진행 웹 어플리케이션">
 <meta name="subject" content="IT 프로젝트 모집·진행 웹 어플리케이션">
 <meta name="title" content="IT MeetUp">
