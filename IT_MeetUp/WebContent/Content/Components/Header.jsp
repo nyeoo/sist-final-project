@@ -43,10 +43,6 @@ String cp = request.getContextPath();
 						</ul></li>
 					<li class="nav-item">
 						<input type="hidden" id="sessionScopePiMemCode" value="${sessionScope.loginDTO.piMemCode}">
-						<input type="hidden" id="partCheckTeamMem" value="${partCheckTeamMem }">
-						<input type="hidden" id="teamOpCode" value="${teamOpCode }">
-						<input type="hidden" id="memCodeteam" value="${memCodeteam }">
-						<input type="hidden" id="partCheckTeamOp" value="${partCheckTeamOp }">
 						<%-- <a class="nav-link" href="grouphome.action?memCode=${sessionScope.loginDTO.piMemCode}">Meet 그룹</a> --%>
 						<a class="nav-link" id="groupHomeLink" href="javascript:;">Meet 그룹</a>
 					</li>
