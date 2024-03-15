@@ -64,9 +64,8 @@
 									</div>
 									<div class="card-bottom">
 										<!-- 제목 -->
-										<a href="javascript:;" class="card-tit mb-2"> <span
-											class="h4">[${cp.catName}] ${cp.title }</span>
-										</a>
+										<span class="h4 d-block text-truncate mt-2">[${cp.catName}] ${cp.title }</span>
+										
 										<!-- 상세내용 -->
 										<p class="card-text text-truncate mb-2">${cp.content }</p>
 									</div>

@@ -10,4 +10,5 @@ public interface IHomeDAO
 	public ArrayList<String> skills(String code);
 	public ArrayList<JobDTO> jobs(String code);
 	
+	
 }

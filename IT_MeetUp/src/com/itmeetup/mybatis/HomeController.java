@@ -3,6 +3,8 @@ package com.itmeetup.mybatis;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import javax.servlet.http.HttpSession;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,10 +20,13 @@ public class HomeController {
     private SqlSession sqlSession;
 
     @RequestMapping(value = "/home.action", method = RequestMethod.GET)
-    public String home(Model model) {
+    public String home(Model model, HttpSession session) {
 
         // MyBatis Mapper 인터페이스를 이용하여 DAO 생성
         IHomeDAO dao = sqlSession.getMapper(IHomeDAO.class);
+        IOpenProjectDAO oDao = sqlSession.getMapper(IOpenProjectDAO.class);
+        
+        MemberDTO member = (MemberDTO)session.getAttribute("loginDTO");
 
         // 개설요청코드를 key로, 스킬리스트를 value로 HashMap에 담기
         HashMap<String, ArrayList<String>> skillList = new HashMap<String, ArrayList<String>>();
@@ -45,8 +50,15 @@ public class HomeController {
         model.addAttribute("jobList", jobList);
         model.addAttribute("popList", project);
         model.addAttribute("newList", dao.newList());
+        
+        if (member!=null)
+		{
+        	model.addAttribute("wishList", oDao.wishList(member.getPiMemCode()));
+		}
+        
 
         // Home.jsp로 이동
         return "/Content/Home/Home.jsp";
     }
+    
 }

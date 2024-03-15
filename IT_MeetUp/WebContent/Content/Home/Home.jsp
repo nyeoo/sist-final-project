@@ -56,7 +56,7 @@
 
 			<div class="section">
 				<div class="container-xl">
-					<p class="h1">🔥인기 모집공고</p>
+					<h3 class="mb-5">🔥인기 모집공고</h3>
 
 					<!-- 인기 스와이퍼 -->
 					<div class="deadline-box">
@@ -72,13 +72,12 @@
 							<ul class="swiper-wrapper card-list">
 								<c:forEach var="pop" items="${popList }">
 									<li class="swiper-slide">
-										<div class="card p-4 d-flex flex-column">
+										<div class="card p-4 d-flex flex-column sm-card">
 											<div class="card-top">
 												<!-- 찜하기 -->
-												<div class="form-check zzim">
-													<label class="form-check-label"> <input
-														class="form-check-input" type="checkbox" value="" id=""
-														title="찜하기"> <span class="icon-box"><i
+												<div class="form-check zzim" id="zzim1">
+													<label class="form-check-label"><input class="form-check-input wish" type="checkbox" value="${pop.code }" name="wish" id="wish1" title="찜하기" 
+											 ${wishList.contains(pop.code) ? 'checked' : ''} ><span class="icon-box"><i
 															class="bi bi-heart"></i><i class="bi bi-heart-fill"></i></span>
 													</label>
 												</div>
@@ -86,7 +85,7 @@
 												<div class="mb-1 text-body-secondary">
 													<span class="deadline">마감까지 D-${pop.day }</span><span
 														class="home-period">${pop.start } ~ ${pop.end }</span>
-												</div>
+												</div> 
 												<!-- 직무 -->
 												<div class="d-flex job-box">
 													<c:forEach var="job" items="${jobList[pop.code] }">
@@ -147,7 +146,7 @@
 			</div>
 			<div class="section">
 				<div class="container-xl">
-					<p class="h1">🌟신규 모집공고</p>
+					<h3 class="mb-5">🌟신규 모집공고</h3>
 
 					<!-- 신규 스와이퍼 -->
 					<div class="deadline-box">
@@ -163,13 +162,12 @@
 							<ul class="swiper-wrapper card-list">
 								<c:forEach var="recent" items="${newList }">
 									<li class="swiper-slide">
-										<div class="card p-4 d-flex flex-column">
+										<div class="card p-4 d-flex flex-column sm-card">
 											<div class="card-top">
 												<!-- 찜하기 -->
-												<div class="form-check zzim">
-													<label class="form-check-label"> <input
-														class="form-check-input" type="checkbox" value="" id=""
-														title="찜하기"> <span class="icon-box"><i
+												<div class="form-check zzim" id="zzim2">
+													<label class="form-check-label"><input class="form-check-input wish" type="checkbox" name="wish" value="${recent.code }" id="wish2" title="찜하기" 
+											 ${wishList.contains(recent.code) ? 'checked' : ''} ><span class="icon-box"><i
 															class="bi bi-heart"></i><i class="bi bi-heart-fill"></i></span>
 													</label>
 												</div>
@@ -264,7 +262,63 @@
 	<script src="<%=cp%>/asset/js/swiper-bundle.min.js"></script>
 	<script src="<%=cp%>/asset/js/common.js"></script>
 	<script>
-		
+		$(document).ready(function()
+		{
+			if(<%=(String)session.getAttribute("loginDTO")%>==null)
+			{
+				let zzim1 = document.getElementById("zzim1");
+				zzim1.classList.add("notzz");
+				let zzim2 = document.getElementById("zzim2");
+				zzim2.classList.add("notzz");
+			}
+				
+			// 찜하기 버튼 눌렀을 때 
+			$('.wish').change(function() 
+			{
+					
+				$("input:checkbox[name='wish']").prop("checked", false);
+				
+				//alert("로그인이 필요한 기능입니다.")
+				//$(location).attr("href", "login.action");
+				return;
+				
+				
+			    var isChecked = $(this).prop('checked');     // 체크 여부 확인
+			    var code = $(this).val(); 					 // 프로젝트 코드 가져오기
+				
+			    if (isChecked)
+			    {
+				    $.ajax({
+			            url: 'addWish.action',
+			            type: 'GET',
+			            data: { isChecked: isChecked, code: code },
+			            success: function(response) {
+			                console.log(response);				// 성공시
+			            },
+			            error: function(xhr, status, error) {
+			                console.error(error); 				//  실패시 오류 메시지를 콘솔에 출력
+			               
+			            }
+			        });
+				}
+			    else
+			    {
+			    	$.ajax({
+			            url: 'removeWish.action',
+			            type: 'GET',
+			            data: { isChecked: isChecked, code: code },
+			            success: function(response) {
+			                console.log(response); 				// 성공시
+			            },
+			            error: function(xhr, status, error) {
+			                console.error(error); 				//  실패시 오류 메시지를 콘솔에 출력
+			            }
+			        });
+			    }
+			});
+			
+			
+		});
 	</script>
 </body>
 

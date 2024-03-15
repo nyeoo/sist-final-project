@@ -52,8 +52,8 @@ $(function () {
   };
 
   // 찜하기
-  if ($('.form-check.zzim').length) {
-    $.each($('.form-check.zzim'), function () {
+  if ($('.form-check.zzim:not(.notzz)').length) {
+	  $.each($('.form-check.zzim:not(.notzz)'), function () {
       var self = $(this).find("input");
       self.click(function () {
         self.parents(".card").toggleClass("add-zzim");
