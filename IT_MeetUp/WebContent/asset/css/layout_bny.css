@@ -41,19 +41,6 @@
 	margin-right: 10px;
 	z-index: 100;
 }
-.home-period {
-	display: inline-block;
-	margin-left: 5px;
-}
-.deadline {
-	display: inline-block;
-    border-radius: 15px;
-    padding: 3px 9px 3px 9px;
-    font-weight: 900;
-    font-size: 14px;
-    border: 1px solid #EA726F;
-    color: #EA726F;
-}
 .no-profile-sm {
 	color: #69696B;
 	font-size: 20px;

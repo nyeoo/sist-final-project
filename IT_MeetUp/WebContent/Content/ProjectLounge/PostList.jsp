@@ -17,8 +17,12 @@
 <meta name="keywords" content="IT 프로젝트 모집, 사이드 프로젝트 진행">
 
 <!-- css -->
-<link rel="stylesheet" href="<%=cp %>/asset/css/style.css">
+<link rel="stylesheet" href="<%=cp%>/asset/css/style.css">
 
+<style type="text/css">
+.deadline { display: inline-block; border-radius: 15px; padding: 3px 9px 3px 9px; margin-bottom: 3px; font-weight: 900; font-size: 14px; border: 1px solid #EA726F; color: #EA726F; }
+.home-period { display: inline-block; margin-left: 5px; }
+</style>
 </head>
 
 <body>
@@ -99,7 +103,8 @@
 									</div>
 									<!-- 데드라인/ 시작예정일 - 예상기간 -->
 									<div class="mb-1 text-body-secondary">
-										<span class="deadline" style="color: red;"> D - ${deadlineList.day} 일 </span>${deadlineList.start} - ${deadlineList.end}
+										<span class="deadline">마감까지 D-${deadlineList.day}</span>
+										<span class="home-period">${deadlineList.start} - ${deadlineList.end}</span>
 									</div>
 									<!-- 직무 -->
 									<div class="d-flex job-box">
@@ -435,8 +440,8 @@
 									</div>
 									<!-- 데드라인/ 시작예정일 - 예상기간 -->
 									<div class="mb-1 text-body-secondary">
-										<span class="deadline"> D  ${opList.day} 일 </span>
-										<div>${opList.start} - ${opList.end}</div>
+										<span class="deadline">마감까지 D-${opList.day}</span>
+										<span class="home-period">${opList.start} - ${opList.end}</span>
 									</div>
 									<!-- 직무 -->
 									<div class="d-flex job-box">
