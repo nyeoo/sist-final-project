@@ -51,6 +51,7 @@ public interface IGroupHomeDAO
 	public String teamPcCode(String memCode);
 	public String teamOpCode(String memCode);
 	public String memCodeteam(String memCode);
+	public String teamOpCodeCount(String memCode);
 	
 	
 	// 팀장 참여코드 / 개설요청코드
@@ -86,7 +87,7 @@ public interface IGroupHomeDAO
 	public Integer evalAdd4(@Param("evalua4") List<String> evalQue4, @Param("evapcCode") String memCode);
 	public Integer evalAdd5(@Param("evalua5") List<String> grLeader, @Param("evapcCode") String memCode);
 	
-	public List<MemberDTO> partCheckTeamMem(String memCode);
-	public List<GroupDTO> partCheckTeamOp(String memCode);
+//	public List<MemberDTO> partCheckTeamMem(String memCode);
+//	public List<GroupDTO> partCheckTeamOp(String memCode);
 	
 }

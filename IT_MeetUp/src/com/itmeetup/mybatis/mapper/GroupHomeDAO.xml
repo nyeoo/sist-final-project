@@ -2,261 +2,311 @@
 <!DOCTYPE mapper
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
- 
- <!-- mybatis 환경 설정 파일 활용 -->
- <mapper namespace="com.itmeetup.mybatis.IGroupHomeDAO">
- 	
- 	<!-- 그룹홈에 보여질 주간업무보고리스트 출력 -->
-	<select id="weeklyReportList" resultType="com.itmeetup.mybatis.WeeklyReportDTO">
-		SELECT ROWNUM "wrNo", WR_TITLE "WRTITLE", WR_CONTENT "WRCONTENT", TO_CHAR(WR_DATE, 'YYYY-MM-DD') "WRDATE", PI_NICKNAME "piNickName"
+
+<!-- mybatis 환경 설정 파일 활용 -->
+<mapper namespace="com.itmeetup.mybatis.IGroupHomeDAO">
+
+	<!-- 그룹홈에 보여질 주간업무보고리스트 출력 -->
+	<select id="weeklyReportList"
+		resultType="com.itmeetup.mybatis.WeeklyReportDTO">
+		SELECT ROWNUM "wrNo", WR_TITLE "WRTITLE", WR_CONTENT
+		"WRCONTENT", TO_CHAR(WR_DATE, 'YYYY-MM-DD') "WRDATE", PI_NICKNAME
+		"piNickName"
 		FROM WEEKLYREPVIEW
 		WHERE OP_CODE = (SELECT OP_CODE
-		FROM PERSONAL_INFO PI
-        LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
-        LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
-        LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
-        LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
-        LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
-		WHERE PA_MEM_CODE = #{memCode }
-        AND OP_END_DATE > SYSDATE) AND ROWNUM  &lt;= 4
- 	</select>
- 	
- 	<!-- 프로젝트마다 나온 산출물 갯수 -->
- 	<!-- 분석단계 회의록 -->
- 	<select id="meetAnalCount" resultType="java.lang.Integer">
-	 	SELECT COUNT(*) AS "MEETANALCOUNT"
+		FROM
+		PERSONAL_INFO PI
+		LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
+		LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
+		LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
+		LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
+		LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
+		WHERE PA_MEM_CODE =
+		#{memCode }
+		AND OP_END_DATE > SYSDATE) AND ROWNUM &lt;= 4
+	</select>
+
+	<!-- 프로젝트마다 나온 산출물 갯수 -->
+	<!-- 분석단계 회의록 -->
+	<select id="meetAnalCount" resultType="java.lang.Integer">
+		SELECT COUNT(*) AS "MEETANALCOUNT"
 		FROM GROUPOUTPUTVIEW
-		WHERE OP_CODE = (SELECT OP_CODE
+		WHERE OP_CODE =
+		(SELECT OP_CODE
 		FROM PERSONAL_INFO PI
-        LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
-        LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
-        LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
-        LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
-        LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
-		WHERE PA_MEM_CODE = #{memCode }
-        AND OP_END_DATE > SYSDATE) AND ASS_OU_CODE = 'OU_1'
+		LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
+		LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
+		LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
+		LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
+		LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
+		WHERE PA_MEM_CODE =	#{memCode }
+		AND OP_END_DATE > SYSDATE) AND ASS_OU_CODE = 'OU_1'
 	</select>
 	<!-- 설계단계 회의록 -->
 	<select id="meetDesignCount" resultType="java.lang.Integer">
-	 	SELECT COUNT(*) AS "MEETDESIGNCOUNT"
+		SELECT COUNT(*) AS "MEETDESIGNCOUNT"
 		FROM GROUPOUTPUTVIEW
-		WHERE OP_CODE = (SELECT OP_CODE
+		WHERE OP_CODE =
+		(SELECT OP_CODE
 		FROM PERSONAL_INFO PI
-        LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
-        LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
-        LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
-        LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
-        LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
-		WHERE PA_MEM_CODE = #{memCode }
-        AND OP_END_DATE > SYSDATE) AND ASS_OU_CODE = 'OU_2'
+		LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
+		LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
+		LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
+		LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
+		LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
+		WHERE PA_MEM_CODE =
+		#{memCode }
+		AND OP_END_DATE > SYSDATE) AND ASS_OU_CODE = 'OU_2'
 	</select>
 	<!-- 구현단계 회의록 -->
 	<select id="meetAvatarCount" resultType="java.lang.Integer">
-	 	SELECT COUNT(*) AS "MEETAVARTARCOUNT"
+		SELECT COUNT(*) AS "MEETAVARTARCOUNT"
 		FROM GROUPOUTPUTVIEW
-		WHERE OP_CODE = (SELECT OP_CODE
+		WHERE OP_CODE =
+		(SELECT OP_CODE
 		FROM PERSONAL_INFO PI
-        LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
-        LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
-        LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
-        LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
-        LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
-		WHERE PA_MEM_CODE = #{memCode }
-        AND OP_END_DATE > SYSDATE) AND ASS_OU_CODE = 'OU_3'
+		LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
+		LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
+		LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
+		LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
+		LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
+		WHERE PA_MEM_CODE =
+		#{memCode }
+		AND OP_END_DATE > SYSDATE) AND ASS_OU_CODE = 'OU_3'
 	</select>
 	<!-- 테스트단계 회의록 -->
 	<select id="meetTestCount" resultType="java.lang.Integer">
-	 	SELECT COUNT(*) AS "MEETTESTCOUNT"
+		SELECT COUNT(*) AS "MEETTESTCOUNT"
 		FROM GROUPOUTPUTVIEW
-		WHERE OP_CODE = (SELECT OP_CODE
+		WHERE OP_CODE =
+		(SELECT OP_CODE
 		FROM PERSONAL_INFO PI
-        LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
-        LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
-        LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
-        LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
-        LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
-		WHERE PA_MEM_CODE = #{memCode }
-        AND OP_END_DATE > SYSDATE) AND ASS_OU_CODE = 'OU_4'
+		LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
+		LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
+		LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
+		LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
+		LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
+		WHERE PA_MEM_CODE =
+		#{memCode }
+		AND OP_END_DATE > SYSDATE) AND ASS_OU_CODE = 'OU_4'
 	</select>
 	<!-- 회의록 총 갯수 -->
 	<select id="meetTotalCount" resultType="java.lang.Integer">
-		SELECT SUM(COUNT(*)) AS "MEETCOUNT"
+		SELECT SUM(COUNT(*)) AS
+		"MEETCOUNT"
 		FROM GROUPOUTPUTVIEW
 		WHERE OP_CODE = (SELECT OP_CODE
-		FROM PERSONAL_INFO PI
-        LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
-        LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
-        LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
-        LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
-        LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
-		WHERE PA_MEM_CODE = #{memCode }
-        AND OP_END_DATE > SYSDATE) AND ASS_OU_CODE IN ('OU_1', 'OU_2', 'OU_3', 'OU_4') AND ASS_OU_CODE IS NOT NULL
+		FROM
+		PERSONAL_INFO PI
+		LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
+		LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
+		LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
+		LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
+		LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
+		WHERE PA_MEM_CODE =
+		#{memCode }
+		AND OP_END_DATE > SYSDATE) AND ASS_OU_CODE IN ('OU_1', 'OU_2', 'OU_3',
+		'OU_4') AND ASS_OU_CODE IS NOT NULL
 		GROUP BY ASS_OU_CODE
 	</select>
 	<select id="planCount" resultType="java.lang.Integer">
 		SELECT COUNT(*) AS "PLANCOUNT"
 		FROM GROUPOUTPUTVIEW
 		WHERE OP_CODE = (SELECT OP_CODE
-		FROM PERSONAL_INFO PI
-        LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
-        LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
-        LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
-        LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
-        LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
-		WHERE PA_MEM_CODE = #{memCode }
-        AND OP_END_DATE > SYSDATE) AND ASS_OU_CODE = 'OU_1'
+		FROM PERSONAL_INFO
+		PI
+		LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
+		LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
+		LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
+		LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
+		LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
+		WHERE PA_MEM_CODE =
+		#{memCode }
+		AND OP_END_DATE > SYSDATE) AND ASS_OU_CODE = 'OU_1'
 	</select>
 	<select id="requestCount" resultType="java.lang.Integer">
-		SELECT COUNT(*) AS "REQUESTCOUNT"
+		SELECT COUNT(*) AS
+		"REQUESTCOUNT"
 		FROM GROUPOUTPUTVIEW
 		WHERE OP_CODE = (SELECT OP_CODE
-		FROM PERSONAL_INFO PI
-        LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
-        LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
-        LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
-        LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
-        LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
-		WHERE PA_MEM_CODE = #{memCode }
-        AND OP_END_DATE > SYSDATE) AND ASS_OU_CODE = 'OU_2'
+		FROM
+		PERSONAL_INFO PI
+		LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
+		LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
+		LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
+		LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
+		LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
+		WHERE PA_MEM_CODE =
+		#{memCode }
+		AND OP_END_DATE > SYSDATE) AND ASS_OU_CODE = 'OU_2'
 	</select>
 	<select id="flowchartCount" resultType="java.lang.Integer">
-		SELECT COUNT(*) AS "FLOWCHARTCOUNT"
+		SELECT COUNT(*) AS
+		"FLOWCHARTCOUNT"
 		FROM GROUPOUTPUTVIEW
 		WHERE OP_CODE = (SELECT OP_CODE
 		FROM PERSONAL_INFO PI
-        LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
-        LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
-        LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
-        LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
-        LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
-		WHERE PA_MEM_CODE = #{memCode }
-        AND OP_END_DATE > SYSDATE) AND ASS_OU_CODE = 'OU_3'	
+		LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
+		LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
+		LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
+		LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
+		LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
+		WHERE PA_MEM_CODE =
+		#{memCode }
+		AND OP_END_DATE > SYSDATE) AND ASS_OU_CODE = 'OU_3'
 	</select>
-	
+
 	<!-- 맡은 직무마다 보여지는 닉네임 출력 -->
-	<select id="groupHomePlan" resultType="com.itmeetup.mybatis.GroupDTO">
-		SELECT PI_NICKNAME "PINICKNAME", MEM_CODE "memCode", LEA_PC_CODE "leaPcCode"
+	<select id="groupHomePlan"
+		resultType="com.itmeetup.mybatis.GroupDTO">
+		SELECT PI_NICKNAME "PINICKNAME", MEM_CODE "memCode",
+		LEA_PC_CODE "leaPcCode"
 		FROM GROUPSETVIEW
-		WHERE OP_CODE = (SELECT OP_CODE
+		WHERE OP_CODE = (SELECT
+		OP_CODE
 		FROM PERSONAL_INFO PI
-        LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
-        LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
-        LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
-        LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
-        LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
-		WHERE PA_MEM_CODE = #{memCode }
-        AND OP_END_DATE > SYSDATE) AND JOB_CODE = 'JOB_1'
- 	</select>
- 	<select id="groupHomeDesign" resultType="com.itmeetup.mybatis.GroupDTO">
-		SELECT PI_NICKNAME "PINICKNAME", MEM_CODE "memCode", LEA_PC_CODE "leaPcCode"
+		LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
+		LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
+		LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
+		LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
+		LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
+		WHERE PA_MEM_CODE =
+		#{memCode }
+		AND OP_END_DATE > SYSDATE) AND JOB_CODE = 'JOB_1'
+	</select>
+	<select id="groupHomeDesign"
+		resultType="com.itmeetup.mybatis.GroupDTO">
+		SELECT PI_NICKNAME "PINICKNAME", MEM_CODE "memCode",
+		LEA_PC_CODE "leaPcCode"
 		FROM GROUPSETVIEW
-		WHERE OP_CODE = (SELECT OP_CODE
+		WHERE OP_CODE = (SELECT
+		OP_CODE
 		FROM PERSONAL_INFO PI
-        LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
-        LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
-        LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
-        LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
-        LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
-		WHERE PA_MEM_CODE = #{memCode }
-        AND OP_END_DATE > SYSDATE) AND JOB_CODE = 'JOB_2'
- 	</select>
- 	<select id="groupHomeFront" resultType="com.itmeetup.mybatis.GroupDTO">
-		SELECT PI_NICKNAME "PINICKNAME", MEM_CODE "memCode", LEA_PC_CODE "leaPcCode"
+		LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
+		LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
+		LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
+		LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
+		LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
+		WHERE PA_MEM_CODE =
+		#{memCode }
+		AND OP_END_DATE > SYSDATE) AND JOB_CODE = 'JOB_2'
+	</select>
+	<select id="groupHomeFront"
+		resultType="com.itmeetup.mybatis.GroupDTO">
+		SELECT PI_NICKNAME "PINICKNAME", MEM_CODE "memCode",
+		LEA_PC_CODE "leaPcCode"
 		FROM GROUPSETVIEW
-		WHERE OP_CODE = (SELECT OP_CODE
+		WHERE OP_CODE = (SELECT
+		OP_CODE
 		FROM PERSONAL_INFO PI
-        LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
-        LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
-        LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
-        LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
-        LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
-		WHERE PA_MEM_CODE = #{memCode }
-        AND OP_END_DATE > SYSDATE) AND JOB_CODE = 'JOB_3'
- 	</select>
- 	<select id="groupHomeBack" resultType="com.itmeetup.mybatis.GroupDTO">
-		SELECT PI_NICKNAME "PINICKNAME", MEM_CODE "memCode", LEA_PC_CODE "leaPcCode"
+		LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
+		LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
+		LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
+		LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
+		LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
+		WHERE PA_MEM_CODE =
+		#{memCode }
+		AND OP_END_DATE > SYSDATE) AND JOB_CODE = 'JOB_3'
+	</select>
+	<select id="groupHomeBack"
+		resultType="com.itmeetup.mybatis.GroupDTO">
+		SELECT PI_NICKNAME "PINICKNAME", MEM_CODE "memCode",
+		LEA_PC_CODE "leaPcCode"
 		FROM GROUPSETVIEW
-		WHERE OP_CODE = (SELECT OP_CODE
+		WHERE OP_CODE = (SELECT
+		OP_CODE
 		FROM PERSONAL_INFO PI
-        LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
-        LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
-        LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
-        LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
-        LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
-		WHERE PA_MEM_CODE = #{memCode }
-        AND OP_END_DATE > SYSDATE) AND JOB_CODE = 'JOB_4'
- 	</select>
- 	
- 	<!-- 프로젝트 진행기간 -->
- 	<select id="progressPeriod" resultType="com.itmeetup.mybatis.OpenProjectDTO">
+		LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
+		LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
+		LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
+		LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
+		LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
+		WHERE PA_MEM_CODE =
+		#{memCode }
+		AND OP_END_DATE > SYSDATE) AND JOB_CODE = 'JOB_4'
+	</select>
+
+	<!-- 프로젝트 진행기간 -->
+	<select id="progressPeriod"
+		resultType="com.itmeetup.mybatis.OpenProjectDTO">
 		SELECT "START", END "END"
 		FROM PROJECT_INFO
-		WHERE CODE = (SELECT OP_CODE
+		WHERE CODE =
+		(SELECT OP_CODE
 		FROM PERSONAL_INFO PI
-        LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
-        LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
-        LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
-        LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
-        LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
-		WHERE PA_MEM_CODE = #{memCode }
-        AND OP_END_DATE > SYSDATE)
- 	</select>
- 	
- 	<!-- 일정단계별 진행기간 비율 -->
- 	<select id="analyzePercent" resultType="java.lang.Double">
-		SELECT ROUND((ADJUSTED_DATE/DAY_OP)*100,1) AS "PERCENT"
+		LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
+		LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
+		LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
+		LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
+		LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
+		WHERE PA_MEM_CODE =
+		#{memCode }
+		AND OP_END_DATE > SYSDATE)
+	</select>
+
+	<!-- 일정단계별 진행기간 비율 -->
+	<select id="analyzePercent" resultType="java.lang.Double">
+		SELECT
+		ROUND((ADJUSTED_DATE/DAY_OP)*100,1) AS "PERCENT"
 		FROM GROUPPERIODVIEW
 		WHERE CODE = (SELECT OP_CODE
 		FROM PERSONAL_INFO PI
-        LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
-        LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
-        LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
-        LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
-        LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
-		WHERE PA_MEM_CODE = #{memCode }
-        AND OP_END_DATE > SYSDATE) AND SD_SS_CODE = 'SS_1'
- 	</select>
- 	<select id="designPercent" resultType="java.lang.Double">
-		SELECT ROUND((ADJUSTED_DATE/DAY_OP)*100,1) AS "PERCENT"
+		LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
+		LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
+		LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
+		LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
+		LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
+		WHERE PA_MEM_CODE =
+		#{memCode }
+		AND OP_END_DATE > SYSDATE) AND SD_SS_CODE = 'SS_1'
+	</select>
+	<select id="designPercent" resultType="java.lang.Double">
+		SELECT
+		ROUND((ADJUSTED_DATE/DAY_OP)*100,1) AS "PERCENT"
 		FROM GROUPPERIODVIEW
 		WHERE CODE = (SELECT OP_CODE
 		FROM PERSONAL_INFO PI
-        LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
-        LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
-        LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
-        LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
-        LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
-		WHERE PA_MEM_CODE = #{memCode }
-        AND OP_END_DATE > SYSDATE) AND SD_SS_CODE = 'SS_2'
- 	</select>
- 	<select id="avatarPercent" resultType="java.lang.Double">
-		SELECT ROUND((ADJUSTED_DATE/DAY_OP)*100,1) AS "PERCENT"
+		LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
+		LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
+		LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
+		LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
+		LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
+		WHERE PA_MEM_CODE =
+		#{memCode }
+		AND OP_END_DATE > SYSDATE) AND SD_SS_CODE = 'SS_2'
+	</select>
+	<select id="avatarPercent" resultType="java.lang.Double">
+		SELECT
+		ROUND((ADJUSTED_DATE/DAY_OP)*100,1) AS "PERCENT"
 		FROM GROUPPERIODVIEW
 		WHERE CODE = (SELECT OP_CODE
 		FROM PERSONAL_INFO PI
-        LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
-        LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
-        LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
-        LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
-        LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
-		WHERE PA_MEM_CODE = #{memCode }
-        AND OP_END_DATE > SYSDATE) AND SD_SS_CODE = 'SS_3'
- 	</select>
- 	<select id="testPercent" resultType="java.lang.Double">
-		SELECT ROUND((ADJUSTED_DATE/DAY_OP)*100,1) AS "PERCENT"
+		LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
+		LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
+		LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
+		LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
+		LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
+		WHERE PA_MEM_CODE =
+		#{memCode }
+		AND OP_END_DATE > SYSDATE) AND SD_SS_CODE = 'SS_3'
+	</select>
+	<select id="testPercent" resultType="java.lang.Double">
+		SELECT
+		ROUND((ADJUSTED_DATE/DAY_OP)*100,1) AS "PERCENT"
 		FROM GROUPPERIODVIEW
 		WHERE CODE = (SELECT OP_CODE
 		FROM PERSONAL_INFO PI
-        LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
-        LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
-        LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
-        LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
-        LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
-		WHERE PA_MEM_CODE = #{memCode }
-        AND OP_END_DATE > SYSDATE) AND SD_SS_CODE = 'SS_4'
- 	</select>
- 	
- 	<!-- 회원의 참여코드 / 개설요청코드 -->
+		LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
+		LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
+		LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
+		LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
+		LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
+		WHERE PA_MEM_CODE =
+		#{memCode }
+		AND OP_END_DATE > SYSDATE) AND SD_SS_CODE = 'SS_4'
+	</select>
+
+	<!-- 회원의 참여코드 / 개설요청코드 -->
 	<select id="teamPcCode" resultType="java.lang.String">
 		SELECT PC_CODE "PCCODE"
 		FROM
@@ -264,7 +314,12 @@
 		WHERE MEM_CODE = #{memCode }
 	</select>
 	<select id="teamOpCode" resultType="java.lang.String">
-		SELECT OP_CODE "opCode"
+		SELECT
+		CASE
+		WHEN COUNT(*) = 0 THEN '0'
+		WHEN COUNT(*) = 1 THEN MAX(OP_CODE)
+		ELSE '에러발생'
+		END "OPCODE"
 		FROM GROUPTEAMVIEW
 		WHERE MEM_CODE = #{memCode }
 	</select>
@@ -273,14 +328,15 @@
 		FROM GROUPTEAMVIEW
 		WHERE MEM_CODE = #{memCode }
 	</select>
-	
+
 	<!-- 팀장 이탈자 참여코드 -->
 	<select id="leaveLeader" resultType="java.lang.String">
-		SELECT LEA_PC_CODE "LEAPCCODE"
+		SELECT LEA_PC_CODE
+		"LEAPCCODE"
 		FROM LEAVE
 		WHERE LEA_PC_CODE = #{leavePcCode}
 	</select>
-	
+
 	<!-- 팀장 참여코드 / 개설요청코드 -->
 	<select id="leaderPcCode" resultType="java.lang.String">
 		SELECT PC_CODE "PCCODE"
@@ -302,328 +358,377 @@
 	</select>
 
 	<!-- 팀장 교체 참여코드 / 팀장 교체 개설요청코드 -->
-	<select id="changeLeaderPcCode"
-		resultType="java.lang.String">
+	<select id="changeLeaderPcCode" resultType="java.lang.String">
 		SELECT LC_PC_CODE
 		FROM (
 		SELECT LC_PC_CODE, PA_MEM_CODE, LC_DATE,
-		ROW_NUMBER() OVER (ORDER BY LC_DATE DESC) AS row_num
+		ROW_NUMBER() OVER (ORDER
+		BY LC_DATE DESC) AS row_num
 		FROM LEADER_CHANGE LC
-		LEFT JOIN PART_CHECK PC ON LC.LC_PC_CODE = PC.PC_CODE
-		LEFT JOIN PART_APPLICANT PA ON PA.PA_NO = PC.PC_PA_NO
+		LEFT JOIN PART_CHECK
+		PC ON LC.LC_PC_CODE = PC.PC_CODE
+		LEFT JOIN PART_APPLICANT PA ON
+		PA.PA_NO = PC.PC_PA_NO
 		LEFT JOIN TEAM_JOB TJ ON PA.PA_TJ_NO = TJ.TJ_NO
 		WHERE TJ_OP_CODE = #{opCode}
 		)
 		WHERE row_num = 1
 	</select>
-	<select id="changeLeaderMemCode"
-		resultType="java.lang.String">
+	<select id="changeLeaderMemCode" resultType="java.lang.String">
 		SELECT PA_MEM_CODE
 		FROM (
 		SELECT PA_MEM_CODE, LC_DATE,
-		ROW_NUMBER() OVER (ORDER BY LC_DATE DESC) AS row_num
+		ROW_NUMBER() OVER (ORDER BY LC_DATE
+		DESC) AS row_num
 		FROM LEADER_CHANGE
 		LC
-		LEFT JOIN PART_CHECK PC ON LC.LC_PC_CODE = PC.PC_CODE
+		LEFT JOIN PART_CHECK PC ON
+		LC.LC_PC_CODE = PC.PC_CODE
 		LEFT JOIN
-		PART_APPLICANT PA ON PA.PA_NO = PC.PC_PA_NO
+		PART_APPLICANT PA ON PA.PA_NO =
+		PC.PC_PA_NO
 		LEFT JOIN TEAM_JOB TJ ON
 		PA.PA_TJ_NO = TJ.TJ_NO
-		WHERE TJ_OP_CODE = #{opCode }
+		WHERE
+		TJ_OP_CODE = #{opCode }
 		)
 		WHERE row_num = 1
 	</select>
-	
+
 	<!-- 팀장 닉네임 -->
 	<select id="leaderNickNames" resultType="java.lang.String">
-	SELECT PI_NICKNAME "PINICKNAME"
+		SELECT PI_NICKNAME "PINICKNAME"
 		FROM
 		GROUPTEAMVIEW
-		WHERE MEM_CODE = (SELECT OP_MEM_CODE
+		WHERE MEM_CODE = (SELECT
+		MAX(OP_MEM_CODE)
 		FROM PERSONAL_INFO PI
-        LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
-        LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
-        LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
-        LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
-        LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
-		WHERE PA_MEM_CODE = #{memCode }
-        AND OP_END_DATE > SYSDATE)
-    </select>
-    
-    <!-- 이탈자 닉네임 -->
-    <select id="leaveNickNames" resultType="java.lang.String">        
+		LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
+		LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
+		LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
+		LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
+		LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
+		WHERE PA_MEM_CODE =
+		#{memCode }
+		AND OP_END_DATE > SYSDATE)
+	</select>
+
+	<!-- 이탈자 닉네임 -->
+	<select id="leaveNickNames" resultType="java.lang.String">
 		SELECT PI_NICKNAME "PINICKNAME"
 		FROM GROUPSETUPVIEW
-		WHERE OP_CODE = (SELECT OP_CODE
+		WHERE OP_CODE = (SELECT
+		OP_CODE
 		FROM PERSONAL_INFO PI
-        LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
-        LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
-        LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
-        LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
-        LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
-        LEFT JOIN LEAVE LE ON PC.PC_CODE = LE.LEA_PC_CODE
-		WHERE PA_MEM_CODE = #{memCode }
-        AND OP_END_DATE > SYSDATE)
-        AND LEAPCCODE = '이탈자'
-    </select>
-     <select id="leavePcCodes" resultType="java.lang.String">        
+		LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
+		LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
+		LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
+		LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
+		LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
+		LEFT JOIN LEAVE LE ON PC.PC_CODE = LE.LEA_PC_CODE
+		WHERE PA_MEM_CODE =	#{memCode }
+		AND OP_END_DATE > SYSDATE)
+		AND LEAPCCODE = '이탈자'
+	</select>
+	<select id="leavePcCodes" resultType="java.lang.String">
 		SELECT LEA_PC_CODE
 		FROM GROUPSETUPVIEW
 		WHERE OP_CODE = (SELECT OP_CODE
-		FROM PERSONAL_INFO PI
-        LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
-        LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
-        LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
-        LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
-        LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
-        LEFT JOIN LEAVE LE ON PC.PC_CODE = LE.LEA_PC_CODE
-		WHERE PA_MEM_CODE = #{memCode }
-        AND OP_END_DATE > SYSDATE)
-        AND LEAPCCODE = '이탈자'
-    </select>
-    
-    <!-- 교체된 팀장 닉네임 -->
-    <select id="changeNickNames" resultType="java.lang.String">
-    	SELECT PI_NICKNAME
+		FROM
+		PERSONAL_INFO PI
+		LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
+		LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
+		LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
+		LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
+		LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
+		LEFT JOIN LEAVE LE ON PC.PC_CODE = LE.LEA_PC_CODE
+		WHERE PA_MEM_CODE =
+		#{memCode }
+		AND OP_END_DATE > SYSDATE)
+		AND LEAPCCODE = '이탈자'
+	</select>
+
+	<!-- 교체된 팀장 닉네임 -->
+	<select id="changeNickNames" resultType="java.lang.String">
+		SELECT PI_NICKNAME
 		FROM LEADER_CHANGE LC
-		LEFT JOIN PART_CHECK PC ON LC.LC_PC_CODE = PC.PC_CODE
-		LEFT JOIN PART_APPLICANT PA ON PA.PA_NO = PC.PC_PA_NO
+		LEFT JOIN PART_CHECK PC ON
+		LC.LC_PC_CODE = PC.PC_CODE
+		LEFT JOIN PART_APPLICANT PA ON PA.PA_NO =
+		PC.PC_PA_NO
 		LEFT JOIN TEAM_JOB TJ ON PA.PA_TJ_NO = TJ.TJ_NO
-        LEFT JOIN OPEN_PROJECT OP ON TJ.TJ_OP_CODE = OP.OP_CODE
-        LEFT JOIN MEMBER M ON OP.OP_MEM_CODE = M.MEM_CODE
-        LEFT JOIN PERSONAL_INFO PI ON M.MEM_CODE = PI.PI_MEM_CODE
-		WHERE TJ_OP_CODE = (SELECT OP_CODE
+		LEFT JOIN OPEN_PROJECT OP ON TJ.TJ_OP_CODE = OP.OP_CODE
+		LEFT JOIN MEMBER M ON OP.OP_MEM_CODE = M.MEM_CODE
+		LEFT JOIN PERSONAL_INFO PI ON M.MEM_CODE = PI.PI_MEM_CODE
+		WHERE TJ_OP_CODE
+		= (SELECT OP_CODE
 		FROM PERSONAL_INFO PI
-        LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
-        LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
-        LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
-        LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
-        LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
-        LEFT JOIN LEAVE LE ON PC.PC_CODE = LE.LEA_PC_CODE
-		WHERE PA_MEM_CODE = 'MEM_10'
-        AND OP_END_DATE > SYSDATE
-        AND LEA_NO IS NOT NULL)
-    
-    </select>
- 	
- 	<!-- 팀장 평가명 목록 -->
- 	<select id="leaderEval" resultType="com.itmeetup.mybatis.EvaluationDTO">
+		LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
+		LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
+		LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
+		LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
+		LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
+		LEFT JOIN LEAVE LE ON PC.PC_CODE = LE.LEA_PC_CODE
+		WHERE PA_MEM_CODE =
+		'MEM_10'
+		AND OP_END_DATE > SYSDATE
+		AND LEA_NO IS NOT NULL)
+
+	</select>
+
+	<!-- 팀장 평가명 목록 -->
+	<select id="leaderEval"
+		resultType="com.itmeetup.mybatis.EvaluationDTO">
 		SELECT DISTINCT(QUE_NAME) "QUENAME", QUE_NO "EVAQUENO"
-		FROM EVALNAMEVIEW
-        WHERE QI_CODE = 'QI_2'
- 	</select>
- 	
- 	<!-- 팀원 평가명 목록  -->
- 	<select id="teamEval" resultType="com.itmeetup.mybatis.EvaluationDTO">
+		FROM
+		EVALNAMEVIEW
+		WHERE QI_CODE = 'QI_2'
+	</select>
+
+	<!-- 팀원 평가명 목록 -->
+	<select id="teamEval"
+		resultType="com.itmeetup.mybatis.EvaluationDTO">
 		SELECT DISTINCT(QUE_NAME) "QUENAME", QUE_NO "EVAQUENO"
-		FROM EVALNAMEVIEW
-        WHERE QI_CODE = 'QI_1'
- 	</select>
- 	
- 	<!-- 평가에 쓰일 팀장 / 닉네임이랑 PC코드 -->
- 	<select id="groupLeader" resultType="com.itmeetup.mybatis.EvaluationDTO">
- 		SELECT PI_NICKNAME "PINICKNAME", PC_CODE "lederPcCode"
+		FROM
+		EVALNAMEVIEW
+		WHERE QI_CODE = 'QI_1'
+	</select>
+
+	<!-- 평가에 쓰일 팀장 / 닉네임이랑 PC코드 -->
+	<select id="groupLeader"
+		resultType="com.itmeetup.mybatis.EvaluationDTO">
+		SELECT PI_NICKNAME "PINICKNAME", PC_CODE "lederPcCode"
 		FROM TEAMLEADERVIEW
 		WHERE OP_CODE = (SELECT OP_CODE
 		FROM PERSONAL_INFO PI
-        LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
-        LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
-        LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
-        LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
-        LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
-		WHERE PA_MEM_CODE = #{memCode }
-        AND OP_END_DATE > SYSDATE) AND PA_MEM_CODE = OP_MEM_CODE
+		LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
+		LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
+		LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
+		LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
+		LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
+		WHERE PA_MEM_CODE =
+		#{memCode }
+		AND OP_END_DATE > SYSDATE) AND PA_MEM_CODE = OP_MEM_CODE
 	</select>
- 	
- 	<!-- 평가에 쓰일 그룹원 리스트 -->
- 	<select id="groupPersonnel" resultType="com.itmeetup.mybatis.GroupDTO">
+
+	<!-- 평가에 쓰일 그룹원 리스트 -->
+	<select id="groupPersonnel"
+		resultType="com.itmeetup.mybatis.GroupDTO">
 		SELECT PC_CODE "PCCODE", PI_NICKNAME "PINICKNAME"
-		FROM GROUPSETVIEW
+		FROM
+		GROUPSETVIEW
 		WHERE OP_CODE = (SELECT OP_CODE
 		FROM PERSONAL_INFO PI
-        LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
-        LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
-        LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
-        LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
-        LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
-		WHERE PA_MEM_CODE = #{memCode }
-        AND OP_END_DATE > SYSDATE)
- 	</select>
- 	
- 	<!-- 평가자 pc코드 -->
- 	<select id="evalGroupPcCode" resultType="java.lang.String">
+		LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
+		LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
+		LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
+		LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
+		LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
+		WHERE PA_MEM_CODE =
+		#{memCode }
+		AND OP_END_DATE > SYSDATE)
+	</select>
+
+	<!-- 평가자 pc코드 -->
+	<select id="evalGroupPcCode" resultType="java.lang.String">
 		SELECT PC_CODE "PCCODE"
 		FROM GROUPSETUPVIEW
 		WHERE OP_CODE = (SELECT OP_CODE
-		FROM PERSONAL_INFO PI
-        LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
-        LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
-        LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
-        LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
-        LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
-		WHERE PA_MEM_CODE = #{memCode }
-        AND OP_END_DATE > SYSDATE)
-        AND MEM_CODE = #{memCode }
- 	</select>
- 	
- 	<!-- 평가 프로시저 질문1 -->
+		FROM PERSONAL_INFO
+		PI
+		LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
+		LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
+		LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
+		LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
+		LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
+		WHERE PA_MEM_CODE =
+		#{memCode }
+		AND OP_END_DATE > SYSDATE)
+		AND MEM_CODE = #{memCode }
+	</select>
+
+	<!-- 평가 프로시저 질문1 -->
 	<update id="evalAdd1" parameterType="java.util.List">
 		DECLARE
-	        VV_EVA_NO   EVALUATION.EVA_NO%TYPE;
-	    BEGIN
-	        VV_EVA_NO := EVALUATION_SEQ.NEXTVAL;
-	        
-	        <!-- 평가수행(평가수행번호,수행일자,질문번호,평가자) -->
-	        INSERT INTO EVALUATION(EVA_NO, EVA_DATE, EVA_QUE_NO, EVA_PC_CODE)
-	        VALUES(VV_EVA_NO, SYSDATE, 1, #{evapcCode});
-	        
-	        <!-- 평가수행결과(평가결과번호,수행번호,피평가자) -->
-	    	INSERT INTO EVALUATION_RESULT(ER_NO, ER_EVA_NO, ER_PC_CODE) 
-	    	SELECT EVALUATION_RESULT_SEQ.NEXTVAL, A.* FROM(
-	    	<foreach collection="evalua1" item="skill" index="index"  separator="UNION ALL ">
-	        SELECT VV_EVA_NO AS ER_EVA_NO, #{skill}
-	        FROM DUAL
-	        </foreach>) A;
-	        
-	    END;
+		VV_EVA_NO EVALUATION.EVA_NO%TYPE;
+		BEGIN
+		VV_EVA_NO := EVALUATION_SEQ.NEXTVAL;
+
+		<!-- 평가수행(평가수행번호,수행일자,질문번호,평가자) -->
+		INSERT INTO EVALUATION(EVA_NO, EVA_DATE, EVA_QUE_NO, EVA_PC_CODE)
+		VALUES(VV_EVA_NO, SYSDATE, 1, #{evapcCode});
+
+		<!-- 평가수행결과(평가결과번호,수행번호,피평가자) -->
+		INSERT INTO EVALUATION_RESULT(ER_NO, ER_EVA_NO, ER_PC_CODE)
+		SELECT EVALUATION_RESULT_SEQ.NEXTVAL, A.* FROM(
+		<foreach collection="evalua1" item="skill" index="index"
+			separator="UNION ALL ">
+			SELECT VV_EVA_NO AS ER_EVA_NO, #{skill}
+			FROM DUAL
+		</foreach>
+		) A;
+
+		END;
 	</update>
-	
+
 	<!-- 평가 프로시저 질문2 -->
 	<update id="evalAdd2" parameterType="java.util.List">
 		DECLARE
-	        VV_EVA_NO   EVALUATION.EVA_NO%TYPE;
-	    BEGIN
-	        VV_EVA_NO := EVALUATION_SEQ.NEXTVAL;
-	        
-	        <!-- 평가수행(평가수행번호,수행일자,질문번호,평가자) -->
-	        INSERT INTO EVALUATION(EVA_NO, EVA_DATE, EVA_QUE_NO, EVA_PC_CODE)
-	        VALUES(VV_EVA_NO, SYSDATE, 2, #{evapcCode});
-	        
-	        <!-- 평가수행결과(평가결과번호,수행번호,피평가자) -->
-	    	INSERT INTO EVALUATION_RESULT(ER_NO, ER_EVA_NO, ER_PC_CODE) 
-	    	SELECT EVALUATION_RESULT_SEQ.NEXTVAL, A.* FROM(
-	    	<foreach collection="evalua2" item="skill" index="index"  separator="UNION ALL ">
-	        SELECT VV_EVA_NO AS ER_EVA_NO, #{skill}
-	        FROM DUAL
-	        </foreach>) A;
-	        
-	    END;
+		VV_EVA_NO EVALUATION.EVA_NO%TYPE;
+		BEGIN
+		VV_EVA_NO := EVALUATION_SEQ.NEXTVAL;
+
+		<!-- 평가수행(평가수행번호,수행일자,질문번호,평가자) -->
+		INSERT INTO EVALUATION(EVA_NO, EVA_DATE, EVA_QUE_NO, EVA_PC_CODE)
+		VALUES(VV_EVA_NO, SYSDATE, 2, #{evapcCode});
+
+		<!-- 평가수행결과(평가결과번호,수행번호,피평가자) -->
+		INSERT INTO EVALUATION_RESULT(ER_NO, ER_EVA_NO, ER_PC_CODE)
+		SELECT EVALUATION_RESULT_SEQ.NEXTVAL, A.* FROM(
+		<foreach collection="evalua2" item="skill" index="index"
+			separator="UNION ALL ">
+			SELECT VV_EVA_NO AS ER_EVA_NO, #{skill}
+			FROM DUAL
+		</foreach>
+		) A;
+
+		END;
 	</update>
-	
+
 	<!-- 평가 프로시저 질문3 -->
 	<update id="evalAdd3" parameterType="java.util.List">
 		DECLARE
-	        VV_EVA_NO   EVALUATION.EVA_NO%TYPE;
-	    BEGIN
-	        VV_EVA_NO := EVALUATION_SEQ.NEXTVAL;
-	        
-	        <!-- 평가수행(평가수행번호,수행일자,질문번호,평가자) -->
-	        INSERT INTO EVALUATION(EVA_NO, EVA_DATE, EVA_QUE_NO, EVA_PC_CODE)
-	        VALUES(VV_EVA_NO, SYSDATE, 3, #{evapcCode});
-	        
-	        <!-- 평가수행결과(평가결과번호,수행번호,피평가자) -->
-	    	INSERT INTO EVALUATION_RESULT(ER_NO, ER_EVA_NO, ER_PC_CODE) 
-	    	SELECT EVALUATION_RESULT_SEQ.NEXTVAL, A.* FROM(
-	    	<foreach collection="evalua3" item="skill" index="index"  separator="UNION ALL ">
-	        SELECT VV_EVA_NO AS ER_EVA_NO, #{skill}
-	        FROM DUAL
-	        </foreach>) A;
-	        
-	    END;
+		VV_EVA_NO EVALUATION.EVA_NO%TYPE;
+		BEGIN
+		VV_EVA_NO := EVALUATION_SEQ.NEXTVAL;
+
+		<!-- 평가수행(평가수행번호,수행일자,질문번호,평가자) -->
+		INSERT INTO EVALUATION(EVA_NO, EVA_DATE, EVA_QUE_NO, EVA_PC_CODE)
+		VALUES(VV_EVA_NO, SYSDATE, 3, #{evapcCode});
+
+		<!-- 평가수행결과(평가결과번호,수행번호,피평가자) -->
+		INSERT INTO EVALUATION_RESULT(ER_NO, ER_EVA_NO, ER_PC_CODE)
+		SELECT EVALUATION_RESULT_SEQ.NEXTVAL, A.* FROM(
+		<foreach collection="evalua3" item="skill" index="index"
+			separator="UNION ALL ">
+			SELECT VV_EVA_NO AS ER_EVA_NO, #{skill}
+			FROM DUAL
+		</foreach>
+		) A;
+
+		END;
 	</update>
-	
+
 	<!-- 평가 프로시저 질문4 -->
 	<update id="evalAdd4" parameterType="java.util.List">
 		DECLARE
-	        VV_EVA_NO   EVALUATION.EVA_NO%TYPE;
-	    BEGIN
-	        VV_EVA_NO := EVALUATION_SEQ.NEXTVAL;
-	        
-	        <!-- 평가수행(평가수행번호,수행일자,질문번호,평가자) -->
-	        INSERT INTO EVALUATION(EVA_NO, EVA_DATE, EVA_QUE_NO, EVA_PC_CODE)
-	        VALUES(VV_EVA_NO, SYSDATE, 4, #{evapcCode});
-	        
-	        <!-- 평가수행결과(평가결과번호,수행번호,피평가자) -->
-	    	INSERT INTO EVALUATION_RESULT(ER_NO, ER_EVA_NO, ER_PC_CODE) 
-	    	SELECT EVALUATION_RESULT_SEQ.NEXTVAL, A.* FROM(
-	    	<foreach collection="evalua4" item="skill" index="index"  separator="UNION ALL ">
-	        SELECT VV_EVA_NO AS ER_EVA_NO, #{skill}
-	        FROM DUAL
-	        </foreach>) A;
-	        
-	    END;
+		VV_EVA_NO EVALUATION.EVA_NO%TYPE;
+		BEGIN
+		VV_EVA_NO := EVALUATION_SEQ.NEXTVAL;
+
+		<!-- 평가수행(평가수행번호,수행일자,질문번호,평가자) -->
+		INSERT INTO EVALUATION(EVA_NO, EVA_DATE, EVA_QUE_NO, EVA_PC_CODE)
+		VALUES(VV_EVA_NO, SYSDATE, 4, #{evapcCode});
+
+		<!-- 평가수행결과(평가결과번호,수행번호,피평가자) -->
+		INSERT INTO EVALUATION_RESULT(ER_NO, ER_EVA_NO, ER_PC_CODE)
+		SELECT EVALUATION_RESULT_SEQ.NEXTVAL, A.* FROM(
+		<foreach collection="evalua4" item="skill" index="index"
+			separator="UNION ALL ">
+			SELECT VV_EVA_NO AS ER_EVA_NO, #{skill}
+			FROM DUAL
+		</foreach>
+		) A;
+
+		END;
 	</update>
-	
+
 	<!-- 평가 프로시저 질문5(팀장) -->
 	<update id="evalAdd5" parameterType="java.util.List">
 		DECLARE
-	        VV_EVA_NO   EVALUATION.EVA_NO%TYPE;
-	    BEGIN
-	        VV_EVA_NO := EVALUATION_SEQ.NEXTVAL;
-	        
-	        <!-- 평가수행(평가수행번호,수행일자,질문번호,평가자) -->
-	        INSERT INTO EVALUATION(EVA_NO, EVA_DATE, EVA_QUE_NO, EVA_PC_CODE)
-	        VALUES(VV_EVA_NO, SYSDATE, 5, #{evapcCode});
-	        
-	        <!-- 평가수행결과(평가결과번호,수행번호,피평가자) -->
-	    	INSERT INTO EVALUATION_RESULT(ER_NO, ER_EVA_NO, ER_PC_CODE) 
-	    	SELECT EVALUATION_RESULT_SEQ.NEXTVAL, A.* FROM(
-	    	<foreach collection="evalua5" item="skill" index="index"  separator="UNION ALL ">
-	        SELECT VV_EVA_NO AS ER_EVA_NO, #{skill}
-	        FROM DUAL
-	        </foreach>) A;
-	        
-	    END;
+		VV_EVA_NO EVALUATION.EVA_NO%TYPE;
+		BEGIN
+		VV_EVA_NO := EVALUATION_SEQ.NEXTVAL;
+
+		<!-- 평가수행(평가수행번호,수행일자,질문번호,평가자) -->
+		INSERT INTO EVALUATION(EVA_NO, EVA_DATE, EVA_QUE_NO, EVA_PC_CODE)
+		VALUES(VV_EVA_NO, SYSDATE, 5, #{evapcCode});
+
+		<!-- 평가수행결과(평가결과번호,수행번호,피평가자) -->
+		INSERT INTO EVALUATION_RESULT(ER_NO, ER_EVA_NO, ER_PC_CODE)
+		SELECT EVALUATION_RESULT_SEQ.NEXTVAL, A.* FROM(
+		<foreach collection="evalua5" item="skill" index="index"
+			separator="UNION ALL ">
+			SELECT VV_EVA_NO AS ER_EVA_NO, #{skill}
+			FROM DUAL
+		</foreach>
+		) A;
+
+		END;
 	</update>
-	
- 	<select id="partCheckTeamMem" resultType="com.itmeetup.mybatis.MemberDTO">
+
+	<!-- <select id="partCheckTeamMem"
+		resultType="com.itmeetup.mybatis.MemberDTO">
 		SELECT MEM_CODE "piMemCode"
 		FROM PERSONAL_INFO PI
-		LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
-		LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
-		LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
+		LEFT JOIN
+		MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
+		LEFT JOIN PART_APPLICANT PA ON
+		M.MEM_CODE = PA.PA_MEM_CODE
+		LEFT JOIN PART_CHECK PC ON PA.PA_NO =
+		PC.PC_PA_NO
 		LEFT JOIN TEAM_JOB TJ ON PA.PA_TJ_NO = TJ.TJ_NO
-		LEFT JOIN OPEN_PROJECT OP ON TJ.TJ_OP_CODE = OP.OP_CODE
+		LEFT JOIN
+		OPEN_PROJECT OP ON TJ.TJ_OP_CODE = OP.OP_CODE
 		WHERE OP_CODE NOT IN(
-		    SELECT DISTINCT TJ2.TJ_OP_CODE
-		    FROM TEAM_JOB TJ2
-		    JOIN PART_APPLICANT PA2 ON TJ2.TJ_NO = PA2.PA_TJ_NO
-		    JOIN PART_CHECK PC2 ON PA2.PA_NO = PC2.PC_PA_NO
-		    WHERE PC2.PC_WHETHER = 2 AND TJ2.TJ_OP_CODE = OP.OP_CODE)
-		AND PC.PC_CODE IS NOT NULL AND PC.PC_PA_NO IS NOT NULL AND OP.OP_END_DATE > SYSDATE
-		and OP_CODE = (SELECT OP_CODE
-				FROM PERSONAL_INFO PI
-		        LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
-		        LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
-		        LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
-		        LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
-		        LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
-				WHERE PA_MEM_CODE = #{memCode }
-		        AND OP_END_DATE > SYSDATE)
-	</select>
-	<select id="partCheckTeamOp" resultType="com.itmeetup.mybatis.GroupDTO">
-		SELECT OP_CODE "OPCODE"
+		SELECT DISTINCT TJ2.TJ_OP_CODE
+		FROM TEAM_JOB TJ2
+		JOIN PART_APPLICANT PA2 ON TJ2.TJ_NO = PA2.PA_TJ_NO
+		JOIN PART_CHECK PC2 ON PA2.PA_NO = PC2.PC_PA_NO
+		WHERE PC2.PC_WHETHER = 2 AND TJ2.TJ_OP_CODE = OP.OP_CODE)
+		AND PC.PC_CODE IS
+		NOT NULL AND PC.PC_PA_NO IS NOT NULL AND OP.OP_END_DATE > SYSDATE
+		and
+		OP_CODE = (SELECT OP_CODE
 		FROM PERSONAL_INFO PI
 		LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
 		LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
 		LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
-		LEFT JOIN TEAM_JOB TJ ON PA.PA_TJ_NO = TJ.TJ_NO
-		LEFT JOIN OPEN_PROJECT OP ON TJ.TJ_OP_CODE = OP.OP_CODE
-		WHERE OP_CODE NOT IN(
-		    SELECT DISTINCT TJ2.TJ_OP_CODE
-		    FROM TEAM_JOB TJ2
-		    JOIN PART_APPLICANT PA2 ON TJ2.TJ_NO = PA2.PA_TJ_NO
-		    JOIN PART_CHECK PC2 ON PA2.PA_NO = PC2.PC_PA_NO
-		    WHERE PC2.PC_WHETHER = 2 AND TJ2.TJ_OP_CODE = OP.OP_CODE)
-		AND PC.PC_CODE IS NOT NULL AND PC.PC_PA_NO IS NOT NULL AND OP.OP_END_DATE > SYSDATE
-		and OP_CODE = (SELECT OP_CODE
-				FROM PERSONAL_INFO PI
-		        LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
-		        LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
-		        LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
-		        LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
-		        LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
-				WHERE PA_MEM_CODE = #{memCode }
-		        AND OP_END_DATE > SYSDATE)
+		LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
+		LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
+		WHERE PA_MEM_CODE = #{memCode }
+		AND OP_END_DATE > SYSDATE)
 	</select>
- </mapper>
+	<select id="partCheckTeamOp"
+		resultType="com.itmeetup.mybatis.GroupDTO">
+		SELECT OP_CODE "OPCODE"
+		FROM PERSONAL_INFO PI
+		LEFT JOIN
+		MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
+		LEFT JOIN PART_APPLICANT PA ON
+		M.MEM_CODE = PA.PA_MEM_CODE
+		LEFT JOIN PART_CHECK PC ON PA.PA_NO =
+		PC.PC_PA_NO
+		LEFT JOIN TEAM_JOB TJ ON PA.PA_TJ_NO = TJ.TJ_NO
+		LEFT JOIN
+		OPEN_PROJECT OP ON TJ.TJ_OP_CODE = OP.OP_CODE
+		WHERE OP_CODE NOT IN(
+		SELECT DISTINCT TJ2.TJ_OP_CODE
+		FROM TEAM_JOB TJ2
+		JOIN PART_APPLICANT PA2 ON TJ2.TJ_NO = PA2.PA_TJ_NO
+		JOIN PART_CHECK PC2 ON PA2.PA_NO = PC2.PC_PA_NO
+		WHERE PC2.PC_WHETHER = 2 AND TJ2.TJ_OP_CODE = OP.OP_CODE)
+		AND PC.PC_CODE IS
+		NOT NULL AND PC.PC_PA_NO IS NOT NULL AND OP.OP_END_DATE > SYSDATE
+		and
+		OP_CODE = (SELECT OP_CODE
+		FROM PERSONAL_INFO PI
+		LEFT JOIN MEMBER M ON PI.PI_MEM_CODE = M.MEM_CODE
+		LEFT JOIN PART_APPLICANT PA ON M.MEM_CODE = PA.PA_MEM_CODE
+		LEFT JOIN PART_CHECK PC ON PA.PA_NO = PC.PC_PA_NO
+		LEFT JOIN TEAM_JOB JV ON PA.PA_TJ_NO = JV.TJ_NO
+		LEFT JOIN OPEN_PROJECT OP ON JV.TJ_OP_CODE = OP.OP_CODE
+		WHERE PA_MEM_CODE = #{memCode }
+		AND OP_END_DATE > SYSDATE)
+	</select> -->
+</mapper>

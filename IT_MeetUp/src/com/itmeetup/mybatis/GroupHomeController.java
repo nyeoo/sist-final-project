@@ -27,11 +27,13 @@ public class GroupHomeController
 		String viewPage = null;
 		IGroupHomeDAO dao = sqlSession.getMapper(IGroupHomeDAO.class);
 		
+		
 		String opCode = dao.teamOpCode(memCode); // 회원의 개설요청 코드
 		
-		if(opCode.equals('0')) {	// 현재 진행중인 그룹이 없음
-			viewPage = "";
-		}else {	// 진행중인 그룹 있음
+		if (opCode.equals("0")) {
+			
+			viewPage = "redirect:/projectList.action";
+		}else {
 			String pcCode = dao.teamPcCode(memCode); // 회원의 개설요청 코드
 			String leaderMemCode = dao.leaderMemCode(opCode); // 방장의 회원코드
 			String leaderPcCode = dao.leaderPcCode(leaderMemCode); // 방장의 참여확인코드
@@ -42,9 +44,6 @@ public class GroupHomeController
 			String leaveNickNames = dao.leaveNickNames(memCode);		//이탈자 닉네임
 			String leavePcCodes = dao.leavePcCodes(memCode);		//이탈자 참여코드
 			String changeNickNames = dao.changeNickNames(memCode);		//교체된 팀장의 닉네임
-			
-			model.addAttribute("partCheckTeamMem", dao.partCheckTeamMem(memCode));
-			model.addAttribute("partCheckTeamOp", dao.partCheckTeamOp(memCode));
 				
 			MemberDTO memberStr = (MemberDTO) session.getAttribute("loginDTO"); // 세션에서 가져온 멤버
 			String memCodes = memberStr.getPiMemCode();		
@@ -105,19 +104,14 @@ public class GroupHomeController
 			
 			// 그룹원 리스트 목록
 			model.addAttribute("groupPersonnel", dao.groupPersonnel(memCode));
+
 			
-//			if (opCode == "")
-//			{
-//				return "redirect:/projectList.action";
-//			}
+			//viewPage = "redirect:/grouphome.action?memCode=" + memCode;
 			viewPage = "/Content/MeetGroup/GroupHome.jsp";
+			
 		}
 		
-		
-		
 		return viewPage;
-		
-		//return "redirect:/grouphome.action?memCode=" + memCode;
 	}
 
 	// 평가 입력

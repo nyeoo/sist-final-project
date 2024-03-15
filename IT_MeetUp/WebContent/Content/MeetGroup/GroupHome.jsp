@@ -473,7 +473,8 @@ String cp = request.getContextPath();
 																		</tr>
 																	</c:if>
 																</c:forEach>
-
+																
+																<!-- 팀원 첫번째 질문 -->
 																<c:forEach var="teamItem" items="${teamEval }">
 																	<c:if test="${teamItem.evaqueno == '1' }">
 																		<tr>

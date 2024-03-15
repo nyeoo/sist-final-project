@@ -296,8 +296,13 @@ $(function () {
      var sessionScopePiMemCode = $("#sessionScopePiMemCode").val();
      var partCheckTeamMem = $("#partCheckTeamMem").val();
      $("#groupHomeLink").on("click", function(){
-        if(sessionScopePiMemCode !== "" ){
+        if(sessionScopePiMemCode != "" ){
            $(location).attr("href", "grouphome.action?memCode=" + sessionScopePiMemCode);
+        }
+        else
+        {
+        	alert("로그인을 해주세요.");
+        	$(location).attr("href", "../../login.action");
         }
      })/*
      $(document).ready(function() {
