@@ -58,7 +58,7 @@ String cp = request.getContextPath();
 										<div class="m-input-box">
 											<label for="assignmentTitle" class="form-label"> 제목 </label>
 											<input type="text" class="form-control" id="assName"
-												name="assName" style="width: 350px;" value="">
+												name="assName" style="width: 350px;" value="" >
 											<div class="invalid-feedback">제목을 입력해주세요.</div>
 										</div>
 									</div>

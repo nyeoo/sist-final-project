@@ -87,8 +87,7 @@
 		resultType="com.itmeetup.mybatis.AssignmentDTO">
 		SELECT SD_OP_CODE "sdOpCode"
 		, ASS_CODE "assCode"
-		, ASS_NAME
-		"assName"
+		, ASS_NAME "assName"	
 		,CHARGER "charger"
 		, PI_NICKNAME "piNickName"
 		, ASS_START_DATE
@@ -97,7 +96,7 @@
 		, ASS_DATE "assDate"
 		, OU_NAME
 		"ouName"
-		, SS_NAME "ssName"
+		, SS_NAME "ssName", ASS_CONTENT "assContent"
 		FROM VIEW_ASSIGNMENT
 		WHERE SD_OP_CODE =
 		#{opCode}

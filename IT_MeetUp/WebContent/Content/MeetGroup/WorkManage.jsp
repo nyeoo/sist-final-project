@@ -196,11 +196,12 @@ String cp = request.getContextPath();
 																					test="${workAssignment.ssName eq innerWorkAssignment.ssName}">
 																					<tr class="range-datepicker">
 																						<td>${innerWorkAssignment.ouName}</td>
-																						<td>${innerWorkAssignment.assName}</td>
+																						<td><a class="dropdown-item searchBtn" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="workProcess">${innerWorkAssignment.assName}</a></td>
 																						<td>${innerWorkAssignment.assDate}</td>
 																						<td>${innerWorkAssignment.assStartDate}</td>
 																						<td>${innerWorkAssignment.assEndDate}</td>
 																						<td>${innerWorkAssignment.piNickName}</td>
+																						<td style="display: none;">${innerWorkAssignment.assContent}</td>
 																						<td>
 																							<div class="dropdown">
 																								<button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown" id="dropdownToggle_${innerWorkAssignment.charger}">
@@ -391,6 +392,62 @@ String cp = request.getContextPath();
 				</div>
 				<!-- 탭 -->
 
+				<!-- Modal -->
+				<div class="modal fade" id="staticBackdrop"
+				    data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+				    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+				    <div class="modal-dialog">
+				        <div class="modal-content">
+				            <div class="modal-header">
+				                <h5 class="modal-title" id="staticBackdropLabel">할당된 업무</h5>
+				                <button type="button" class="btn-close" data-bs-dismiss="modal"
+				                    aria-label="Close"></button>
+				            </div>
+				            <div class="modal-body">
+				                <div id="item-1" class="comp_tit">
+				                    제목(주제) <input type="text" class="form-control" id="title"
+				                        style="width: 450px;"disabled="disabled">
+				                </div>
+				
+				                <div id="item-2" class="comp_tit">
+				                    내용
+				                    <textarea class="form-control" id="content" rows="3" id="content"
+				                        style="width: 450px;" disabled="disabled"></textarea>
+				                </div>
+				                <br>
+				                <hr>
+				                <div id="item-3" class="d-flex comp_tit">
+				                    업무 분류 <input type="text" class="form-control" id="ouName"
+				                        style="width: 250px;"disabled="disabled">
+				                </div>
+				                <br>
+				                <hr>
+				                <div id="item-4" class="comp_tit">
+				                    시작일 <input type="text" class="form-control" id="startDate"
+				                        style="width: 450px;"disabled="disabled">
+				                </div>
+				                <div id="item-5" class="comp_tit">
+				                    종료일 <input type="text" class="form-control" id="endDate"
+				                        style="width: 450px;"disabled="disabled">
+				                </div>
+				                <br>
+				                <hr>
+				                <div id="item-5" class="d-flex comp_tit">
+				                    담당자<input type="text" class="form-control" id="piNickName"
+				                        style="width: 250px;"disabled="disabled">
+				                </div>
+				                <br>
+				                <hr>
+				
+				            </div>
+				            <div class="modal-footer">
+				                <button type="button" class="btn btn-secondary"
+				                    data-bs-dismiss="modal">닫기</button>
+				            </div>
+				        </div>
+				    </div>
+				</div>
+				<!--// Modal  -->
 
 				<!-- Modal3 -->
 				<div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -553,6 +610,30 @@ String cp = request.getContextPath();
 			    
 			});
 			
+			// 업무할당 조회 데이터 모달로 전달 
+			$(".searchBtn").click(function()
+			{
+			    var $row = $(this).closest('tr'); // 클릭된 버튼이 속한 행 선택
+			    var ouName = $row.find('td:eq(0)').text(); // 주제 데이터 가져오기
+			    var assName = $row.find('td:eq(1)').text(); // 제목 데이터 가져오기
+			    var assContent = $row.find('td:eq(6)').text(); // 내용 데이터 가져오기
+			    var assStartDate = $row.find('td:eq(3)').text(); // 시작일 데이터 가져오기
+			    var assEndDate = $row.find('td:eq(4)').text(); // 종료일 데이터 가져오기
+			    var piNickName = $row.find('td:eq(5)').text(); // 담당자 데이터 가져오기
+			    
+			    // 모달 내 필드에 데이터 설정
+			    $("#staticBackdrop").modal('show');
+			    $("#title").val(assName);
+			    $("#ouName").val(ouName);
+			    $("#startDate").val(assStartDate);
+			    $("#endDate").val(assEndDate);
+			    $("#piNickName").val(piNickName);
+			    $("#content").val(assContent);
+			});
+
+
+			
+			// 승인 / 반려에 대한 데이터 변환
 			$("#decisionForm").submit(function(e)
 			{
 		        var decisionValue;

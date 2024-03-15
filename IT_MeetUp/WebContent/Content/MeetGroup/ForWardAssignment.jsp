@@ -7,7 +7,8 @@
     ArrayList<AssignmentDTO> outputList = (ArrayList<AssignmentDTO>) request.getAttribute("searchOutputList");
     
     StringBuilder jsonOutput = new StringBuilder("[");
-    for (int i = 0; i < outputList.size(); i++) {
+    for (int i = 0; i < outputList.size(); i++) 
+    {
         AssignmentDTO assignment = outputList.get(i);
         jsonOutput.append("{\"ouCode\": \"").append(assignment.getOuCode()).append("\", \"ouName\": \"").append(assignment.getOuName()).append("\"}");
         if (i < outputList.size() - 1) {
