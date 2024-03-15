@@ -321,7 +321,7 @@ String cp = request.getContextPath();
 														<tr class="range-datepicker">
 															<td><strong>${reportList.ssName}</strong></td>
 															<td><strong>${reportList.ouName}</strong></td>
-															<td><a class="dropdown-item selectBtn" href="javascript:void(0)" data-bs-toggle="modal2" data-bs-target="#staticBackdrop2" id="selectWork">${reportList.repTitle}</a></td>	
+															<td><a class="dropdown-item selectBtn" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" id="selectWork">${reportList.repTitle}</a></td>	
 															<td>${reportList.piNickName}</td>
 															<td style="display: none;">${reportList.repContent}</td>
 															<td style="display: none;">${reportList.repStartDate}</td>
@@ -453,7 +453,7 @@ String cp = request.getContextPath();
 				<!-- Modal2 -->
 				<div class="modal fade" id="staticBackdrop2"
 				    data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-				    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+				    aria-labelledby="staticBackdropLabel2" aria-hidden="true">
 				    <div class="modal-dialog">
 				        <div class="modal-content">
 				            <div class="modal-header">
@@ -469,8 +469,8 @@ String cp = request.getContextPath();
 				
 				                <div id="item-2" class="comp_tit">
 				                    내용
-				                    <textarea class="form-control" id="content" rows="3" id="repContent"
-				                        style="width: 450px;" disabled="disabled"></textarea>
+				                    <input type="text" class="form-control" id="repContent"
+				                        style="width: 450px; height: auto;"disabled="disabled">
 				                </div>
 				                <br>
 				                <hr>
@@ -487,7 +487,7 @@ String cp = request.getContextPath();
 				                <br>
 				                <hr>
 				                <div id="item-5" class="comp_tit">
-				                    실제 시작일 <input type="text" class="form-control" id="repStarDate"
+				                    실제 시작일 <input type="text" class="form-control" id="repStartDate"
 				                        style="width: 450px;"disabled="disabled">
 				                </div>
 				                <div id="item-6" class="comp_tit">
@@ -497,7 +497,7 @@ String cp = request.getContextPath();
 				                <br>
 				                <hr>
 				                <div id="item-7" class="d-flex comp_tit">
-				                    담당자<input type="text" class="form-control" id="piNickName"
+				                    담당자<input type="text" class="form-control" id="repPiNickName"
 				                        style="width: 250px;"disabled="disabled">
 				                </div>
 				                <br>
@@ -695,28 +695,27 @@ String cp = request.getContextPath();
 			    $("#content").val(assContent);
 			});
 			
-			// 업무할당 조회 데이터 모달로 전달 
+			// 업무보고 조회 데이터 모달로 전달 
 			$(".selectBtn").click(function()
 			{
 			    var $row = $(this).closest('tr'); // 클릭된 버튼이 속한 행 선택
 			    var repSsName = $row.find('td:eq(0)').text(); // 주제 데이터 가져오기
 			    var repOuName = $row.find('td:eq(1)').text(); // 주제 데이터 가져오기
 			    var repTitle = $row.find('td:eq(2)').text(); // 제목 데이터 가져오기
-			    var repContent = $row.find('td:eq(3)').text(); // 내용 데이터 가져오기
-			    var repStartDate = $row.find('td:eq(4)').text(); // 시작일 데이터 가져오기
-			    var repEndDate = $row.find('td:eq(5)').text(); // 종료일 데이터 가져오기
-			    var piNickName = $row.find('td:eq(6)').text(); // 담당자 데이터 가져오기
-			    
+			    var repContent = $row.find('td:eq(4)').text(); // 내용 데이터 가져오기
+			    var repStartDate = $row.find('td:eq(5)').text(); // 시작일 데이터 가져오기
+			    var repEndDate = $row.find('td:eq(6)').text(); // 종료일 데이터 가져오기
+			    var piNickName = $row.find('td:eq(3)').text(); // 담당자 데이터 가져오기
+			    console.log(repContent);
 			    // 모달 내 필드에 데이터 설정
-			    $("#staticBackdrop").modal('show');
+			    $("#staticBackdrop2").modal('show'); // 두 번째 모달 호출
 			    $("#repSsName").val(repSsName);
 			    $("#repOuName").val(repOuName);
 			    $("#repTitle").val(repTitle);
 			    $("#repContent").val(repContent);
 			    $("#repStartDate").val(repStartDate);
 			    $("#repEndDate").val(repEndDate);
-			    $("#piNickName").val(piNickName);
-			    
+			    $("#repPiNickName").val(piNickName);
 			});
 
 

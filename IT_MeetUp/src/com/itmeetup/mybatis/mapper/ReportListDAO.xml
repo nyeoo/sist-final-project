@@ -8,23 +8,11 @@
 
 	<select id="reportList"
 		resultType="com.itmeetup.mybatis.ReportListDTO">
-		SELECT SD_OP_CODE "sdOpCode"
-		, ASS_NAME "assName"
-		,
-		REP_ASS_CODE "repAssCode"
-		, PI_NICKNAME "piNickName"
-		, OU_NAME "ouName"
-		, SS_NAME "ssName"
-		, SS_CODE "ssCode"
-		, REP_TITLE "repTitle"
-		, REP_NO
-		"repNo"
-		, REP_DATE "repDate"
-		, REP_FILE "repFile"
-		, APP_DATE "appDate"
-		,
-		WS_NAME "wsName"
-		, CHARGER "chaPcCode", REP_NO "repNumber", REP_START_DATE "repStartDate", REP_END_DATE "repEndDate", REP_CONTENT "repContent"
+		SELECT SD_OP_CODE "sdOpCode", ASS_NAME "assName",REP_ASS_CODE "repAssCode"
+		, PI_NICKNAME "piNickName", OU_NAME "ouName", SS_NAME "ssName", SS_CODE "ssCode"
+		, REP_TITLE "repTitle", REP_NO "repNo", REP_DATE "repDate", REP_FILE "repFile"
+		, APP_DATE "appDate",WS_NAME "wsName", CHARGER "chaPcCode", REP_NO "repNumber"
+		, REP_START_DATE "repStartDate", REP_END_DATE "repEndDate", REP_CONTENT "repContent"
 		FROM VIEW_REPORT
 		WHERE SD_OP_CODE =
 		#{opCode} AND REP_NO IS NOT NULL
