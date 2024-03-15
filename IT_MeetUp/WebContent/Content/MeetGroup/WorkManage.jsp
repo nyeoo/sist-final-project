@@ -196,7 +196,7 @@ String cp = request.getContextPath();
 																					test="${workAssignment.ssName eq innerWorkAssignment.ssName}">
 																					<tr class="range-datepicker">
 																						<td>${innerWorkAssignment.ouName}</td>
-																						<td><a class="dropdown-item searchBtn" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="workProcess">${innerWorkAssignment.assName}</a></td>
+																						<td><a class="dropdown-item searchBtn" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="workAss">${innerWorkAssignment.assName}</a></td>
 																						<td>${innerWorkAssignment.assDate}</td>
 																						<td>${innerWorkAssignment.assStartDate}</td>
 																						<td>${innerWorkAssignment.assEndDate}</td>
@@ -255,7 +255,7 @@ String cp = request.getContextPath();
 										<div class="card-header">
 											<h5>업무보고목록</h5>
 										</div>
-										<!-- 필터 -->
+										<%-- <!-- 필터 -->
 										<div class="filter-box mb-3" style="margin: auto;">
 											<ul class="d-flex">
 												<li>
@@ -291,7 +291,7 @@ String cp = request.getContextPath();
 
 											</ul>
 										</div>
-										<!--// 필터 -->
+										<!--// 필터 --> --%>
 										<div class="table-responsive text-nowrap tbl-border">
 											<table class="table">
 												<colgroup>
@@ -321,10 +321,11 @@ String cp = request.getContextPath();
 														<tr class="range-datepicker">
 															<td><strong>${reportList.ssName}</strong></td>
 															<td><strong>${reportList.ouName}</strong></td>
-															<td><input type="button"
-																class="form-control form-control-plaintext"
-																id="validationCustom01" value="${reportList.repTitle}"></td>
+															<td><a class="dropdown-item selectBtn" href="javascript:void(0)" data-bs-toggle="modal2" data-bs-target="#staticBackdrop2" id="selectWork">${reportList.repTitle}</a></td>	
 															<td>${reportList.piNickName}</td>
+															<td style="display: none;">${reportList.repContent}</td>
+															<td style="display: none;">${reportList.repStartDate}</td>
+															<td style="display: none;">${reportList.repEndDate}</td>
 															<td>${reportList.repDate}</td>
 															<td>${reportList.appDate}</td>
 															<td><c:choose>
@@ -417,7 +418,7 @@ String cp = request.getContextPath();
 				                <br>
 				                <hr>
 				                <div id="item-3" class="d-flex comp_tit">
-				                    업무 분류 <input type="text" class="form-control" id="ouName"
+				                    업무 분류 <input type="text" class="form-control" id="assOuName"
 				                        style="width: 250px;"disabled="disabled">
 				                </div>
 				                <br>
@@ -448,6 +449,69 @@ String cp = request.getContextPath();
 				    </div>
 				</div>
 				<!--// Modal  -->
+				
+				<!-- Modal2 -->
+				<div class="modal fade" id="staticBackdrop2"
+				    data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+				    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+				    <div class="modal-dialog">
+				        <div class="modal-content">
+				            <div class="modal-header">
+				                <h5 class="modal-title" id="staticBackdropLabel">보고된 업무</h5>
+				                <button type="button" class="btn-close" data-bs-dismiss="modal"
+				                    aria-label="Close"></button>
+				            </div>
+				            <div class="modal-body">
+				                <div id="item-1" class="comp_tit">
+				                    제목(주제) <input type="text" class="form-control" id="repTitle"
+				                        style="width: 450px;"disabled="disabled">
+				                </div>
+				
+				                <div id="item-2" class="comp_tit">
+				                    내용
+				                    <textarea class="form-control" id="content" rows="3" id="repContent"
+				                        style="width: 450px;" disabled="disabled"></textarea>
+				                </div>
+				                <br>
+				                <hr>
+				                <div id="item-3" class="d-flex comp_tit">
+				                    업무 단계 <input type="text" class="form-control" id="repSsName"
+				                        style="width: 250px;"disabled="disabled">
+				                </div>
+				                <br>
+				                <hr>
+				                <div id="item-4" class="d-flex comp_tit">
+				                    업무 분류 <input type="text" class="form-control" id="repOuName"
+				                        style="width: 250px;"disabled="disabled">
+				                </div>
+				                <br>
+				                <hr>
+				                <div id="item-5" class="comp_tit">
+				                    실제 시작일 <input type="text" class="form-control" id="repStarDate"
+				                        style="width: 450px;"disabled="disabled">
+				                </div>
+				                <div id="item-6" class="comp_tit">
+				                    종료일 <input type="text" class="form-control" id="repEndDate"
+				                        style="width: 450px;"disabled="disabled">
+				                </div>
+				                <br>
+				                <hr>
+				                <div id="item-7" class="d-flex comp_tit">
+				                    담당자<input type="text" class="form-control" id="piNickName"
+				                        style="width: 250px;"disabled="disabled">
+				                </div>
+				                <br>
+				                <hr>
+				
+				            </div>
+				            <div class="modal-footer">
+				                <button type="button" class="btn btn-secondary"
+				                    data-bs-dismiss="modal">닫기</button>
+				            </div>
+				        </div>
+				    </div>
+				</div>
+				<!--// Modal2  -->
 
 				<!-- Modal3 -->
 				<div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -614,7 +678,7 @@ String cp = request.getContextPath();
 			$(".searchBtn").click(function()
 			{
 			    var $row = $(this).closest('tr'); // 클릭된 버튼이 속한 행 선택
-			    var ouName = $row.find('td:eq(0)').text(); // 주제 데이터 가져오기
+			    var assOuName = $row.find('td:eq(0)').text(); // 주제 데이터 가져오기
 			    var assName = $row.find('td:eq(1)').text(); // 제목 데이터 가져오기
 			    var assContent = $row.find('td:eq(6)').text(); // 내용 데이터 가져오기
 			    var assStartDate = $row.find('td:eq(3)').text(); // 시작일 데이터 가져오기
@@ -624,11 +688,35 @@ String cp = request.getContextPath();
 			    // 모달 내 필드에 데이터 설정
 			    $("#staticBackdrop").modal('show');
 			    $("#title").val(assName);
-			    $("#ouName").val(ouName);
+			    $("#assOuName").val(assOuName);
 			    $("#startDate").val(assStartDate);
 			    $("#endDate").val(assEndDate);
 			    $("#piNickName").val(piNickName);
 			    $("#content").val(assContent);
+			});
+			
+			// 업무할당 조회 데이터 모달로 전달 
+			$(".selectBtn").click(function()
+			{
+			    var $row = $(this).closest('tr'); // 클릭된 버튼이 속한 행 선택
+			    var repSsName = $row.find('td:eq(0)').text(); // 주제 데이터 가져오기
+			    var repOuName = $row.find('td:eq(1)').text(); // 주제 데이터 가져오기
+			    var repTitle = $row.find('td:eq(2)').text(); // 제목 데이터 가져오기
+			    var repContent = $row.find('td:eq(3)').text(); // 내용 데이터 가져오기
+			    var repStartDate = $row.find('td:eq(4)').text(); // 시작일 데이터 가져오기
+			    var repEndDate = $row.find('td:eq(5)').text(); // 종료일 데이터 가져오기
+			    var piNickName = $row.find('td:eq(6)').text(); // 담당자 데이터 가져오기
+			    
+			    // 모달 내 필드에 데이터 설정
+			    $("#staticBackdrop").modal('show');
+			    $("#repSsName").val(repSsName);
+			    $("#repOuName").val(repOuName);
+			    $("#repTitle").val(repTitle);
+			    $("#repContent").val(repContent);
+			    $("#repStartDate").val(repStartDate);
+			    $("#repEndDate").val(repEndDate);
+			    $("#piNickName").val(piNickName);
+			    
 			});
 
 

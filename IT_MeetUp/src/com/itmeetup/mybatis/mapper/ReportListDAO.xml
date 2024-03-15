@@ -24,7 +24,7 @@
 		, APP_DATE "appDate"
 		,
 		WS_NAME "wsName"
-		, CHARGER "chaPcCode", REP_NO "repNumber"
+		, CHARGER "chaPcCode", REP_NO "repNumber", REP_START_DATE "repStartDate", REP_END_DATE "repEndDate", REP_CONTENT "repContent"
 		FROM VIEW_REPORT
 		WHERE SD_OP_CODE =
 		#{opCode} AND REP_NO IS NOT NULL
