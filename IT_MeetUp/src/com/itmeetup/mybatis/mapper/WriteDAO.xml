@@ -35,7 +35,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			 ,#{inwon2 }
 			 ,#{inwon3 }
 			 ,#{inwon4 }
-			 ,'OP_'||TO_CHAR(OPEN_PROJECT_SEQ.NEXTVAL+49 )
+			 ,'OP_'||TO_CHAR(OPEN_PROJECT_SEQ.NEXTVAL+200 )
 			 ,#{startdate1 ,jdbcType=DATE }
 			 ,#{startdate2 ,jdbcType=DATE}
 			 ,#{startdate3 ,jdbcType=DATE}
@@ -53,7 +53,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 프로젝트 희망 기술 입력 -->
 	<update id="addSkill" parameterType="java.util.List">
 		INSERT INTO TEAM_SKILL(TS_NO, TS_SK_CODE, TS_OP_CODE)
-		SELECT TEAM_SKILL_SEQ.NEXTVAL + 58, A.* FROM(
+		SELECT TEAM_SKILL_SEQ.NEXTVAL +200 , A.* FROM(
 	    <foreach collection="hopeskills" item="skill" index="index" separator="UNION ALL ">
 	    SELECT #{skill} AS TS_SK_CODE, #{lastCode} 
 	    FROM DUAL

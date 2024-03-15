@@ -406,8 +406,15 @@
 					</div>
 
 					<!-- 프로젝트 정보 -->
+					
 					<ul class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 card-list filterproject">
-						<c:forEach var ="opList" items="${openList }">
+						<c:choose>
+						<c:when test="${empty openList}">
+							<h1>조건에 만족한 프로젝트가 없네요🤪</h1>
+						</c:when>
+						<c:otherwise>
+							
+							<c:forEach var ="opList" items="${openList }">
 						<li class="col-12 col-sm-6 col-md-4 col-lg-3">
 							<div class="card p-4 d-flex flex-column">
 								<div class="card-top">
@@ -498,6 +505,8 @@
 								</div>
 						</li>
 						</c:forEach>
+						</c:otherwise>
+						</c:choose>
 						</ul>
 
 

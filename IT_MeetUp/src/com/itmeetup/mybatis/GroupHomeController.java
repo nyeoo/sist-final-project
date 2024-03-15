@@ -29,11 +29,14 @@ public class GroupHomeController
 		
 		
 		String opCode = dao.teamOpCode(memCode); // 회원의 개설요청 코드
-		
+		String leaveTeamPcCodes = dao.leaveTeamPcCodes(memCode);
 		if (opCode.equals("0")) {
-			
 			viewPage = "redirect:/projectList.action";
-		}else {
+		}
+		else if (leaveTeamPcCodes.equals("1")) {
+			viewPage = "redirect:/projectList.action";
+		}
+		else {
 			String pcCode = dao.teamPcCode(memCode); // 회원의 개설요청 코드
 			String leaderMemCode = dao.leaderMemCode(opCode); // 방장의 회원코드
 			String leaderPcCode = dao.leaderPcCode(leaderMemCode); // 방장의 참여확인코드

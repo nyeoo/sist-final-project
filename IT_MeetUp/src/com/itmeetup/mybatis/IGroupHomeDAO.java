@@ -70,6 +70,7 @@ public interface IGroupHomeDAO
 	//이탈자 닉네임
 	public String leaveNickNames(String memCode);
 	public String leavePcCodes(String memCode);
+	public String leaveTeamPcCodes(String memCode);
 	
 	//교체된 팀장의 닉네임
 	public String changeNickNames(String memCode);

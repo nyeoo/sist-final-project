@@ -294,7 +294,6 @@ $(function () {
   // grouphome.action?memCode=${sessionScope.loginDTO.piMemCode}
   if($("#groupHomeLink").length) {
      var sessionScopePiMemCode = $("#sessionScopePiMemCode").val();
-     var partCheckTeamMem = $("#partCheckTeamMem").val();
      $("#groupHomeLink").on("click", function(){
         if(sessionScopePiMemCode != "" ){
            $(location).attr("href", "grouphome.action?memCode=" + sessionScopePiMemCode);
