@@ -145,9 +145,9 @@ String cp = request.getContextPath();
 								<c:otherwise>
 									<button type="button" class="btn btn-primary"
 										data-bs-toggle="modal" data-bs-target="#sinchung">신청하기</button>
-									<button type="button" class="btn btn-secondary" id="prolist">목록으로</button>
 								</c:otherwise>
 							</c:choose>
+									<button type="button" class="btn btn-secondary" id="prolist">목록으로</button>
 
 
 						</div>
@@ -393,7 +393,7 @@ String cp = request.getContextPath();
 								aria-labelledby="nav-comment-tab">
 								<!-- 댓글 -->
 								<div class="comp_box">
-									<h2 class="comp_tit">댓글</h2>
+									
 
 									<div class="row comment_reg">
 										<form action="commentInsert.action" method="get">

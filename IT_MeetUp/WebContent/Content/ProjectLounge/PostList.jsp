@@ -187,14 +187,32 @@
 
 					<!-- 필터 -->
 					<div class="filter-box mb-5">
+						<div style="flex: ">
+								<div class="form-check">
+									<label class="form-check-label"> 
+										<input class="form-check-input" type="checkbox" value="" id="">
+										진행중
+									</label>
+
+								</div>
+								<div class="form-check">
+									<label class="form-check-label"> 
+										<input class="form-check-input" type="checkbox" value="" id="">
+										모집 마감
+									</label>
+								</div>
+						 </div>
+							
 						<ul class="d-flex">
+						
 							<li>
 								<div class="m-select">
-									<select class="form-select category" aria-label="카테고리" title="카테고리" id="cate">
-										<option selected>카테고리</option>
+									<select class="form-select filter" aria-label="카테고리" title="카테고리" id="cate">
+										<option  value="">카테고리</option>
 										<c:forEach var ="categorys" items="${cateList }" varStatus="status"  >
 
-											<option value= "CAT_${status.index +1}" >${categorys }</option>
+											<option value= "${categorys}" >${categorys }</option>
+											<%-- <option value= "CAT_${status.index +1}" >${categorys }</option> --%>
 
 										</c:forEach>
 										<!--
@@ -209,10 +227,11 @@
 							</li>
 							<li>
 								<div class="m-select">
-									<select class="form-select" aria-label="경력" title="경력">
-										<option selected>경력</option>
+									<select class="form-select filter" aria-label="경력" title="경력" id="career">
+										<option value="" selected>경력</option>
 										<c:forEach var ="carList" items="${carList }" varStatus="status"  >
-											<option value="CAR_${status.index +1}">${carList }</option>
+											<%-- <option value="CAR_${status.index +1}">${carList }</option> --%>
+											<option value="${carList}">${carList }</option>
 										</c:forEach>
 										<!-- 
 										<option value="1">0 ~ 1미만</option>
@@ -343,21 +362,23 @@
 							<li>
 								<div class="d-flex">
 									<div class="m-select">
-										<select class="form-select" aria-label="선호지역 1단계(시)"
+										<select class="form-select filter" aria-label="선호지역 1단계(시)"
 											title="선호지역 1단계(시)" id="si" onchange="selectSi()">
-											<option selected="selected">선호지역(시)</option>
+											<option  value="" selected="selected">선호지역(시)</option>
 											<c:forEach var ="sidoList" items="${sidoList }" varStatus="status"  >
-												<option value="SIDO_${status.index +1}">${sidoList }</option>
+												<%-- <option value="SIDO_${status.index +1}">${sidoList }</option> --%>
+												<option value="${sidoList}">${sidoList }</option>
 											</c:forEach>
 
 										</select>
 									</div>
 									<div class="m-select">
-										<select class="form-select" aria-label="선호지역 1단계(도)"
+										<select class="form-select filter" aria-label="선호지역 1단계(도)"
 											title="선호지역 1단계(도)" id="do" disabled="disabled">
-											<option selected="selected">선호지역(도)</option>
+											<option value="" selected="selected">선호지역(도)</option>
 											<c:forEach var ="siggList" items="${siggList }" varStatus="status"  >
-												<option value="SIGG_${status.index +1}">${siggList }</option>
+												<%-- <option value="SIGG_${status.index +1}">${siggList }</option> --%>
+												<option value="${siggList}">${siggList }</option>
 											</c:forEach>
 
 										</select>
@@ -366,34 +387,26 @@
 							</li>
 							<li>
 								<div class="m-select">
-									<select class="form-select" aria-label="선호 모임방식" 	title="선호 모임방식">
-										<option selected="selected">선호 모임방식</option>
-										<option value="1">오프라인</option>
-										<option value="2">온라인</option>
-										<option value="3">온오프라인</option>
+									<select class="form-select filter" aria-label="선호 모임방식" title="선호 모임방식" id="meet">
+										<option  value="" selected="selected">선호 모임방식</option>
+										<option value="온라인">온라인</option>
+										<option value="오프라인">오프라인</option> 
+										<option value="온/ 오프라인">온/ 오프라인</option>
 									</select>
 								</div>
 							</li>
 							<li>
-								<div class="form-check">
-									<label class="form-check-label"> 
-										<input class="form-check-input" type="checkbox" value="" id="">
-										진행중
-									</label>
-
-								</div>
-								<div class="form-check">
-									<label class="form-check-label"> 
-										<input class="form-check-input" type="checkbox" value="" id="">
-										모집 마감
-									</label>
-								</div>
+								<button type="button" id="shoot">
+									<i class="bi bi-search"></i>
+								</button>
 							</li>
+							
+							
 						</ul>
 					</div>
 
 					<!-- 프로젝트 정보 -->
-					<ul class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 card-list">
+					<ul class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 card-list filterproject">
 						<c:forEach var ="opList" items="${openList }">
 						<li class="col-12 col-sm-6 col-md-4 col-lg-3">
 							<div class="card p-4 d-flex flex-column">
@@ -558,7 +571,10 @@
 		            type: 'GET',
 		            data: { isChecked: isChecked, code: code },
 		            success: function(response) {
+		            	var a ="흠,,,"
 		                console.log(response); 				// 성공시
+		                $(".filterproject").html(a);
+		                
 		            },
 		            error: function(xhr, status, error) {
 		                console.error(error); 				//  실패시 오류 메시지를 콘솔에 출력
@@ -567,34 +583,37 @@
 		    }
 		}); 	// 찜하기 ajax 끝 
 		
-		// 카테고리 눌렀을때
-		$("#cate").change(function()
+		
+		// 필터 SELECT BOX 눌렀을때 
+		$(".filter").change(function()
 		{
 			//alert("흠..");
-		    var catecode = $(this).val(); 					 // 해당 카테고리 code 가져오기
+		    
 			
-		    alert(catecode);
-		    
-		    $.ajax({
-	            url: 'searchCate.action',
-	            type: 'GET',
-	            data: {  catecode: catecode },
-	            success: function(response) {
-	                console.log(response);				// 성공시
-	            },
-	            error: function(xhr, status, error) {
-	                console.error(error); 				//  실패시 오류 메시지를 콘솔에 출력
-	               
-	            }
-	        });
-		    
-		    
+			var category = $("#cate").val(); 					// 해당 카테고리 code 가져오기
+			var career = $("#career").val(); 					// 해당 카테고리 code 가져오기
+			var sigg  =$("#si").val(); 					 		// 해당 카테고리 code 가져오기
+			var sido = $("#do").val(); 					 		// 해당 카테고리 code 가져오기
+			var meet = $("#meet").val();
+			
+			
+			
+			
+			$("#shoot").click(function()
+			{
+				$(location).attr("href", "searchProjects.action?category="+$("#cate").val()+ "&career="+$("#career").val()+ "&sido="+$("#si").val()+ "&sigg="+$("#do").val()+ "&meet="+$("#meet").val());
+				
+			});
+			
 		});
-		    
-		
-		
+
+		   
 		
 	});
+	
+	
+	
+	
 	function selectSi()
 	{
 		$("#do").attr("disabled", false)

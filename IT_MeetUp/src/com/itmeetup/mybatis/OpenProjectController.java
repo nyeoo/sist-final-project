@@ -69,7 +69,6 @@ public class OpenProjectController
 		model.addAttribute("jobInfo",jobInfo);
 		
 		
-		
 		result = "/Content/ProjectLounge/PostList.jsp";
 		return result;
 	}
@@ -172,24 +171,98 @@ public class OpenProjectController
 	
 	
 	// 필터 적용 프로젝트 출력 
-	@RequestMapping(value = "/filterList.action" , method = RequestMethod.GET)
-	@ResponseBody
-	public Map<String, Object> filterList(OpenProjectDTO dto, HttpSession session)
+	@RequestMapping(value = "/searchProjects.action", method = RequestMethod.GET)
+	public String filterList(OpenProjectDTO dto, HttpSession session, ModelMap model) 
 	{
-		IOpenProjectDAO dao = sqlSession.getMapper(IOpenProjectDAO.class);
-		    
-	    MemberDTO member = (MemberDTO)session.getAttribute("loginDTO");
+	    String result = null ; 
+	    
+	    IOpenProjectDAO dao = sqlSession.getMapper(IOpenProjectDAO.class);
+	    
+	 
+	    
+		IJobDAO jdao = sqlSession.getMapper(IJobDAO.class);
+		
+		
+		// 프로젝트 해당하는 기술 담기
+		Map<String,ArrayList<String>> skills = new HashMap<String, ArrayList<String>>();
+		// 프로젝트 해당하는 직위 담기
+		Map<String,ArrayList<JobDTO>> jobInfo = new HashMap<String, ArrayList<JobDTO>>();
+		
+		MemberDTO member = (MemberDTO)session.getAttribute("loginDTO");
 
-		Map<String, Object> response = new HashMap<String, Object>();
-
+		
+		String cate = dto.getCategory();
+		String car = dto.getCareer();
+		String meet = dto.getMeet();
+		String sido = dto.getSido();
+		String sigg = dto.getSigg();
+		String meetty = dto.getMeet();
+		
+		System.out.println(cate);
+		System.out.println(car);
+		System.out.println(meet);
+		System.out.println(sido);
+		System.out.println(sigg);
+		System.out.println(meetty);
+		
+		if(cate=="")
+		{
+			dto.setCareer(null);
+		}
+		if(car=="")
+		{
+			dto.setCareer(null);
+		}
+		if(meet=="")
+		{
+			dto.setMeet(null);
+		}
+		if(sido=="")
+		{
+			dto.setSido(null);
+		}
+		if(sigg=="")
+		{
+			dto.setSigg(null);
+		}
+		if(meetty=="")
+		{
+			dto.setMeet(null);
+		}
+		
 		ArrayList<String> wishList = dao.wishList(member.getPiMemCode());
-		ArrayList<OpenProjectDTO> projectList = dao.filterList(dto);
-
-		// 필터링된 프로젝트 목록과 찜목록을 응답 데이터에 추가
-		response.put("projectList", projectList);
-		response.put("wishList", wishList);
-
-		return response;
+		
+		ArrayList<OpenProjectDTO> project =  dao.filterList(dto);	
+		
+		for (OpenProjectDTO opdto : project)
+		{
+			skills.put(opdto.getCode(), dao.skillList(opdto.getCode()));
+			jobInfo.put(opdto.getCode(), jdao.jobList((opdto.getCode())));
+		}
+		
+		IMemberDAO skillCategoryDAO = sqlSession.getMapper(IMemberDAO.class);	// 스킬카테고리 select
+		IMemberDAO skillsDAO = sqlSession.getMapper(IMemberDAO.class);			// 스킬 리스트
+		//SkillProcessor skProcessors = new SkillProcessor();						// 스킬 리스트 조회 및 처리
+		model.addAttribute("skProcessors", SkillProcessor.createSkillMapping());
+		model.addAttribute("skillCategorys", skillCategoryDAO.skillCategorys());
+		model.addAttribute("lastCode",dao.lastCode());							// 가장 최근 프로젝트 개설 코드 뽑기
+		model.addAttribute("skills", skillsDAO.skills());
+		
+		model.addAttribute("wishList", wishList);								// 사용자 찜목록 
+		
+		model.addAttribute("openList",dao.filterList(dto));
+		model.addAttribute("deadlineList",dao.deadlineList());
+		model.addAttribute("cateList",dao.cateList());
+		model.addAttribute("sidoList",dao.sidoList());
+		model.addAttribute("siggList",dao.siggList());
+		model.addAttribute("carList",dao.carList());
+		model.addAttribute("skill",skills);
+		model.addAttribute("jobInfo",jobInfo);
+		
+		System.out.println("필터 슈윳");
+		
+		result = "/Content/ProjectLounge/PostList.jsp";
+		return result;
 	    
 	}
 	
