@@ -30,7 +30,6 @@ public class GroupHomeController
 		
 		String opCode = dao.teamOpCode(memCode); // 회원의 개설요청 코드
 		String leaveTeamPcCodes = dao.leaveTeamPcCodes(memCode);
-		System.out.println(leaveTeamPcCodes);
 		if (opCode.equals("0")) {
 			viewPage = "redirect:/projectList.action";
 		}
