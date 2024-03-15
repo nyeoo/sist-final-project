@@ -153,16 +153,18 @@
 										<%-- <div class="language-box">
 												<span class="badge-language"><span class="blind">${skills[opList.code] }</span></span> 
 										</div> --%>
-										<c:forEach var ="skill" items="${skill[deadlineList.code] }">
+										
 										<%-- <c:set var="skillName" value="${fn:split(skill, ' ')}" /> --%> 
 										<%-- <c:set var="i" value="0" /> --%>
-											 ${skill } 
+										<div class="language-box ">
+											<c:forEach var ="skill" items="${skill[deadlineList.code] }">
+											<div class="badge-language ${skill }"></div>
+											</c:forEach>
+										</div>
 										<%-- 	 <c:forEach var="skills" items="${skillName}">
 										        <span class="badge-language">${skills[i]}<span class="blind"></span></span> 
 										        <c:set var="i" value="${i + 1}" /> <!-- i를 1씩 증가 -->
 										    </c:forEach> --%>
-
-										</c:forEach>
 										<!-- 조회수 -->
 										<small class="text-body-secondary">${deadlineList.view}</small>
 									</div>
@@ -488,16 +490,19 @@
 										<%-- <div class="language-box">
 												<span class="badge-language"><span class="blind">${skills[opList.code] }</span></span> 
 										</div> --%>
-										<c:forEach var ="skill" items="${skill[opList.code] }">
+										
 										<%-- <c:set var="skillName" value="${fn:split(skill, ' ')}" /> --%> 
 										<%-- <c:set var="i" value="0" /> --%>
-											 ${skill } 
+										<div class="language-box ">
+											<c:forEach var ="skill" items="${skill[opList.code] }">
+											<div class="badge-language ${skill }"></div>
+											</c:forEach>
+										</div>
 										<%-- 	 <c:forEach var="skills" items="${skillName}">
 										        <span class="badge-language">${skills[i]}<span class="blind"></span></span> 
 										        <c:set var="i" value="${i + 1}" /> <!-- i를 1씩 증가 -->
 										    </c:forEach> --%>
-
-										</c:forEach>
+										
 										<!-- 조회수 -->
 										<small class="text-body-secondary">${opList.view}</small>
 									</div>

@@ -87,7 +87,7 @@ String cp = request.getContextPath();
 			<!-- 팀원소개 -->
 			<div class="section intro-body">
 				<div class="container-md">
-					<span class="team">TEAM ·</span> <span class="team-name">당근</span>
+					<span class="team">TEAM ·</span> <span class="team-name">${project.teamName}</span>
 					<div class="intro-body-list member-intro">
 						<span class="intro-title">팀원 소개</span>
 						<hr>
@@ -143,9 +143,11 @@ String cp = request.getContextPath();
 						<span class="intro-title">사용 스킬</span>
 						<hr>
 						<div class="skill-check not-action">
-							<div class="form-check skill-item ico_React">
-								<label class="form-check-label skill-label">React</label>
+							<c:forEach var="skill" items="${processedSkills }">
+							<div class="form-check skill-item ${skill.skCode}">
+								<label class="form-check-label skill-label">${skill.skName }</label>
 							</div>
+							</c:forEach>
 						</div>
 					</div>
 					<!-- //사용한 스킬 -->

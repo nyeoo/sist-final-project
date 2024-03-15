@@ -50,14 +50,17 @@ public class OpenProjectController
 		
 		for (OpenProjectDTO dto : project)
 		{
-			skills.put(dto.getCode(), dao.skillList(dto.getCode()));
+			ArrayList<String> processedSkills = SkillProcessor.processSkills(dao.skillList2(dto.getCode()));
+			skills.put(dto.getCode(), processedSkills);
+			
+			//skills.put(dto.getCode(), dao.skillList(dto.getCode()));
 			jobInfo.put(dto.getCode(), jdao.jobList((dto.getCode())));
 		}
 		
 		IMemberDAO skillCategoryDAO = sqlSession.getMapper(IMemberDAO.class);	// 스킬카테고리 select
 		IMemberDAO skillsDAO = sqlSession.getMapper(IMemberDAO.class);			// 스킬 리스트
-		SkillProcessor skProcessors = new SkillProcessor();						// 스킬 리스트 조회 및 처리
-		model.addAttribute("skProcessors", skProcessors.createSkillMapping());
+		//SkillProcessor skProcessors = new SkillProcessor();						// 스킬 리스트 조회 및 처리
+		model.addAttribute("skProcessors", SkillProcessor.createSkillMapping());
 		model.addAttribute("skillCategorys", skillCategoryDAO.skillCategorys());
 		model.addAttribute("lastCode",dao.lastCode());							// 가장 최근 프로젝트 개설 코드 뽑기
 		model.addAttribute("skills", skillsDAO.skills());

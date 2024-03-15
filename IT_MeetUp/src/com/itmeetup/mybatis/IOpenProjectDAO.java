@@ -25,6 +25,7 @@ public interface IOpenProjectDAO
 
 	// 프로젝트의 해당하는 희망 기술 뽑기
 	public ArrayList<String> skillList(String code);
+	public ArrayList<String> skillList2(String code);
 	
 	// 프로젝트 조회수 증가 
 	public int viewUpdate(String code);

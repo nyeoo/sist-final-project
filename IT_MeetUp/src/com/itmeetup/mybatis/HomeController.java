@@ -37,6 +37,7 @@ public class HomeController {
         for (OpenProjectDTO dto : project) {
 
             // 스킬 리스트 조회 및 처리
+        	//-- 스킬코드와 스킬을 나타내는 아이콘(이미지) 이름을 매핑해주는 메소드 사용
             ArrayList<String> processedSkills = SkillProcessor.processSkills(dao.skills(dto.getCode()));
             skillList.put(dto.getCode(), processedSkills);
 

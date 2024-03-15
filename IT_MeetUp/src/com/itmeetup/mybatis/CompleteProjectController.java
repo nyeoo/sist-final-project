@@ -1,4 +1,5 @@
 package com.itmeetup.mybatis;
+import java.util.ArrayList;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -81,7 +82,16 @@ public class CompleteProjectController
     	// MyBatis Mapper 인터페이스를 이용하여 DAO 생성
         ICompleteProjectDAO dao = sqlSession.getMapper(ICompleteProjectDAO.class);
         
-        model.addAttribute("project", dao.projectDetail(cpCode));
+        ArrayList<SkillDTO> processedSkills = SkillProcessor.processSkillDTOs(dao.completeProjectSkill(cpCode));
+
+        model.addAttribute("project", dao.completeProjectDetail(cpCode));
+        model.addAttribute("processedSkills", processedSkills);
+        
+        for (SkillDTO skillDTO : processedSkills)
+		{
+        	System.out.println(skillDTO.getSkCode());
+		}
+       
     	
     	return "/Content/ProjectLounge/CompleteProjectDetail.jsp";
     }

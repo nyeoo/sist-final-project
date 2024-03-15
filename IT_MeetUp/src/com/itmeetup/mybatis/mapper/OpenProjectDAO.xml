@@ -77,6 +77,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			WHERE TS_OP_CODE = #{code}
 	</select>
 	
+	<select id="skillList2" resultType="java.lang.String" >
+ 		SELECT TS_SK_CODE "SKILL"
+ 		FROM TEAM_SKILL
+ 		WHERE TS_OP_CODE = #{code}
+	</select>
+	
 	<!-- 가장 최근 프로젝트 코드 뽑기 -->
 	<select id="lastCode" resultType="java.lang.String" >		
 		SELECT lastCode

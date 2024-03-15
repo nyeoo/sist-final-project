@@ -33,12 +33,27 @@
 		FROM CATEGORY
  	</select>
  	<!-- 완료 프로젝트 상세 페이지 -->
- 	<select id="projectDetail" resultType="com.itmeetup.mybatis.CompleteProjectDTO">
+ 	<select id="completeProjectDetail" resultType="com.itmeetup.mybatis.CompleteProjectDTO">
 		SELECT F.FINAL_NAME AS TITLE, F.FINAL_INTRO AS CONTENT, F.FINAL_IMG_1 AS IMG1, F.FINAL_IMG_2 AS IMG2, F.FINAL_IMG_3 IMG3, O.OP_TEAM_NAME AS TEAMNAME
 		FROM FINAL_INFO F JOIN OPEN_PROJECT O
                   ON F.FI_OP_CODE = O.OP_CODE
 		WHERE F.FI_OP_CODE = #{cpCode}
  	</select>
-
+	<select id="completeProjectSkill" resultType="com.itmeetup.mybatis.SkillDTO">
+		SELECT DISTINCT AT.AT_SK_CODE "SKCODE", S.SK_NAME "SKNAME"
+		FROM SKILL S JOIN ACTUAL_TECH AT
+		             ON S.SK_CODE = AT.AT_SK_CODE
+		                    JOIN REPORT R
+		                    ON AT.AT_REP_NO = R.REP_NO
+		                        JOIN ASSIGNMENT A
+		                        ON R.REP_ASS_CODE = A.ASS_CODE
+		                            JOIN PART_CHECK P
+		                            ON A.INDICATOR = P.PC_CODE
+		                                JOIN PART_APPLICANT PA
+		                                ON P.PC_PA_NO = PA.PA_NO
+		                                    JOIN TEAM_JOB T
+		                                    ON PA.PA_TJ_NO = T.TJ_NO
+		WHERE T.TJ_OP_CODE = #{cpCode}
+	</select>
  	
  </mapper>

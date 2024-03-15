@@ -62,13 +62,27 @@ public class SkillProcessor {
     }
     
     // 스킬코드를 받아서 매핑정보에 따라 변환해주는 메소드
-    public static ArrayList<String> processSkills(ArrayList<String> originalSkills) {
+    public static ArrayList<String> processSkills(ArrayList<String> originalSkills)
+    {
         ArrayList<String> processedSkills = new ArrayList<>();
-        for (String skill : originalSkills) {
-        	
+        for (String skill : originalSkills)
+        {
             // 매핑 정보가 있으면 변환하고, 없으면 그대로(스킬코드) 반환
             String mappedSkill = SKILL_MAPPING.getOrDefault(skill, skill);
             processedSkills.add(mappedSkill);
+        }
+        return processedSkills;
+    }
+    
+    public static ArrayList<SkillDTO> processSkillDTOs(ArrayList<SkillDTO> originalSkills)
+    {
+        ArrayList<SkillDTO> processedSkills = new ArrayList<SkillDTO>();
+        for (SkillDTO dto : originalSkills)
+        {
+            // 매핑 정보가 있으면 변환하고, 없으면 그대로(스킬코드) 반환
+            String mappedSkill = SKILL_MAPPING.getOrDefault(dto.getSkCode(), dto.getSkCode());
+            dto.setSkCode(mappedSkill);
+            processedSkills.add(dto);
         }
         return processedSkills;
     }

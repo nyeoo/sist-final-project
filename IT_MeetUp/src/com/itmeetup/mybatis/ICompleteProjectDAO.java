@@ -13,5 +13,6 @@ public interface ICompleteProjectDAO
 	
 	
 	// 완료된 프로젝트 상세 페이지
-	public CompleteProjectDTO projectDetail(@Param("cpCode") String cpCode);
+	public CompleteProjectDTO completeProjectDetail(@Param("cpCode") String cpCode);
+	public ArrayList<SkillDTO> completeProjectSkill(@Param("cpCode") String cpCode);
 }
