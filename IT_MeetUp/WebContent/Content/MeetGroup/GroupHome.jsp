@@ -433,7 +433,7 @@ String cp = request.getContextPath();
 					<!-- 평가하기 -->
 					<div class="eval">
 						<button type="button" id="evalInsertBtn" class="btn btn-primary"
-							data-bs-toggle="modal" data-bs-target="#evalInsert" value="평가버튼" disabled>
+							data-bs-toggle="modal" data-bs-target="#evalInsert" value="평가버튼">
 							<i class="bi bi-plus-lg"></i> 평가하기
 						</button>
 					</div>
