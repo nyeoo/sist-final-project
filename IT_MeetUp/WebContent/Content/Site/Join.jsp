@@ -42,7 +42,7 @@ String cp = request.getContextPath();
 					<div
 						class="col-md-10 col-lg-6 d-flex flex-column align-items-center justify-content-center">
 						<div class="d-flex justify-content-center py-4">
-							<a class="navbar-brand logo-meetup d-none d-lg-block" href="projectList.action">IT-Meet<em>Up</em></a>
+							<a class="navbar-brand logo-meetup d-none d-lg-block" href="home.action">IT-Meet<em>Up</em></a>
 							<!-- <a href="index.jsp" class="logo d-flex align-items-center w-auto">
 								<span class="d-none d-lg-block">IT-MeetUp</span>
 							</a> -->

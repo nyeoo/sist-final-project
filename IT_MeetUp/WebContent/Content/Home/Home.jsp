@@ -48,9 +48,9 @@
 					포트폴리오로 기록됩니다.</p>
 				<p class="intro-description_content">지금 바로, 여러분의 비전을 실현하는 여정에
 					함께해요! 🚀</p>
-				<button type="button" class="btn btn-primary btn-home">팀원
+				<button type="button" class="btn btn-primary btn-home btn-recruit">팀원
 					모집하러가기</button>
-				<button type="button" class="btn btn-light btn-home">참여
+				<button type="button" class="btn btn-light btn-home btn-join">참여
 					신청하러가기</button>
 			</div>
 
@@ -264,26 +264,29 @@
 	<script>
 		$(document).ready(function()
 		{
-			if(<%=(String)session.getAttribute("loginDTO")%>==null)
+			var sessionScopePiMemCode = $("#sessionScopePiMemCode").val();
+			
+			if(sessionScopePiMemCode !== "" )
 			{
 				let zzim1 = document.getElementById("zzim1");
 				zzim1.classList.add("notzz");
 				let zzim2 = document.getElementById("zzim2");
 				zzim2.classList.add("notzz");
+				
+				$(".notzz").on("click",function(event){
+					event.preventDefault();
+					$(this).parents().find(".sm-card").removeClass('add-zzim');
+					alert("로그인이 필요한 기능입니다.");
+					$(location).attr("href", "login.action");
+				});
 			}
+
 				
 			// 찜하기 버튼 눌렀을 때 
 			$('.wish').change(function() 
 			{
 					
-				$("input:checkbox[name='wish']").prop("checked", false);
-				
-				//alert("로그인이 필요한 기능입니다.")
-				//$(location).attr("href", "login.action");
-				return;
-				
-				
-			    var isChecked = $(this).prop('checked');     // 체크 여부 확인
+		    	var isChecked = $(this).prop('checked');     // 체크 여부 확인
 			    var code = $(this).val(); 					 // 프로젝트 코드 가져오기
 				
 			    if (isChecked)
@@ -317,6 +320,16 @@
 			    }
 			});
 			
+			
+			$(".btn-recruit").click(function()
+			{
+				$(location).attr("href", "WriteFormControl.action");
+			})
+			
+			$(".btn-join").click(function()
+			{
+				$(location).attr("href", "projectList.action");
+			})
 			
 		});
 	</script>

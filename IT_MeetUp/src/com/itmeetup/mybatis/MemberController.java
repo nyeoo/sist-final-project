@@ -72,8 +72,8 @@ public class MemberController
 			//viewPage = "/Content/ProjectLounge/PostList_ju.jsp";
 			
 			// 주형이가 추가함 
-			viewPage = "/projectList.action";
-			//viewPage = "/home.action";
+			//viewPage = "/projectList.action";
+			viewPage = "redirect:/home.action";
 
 		} else
 		{ // 로그인X
@@ -92,7 +92,7 @@ public class MemberController
 		session.removeAttribute("loginDTO");
 		session.invalidate();	// 세션제거
 
-		return "redirect:/Content/ProjectLounge/PostList.jsp";
+		return "redirect:/login.action";
 	}
 	
 	// 아이디 찾기>이메일 확인
