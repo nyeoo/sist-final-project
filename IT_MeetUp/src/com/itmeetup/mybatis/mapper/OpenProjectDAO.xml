@@ -114,7 +114,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         	  ,"VIEW", "START", "END" ,"TEAMNAME", "SIDO"
        		  ,"SIGG", "NICKNAME", "CAREER", "REGDATE" ,"DAY","MEET"
 		FROM PROJECT_INFO
-        WHERE 1=1 <if test="category != null">
+        WHERE 1=1 
+        	  <if test="category != null">
         	  and category=#{category}
         	  </if>
         	  <if test="career != null">
@@ -129,7 +130,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         	  <if test="meet != null">
         	   AND MEET =#{meet}
         	  </if>
-         
+        AND "START" > SYSDATE
         ORDER BY 14 DESC
 	</select>
 	

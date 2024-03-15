@@ -210,7 +210,7 @@ public class OpenProjectController
 		
 		if(cate=="")
 		{
-			dto.setCareer(null);
+			dto.setCategory(null);
 		}
 		if(car=="")
 		{

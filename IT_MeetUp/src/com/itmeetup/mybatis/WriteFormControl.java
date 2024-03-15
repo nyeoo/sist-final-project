@@ -62,30 +62,6 @@ public class WriteFormControl
 		 IWriteFormDAO dao = sqlSession.getMapper(IWriteFormDAO.class);
 		 List<String> hopeskills = dto.getHopeskills();
 		 
-		 String lastCode = dto.getLastCode();
-		 
-		 if(lastCode=="")
-		 {
-			 lastCode="OP_1";
-			 System.out.println("hmm");
-		 }
-		 else
-		 {
-			String numcode= lastCode.substring(3);
-			String Stringcode= lastCode.substring(0,3);
-				
-			System.out.println("숫자만 뽑아 :"+numcode);
-			System.out.println("문자만 뽑아 :"+Stringcode);
-			
-			int numbercode= Integer.parseInt(numcode);
-			System.out.println("정수형으로 변환 :" +numbercode);
-			numbercode= numbercode+1;
-			System.out.println("+1 한 결과"+numbercode);
-			Integer.toString(numbercode);
-			lastCode = Stringcode+numbercode;
-			System.out.println("최종본"+lastCode);
-			
-		 }
 		 // 테스트
 //		 for(String code : hopeskills)
 //		 {
@@ -103,9 +79,34 @@ public class WriteFormControl
 		  
 		  System.out.println("스킬 입력 전");
 		  // 프로젝트 희망 기술 입력
+		  String lastCode = dto.getLastCode();
+		  
+		  if(lastCode=="")
+		  {
+			  lastCode="OP_1";
+			  System.out.println("hmm");
+		  }
+		  else
+		  {
+			  String numcode= lastCode.substring(3);
+			  String Stringcode= lastCode.substring(0,3);
+			  
+			  System.out.println("숫자만 뽑아 :"+numcode);
+			  System.out.println("문자만 뽑아 :"+Stringcode);
+			  
+			  int numbercode= Integer.parseInt(numcode);
+			  System.out.println("정수형으로 변환 :" +numbercode);
+			  numbercode= numbercode+1;
+			  System.out.println("+1 한 결과"+numbercode);
+			  Integer.toString(numbercode);
+			  lastCode = Stringcode+numbercode;
+			  System.out.println("최종본"+lastCode);
+			  
+		  }
 		  dao.addSkill(hopeskills,lastCode);
 		  
 		  System.out.println("스킬 입력 후");
+		  System.out.println("입력 성공~");
 		  	
 		  //result = "/Content/ProjectLounge/PostList_ju.jsp";
 		 // result = "redirect:/projectList.action";
