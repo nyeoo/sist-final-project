@@ -57,7 +57,7 @@
 									<div id="item-1" class="comp_tit ">
 										<div class="m-input-box">
 											<label for="reportTitle" class="form-label"> 제목 </label>
-											<input type="text" class="form-control" id="repTitle" required="required"
+											<input type="text" class="form-control" id="repTitle"
 												name="repTitle" style="width: 350px;" value="">
 											<div class="invalid-feedback">제목을 입력해주세요.</div>
 										</div>
@@ -70,7 +70,7 @@
 											<label for="reportContent" class="form-label"> 내용
 											</label>
 											<textarea class="form-control" id="repContent" name="repContent"
-												rows="15" style="width: 700px;" required="required"></textarea>
+												rows="15" style="width: 700px;"></textarea>
 										</div>
 										<div class="invalid-feedback">내용을 입력하세요</div>
 									</div>
@@ -81,8 +81,8 @@
 										<div style="display: flex;">
 											<span>시작일 <input type="date" class="form-control"
 												id="repStartDate" name="repStartDate" onchange="startDateCheck()"
-												style="width: 150px;" required="required">
-											</span> <span>종료일 <input type="date" class="form-control" required="required"
+												style="width: 150px;">
+											</span> <span>종료일 <input type="date" class="form-control"
 												id="repEndDate" name="repEndDate" onchange="endDateCheck()" style="width: 150px;">
 											</span>
 										</div>
@@ -212,6 +212,7 @@
 								</div>
 								<!-- //첨부파일 -->
 								<input type="hidden" name="memCode" value="${sessionScope.loginDTO.piMemCode}">
+								<input type="hidden" name="assCode" value="${assCode}">
 								<br>
 								<!-- 제출 및 취소 버튼 -->
 								<div style="text-align: center;">

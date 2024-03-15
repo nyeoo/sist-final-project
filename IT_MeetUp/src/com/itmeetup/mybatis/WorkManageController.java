@@ -78,7 +78,7 @@ public class WorkManageController
 		IMemberDAO skillsDAO = sqlSession.getMapper(IMemberDAO.class); // 스킬 리스트
 
 		String opCode = assignmentDAO.searchOpCode(memCode); // 회원의 개설요청 코드
-		
+		System.out.println(assCode);
 		model.addAttribute("opCode", opCode);
 		model.addAttribute("assCode", assCode);
 		

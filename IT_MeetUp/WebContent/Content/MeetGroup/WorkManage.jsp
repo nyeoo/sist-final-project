@@ -215,8 +215,8 @@ String cp = request.getContextPath();
 																										href="javascript:void(0);"> <i
 																										class="bi bi-trash3"></i>할당삭제
 																									</a>
-																									<input type="hidden" name="assCode" value="${innerWorkAssignment.assCode}">
 																									<input type="hidden" name="assPcCode" value="${innerWorkAssignment.charger}">
+																									<input type="hidden" name="assCode" value="${innerWorkAssignment.assCode}">
 																								</div>
 																							</div>
 																						</td>
@@ -639,7 +639,7 @@ String cp = request.getContextPath();
 
 		        if (PcCode == assPcCode)
 				{
-			        window.location.href = "<%=cp%>/report.action?memCode=" + memCode;
+		        	window.location.href = "<%=cp%>/report.action?memCode=" + memCode + "&assCode=" + assCode;
 				}
 		        else
 		        {

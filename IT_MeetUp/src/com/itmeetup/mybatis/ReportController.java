@@ -33,8 +33,9 @@ public class ReportController
 	    IAssignmentListDAO assignmentDAO = sqlSession.getMapper(IAssignmentListDAO.class);
 	    IReportListDAO dao = sqlSession.getMapper(IReportListDAO.class);
 	    String memCode = dto.getMemCode();
+	    dto.setAssCode(assCode);
+	    System.out.println(assCode);
 	    dao.insertReport(dto); // 업무보고 INSERT
-	    
 	    String opCode = assignmentDAO.searchOpCode(memCode); // 회원의 개설요청 코드
 	    int repNumber = dao.searchRepNo(opCode);
 	    
