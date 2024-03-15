@@ -24,7 +24,7 @@
 		, APP_DATE "appDate"
 		,
 		WS_NAME "wsName"
-		, CHARGER "chaPcCode"
+		, CHARGER "chaPcCode", REP_NO "repNumber"
 		FROM VIEW_REPORT
 		WHERE SD_OP_CODE =
 		#{opCode} AND REP_NO IS NOT NULL
@@ -72,10 +72,18 @@
 		'YYYY-MM-DD'), SYSDATE, #{assCode})
 	</insert>
 
+
 	<insert id="insertActualTech"
         parameterType="com.itmeetup.mybatis.ReportListDTO">
         INSERT INTO ACTUAL_TECH(AT_NO, AT_SK_CODE, AT_REP_NO)
         VALUES(ACTUAL_TECH_SEQ.NEXTVAL, #{skCode}, #{repNumber})
+	</insert>
+	
+	
+	<insert id="insertApproval"
+        parameterType="com.itmeetup.mybatis.ReportListDTO">
+        INSERT INTO APPROVAL(APP_NO, APP_DATE, APP_REP_NO, APP_WS_CODE, APP_PC_CODE)
+		VALUES(APPROVAL_SEQ.NEXTVAL, SYSDATE, #{repNumber}, #{wsCode}, #{pcCode})
 	</insert>
 	
 	

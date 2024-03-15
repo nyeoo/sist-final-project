@@ -212,7 +212,6 @@
 								</div>
 								<!-- //첨부파일 -->
 								<input type="hidden" name="memCode" value="${sessionScope.loginDTO.piMemCode}">
-								<input type="hidden" name="assCode" value="${assCode}">
 								<br>
 								<!-- 제출 및 취소 버튼 -->
 								<div style="text-align: center;">

@@ -7,37 +7,13 @@ public class ReportListDTO
 {
 	private String repTitle, repDate, repFile, memCode, repContent;	// 업무보고 제목, 보고일 ,보고파일	
 	private String sdOpCode, assName, piNickName, ouName, ssName, ssCode, assCode; 	// 개설요청코드 , 업무명, 닉네임, 산출물명, 일정단계명, 일정단계코드, 업무할당 코드
-	private String wsName, appDate, pcCode, skCode, chaPcCode, repStartDate, repEndDate; 	// 업무결재 상태, 업무결재 일자
+	private String wsName, wsCode, appDate, pcCode, skCode, chaPcCode, repStartDate, repEndDate; 	// 업무결재 상태, 업무결재 일자
 	private int repNumber, atNo;		//업무보고 번호
 	
 	// getter / setter 구성
 	public String getRepTitle()
 	{
 		return repTitle;
-	}
-	public String getRepContent()
-	{
-		return repContent;
-	}
-	public String getRepStartDate()
-	{
-		return repStartDate;
-	}
-	public void setRepStartDate(String repStartDate)
-	{
-		this.repStartDate = repStartDate;
-	}
-	public String getRepEndDate()
-	{
-		return repEndDate;
-	}
-	public void setRepEndDate(String repEndDate)
-	{
-		this.repEndDate = repEndDate;
-	}
-	public void setRepContent(String repContent)
-	{
-		this.repContent = repContent;
 	}
 	public void setRepTitle(String repTitle)
 	{
@@ -66,6 +42,14 @@ public class ReportListDTO
 	public void setMemCode(String memCode)
 	{
 		this.memCode = memCode;
+	}
+	public String getRepContent()
+	{
+		return repContent;
+	}
+	public void setRepContent(String repContent)
+	{
+		this.repContent = repContent;
 	}
 	public String getSdOpCode()
 	{
@@ -131,6 +115,14 @@ public class ReportListDTO
 	{
 		this.wsName = wsName;
 	}
+	public String getWsCode()
+	{
+		return wsCode;
+	}
+	public void setWsCode(String wsCode)
+	{
+		this.wsCode = wsCode;
+	}
 	public String getAppDate()
 	{
 		return appDate;
@@ -163,6 +155,22 @@ public class ReportListDTO
 	{
 		this.chaPcCode = chaPcCode;
 	}
+	public String getRepStartDate()
+	{
+		return repStartDate;
+	}
+	public void setRepStartDate(String repStartDate)
+	{
+		this.repStartDate = repStartDate;
+	}
+	public String getRepEndDate()
+	{
+		return repEndDate;
+	}
+	public void setRepEndDate(String repEndDate)
+	{
+		this.repEndDate = repEndDate;
+	}
 	public int getRepNumber()
 	{
 		return repNumber;
@@ -179,6 +187,8 @@ public class ReportListDTO
 	{
 		this.atNo = atNo;
 	}
+	
+	
 	
 
 	

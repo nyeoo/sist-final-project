@@ -12,6 +12,6 @@ public interface IReportListDAO
     public int insertReport(ReportListDTO dto);
     public int insertActualTech(ReportListDTO dto);
     public int searchRepNo(String opCode);
-    
+    public int insertApproval(ReportListDTO dto);
 }
 

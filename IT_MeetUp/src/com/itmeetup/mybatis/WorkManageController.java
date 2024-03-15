@@ -57,7 +57,6 @@ public class WorkManageController
 		
 		String opCode = assignmentDAO.searchOpCode(memCode); // 회원의 개설요청 코드
 		String pcCode = assignmentDAO.searchPcCode(memCode); // 회원의 참여확인 코드 -- 할당자
-		
 			
 		model.addAttribute("opCode", opCode);
 		
@@ -91,6 +90,27 @@ public class WorkManageController
 		
 		return "/Content/MeetGroup/WorkReport.jsp";
 	}
+	
+	@RequestMapping(value = "/approval.action", method = RequestMethod.POST)
+	public String insertApproval(ReportListDTO dto, String memCode, String repNumberInput, String decision)
+	{
+		IAssignmentListDAO assignmentDAO = sqlSession.getMapper(IAssignmentListDAO.class);
+		IReportListDAO reportDAO = sqlSession.getMapper(IReportListDAO.class);
+		String pcCode = assignmentDAO.searchPcCode(memCode); // 회원의 참여확인 코드 -- 할당자
+		
+		int repNumber = Integer.parseInt(repNumberInput);
+		String[] parts = decision.split(",");
+		String wsCode = parts[0];
+		dto.setPcCode(pcCode);
+		dto.setRepNumber(repNumber);
+		dto.setWsCode(wsCode);
+		
+		reportDAO.insertApproval(dto);
+
+		return "redirect:/workManage.action?memCode="+ memCode;
+	}
+	
+	
 	
 	
 

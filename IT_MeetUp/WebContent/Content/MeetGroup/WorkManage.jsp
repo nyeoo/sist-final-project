@@ -210,7 +210,7 @@ String cp = request.getContextPath();
 																									<a class="dropdown-item repBtn" id="reportWrite${loop.index}">
 																									    <i class="bi bi-pencil-square"></i> 업무보고
 																									</a>
-																									<a class="dropdown-item"
+																									<a class="dropdown-item" id="assRemove${loop.index}"
 																										href="javascript:void(0);"> <i
 																										class="bi bi-trash3"></i>할당삭제
 																									</a>
@@ -239,7 +239,6 @@ String cp = request.getContextPath();
 											</c:forEach>
 										</div>
 									</div>
-
 									<!--// 업무할당표  -->
 
 
@@ -346,7 +345,7 @@ String cp = request.getContextPath();
 																		<i class="bi bi-three-dots-vertical"></i>
 																	</button>
 																	<div class="dropdown-menu">
-																		<a class="dropdown-item" href="javascript:void(0);"
+																		<a class="dropdown-item apBtn" href="javascript:void(0);"
 																			data-bs-toggle="modal"
 																			data-bs-target="#staticBackdrop3${loop.index}"
 																			id="workProcess${loop.index}"><i
@@ -354,6 +353,7 @@ String cp = request.getContextPath();
 																			class="dropdown-item delBtn" href="javascript:void(0);" id="reportDeleteBtn${loop.index}"><i
 																			class="bi bi-trash3"></i>보고삭제</a>
 																			<input type="hidden" name="chaPcCode" value="${reportList.chaPcCode}">
+																			<input type="hidden" name="repNumber" value="${reportList.repNumber}">
 																	</div>
 
 																</div>
@@ -393,38 +393,36 @@ String cp = request.getContextPath();
 
 
 				<!-- Modal3 -->
-				<div class="modal fade" id="staticBackdrop3"
-					data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-					aria-labelledby="staticBackdropLabel" aria-hidden="true">
-					<div class="modal-dialog">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title" id="staticBackdropLabel">업무 결재</h5>
-								<button type="button" class="btn-close" data-bs-dismiss="modal"
-									aria-label="Close"></button>
-							</div>
-							<div class="modal-body">
-								<form id="decisionForm">
-									<div class="form-check">
-										<input class="form-check-input" type="radio" name="decision"
-											id="approve" value="approve"> <label
-											class="form-check-label" for="approve"> 승인 </label>
-									</div>
-									<div class="form-check">
-										<input class="form-check-input" type="radio" name="decision"
-											id="reject" value="reject"> <label
-											class="form-check-label" for="reject"> 반려 </label>
-									</div>
-								</form>
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary"
-									data-bs-dismiss="modal">취소</button>
-								<button type="button" class="btn btn-primary"
-									onclick="submitDecision()">제출</button>
-							</div>
-						</div>
-					</div>
+				<div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+				    <div class="modal-dialog">
+				        <div class="modal-content">
+				            <div class="modal-header">
+				                <h5 class="modal-title" id="staticBackdropLabel">업무 결재</h5>
+				                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				            </div>
+				            <div class="modal-body">
+				                <form id="decisionForm" action="<%=cp%>/approval.action" method="POST">
+				                	<input type="hidden" id="decision" name="decision">
+				                	<input type="hidden" id="repNumberInput" name="repNumberInput">
+				                	<input type="hidden" id="memCode" name="memCode">
+				                    <div class="form-check">
+				                        <input class="form-check-input" type="radio" name="decision" id="approve" value="approve">
+				                        <label class="form-check-label" for="approve"> 승인 </label>
+				                    </div>
+				                    <div class="form-check">
+				                        <input class="form-check-input" type="radio" name="decision" id="reject" value="reject">
+				                        <label class="form-check-label" for="reject"> 반려 </label>
+				                    </div>
+				                    <!-- 추가: 폼 내에서 제출 버튼 -->
+				                    <div class="modal-footer">
+					                    <button type="submit" class="btn btn-primary modalBtn" id="submitBtn">제출</button>
+						                <button type="button" class="btn btn-secondary modalBtn" data-bs-dismiss="modal">취소</button>
+				            		</div>
+				                </form>
+				            </div>
+				            
+				        </div>
+				    </div>
 				</div>
 				<!--// Modal3  -->
 			</div>
@@ -454,11 +452,11 @@ String cp = request.getContextPath();
 			var changeleaderPcCode = "${changeLeaderPcCode}"; // 변경된 방장의 회원코드
 			var assBtn = document.getElementById('assBtn');		// 버튼의 id
 
-			// 업무 처리 버튼을 모두 선택합니다.
+			// 업무 처리 버튼을 모두 선택한다.
 			var dropDownItems = document
 					.querySelectorAll('[id^="workProcess"]');
 
-			// 각 업무 처리 버튼에 대해 처리합니다.
+			// 각 업무 처리 버튼에 대해 처리한다.
 			dropDownItems.forEach(function(dropDownItem)
 			{
 				// 업무 할당 처리
@@ -482,6 +480,28 @@ String cp = request.getContextPath();
 				}
 			});
 			
+			// 할당 삭제를 모두 선택한다.
+			var assRemoveItems = document.querySelectorAll('[id^="assRemove"]');
+
+			// 각 할당 삭제 버튼에 대해 처리한다.
+			assRemoveItems.forEach(function(assRemoveItem) 
+			{
+			    // 메모코드가 방장의 회원코드와 동일한 경우에만 버튼을 보이도록 한다.
+			    if (PcCode == leaderPcCode && leavePcCode == '')
+			    {
+			        assRemoveItem.style.display = 'block'; // "할당삭제" 버튼을 보이게 설정한다.
+			    }
+			    // 메모코드가 변경된 방장의 회원코드와 동일한 경우에도 버튼을 보이도록 한다.
+			    else if (PcCode == changeleaderPcCode) 
+			    {
+			        assRemoveItem.style.display = 'block'; // "할당삭제" 버튼을 보이게 설정한다.
+			    } else
+			    {
+			        assRemoveItem.style.display = 'none'; // 그 외의 경우에는 버튼을 숨긴다.
+			    }
+			});
+			
+			
 			// 업무할당 페이지 이동
 			$("#assBtn").click(function()
 			{
@@ -498,7 +518,7 @@ String cp = request.getContextPath();
 
 		        if (PcCode == assPcCode)
 				{
-			        window.location.href = "<%=cp%>/report.action?memCode=" + memCode + "&assCode=" + assCode;
+			        window.location.href = "<%=cp%>/report.action?memCode=" + memCode;
 				}
 		        else
 		        {
@@ -512,18 +532,56 @@ String cp = request.getContextPath();
 			$(".delBtn").click(function()
 			{
 			    var chaPcCode = $(this).siblings("input[name='chaPcCode']").val();
-			    console.log(chaPcCode);
-			    if (PcCode == chaPcCode) {
-			        // 사용자가 확인한 경우 보고를 삭제합니다.
-			        // 삭제하는 코드를 여기에 추가하세요.
+			    if (PcCode == chaPcCode) 
+			    {
+			        // 사용자가 확인한 경우 보고를 삭제한다.
+			        // 삭제하는 코드를 여기에 추가.
 			    } else {
 			        alert("사용자가 보고한 업무가 아닙니다.");
 			    }
 			});
 
-
-
+		
+			// 모달창으로 데이터 전달
+			$(".apBtn").click(function()
+			{
+			    var repNumberInput = $(this).siblings("input[name='repNumber']").val();
+			    var memCode = "${sessionScope.loginDTO.piMemCode}"; // 세션에서 memCode 가져오기
+			    $("#staticBackdrop3").modal('show');
+			    $("#staticBackdrop3").find("#memCode").val(memCode);
+			    $("#staticBackdrop3").find("#repNumberInput").val(repNumberInput);
+			    
+			});
 			
+			$("#decisionForm").submit(function(e)
+			{
+		        var decisionValue;
+		        if ($("#approve").is(":checked")) {
+		            decisionValue = "WS_1"; // 승인을 선택한 경우
+		        } else if ($("#reject").is(":checked")) {
+		            decisionValue = "WS_2"; // 반려를 선택한 경우
+		        }
+
+		        // 폼의 숨겨진 인풋 필드에 해당 값을 설정
+		        $("#decision").val(decisionValue);
+		    });
+			
+			/* <!-- 업무보고 페이지 이동 -->
+			$(".repBtn").click(function() {
+			    var assCode = $(this).siblings("input[name='assCode']").val(); // 해당 버튼의 assCode 가져오기
+			    var assPcCode = $(this).siblings("input[name='assPcCode']").val();
+			    
+
+			    if (PcCode == assPcCode) {
+			        // 업무보고 페이지로 이동하는 대신 모달을 열 때 데이터를 함께 전달한다.
+			        
+			        $("#staticBackdrop3").find("#memCodeInput").val(memCode); // 모달 내부의 숨겨진 input에 memCode 설정
+			        $("#staticBackdrop3").find("#repNumberInput").val(assCode); // 모달 내부의 숨겨진 input에 repNumber 설정
+			    } else {
+			        alert("사용자에게 할당된 업무가 아닙니다.");
+			    }
+			}); */
+
 			
 			
 			
