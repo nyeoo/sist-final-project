@@ -119,19 +119,7 @@ String cp = request.getContextPath();
 	<script src="<%=cp%>/asset/js/common.js"></script>
 	<script type="text/javascript">
 	
-		$(document).ready(function()
-		{
-			$(".btn-primary").click(function()
-			{
-				$('#deleteForm').modal('show');
-			});
-
-			$('#deleteForm').modal(
-			{
-				backdrop : 'static',
-				keyboard : false
-			});
-		});
+	
 	</script>
 </body>
 

@@ -346,15 +346,13 @@ String cp = request.getContextPath();
 										</div>
 										<div class="card-bottom">
 											<!-- 제목 -->
-											<a href="javascript:;" class="card-tit mb-2"> <span
+											<a href="PostDetail.action?code=${projectListItem.opCode }" class="card-tit mb-2"> <span
 												class="h3">${projectListItem.title }<br>
 											</span>
 											</a>
 											<!-- 상세내용 -->
 											<p class="card-text text-truncate mb-2">${projectListItem.content }</p>
 										</div>
-										<input type="hidden" id="opCode"
-											value="${projectListItem.opCode }">
 									</div>
 								</li>
 							</c:forEach>
@@ -729,20 +727,6 @@ String cp = request.getContextPath();
 	<script src="<%=cp%>/asset/js/bootstrap.bundle.min.js"></script>
 	<script src="<%=cp%>/asset/js/common.js"></script>
 	<script type="text/javascript">
-		$(document).ready(function()
-		{
-			$('.mb-2').click(function()
-			{
-				// 각 프로젝트의 op_code 가져오기
-				var opCode = $('#opCode').val();
-
-				// 완료 프로젝트 상세 페이지로 이동할 때 코드를 넘겨주기
-				$(location).attr(
-						"href",
-						"completeprojectdetail.action?opCode="
-								+ opCode);
-			});
-		});
 
 		function selectSi()
 		{

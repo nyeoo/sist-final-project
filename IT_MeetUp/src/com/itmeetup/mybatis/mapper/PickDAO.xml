@@ -42,10 +42,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 	
 	<!-- 픽 보내기 -->
-	<update id="pickUpdate">
-		update PART_APPLICANT
-		set pa_as_code ='AS_1'
-		where pa_no=#{pano}
+	<update id="pickUpdate" statementType="CALLABLE">
+		{call INSERT_PICK_NTF(#{pano, mode=IN, jdbcType=INTEGER})}
 	</update>
 	
 	

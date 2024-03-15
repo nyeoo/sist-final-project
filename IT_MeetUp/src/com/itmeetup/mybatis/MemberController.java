@@ -72,8 +72,8 @@ public class MemberController
 			//viewPage = "/Content/ProjectLounge/PostList_ju.jsp";
 			
 			// 주형이가 추가함 
-			//viewPage = "/projectList.action";
-			viewPage = "/home.action";
+			viewPage = "/projectList.action";
+			//viewPage = "/home.action";
 
 		} else
 		{ // 로그인X
