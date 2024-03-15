@@ -302,7 +302,7 @@ $(function () {
         else
         {
         	alert("로그인을 해주세요.");
-        	$(location).attr("href", "../../login.action");
+        	$(location).attr("href", "../IT_MeetUp/login.action");
         }
      })/*
      $(document).ready(function() {
