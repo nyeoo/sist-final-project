@@ -266,70 +266,91 @@
 		{
 			var sessionScopePiMemCode = $("#sessionScopePiMemCode").val();
 			
-			if(sessionScopePiMemCode !== "" )
+			// 세션에 회원번호가 없는 상황이라면
+			if(sessionScopePiMemCode == "")
 			{
 				let zzim1 = document.getElementById("zzim1");
 				zzim1.classList.add("notzz");
 				let zzim2 = document.getElementById("zzim2");
 				zzim2.classList.add("notzz");
 				
+				// 찜 버튼 클릭시
 				$(".notzz").on("click",function(event){
 					event.preventDefault();
 					$(this).parents().find(".sm-card").removeClass('add-zzim');
 					alert("로그인이 필요한 기능입니다.");
 					$(location).attr("href", "login.action");
 				});
+				
+				// 팀원모집하러가기 버튼 클릭시
+				$(".btn-recruit").click(function()
+				{
+					alert("로그인이 필요한 기능입니다.");
+					$(location).attr("href", "login.action");
+				})
+				
+				// 참여신청하러가기 버튼 클릭시
+				$(".btn-join").click(function()
+				{
+					alert("로그인이 필요한 기능입니다.");
+					$(location).attr("href", "login.action");
+				})
+			}
+			else
+			{
+				// 찜하기 버튼 눌렀을 때 
+				$('.wish').change(function() 
+				{
+						
+			    	var isChecked = $(this).prop('checked');     // 체크 여부 확인
+				    var code = $(this).val(); 					 // 프로젝트 코드 가져오기
+					
+				    if (isChecked)
+				    {
+					    $.ajax({
+				            url: 'addWish.action',
+				            type: 'GET',
+				            data: { isChecked: isChecked, code: code },
+				            success: function(response) {
+				                console.log(response);				// 성공시
+				            },
+				            error: function(xhr, status, error) {
+				                console.error(error); 				//  실패시 오류 메시지를 콘솔에 출력
+				               
+				            }
+				        });
+					}
+				    else
+				    {
+				    	$.ajax({
+				            url: 'removeWish.action',
+				            type: 'GET',
+				            data: { isChecked: isChecked, code: code },
+				            success: function(response) {
+				                console.log(response); 				// 성공시
+				            },
+				            error: function(xhr, status, error) {
+				                console.error(error); 				//  실패시 오류 메시지를 콘솔에 출력
+				            }
+				        });
+				    }
+				});
+				
+				// 팀원모집하러가기 버튼 클릭시
+				$(".btn-recruit").click(function()
+				{
+					$(location).attr("href", "WriteFormControl.action");
+				})
+				
+				// 참여신청하러가기 버튼 클릭시
+				$(".btn-join").click(function()
+				{
+					$(location).attr("href", "projectList.action");
+				})
 			}
 
 				
-			// 찜하기 버튼 눌렀을 때 
-			$('.wish').change(function() 
-			{
-					
-		    	var isChecked = $(this).prop('checked');     // 체크 여부 확인
-			    var code = $(this).val(); 					 // 프로젝트 코드 가져오기
-				
-			    if (isChecked)
-			    {
-				    $.ajax({
-			            url: 'addWish.action',
-			            type: 'GET',
-			            data: { isChecked: isChecked, code: code },
-			            success: function(response) {
-			                console.log(response);				// 성공시
-			            },
-			            error: function(xhr, status, error) {
-			                console.error(error); 				//  실패시 오류 메시지를 콘솔에 출력
-			               
-			            }
-			        });
-				}
-			    else
-			    {
-			    	$.ajax({
-			            url: 'removeWish.action',
-			            type: 'GET',
-			            data: { isChecked: isChecked, code: code },
-			            success: function(response) {
-			                console.log(response); 				// 성공시
-			            },
-			            error: function(xhr, status, error) {
-			                console.error(error); 				//  실패시 오류 메시지를 콘솔에 출력
-			            }
-			        });
-			    }
-			});
 			
-			
-			$(".btn-recruit").click(function()
-			{
-				$(location).attr("href", "WriteFormControl.action");
-			})
-			
-			$(".btn-join").click(function()
-			{
-				$(location).attr("href", "projectList.action");
-			})
 			
 		});
 	</script>

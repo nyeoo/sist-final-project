@@ -39,7 +39,12 @@ public class OpenProjectController
 		
 		MemberDTO member = (MemberDTO)session.getAttribute("loginDTO");
 		
-		ArrayList<String> wishList = dao.wishList(member.getPiMemCode());
+		if (member!=null)
+		{
+			ArrayList<String> wishList = dao.wishList(member.getPiMemCode());
+			model.addAttribute("wishList", wishList);								// 사용자 찜목록 
+		}
+			
 		
 		ArrayList<OpenProjectDTO> project = dao.openList();		
 		
@@ -56,9 +61,7 @@ public class OpenProjectController
 		model.addAttribute("skillCategorys", skillCategoryDAO.skillCategorys());
 		model.addAttribute("lastCode",dao.lastCode());							// 가장 최근 프로젝트 개설 코드 뽑기
 		model.addAttribute("skills", skillsDAO.skills());
-		
-		model.addAttribute("wishList", wishList);								// 사용자 찜목록 
-		
+				
 		model.addAttribute("openList",dao.openList());
 		model.addAttribute("deadlineList",dao.deadlineList());
 		model.addAttribute("cateList",dao.cateList());
