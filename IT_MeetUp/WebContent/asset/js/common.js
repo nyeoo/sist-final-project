@@ -263,7 +263,7 @@ $(function () {
   
   // 회원가입 스와이퍼
   if($(".join-swiper").length) {
-	  //console.log("aaa");
+	  // console.log("aaa");
 	  var joinSwiper = new Swiper(".join-swiper", {
 	      pagination: {
 	          el: ".join-swiper .swiper-pagination",
@@ -280,17 +280,16 @@ $(function () {
 	  
 	  joinSwiper.slideTo(1, 0, true);
 	  
-	  /*$(".join-step01").on('click', function(e) {
-		  joinSwiper.slideNext();
-	  });
-	  $(".join-step02").on('click', function(e) {
-		  joinSwiper.slideNext();
-	  });*/
+	  /*
+		 * $(".join-step01").on('click', function(e) { joinSwiper.slideNext();
+		 * }); $(".join-step02").on('click', function(e) {
+		 * joinSwiper.slideNext(); });
+		 */
 	  
 	  
   }
     
-  //그룹홈 이동
+  // 그룹홈 이동
   // grouphome.action?memCode=${sessionScope.loginDTO.piMemCode}
   if($("#groupHomeLink").length) {
      var sessionScopePiMemCode = $("#sessionScopePiMemCode").val();
@@ -304,16 +303,32 @@ $(function () {
         	$(location).attr("href", "../IT_MeetUp/login.action");
         }
      })/*
-     $(document).ready(function() {
-    	 var partCheckTeamMem = $("#partCheckTeamMem").val();
-    	 if (partCheckTeamMem.includes(sessionScopePiMemCode))
-		{
-    		 $(location).attr("href", "grouphome.action?memCode=" + sessionScopePiMemCode)
-		}
-    	});*/
+		 * $(document).ready(function() { var partCheckTeamMem =
+		 * $("#partCheckTeamMem").val(); if
+		 * (partCheckTeamMem.includes(sessionScopePiMemCode)) {
+		 * $(location).attr("href", "grouphome.action?memCode=" +
+		 * sessionScopePiMemCode) } });
+		 */
   };
-  
-  
+  if($(".navbar").length) {
+	    var sessionScopeadmin = $("#sessionScopeadmin").val();
+	    // 페이지 로드 시에 실행되도록 변경
+	    $(document).ready(function() {
+	        if(sessionScopeadmin != "0" ){    // 관리자
+	            // user-nav 안보이게
+	            $(".user-nav").hide();
+	            // admin-nav 보이게
+	            $(".admin-nav").show();
+	        }
+	        else {
+	            // user-nav 보이게
+	            $(".user-nav").show();
+	            // admin-nav 안보이게
+	            $(".admin-nav").hide();
+	        }
+	    });
+	}
+
   
   
   

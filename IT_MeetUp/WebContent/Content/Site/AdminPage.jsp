@@ -49,9 +49,6 @@ String cp = request.getContextPath();
 				<div class="content_tit">
 					<p class="h3">관리자 리스트</p>
 					<br>
-					<!-- 브레드크럼블 -->
-					<!-- <div role="breadcrumb" data-include="../Components/Breadcrumb.jsp"></div> -->
-					<!-- //브레드크럼블 -->
 				</div>
 
 				<!-- 관리자 리스트 테이블 -->
@@ -77,7 +74,7 @@ String cp = request.getContextPath();
 							<tr>
 								<td class="num"><span class="tag_txt">${adminListItem.adNo }</span></td>
 								<td class="id">${adminListItem.adId }</td>
-								<td class="nickName">${adminListItem.nickName }</td>
+								<td class="nickName">${adminListItem.nickname }</td>
 								<td class="joindate">${adminListItem.date }</td>
 							</tr>
 						</tbody>

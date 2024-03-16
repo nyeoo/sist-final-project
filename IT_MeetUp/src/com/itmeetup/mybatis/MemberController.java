@@ -71,9 +71,17 @@ public class MemberController
 			session.setAttribute("loginDTO", member);
 			//viewPage = "/Content/ProjectLounge/PostList_ju.jsp";
 			
-			// 주형이가 추가함 
-			//viewPage = "/projectList.action";
-			viewPage = "redirect:/home.action";
+			String adminFlag = "";
+			adminFlag = (String) session.getAttribute("admin");
+			System.out.println();
+			if(adminFlag.equals("0")) {	// 일반멤버
+				// 주형이가 추가함
+				//viewPage = "/projectList.action";
+				viewPage = "redirect:/home.action";
+			}else {	// 관리자
+				viewPage = "indict.action";
+			}
+			
 
 		} else
 		{ // 로그인X
@@ -83,7 +91,6 @@ public class MemberController
 
 		return viewPage;
 	}
-
 	// 로그아웃 과정
 	@RequestMapping(value = "/logout.action")
 	public String logout(HttpSession session)
@@ -92,7 +99,7 @@ public class MemberController
 		session.removeAttribute("loginDTO");
 		session.invalidate();	// 세션제거
 
-		return "redirect:/login.action";
+		return "redirect:/Content/ProjectLounge/PostList.jsp";
 	}
 	
 	// 아이디 찾기>이메일 확인

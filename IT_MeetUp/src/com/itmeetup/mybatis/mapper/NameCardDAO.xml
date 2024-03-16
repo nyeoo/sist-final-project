@@ -16,6 +16,7 @@
 		JOIN JOB J ON M.MEM_JOB_CODE = J.JOB_CODE
 		WHERE M.MEM_CODE = #{memCode}
 	</select>
+	
 	<!-- 스킬 조회 쿼리문 -->
 	<select id="skillList" resultType="com.itmeetup.mybatis.NameCardDTO">
 		SELECT MEM_CODE "MEMCODE"

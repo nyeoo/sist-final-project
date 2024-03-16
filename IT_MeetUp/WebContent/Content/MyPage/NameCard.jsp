@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	request.setCharacterEncoding("UTF-8");
-String cp = request.getContextPath();
+	String cp = request.getContextPath();
 %>
 <!DOCTYPE html>
 <html lang="ko">
@@ -164,7 +164,6 @@ String cp = request.getContextPath();
 												<button type="button" class="btn btn-secondary">저장하기</button>
 											</div>
 										</div>
-
 									</form>
 								</div>
 							</div>

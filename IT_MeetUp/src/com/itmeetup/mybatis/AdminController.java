@@ -20,6 +20,7 @@ public class AdminController
 		IAdminDAO dao = sqlSession.getMapper(IAdminDAO.class);
 		
 		model.addAttribute("adminList", dao.adminList());
+		System.out.println(dao.adminList());
 		
 		return "/Content/Site/AdminPage.jsp";
 	}

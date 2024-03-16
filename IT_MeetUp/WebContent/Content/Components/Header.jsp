@@ -21,6 +21,7 @@ String cp = request.getContextPath();
 		<!-- 메뉴영역 -->
 		<div class="offcanvas offcanvas-end text-bg-dark m-right-nav"
 			id="navbarsExample05">
+			<input type="hidden" id="sessionScopeadmin" value="${sessionScope.admin}">
 			<div class="offcanvas-header">
 				<!-- (mob) 사이드 메뉴 제목 -->
 				<h5 class="offcanvas-title" id="offcanvasNavbarDarkLabel"></h5>
@@ -31,7 +32,7 @@ String cp = request.getContextPath();
 
 			<!-- (mob) 사이드 메뉴 & (pc) 대메뉴 -->
 			<div class="offcanvas-body">
-				<ul class="navbar-nav me-auto mb-lg-0 m-head-gnb">
+				<ul class="navbar-nav me-auto mb-lg-0 m-head-gnb user-nav">
 					<li class="nav-item"><a class="nav-link"
 						href="WriteFormControl.action">모집공고작성</a></li>
 					<li class="nav-item dropdown"><a
@@ -45,6 +46,14 @@ String cp = request.getContextPath();
 						<input type="hidden" id="sessionScopePiMemCode" value="${sessionScope.loginDTO.piMemCode}">
 						<%-- <a class="nav-link" href="grouphome.action?memCode=${sessionScope.loginDTO.piMemCode}">Meet 그룹</a> --%>
 						<a class="nav-link" id="groupHomeLink" href="javascript:;">Meet 그룹</a>
+					</li>
+				</ul>
+				
+				<ul class="navbar-nav me-auto mb-lg-0 m-head-gnb admin-nav">
+					<li class="nav-item"><a class="nav-link"
+						href="indict.action">신고처리</a></li>
+					<li class="nav-item">
+						<a class="nav-link" href="admin.action">관리자명단</a>
 					</li>
 				</ul>
 
