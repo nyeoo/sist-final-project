@@ -55,6 +55,12 @@ public class GroupHomeController
 			
 			model.addAttribute("evapcCode", evapcCode);
 			
+			OpenProjectDTO teamProjectEndDate = dao.teamProjectEndDate(memCode);
+			String endDate = teamProjectEndDate.getEnd();
+			
+			model.addAttribute("endDate", endDate);
+			
+			
 			// 산출물 갯수
 			model.addAttribute("meetAnalCount", dao.meetAnalCount(memCode));
 			model.addAttribute("meetDesignCount", dao.meetDesignCount(memCode));

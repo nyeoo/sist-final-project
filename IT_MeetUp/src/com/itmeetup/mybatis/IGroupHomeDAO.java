@@ -28,6 +28,7 @@ public interface IGroupHomeDAO
 	
 	// 프로젝트 진행기간
 	public ArrayList<OpenProjectDTO> progressPeriod(String memCode);
+	public OpenProjectDTO teamProjectEndDate(String memCode);
 	
 	// 프로젝트 진행기간별 비율
 	public Double analyzePercent(String memCode);

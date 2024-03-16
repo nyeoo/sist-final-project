@@ -613,7 +613,7 @@ String cp = request.getContextPath();
 							{
 								$(this).find(".crown").remove();
 							}
-
+							
 							var userPcCode = "${evapcCode}";
 							var leavePcCodes = "${leavePcCodes}"
 
@@ -634,9 +634,8 @@ String cp = request.getContextPath();
 									if (groupPersonPcCode === leavePcCodes)
 									{
 										$(this).closest("td").hide();
-									}
+									} 
 								});
-								
 								// 팀장일 시 팀장 질문 안보이게 하기
 								$(".groupLeader").each(function()
 								{
@@ -649,8 +648,98 @@ String cp = request.getContextPath();
 									}
 								})
 							});
-							
 						});
+		
+		 /* $(document).ready(function() {
+			// endDate 값을 가져옴
+		        var endDate = "${endDate}";
+
+		        // endDate를 JavaScript Date 객체로 변환
+		        var endDateTime = new Date(endDate);
+
+		        // 현재 시간
+		        var now = new Date();
+
+		        // 3일 전의 날짜를 구함
+		        var threeDaysBefore = new Date();
+		        threeDaysBefore.setDate(endDateTime.getDate() - 3);
+		        console.log(threeDaysBefore);
+		        // 버튼 활성화 여부 결정
+		        if (now.getTime() >= threeDaysBefore.getTime()) {
+		            // 버튼을 활성화합니다.
+		            $('#evalInsertBtn').prop('disabled', false);
+		            
+		            var userPcCode = "${evapcCode}";
+					var leavePcCodes = "${leavePcCodes}"
+
+					// 평가하기 버튼 클릭 시
+					$("#evalInsertBtn").click(function()
+					{
+						// 각 평가 대상 입력 태그를 순회하며 비교
+						$(".groupPerson").each(function()
+						{
+							// 입력 태그의 값을 가져옴
+							var groupPersonPcCode = $(this).val();
+							// 사용자 PC 코드와 입력 태그의 값이 일치하는지 확인
+							if (userPcCode === groupPersonPcCode || groupPersonPcCode === leavePcCodes)
+							{
+								// 일치하는 경우 해당 입력 태그의 부모 요소를 숨김 처리
+								$(this).closest("td").hide();
+							}
+							if (groupPersonPcCode === leavePcCodes)
+							{
+								$(this).closest("td").hide();
+							} 
+						});*/
+						/* 
+						// 팀장일 시 팀장 질문 안보이게 하기
+						$(".groupLeader").each(function()
+						{
+							var groupLeader = $(this).val();
+
+							if (userPcCode === groupLeader)
+							{
+								// 일치하는 경우 해당 입력 태그의 부모 요소를 숨김 처리
+								$(this).closest("tr").hide();
+							}
+						})
+					});
+		            
+		        } else {
+		            // 버튼을 비활성화합니다.
+		            $('#evalInsertBtn').prop('disabled', true);
+		        }
+		 }); */
+		 $(document).ready(function() {
+			    // endDate 값을 가져옴
+			    var endDate = "${endDate}";
+			    // endDate가 유효한 날짜인지 확인
+			    if (endDate) {
+			        // endDate를 JavaScript Date 객체로 변환
+			        var endDateTime = new Date(endDate);
+
+			        // 현재 시간
+			        var now = new Date();
+
+			        // 3일 전의 날짜를 구함
+			        var threeDaysBefore = new Date(endDateTime);
+			        threeDaysBefore.setDate(endDateTime.getDate() - 3);
+			        console.log(threeDaysBefore);
+			        // 버튼 활성화 여부 결정
+			        if (now.getTime() >= threeDaysBefore.getTime()) {
+			            // 버튼을 활성화합니다.
+			            $('#evalInsertBtn').prop('disabled', false);
+			            
+			        } else {
+			            // 버튼을 비활성화합니다.
+			            $('#evalInsertBtn').prop('disabled', true);
+			        }
+			    } else {
+			        // endDate가 유효하지 않은 경우 버튼을 비활성화합니다.
+			        $('#evalInsertBtn').prop('disabled', true);
+			    }
+			});
+
 	</script>
 </body>
 
