@@ -653,11 +653,18 @@ String cp = request.getContextPath();
 			$(".delBtn").click(function()
 			{
 			    var chaPcCode = $(this).siblings("input[name='chaPcCode']").val();
-			    if (PcCode == chaPcCode) 
+			    var $row = $(this).closest('tr'); // 클릭된 버튼이 속한 행 선택
+			    var appDate = $row.find('td:eq(8)').text(); // 담당자 데이터 가져오기
+			    
+			    if (PcCode == chaPcCode && appDate == "") 
 			    {
 			        // 사용자가 확인한 경우 보고를 삭제한다.
 			        // 삭제하는 코드를 여기에 추가.
-			    } else {
+			    } 
+			    else if (appDate != "") {
+					alert("이미 결재처리가 되었습니다.");
+				}
+			    else {
 			        alert("사용자가 보고한 업무가 아닙니다.");
 			    }
 			});
@@ -735,22 +742,6 @@ String cp = request.getContextPath();
 		        $("#decision").val(decisionValue);
 		    });
 			
-			/* <!-- 업무보고 페이지 이동 -->
-			$(".repBtn").click(function() {
-			    var assCode = $(this).siblings("input[name='assCode']").val(); // 해당 버튼의 assCode 가져오기
-			    var assPcCode = $(this).siblings("input[name='assPcCode']").val();
-			    
-
-			    if (PcCode == assPcCode) {
-			        // 업무보고 페이지로 이동하는 대신 모달을 열 때 데이터를 함께 전달한다.
-			        
-			        $("#staticBackdrop3").find("#memCodeInput").val(memCode); // 모달 내부의 숨겨진 input에 memCode 설정
-			        $("#staticBackdrop3").find("#repNumberInput").val(assCode); // 모달 내부의 숨겨진 input에 repNumber 설정
-			    } else {
-			        alert("사용자에게 할당된 업무가 아닙니다.");
-			    }
-			}); */
-
 			
 			
 			
