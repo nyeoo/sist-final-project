@@ -1,9 +1,5 @@
 package com.itmeetup.mybatis;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,6 +21,11 @@ public class WeeklyReportController
 		IAssignmentListDAO assignmentDAO = sqlSession.getMapper(IAssignmentListDAO.class);
 		
 		String opCode = assignmentDAO.searchOpCode(memCode);
+		
+		int countReport = dao.countWeeklyReport(opCode);
+		int pageNubmer = 1;
+		
+		int totalReport = countReport / pageNubmer + (countReport % pageNubmer > 0 ? 1 : 0);
 		
 		model.addAttribute("weeklyReport", dao.weeklyReport(opCode)); // ssName 데이터를 모델에 추가
 		

@@ -724,7 +724,8 @@ String cp = request.getContextPath();
 			$("#decisionForm").submit(function(e)
 			{
 		        var decisionValue;
-		        if ($("#approve").is(":checked")) {
+		        if ($("#approve").is(":checked"))
+		        {
 		            decisionValue = "WS_1"; // 승인을 선택한 경우
 		        } else if ($("#reject").is(":checked")) {
 		            decisionValue = "WS_2"; // 반려를 선택한 경우

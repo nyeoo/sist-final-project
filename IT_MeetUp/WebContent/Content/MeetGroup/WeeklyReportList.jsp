@@ -67,11 +67,10 @@ String cp = request.getContextPath();
 							<c:forEach var="weeklyReport" items="${weeklyReport}">
 								<tr>
 									<td class="num"><span class="tag_txt">${weeklyReport.countWeekly}</span></td>
-									<td class="tit new"><a href="javascript:;">${weeklyReport.wrTitle}<!-- <span
-											class="ico_att_new">new</span> -->
-									</a></td>
+									<td class="tit new"><a class="dropdown-item weeklyBtn" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="weeklyReport">${weeklyReport.wrTitle}</a></td>
 									<td class="date">${weeklyReport.wrDate}</td>
 									<td class="w_writer">${weeklyReport.piNickName}</td>
+									<td style="display: none;">${weeklyReport.wrContent}</td>
 								</tr>
 							</c:forEach>
 						</tbody>
@@ -99,7 +98,39 @@ String cp = request.getContextPath();
 
 		</section>
 		<!-- //바디영역 -->
-
+		<!-- Modal -->
+				<div class="modal fade" id="staticBackdrop"
+				    data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+				    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+				    <div class="modal-dialog">
+				        <div class="modal-content">
+				            <div class="modal-header">
+				                <h5 class="modal-title" id="staticBackdropLabel">주간업무보고</h5>
+				                <button type="button" class="btn-close" data-bs-dismiss="modal"
+				                    aria-label="Close"></button>
+				            </div>
+				            <div class="modal-body">
+				                <div id="item-1" class="comp_tit">
+				                    제목(주제) <input type="text" class="form-control" id="title"
+				                        style="width: 450px;"disabled="disabled">
+				                </div>
+				
+				                <div id="item-2" class="comp_tit">
+				                    내용
+				                    <textarea class="form-control" id="content" rows="3" id="content"
+				                        style="width: 450px;" disabled="disabled"></textarea>
+				                </div>
+				                <br>
+				                <hr>
+				            </div>
+				            <div class="modal-footer">
+				                <button type="button" class="btn btn-secondary"
+				                    data-bs-dismiss="modal">닫기</button>
+				            </div>
+				        </div>
+				    </div>
+				</div>
+				<!--// Modal  -->
 
 		<!-- 푸터영역 -->
 		<c:import url="../Components/Footer.jsp"></c:import>
@@ -119,6 +150,23 @@ String cp = request.getContextPath();
         {
             window.location.href = "<%=cp%>/weeklyReportWrite.action?memCode=${sessionScope.loginDTO.piMemCode}";
         });
+        
+     // 주간업무보고 데이터 모달로 전달 
+		$(".weeklyBtn").click(function()
+		{
+		    var $row = $(this).closest('tr'); // 클릭된 버튼이 속한 행 선택
+		    var weeklyTitle = $row.find('td:eq(1)').text(); // 주제 데이터 가져오기
+		    var weeklyContent = $row.find('td:eq(4)').text(); // 제목 데이터 가져오기
+
+		    
+		    // 모달 내 필드에 데이터 설정
+		    $("#staticBackdrop").modal('show');
+		    $("#title").val(weeklyTitle);
+		    $("#content").val(weeklyContent);
+		});
+        
+        
+        
     });
 </script>
 </body>
