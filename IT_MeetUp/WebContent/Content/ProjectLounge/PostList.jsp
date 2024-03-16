@@ -523,7 +523,7 @@
 					<!-- 페이지네이션 -->
 					<div class="page-box">
 						<nav aria-label="Page navigation example">
-							<ul class="pagination">
+							<!-- <ul class="pagination">
 								<li class="page-item"><a class="page-link" href="#"
 									aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
 								</a></li>
@@ -533,7 +533,10 @@
 								<li class="page-item"><a class="page-link" href="#"	aria-label="Next"> 
 									<span aria-hidden="true">&raquo;</span>	</a>
 								</li>
-							</ul>
+							 </ul>
+							 -->
+							<ul class="pagination">${indexList }</ul>
+							
 						</nav>
 					</div>
 					<!-- //페이지네이션 -->
@@ -610,10 +613,10 @@
 		    
 			
 			var category = $("#cate").val(); 					// 해당 카테고리 code 가져오기
-			var career = $("#career").val(); 					// 해당 카테고리 code 가져오기
-			var sigg  =$("#si").val(); 					 		// 해당 카테고리 code 가져오기
-			var sido = $("#do").val(); 					 		// 해당 카테고리 code 가져오기
-			var meet = $("#meet").val();
+			var career = $("#career").val(); 					// 해당 경력 code 가져오기
+			var sigg  =$("#si").val(); 					 		// 해당 시구 code 가져오기
+			var sido = $("#do").val(); 					 		// 해당 시도 code 가져오기
+			var meet = $("#meet").val();						// 해당 모임방식 code 가져오기
 			
 			
 			

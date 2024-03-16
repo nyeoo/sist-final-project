@@ -2,10 +2,12 @@ package com.itmeetup.mybatis;
 
 import java.util.ArrayList;
 
+import org.apache.ibatis.annotations.Param;
+
 public interface IOpenProjectDAO
 {
 	// 현재 생성된 프로젝트 출력
-	public ArrayList<OpenProjectDTO> openList();
+	public ArrayList<OpenProjectDTO> openList(@Param("startPage") int startPage, @Param("endPage") int endPage);
 	
 	// 마감 임박 프로젝트 출력 
 	public ArrayList<OpenProjectDTO> deadlineList();
@@ -30,6 +32,11 @@ public interface IOpenProjectDAO
 	// 프로젝트 조회수 증가 
 	public int viewUpdate(String code);
 	
+	// 현재 진행중인 프로젝트 개수 
+	public int countProject();
+	
+	// 필터 프로젝트 개수 
+	public int countFilter(OpenProjectDTO dto);
 	
 	// 가장 최근 프로젝트 코드 뽑기 
 	public String lastCode();
@@ -44,7 +51,9 @@ public interface IOpenProjectDAO
 	public ArrayList<String> wishList(String memCode);
 	
 	// 프로젝트 필터 리스트
-	public ArrayList<OpenProjectDTO>filterList(OpenProjectDTO dto);
+	public ArrayList<OpenProjectDTO>filterList( @Param("dto")OpenProjectDTO dto, @Param("startPage") int startPage, @Param("endPage") int endPage);
 	
-	
+	 
 }
+
+

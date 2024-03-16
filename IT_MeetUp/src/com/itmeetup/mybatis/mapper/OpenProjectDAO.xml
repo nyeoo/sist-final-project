@@ -8,15 +8,25 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 프로젝트 정보 출력 -->
 	<select id="openList" resultType="com.itmeetup.mybatis.OpenProjectDTO" >
 	
-		SELECT "CODE", "CATEGORY", "TITLE", "MOJIBSU", "CONTENT"
+		
+        select RNUM ,"CODE", "CATEGORY", "TITLE", "MOJIBSU", "CONTENT"
         	  ,"VIEW", "START", "END" ,"TEAMNAME", "SIDO"
-       		  ,"SIGG", "NICKNAME", "CAREER", "REGDATE" ,"DAY","MEET", "CAREER"
-		FROM PROJECT_INFO
-		where "START" >sysdate
-        ORDER BY 14 DESC 
+       		  ,"SIGG", "NICKNAME", "CAREER", "REGDATE" ,"DAY","MEET"
+       from
+       (
+        SELECT ROW_NUMBER() OVER(ORDER BY fi.REGDATE DESC) AS RNUM ,fi.CODE, fi.CATEGORY, fi.TITLE, fi.MOJIBSU, fi.CONTENT
+        	  ,fi."VIEW", fi."START", fi."END" ,fi.TEAMNAME, fi.SIDO
+       		  ,fi.SIGG, fi.NICKNAME, fi.CAREER, fi.REGDATE , fi."DAY", fi.MEET
+		FROM PROJECT_INFO fi
+		where fi."START" >sysdate
+        )
+        WHERE RNUM >= #{startPage} AND #{endPage} >= RNUM
 		
 	</select>
 	
+	
+	
+	<!-- 마감 임박 ㅡㅍ로제긑 출력  -->
 	<select id="deadlineList" resultType="com.itmeetup.mybatis.OpenProjectDTO" >
 	
 		SELECT "CODE", "CATEGORY", "TITLE", "MOJIBSU", "CONTENT"
@@ -116,11 +126,50 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 필터 검색 -->
 	
 	<select id="filterList" resultType="com.itmeetup.mybatis.OpenProjectDTO" >
-		SELECT "CODE", "CATEGORY", "TITLE", "MOJIBSU", "CONTENT"
+		select RNUM ,"CODE", "CATEGORY", "TITLE", "MOJIBSU", "CONTENT"
         	  ,"VIEW", "START", "END" ,"TEAMNAME", "SIDO"
        		  ,"SIGG", "NICKNAME", "CAREER", "REGDATE" ,"DAY","MEET"
+       from
+       (
+        SELECT ROW_NUMBER() OVER(ORDER BY fi.REGDATE DESC) AS RNUM ,fi.CODE, fi.CATEGORY, fi.TITLE, fi.MOJIBSU, fi.CONTENT
+        	  ,fi."VIEW", fi."START", fi."END" ,fi.TEAMNAME, fi.SIDO
+       		  ,fi.SIGG, fi.NICKNAME, fi.CAREER, fi.REGDATE , fi."DAY", fi.MEET
+		FROM PROJECT_INFO fi
+		where fi."START" >sysdate
+			  <if test="dto.category != null">
+        	  and category=#{dto.category}
+        	  </if>
+        	  <if test="dto.career != null">
+        	   AND CAREER=#{dto.career}
+        	  </if>
+        	  <if test="dto.sido != null">
+        	   AND SIDO =#{dto.sido}
+        	  </if>
+        	  <if test="dto.sigg!= null">
+        	   AND SIGG =#{dto.sigg}
+        	  </if>
+        	  <if test="dto.meet != null">
+        	   AND MEET =#{dto.meet}
+        	  </if>
+        )  
+        WHERE RNUM >= #{startPage} AND #{endPage} >= RNUM        
+
+	</select>
+	
+	
+	
+	<!-- 현재 진행중인 프로젝트 개수 -->
+	<select id="countProject" resultType="java.lang.Integer" >
+		SELECT count(*) as count
+			FROM PROJECT_INFO
+			where "START" >sysdate
+	</select>
+	
+	<!-- 필터 프로젝트 개수 -->
+	<select id="countFilter" resultType="java.lang.Integer" >
+		SELECT count(*) as count
 		FROM PROJECT_INFO
-        WHERE 1=1 
+        WHERE "START" > SYSDATE 
         	  <if test="category != null">
         	  and category=#{category}
         	  </if>
@@ -136,8 +185,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         	  <if test="meet != null">
         	   AND MEET =#{meet}
         	  </if>
-        AND "START" > SYSDATE
-        ORDER BY 14 DESC
+        
+        
 	</select>
 	
 </mapper>
