@@ -1,11 +1,14 @@
 package com.itmeetup.mybatis;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class WorkManageController
@@ -14,7 +17,7 @@ public class WorkManageController
 	@Autowired
 	private SqlSession sqlSession;
 	@RequestMapping(value = "/workManage.action", method = RequestMethod.GET)
-	public String workManage(ModelMap model, String memCode)
+	public String workManage(ModelMap model, String memCode, @RequestParam(defaultValue = "1") int page)
 	{
 		IScheduleDAO scheduleDAO = sqlSession.getMapper(IScheduleDAO.class);
 		IAssignmentListDAO assignmentDAO = sqlSession.getMapper(IAssignmentListDAO.class);
@@ -28,6 +31,22 @@ public class WorkManageController
 		String leavePcCode = assignmentDAO.searchLeaveLeader(leaderPcCode); // 이탈한 방장의 참여확인코드
 		String changeLeaderMemCode = assignmentDAO.searchChangeLeaderMemCode(opCode); // 변경된 방장의 회원코드
 		String changeLeaderPcCode = assignmentDAO.searchChangeLeaderPcCode(opCode); // 변경된 방장의 참여확인코드
+		
+		System.out.println(opCode);
+		//페이징 처리
+		int showReport = 10; // 페이지에서 보여줄 레코드 수
+	    int countReport = reportDAO.countReportList(opCode); // 전체 게시물 갯수
+	    int totalPage = countReport / showReport + (countReport % showReport == 0 ? 0 : 1);
+	    
+	    int start = (page - 1) * showReport + 1; // 시작 레코드 인덱스
+	    int end = page * showReport; // 끝 레코드 인덱스
+	    
+	    
+		List<ReportListDTO> reportList = reportDAO.reportList(opCode, start, end);
+		
+		// 페이징 정보 설정
+	    model.addAttribute("page", page);
+	    model.addAttribute("totalPages", totalPage);
 
 		model.addAttribute("opCode", opCode);
 		model.addAttribute("pcCode", pcCode);
@@ -40,7 +59,7 @@ public class WorkManageController
 		model.addAttribute("assignmentList", assignmentDAO.assignmentList(opCode));	// 팀의 업무할당을 조회하는 메소드
 		model.addAttribute("assScheduleList", assignmentDAO.assScheduleList());		// 일정목록을 조회하는 메소드
 		model.addAttribute("assOutputList", assignmentDAO.assOutputList());			// 산출물을 조회하는 메소드
-		model.addAttribute("reportList", reportDAO.reportList(opCode));				// 팀의 업무보고를 조회하는 메소드
+		model.addAttribute("reportList", reportList);				// 팀의 업무보고를 조회하는 메소드
 		model.addAttribute("reportOutputList", reportDAO.reportOutputList(opCode));	// 팀의 산출물을 조회하는 메소드
 		model.addAttribute("reportPersonList", reportDAO.reportPersonList(opCode));	// 팀의 인원을 조회하는 메소드
 		

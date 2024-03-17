@@ -8,21 +8,67 @@
 
 	<select id="reportList"
 		resultType="com.itmeetup.mybatis.ReportListDTO">
-		SELECT SD_OP_CODE "sdOpCode", ASS_NAME
-		"assName",REP_ASS_CODE "repAssCode"
-		, PI_NICKNAME "piNickName", OU_NAME
-		"ouName", SS_NAME "ssName", SS_CODE "ssCode"
-		, REP_TITLE "repTitle",
-		REP_NO "repNo", REP_DATE "repDate", REP_FILE "repFile"
-		, APP_DATE
-		"appDate",WS_NAME "wsName", CHARGER "chaPcCode", REP_NO "repNumber"
-		,
-		REP_START_DATE "repStartDate", REP_END_DATE "repEndDate", REP_CONTENT
+
+		SELECT *
+		FROM (
+		SELECT
+		ROWNUM AS "countReport",
+		SD_OP_CODE AS "sdOpCode",
+		ASS_NAME AS "assName",
+		REP_ASS_CODE AS "repAssCode",
+		PI_NICKNAME AS
+		"piNickName",
+		OU_NAME AS "ouName",
+		SS_NAME AS "ssName",
+		SS_CODE AS
+		"ssCode",
+		REP_TITLE AS "repTitle",
+		REP_NO AS "repNo",
+		REP_DATE AS
+		"repDate",
+		REP_FILE AS "repFile",
+		APP_DATE AS "appDate",
+		WS_NAME AS
+		"wsName",
+		CHARGER AS "chaPcCode",
+		REP_NO AS "repNumber",
+		REP_START_DATE
+		AS "repStartDate",
+		REP_END_DATE AS "repEndDate",
+		REP_CONTENT AS
 		"repContent"
-		FROM VIEW_REPORT
-		WHERE SD_OP_CODE =
-		#{opCode} AND REP_NO IS
-		NOT NULL
+		FROM (
+		SELECT
+		SD_OP_CODE,
+		ASS_NAME,
+		REP_ASS_CODE,
+		PI_NICKNAME,
+		OU_NAME,
+		SS_NAME,
+		SS_CODE,
+		REP_TITLE,
+		REP_NO,
+		REP_DATE,
+		REP_FILE,
+		APP_DATE,
+		WS_NAME,
+		CHARGER,
+		REP_START_DATE,
+		REP_END_DATE,
+		REP_CONTENT
+		FROM
+		VIEW_REPORT
+		WHERE
+		SD_OP_CODE = #{opCode} AND REP_NO IS NOT NULL
+		ORDER BY
+		REP_DATE DESC
+		)
+		WHERE
+		ROWNUM <![CDATA[<]]>=
+		#{end}
+		)
+		WHERE
+		"countReport" >= #{start}
 	</select>
 
 	<select id="reportPersonList"
@@ -52,9 +98,11 @@
 	<select id="searchRepNo" resultType="java.lang.Integer">
 		SELECT REP_NO
 		FROM (
-		SELECT REP_NO
+		SELECT
+		REP_NO
 		FROM VIEW_REPORT
-		WHERE SD_OP_CODE = #{opCode} AND REP_NO IS NOT NULL
+		WHERE SD_OP_CODE = #{opCode} AND REP_NO IS NOT
+		NULL
 		ORDER BY REP_NO DESC
 		)
 		WHERE ROWNUM = 1
@@ -79,8 +127,10 @@
 
 	<insert id="insertApproval"
 		parameterType="com.itmeetup.mybatis.ReportListDTO">
-		INSERT INTO APPROVAL(APP_NO, APP_DATE, APP_REP_NO, APP_WS_CODE, APP_PC_CODE)
-		VALUES(APPROVAL_SEQ.NEXTVAL, SYSDATE, #{repNumber}, #{wsCode},
+		INSERT INTO APPROVAL(APP_NO, APP_DATE, APP_REP_NO,
+		APP_WS_CODE, APP_PC_CODE)
+		VALUES(APPROVAL_SEQ.NEXTVAL, SYSDATE,
+		#{repNumber}, #{wsCode},
 		#{pcCode})
 	</insert>
 
@@ -90,7 +140,7 @@
 		FROM REPORT
 		WHERE REP_NO = #{repNumber}
 	</delete>
-	
+
 	<delete id="removeActualTech"
 		parameterType="com.itmeetup.mybatis.ReportListDTO">
 		DELETE
@@ -98,7 +148,16 @@
 		WHERE AT_REP_NO = #{repNumber}
 	</delete>
 
-
+	<select id="countReportList" resultType="int">
+		SELECT COUNT(*)
+		FROM
+		VIEW_REPORT
+		WHERE SD_OP_CODE =
+		#{opCode}
+		AND REP_NO IS
+		NOT
+		NULL
+	</select>
 
 
 

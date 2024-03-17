@@ -248,7 +248,7 @@ String cp = request.getContextPath();
 										<div class="card-header">
 											<h5>업무보고목록</h5>
 										</div>
-										<!-- 필터 -->
+										<%-- <!-- 필터 -->
 										<div class="filter-box mb-3" style="margin: auto;">
 											<ul class="d-flex">
 												<li>
@@ -284,7 +284,7 @@ String cp = request.getContextPath();
 
 											</ul>
 										</div>
-										<!--// 필터 -->
+										<!--// 필터 --> --%>
 										<div class="table-responsive text-nowrap tbl-border">
 											<table class="table">
 												<colgroup>
@@ -359,19 +359,29 @@ String cp = request.getContextPath();
 
 											<!-- 페이지네이션 -->
 											<div class="page-box">
-												<nav aria-label="Page navigation example">
-													<ul class="pagination">
-														<li class="page-item"><a class="page-link" href="#"
-															aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
-														</a></li>
-														<li class="page-item"><a class="page-link" href="#">1</a></li>
-														<li class="page-item"><a class="page-link" href="#">2</a></li>
-														<li class="page-item"><a class="page-link" href="#">3</a></li>
-														<li class="page-item"><a class="page-link" href="#"
-															aria-label="Next"> <span aria-hidden="true">&raquo;</span>
-														</a></li>
-													</ul>
-												</nav>
+											    <nav aria-label="Page navigation example">
+											        <ul class="pagination">
+											            <li class="page-item <c:if test="${page eq 1}">disabled</c:if>">
+											                <a class="page-link" href="<%=cp%>/workManage.action?memCode=${sessionScope.loginDTO.piMemCode}&page=${page - 1}" aria-label="Previous">
+											                    <span aria-hidden="true">&laquo;</span>
+											                </a>
+											            </li>
+											            
+											            <c:forEach var="i" begin="1" end="${totalPages}" >
+											                <li class="page-item <c:if test="${i eq page}">active</c:if>">
+											                    <a class="page-link" href="<%=cp%>/workManage.action?memCode=${sessionScope.loginDTO.piMemCode}&page=${i}">
+											                        ${i}
+											                    </a>
+											                </li>
+											            </c:forEach>
+											            
+											            <li class="page-item <c:if test="${page eq totalPages}">disabled</c:if>">
+											                <a class="page-link" href="<%=cp%>/workManage.action?memCode=${sessionScope.loginDTO.piMemCode}&page=${page + 1}" aria-label="Next">
+											                    <span aria-hidden="true">&raquo;</span>
+											                </a>
+											            </li>
+											        </ul>
+											    </nav>
 											</div>
 											<!-- //페이지네이션 -->
 										</div>
@@ -558,6 +568,40 @@ String cp = request.getContextPath();
 		$(document).ready(
 		function()
 		{
+			// 현재 활성화된 탭 가져오기
+		    var activeTab = sessionStorage.getItem('activeTab');
+		    if (activeTab) 
+		    {
+		        // 저장된 활성화된 탭이 있는 경우 해당 탭을 활성화
+		        var tab = document.querySelector('#' + activeTab);
+		        if (tab) 
+		        {
+		            var tabTrigger = new bootstrap.Tab(tab);
+		            tabTrigger.show();
+		        }
+		    }
+
+		    // 각 탭에 대한 클릭 이벤트 리스너 등록
+		    var triggerTabList = [].slice.call(document.querySelectorAll('#nav-tab button'));
+		    triggerTabList.forEach(function(triggerEl)
+		    {
+		        var tabTrigger = new bootstrap.Tab(triggerEl);
+		        triggerEl.addEventListener('click', function(event)
+		        {
+		            event.preventDefault();
+		            // 클릭된 탭의 ID를 세션에 저장
+		            var tabId = triggerEl.getAttribute('id');
+		            sessionStorage.setItem('activeTab', tabId);
+		            tabTrigger.show();
+		        });
+		    });
+		
+	
+			// 페이지 로드 시 초기화 함수 호출
+			document.addEventListener('DOMContentLoaded', initializeTabs);
+			
+			
+			
 			// 방장일 경우 회원 업무할당가능
 			var PcCode = "${pcCode}"; // 개인의 참여확인코드
 			var leaderPcCode = "${leaderPcCode}"; // 방장의 참여확인코드
