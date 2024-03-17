@@ -41,6 +41,7 @@ String cp = request.getContextPath();
 			<div class="container-xl">
 
 				<div class="content_tit">
+				
 					<p class="h3">그룹홈</p>
 					<hr>
 				</div>

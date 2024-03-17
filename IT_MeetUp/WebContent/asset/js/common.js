@@ -293,6 +293,19 @@ $(function () {
   // grouphome.action?memCode=${sessionScope.loginDTO.piMemCode}
   if($("#groupHomeLink").length) {
      var sessionScopePiMemCode = $("#sessionScopePiMemCode").val();
+     var opCode = $("#opCode").val();
+     var leaveTeamPcCodes = $("#leaveTeamPcCodes").val();
+     console.log("opCode : "+opCode);
+     console.log("leaveTeamPcCodes : "+opCode);
+     
+     if (opCode == "0")
+     {
+    	 $("#ingGroupModal").modal("show");
+    	 
+     }
+     if (leaveTeamPcCodes == "1") {
+    	 $("#leaveGroupModal").modal("show");
+     }
      $("#groupHomeLink").on("click", function(){
         if(sessionScopePiMemCode != "" ){
            $(location).attr("href", "grouphome.action?memCode=" + sessionScopePiMemCode);
@@ -302,13 +315,10 @@ $(function () {
         	alert("로그인을 해주세요.");
         	$(location).attr("href", "../IT_MeetUp/login.action");
         }
-     })/*
-		 * $(document).ready(function() { var partCheckTeamMem =
-		 * $("#partCheckTeamMem").val(); if
-		 * (partCheckTeamMem.includes(sessionScopePiMemCode)) {
-		 * $(location).attr("href", "grouphome.action?memCode=" +
-		 * sessionScopePiMemCode) } });
-		 */
+        
+     })
+     
+     
   };
   if($(".navbar").length) {
 	    var sessionScopeadmin = $("#sessionScopeadmin").val();

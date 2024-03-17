@@ -44,6 +44,8 @@ String cp = request.getContextPath();
 						</ul></li>
 					<li class="nav-item">
 						<input type="hidden" id="sessionScopePiMemCode" value="${sessionScope.loginDTO.piMemCode}">
+						<input type="hidden" id="opCode" value="${sessionScope.opCode}">
+						<input type="hidden" id="leaveTeamPcCodes" value="${sessionScope.leaveTeamPcCodes}">
 						<%-- <a class="nav-link" href="grouphome.action?memCode=${sessionScope.loginDTO.piMemCode}">Meet 그룹</a> --%>
 						<a class="nav-link" id="groupHomeLink" href="javascript:;">Meet 그룹</a>
 					</li>
@@ -372,3 +374,37 @@ String cp = request.getContextPath();
 		<!-- //메뉴영역 -->
 	</div>
 </nav>
+
+<!-- 진행중 그룹 없음안내 팝업 -->
+<div class="modal fade" id="ingGroupModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title fs-5 h1" id="modifyModalLabel">진행중 그룹 없음안내</div>
+			</div>
+			<div class="modal-body">
+				<div class="modal-txt">진행중인 그룹이 없습니다.</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary" id="btn-myinfo-confirm" data-bs-dismiss="modal">확인</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- 이탈자 안내 팝업 -->
+<div class="modal fade" id="leaveGroupModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title fs-5 h1" id="modifyModalLabel">이탈자 안내</div>
+			</div>
+			<div class="modal-body">
+				<div class="modal-txt">이탈한 사람은 이 그룹을 볼 수 없습니다.</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary" id="btn-myinfo-confirm" data-bs-dismiss="modal">확인</button>
+			</div>
+		</div>
+	</div>
+</div>

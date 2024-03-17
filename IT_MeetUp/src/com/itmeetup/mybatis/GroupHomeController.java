@@ -27,13 +27,16 @@ public class GroupHomeController
 		String viewPage = null;
 		IGroupHomeDAO dao = sqlSession.getMapper(IGroupHomeDAO.class);
 		
-		
+		System.out.println(memCode);
 		String opCode = dao.teamOpCode(memCode);
-		model.addAttribute("opCode", dao.teamOpCode(memCode));
+		//model.addAttribute("opCode", dao.teamOpCode(memCode));
+		session.setAttribute("opCode", opCode);
 		
 		String leaveTeamPcCodes = dao.leaveTeamPcCodes(memCode);
-		model.addAttribute("leaveTeamPcCodes", dao.leaveTeamPcCodes(memCode));
+		//model.addAttribute("leaveTeamPcCodes", dao.leaveTeamPcCodes(memCode));
+		session.setAttribute("leaveTeamPcCodes", leaveTeamPcCodes);
 		if (opCode.equals("0")) {
+			
 			viewPage = "redirect:/projectList.action";
 		}
 		else if (leaveTeamPcCodes.equals("1")) {

@@ -23,8 +23,8 @@ public class OpenProjectController
 
 	// 프로젝트 리스트 출력으로 이동  
 	@RequestMapping(value = "/projectList.action" , method = RequestMethod.GET)
-	public String projectList(ModelMap model,HttpSession session,String pageNum )
-	{
+	public String projectList(ModelMap model,HttpSession session,String pageNum)
+	{		
 		String result =null;
 		
 		IOpenProjectDAO dao = sqlSession.getMapper(IOpenProjectDAO.class);
