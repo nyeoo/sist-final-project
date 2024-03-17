@@ -320,7 +320,7 @@ $(function () {
      
      
   };
-  if($(".navbar").length) {
+ /* if($(".navbar").length) {
 	    var sessionScopeadmin = $("#sessionScopeadmin").val();
 	    // 페이지 로드 시에 실행되도록 변경
 	    $(document).ready(function() {
@@ -339,7 +339,7 @@ $(function () {
 	    });
 	}
 
-  
+  */
   
   
   

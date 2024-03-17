@@ -270,10 +270,10 @@
 													data-bs-title="팀장활동점수">리더십점수 <i
 														class="bi bi-question-circle"></i></span></span>
 												<div class="card-title mb-2">
-													<span style="vertical-align: inherit;">10점</span>
+													<span style="vertical-align: inherit;">3점</span>
 												</div>
 												<small class="text-success fw-semibold"><i
-													class="bx bx-up-arrow-alt"></i>레벨1</small>
+													class="bx bx-up-arrow-alt"></i>${level }</small>
 												<div class="progress progress-sm mr-2">
 													<div class="progress-bar bg-success" role="progressbar"
 														style="width: 10%" aria-valuenow="10" aria-valuemin="0"
