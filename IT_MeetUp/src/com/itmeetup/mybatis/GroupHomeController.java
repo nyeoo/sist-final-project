@@ -27,7 +27,7 @@ public class GroupHomeController
 		String viewPage = null;
 		IGroupHomeDAO dao = sqlSession.getMapper(IGroupHomeDAO.class);
 		
-		System.out.println(memCode);
+		
 		String opCode = dao.teamOpCode(memCode);
 		//model.addAttribute("opCode", dao.teamOpCode(memCode));
 		session.setAttribute("opCode", opCode);

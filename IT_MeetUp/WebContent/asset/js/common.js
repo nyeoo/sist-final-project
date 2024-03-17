@@ -296,15 +296,17 @@ $(function () {
      var opCode = $("#opCode").val();
      var leaveTeamPcCodes = $("#leaveTeamPcCodes").val();
      
-     if (opCode == "0")
-     {
-    	 $("#ingGroupModal").modal("show");
-    	 
-     }
-     if (leaveTeamPcCodes == "1") {
-    	 $("#leaveGroupModal").modal("show");
-     }
+//     if (opCode == "0")
+//     {
+//    	 $("#ingGroupModal").modal("show");
+//    	 
+//     }
+//     if (leaveTeamPcCodes == "1") {
+//    	 $("#leaveGroupModal").modal("show");
+//     }
+     
      $("#groupHomeLink").on("click", function(){
+    	 
         if(sessionScopePiMemCode != "" ){
            $(location).attr("href", "grouphome.action?memCode=" + sessionScopePiMemCode);
         }
