@@ -53,7 +53,9 @@ public interface IOpenProjectDAO
 	// 프로젝트 필터 리스트
 	public ArrayList<OpenProjectDTO>filterList( @Param("dto")OpenProjectDTO dto, @Param("startPage") int startPage, @Param("endPage") int endPage);
 	
-	 
+	// 회원이 프로젝트를 개설했는지 안해는지  
+	public int ingCount(String memCode);
+	
 }
 
 

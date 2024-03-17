@@ -190,9 +190,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         	   AND MEET =#{meet}
         	  </if>
         
-        
 	</select>
 	
+	<!-- 현재 프로젝트를 개설한 회원의 수  -->
+	<select id="ingCount" resultType="java.lang.Integer" >
+		SELECT CASE WHEN COUNT(*) > 0 THEN COUNT(*) ELSE 0 END as count
+		FROM PROJECT_INFO fi
+		WHERE fi."START" > sysdate
+		AND fi.MEMCODE=#{memCode}
+
+	</select>
 </mapper>
 
 

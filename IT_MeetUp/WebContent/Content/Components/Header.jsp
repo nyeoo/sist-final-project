@@ -4,6 +4,7 @@
 	request.setCharacterEncoding("UTF-8");
 String cp = request.getContextPath();
 %>
+
 <nav class="navbar navbar-expand-md m-header-area sticky-top"
 	aria-label="Fifth navbar example">
 	<div class="container-xl">
@@ -34,8 +35,19 @@ String cp = request.getContextPath();
 			<!-- (mob) 사이드 메뉴 & (pc) 대메뉴 -->
 			<div class="offcanvas-body">
 				<ul class="navbar-nav me-auto mb-lg-0 m-head-gnb user-nav">
-					<li class="nav-item"><a class="nav-link"
-						href="WriteFormControl.action">모집공고작성</a></li>
+				
+				<c:choose>
+	            	<c:when test="${sessionScope.loginDTO.piMemCode== null}"> 
+	                
+						<li class="nav-item"><a class="nav-link checking" href="">모집공고작성</a></li>
+	            	</c:when>
+	            	<c:otherwise>
+						<li class="nav-item"><a class="nav-link checking1" href="WriteFormControl.action">모집공고작성</a></li>   
+	            	</c:otherwise>
+				</c:choose>
+				
+				
+					
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle" href="#"
 						data-bs-toggle="dropdown" aria-expanded="false">프로젝트 라운지</a>

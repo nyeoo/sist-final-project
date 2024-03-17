@@ -75,25 +75,18 @@ public class OpenProjectController
 		model.addAttribute("cpList", dao.openList(startPage, endPage) );
 		
 		String listUrl = "projectList.action";
-	  
-		
-		
+
 		String pageIndexList = pu.pageIndexList(currentPage, totalPage, listUrl);
-	  
-		
-        
+
         // 모델에 데이터 추가
 		
         model.addAttribute("indexList", pageIndexList);
-		
-		
-		
-		
-		
+
 		if (member!=null)
 		{
 			ArrayList<String> wishList = dao.wishList(member.getPiMemCode());
 			model.addAttribute("wishList", wishList);								// 사용자 찜목록 
+			model.addAttribute("ingCount", dao.ingCount(member.getPiMemCode()));						// 사용자가 프로젝트 개설여부	
 		}
 			
 		
@@ -292,29 +285,17 @@ public class OpenProjectController
 
 		// 전체 데이터 갯수 구하기
 		int projectCount = dao.countFilter(dto);
-		
 
 		// 전체 데이터를 기준으로 총 페이지 수 계산
 		int numPerPage = 12; // -- 한 페이지에 표시할 데이터 갯수
 		int totalPage = pu.getPageCount(numPerPage, projectCount);
 		
-
-		// 전체 페이지 수 보다 표시할 페이지가 큰 경우
-		// 표시할 페이지를 전체 페이지로 처리 → 만약, 데이터를 삭제해서 페이지가 줄어들었을 경우...
-		/*
-		 * if (currentPage > totalPage) currentPage = totalPage;
-		 */
-
 		// 데이터베이스에서 가져올 시작과 끝 위치
 		int startPage = (currentPage - 1) * numPerPage + 1;
 		int endPage = currentPage * numPerPage;
 		
 		model.addAttribute("cpList", dao.filterList(dto, startPage, endPage) );
-		
-		
 		String listUrl = "projectList.action?cate=" + cate+"&car=" + car+"&meet=" + meet+"&sido=" + sido+"&sigg=" + sigg+"&meetty=" + meetty;
-		
-
 		String pageIndexList = pu.pageIndexList(currentPage, totalPage, listUrl);
 	  
 		
@@ -339,6 +320,7 @@ public class OpenProjectController
 		{
 			ArrayList<String> wishList = dao.wishList(member.getPiMemCode());
 			model.addAttribute("wishList", wishList);								// 사용자 찜목록 
+			model.addAttribute("ingCount", dao.ingCount(member.getPiMemCode()));						// 사용자가 프로젝트 개설여부	
 		}
 		
 		
