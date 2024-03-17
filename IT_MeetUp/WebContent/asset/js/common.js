@@ -295,8 +295,6 @@ $(function () {
      var sessionScopePiMemCode = $("#sessionScopePiMemCode").val();
      var opCode = $("#opCode").val();
      var leaveTeamPcCodes = $("#leaveTeamPcCodes").val();
-     console.log("opCode : "+opCode);
-     console.log("leaveTeamPcCodes : "+opCode);
      
      if (opCode == "0")
      {
