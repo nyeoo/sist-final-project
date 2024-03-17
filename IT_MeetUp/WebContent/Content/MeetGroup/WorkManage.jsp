@@ -98,19 +98,18 @@ String cp = request.getContextPath();
 														<tr class="range-datepicker">
 															<td><strong>${scheduleDetails.ssName }</strong></td>
 															<td>
-																<div class="m-input-cal">
-																	<input type="text" class="form-control date-from"
-																		disabled="disabled"
-																		value="${scheduleDetails.seStartDate }">
-																</div>
+															    <div class="m-input-cal">
+															        <input type="text" class="form-control date-from" disabled="disabled"
+															            value="${scheduleDetails.seStartDate.substring(0, 10)}"> <!-- 시작일에서 시간 부분을 제외한 YYYY-MM-DD 출력 -->
+															    </div>
 															</td>
 															<td>
-																<div class="m-input-cal">
-																	<input type="text" class="form-control date-to"
-																		disabled="disabled"
-																		value="${scheduleDetails.sdEndDate }">
-																</div>
+															    <div class="m-input-cal">
+															        <input type="text" class="form-control date-to" disabled="disabled"
+															            value="${scheduleDetails.sdEndDate.substring(0, 10)}"> <!-- 종료일에서 시간 부분을 제외한 YYYY-MM-DD 출력 -->
+															    </div>
 															</td>
+
 															<td>
 																<div class="m-input-cal">
 																	<input type="text" class="form-control date-from"
@@ -197,8 +196,8 @@ String cp = request.getContextPath();
 																						<td>${innerWorkAssignment.ouName}</td>
 																						<td><a class="dropdown-item searchBtn" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="workAss">${innerWorkAssignment.assName}</a></td>
 																						<td>${innerWorkAssignment.assDate}</td>
-																						<td>${innerWorkAssignment.assStartDate}</td>
-																						<td>${innerWorkAssignment.assEndDate}</td>
+																						<td>${innerWorkAssignment.assStartDate.split(" ")[0]}</td>
+																						<td>${innerWorkAssignment.assEndDate.split(" ")[0]}</td>
 																						<td>${innerWorkAssignment.piNickName}</td>
 																						<td style="display: none;">${innerWorkAssignment.assContent}</td>
 																						<td style="display: none;">${innerWorkAssignment.repNo}</td>
