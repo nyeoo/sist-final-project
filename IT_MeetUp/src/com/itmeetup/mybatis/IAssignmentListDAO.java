@@ -19,5 +19,6 @@ public interface IAssignmentListDAO
 	public String searchChangeLeaderPcCode(String opCode);
 	public int searchSdNo(@Param("opCode") String opCode, @Param("ssCode") String ssCode);
 	public int insertAssignment(AssignmentDTO dto);
+	public int removeAssignment(AssignmentDTO dto);
 	
 }

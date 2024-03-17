@@ -202,6 +202,7 @@ String cp = request.getContextPath();
 																						<td>${innerWorkAssignment.assEndDate}</td>
 																						<td>${innerWorkAssignment.piNickName}</td>
 																						<td style="display: none;">${innerWorkAssignment.assContent}</td>
+																						<td style="display: none;">${innerWorkAssignment.repNo}</td>
 																						<td>
 																							<div class="dropdown">
 																								<button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown" id="dropdownToggle_${innerWorkAssignment.charger}">
@@ -211,7 +212,7 @@ String cp = request.getContextPath();
 																									<a class="dropdown-item repBtn" id="reportWrite${loop.index}">
 																									    <i class="bi bi-pencil-square"></i> 업무보고
 																									</a>
-																									<a class="dropdown-item" id="assRemove${loop.index}"
+																									<a class="dropdown-item arBtn" id="assRemove${loop.index}"
 																										href="javascript:void(0);"> <i
 																										class="bi bi-trash3"></i>할당삭제
 																									</a>
@@ -649,6 +650,25 @@ String cp = request.getContextPath();
 		        
 		        
 		    });
+			
+			// 업무할당 삭제
+			$(".arBtn").click(function()
+			{
+			    var $row = $(this).closest('tr'); // 클릭된 버튼이 속한 행 선택
+			    var repNoRemove = $row.find('td:eq(7)').text();
+			    var assCode = $(this).siblings("input[name='assCode']").val(); // 해당 버튼의 assCode 가져오기
+			    var memCode = "${sessionScope.loginDTO.piMemCode}"; // 세션에서 memCode 가져오기
+			    
+			    if (repNoRemove != 0)
+				{
+					alert("이미 업무보고가 되었습니다.");
+				}
+			    else
+			    {
+			    	window.location.href = "<%=cp%>/removeAssignment.action?memCode=" + memCode + "&assCode=" + assCode;
+			    }
+			    
+			});
 			
 			// 업무보고 삭제
 			$(".delBtn").click(function()

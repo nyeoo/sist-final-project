@@ -10,7 +10,7 @@ public class AssignmentDTO
 	private String assStartDate, assEndDate, assDate;			// 업무시작지시일, 업무종료지시일, 업무할당일
 	private String assFile, ouCode, ouName, ssCode;				// 할당첨무파일경로, 산출물 코드, 할당산출물 명
 	private String ssName, memCode, leaPcCode, pcCode; 			// 일정단계명, 회원코드, 이탈여부코드
-	private int sdNo;											// 기간 상세 번호
+	private int sdNo, repNo;											// 기간 상세 번호
 	
 	// getter / setter 구성
 	public String getSdOpCode()
@@ -24,6 +24,14 @@ public class AssignmentDTO
 	public String getPcCode()
 	{
 		return pcCode;
+	}
+	public int getRepNo()
+	{
+		return repNo;
+	}
+	public void setRepNo(int repNo)
+	{
+		this.repNo = repNo;
 	}
 	public void setPcCode(String pcCode)
 	{

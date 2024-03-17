@@ -115,11 +115,19 @@ public class WorkManageController
 		
 		int repNumber = Integer.parseInt(repNumberRemove);
 		dto.setRepNumber(repNumber);
-		System.out.println(memCode);
-		System.out.println(repNumber);
 		
 		dao.removeActualTech(dto);
 		dao.removeReport(dto);
+		
+		return "redirect:/workManage.action?memCode="+ memCode;
+	}
+	
+	@RequestMapping(value = "/removeAssignment.action", method = RequestMethod.GET)
+	public String removeAssignment(AssignmentDTO dto, String memCode, String assCode)
+	{
+		IAssignmentListDAO dao = sqlSession.getMapper(IAssignmentListDAO.class);
+		
+		dao.removeAssignment(dto);
 		
 		return "redirect:/workManage.action?memCode="+ memCode;
 	}

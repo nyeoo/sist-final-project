@@ -96,7 +96,7 @@
 		, ASS_DATE "assDate"
 		, OU_NAME
 		"ouName"
-		, SS_NAME "ssName", ASS_CONTENT "assContent"
+		, SS_NAME "ssName", ASS_CONTENT "assContent", REP_NO "repNo"
 		FROM VIEW_ASSIGNMENT
 		WHERE SD_OP_CODE =
 		#{opCode}
@@ -151,6 +151,12 @@
 		TO_DATE(#{assEndDate},'YYYY-MM-DD'), SYSDATE, #{indicator},
 		#{pcCode},#{sdNo}, #{ouCode}, #{assContent})
 	</insert>
+	
+	<delete id="removeAssignment" parameterType="com.itmeetup.mybatis.AssignmentDTO">
+		DELETE
+		FROM ASSIGNMENT
+		WHERE ASS_CODE = #{assCode}
+	</delete>
 
 
 
