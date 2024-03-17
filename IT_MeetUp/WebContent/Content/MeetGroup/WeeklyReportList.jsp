@@ -64,34 +64,49 @@ String cp = request.getContextPath();
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach var="weeklyReport" items="${weeklyReport}">
-								<tr>
-									<td class="num"><span class="tag_txt">${weeklyReport.countWeekly}</span></td>
-									<td class="tit new"><a class="dropdown-item weeklyBtn" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="weeklyReport">${weeklyReport.wrTitle}</a></td>
-									<td class="date">${weeklyReport.wrDate}</td>
-									<td class="w_writer">${weeklyReport.piNickName}</td>
-									<td style="display: none;">${weeklyReport.wrContent}</td>
-								</tr>
-							</c:forEach>
-						</tbody>
+				            <c:forEach var="weeklyReport" items="${weeklyReport}">
+				                <tr>
+				                    <!-- 주간업무 보고서 목록 출력 -->
+				                    <td class="num"><span class="tag_txt">${weeklyReport.countWeekly}</span></td>
+				                    <td class="tit new">
+				                        <a class="dropdown-item weeklyBtn" href="javascript:void(0)"
+				                            data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+				                            id="weeklyReport">${weeklyReport.wrTitle}</a>
+				                    </td>
+				                    <td class="date">${weeklyReport.wrDate}</td>
+				                    <td class="w_writer">${weeklyReport.piNickName}</td>
+				                    <td style="display: none;">${weeklyReport.wrContent}</td>
+				                </tr>
+				            </c:forEach>
+				        </tbody>
 					</table>
 				</div>
 				<!-- 리스트 -->
 				<!-- 페이지네이션 -->
 				<div class="page-box">
-					<nav aria-label="Page navigation example">
-						<ul class="pagination">
-							<li class="page-item"><a class="page-link" href="#"
-								aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
-							</a></li>
-							<li class="page-item"><a class="page-link" href="#">1</a></li>
-							<li class="page-item"><a class="page-link" href="#">2</a></li>
-							<li class="page-item"><a class="page-link" href="#">3</a></li>
-							<li class="page-item"><a class="page-link" href="#"
-								aria-label="Next"> <span aria-hidden="true">&raquo;</span>
-							</a></li>
-						</ul>
-					</nav>
+				    <nav aria-label="Page navigation example">
+				        <ul class="pagination">
+				            <li class="page-item <c:if test="${page eq 1}">disabled</c:if>">
+				                <a class="page-link" href="<%=cp%>/weeklyReport.action?memCode=${sessionScope.loginDTO.piMemCode}&page=${page - 1}" aria-label="Previous">
+				                    <span aria-hidden="true">&laquo;</span>
+				                </a>
+				            </li>
+				            
+				            <c:forEach var="i" begin="1" end="${totalPages}" >
+				                <li class="page-item <c:if test="${i eq page}">active</c:if>">
+				                    <a class="page-link" href="<%=cp%>/weeklyReport.action?memCode=${sessionScope.loginDTO.piMemCode}&page=${i}">
+				                        ${i}
+				                    </a>
+				                </li>
+				            </c:forEach>
+				            
+				            <li class="page-item <c:if test="${page eq totalPages}">disabled</c:if>">
+				                <a class="page-link" href="<%=cp%>/weeklyReport.action?memCode=${sessionScope.loginDTO.piMemCode}&page=${page + 1}" aria-label="Next">
+				                    <span aria-hidden="true">&raquo;</span>
+				                </a>
+				            </li>
+				        </ul>
+				    </nav>
 				</div>
 				<!-- //페이지네이션 -->
 			</div>
@@ -113,8 +128,7 @@ String cp = request.getContextPath();
 				                <div id="item-1" class="comp_tit">
 				                    제목(주제) <input type="text" class="form-control" id="title"
 				                        style="width: 450px;"disabled="disabled">
-				                </div>
-				
+				                </div>				
 				                <div id="item-2" class="comp_tit">
 				                    내용
 				                    <textarea class="form-control" id="content" rows="3" id="content"

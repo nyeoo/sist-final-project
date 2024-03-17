@@ -8,22 +8,45 @@
 
 	<select id="weeklyReport"
 		resultType="com.itmeetup.mybatis.WeeklyReportListDTO">
-		SELECT ROWNUM "countWeekly", TJ_OP_CODE "tjOpCode",
-		WR_TITLE "wrTitle", WR_DATE "wrDate", PC_CODE
-		"pcCode",PI_NICKNAME
-		"piNickName", WR_CONTENT "wrContent"
-		FROM VIEW_WEEKLY_REPORT
-		WHERE TJ_OP_CODE = #{opCode}
-		ORDER BY WR_DATE DESC
+		SELECT *
+		FROM (
+		SELECT
+		ROWNUM AS "countWeekly",
+		TJ_OP_CODE AS "tjOpCode",
+		WR_TITLE AS "wrTitle",
+		WR_DATE AS "wrDate",
+		PC_CODE AS "pcCode",
+		PI_NICKNAME AS "piNickName",
+		WR_CONTENT AS "wrContent"
+		FROM (
+		SELECT
+		TJ_OP_CODE,
+		WR_TITLE,
+		WR_DATE,
+		PC_CODE,
+		PI_NICKNAME,
+		WR_CONTENT
+		FROM
+		VIEW_WEEKLY_REPORT
+		WHERE
+		TJ_OP_CODE = #{opCode}
+		ORDER BY
+		WR_DATE DESC
+		)
+		WHERE
+		ROWNUM <![CDATA[<]]>= #{end}
+		)
+		WHERE
+		"countWeekly" >= #{start}
 	</select>
-	
-	<select id="countWeeklyReport"
-		resultType="int">
+
+	<select id="countWeeklyReport" resultType="int">
 		SELECT COUNT(*)
-		FROM VIEW_WEEKLY_REPORT
+		FROM
+		VIEW_WEEKLY_REPORT
 		WHERE TJ_OP_CODE = #{opCode}
 	</select>
 
-	
+
 
 </mapper>
