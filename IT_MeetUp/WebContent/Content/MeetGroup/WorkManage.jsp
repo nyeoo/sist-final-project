@@ -255,7 +255,7 @@ String cp = request.getContextPath();
 										<div class="card-header">
 											<h5>업무보고목록</h5>
 										</div>
-										<%-- <!-- 필터 -->
+										<!-- 필터 -->
 										<div class="filter-box mb-3" style="margin: auto;">
 											<ul class="d-flex">
 												<li>
@@ -291,7 +291,7 @@ String cp = request.getContextPath();
 
 											</ul>
 										</div>
-										<!--// 필터 --> --%>
+										<!--// 필터 -->
 										<div class="table-responsive text-nowrap tbl-border">
 											<table class="table">
 												<colgroup>
@@ -321,7 +321,7 @@ String cp = request.getContextPath();
 														<tr class="range-datepicker">
 															<td><strong>${reportList.ssName}</strong></td>
 															<td><strong>${reportList.ouName}</strong></td>
-															<td><a class="dropdown-item selectBtn" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" id="selectWork">${reportList.repTitle}</a></td>	
+															<td><a class="dropdown-item selectBtn" href="javascript:void(0)" data-bs-target="#staticBackdrop2" id="selectWork">${reportList.repTitle}</a></td>	
 															<td>${reportList.piNickName}</td>
 															<td style="display: none;">${reportList.repContent}</td>
 															<td style="display: none;">${reportList.repStartDate}</td>
@@ -348,7 +348,6 @@ String cp = request.getContextPath();
 																	</button>
 																	<div class="dropdown-menu">
 																		<a class="dropdown-item apBtn" href="javascript:void(0);"
-																			data-bs-toggle="modal"
 																			data-bs-target="#staticBackdrop3${loop.index}"
 																			id="workProcess${loop.index}"><i
 																			class="bi bi-pencil-square"></i> 업무처리</a> <a
@@ -626,7 +625,9 @@ String cp = request.getContextPath();
 			// 업무할당 페이지 이동
 			$("#assBtn").click(function()
 			{
+				
 				window.location.href = "<%=cp%>/assignment.action?memCode=${sessionScope.loginDTO.piMemCode}";
+				
 			});
 			
 			
@@ -649,12 +650,12 @@ String cp = request.getContextPath();
 		        
 		    });
 			
-			
+			// 업무보고 삭제
 			$(".delBtn").click(function()
 			{
 			    var chaPcCode = $(this).siblings("input[name='chaPcCode']").val();
 			    var $row = $(this).closest('tr'); // 클릭된 버튼이 속한 행 선택
-			    var appDate = $row.find('td:eq(8)').text(); // 담당자 데이터 가져오기
+			    var appDate = $row.find('td:eq(8)').text(); // 결재일 데이터 가져오기
 			    
 			    if (PcCode == chaPcCode && appDate == "") 
 			    {
@@ -673,11 +674,24 @@ String cp = request.getContextPath();
 			// 모달창으로 데이터 전달
 			$(".apBtn").click(function()
 			{
+				var $row = $(this).closest('tr'); // 클릭된 버튼이 속한 행 선택
+			    var appDate = $row.find('td:eq(8)').text(); // 결재일 데이터 가져오기
 			    var repNumberInput = $(this).siblings("input[name='repNumber']").val();
 			    var memCode = "${sessionScope.loginDTO.piMemCode}"; // 세션에서 memCode 가져오기
-			    $("#staticBackdrop3").modal('show');
-			    $("#staticBackdrop3").find("#memCode").val(memCode);
-			    $("#staticBackdrop3").find("#repNumberInput").val(repNumberInput);
+			    
+			    if (appDate != "")
+				{
+					alert("이미 처리된 업무보고입니다.");
+					$("#staticBackdrop3").modal("hide");
+				
+				}
+			    else if (appDate == "") 
+			    {
+				    $("#staticBackdrop3").modal('show');
+				    $("#staticBackdrop3").find("#memCode").val(memCode);
+				    $("#staticBackdrop3").find("#repNumberInput").val(repNumberInput);
+				}
+				
 			    
 			});
 			
@@ -713,7 +727,6 @@ String cp = request.getContextPath();
 			    var repStartDate = $row.find('td:eq(5)').text(); // 시작일 데이터 가져오기
 			    var repEndDate = $row.find('td:eq(6)').text(); // 종료일 데이터 가져오기
 			    var piNickName = $row.find('td:eq(3)').text(); // 담당자 데이터 가져오기
-			    console.log(repContent);
 			    // 모달 내 필드에 데이터 설정
 			    $("#staticBackdrop2").modal('show'); // 두 번째 모달 호출
 			    $("#repSsName").val(repSsName);
