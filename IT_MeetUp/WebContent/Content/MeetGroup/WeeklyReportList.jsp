@@ -169,7 +169,7 @@ String cp = request.getContextPath();
 		$(".weeklyBtn").click(function()
 		{
 		    var $row = $(this).closest('tr'); // 클릭된 버튼이 속한 행 선택
-		    var weeklyTitle = $row.find('td:eq(1)').text(); // 주제 데이터 가져오기
+		    var weeklyTitle = $row.find('td:eq(1)').text().trim(); // 주제 데이터 가져오기 후 앞뒤 공백 제거
 		    var weeklyContent = $row.find('td:eq(4)').text(); // 제목 데이터 가져오기
 
 		    
