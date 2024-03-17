@@ -656,11 +656,12 @@ String cp = request.getContextPath();
 			    var chaPcCode = $(this).siblings("input[name='chaPcCode']").val();
 			    var $row = $(this).closest('tr'); // 클릭된 버튼이 속한 행 선택
 			    var appDate = $row.find('td:eq(8)').text(); // 결재일 데이터 가져오기
+			    var repNumberRemove = $(this).siblings("input[name='repNumber']").val();
+			    var memCode = "${sessionScope.loginDTO.piMemCode}"; // 세션에서 memCode 가져오기
 			    
 			    if (PcCode == chaPcCode && appDate == "") 
 			    {
-			        // 사용자가 확인한 경우 보고를 삭제한다.
-			        // 삭제하는 코드를 여기에 추가.
+			    	window.location.href = "<%=cp%>/removeReport.action?memCode=" + memCode + "&repNumberRemove=" + repNumberRemove;
 			    } 
 			    else if (appDate != "") {
 					alert("이미 결재처리가 되었습니다.");

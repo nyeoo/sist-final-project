@@ -8,22 +8,31 @@
 
 	<select id="reportList"
 		resultType="com.itmeetup.mybatis.ReportListDTO">
-		SELECT SD_OP_CODE "sdOpCode", ASS_NAME "assName",REP_ASS_CODE "repAssCode"
-		, PI_NICKNAME "piNickName", OU_NAME "ouName", SS_NAME "ssName", SS_CODE "ssCode"
-		, REP_TITLE "repTitle", REP_NO "repNo", REP_DATE "repDate", REP_FILE "repFile"
-		, APP_DATE "appDate",WS_NAME "wsName", CHARGER "chaPcCode", REP_NO "repNumber"
-		, REP_START_DATE "repStartDate", REP_END_DATE "repEndDate", REP_CONTENT "repContent"
+		SELECT SD_OP_CODE "sdOpCode", ASS_NAME
+		"assName",REP_ASS_CODE "repAssCode"
+		, PI_NICKNAME "piNickName", OU_NAME
+		"ouName", SS_NAME "ssName", SS_CODE "ssCode"
+		, REP_TITLE "repTitle",
+		REP_NO "repNo", REP_DATE "repDate", REP_FILE "repFile"
+		, APP_DATE
+		"appDate",WS_NAME "wsName", CHARGER "chaPcCode", REP_NO "repNumber"
+		,
+		REP_START_DATE "repStartDate", REP_END_DATE "repEndDate", REP_CONTENT
+		"repContent"
 		FROM VIEW_REPORT
 		WHERE SD_OP_CODE =
-		#{opCode} AND REP_NO IS NOT NULL
+		#{opCode} AND REP_NO IS
+		NOT NULL
 	</select>
 
 	<select id="reportPersonList"
 		resultType="com.itmeetup.mybatis.ReportListDTO">
 		SELECT
-		DISTINCT PI_NICKNAME "piNickName", PC_CODE "pcCode", MEM_CODE "memCode"
+		DISTINCT PI_NICKNAME "piNickName", PC_CODE "pcCode",
+		MEM_CODE "memCode"
 		FROM VIEW_PROCEEDING_PROJECT_PEOPLE
-		WHERE OP_CODE = #{opCode}
+		WHERE OP_CODE =
+		#{opCode}
 	</select>
 
 	<select id="reportOutputList"
@@ -39,14 +48,14 @@
 		ASS.ASS_CODE
 		WHERE SD_OP_CODE = #{opCode}
 	</select>
-	
+
 	<select id="searchRepNo" resultType="java.lang.Integer">
 		SELECT REP_NO
 		FROM (
-		    SELECT REP_NO
-		    FROM VIEW_REPORT
-		    WHERE SD_OP_CODE = #{opCode} AND REP_NO IS NOT NULL
-		    ORDER BY REP_NO DESC
+		SELECT REP_NO
+		FROM VIEW_REPORT
+		WHERE SD_OP_CODE = #{opCode} AND REP_NO IS NOT NULL
+		ORDER BY REP_NO DESC
 		)
 		WHERE ROWNUM = 1
 	</select>
@@ -62,19 +71,34 @@
 
 
 	<insert id="insertActualTech"
-        parameterType="com.itmeetup.mybatis.ReportListDTO">
-        INSERT INTO ACTUAL_TECH(AT_NO, AT_SK_CODE, AT_REP_NO)
-        VALUES(ACTUAL_TECH_SEQ.NEXTVAL, #{skCode}, #{repNumber})
+		parameterType="com.itmeetup.mybatis.ReportListDTO">
+		INSERT INTO ACTUAL_TECH(AT_NO, AT_SK_CODE, AT_REP_NO)
+		VALUES(ACTUAL_TECH_SEQ.NEXTVAL, #{skCode}, #{repNumber})
 	</insert>
-	
-	
+
+
 	<insert id="insertApproval"
-        parameterType="com.itmeetup.mybatis.ReportListDTO">
-        INSERT INTO APPROVAL(APP_NO, APP_DATE, APP_REP_NO, APP_WS_CODE, APP_PC_CODE)
-		VALUES(APPROVAL_SEQ.NEXTVAL, SYSDATE, #{repNumber}, #{wsCode}, #{pcCode})
+		parameterType="com.itmeetup.mybatis.ReportListDTO">
+		INSERT INTO APPROVAL(APP_NO, APP_DATE, APP_REP_NO, APP_WS_CODE, APP_PC_CODE)
+		VALUES(APPROVAL_SEQ.NEXTVAL, SYSDATE, #{repNumber}, #{wsCode},
+		#{pcCode})
 	</insert>
+
+	<delete id="removeReport"
+		parameterType="com.itmeetup.mybatis.ReportListDTO">
+		DELETE
+		FROM REPORT
+		WHERE REP_NO = #{repNumber}
+	</delete>
 	
-	
+	<delete id="removeActualTech"
+		parameterType="com.itmeetup.mybatis.ReportListDTO">
+		DELETE
+		FROM ACTUAL_TECH
+		WHERE AT_REP_NO = #{repNumber}
+	</delete>
+
+
 
 
 

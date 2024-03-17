@@ -1,7 +1,5 @@
 package com.itmeetup.mybatis;
 
-import java.util.List;
-
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -107,6 +105,22 @@ public class WorkManageController
 		
 		reportDAO.insertApproval(dto);
 
+		return "redirect:/workManage.action?memCode="+ memCode;
+	}
+	
+	@RequestMapping(value = "/removeReport.action", method = RequestMethod.GET)
+	public String removeReport(ReportListDTO dto, String memCode, String repNumberRemove)
+	{
+		IReportListDAO dao = sqlSession.getMapper(IReportListDAO.class);
+		
+		int repNumber = Integer.parseInt(repNumberRemove);
+		dto.setRepNumber(repNumber);
+		System.out.println(memCode);
+		System.out.println(repNumber);
+		
+		dao.removeActualTech(dto);
+		dao.removeReport(dto);
+		
 		return "redirect:/workManage.action?memCode="+ memCode;
 	}
 	
