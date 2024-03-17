@@ -714,7 +714,7 @@ String cp = request.getContextPath();
 			    var $row = $(this).closest('tr'); // 클릭된 버튼이 속한 행 선택
 			    var assOuName = $row.find('td:eq(0)').text(); // 주제 데이터 가져오기
 			    var assName = $row.find('td:eq(1)').text(); // 제목 데이터 가져오기
-			    var assContent = $row.find('td:eq(6)').text(); // 내용 데이터 가져오기
+			    var assContent = $row.find('td:eq(6)').text().trim(); // 내용 데이터 가져오기
 			    var assStartDate = $row.find('td:eq(3)').text(); // 시작일 데이터 가져오기
 			    var assEndDate = $row.find('td:eq(4)').text(); // 종료일 데이터 가져오기
 			    var piNickName = $row.find('td:eq(5)').text(); // 담당자 데이터 가져오기
@@ -733,10 +733,10 @@ String cp = request.getContextPath();
 			$(".selectBtn").click(function()
 			{
 			    var $row = $(this).closest('tr'); // 클릭된 버튼이 속한 행 선택
-			    var repSsName = $row.find('td:eq(0)').text(); // 주제 데이터 가져오기
+			    var repSsName = $row.find('td:eq(0)').text(); // 단계 데이터 가져오기
 			    var repOuName = $row.find('td:eq(1)').text(); // 주제 데이터 가져오기
 			    var repTitle = $row.find('td:eq(2)').text(); // 제목 데이터 가져오기
-			    var repContent = $row.find('td:eq(4)').text(); // 내용 데이터 가져오기
+			    var repContent = $row.find('td:eq(4)').text().trim(); // 내용 데이터 가져오기
 			    var repStartDate = $row.find('td:eq(5)').text(); // 시작일 데이터 가져오기
 			    var repEndDate = $row.find('td:eq(6)').text(); // 종료일 데이터 가져오기
 			    var piNickName = $row.find('td:eq(3)').text(); // 담당자 데이터 가져오기
