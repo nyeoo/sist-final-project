@@ -10,11 +10,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="commentList" resultType="com.itmeetup.mybatis.CommentDTO" >
 	   
 		SELECT COM_NO AS "NUMBER", COM_DATE "DATE" , PI_NAME AS "NAME"
-		, PI_NICKNAME AS "NICKNAME" ,COM_CONTENT "comContent"
+		, PI_NICKNAME AS "NICKNAME" ,COM_CONTENT "comContent" ,MEMCODE AS"memCode"
 		FROM PROJECT_INFO PI
 		JOIN COMMENTS C ON PI.CODE = c.com_op_code
 		JOIN MEMBER_INFO MI ON mi.mem_code= c.com_mem_code
 		WHERE PI.CODE = #{code}
+		order by 2 desc
 				
 	</select>
 	
@@ -26,7 +27,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		JOIN COMMENTS C ON RE.REC_COM_NO = C.COM_NO
 		JOIN MEMBER_INFO MI ON mi.mem_code= RE.REC_mem_code
 		WHERE REC_COM_NO =#{number}
-		order by 6 asc
+		order by 6 desc
 	</select>
 	
 	<!-- 댓글 개수 세기 -->

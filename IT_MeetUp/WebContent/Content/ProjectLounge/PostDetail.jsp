@@ -465,7 +465,7 @@ String cp = request.getContextPath();
 																			<a class="dropdown-item" href="javascript:void(0);">
 																				<i class="bi bi-tencent-qq"></i>신고
 																			</a> 
-																			<a class="dropdown-item" href="javascript:void(0);">
+																			<a class="dropdown-item" href="namecard.action?memCode= ${comment.memCode }">
 																				<i class="bi bi-person-circle"></i>정보 보기
 																			</a>
 																		</div>
