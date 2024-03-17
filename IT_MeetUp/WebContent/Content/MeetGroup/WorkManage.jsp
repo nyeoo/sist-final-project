@@ -596,11 +596,6 @@ String cp = request.getContextPath();
 		    });
 		
 	
-			// 페이지 로드 시 초기화 함수 호출
-			document.addEventListener('DOMContentLoaded', initializeTabs);
-			
-			
-			
 			// 방장일 경우 회원 업무할당가능
 			var PcCode = "${pcCode}"; // 개인의 참여확인코드
 			var leaderPcCode = "${leaderPcCode}"; // 방장의 참여확인코드
