@@ -28,8 +28,11 @@ public class GroupHomeController
 		IGroupHomeDAO dao = sqlSession.getMapper(IGroupHomeDAO.class);
 		
 		
-		String opCode = dao.teamOpCode(memCode); // 회원의 개설요청 코드
+		String opCode = dao.teamOpCode(memCode);
+		model.addAttribute("opCode", dao.teamOpCode(memCode));
+		
 		String leaveTeamPcCodes = dao.leaveTeamPcCodes(memCode);
+		model.addAttribute("leaveTeamPcCodes", dao.leaveTeamPcCodes(memCode));
 		if (opCode.equals("0")) {
 			viewPage = "redirect:/projectList.action";
 		}
