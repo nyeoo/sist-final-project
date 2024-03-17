@@ -75,7 +75,7 @@ public class MemberController
 			adminFlag = (String) session.getAttribute("admin");
 			System.out.println();
 			if(adminFlag.equals("0")) {	// 일반멤버
-				// 주형이가 추가함
+			
 				//viewPage = "/projectList.action";
 				viewPage = "redirect:/home.action";
 			}else {	// 관리자
@@ -99,7 +99,9 @@ public class MemberController
 		session.removeAttribute("loginDTO");
 		session.invalidate();	// 세션제거
 
-		return "redirect:/Content/ProjectLounge/PostList.jsp";
+		//return "redirect:/Content/ProjectLounge/PostList.jsp";
+		return "projectList.action";
+		
 	}
 	
 	// 아이디 찾기>이메일 확인

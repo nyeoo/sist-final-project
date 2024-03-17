@@ -39,7 +39,7 @@
 				<div class="container-xl">
 					<p class="h1">
 						마감임박 <i class="bi bi-fire"></i>
-					</p>
+					</p>${sessionScope.loginDTO.piMemCode}
 
 					<!-- 마감 스와이퍼 -->
 					<div class="deadline-box">
@@ -146,11 +146,22 @@
 
 
 									<!-- 제목 -->
-									<a href="PostDetail.action?code=${deadlineList.code}"   class="card-tit mb-2">
-
-
-										<span class="h3"> ${deadlineList.title} </span>
-									</a>   
+									<!-- <a href=""   class="card-tit mb-2 content" > -->
+									    
+									<c:choose>
+						            	<c:when test="${sessionScope.loginDTO.piMemCode== null}"> 
+						                
+											<a href=""   class="card-tit mb-2 loginX" >
+												<span class="h3"> ${deadlineList.title} </span>
+											</a> 
+						            	</c:when>
+						            	<c:otherwise>
+											<a href="PostDetail.action?code=${deadlineList.code}"   class="card-tit mb-2 " > 
+												<span class="h3"> ${deadlineList.title} </span>
+											</a>   
+						            	</c:otherwise>
+									</c:choose>
+						            	
 									<!-- 상세내용 -->
 									<p class="card-text text-truncate mb-2"> ${deadlineList.content}</p>
 									<div class="d-flex justify-content-between align-items-center">
@@ -483,11 +494,22 @@
 
 
 									<!-- 제목 -->
-									<a href="PostDetail.action?code=${opList.code}"   class="card-tit mb-2">
-
-
-										<span class="h3"> ${opList.title} </span>
-									</a>   
+									
+									<c:choose>
+						            	<c:when test="${sessionScope.loginDTO.piMemCode== null}"> 
+						                
+											<a href=""   class="card-tit mb-2 loginX" >
+												<span class="h3"> ${opList.title} </span>
+											</a> 
+						            	</c:when>
+						            	<c:otherwise>
+											<a href="PostDetail.action?code=${opList.code}"   class="card-tit mb-2">
+												<span class="h3"> ${opList.title} </span>
+											</a>   
+						            	</c:otherwise>
+									</c:choose>
+									
+									
 									<!-- 상세내용 -->
 									<p class="card-text text-truncate mb-2"> ${opList.content}</p>
 									<div class="d-flex justify-content-between align-items-center">
@@ -562,6 +584,11 @@
 	$(function()
 	{
 		//alert("hmm");
+		$(".loginX").click(function()
+		{
+				alert("로그인을 해주세요🙏");
+		});
+		
 		
 		// 찜하기 버튼 눌렀을 때 
 		$('.wish').change(function() 
@@ -635,13 +662,14 @@
 	
 	
 	
-	
-	function selectSi()
+		
+		
+	function selectSi() 
 	{
 		$("#do").attr("disabled", false)
 	}
-		
-		
+	
+	
 	</script>
 </body>
 

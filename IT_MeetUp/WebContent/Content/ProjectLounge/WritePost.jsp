@@ -173,7 +173,7 @@ String cp = request.getContextPath();
                                     <div  class="row">
                                         <div class="col-6 m-select">
                                             <select class="form-select " aria-label="Default select example" id="siggcode" name="siggcode"  title="selectTitle01" required="required">
-                                                <option value="0" selected="selected">지역을 고르세요</option>
+                                                <option value="" selected="selected">지역을 고르세요</option>
                                                 <c:forEach var ="sidoList" items="${sidoList }" varStatus="status"  >
 													<option value="SIGG_${status.index +1}">${sidoList }</option>
 												</c:forEach>
@@ -188,7 +188,7 @@ String cp = request.getContextPath();
                                         </div>
                                         <div class="col-6 m-select">
                                             <select class="form-select" aria-label="Default select example" id="do" name="do" title="selectTitle01" disabled="disabled" required="required">
-                                                <option value="0" selected>큰 지역 먼저 골라주세요</option>
+                                                <option value="" selected>큰 지역 먼저 골라주세요</option>
                                                 <c:forEach var ="siggList" items="${siggList }" varStatus="status"  >
 													<option value="SIDO_${status.index +1}">${siggList }</option>
 												</c:forEach>
@@ -570,9 +570,11 @@ String cp = request.getContextPath();
   		// 시작 날짜 선택
         $( "#sdate" ).datepicker(
         {
+        	minDate: 0,																 // 오늘 날짜 이후만 선택 가능
         	dateFormat: "yy-mm-dd" ,			
           	onSelect: function(selectedDate) 
           	{
+          		
             	var startDate = $(this).datepicker('getDate'); 						// 시작 날짜 가져오기
             	var endDateMin = new Date(startDate.getTime()); 					// 시작 날짜 복사
             	endDateMin.setMonth(endDateMin.getMonth() + 1); 					// 한 달 뒤로 설정
@@ -585,6 +587,9 @@ String cp = request.getContextPath();
             	//date1 = $(this).datepicker('getDate');
             	date1 = $.datepicker.formatDate("yy-mm-dd", startDate);
             	
+            	var sstartddDate = new Date(startDate.getTime()); 					// 시작 날짜 복사
+            	sstartddDate.setDate(sstartddDate.getDate() + 1);
+            	$( "#enddate1" ).datepicker( "option", "minDate", sstartddDate );
           }
         });
   		
@@ -601,8 +606,12 @@ String cp = request.getContextPath();
         		 var endDate = $(this).datepicker('getDate'); 
         		 date2 = $.datepicker.formatDate("yy-mm-dd", endDate);
         		 
+        		 var eennddDate =new Date(endDate.getTime());
+        		 eennddDate.setDate(eennddDate.getDate() - 1);
+        		 
         		//alert(date1);
        			//alert(date2);
+       			$( "#startdate4" ).datepicker( "option", "maxDate", eennddDate ); 		
        			
        			document.getElementById("startDate").value = date1;
        			document.getElementById("endDate").value = date2;
@@ -613,9 +622,88 @@ String cp = request.getContextPath();
       
         });
     	
-              
-  		
+      
         
+        $( "#enddate1" ).datepicker({
+            dateFormat: "yy-mm-dd",
+            onSelect: function(selectedDate) {
+                var endDate11 = $(this).datepicker('getDate');
+                var minendDate11 = new Date(endDate11);
+                
+                var date2 = $.datepicker.formatDate("yy-mm-dd", new Date(selectedDate)); 
+                
+                minendDate11.setDate(minendDate11.getDate() + 1);
+                $( "#startdate2" ).datepicker( "option", "minDate", minendDate11 );
+            }  
+        });
+
+     
+
+        $( "#startdate2" ).datepicker({
+            dateFormat: "yy-mm-dd",
+            onSelect: function(selectedDate) {
+                var startDate22 = $(this).datepicker('getDate');
+                var minendDate22 = new Date(startDate22);
+                
+                var date3 = $.datepicker.formatDate("yy-mm-dd", new Date(selectedDate)); 
+                
+                minendDate22.setDate(minendDate22.getDate() + 1);
+                $( "#enddate2" ).datepicker( "option", "minDate", minendDate22 );
+            }  
+        });
+
+        $( "#enddate2" ).datepicker({
+            dateFormat: "yy-mm-dd",
+            onSelect: function(selectedDate) {
+                var endDate22 = $(this).datepicker('getDate');
+                var minendDate33 = new Date(endDate22);
+                
+                var date4 = $.datepicker.formatDate("yy-mm-dd", new Date(selectedDate)); 
+                
+                minendDate33.setDate(minendDate33.getDate() + 1);
+                $( "#startdate3" ).datepicker( "option", "minDate", minendDate33 );
+            }  
+        });
+        
+        $( "#startdate3" ).datepicker({
+            dateFormat: "yy-mm-dd",
+            onSelect: function(selectedDate) {
+                var startDate33 = $(this).datepicker('getDate');
+                var minendDate44 = new Date(startDate33);
+                
+                var date5 = $.datepicker.formatDate("yy-mm-dd", new Date(selectedDate)); 
+                
+                startDate33.setDate(startDate33.getDate() + 1);
+                $( "#enddate3" ).datepicker( "option", "minDate", startDate33 );
+            }  
+        });
+        
+        $( "#enddate3" ).datepicker({
+            dateFormat: "yy-mm-dd",
+            onSelect: function(selectedDate) {
+                var endDate44 = $(this).datepicker('getDate');
+                var minendDate44 = new Date(endDate44);
+                
+                var date6 = $.datepicker.formatDate("yy-mm-dd", new Date(selectedDate)); 
+                
+                endDate44.setDate(endDate44.getDate() + 1);
+                $( "#startdate4" ).datepicker( "option", "minDate", endDate44 );
+            }  
+        });
+        
+        $( "#startdate4" ).datepicker({
+            dateFormat: "yy-mm-dd",
+            onSelect: function(selectedDate) {
+                var startDate44 = $(this).datepicker('getDate');
+                var minendDate55 = new Date(startDate44);
+                
+                var date7 = $.datepicker.formatDate("yy-mm-dd", new Date(selectedDate)); 
+                
+                startDate44.setDate(startDate44.getDate() + 1);
+
+                $( "#startdate4" ).datepicker( "option", "minDate", startDate44 );
+            }  
+        });
         
 		// 선호방식 눌렀을떄
   		$(".meet").change(function() 
@@ -654,24 +742,12 @@ String cp = request.getContextPath();
 		{       
 			$("#do").attr("disabled", false);
 			
-		     /* var si = $("#si").val();
-			 var doSelect = $("#do");
-			 var siggList = $("#siggList").val().split(",");
-			  doSelect.empty(); // 기존 구/군 목록 초기화
-			  
-			  if (si !== "0") { // 시/도를 선택했을 경우
-			    doSelect.prop('disabled', false); // 구/군 선택 가능하도록 활성화
-			    $.each(siggList, function(index, value) {
-			      doSelect.append("<option value='" + value + "'>" + value + "</option>");
-			    });
-			  } else {
-			    doSelect.prop('disabled', true); // 구/군 선택 불가능하도록 비활성화
-			    doSelect.append("<option value='0'>큰 지역 먼저 골라주세요</option>");
-			  }  */
+		    
 		    
 		         
 		});
   		
+  		// 제출 버튼 클릭시
 	    $("#shoot").click(function()
 		{
 			
@@ -729,12 +805,12 @@ String cp = request.getContextPath();
 
 	     
 		
-	     
-		$("#startdate1, #startdate2, #startdate3, #startdate4, #enddate1, #enddate2, #enddate3, #enddate4").datepicker({
+	     /* 
+		$(" #startdate2, #startdate3, #startdate4, #enddate1, #enddate2, #enddate3, #enddate4").datepicker({
 			dateFormat: "yy-mm-dd" 
            
-        }); 
-    
+        });  */
+     
 	     
 	     
 	     

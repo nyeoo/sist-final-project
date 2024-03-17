@@ -75,8 +75,8 @@ public class WriteFormControl
 		  //dao.addProject(dto);		
 		  // 프로젝트 상세일정, 역할별 인원수 입력
 		  dao.addperiod(dto);
-		  System.out.println("스킬뺴고 다 입력 성공~");
 		  
+		  System.out.println("스킬뺴고 다 입력 성공~");
 		  System.out.println("스킬 입력 전");
 		  // 프로젝트 희망 기술 입력
 		  String lastCode = dto.getLastCode();
@@ -102,7 +102,11 @@ public class WriteFormControl
 			  lastCode = Stringcode+numbercode;
 			  System.out.println("최종본"+lastCode);
 			  
+			
 		  }
+		  
+		
+		  
 		  dao.addSkill(hopeskills,lastCode);
 		  
 		  System.out.println("스킬 입력 후");

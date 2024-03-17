@@ -29,7 +29,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			 ,#{carcode}
 			 ,#{memcode}
 			 ,#{catcode}
-			 ,#{siggcode}
+			 ,#{siggcode, jdbcType=VARCHAR}
 			 ,#{jobcode}
 			 ,#{inwon1 } 
 			 ,#{inwon2 }
