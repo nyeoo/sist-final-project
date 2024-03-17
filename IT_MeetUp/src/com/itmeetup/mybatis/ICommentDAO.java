@@ -20,6 +20,10 @@ public interface ICommentDAO
 	// 해당 댓글의 대댓글 입력 
 	public int insertRecomment(CommentDTO dto);
 	
+	public int removeComment(int number);
+	
+	public int removeRecomment(int number);
+	
 	
 }
 

@@ -51,6 +51,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		VALUES(RECOMENT_SEQ.NEXTVAL, #{comContent}, SYSDATE, #{number}, #{memCode})
 	</insert> 
 
+	<!-- 대댓글 입력쿼리문 -->
+	<delete id="removeComment">
+		delete 
+		from comments
+		where com_no= #{number} 
+			
+	</delete>
+	
+
+	<!-- 대댓글 입력쿼리문 -->
+	<delete id="removeRecomment">
+		delete 
+		from recoment
+		where rec_com_no=#{number}
+			
+	</delete>
 </mapper>
 
 

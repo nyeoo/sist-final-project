@@ -433,6 +433,11 @@ String cp = request.getContextPath();
 											</span>
 										</button>
 
+										<c:choose>
+										<c:when test="${empty comments}">
+											<h3>현재 등록된 댓글이 없습니다. 1등으로 댓글 달아봐요</h3>
+										</c:when>
+										<c:otherwise>
 										<ul class="comment_area">
 											<c:forEach var="comment" items="${comments }">
 												<li>
@@ -454,7 +459,7 @@ String cp = request.getContextPath();
 																			<a class="dropdown-item" href="javascript:void(0);">
 																				<i class="bi bi-pencil-square"></i> 수정
 																			</a> 
-																			<a class="dropdown-item" href="javascript:void(0);">
+																			<a class="dropdown-item" href="commentDelete.action?number=${comment.number }"> 
 																				<i class="bi bi-trash3"></i> 삭제
 																			</a>
 																			<a class="dropdown-item" href="javascript:void(0);">
@@ -534,6 +539,8 @@ String cp = request.getContextPath();
 												</li>
 											</c:forEach>
 										</ul>
+										</c:otherwise>
+										</c:choose>
 									</div>
 								</div>
 								<!-- 댓글 끝 -->

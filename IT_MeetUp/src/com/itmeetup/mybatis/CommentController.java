@@ -54,6 +54,28 @@ public class CommentController
 		return result; 
 	}
 	
+	// 댓글 입력 쿼리문 실행  
+	@RequestMapping(value = "/commentDelete.action" , method = RequestMethod.GET)
+	public String removeRecomment(CommentDTO dto)
+	{
+		String result = null;
 		
+		String op_code = dto.getCode();
+		int number = Integer.parseInt(dto.getNumber());
+		ICommentDAO cdao = sqlSession.getMapper(ICommentDAO.class);		
+		
+		cdao.removeRecomment(number);
+		cdao.removeComment(number);
+		
+		
+		
+		result = "redirect:PostDetail.action?code="+op_code;
+		//result = "/projectList.action";
+		
+		
+		return result; 
+	}
+		
+	
 
 }
