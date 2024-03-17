@@ -186,7 +186,6 @@ String cp = request.getContextPath();
 																				<th>종료일</th>
 																				<th>담당자</th>
 																				<th>작성하기</th>
-																				<th>조회</th>
 																			</tr>
 																		</thead>
 																		<tbody>
@@ -220,13 +219,6 @@ String cp = request.getContextPath();
 																									<input type="hidden" name="assCode" value="${innerWorkAssignment.assCode}">
 																								</div>
 																							</div>
-																						</td>
-																						<td>
-																							<button type="button"
-																								class="btn btn-primary btn-plus"
-																								style="background-color: green;">
-																								<i class="bi bi-list-task"></i>
-																							</button>
 																						</td>
 																					</tr>
 																				</c:if>
