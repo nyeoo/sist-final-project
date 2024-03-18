@@ -118,15 +118,32 @@
 	            // 생성한 URL로 이동
 	            $(location).attr("href", "completeproject.action?category=" + selectedValue);
 	        });
-
-			$('.cp-card').click(function()
+			
+			var sessionScopePiMemCode = $("#sessionScopePiMemCode").val();
+			
+			// 세션에 회원번호가 없는 상황이라면
+			if(sessionScopePiMemCode == "")
 			{
-				// 각 프로젝트의 op_code 가져오기
-				var cpCode = $(this).find('#code').val();
-				
-				// 완료 프로젝트 상세 페이지로 이동할 때 코드를 넘겨주기
-				$(location).attr("href", "completeprojectdetail.action?cpCode=" + cpCode);
-			});
+				$('.cp-card').click(function()
+				{
+					alert("로그인이 필요한 기능입니다.");
+					$(location).attr("href", "login.action");
+				});
+
+			}
+			else
+			{
+				$('.cp-card').click(function()
+				{
+					// 각 프로젝트의 op_code 가져오기
+					var cpCode = $(this).find('#code').val();
+					
+					// 완료 프로젝트 상세 페이지로 이동할 때 코드를 넘겨주기
+					$(location).attr("href", "completeprojectdetail.action?cpCode=" + cpCode);
+				});
+			}
+
+
 		});
 	</script>
 </body>
