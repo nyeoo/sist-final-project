@@ -14,11 +14,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		     , TO_CHAR(OP_END_DATE, 'YYYY-MM-DD') "ENDDATE"
 		     , TO_CHAR(PA_DATE, 'YYYY-MM-DD') "PADATE"
 		     , PA_MEM_CODE "MEMCODE"
-		FROM OPEN_PROJECT OP JOIN TEAM_JOB TJ 
-		ON OP.OP_CODE = TJ.TJ_OP_CODE
-		JOIN PART_APPLICANT PA
-		ON PA.PA_TJ_NO = TJ.TJ_NO
+		FROM OPEN_PROJECT OP 
+		JOIN TEAM_JOB TJ ON OP.OP_CODE = TJ.TJ_OP_CODE
+		JOIN PART_APPLICANT PA ON PA.PA_TJ_NO = TJ.TJ_NO
 		WHERE PA_MEM_CODE = #{memCode}
+		ORDER BY PA_DATE DESC
 	</select>
 	
 	<select id="writeProject" resultType="com.itmeetup.mybatis.ProjectManagementDTO">
@@ -30,6 +30,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		     , TO_CHAR(OP_DATE, 'YYYY-MM-DD') "OPDATE"
 		FROM OPEN_PROJECT               
 		WHERE OP_MEM_CODE = #{memCode}
+		ORDER BY OP_DATE DESC
 	</select>
 	
 </mapper>

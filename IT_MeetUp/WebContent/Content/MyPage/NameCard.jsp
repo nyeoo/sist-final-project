@@ -301,13 +301,13 @@
 													data-bs-title="프로젝트 후 평가">팀원평가점수 <i
 														class="bi bi-question-circle"></i></span></span>
 												<div class="card-title mb-2">
-													<span style="vertical-align: inherit;">80점</span>
+													<span style="vertical-align: inherit;">53점</span>
 												</div>
 												<small class="text-success fw-semibold"><i
-													class="bx bx-up-arrow-alt"></i>아이스아메리카노</small>
+													class="bx bx-up-arrow-alt"></i>믹스커피</small>
 												<div class="progress progress-sm mr-2">
 													<div class="progress-bar bg-success" role="progressbar"
-														style="width: 80%" aria-valuenow="80" aria-valuemin="0"
+														style="width: 53%" aria-valuenow="53" aria-valuemin="0"
 														aria-valuemax="100"></div>
 												</div>
 											</div>

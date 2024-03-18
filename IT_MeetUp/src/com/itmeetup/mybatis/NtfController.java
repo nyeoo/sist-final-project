@@ -39,6 +39,6 @@ public class NtfController
 		// 대댓글 알림
 		model.addAttribute("recommentNtfList", dao.recommentNtfList(memCode));
 		
-		return "/Content/MyPage/NameCard.jsp";
+		return "*.action";
 	}
 }
