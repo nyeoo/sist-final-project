@@ -9,8 +9,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 댓글 출력 -->
 	<select id="commentList" resultType="com.itmeetup.mybatis.CommentDTO" >
 	   
-		 SELECT COM_NO AS "NUMBER", COM_DATE "DATE" , PI_NAME AS "NAME"
-		, PI_NICKNAME AS "NICKNAME" ,COM_CONTENT "comContent" ,MEMCODE AS"memCode",code as"code"
+		 
+		SELECT COM_NO AS "NUMBER", COM_DATE "DATE" , PI_NAME AS "NAME"
+		, PI_NICKNAME AS "NICKNAME" ,COM_CONTENT "comContent" ,c.com_mem_code AS"memCode",code as"code"
 		FROM PROJECT_INFO PI
 		JOIN COMMENTS C ON PI.CODE = c.com_op_code
 		JOIN MEMBER_INFO MI ON mi.mem_code= c.com_mem_code

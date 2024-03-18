@@ -459,7 +459,7 @@ String cp = request.getContextPath();
 																			<a class="dropdown-item" href="javascript:void(0);">
 																				<i class="bi bi-pencil-square"></i> 수정
 																			</a> 
-																			<a class="dropdown-item" href="commentDelete.action?number=${comment.number }"> 
+																			<a class="dropdown-item" href="commentDelete.action?number=${comment.number }&code=${comment.code }"> 
 																				<i class="bi bi-trash3"></i> 삭제
 																			</a>
 																			<a class="dropdown-item" href="javascript:void(0);">
