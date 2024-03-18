@@ -278,13 +278,13 @@ $(function () {
 	      },
 	    });
 	  
-	  joinSwiper.slideTo(1, 0, true);
+	  joinSwiper.slideTo(0, 0, true);
 	  
-	  /*
-		 * $(".join-step01").on('click', function(e) { joinSwiper.slideNext();
-		 * }); $(".join-step02").on('click', function(e) {
-		 * joinSwiper.slideNext(); });
-		 */
+	  
+		  $(".join-step01").on('click', function(e) { joinSwiper.slideNext();
+		  }); $(".join-step02").on('click', function(e) {
+		  joinSwiper.slideNext(); });
+		 
 	  
 	  
   }
