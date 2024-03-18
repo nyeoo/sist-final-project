@@ -66,11 +66,11 @@ String cp = request.getContextPath();
 							그룹</a></li>
 				</ul>
 
-				<!-- <ul class="navbar-nav me-auto mb-lg-0 m-head-gnb admin-nav">
+				 <ul class="navbar-nav me-auto mb-lg-0 m-head-gnb admin-nav">
 					<li class="nav-item"><a class="nav-link" href="indict.action">신고처리</a></li>
 					<li class="nav-item"><a class="nav-link" href="admin.action">관리자명단</a>
 					</li>
-				</ul> -->
+				</ul>
 
 				<!-- 알림 -->
 				<ul class="navbar-nav me-2 mb-lg-0">

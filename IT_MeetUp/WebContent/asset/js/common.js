@@ -320,32 +320,36 @@ $(function () {
      
      
   };
- /* if($(".navbar").length) {
+  
+  if($(".navbar").length) {
 	    var sessionScopeadmin = $("#sessionScopeadmin").val();
 	    // 페이지 로드 시에 실행되도록 변경
 	    $(document).ready(function() {
-	        if(sessionScopeadmin != "0" ){    // 관리자
+	        if(sessionScopeadmin == "1")
+	        {    // 관리자
 	            // user-nav 안보이게
 	            $(".user-nav").hide();
 	            // admin-nav 보이게
 	            $(".admin-nav").show();
+		            
 	        }
+	        else if (sessionScopeadmin == "0")
+			{
+	        	// user-nav 보이게
+	        	$(".user-nav").show();
+	        	// admin-nav 안보이게
+	        	$(".admin-nav").hide();
+				
+			}
 	        else {
-	            // user-nav 보이게
-	            $(".user-nav").show();
-	            // admin-nav 안보이게
-	            $(".admin-nav").hide();
+	        	// user-nav 보이게
+	        	$(".user-nav").show();
+	        	// admin-nav 안보이게
+	        	$(".admin-nav").hide();
 	        }
 	    });
+	   
 	}
-
-  */
-  
-  
-  
-  
-  
-  
   
 
 

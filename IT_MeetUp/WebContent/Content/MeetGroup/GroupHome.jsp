@@ -41,7 +41,6 @@ String cp = request.getContextPath();
 			<div class="container-xl">
 
 				<div class="content_tit">
-				
 					<p class="h3">그룹홈</p>
 					<hr>
 				</div>
@@ -653,11 +652,11 @@ String cp = request.getContextPath();
 		
 		 
 		 $(document).ready(function() {
-			    // endDate 값을 가져옴
+			 
 			    var endDate = "${endDate}";
 			    // endDate가 유효한 날짜인지 확인
 			    if (endDate) {
-			        // endDate를 JavaScript Date 객체로 변환
+			        
 			        var endDateTime = new Date(endDate);
 
 			        // 현재 시간
@@ -669,15 +668,15 @@ String cp = request.getContextPath();
 			        console.log(threeDaysBefore);
 			        // 버튼 활성화 여부 결정
 			        if (now.getTime() >= threeDaysBefore.getTime()) {
-			            // 버튼을 활성화합니다.
+			            // 버튼 활성화
 			            $('#evalInsertBtn').prop('disabled', false);
 			            
 			        } else {
-			            // 버튼을 비활성화합니다.
+			            // 버튼 비활성화
 			            $('#evalInsertBtn').prop('disabled', true);
 			        }
 			    } else {
-			        // endDate가 유효하지 않은 경우 버튼을 비활성화합니다.
+			        // endDate가 유효하지 않은 경우 버튼을 비활성화
 			        $('#evalInsertBtn').prop('disabled', true);
 			    }
 			});
