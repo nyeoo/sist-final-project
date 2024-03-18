@@ -241,7 +241,7 @@ String cp = request.getContextPath();
 						<div class="modal-txt">수정되었습니다.</div>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-primary" id="btn-myinfo-confirm" data-bs-dismiss="modal">확인</button>
+						<button type="button" class="btn btn-primary" id="btn-myinfo-confirm02" data-bs-dismiss="modal">확인</button>
 					</div>
 				</div>
 			</div>
@@ -384,11 +384,10 @@ String cp = request.getContextPath();
 				$('#infoModal').modal('show');
 			}
 		});
-		
-		$("#btn-myinfo-confirm").click(function(){
+		$("#btn-myinfo-confirm02").click(function(){
 			let f = document.myinfoForm;
 			f.action = "<%=cp%>/myinfomodify.action";
-			f.submit();				
+			f.submit();
 		});
 		
 		// 비밀번호 확인
