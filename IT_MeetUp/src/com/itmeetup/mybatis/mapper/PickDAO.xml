@@ -46,7 +46,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		{call INSERT_PICK_NTF(#{pano, mode=IN, jdbcType=INTEGER})}
 	</update>
 	
+	<!-- 해당 프로젝트의 해당 직무 신청한사람  -->
+	<select id="countSinchung" resultType="java.lang.Integer">
 	
+		select count(*) as "count"
+		from PART_APPLICANT pa
+		join TEAM_JOB tj on tj.tj_no=pa.pa_no
+		where pa_mem_code=#{memcode} and and tj_no=#{tjno} 
+	
+	</select>
 </mapper>
 
 

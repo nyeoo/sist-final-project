@@ -141,6 +141,11 @@ public class OpenProjectController
 			recomments.put(cdto.getNumber() , cdao.recommentList((cdto.getNumber())));
 		}
 		
+		//OpenProjectDTO asd = dao.choiceProList(code);
+		pdao.sinchung(code);
+		
+		//model.addAttribute("shingCount" ,pdao.countSinchung(asd.getMemCode(), ));
+		
 		dao.viewUpdate(code);											// 해당 프로젝트 조회수 증가 
 		model.addAttribute("choicProList",dao.choiceProList(code));		// 해당 프로젝트 정보 뽑기
 		model.addAttribute("skillList",dao.skillList(code));			// 해당 프로젝트 기술 뽑기
@@ -225,22 +230,13 @@ public class OpenProjectController
 	public String filterList(OpenProjectDTO dto, HttpSession session, ModelMap model, String pageNum) 
 	{
 	    String result = null ; 
-	    
-
 		String cate = dto.getCategory();
 		String car = dto.getCareer();
 		String meet = dto.getMeet();
 		String sido = dto.getSido();
 		String sigg = dto.getSigg();
 		String meetty = dto.getMeet();
-		
-		System.out.println(cate);
-		System.out.println(car);
-		System.out.println(meet);
-		System.out.println(sido);
-		System.out.println(sigg);
-		System.out.println(meetty);
-		
+	
 		if(cate=="")
 		{
 			dto.setCategory(null);
@@ -311,34 +307,36 @@ public class OpenProjectController
 		Map<String,ArrayList<JobDTO>> jobInfo = new HashMap<String, ArrayList<JobDTO>>();
 		
 		MemberDTO member = (MemberDTO)session.getAttribute("loginDTO");
-
-		
-		
-		
-
 		if (member!=null)
 		{
 			ArrayList<String> wishList = dao.wishList(member.getPiMemCode());
-			model.addAttribute("wishList", wishList);								// 사용자 찜목록 
+			model.addAttribute("wishList", wishList);													// 사용자 찜목록 
 			model.addAttribute("ingCount", dao.ingCount(member.getPiMemCode()));						// 사용자가 프로젝트 개설여부	
 		}
-		
-		
 		
 		ArrayList<OpenProjectDTO> project =  dao.filterList(dto, startPage, endPage);	
 		
 		for (OpenProjectDTO opdto : project)
 		{
-			skills.put(opdto.getCode(), dao.skillList(opdto.getCode()));
+			ArrayList<String> processedSkills = SkillProcessor.processSkills(dao.skillList2(opdto.getCode()));
+			skills.put(opdto.getCode(), processedSkills);
+			
+			//skills.put(dto.getCode(), dao.skillList(dto.getCode()));
 			jobInfo.put(opdto.getCode(), jdao.jobList((opdto.getCode())));
 		}
 		
-		IMemberDAO skillCategoryDAO = sqlSession.getMapper(IMemberDAO.class);	// 스킬카테고리 select
-		IMemberDAO skillsDAO = sqlSession.getMapper(IMemberDAO.class);			// 스킬 리스트
+		//
+		
+		
+		
+		//
+		
+		IMemberDAO skillCategoryDAO = sqlSession.getMapper(IMemberDAO.class);		// 스킬카테고리 select
+		IMemberDAO skillsDAO = sqlSession.getMapper(IMemberDAO.class);				// 스킬 리스트
 		//SkillProcessor skProcessors = new SkillProcessor();						// 스킬 리스트 조회 및 처리
 		model.addAttribute("skProcessors", SkillProcessor.createSkillMapping());
 		model.addAttribute("skillCategorys", skillCategoryDAO.skillCategorys());
-		model.addAttribute("lastCode",dao.lastCode());							// 가장 최근 프로젝트 개설 코드 뽑기
+		model.addAttribute("lastCode",dao.lastCode());								// 가장 최근 프로젝트 개설 코드 뽑기
 		model.addAttribute("skills", skillsDAO.skills());
 		
 		 

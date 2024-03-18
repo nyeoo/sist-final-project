@@ -2,6 +2,8 @@ package com.itmeetup.mybatis;
 
 import java.util.ArrayList;
 
+import org.apache.ibatis.annotations.Param;
+
 public interface IPickDAO
 {
 	// 해당 직무의 지원한 사람 보여주기 
@@ -16,5 +18,7 @@ public interface IPickDAO
 	// 픽 하기
 	public int pickUpdate(PickDTO dto);
 	
+	// 해당 직무 신청했는지 안한지 보는 함수
+	public int countSinchung(@Param("memcode") String memcode ,@Param("tjno") int tjno );
 	
 }
