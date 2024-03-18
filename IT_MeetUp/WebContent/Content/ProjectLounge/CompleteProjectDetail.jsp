@@ -350,7 +350,7 @@ String cp = request.getContextPath();
 									</div>
 								</div>
 							</div>
-							<div class="w-100 mb-5 mt-1 chart">
+							<%-- <div class="w-100 mb-5 mt-1 chart">
 								<!-- 산출물 분포 -->
 								<div class="analyze-box">
 									<h5 class="analyze-title">
@@ -487,7 +487,7 @@ String cp = request.getContextPath();
 										</tr>
 									</tbody>
 								</table>
-							</div>
+							</div> --%>
 						</div>
 					</div>
 					<!-- //프로젝트 분석 -->
