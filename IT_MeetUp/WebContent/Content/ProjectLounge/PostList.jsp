@@ -679,7 +679,7 @@
 			}
 			else 
 			{
-				//alert(" 슈웃");
+				alert(" 슈웃");
 				$(".checking1").attr("href", "WriteFormControl.action");
 				
 				return;
