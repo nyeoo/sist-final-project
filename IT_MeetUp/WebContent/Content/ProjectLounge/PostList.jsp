@@ -42,7 +42,7 @@
 					</p>
 					<%-- ${sessionScope.loginDTO.piMemCode} --%>
 					
-					<input type="text" value="${ingCount}" id="ingCount">
+					<input type="hidden" value="${ingCount}" id="ingCount">
 					
 					<!-- 마감 스와이퍼 -->
 					<div class="deadline-box">
