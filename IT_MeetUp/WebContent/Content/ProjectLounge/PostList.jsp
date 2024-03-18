@@ -623,9 +623,9 @@
 		            type: 'GET',
 		            data: { isChecked: isChecked, code: code },
 		            success: function(response) {
-		            	var a ="흠,,,"
+		            	//var a ="흠,,,"
 		                console.log(response); 				// 성공시
-		                $(".filterproject").html(a);
+		                //$(".filterproject").html(a);
 		                
 		            },
 		            error: function(xhr, status, error) {
