@@ -40,7 +40,7 @@
 		WHERE F.FI_OP_CODE = #{cpCode}
  	</select>
  	<select id="memList" resultType="com.itmeetup.mybatis.CompleteMemDTO">
- 		SELECT T.TJ_JOB_CODE "JOBCODE", PI.PI_PROF_IMG "PROIMG", PI.PI_NICKNAME "NICKNAME", NVL2(E.EVA_PC_CODE, 'Y', 'N') AS EVASTATUS
+ 		SELECT DISTINCT T.TJ_JOB_CODE "JOBCODE", PI.PI_PROF_IMG "PROIMG", PI.PI_NICKNAME "NICKNAME", NVL2(E.EVA_PC_CODE, 'Y', 'N') "EVASTATUS"
 		FROM PART_CHECK P JOIN PART_APPLICANT PA
 		                    ON P.PC_PA_NO = PA.PA_NO
 		                        JOIN PERSONAL_INFO PI
@@ -50,6 +50,7 @@
 		                                LEFT JOIN EVALUATION E
 		                                ON E.EVA_PC_CODE = P.PC_CODE
 		WHERE P.PC_CODE NOT IN(SELECT LEA_PC_CODE FROM LEAVE) AND T.TJ_OP_CODE = #{cpCode}
+		ORDER BY JOBCODE
  	</select>
 	<select id="completeProjectSkill" resultType="com.itmeetup.mybatis.SkillDTO">
 		SELECT DISTINCT AT.AT_SK_CODE "SKCODE", S.SK_NAME "SKNAME"
