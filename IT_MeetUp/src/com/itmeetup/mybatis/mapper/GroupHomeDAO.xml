@@ -52,7 +52,7 @@
 		OP.OP_CODE
 		WHERE PA_MEM_CODE = #{memCode }
 		AND OP_END_DATE > SYSDATE)
-		AND ASS_OU_CODE = 'OU_1'
+		AND ASS_OU_CODE = 'OU_11'
 	</select>
 	<!-- 설계단계 회의록 -->
 	<select id="meetDesignCount" resultType="java.lang.Integer">
@@ -73,7 +73,7 @@
 		WHERE PA_MEM_CODE =
 		#{memCode }
 		AND OP_END_DATE > SYSDATE) AND
-		ASS_OU_CODE = 'OU_2'
+		ASS_OU_CODE = 'OU_12'
 	</select>
 	<!-- 구현단계 회의록 -->
 	<select id="meetAvatarCount" resultType="java.lang.Integer">
@@ -94,7 +94,7 @@
 		WHERE PA_MEM_CODE =
 		#{memCode }
 		AND OP_END_DATE > SYSDATE) AND
-		ASS_OU_CODE = 'OU_3'
+		ASS_OU_CODE = 'OU_13'
 	</select>
 	<!-- 테스트단계 회의록 -->
 	<select id="meetTestCount" resultType="java.lang.Integer">
@@ -117,7 +117,7 @@
 		WHERE PA_MEM_CODE =
 		#{memCode }
 		AND OP_END_DATE > SYSDATE) AND
-		ASS_OU_CODE = 'OU_4'
+		ASS_OU_CODE = 'OU_14'
 	</select>
 	<!-- 회의록 총 갯수 -->
 	<select id="meetTotalCount" resultType="java.lang.Integer">
@@ -139,8 +139,8 @@
 		WHERE PA_MEM_CODE =
 		#{memCode }
 		AND OP_END_DATE > SYSDATE) AND
-		ASS_OU_CODE IN ('OU_1', 'OU_2', 'OU_3',
-		'OU_4') AND ASS_OU_CODE IS NOT
+		ASS_OU_CODE IN ('OU_11', 'OU_12', 'OU_13',
+		'OU_14') AND ASS_OU_CODE IS NOT
 		NULL
 		GROUP BY ASS_OU_CODE
 	</select>
@@ -202,7 +202,7 @@
 		WHERE PA_MEM_CODE =
 		#{memCode }
 		AND OP_END_DATE > SYSDATE) AND
-		ASS_OU_CODE = 'OU_3'
+		ASS_OU_CODE = 'OU_4'
 	</select>
 
 	<!-- 맡은 직무마다 보여지는 닉네임 출력 -->
