@@ -36,13 +36,13 @@ public class WorkManageController
 		//페이징 처리
 		int showReport = 10; // 페이지에서 보여줄 레코드 수
 	    int countReport = reportDAO.countReportList(opCode); // 전체 게시물 갯수
-	    int totalPage = countReport / showReport + (countReport % showReport == 0 ? 0 : 1);
+	    int totalPage = countReport / showReport + (countReport % showReport == 0 ? 0 : 1);	//전체페이지 확인
 	    
 	    int start = (page - 1) * showReport + 1; // 시작 레코드 인덱스
 	    int end = page * showReport; // 끝 레코드 인덱스
 	    
 	    
-		List<ReportListDTO> reportList = reportDAO.reportList(opCode, start, end);
+		List<ReportListDTO> reportList = reportDAO.reportList(opCode, start, end);	// 보고목록 조회
 		
 		// 페이징 정보 설정
 	    model.addAttribute("page", page);
@@ -77,10 +77,10 @@ public class WorkManageController
 			
 		model.addAttribute("opCode", opCode);
 		
-		model.addAttribute("assignmentList", assignmentDAO.assignmentList(opCode));
-		model.addAttribute("assScheduleList", assignmentDAO.assScheduleList());
-		model.addAttribute("assOutputList", assignmentDAO.assOutputList());
-		model.addAttribute("reportPersonList", reportDAO.reportPersonList(opCode));
+		model.addAttribute("assignmentList", assignmentDAO.assignmentList(opCode));	//할당 목록 조회
+		model.addAttribute("assScheduleList", assignmentDAO.assScheduleList());		//할당 일정조회
+		model.addAttribute("assOutputList", assignmentDAO.assOutputList());			//할당 산출물 조회
+		model.addAttribute("reportPersonList", reportDAO.reportPersonList(opCode));	//팀원 조회
 
 		return "/Content/MeetGroup/WorkAssignment.jsp";
 	}

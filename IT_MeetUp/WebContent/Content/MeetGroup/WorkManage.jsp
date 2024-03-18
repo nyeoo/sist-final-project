@@ -611,13 +611,13 @@ String cp = request.getContextPath();
 			dropDownItems.forEach(function(dropDownItem)
 			{
 				// 업무 할당 처리
-				// 메모코드가 방장의 회원코드와 동일하고, leavePcCode가 null인 경우에만 버튼을 보이도록 한다.
+				// MEM코드가 방장의 회원코드와 동일하고, leavePcCode가 null인 경우에만 버튼을 보이도록 한다.
 				if (PcCode == leaderPcCode && leavePcCode == '')
 				{
 					assBtn.style.display = 'block'; // 버튼을 보이게 설정한다.
 					dropDownItem.style.display = 'block'; // "업무처리" 메뉴를 보이게 설정한다.
 				}
-				// 메모코드가 변경된 방장의 회원코드와 동일한 경우에도 버튼을 보이도록 한다.
+				// MEM코드가 변경된 방장의 회원코드와 동일한 경우에도 버튼을 보이도록 한다.
 				else if (PcCode == changeleaderPcCode)
 				{
 					assBtn.style.display = 'block'; // 버튼을 보이게 설정한다.
@@ -637,12 +637,12 @@ String cp = request.getContextPath();
 			// 각 할당 삭제 버튼에 대해 처리한다.
 			assRemoveItems.forEach(function(assRemoveItem) 
 			{
-			    // 메모코드가 방장의 회원코드와 동일한 경우에만 버튼을 보이도록 한다.
+			    // MEM코드가 방장의 회원코드와 동일한 경우에만 버튼을 보이도록 한다.
 			    if (PcCode == leaderPcCode && leavePcCode == '')
 			    {
 			        assRemoveItem.style.display = 'block'; // "할당삭제" 버튼을 보이게 설정한다.
 			    }
-			    // 메모코드가 변경된 방장의 회원코드와 동일한 경우에도 버튼을 보이도록 한다.
+			    // MEM코드가 변경된 방장의 회원코드와 동일한 경우에도 버튼을 보이도록 한다.
 			    else if (PcCode == changeleaderPcCode) 
 			    {
 			        assRemoveItem.style.display = 'block'; // "할당삭제" 버튼을 보이게 설정한다.
