@@ -38,7 +38,7 @@
 			<div class="section">
 				<div class="container-xl">
 					<p class="h1">
-						마감임박  <input type="text" value="${ingCount}" id="ingCount"><i class="bi bi-fire"></i>
+						마감임박  <input type="hidden" value="${ingCount}" id="ingCount"><i class="bi bi-fire"></i>
 					</p>
 					<%-- ${sessionScope.loginDTO.piMemCode} --%>
 					
