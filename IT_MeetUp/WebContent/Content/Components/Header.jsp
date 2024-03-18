@@ -42,7 +42,7 @@ String cp = request.getContextPath();
 						<li class="nav-item"><a class="nav-link checking" href="">모집공고작성</a></li>
 	            	</c:when>
 	            	<c:otherwise>
-						<li class="nav-item"><a class="nav-link checking1" href="WriteFormControl.action">모집공고작성</a></li>   
+						<li class="nav-item"><a class="nav-link checking1" href="">모집공고작성</a></li>   
 	            	</c:otherwise>
 				</c:choose>
 				

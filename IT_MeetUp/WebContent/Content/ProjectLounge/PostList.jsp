@@ -674,6 +674,11 @@
 				return;
 				
 			}
+			else
+			{
+				$(location).attr("href", "WriteFormControl.action");
+				
+			}
 			
 			
 		})  ; 
