@@ -40,6 +40,11 @@ public class CompleteProjectController
             }
         }
 
+        if (category == null)
+		{
+			category = "";
+		}
+        
 		// 전체 데이터 갯수 구하기
 		int dataCount = dao.getDataCount(category);
 		

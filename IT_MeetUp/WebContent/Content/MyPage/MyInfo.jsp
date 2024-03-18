@@ -83,8 +83,8 @@ String cp = request.getContextPath();
 								<div class="card-body pt-3">
 									<!-- Profile Edit Form -->
 									<form method="get" name="myinfoForm">
-										<input type="text" id="piMemCode" name="piMemCode" value="${member.piMemCode }">
-										<input type="text" id="modifyFlag" name="modifyFlag" value="0">
+										<input type="hidden" id="piMemCode" name="piMemCode" value="${member.piMemCode }">
+										<input type="hidden" id="modifyFlag" name="modifyFlag" value="0">
 
 										<div class="row mb-3">
 											<label for="piId" class="col-md-4 col-lg-3 col-form-label">아이디</label>
@@ -259,7 +259,7 @@ String cp = request.getContextPath();
 						<div class="row">
 							<label for="piPwCheck" class="col-md-4 col-lg-3 col-form-label">비밀번호</label>
 							<div class="col-md-8 col-lg-9">
-								<input name="piPwCheck" type="text" class="form-control" id="piPwCheck" value="ljh1234">
+								<input name="piPwCheck" type="text" class="form-control" id="piPwCheck" value="">
 							</div>
 						</div>
 					</div>
@@ -518,12 +518,6 @@ String cp = request.getContextPath();
 			});
 		});
 
-	});
-	
-	$(document).ready(function() {
-	    $("#btn-myinfo-save").click(function() {
-	    	window.location.href = 'myinfo.action'; // 이동할 URL을 지정합니다.
-	    });
 	});
 	
 	

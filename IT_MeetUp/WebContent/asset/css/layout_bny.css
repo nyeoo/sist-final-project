@@ -90,8 +90,8 @@
 
 
 .intro-head {
-	padding: 20px 90px 145px 70px;
-	padding: 20px 10% 0;
+	/* padding: 20px 90px 145px 70px; */
+	padding: 39px 10% 0;
     width: 100%;
 }
 
@@ -100,10 +100,11 @@
 	flex-wrap: wrap;
 }
 .intro-imgbox {
-	width: 70%;
-    flex-basis: 510px;
-    flex-shrink: 1;
-    flex-grow: 1;
+	max-width: 100%;
+    /* flex-basis: 600px; */
+    /* flex-shrink: 1; */
+    /* flex-grow: 1; */
+    width: 600px;
 }
 .monitor {
 	border-radius: 11px;
