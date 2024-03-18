@@ -29,17 +29,22 @@ public class GroupHomeController
 		
 		
 		String opCode = dao.teamOpCode(memCode);
-		//model.addAttribute("opCode", dao.teamOpCode(memCode));
-		session.setAttribute("opCode", opCode);
+		model.addAttribute("opCode", dao.teamOpCode(memCode));
+		//session.setAttribute("opCode", opCode);
 		
 		String leaveTeamPcCodes = dao.leaveTeamPcCodes(memCode);
-		//model.addAttribute("leaveTeamPcCodes", dao.leaveTeamPcCodes(memCode));
-		session.setAttribute("leaveTeamPcCodes", leaveTeamPcCodes);
+		model.addAttribute("leaveTeamPcCodes", dao.leaveTeamPcCodes(memCode));
+		//session.setAttribute("leaveTeamPcCodes", leaveTeamPcCodes);
+		
+		
 		if (opCode.equals("0")) {
+			//안내창 떠야되는데 못함
 			
 			viewPage = "redirect:/projectList.action";
 		}
 		else if (leaveTeamPcCodes.equals("1")) {
+			//안내창 떠야되는데 못함
+			
 			viewPage = "redirect:/projectList.action";
 		}
 		else {
