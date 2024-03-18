@@ -70,7 +70,7 @@ String cp = request.getContextPath();
 
 									<div class="col-12">
 										<div class="m-input-box">
-											<label for="piPw" class="form-label">비밀번호</label> <input type="text" class="form-control" id="piPw" name="piPw" required="required"<%-- value="ljh1234" --%>>
+											<label for="piPw" class="form-label">비밀번호</label> <input type="password" class="form-control" id="piPw" name="piPw" required="required"<%-- value="ljh1234" --%>>
 											<div class="invalid-feedback">비밀번호를 입력해주세요.</div>
 										</div>
 									</div>
