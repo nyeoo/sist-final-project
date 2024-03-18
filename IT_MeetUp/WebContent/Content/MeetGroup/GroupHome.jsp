@@ -269,7 +269,7 @@ String cp = request.getContextPath();
 											<div class="col-12">
 												<div class="intro-body-list groupWon">
 													<ul class="d-flex job-list">
-														<li class="d-flex job"><span
+														<li class="col-12 d-flex job"><span
 															class="tag bg-success job-tag">기획</span>
 															<div class="d-flex member-box">
 																<c:forEach var="groupHomeItem" items="${groupHomePlan }">
@@ -294,7 +294,7 @@ String cp = request.getContextPath();
 																</c:forEach>
 															</div></li>
 
-														<li class="d-flex job"><span
+														<li class="col-12 d-flex job"><span
 															class="tag bg-primary job-tag">디자인</span>
 															<div class="d-flex member-box">
 																<c:forEach var="groupHomeItem"
@@ -321,7 +321,7 @@ String cp = request.getContextPath();
 																	</div>
 																</c:forEach>
 															</div></li>
-														<li class="d-flex job"><span
+														<li class="col-12 d-flex job"><span
 															class="tag bg-danger job-tag">프론트</span>
 															<div class="d-flex member-box">
 																<c:forEach var="groupHomeItem"
@@ -348,7 +348,7 @@ String cp = request.getContextPath();
 																	</div>
 																</c:forEach>
 															</div></li>
-														<li class="d-flex job"><span
+														<li class="col-12 d-flex job"><span
 															class="tag bg-info job-tag">백엔드</span>
 															<div class="d-flex member-box">
 																<c:forEach var="groupHomeItem" items="${groupHomeBack }">
