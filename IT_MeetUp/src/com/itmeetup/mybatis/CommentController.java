@@ -53,13 +53,14 @@ public class CommentController
 		return result; 
 	}
 	
-	// 댓글 입력 쿼리문 실행  
+	// 댓글 삭제 쿼리문 실행  
 	@RequestMapping(value = "/commentDelete.action" , method = RequestMethod.GET)
 	public String removeRecomment(CommentDTO dto)
 	{
 		String result = null;
 		
 		String op_code = dto.getCode();
+		System.out.println(op_code +"엥");
 		int number = Integer.parseInt(dto.getNumber());
 		ICommentDAO cdao = sqlSession.getMapper(ICommentDAO.class);		
 		

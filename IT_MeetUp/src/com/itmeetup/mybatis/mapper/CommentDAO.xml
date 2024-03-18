@@ -9,8 +9,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 댓글 출력 -->
 	<select id="commentList" resultType="com.itmeetup.mybatis.CommentDTO" >
 	   
-		SELECT COM_NO AS "NUMBER", COM_DATE "DATE" , PI_NAME AS "NAME"
-		, PI_NICKNAME AS "NICKNAME" ,COM_CONTENT "comContent" ,MEMCODE AS"memCode"
+		 SELECT COM_NO AS "NUMBER", COM_DATE "DATE" , PI_NAME AS "NAME"
+		, PI_NICKNAME AS "NICKNAME" ,COM_CONTENT "comContent" ,MEMCODE AS"memCode",code as"code"
 		FROM PROJECT_INFO PI
 		JOIN COMMENTS C ON PI.CODE = c.com_op_code
 		JOIN MEMBER_INFO MI ON mi.mem_code= c.com_mem_code
@@ -52,7 +52,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		VALUES(RECOMENT_SEQ.NEXTVAL, #{comContent}, SYSDATE, #{number}, #{memCode})
 	</insert> 
 
-	<!-- 대댓글 입력쿼리문 -->
+	<!-- 댓글 삭제쿼리문 -->
 	<delete id="removeComment">
 		delete 
 		from comments
@@ -61,7 +61,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</delete>
 	
 
-	<!-- 대댓글 입력쿼리문 -->
+	<!-- 대댓글 삭제쿼리문 -->
 	<delete id="removeRecomment">
 		delete 
 		from recoment
