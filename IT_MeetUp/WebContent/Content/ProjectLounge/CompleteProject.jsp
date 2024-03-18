@@ -110,6 +110,11 @@
 	            // 선택된 값 가져오기
 	            var selectedValue = $(this).val();
 	            
+	            if (selectedValue==null)
+				{
+					selectedValue="";
+				}
+	            
 	            // 생성한 URL로 이동
 	            $(location).attr("href", "completeproject.action?category=" + selectedValue);
 	        });
