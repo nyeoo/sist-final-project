@@ -104,7 +104,7 @@ String cp = request.getContextPath();
 												<c:forEach var="applyProjectItem" items="${applyProject }">
 												<c:set var ="i" value="${i+1 }"></c:set>
 												<tbody>
-													<tr>
+													<tr class ="appProject">
 														<td class="num"><span class="tag_txt">${i}</span></td>
 														<td class="category">
 															<span class="badge text-bg-danger">모집중</span>
@@ -114,6 +114,8 @@ String cp = request.getContextPath();
 														<td class="start_date">${applyProjectItem.startDate }</td>
 														<td class="end_date">${applyProjectItem.endDate }</td>
 														<td class="join_date">${applyProjectItem.paDate }</td>
+														<td id = "memCode" style="display: none;">${applyProjectItem.memCode }</td>
+														<td id = "opMem" style="display: none;">${applyProjectItem.opMemCode }</td>
 													</tr>
 												</tbody>
 												</c:forEach>
@@ -222,6 +224,17 @@ String cp = request.getContextPath();
 	<script src="<%=cp%>/asset/js/bootstrap.bundle.min.js"></script>
 	<script src="<%=cp%>/asset/js/common.js"></script>
 	<script type="text/javascript">
+	
+	$(document).ready(function() {
+	    $('.appProject').each(function() {
+	        var $row = $(this).closest('tr');
+	        var memCode = $row.find('td:eq(6)').text();
+	        var opMemCode = $row.find('td:eq(7)').text();
+	        if (memCode == opMemCode) {
+	            $row.hide(); // 해당 행을 숨깁니다.
+	        }
+	    });
+	});
 		
 	</script>
 </body>

@@ -2,13 +2,23 @@ package com.itmeetup.mybatis;
 
 public class ProjectManagementDTO
 {
-	private String opCode, title, startDate, endDate, paDate, opDate, memCode;
+	private String opCode, title, startDate, endDate, paDate, opDate, memCode, opMemCode;
 	// 개설요청 코드, 제목, 시작일, 종료일, 참여일자, 등록일자, 회원 코드
 
 	// getter / setter
 	public String getOpCode()
 	{
 		return opCode;
+	}
+
+	public String getOpMemCode()
+	{
+		return opMemCode;
+	}
+
+	public void setOpMemCode(String opMemCode)
+	{
+		this.opMemCode = opMemCode;
 	}
 
 	public void setOpCode(String opCode)

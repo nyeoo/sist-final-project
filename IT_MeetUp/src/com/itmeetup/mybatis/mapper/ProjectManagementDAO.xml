@@ -3,34 +3,38 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.itmeetup.mybatis.IProjectManagementDAO">
-	
+
 	<!-- mybatis 환경 설정 파일 활용 -->
 	<!-- IProjectManagementDAO.xml -->
 
-	<select id="applyProject" resultType="com.itmeetup.mybatis.ProjectManagementDTO">
+	<select id="applyProject"
+		resultType="com.itmeetup.mybatis.ProjectManagementDTO">
 		SELECT OP_CODE "OPCODE"
-		     , OP_TITLE "TITLE"
-		     , TO_CHAR(OP_START_DATE, 'YYYY-MM-DD') "STARTDATE"
-		     , TO_CHAR(OP_END_DATE, 'YYYY-MM-DD') "ENDDATE"
-		     , TO_CHAR(PA_DATE, 'YYYY-MM-DD') "PADATE"
-		     , PA_MEM_CODE "MEMCODE"
-		FROM OPEN_PROJECT OP 
+		, OP_TITLE "TITLE"
+		, TO_CHAR(OP_START_DATE, 'YYYY-MM-DD') "STARTDATE"
+		, TO_CHAR(OP_END_DATE, 'YYYY-MM-DD') "ENDDATE"
+		, TO_CHAR(PA_DATE, 'YYYY-MM-DD') "PADATE"
+		, PA_MEM_CODE "MEMCODE"
+		, OP_MEM_CODE "OPMEMCODE"
+		FROM OPEN_PROJECT OP
 		JOIN TEAM_JOB TJ ON OP.OP_CODE = TJ.TJ_OP_CODE
-		JOIN PART_APPLICANT PA ON PA.PA_TJ_NO = TJ.TJ_NO
+		JOIN PART_APPLICANT PA ON
+		PA.PA_TJ_NO = TJ.TJ_NO
 		WHERE PA_MEM_CODE = #{memCode}
 		ORDER BY PA_DATE DESC
 	</select>
-	
-	<select id="writeProject" resultType="com.itmeetup.mybatis.ProjectManagementDTO">
+
+	<select id="writeProject"
+		resultType="com.itmeetup.mybatis.ProjectManagementDTO">
 		SELECT OP_MEM_CODE "MEMCODE"
-			 , OP_CODE  "OPCODE"
-		     , OP_TITLE "TITLE"
-		     , TO_CHAR(OP_START_DATE, 'YYYY-MM-DD') "STARTDATE"
-		     , TO_CHAR(OP_END_DATE, 'YYYY-MM-DD') "ENDDATE"
-		     , TO_CHAR(OP_DATE, 'YYYY-MM-DD') "OPDATE"
-		FROM OPEN_PROJECT               
+		, OP_CODE "OPCODE"
+		, OP_TITLE "TITLE"
+		, TO_CHAR(OP_START_DATE, 'YYYY-MM-DD') "STARTDATE"
+		, TO_CHAR(OP_END_DATE, 'YYYY-MM-DD') "ENDDATE"
+		, TO_CHAR(OP_DATE, 'YYYY-MM-DD') "OPDATE"
+		FROM OPEN_PROJECT
 		WHERE OP_MEM_CODE = #{memCode}
 		ORDER BY OP_DATE DESC
 	</select>
-	
+
 </mapper>
