@@ -133,7 +133,6 @@
 																varStatus="status">
 																<option value="SIDO_${status.index +1}">${sidoList }</option>
 															</c:forEach>
-
 														</select>
 													</div>
 													<div class="col-6 m-select">
@@ -154,14 +153,14 @@
 											<label for="about" class="col-md-3 col-lg-2 col-form-label">자기소개</label>
 											<div class="col-md-9 col-lg-10">
 												<textarea name="about" class="form-control" id="about"
-													style="height: 100px">${getNameCard.intro }</textarea>
+													style="height: 100px" disabled="disabled">${getNameCard.intro }</textarea>
 											</div>
 										</div>
 
 										<div class="col-12 btn-box">
 											<div class="btn-center">
 												<button type="button" class="btn btn-primary">수정하기</button>
-												<button type="button" class="btn btn-secondary">저장하기</button>
+												 <button type="button" class="btn btn-secondary" onclick="disableSelection()">저장하기</button>
 											</div>
 										</div>
 									</form>
@@ -270,13 +269,13 @@
 													data-bs-title="팀장활동점수">리더십점수 <i
 														class="bi bi-question-circle"></i></span></span>
 												<div class="card-title mb-2">
-													<span style="vertical-align: inherit;">3점</span>
+													<span style="vertical-align: inherit;">0점</span>
 												</div>
 												<small class="text-success fw-semibold"><i
 													class="bx bx-up-arrow-alt"></i>${level }</small>
 												<div class="progress progress-sm mr-2">
 													<div class="progress-bar bg-success" role="progressbar"
-														style="width: 10%" aria-valuenow="10" aria-valuemin="0"
+														style="width: 0%" aria-valuenow="0" aria-valuemin="0"
 														aria-valuemax="100"></div>
 												</div>
 											</div>
@@ -301,13 +300,13 @@
 													data-bs-title="프로젝트 후 평가">팀원평가점수 <i
 														class="bi bi-question-circle"></i></span></span>
 												<div class="card-title mb-2">
-													<span style="vertical-align: inherit;">53점</span>
+													<span style="vertical-align: inherit;">50점</span>
 												</div>
 												<small class="text-success fw-semibold"><i
 													class="bx bx-up-arrow-alt"></i>믹스커피</small>
 												<div class="progress progress-sm mr-2">
 													<div class="progress-bar bg-success" role="progressbar"
-														style="width: 53%" aria-valuenow="53" aria-valuemin="0"
+														style="width: 50%" aria-valuenow="50" aria-valuemin="0"
 														aria-valuemax="100"></div>
 												</div>
 											</div>
@@ -345,7 +344,7 @@
 										</div>
 										<div class="card-bottom">
 											<!-- 제목 -->
-											<a href="PostDetail.action?code=${projectListItem.opCode }" class="card-tit mb-2"> <span
+											<a href="completeprojectdetail.action?cpCode=${projectListItem.opCode }" class="card-tit mb-2"> <span
 												class="h3">${projectListItem.title }<br>
 											</span>
 											</a>
@@ -359,14 +358,14 @@
 						</ul>
 
 						<!-- 더보기 -->
-						<div class="col-12 btn-box">
+						<!-- <div class="col-12 btn-box">
 							<div class="btn-center">
 								<button type="button" class="btn btn-primary"
 									data-bs-toggle="modal" data-bs-target="#completeList">
 									<i class="bi bi-plus-lg"></i> 더보기
 								</button>
 							</div>
-						</div>
+						</div> -->
 						<!-- //더보기 -->
 
 						<!-- Scrollable modal -->
@@ -733,24 +732,18 @@
 			
 			var selectedSi = document.getElementById("si").value; // 선택된 선호지역(시)
 
-			// Ajax 요청
-			$.ajax({
-				type : 'GET',
-				url : '<%=cp%>/namecard.action',
-				data :{si : selectedSi}, // 선택된 선호지역(시)를 서버에 전달
-				success : function(response)
-				{
-					// 선호지역(구) 셀렉트 박스 업데이트
-					var siggSelect = document.getElementById("do");
-					siggSelect.innerHTML = "<option selected=\"selected\">선호지역(구)</option>";
-					
-				},
-				error : function(xhr, status, error)
-				{
-					console.error(error);
-				}
-			});
 		}
+		
+		
+		function disableSelection() {
+	        var selectElements = document.querySelectorAll('.m-select select');
+	        selectElements.forEach(function(selectElement) {
+	            selectElement.disabled = true;
+	        });
+	    }
+		
+		
+		
 	</script>
 </body>
 

@@ -119,6 +119,7 @@ public class MyPageController
 	    model.addAttribute("count", careerDAO.count(memCode));
 	    model.addAttribute("level", careerDAO.level(memCode));
 	    
+	    
 		return "/Content/MyPage/NameCard.jsp";
 	}
 

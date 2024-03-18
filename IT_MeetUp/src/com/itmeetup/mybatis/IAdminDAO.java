@@ -9,5 +9,5 @@ import java.util.ArrayList;
 
 public interface IAdminDAO
 {
-	public ArrayList<AdminDTO> adminList();
+	public ArrayList<AdminDTO> adminList(int memCode);
 }

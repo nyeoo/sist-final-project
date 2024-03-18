@@ -519,6 +519,14 @@ String cp = request.getContextPath();
 		});
 
 	});
+	
+	$(document).ready(function() {
+	    $("#btn-myinfo-save").click(function() {
+	    	window.location.href = 'myinfo.action'; // 이동할 URL을 지정합니다.
+	    });
+	});
+	
+	
 	</script>
 </body>
 
