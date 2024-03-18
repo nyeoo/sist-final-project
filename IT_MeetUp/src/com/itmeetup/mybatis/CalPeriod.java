@@ -116,8 +116,6 @@ public class CalPeriod
 		long diffSec = (endFormat.getTime() - startFormat.getTime()) / 1000;
 		long diffDays = (diffSec / (24 * 60 * 60));
 		
-		System.out.println("diffDays = " + diffDays);
-		
 		return diffDays;
 	}
 }

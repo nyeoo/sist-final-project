@@ -113,10 +113,7 @@
 	            // 생성한 URL로 이동
 	            $(location).attr("href", "completeproject.action?category=" + selectedValue);
 	        });
-			
-			
-			
-			
+
 			$('.cp-card').click(function()
 			{
 				// 각 프로젝트의 op_code 가져오기

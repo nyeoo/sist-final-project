@@ -66,7 +66,7 @@ String cp = request.getContextPath();
 									<c:if
 										test="${empty project.img1 && empty project.img2 && empty project.img3}">
 										<div class="swiper-slide">
-											<img src="<%=cp %>/asset/images/sub/img_noImg.png" alt="웹 이미지"
+											<img src="<%=cp%>/asset/images/sub/img_noImg.png" alt="웹 이미지"
 												class="intro-img">
 										</div>
 									</c:if>
@@ -91,34 +91,133 @@ String cp = request.getContextPath();
 					<div class="intro-body-list member-intro">
 						<span class="intro-title">팀원 소개</span>
 						<hr>
-						<ul class="d-flex job-list">
+						${memList }
+						<%-- <ul class="d-flex job-list">
 							<!-- 기획 -->
 							<li class="d-flex job"><span class="tag bg-success job-tag">기획</span>
 								<div class="d-flex member-box">
 									<div class="d-flex member">
-										<i class="fa-solid fa-crown crown"></i><img
-											src="<%=cp%>/asset/images/sub/img_profile.jpg"
-											class="member-img" /> <span class="nickname">닉네임이길면어떻</span>
+										<c:choose>
+											<c:when test="${mem.evaStatus eq 'N'}">
+												<i class="fa-solid fa-circle-user no-profile-lg no-eva"></i>
+											</c:when>
+											<c:when test="${empty mem.proImg }">
+												<i class="fa-solid fa-circle-user no-profile-lg"></i>
+											</c:when>
+											<c:otherwise>
+												<img src="<%=cp%>/${mem.proImg}" class="member-img" />
+											</c:otherwise>
+										</c:choose>
+										<c:if test="${mem.evaStatus eq 'N'}">
+											<span class="nickname">미평가팀원</span>
+										</c:if>
+										<c:if test="${mem.evaStatus eq 'Y'}">
+											<span class="nickname">${mem.nickname }</span>
+										</c:if>
 									</div>
-								</div></li>
+								</div>
+							</li>
+
+							<c:when test="${mem.jobCode eq 'JOB_2'}">
+								<li class="d-flex job"><span class="tag bg-danger job-tag">디자인</span>
+									<div class="d-flex member-box">
+										<div class="d-flex member">
+											<c:choose>
+												<c:when test="${mem.evaStatus eq 'N'}">
+													<i class="fa-solid fa-circle-user no-profile-lg no-eva"></i>
+												</c:when>
+												<c:when test="${empty mem.proImg }">
+													<i class="fa-solid fa-circle-user no-profile-lg"></i>
+												</c:when>
+												<c:otherwise>
+													<img src="<%=cp%>/${mem.proImg}" class="member-img" />
+												</c:otherwise>
+											</c:choose>
+											<c:if test="${mem.evaStatus eq 'N'}">
+												<span class="nickname">미평가팀원</span>
+											</c:if>
+											<c:if test="${mem.evaStatus eq 'Y'}">
+												<span class="nickname">${mem.nickname }</span>
+											</c:if>
+										</div>
+									</div></li>
+							</c:when>
+							<c:when test="${mem.jobCode eq 'JOB_3'}">
+								<li class="d-flex job"><span class="tag bg-primary job-tag">프론트</span>
+									<div class="d-flex member-box">
+										<div class="d-flex member">
+											<c:choose>
+												<c:when test="${mem.evaStatus eq 'N'}">
+													<i class="fa-solid fa-circle-user no-profile-lg no-eva"></i>
+												</c:when>
+												<c:when test="${empty mem.proImg }">
+													<i class="fa-solid fa-circle-user no-profile-lg"></i>
+												</c:when>
+												<c:otherwise>
+													<img src="<%=cp%>/${mem.proImg}" class="member-img" />
+												</c:otherwise>
+											</c:choose>
+											<c:if test="${mem.evaStatus eq 'N'}">
+												<span class="nickname">미평가팀원</span>
+											</c:if>
+											<c:if test="${mem.evaStatus eq 'Y'}">
+												<span class="nickname">${mem.nickname }</span>
+											</c:if>
+										</div>
+									</div></li>
+							</c:when>
+							<c:otherwise>
+								<li class="d-flex job"><span
+									class="tag bg-secondary job-tag">백</span>
+									<div class="d-flex member-box">
+										<div class="d-flex member">
+											<c:choose>
+												<c:when test="${mem.evaStatus eq 'N'}">
+													<i class="fa-solid fa-circle-user no-profile-lg no-eva"></i>
+												</c:when>
+												<c:when test="${empty mem.proImg }">
+													<i class="fa-solid fa-circle-user no-profile-lg"></i>
+												</c:when>
+												<c:otherwise>
+													<img src="<%=cp%>/${mem.proImg}" class="member-img" />
+												</c:otherwise>
+											</c:choose>
+											<c:if test="${mem.evaStatus eq 'N'}">
+												<span class="nickname">미평가팀원</span>
+											</c:if>
+											<c:if test="${mem.evaStatus eq 'Y'}">
+												<span class="nickname">${mem.nickname }</span>
+											</c:if>
+										</div>
+									</div></li>
+							</c:otherwise>
+							</c:choose>
+
+							</c:forEach>
+
+						</ul> --%>
+					</div>
+
+
+
 							<!-- 디자인 -->
-							<li class="d-flex job"><span class="tag bg-danger job-tag">디자인</span>
+							<!-- <li class="d-flex job"><span class="tag bg-danger job-tag">디자인</span>
 								<div class="d-flex member-box">
 									<div class="d-flex member">
 										<i class="fa-solid fa-circle-user no-profile-lg"></i> <span
 											class="nickname">닉네임</span>
 									</div>
-								</div></li>
+								</div></li> -->
 							<!-- 프론트 -->
-							<li class="d-flex job"><span class="tag bg-primary job-tag">프론트</span>
+							<!-- <li class="d-flex job"><span class="tag bg-primary job-tag">프론트</span>
 								<div class="d-flex member-box">
 									<div class="d-flex member">
 										<i class="fa-solid fa-circle-user no-profile-lg"></i> <span
 											class="nickname">닉네임</span>
 									</div>
-								</div></li>
+								</div></li> -->
 							<!-- 백엔드 -->
-							<li class="d-flex job"><span
+							<!-- <li class="d-flex job"><span
 								class="tag bg-secondary job-tag">백</span>
 								<div class="d-flex member-box">
 									<div class="d-flex member none-event">
@@ -129,9 +228,8 @@ String cp = request.getContextPath();
 										<i class="fa-solid fa-circle-user no-profile-lg"></i> <span
 											class="nickname">닉네임</span>
 									</div>
-								</div></li>
-						</ul>
-					</div>
+								</div></li> -->
+
 					<!-- // 팀원 소개 -->
 
 					<!-- 사용한 스킬 -->
@@ -140,9 +238,9 @@ String cp = request.getContextPath();
 						<hr>
 						<div class="skill-check not-action">
 							<c:forEach var="skill" items="${processedSkills }">
-							<div class="form-check skill-item ${skill.skCode}">
-								<label class="form-check-label skill-label">${skill.skName }</label>
-							</div>
+								<div class="form-check skill-item ${skill.skCode}">
+									<label class="form-check-label skill-label">${skill.skName }</label>
+								</div>
 							</c:forEach>
 						</div>
 					</div>
@@ -508,6 +606,22 @@ String cp = request.getContextPath();
 				}
 			}
 		});
+		
+		$(".member").click(function()
+		{
+			// 각 프로젝트의 op_code 가져오기
+			var memCode = $(this).find('#memCode').val();
+			
+			if (memCode!="")
+			{
+				// 완료 프로젝트 상세 페이지로 이동할 때 코드를 넘겨주기
+				$(location).attr("href", "namecard.action?memCode="+memCode);
+			}
+
+		});
+		
+		
+
 	</script>
 </body>
 

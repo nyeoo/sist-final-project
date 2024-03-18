@@ -83,11 +83,12 @@ public class CompleteProjectController
     	// MyBatis Mapper 인터페이스를 이용하여 DAO 생성
         ICompleteProjectDAO dao = sqlSession.getMapper(ICompleteProjectDAO.class);
         CalPeriod cal = new CalPeriod();
+        MemIntro mi = new MemIntro();
         
         ArrayList<SkillDTO> processedSkills = SkillProcessor.processSkillDTOs(dao.completeProjectSkill(cpCode));
 
         model.addAttribute("project", dao.completeProjectDetail(cpCode));
-        model.addAttribute("memList", dao.memList(cpCode));
+        model.addAttribute("memList", mi.memberList(dao.memList(cpCode)));
         model.addAttribute("processedSkills", processedSkills);
         model.addAttribute("period", dao.completeProjectPeriod(cpCode));
         //model.addAttribute("scheduleList", dao.scheduleList(cpCode));

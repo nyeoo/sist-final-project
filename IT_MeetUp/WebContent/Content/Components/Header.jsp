@@ -79,7 +79,7 @@ String cp = request.getContextPath();
 						data-bs-toggle="dropdown" aria-expanded="false"
 						data-bs-auto-close="outside"> <i class="bi bi-bell-fill"></i><span
 							class="blind">알림</span> <span
-							class="badge bg-primary badge-number">4</span>
+							class="badge bg-primary badge-number">0</span>
 					</a> <!-- 팝업으로 표시되는 알림 내용 -->
 						<div class="dropdown-menu dropdown-menu-end notifications"
 							id="notificationPopup" style="width: 600px;">
