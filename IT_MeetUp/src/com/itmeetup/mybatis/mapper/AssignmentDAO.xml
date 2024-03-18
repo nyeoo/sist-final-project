@@ -85,7 +85,7 @@
 
 	<select id="assignmentList"
 		resultType="com.itmeetup.mybatis.AssignmentDTO">
-		SELECT SD_OP_CODE "sdOpCode"
+		SELECT DISTINCT SD_OP_CODE "sdOpCode"
 		, ASS_CODE "assCode"
 		, ASS_NAME "assName"	
 		,CHARGER "charger"
@@ -95,7 +95,7 @@
 		, ASS_END_DATE "assEndDate"
 		, ASS_DATE "assDate"
 		, OU_NAME
-		"ouName"
+		"ouName", SS_CODE "ssCode"
 		, SS_NAME "ssName", ASS_CONTENT "assContent", REP_NO "repNo"
 		FROM VIEW_ASSIGNMENT
 		WHERE SD_OP_CODE =
