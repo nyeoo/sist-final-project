@@ -40,7 +40,7 @@
 		WHERE F.FI_OP_CODE = #{cpCode}
  	</select>
  	<select id="memList" resultType="com.itmeetup.mybatis.CompleteMemDTO">
- 		SELECT DISTINCT PA.PA_MEM_CODE "MEMCODE", T.TJ_JOB_CODE "JOBCODE", PI.PI_PROF_IMG "PROIMG", PI.PI_NICKNAME "NICKNAME", NVL2(E.EVA_PC_CODE, 'Y', 'N') "EVASTATUS"
+ 		SELECT DISTINCT PA.PA_MEM_CODE "MEMCODE", T.TJ_JOB_CODE "JOBCODE", PI.PI_PROF_IMG "PROIMG", PI.PI_NICKNAME "NICKNAME", NVL2(E.EVA_PC_CODE, 'Y', 'N') "EVASTATUS", CASE WHEN PA.PA_MEM_CODE = OP_MEM_CODE THEN 'Y' WHEN P.PC_CODE IN (SELECT LC_PC_CODE FROM LEADER_CHANGE) THEN 'Y' ELSE 'N' END "LEADER"
 		FROM PART_CHECK P JOIN PART_APPLICANT PA
 		                    ON P.PC_PA_NO = PA.PA_NO
 		                        JOIN PERSONAL_INFO PI
@@ -49,6 +49,8 @@
 		                            ON PA.PA_TJ_NO = T.TJ_NO
 		                                LEFT JOIN EVALUATION E
 		                                ON E.EVA_PC_CODE = P.PC_CODE
+		                                    JOIN OPEN_PROJECT O
+		                                    ON O.OP_CODE = T.TJ_OP_CODE
 		WHERE P.PC_CODE NOT IN(SELECT LEA_PC_CODE FROM LEAVE) AND T.TJ_OP_CODE = #{cpCode}
 		ORDER BY JOBCODE
  	</select>

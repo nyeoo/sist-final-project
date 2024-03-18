@@ -2,7 +2,7 @@ package com.itmeetup.mybatis;
 
 public class CompleteMemDTO
 {
-	private String memCode, jobCode, proImg, nickname, evaStatus;
+	private String memCode, jobCode, proImg, nickname, evaStatus, leader;
 	
 	// getter / setter
 	public String getJobCode()
@@ -53,6 +53,16 @@ public class CompleteMemDTO
 	public void setEvaStatus(String evaStatus)
 	{
 		this.evaStatus = evaStatus;
+	}
+
+	public String getLeader()
+	{
+		return leader;
+	}
+
+	public void setLeader(String leader)
+	{
+		this.leader = leader;
 	}
 	
 

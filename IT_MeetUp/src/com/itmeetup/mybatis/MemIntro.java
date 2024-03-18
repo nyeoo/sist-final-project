@@ -33,6 +33,12 @@ public class MemIntro
 					{
 						members.append("<div class=\"d-flex member\">");
 						
+						// 팀장여부
+						if (dto.getLeader().equals("Y"))
+						{
+							members.append("<i class=\"fa-solid fa-crown crown\"></i>");
+						}
+						
 						// 프로필 사진
 						if(dto.getEvaStatus().equals("N"))
 						{
