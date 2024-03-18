@@ -74,7 +74,7 @@ String cp = request.getContextPath();
 
 													<div class="col-12">
 														<div class="m-input-box">
-															<label for="piName" class="form-label h5">이름</label> <input type="text" class="form-control" value="김쌍용" id="piName" name="piName" required="required">
+															<label for="piName" class="form-label h5">이름</label> <input type="text" class="form-control" value="" id="piName" name="piName" required="required">
 															<div class="invalid-feedback">이름을 입력해주세요.</div>
 														</div>
 													</div>
@@ -84,7 +84,7 @@ String cp = request.getContextPath();
 															<label for="piId" class="form-label h5">아이디</label>
 															<div class="row col-12">
 																<div class="col-12 col-md-7">
-																	<input type="text" class="form-control" value="sist1234" id="piId" name="piId" required="required">
+																	<input type="text" class="form-control" value="" id="piId" name="piId" required="required">
 																	<div class="invalid-feedback">아이디를 입력해주세요.</div>
 																</div>
 																<div class="col-12 col-md-5">
@@ -96,24 +96,24 @@ String cp = request.getContextPath();
 
 													<div class="col-12">
 														<div class="m-input-box">
-															<label for="piPw" class="form-label h5">비밀번호</label> <input type="text" class="form-control" value="sist1234" id="piPw" name="piPw" required="required">
+															<label for="piPw" class="form-label h5">비밀번호</label> <input type="password" class="form-control" value="" id="piPw" name="piPw" required="required">
 															<div class="invalid-feedback">비밀번호를 입력해주세요.</div>
 														</div>
 													</div>
 
 													<div class="col-12">
 														<div class="m-input-box">
-															<label for="joinPwCheck01" class="form-label h5">비밀번호 확인</label> <input type="text" class="form-control" value="sist1234" id="joinPwCheck01" required="required">
+															<label for="joinPwCheck01" class="form-label h5">비밀번호 확인</label> <input type="password" class="form-control" value="" id="joinPwCheck01" required="required">
 															<div class="invalid-feedback">비밀번호 확인값을 입력해주세요.</div>
 														</div>
 													</div>
 
 													<div class="col-12">
 														<div class="m-input-box">
-															<input type="hidden" id="piEmail" name="piEmail" value="sist1234@naver.com"> <label for="joinEmail1" class="form-label h5">이메일</label>
+															<input type="hidden" id="piEmail" name="piEmail" value=""> <label for="joinEmail1" class="form-label h5">이메일</label>
 															<div class="row col-12">
 																<div class="col-12 col-md-7">
-																	<input type="text" class="form-control" value="sist1234" id="joinEmail1" required="required">
+																	<input type="text" class="form-control" value="" id="joinEmail1" required="required">
 																	<div class="invalid-feedback">이메일을 입력해주세요.</div>
 																</div>
 																<div class="col-12 col-md-5">
@@ -136,7 +136,7 @@ String cp = request.getContextPath();
 															<label for="piNickname" class="form-label h5">닉네임</label>
 															<div class="row col-12">
 																<div class="col-12 col-md-7">
-																	<input type="text" class="form-control" value="쌍용" id="piNickname" name="piNickname" required="required">
+																	<input type="text" class="form-control" value="" id="piNickname" name="piNickname" required="required">
 																	<div class="invalid-feedback">닉네임을 입력해주세요.</div>
 																</div>
 																<div class="col-12 col-md-5">
