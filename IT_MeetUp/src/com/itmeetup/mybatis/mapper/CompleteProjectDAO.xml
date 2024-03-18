@@ -39,6 +39,18 @@
                   ON F.FI_OP_CODE = O.OP_CODE
 		WHERE F.FI_OP_CODE = #{cpCode}
  	</select>
+ 	<select id="memList" resultType="com.itmeetup.mybatis.CompleteMemDTO">
+ 		SELECT T.TJ_JOB_CODE "JOBCODE", PI.PI_PROF_IMG "PROIMG", PI.PI_NICKNAME "NICKNAME", NVL2(E.EVA_PC_CODE, 'Y', 'N') AS EVASTATUS
+		FROM PART_CHECK P JOIN PART_APPLICANT PA
+		                    ON P.PC_PA_NO = PA.PA_NO
+		                        JOIN PERSONAL_INFO PI
+		                        ON PI.PI_MEM_CODE = PA.PA_MEM_CODE
+		                            JOIN TEAM_JOB T
+		                            ON PA.PA_TJ_NO = T.TJ_NO
+		                                LEFT JOIN EVALUATION E
+		                                ON E.EVA_PC_CODE = P.PC_CODE
+		WHERE P.PC_CODE NOT IN(SELECT LEA_PC_CODE FROM LEAVE) AND T.TJ_OP_CODE = #{cpCode}
+ 	</select>
 	<select id="completeProjectSkill" resultType="com.itmeetup.mybatis.SkillDTO">
 		SELECT DISTINCT AT.AT_SK_CODE "SKCODE", S.SK_NAME "SKNAME"
 		FROM SKILL S JOIN ACTUAL_TECH AT
@@ -55,5 +67,76 @@
 		                                    ON PA.PA_TJ_NO = T.TJ_NO
 		WHERE T.TJ_OP_CODE = #{cpCode}
 	</select>
- 	
+ 	<select id="completeProjectPeriod" resultType="com.itmeetup.mybatis.CompleteProjectDTO">
+ 		SELECT TO_CHAR(MIN(R.REP_START_DATE),'YYYY-MM-DD') "STARTDATE", TO_CHAR(MAX(R.REP_END_DATE), 'YYYY-MM-DD') "ENDDATE"
+		FROM REPORT R JOIN ASSIGNMENT A
+		              ON R.REP_ASS_CODE = A.ASS_CODE
+		                JOIN SCHEDULE_DETAILS S
+		                ON A.ASS_SD_NO = S.SD_NO
+		                    JOIN SCHEDULE_STAGE SS
+		                    ON SS.SS_CODE = S.SD_SS_CODE
+		WHERE S.SD_OP_CODE = #{cpCode}
+ 	</select>
+ 	<select id="scheduleList" resultType="com.itmeetup.mybatis.ScheduleDTO">
+ 		SELECT SS.SS_NAME "SSNAME", TO_CHAR(MIN(R.REP_START_DATE),'YYYY-MM-DD') "SESTARTDATE", TO_CHAR(MAX(R.REP_END_DATE), 'YYYY-MM-DD') "SDENDDATE"
+		FROM REPORT R JOIN ASSIGNMENT A
+		              ON R.REP_ASS_CODE = A.ASS_CODE
+		                JOIN SCHEDULE_DETAILS S
+		                ON A.ASS_SD_NO = S.SD_NO
+		                    JOIN SCHEDULE_STAGE SS
+		                    ON SS.SS_CODE = S.SD_SS_CODE
+		WHERE S.SD_OP_CODE = #{cpCode}
+		GROUP BY SS.SS_NAME
+		ORDER BY SESTARTDATE
+ 	</select>
+ 	<select id="minutesCount" resultType="java.lang.Integer">
+ 		SELECT COUNT(*) "MINUTES"
+		FROM APPROVAL AP JOIN REPORT R
+		                 ON AP.APP_REP_NO = R.REP_NO
+		                    JOIN ASSIGNMENT A
+		                    ON R.REP_ASS_CODE = A.ASS_CODE
+		                        JOIN PART_CHECK P
+		                        ON A.INDICATOR = P.PC_CODE
+		                            JOIN PART_APPLICANT PA
+		                            ON P.PC_PA_NO = PA.PA_NO
+		                                JOIN TEAM_JOB T
+		                                ON PA.PA_TJ_NO = T.TJ_NO
+		WHERE T.TJ_OP_CODE = #{cpCode} AND AP.APP_WS_CODE = 'WS_1' AND A.ASS_OU_CODE IN ('OU_11', 'OU_12', 'OU_13', 'OU_14')
+ 	</select>
+ 	<select id="assignmentCount" resultType="java.lang.Integer">
+ 		SELECT COUNT(*) "ASSIGNMENT"
+		FROM ASSIGNMENT A JOIN PART_CHECK P
+		                  ON A.INDICATOR = P.PC_CODE
+		                    JOIN PART_APPLICANT PA
+		                    ON P.PC_PA_NO = PA.PA_NO
+		                        JOIN TEAM_JOB T
+		                        ON PA.PA_TJ_NO = T.TJ_NO
+		WHERE T.TJ_OP_CODE = #{cpCode}
+ 	</select>
+ 	<select id="reportCount" resultType="java.lang.Integer">
+ 		SELECT COUNT(*) "REPORT"
+		FROM REPORT R JOIN ASSIGNMENT A
+		              ON R.REP_ASS_CODE = A.ASS_CODE
+		                  JOIN PART_CHECK P
+		                  ON A.INDICATOR = P.PC_CODE
+		                    JOIN PART_APPLICANT PA
+		                    ON P.PC_PA_NO = PA.PA_NO
+		                        JOIN TEAM_JOB T
+		                        ON PA.PA_TJ_NO = T.TJ_NO
+		WHERE T.TJ_OP_CODE = #{cpCode}
+ 	</select>
+ 	<select id="taskCount" resultType="java.lang.Integer">
+ 		SELECT COUNT(*) "TASK"
+		FROM APPROVAL AP JOIN REPORT R
+		                 ON AP.APP_REP_NO = R.REP_NO
+		                    JOIN ASSIGNMENT A
+		                    ON R.REP_ASS_CODE = A.ASS_CODE
+		                        JOIN PART_CHECK P
+		                        ON A.INDICATOR = P.PC_CODE
+		                            JOIN PART_APPLICANT PA
+		                            ON P.PC_PA_NO = PA.PA_NO
+		                                JOIN TEAM_JOB T
+		                                ON PA.PA_TJ_NO = T.TJ_NO
+		WHERE T.TJ_OP_CODE = #{cpCode} AND AP.APP_WS_CODE = 'WS_1'
+ 	</select>
  </mapper>

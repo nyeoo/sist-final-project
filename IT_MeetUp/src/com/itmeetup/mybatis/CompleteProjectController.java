@@ -1,4 +1,5 @@
 package com.itmeetup.mybatis;
+import java.text.ParseException;
 import java.util.ArrayList;
 
 import org.apache.ibatis.session.SqlSession;
@@ -77,22 +78,28 @@ public class CompleteProjectController
     
     @RequestMapping(value = "/completeprojectdetail.action", method = RequestMethod.GET)
     public String completeProjectDetail(@RequestParam(required = false) String cpCode,
-            Model model) {
+            Model model) throws ParseException {
     	
     	// MyBatis Mapper 인터페이스를 이용하여 DAO 생성
         ICompleteProjectDAO dao = sqlSession.getMapper(ICompleteProjectDAO.class);
+        CalPeriod cal = new CalPeriod();
         
         ArrayList<SkillDTO> processedSkills = SkillProcessor.processSkillDTOs(dao.completeProjectSkill(cpCode));
 
         model.addAttribute("project", dao.completeProjectDetail(cpCode));
+        model.addAttribute("memList", dao.memList(cpCode));
         model.addAttribute("processedSkills", processedSkills);
-        
-        for (SkillDTO skillDTO : processedSkills)
-		{
-        	System.out.println(skillDTO.getSkCode());
-		}
+        model.addAttribute("period", dao.completeProjectPeriod(cpCode));
+        //model.addAttribute("scheduleList", dao.scheduleList(cpCode));
+        model.addAttribute("ganttChart", cal.ganttChart(dao.completeProjectPeriod(cpCode), dao.scheduleList(cpCode)));
+        model.addAttribute("minutesCount", dao.minutesCount(cpCode));
+        model.addAttribute("assignmentCount", dao.assignmentCount(cpCode));
+        model.addAttribute("reportCount", dao.reportCount(cpCode));
+        model.addAttribute("taskCount", dao.taskCount(cpCode));
        
     	
     	return "/Content/ProjectLounge/CompleteProjectDetail.jsp";
     }
+    
+   
 }

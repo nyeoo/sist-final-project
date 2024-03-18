@@ -1,9 +1,13 @@
 package com.itmeetup.mybatis;
 
+import java.util.ArrayList;
+
 public class CompleteProjectDTO
 {
 	// 주요 속성 구성
-	private String title, content, teamName, catName, cpCode, img1, img2, img3;
+	private String title, content, teamName, catName, cpCode, img1, img2, img3, startDate, endDate;
+	private int minutes, assignment, report, task;
+	private ArrayList<ScheduleDTO> scheduleList;
 
 	// getter / setter 구성
 	public String getTitle()
@@ -85,6 +89,78 @@ public class CompleteProjectDTO
 	{
 		this.img3 = img3;
 	}
+
+	public String getStartDate()
+	{
+		return startDate;
+	}
+
+	public void setStartDate(String startDate)
+	{
+		this.startDate = startDate;
+	}
+
+	public String getEndDate()
+	{
+		return endDate;
+	}
+
+	public void setEndDate(String endDate)
+	{
+		this.endDate = endDate;
+	}
+
+	public ArrayList<ScheduleDTO> getScheduleList()
+	{
+		return scheduleList;
+	}
+
+	public void setScheduleList(ArrayList<ScheduleDTO> scheduleList)
+	{
+		this.scheduleList = scheduleList;
+	}
+
+	public int getMinutes()
+	{
+		return minutes;
+	}
+
+	public void setMinutes(int minutes)
+	{
+		this.minutes = minutes;
+	}
+
+	public int getAssignment()
+	{
+		return assignment;
+	}
+
+	public void setAssignment(int assignment)
+	{
+		this.assignment = assignment;
+	}
+
+	public int getReport()
+	{
+		return report;
+	}
+
+	public void setReport(int report)
+	{
+		this.report = report;
+	}
+
+	public int getTask()
+	{
+		return task;
+	}
+
+	public void setTask(int task)
+	{
+		this.task = task;
+	}
+
+	
 	
 	
 }

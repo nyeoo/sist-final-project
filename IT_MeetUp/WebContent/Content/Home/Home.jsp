@@ -134,6 +134,7 @@
 											</div>
 										</div>
 									</li>
+									<input type="hidden" class="code" value="${pop.code }">
 								</c:forEach>
 
 							</ul>
@@ -225,6 +226,7 @@
 											</div>
 										</div>
 									</li>
+									<input type="hidden" class="code" value="${recent.code }">
 								</c:forEach>
 							</ul>
 							<div class="swiper-pagination"></div>
@@ -295,6 +297,12 @@
 					alert("로그인이 필요한 기능입니다.");
 					$(location).attr("href", "login.action");
 				})
+				
+				$(".h3").click(function()
+				{
+					alert("로그인이 필요한 기능입니다.");
+					$(location).attr("href", "login.action");
+				})
 			}
 			else
 			{
@@ -347,6 +355,14 @@
 				{
 					$(location).attr("href", "projectList.action");
 				})
+				
+				
+				$(".h3").click(function()
+				{
+					var code = $(".code").val();
+					$(location).attr("href", "PostDetail.action?code="+code);
+				})
+				
 			}
 
 				

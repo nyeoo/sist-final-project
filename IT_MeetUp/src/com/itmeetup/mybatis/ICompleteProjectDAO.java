@@ -14,5 +14,12 @@ public interface ICompleteProjectDAO
 	
 	// 완료된 프로젝트 상세 페이지
 	public CompleteProjectDTO completeProjectDetail(@Param("cpCode") String cpCode);
+	public ArrayList<CompleteMemDTO> memList(@Param("cpCode") String cpCode);
 	public ArrayList<SkillDTO> completeProjectSkill(@Param("cpCode") String cpCode);
+	public CompleteProjectDTO completeProjectPeriod(@Param("cpCode") String cpCode);
+	public ArrayList<ScheduleDTO> scheduleList(@Param("cpCode") String cpCode);
+	public int minutesCount(@Param("cpCode") String cpCode);
+	public int assignmentCount(@Param("cpCode") String cpCode);
+	public int reportCount(@Param("cpCode") String cpCode);
+	public int taskCount(@Param("cpCode") String cpCode);
 }

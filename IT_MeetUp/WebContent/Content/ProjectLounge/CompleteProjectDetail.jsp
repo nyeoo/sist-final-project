@@ -87,7 +87,7 @@ String cp = request.getContextPath();
 			<!-- 팀원소개 -->
 			<div class="section intro-body">
 				<div class="container-md">
-					<span class="team">TEAM ·</span> <span class="team-name">${project.teamName}</span>
+					<span class="team">TEAM ·</span><span class="team-name">${project.teamName}</span>
 					<div class="intro-body-list member-intro">
 						<span class="intro-title">팀원 소개</span>
 						<hr>
@@ -96,13 +96,9 @@ String cp = request.getContextPath();
 							<li class="d-flex job"><span class="tag bg-success job-tag">기획</span>
 								<div class="d-flex member-box">
 									<div class="d-flex member">
-										<i class="fa-solid fa-crown crown"></i> <img
+										<i class="fa-solid fa-crown crown"></i><img
 											src="<%=cp%>/asset/images/sub/img_profile.jpg"
 											class="member-img" /> <span class="nickname">닉네임이길면어떻</span>
-									</div>
-									<div class="d-flex member">
-										<i class="fa-solid fa-circle-user no-profile-lg"></i> <span
-											class="nickname">닉네임</span>
 									</div>
 								</div></li>
 							<!-- 디자인 -->
@@ -155,57 +151,12 @@ String cp = request.getContextPath();
 					<!-- 진행기간 -->
 					<div class="intro-body-list">
 						<div class="period-title">
-							<span class="intro-title">진행 기간</span> <span class="period">｜2023-01-15
-								~ 2023-04-04</span>
+							<span class="intro-title">진행 기간</span> <span class="period">｜${period.startDate}
+								~ ${period.endDate}</span>
 						</div>
 						<hr>
 						<!-- 간트차트 -->
-						<div class="gantt">
-							<div class="gantt__row gantt__row--months">
-								<div class="gantt__row-first"></div>
-								<span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span>
-							</div>
-							<div class="gantt__row gantt__row--lines" data-month="5">
-								<span></span><span></span><span></span><span></span><span></span>
-							</div>
-							<div class="gantt__row">
-								<div class="gantt__row-first">분석</div>
-								<ul class="gantt__row-bars">
-									<li style="grid-column: 16/27; background-color: #2ecaac;"
-										data-bs-toggle="tooltip" data-bs-placement="top"
-										data-bs-custom-class="custom-tooltip"
-										data-bs-title="2023-01-15 ~ 2023-01-26" class="stripes">
-									</li>
-								</ul>
-							</div>
-							<div class="gantt__row">
-								<div class="gantt__row-first">설계</div>
-								<ul class="gantt__row-bars">
-									<li style="grid-column: 27/49; background-color: #ff6252;"
-										data-bs-toggle="tooltip" data-bs-placement="top"
-										data-bs-custom-class="custom-tooltip"
-										data-bs-title="2023-01-26 ~ 2023-02-17" class="stripes"></li>
-								</ul>
-							</div>
-							<div class="gantt__row">
-								<div class="gantt__row-first">구현</div>
-								<ul class="gantt__row-bars">
-									<li style="grid-column: 49/89; background-color: #2ecaac;"
-										data-bs-toggle="tooltip" data-bs-placement="top"
-										data-bs-custom-class="custom-tooltip"
-										data-bs-title="2023-02-17 ~ 2023-03-29" class="stripes"></li>
-								</ul>
-							</div>
-							<div class="gantt__row">
-								<div class="gantt__row-first">테스트</div>
-								<ul class="gantt__row-bars">
-									<li style="grid-column: 89/95; background-color: #54c6f9;"
-										data-bs-toggle="tooltip" data-bs-placement="top"
-										data-bs-custom-class="custom-tooltip"
-										data-bs-title="2023-03-29 ~ 2023-04-04" class="stripes"></li>
-								</ul>
-							</div>
-						</div>
+						${ganttChart}
 
 						<!-- 간트차트 6개월 (테스트) -->
 						<!-- <div class="gantt">
@@ -274,21 +225,21 @@ String cp = request.getContextPath();
 										<div class="card-body col">
 											<div
 												class="text-xs font-weight-bold text-success text-uppercase mb-1 text-center">회의</div>
-											<div class="mb-0 h3 text-center">14회</div>
+											<div class="mb-0 h3 text-center">${minutesCount}회</div>
 										</div>
 									</div>
 									<div class="card shadow py-2 statistics-card">
 										<div class="card-body col">
 											<div
 												class="text-xs font-weight-bold text-success text-uppercase mb-1 text-center">업무할당</div>
-											<div class="mb-0 h3 text-center">10건</div>
+											<div class="mb-0 h3 text-center">${assignmentCount}건</div>
 										</div>
 									</div>
 									<div class="card shadow py-2 statistics-card">
 										<div class="card-body col">
 											<div
 												class="text-xs font-weight-bold text-success text-uppercase mb-1 text-center">업무보고</div>
-											<div class="mb-0 h3 text-center">16건</div>
+											<div class="mb-0 h3 text-center">${reportCount}건</div>
 										</div>
 									</div>
 									<div class="card shadow py-2 statistics-card">
@@ -296,7 +247,7 @@ String cp = request.getContextPath();
 											<div
 												class="text-xs font-weight-bold text-success text-uppercase mb-1 text-center">완료된
 												업무</div>
-											<div class="mb-0 h3 text-center">10건</div>
+											<div class="mb-0 h3 text-center">${taskCount}건</div>
 										</div>
 									</div>
 								</div>
@@ -336,7 +287,7 @@ String cp = request.getContextPath();
 							</div>
 							<div class="w-100 mb-5 mt-1">
 								<h5 class="analyze-title">
-									업무 현황<i class="bi bi-question-circle-fill"
+									업무 결과표<i class="bi bi-question-circle-fill"
 										data-bs-toggle="tooltip" data-bs-placement="top"
 										data-bs-custom-class="custom-tooltip"
 										data-bs-title="일정단계별 업무표"></i>
