@@ -38,10 +38,12 @@
 			<div class="section">
 				<div class="container-xl">
 					<p class="h1">
-						마감임박 <i class="bi bi-fire"></i>
+						마감임박  <input type="text" value="${ingCount}" id="ingCount"><i class="bi bi-fire"></i>
 					</p>
 					<%-- ${sessionScope.loginDTO.piMemCode} --%>
-					<input type="hidden" value="${ingCount}" id="ingCount">
+					
+					<input type="text" value="${ingCount}" id="ingCount">
+					
 					<!-- 마감 스와이퍼 -->
 					<div class="deadline-box">
 						<div class="swiper-btn">
@@ -661,25 +663,29 @@
 			
 			
 			alert("로그인을 해주세요🙏");
-			
+			return;
 			
 		});
 		
 		$(".checking1").click(function(){
 			var ingcout=$("#ingCount").val()
 			//alert(ingcout);
+			
 			if(ingcout>0)
 			{
 				alert("현재 진행중인 프로젝트가 있습니다.🤗");
 				return;
 				
 			}
-			else
+			else 
 			{
-				$(location).attr("href", "WriteFormControl.action");
+				//alert(" 슈웃");
+				$(".checking1").attr("href", "WriteFormControl.action");
+				
+				return;
 				
 			}
-			
+			 
 			
 		})  ; 
 		
