@@ -399,7 +399,7 @@ String cp = request.getContextPath();
 </nav>
 
 <!-- 진행중 그룹 없음안내 팝업 -->
-<div class="modal fade" id="ingGroupModal" tabindex="-1"
+<!-- <div class="modal fade" id="ingGroupModal" tabindex="-1"
 	aria-labelledby="infoModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered">
 		<div class="modal-content">
@@ -416,10 +416,10 @@ String cp = request.getContextPath();
 			</div>
 		</div>
 	</div>
-</div>
+</div> -->
 
 <!-- 이탈자 안내 팝업 -->
-<div class="modal fade" id="leaveGroupModal" tabindex="-1"
+<!-- <div class="modal fade" id="leaveGroupModal" tabindex="-1"
 	aria-labelledby="infoModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered">
 		<div class="modal-content">
@@ -435,4 +435,4 @@ String cp = request.getContextPath();
 			</div>
 		</div>
 	</div>
-</div>
+</div> -->
