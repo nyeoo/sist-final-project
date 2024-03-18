@@ -2,12 +2,22 @@ package com.itmeetup.mybatis;
 
 public class CompleteMemDTO
 {
-	private String jobCode, proImg, nickname, evaStatus;
+	private String memCode, jobCode, proImg, nickname, evaStatus;
 	
 	// getter / setter
 	public String getJobCode()
 	{
 		return jobCode;
+	}
+
+	public String getMemCode()
+	{
+		return memCode;
+	}
+
+	public void setMemCode(String memCode)
+	{
+		this.memCode = memCode;
 	}
 
 	public void setJobCode(String jobCode)

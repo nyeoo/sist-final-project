@@ -44,19 +44,19 @@ public class MemIntro
 						}
 						else
 						{
-							members.append("<img src=\"<%=cp%>/${mem.proImg}\" class=\"member-img\" />");
+							members.append("<img src=\"<%=cp%>/"+ dto.getProImg() +"\" class=\"member-img\" />");
 						}
 
 						// 닉네임
 						if (dto.getEvaStatus().equals("N"))
 						{
-							members.append("<span class=\"nickname\">미평가팀원</span>");
+							members.append("<span class=\"nickname\">미평가팀원</span><input type=\"hidden\" id=\"memCode\" value=\"\">");
 						}
 						else
 						{
-							members.append("<span class=\"nickname\">" + dto.getNickname() +"</span>");
+							members.append("<span class=\"nickname\">" + dto.getNickname() +"</span><input type=\"hidden\" id=\"memCode\" value=\""+ dto.getMemCode() +"\">");
 						}
-
+						
 						members.append("</div>");
 					}
 				}
