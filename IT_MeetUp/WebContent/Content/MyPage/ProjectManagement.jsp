@@ -235,6 +235,15 @@ String cp = request.getContextPath();
 	        }
 	    });
 	});
+	
+	$(document).ready(function() {
+	    var visibleRows = $('.appProject:visible'); // 숨겨지지 않은 행만 선택합니다.
+	    
+	    visibleRows.each(function(index) {
+	        // 각 행의 번호를 1부터 시작하도록 설정합니다.
+	        $(this).find('.num .tag_txt').text(index + 1);
+	    });
+	});
 		
 	</script>
 </body>

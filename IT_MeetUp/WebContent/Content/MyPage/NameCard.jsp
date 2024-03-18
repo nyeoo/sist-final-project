@@ -159,8 +159,9 @@
 
 										<div class="col-12 btn-box">
 											<div class="btn-center">
-												<button type="button" class="btn btn-primary">수정하기</button>
-												 <button type="button" class="btn btn-secondary" onclick="disableSelection()">저장하기</button>
+												<button type="button" class="btn btn-primary" id="btn-myinfo-save" id="btn-myinfo-modify" disabled="disabled"
+												<%-- data-bs-toggle="modal" data-bs-target="#infoModal"--%>>저장하기</button>
+												<button type="button" class="btn btn-secondary btn-myinfo-modify" id="btn-myinfo-modify" data-bs-toggle="modal" data-bs-target="#modifyModal">수정하기</button>
 											</div>
 										</div>
 									</form>
@@ -719,6 +720,48 @@
 	<!-- //푸터영역 -->
 
 
+	<!-- 수정완료안내 팝업 -->
+		<div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<div class="modal-title fs-5 h1" id="modifyModalLabel">수정확인</div>
+						<!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+					</div>
+					<div class="modal-body">
+						<div class="modal-txt">수정되었습니다.</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary" id="btn-myinfo-confirm" data-bs-dismiss="modal">확인</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 본인확인 팝업 -->
+		<div class="modal fade" id="modifyModal" tabindex="-1" aria-labelledby="modifyModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<div class="modal-title fs-5 h1" id="modifyModalLabel">본인확인</div>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<div class="row">
+							<label for="piPwCheck" class="col-md-4 col-lg-3 col-form-label">비밀번호</label>
+							<div class="col-md-8 col-lg-9">
+								<input name="piPwCheck" type="text" class="form-control" id="piPwCheck" value="">
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary" id="btn-myinfo-modify-action">확인</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+
 	<!-- script -->
 	<script src="<%=cp%>/asset/js/jquery-3.5.1-min.js"></script>
 	<script src="<%=cp%>/asset/js/jquery-ui.js"></script>
@@ -735,12 +778,7 @@
 		}
 		
 		
-		function disableSelection() {
-	        var selectElements = document.querySelectorAll('.m-select select');
-	        selectElements.forEach(function(selectElement) {
-	            selectElement.disabled = true;
-	        });
-	    }
+		
 		
 		
 		
