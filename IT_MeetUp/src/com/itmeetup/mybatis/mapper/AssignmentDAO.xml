@@ -85,8 +85,8 @@
 
 	<select id="assignmentList"
 		resultType="com.itmeetup.mybatis.AssignmentDTO">
-		SELECT ASS_CODE "assCode",
-		SD_OP_CODE "sdOpCode",
+		SELECT SD_OP_CODE "sdOpCode",
+		ASS_CODE "assCode",
 		ASS_NAME "assName",
 		CHARGER "charger",
 		PI_NICKNAME "piNickName",
@@ -97,12 +97,14 @@
 		SS_CODE "ssCode",
 		SS_NAME "ssName",
 		ASS_CONTENT "assContent",
-		MAX(REP_NO) "repNo" -- 또는 MIN(REP_NO), ANY_VALUE(REP_NO) 등을 사용할 수 있습니다.
+		CASE WHEN COUNT(*) OVER (PARTITION BY ASS_CODE) > 1 THEN NULL ELSE
+		MAX(REP_NO) END AS "repNo"
 		FROM VIEW_ASSIGNMENT
-		WHERE SD_OP_CODE = 'OP_6'
-		GROUP BY ASS_CODE, SD_OP_CODE, ASS_NAME, CHARGER, PI_NICKNAME,
-		ASS_START_DATE, ASS_END_DATE, ASS_DATE, OU_NAME
-		, SS_CODE, SS_NAME, ASS_CONTENT
+		WHERE SD_OP_CODE = #{opCode}
+		GROUP BY SD_OP_CODE, ASS_CODE, ASS_NAME, CHARGER, PI_NICKNAME,
+		ASS_START_DATE, ASS_END_DATE, ASS_DATE, OU_NAME, SS_CODE, SS_NAME,
+		ASS_CONTENT
+		ORDER BY SS_CODE
 	</select>
 
 	<select id="assScheduleList"
