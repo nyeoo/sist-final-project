@@ -58,14 +58,14 @@ String cp = request.getContextPath();
 								<!-- 회원가입 Swiper -->
 								<form action="joininsert.action" name="joinForm01" method="get">
 									<div class="swiper join-swiper">
-										<div class="swiper-btn">
+										<!-- <div class="swiper-btn">
 											<button type="button" class="swiper-button-prev">
 												<i class="bi bi-arrow-left-circle"></i> <span class="blind">이전</span>
 											</button>
 											<button type="button" class="swiper-button-next">
 												<i class="bi bi-arrow-right-circle"></i> <span class="blind">이후</span>
 											</button>
-										</div>
+										</div> -->
 										<div class="swiper-pagination"></div>
 										<div class="swiper-wrapper">
 											<!-- 회원가입1 -->
