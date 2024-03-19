@@ -50,12 +50,11 @@ String cp = request.getContextPath();
 			</a></li>
 
 
-			<li class="nav-item"><a class="nav-link collapsed"
-				href="workManage.action?memCode=${sessionScope.loginDTO.piMemCode}"> <i class="bi bi-grid"></i> <span>업무
+			<li class="nav-item"><a class="nav-link collapsed" href="workManage.action?memCode=${sessionScope.loginDTO.piMemCode}"> <i class="bi bi-grid"></i> <span>업무
 						관리</span>
 			</a></li>
 
-			<li class="nav-item"><a class="nav-link" href="groupSetup.action?memCode=${sessionScope.loginDTO.piMemCode}">
+			<li class="nav-item"><a class="nav-link collapsed" href="groupSetup.action?memCode=${sessionScope.loginDTO.piMemCode}">
 					<i class="bi bi-person"></i> <span>그룹원 정보</span>
 			</a></li>
 		</ul>
